@@ -5,7 +5,7 @@ import HttpServer from './HttpServer.mjs'
 const defaultViewport = {
   // Using a 16:9 ratio here by default to match Twitter's image card dimensions
   width: 400,
-  height: 675,
+  height: 720,
   deviceScaleFactor: 2,
 }
 

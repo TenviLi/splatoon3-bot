@@ -1,5 +1,5 @@
 <template>
-  <DailyDropGear class="md:min-w-[24rem] max-w-sm xl:max-w-md" />
+  <DailyDropGear class="md:min-w-[24rem] xl:max-w-md" />
 </template>
 
 <script setup>
