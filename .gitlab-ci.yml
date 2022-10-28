@@ -1,0 +1,197 @@
+stages:
+  - Data
+  - Screenshots
+  - Bots
+
+default:
+  image: dseegers/puppeteer:latest
+  tags:
+    - jinkela-k8s-runner
+
+variables:
+  DOCKER_DRIVER: overlay2
+  CHROME_EXECUTABLE_PATH: /usr/bin/chromium
+
+.retry_when_failed:
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
+
+.cache-node-modules: &cache-node-modules
+  key:
+    files:
+      - pnpm-lock.yaml
+      # - package-lock.json
+    prefix: '$CI_PROJECT_NAMESPACE-$CI_PROJECT_NAME'
+  paths:
+    - .pnpm-store/
+    # - .npm-cache/
+    - node_modules/
+  policy: pull
+.nodejs-cache:
+  cache: *cache-node-modules
+.cache-push-node-modules: &cache-push-node-modules
+  <<: *cache-node-modules
+  policy: pull-push
+.nodejs-cache-push:
+  cache: *cache-push-node-modules
+
+.locale-cache-push:
+  cache:
+    key: '$CI_PROJECT_NAMESPACE-$CI_PROJECT_NAME-locale'
+    paths:
+      - data/locale/zh-CN.json
+    policy: pull-push
+
+.artifacts-screenshots:
+  artifacts:
+    name: 'screenshots'
+    expire_in: 1 week
+    paths:
+      - screenshots/
+    when: on_success
+    public: false
+    expose_as: 'screenshots'
+.artifacts-data:
+  artifacts:
+    name: 'data'
+    expire_in: 1 week
+    paths:
+      - data/
+    when: on_success
+    public: false
+    expose_as: 'data'
+
+request-data:
+  extends: [.retry_when_failed, .artifacts-data, .locale-cache-push]
+  stage: Data
+  needs: []
+  dependencies: []
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - mkdir -p data && cd data && mkdir -p locale
+    - >
+      function request_json() {
+        local json_name="$1";
+        local splatoon_ink_api='https://splatoon3.ink/data';
+        local curl_user_agent='User-Agent: Splatnet WeChat Bot (https://github.com/tenvili)';
+        echo "download \"$splatoon_ink_api/$json_name.json\" start.";
+        curl -H "$curl_user_agent" -L -S -s "$splatoon_ink_api/$json_name.json" > "$json_name.json";
+        echo "download \"$splatoon_ink_api/$json_name.json\" succeeded.";
+      }
+  script:
+    - request_json "schedules"
+    - request_json "gear"
+    - >
+      if [[ -e locale/zh-CN.json ]]; then
+        echo "skip download \"locale/zh-CN.json\", use cache.";
+      else
+        request_json "locale/zh-CN";
+      fi
+  after_script:
+    - ls -R data
+  #   - >
+  #     curl --silent --show-error -H "$CURL_USER_AGENT" "$SPLATOON_INK_API/festivals.json" > festivals.json;
+  #     echo "download festivals.json succeeded.";
+  #   - >
+  #     curl --silent --show-error -H "$CURL_USER_AGENT" "$SPLATOON_INK_API/coop.json" > coop.json;
+  #     echo "download coop.json succeeded.";
+  rules:
+    - if: $CI_PIPELINE_SOURCE=="schedule"
+
+generate-screenshots:
+  extends: [.retry_when_failed, .artifacts-screenshots, .nodejs-cache-push]
+  stage: Screenshots
+  needs: [request-data]
+  dependencies: [request-data]
+  before_script:
+    - echo $CHROME_EXECUTABLE_PATH
+    - npm version
+    - npm i -g pnpm --registry=http://registry.npm.bilibili.co
+    - pnpm -v
+  script:
+    - pnpm install --store-dir .pnpm-store --production=false --frozen-lockfile --prefer-offline --shamefully-hoist --registry=http://registry.npm.bilibili.co
+    # - npm ci --cache .npm-cache --no-progress --prefer-offline --registry=http://registry.npm.bilibili.co
+    - >
+      if [[ $SPLATOON_TYPE == "schedules" ]]; then
+        time node bot/index.js 'regular,anarchy-open,anarchy-series';
+      elif [[ $SPLATOON_TYPE == "schedules" ]]; then
+        time node bot/index.js 'salmon-run';
+      elif [[ $SPLATOON_TYPE == "gear" ]]; then
+        time node bot/index.js 'gear';
+      else
+        echo "no param passed to bot/index.js";
+        exit 1;
+      fi
+  after_script:
+    - ls -R screenshots
+  rules:
+    - if: $CI_PIPELINE_SOURCE=="schedule" && $SPLATOON_TYPE
+
+trigger-bot:schedules:regular:
+  stage: Bots
+  needs: [generate-screenshots]
+  dependencies: [generate-screenshots]
+  variables:
+    GIT_STRATEGY: none
+    SPLATOON_BOT_URL: $SPLATOON_SCHEDULE_REGULAR_BOT_URL
+    SCREENSHOT_NAME: 'regular'
+    SCREENSHOT_FILENAME: 'screenshots/$SCREENSHOT_NAME.png'
+  rules:
+    - if: $CI_PIPELINE_SOURCE=="schedule" && $SPLATOON_TYPE == "schedules"
+  before_script:
+    - >
+      if [[ -e "$SCREENSHOT_FILENAME" ]]; then
+        echo "screenshot \"$SCREENSHOT_FILENAME\" exists";
+      else
+        echo "screenshot \"$SCREENSHOT_FILENAME\" not found";
+        exit 1
+      fi
+    - export IMAGE_BASE64=`cat $SCREENSHOT_FILENAME | base64`
+    - export IMAGE_MD5=`cat $SCREENSHOT_FILENAME | md5sum | cut -d ' ' -f1`
+    - >
+      export payload=$(node -e "
+        console.log(JSON.stringify({
+          msgtype: "image",
+          image: {
+            base64: "$IMAGE_BASE64",
+        	  md5: "$IMAGE_MD5"
+          }
+        }))
+      ");
+    - echo $payload;
+  script:
+    - >
+      curl "$SPLATOON_BOT_URL" -H 'Content-Type: application/json' -d "$payload"
+
+trigger-bot:schedules:anarchy-series:
+  extends: ['trigger-bot:schedules:regular']
+  variables:
+    SPLATOON_BOT_URL: $SPLATOON_SCHEDULE_ANARCHY_BOT_URL
+    SCREENSHOT_NAME: 'anarchy-series'
+  rules:
+    - if: $CI_PIPELINE_SOURCE=="schedule" && $SPLATOON_TYPE == "schedules"
+trigger-bot:schedules:anarchy-open:
+  extends: ['trigger-bot:schedules:regular']
+  variables:
+    SPLATOON_BOT_URL: $SPLATOON_SCHEDULE_ANARCHY_BOT_URL
+    SCREENSHOT_NAME: 'anarchy-open'
+  rules:
+    - if: $CI_PIPELINE_SOURCE=="schedule" && $SPLATOON_TYPE == "schedules"
+trigger-bot:salmon-run:
+  extends: ['trigger-bot:schedules:regular']
+  variables:
+    SPLATOON_BOT_URL: $SPLATOON_SALMON_RUN_BOT_URL
+    SCREENSHOT_NAME: 'salmon-run'
+  rules:
+    - if: $CI_PIPELINE_SOURCE=="schedule" && $SPLATOON_TYPE == "salmon-run"
+trigger-bot:gear:
+  extends: ['trigger-bot:schedules:regular']
+  variables:
+    SPLATOON_BOT_URL: $SPLATOON_GEAR_BOT_URL
+    SCREENSHOT_NAME: 'gear'
+  rules:
+    - if: $CI_PIPELINE_SOURCE=="schedule" && $SPLATOON_TYPE == "gear"
