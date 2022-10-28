@@ -2,27 +2,22 @@ lockfileVersion: 5.4
 
 specifiers:
   '@intlify/vite-plugin-vue-i18n': ^6.0.3
-  '@types/node': ^18.11.7
   '@vitejs/plugin-vue': ^3.2.0
   '@vue/reactivity': ^3.2.41
-  autoprefixer: ^10.4.12
+  autoprefixer: ^10.4.13
   ecstatic: ^4.1.4
-  md5: ^2.3.0
-  node-fetch: ^3.2.10
   pinia: ^2.0.23
   postcss: ^8.4.18
   puppeteer: ^19.2.0
   splatnet3-types: ^0.1.20221026095800
   tailwindcss: ^3.2.1
-  vite: ^3.2.0
+  vite: ^3.2.1
   vue: ^3.2.41
   vue-i18n: ^9.2.2
   vue-router: ^4.1.6
 
 dependencies:
   '@vue/reactivity': registry.npmmirror.com/@vue/reactivity/3.2.41
-  md5: registry.npmmirror.com/md5/2.3.0
-  node-fetch: registry.npmmirror.com/node-fetch/3.2.10
   pinia: registry.npmmirror.com/pinia/2.0.23_vue@3.2.41
   puppeteer: registry.npmmirror.com/puppeteer/19.2.0
   splatnet3-types: registry.npmmirror.com/splatnet3-types/0.1.20221026095800
@@ -31,14 +26,13 @@ dependencies:
   vue-router: registry.npmmirror.com/vue-router/4.1.6_vue@3.2.41
 
 devDependencies:
-  '@intlify/vite-plugin-vue-i18n': registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3_vite@3.2.0+vue-i18n@9.2.2
-  '@types/node': registry.npmmirror.com/@types/node/18.11.7
-  '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/3.2.0_vite@3.2.0+vue@3.2.41
-  autoprefixer: registry.npmmirror.com/autoprefixer/10.4.12_postcss@8.4.18
+  '@intlify/vite-plugin-vue-i18n': registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3_vite@3.2.1+vue-i18n@9.2.2
+  '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/3.2.0_vite@3.2.1+vue@3.2.41
+  autoprefixer: registry.npmmirror.com/autoprefixer/10.4.13_postcss@8.4.18
   ecstatic: registry.npmmirror.com/ecstatic/4.1.4
   postcss: registry.npmmirror.com/postcss/8.4.18
   tailwindcss: registry.npmmirror.com/tailwindcss/3.2.1_postcss@8.4.18
-  vite: registry.npmmirror.com/vite/3.2.0
+  vite: registry.npmmirror.com/vite/3.2.1
 
 packages:
 
@@ -205,7 +199,7 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3_vite@3.2.0+vue-i18n@9.2.2:
+  registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3_vite@3.2.1+vue-i18n@9.2.2:
     resolution: {integrity: sha512-6SgNzPAOCR90wvt368lKzi7f/5ZEWJn22UCGvhFsP3XvKqlF3cVzojahgQ6o+LTdCkExeM6wPgd+haFf28E9VQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/-/vite-plugin-vue-i18n-6.0.3.tgz}
     id: registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3
     name: '@intlify/vite-plugin-vue-i18n'
@@ -229,7 +223,7 @@ packages:
       debug: registry.npmmirror.com/debug/4.3.4
       fast-glob: registry.npmmirror.com/fast-glob/3.2.12
       source-map: registry.npmmirror.com/source-map/0.6.1
-      vite: registry.npmmirror.com/vite/3.2.0
+      vite: registry.npmmirror.com/vite/3.2.1
       vue-i18n: registry.npmmirror.com/vue-i18n/9.2.2_vue@3.2.41
     transitivePeerDependencies:
       - supports-color
@@ -275,6 +269,8 @@ packages:
     resolution: {integrity: sha512-LhFTglglr63mNXUSRYD8A+ZAIu5sFqNJ4Y2fPuY7UlrySJH87rRRlhtVmMHplmfk5WkoJGmDjE9oiTfyX94CpQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.11.7.tgz}
     name: '@types/node'
     version: 18.11.7
+    dev: false
+    optional: true
 
   registry.npmmirror.com/@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@types/parse-json/-/parse-json-4.0.0.tgz}
@@ -292,7 +288,7 @@ packages:
     dev: false
     optional: true
 
-  registry.npmmirror.com/@vitejs/plugin-vue/3.2.0_vite@3.2.0+vue@3.2.41:
+  registry.npmmirror.com/@vitejs/plugin-vue/3.2.0_vite@3.2.1+vue@3.2.41:
     resolution: {integrity: sha512-E0tnaL4fr+qkdCNxJ+Xd0yM31UwMkQje76fsDVBBUCoGOUPexu2VDUYHL8P4CwV+zMvWw6nlRw19OnRKmYAJpw==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@vitejs/plugin-vue/-/plugin-vue-3.2.0.tgz}
     id: registry.npmmirror.com/@vitejs/plugin-vue/3.2.0
     name: '@vitejs/plugin-vue'
@@ -302,7 +298,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: registry.npmmirror.com/vite/3.2.0
+      vite: registry.npmmirror.com/vite/3.2.1
       vue: registry.npmmirror.com/vue/3.2.41
     dev: true
 
@@ -477,11 +473,11 @@ packages:
     version: 5.0.2
     dev: true
 
-  registry.npmmirror.com/autoprefixer/10.4.12_postcss@8.4.18:
-    resolution: {integrity: sha512-WrCGV9/b97Pa+jtwf5UGaRjgQIg7OK3D06GnoYoZNcG1Xb8Gt3EfuKjlhh9i/VtT16g6PYjZ69jdJ2g8FxSC4Q==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/autoprefixer/-/autoprefixer-10.4.12.tgz}
-    id: registry.npmmirror.com/autoprefixer/10.4.12
+  registry.npmmirror.com/autoprefixer/10.4.13_postcss@8.4.18:
+    resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/autoprefixer/-/autoprefixer-10.4.13.tgz}
+    id: registry.npmmirror.com/autoprefixer/10.4.13
     name: autoprefixer
-    version: 10.4.12
+    version: 10.4.13
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -602,12 +598,6 @@ packages:
       supports-color: registry.npmmirror.com/supports-color/5.5.0
     dev: false
 
-  registry.npmmirror.com/charenc/0.0.2:
-    resolution: {integrity: sha512-yrLQ/yVUFXkzg7EDQsPieE/53+0RlaWTs+wBrvW36cyilJ2SaDWfl4Yj7MtLTXleV9uEKefbAGUPv2/iWSooRA==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/charenc/-/charenc-0.0.2.tgz}
-    name: charenc
-    version: 0.0.2
-    dev: false
-
   registry.npmmirror.com/charset/1.0.1:
     resolution: {integrity: sha512-6dVyOOYjpfFcL1Y4qChrAoQLRHvj2ziyhcm0QJlhOcAhykL/k1kTUPbeo+87MNRTRdk2OIIsIXbuF3x2wi5EXg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/charset/-/charset-1.0.1.tgz}
     name: charset
@@ -681,12 +671,6 @@ packages:
       - encoding
     dev: false
 
-  registry.npmmirror.com/crypt/0.0.2:
-    resolution: {integrity: sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/crypt/-/crypt-0.0.2.tgz}
-    name: crypt
-    version: 0.0.2
-    dev: false
-
   registry.npmmirror.com/cssesc/3.0.0:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/cssesc/-/cssesc-3.0.0.tgz}
     name: cssesc
@@ -699,13 +683,6 @@ packages:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/csstype/-/csstype-2.6.21.tgz}
     name: csstype
     version: 2.6.21
-
-  registry.npmmirror.com/data-uri-to-buffer/4.0.0:
-    resolution: {integrity: sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/data-uri-to-buffer/-/data-uri-to-buffer-4.0.0.tgz}
-    name: data-uri-to-buffer
-    version: 4.0.0
-    engines: {node: '>= 12'}
-    dev: false
 
   registry.npmmirror.com/debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/debug/-/debug-4.3.4.tgz}
@@ -1142,16 +1119,6 @@ packages:
       pend: registry.npmmirror.com/pend/1.2.0
     dev: false
 
-  registry.npmmirror.com/fetch-blob/3.2.0:
-    resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/fetch-blob/-/fetch-blob-3.2.0.tgz}
-    name: fetch-blob
-    version: 3.2.0
-    engines: {node: ^12.20 || >= 14.13}
-    dependencies:
-      node-domexception: registry.npmmirror.com/node-domexception/1.0.0
-      web-streams-polyfill: registry.npmmirror.com/web-streams-polyfill/3.2.1
-    dev: false
-
   registry.npmmirror.com/fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/fill-range/-/fill-range-7.0.1.tgz}
     name: fill-range
@@ -1160,15 +1127,6 @@ packages:
     dependencies:
       to-regex-range: registry.npmmirror.com/to-regex-range/5.0.1
     dev: true
-
-  registry.npmmirror.com/formdata-polyfill/4.0.10:
-    resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/formdata-polyfill/-/formdata-polyfill-4.0.10.tgz}
-    name: formdata-polyfill
-    version: 4.0.10
-    engines: {node: '>=12.20.0'}
-    dependencies:
-      fetch-blob: registry.npmmirror.com/fetch-blob/3.2.0
-    dev: false
 
   registry.npmmirror.com/fraction.js/4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/fraction.js/-/fraction.js-4.2.0.tgz}
@@ -1325,12 +1283,6 @@ packages:
       binary-extensions: registry.npmmirror.com/binary-extensions/2.2.0
     dev: true
 
-  registry.npmmirror.com/is-buffer/1.1.6:
-    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/is-buffer/-/is-buffer-1.1.6.tgz}
-    name: is-buffer
-    version: 1.1.6
-    dev: false
-
   registry.npmmirror.com/is-core-module/2.11.0:
     resolution: {integrity: sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/is-core-module/-/is-core-module-2.11.0.tgz}
     name: is-core-module
@@ -1413,16 +1365,6 @@ packages:
     dependencies:
       sourcemap-codec: registry.npmmirror.com/sourcemap-codec/1.4.8
 
-  registry.npmmirror.com/md5/2.3.0:
-    resolution: {integrity: sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/md5/-/md5-2.3.0.tgz}
-    name: md5
-    version: 2.3.0
-    dependencies:
-      charenc: registry.npmmirror.com/charenc/0.0.2
-      crypt: registry.npmmirror.com/crypt/0.0.2
-      is-buffer: registry.npmmirror.com/is-buffer/1.1.6
-    dev: false
-
   registry.npmmirror.com/merge2/1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/merge2/-/merge2-1.4.1.tgz}
     name: merge2
@@ -1480,13 +1422,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  registry.npmmirror.com/node-domexception/1.0.0:
-    resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/node-domexception/-/node-domexception-1.0.0.tgz}
-    name: node-domexception
-    version: 1.0.0
-    engines: {node: '>=10.5.0'}
-    dev: false
-
   registry.npmmirror.com/node-fetch/2.6.7:
     resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/node-fetch/-/node-fetch-2.6.7.tgz}
     name: node-fetch
@@ -1499,17 +1434,6 @@ packages:
         optional: true
     dependencies:
       whatwg-url: registry.npmmirror.com/whatwg-url/5.0.0
-    dev: false
-
-  registry.npmmirror.com/node-fetch/3.2.10:
-    resolution: {integrity: sha512-MhuzNwdURnZ1Cp4XTazr69K0BTizsBroX7Zx3UgDSVcZYKF/6p0CBe4EUb/hLqmzVhl0UpYfgRljQ4yxE+iCxA==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/node-fetch/-/node-fetch-3.2.10.tgz}
-    name: node-fetch
-    version: 3.2.10
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dependencies:
-      data-uri-to-buffer: registry.npmmirror.com/data-uri-to-buffer/4.0.0
-      fetch-blob: registry.npmmirror.com/fetch-blob/3.2.0
-      formdata-polyfill: registry.npmmirror.com/formdata-polyfill/4.0.10
     dev: false
 
   registry.npmmirror.com/node-releases/2.0.6:
@@ -2069,10 +1993,10 @@ packages:
     name: util-deprecate
     version: 1.0.2
 
-  registry.npmmirror.com/vite/3.2.0:
-    resolution: {integrity: sha512-Ovj7+cqIdM1I0LPCk2CWxzgADXMix3NLXpUT6g7P7zg/a9grk/TaC3qn9YMg7w7M0POIVCBOp1aBANJW+RH7oA==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/vite/-/vite-3.2.0.tgz}
+  registry.npmmirror.com/vite/3.2.1:
+    resolution: {integrity: sha512-ADtMkfHuWq4tskJsri2n2FZkORO8ZyhI+zIz7zTrDAgDEtct1jdxOg3YsZBfHhKjmMoWLOSCr+64qrEDGo/DbQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/vite/-/vite-3.2.1.tgz}
     name: vite
-    version: 3.2.0
+    version: 3.2.1
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -2156,13 +2080,6 @@ packages:
       '@vue/runtime-dom': registry.npmmirror.com/@vue/runtime-dom/3.2.41
       '@vue/server-renderer': registry.npmmirror.com/@vue/server-renderer/3.2.41_vue@3.2.41
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.41
-
-  registry.npmmirror.com/web-streams-polyfill/3.2.1:
-    resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz}
-    name: web-streams-polyfill
-    version: 3.2.1
-    engines: {node: '>= 8'}
-    dev: false
 
   registry.npmmirror.com/webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz}

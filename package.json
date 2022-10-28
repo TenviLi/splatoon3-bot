@@ -18,8 +18,6 @@
   "license": "ISC",
   "dependencies": {
     "@vue/reactivity": "^3.2.41",
-    "md5": "^2.3.0",
-    "node-fetch": "^3.2.10",
     "pinia": "^2.0.23",
     "puppeteer": "^19.2.0",
     "splatnet3-types": "^0.1.20221026095800",
@@ -30,10 +28,10 @@
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^6.0.3",
     "@vitejs/plugin-vue": "^3.2.0",
-    "autoprefixer": "^10.4.12",
+    "autoprefixer": "^10.4.13",
     "ecstatic": "^4.1.4",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.1",
-    "vite": "^3.2.0"
+    "vite": "^3.2.1"
   }
 }
