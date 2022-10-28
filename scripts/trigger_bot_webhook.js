@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import md5 from 'md5'
 import fetch from 'node-fetch'
+import crypto from 'crypto'
 
 const screenshot_filename = path.join(import.meta.url, `../../${process.env.SCREENSHOT_FILENAME}`)
 if (!fs.existsSync(screenshot_filename)) {
@@ -13,7 +13,7 @@ if (!fs.existsSync(screenshot_filename)) {
 
 const buffer = fs.readFileSync(screenshot_filename)
 const base64 = buffer.toString('base64')
-const md5sum = md5(buffer)
+const md5sum = crypto.createHash('md5').update(buffer).digest('hex')
 
 const body = JSON.stringify({
   msgtype: 'image',
