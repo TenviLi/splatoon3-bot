@@ -32,7 +32,7 @@ jobs:
       - name: Set node version to 16
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
           cache: 'pnpm'
 
       - name: Install Dependencies
@@ -88,7 +88,8 @@ jobs:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
           SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
         # run: ./scripts/trigger_bot_webhook.sh
-        run: node ./scripts/trigger_bot_webhook.js
+        run: node ./scripts/trigger_bot_webhook.js --experimental-fetch
+
   trigger_bot_webhooks-salmon-run:
     if: inputs.bot_message == 'salmon-run'
     needs: generate_screenshots
@@ -114,7 +115,7 @@ jobs:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
           SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
         # run: ./scripts/trigger_bot_webhook.sh
-        run: node ./scripts/trigger_bot_webhook.js
+        run: node ./scripts/trigger_bot_webhook.js --experimental-fetch
 
   trigger_bot_webhooks-gear:
     if: inputs.bot_message == 'gear'
@@ -141,7 +142,7 @@ jobs:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
           SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
         # run: ./scripts/trigger_bot_webhook.sh
-        run: node ./scripts/trigger_bot_webhook.js
+        run: node ./scripts/trigger_bot_webhook.js --experimental-fetch
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
