@@ -1,9 +1,9 @@
 import fs from 'fs'
 import path from 'path'
-import fetch from 'node-fetch'
 import crypto from 'crypto'
 
 const screenshot_filename = path.join(import.meta.url, `../../${process.env.SCREENSHOT_FILENAME}`)
+
 if (!fs.existsSync(screenshot_filename)) {
   console.log(`screenshot \"${screenshot_filename}\" exists`)
 } else {

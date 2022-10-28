@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^6.0.3",
-    "@types/node": "^18.11.7",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.12",
     "ecstatic": "^4.1.4",
