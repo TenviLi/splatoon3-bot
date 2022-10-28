@@ -6,10 +6,14 @@ on:
   workflow_dispatch:
     inputs:
       bot_message:
-        description: 'schedules, salmon-run, gear'
+        description: 'Bot notifications type'
         default: 'schedules'
         required: false
-        type: string
+        type: choice
+        options:
+          - schedules
+          - salmon-run
+          - gear
 
 jobs:
   generate_screenshots:
