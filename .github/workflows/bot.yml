@@ -62,17 +62,14 @@ jobs:
 
   trigger_bot_webhooks:
     if: inputs.bot_message == 'schedules'
-    name: Trigger Bot Webhook (${{ inputs.bot_message }})
     needs: generate_screenshots
     strategy:
       matrix:
         screenshot_name: [regular, anarchy-open, anarchy-series]
+    name: Trigger Bot Webhook (${{ matrix.screenshot_name }})
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Script file
-        uses: Bhacaz/checkout-files@v2
-        with:
-          files: scripts/trigger_bot_webhook.sh
+      - uses: actions/checkout@v3
       - name: Download Screenshot
         uses: actions/download-artifact@v3
         with:
