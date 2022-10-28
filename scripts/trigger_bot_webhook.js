@@ -21,7 +21,7 @@ const body = JSON.stringify({
 })
 
 ;(async () => {
-  const request = await fetch(process.env.BOT_WEBHOOK_URL, {
+  const res = await fetch(process.env.BOT_WEBHOOK_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body,

@@ -29,7 +29,7 @@ jobs:
           # run_install: |
           #   - args: [--frozen-lockfile, --strict-peer-dependencies]
 
-      - name: Set node version to 16
+      - name: Set Node.js version to 18
         uses: actions/setup-node@v2
         with:
           node-version: 18
@@ -74,6 +74,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set Node.js version to 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
       - name: Download Screenshots
         uses: actions/download-artifact@v3
         with:
@@ -101,6 +107,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set Node.js version to 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
       - name: Download Screenshots
         uses: actions/download-artifact@v3
         with:
@@ -127,6 +139,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Set Node.js version to 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: 'pnpm'
 
       - name: Download Screenshots
         uses: actions/download-artifact@v3
