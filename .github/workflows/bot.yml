@@ -62,12 +62,63 @@ jobs:
           path: screenshots/*.png
           retention-days: 3
 
-  trigger_bot_webhooks:
+  trigger_bot_webhooks-schedules:
     if: inputs.bot_message == 'schedules'
     needs: generate_screenshots
     strategy:
       matrix:
         screenshot_name: [regular, anarchy-open, anarchy-series]
+    name: Trigger Bot Webhook (${{ matrix.screenshot_name }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download Screenshot
+        uses: actions/download-artifact@v3
+        with:
+          name: screenshots
+          path: screenshots/
+
+      - run: ls screenshots
+
+      - name: Trigger Bot Webhook (${{ inputs.bot_message }})
+        env:
+          BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
+          SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
+        # run: ./scripts/trigger_bot_webhook.sh
+        run: node ./scripts/trigger_bot_webhook.js
+  trigger_bot_webhooks-salmon-run:
+    if: inputs.bot_message == 'salmon-run'
+    needs: generate_screenshots
+    strategy:
+      matrix:
+        screenshot_name: [salmon-run]
+    name: Trigger Bot Webhook (${{ matrix.screenshot_name }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download Screenshot
+        uses: actions/download-artifact@v3
+        with:
+          name: screenshots
+          path: screenshots/
+
+      - run: ls screenshots
+
+      - name: Trigger Bot Webhook (${{ inputs.bot_message }})
+        env:
+          BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
+          SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
+        # run: ./scripts/trigger_bot_webhook.sh
+        run: node ./scripts/trigger_bot_webhook.js
+
+  trigger_bot_webhooks-gear:
+    if: inputs.bot_message == 'gear'
+    needs: generate_screenshots
+    strategy:
+      matrix:
+        screenshot_name: [gear]
     name: Trigger Bot Webhook (${{ matrix.screenshot_name }})
     runs-on: ubuntu-latest
     steps:
