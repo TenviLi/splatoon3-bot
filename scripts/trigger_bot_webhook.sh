@@ -2,12 +2,9 @@
 
 if [[ -e "$SCREENSHOT_FILENAME" ]]; then
   echo "screenshot \"$SCREENSHOT_FILENAME\" exists"
-  echo "(current working directory: $PWD)"
-  ls screenshots/
 else
   echo "screenshot \"$SCREENSHOT_FILENAME\" not found"
   echo "(current working directory: $PWD)"
-  ls screenshots/
   exit 1
 fi
 

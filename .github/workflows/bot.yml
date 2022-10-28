@@ -72,10 +72,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Download Screenshot
         uses: actions/download-artifact@v3
         with:
           name: screenshots
+          path: screenshot/
+
+      - run: ls screenshots
+
       - name: Trigger Bot Webhook (${{ inputs.bot_message }})
         env:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
