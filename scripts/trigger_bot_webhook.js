@@ -26,6 +26,8 @@ const body = JSON.stringify({
     headers: { 'Content-Type': 'application/json' },
     body,
   })
-  const result = await request.json()
-  console.log(result)
+  if (res.ok) {
+    const data = await res.json()
+    console.log(data)
+  }
 })()
