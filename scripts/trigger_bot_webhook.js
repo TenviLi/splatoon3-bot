@@ -2,9 +2,9 @@ import fs from 'fs'
 import path from 'path'
 import crypto from 'crypto'
 
-const screenshot_filename = path.join(import.meta.url, `../../${process.env.SCREENSHOT_FILENAME}`)
+const screenshot_filename = path.join(process.cwd(), `${process.env.SCREENSHOT_FILENAME}`)
 
-if (!fs.existsSync(screenshot_filename)) {
+if (fs.existsSync(screenshot_filename)) {
   console.log(`screenshot \"${screenshot_filename}\" exists`)
 } else {
   console.error(`screenshot \"${screenshot_filename}\" not found`)
