@@ -1,4 +1,4 @@
-import ScreenshotHelper from './ScreenshotHelper.mjs'
+import ScreenshotHelper from './screenshot/ScreenshotHelper.mjs'
 import path from 'path'
 import fs from 'fs/promises'
 import { fileURLToPath } from 'url'
