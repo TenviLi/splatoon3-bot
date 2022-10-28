@@ -51,7 +51,7 @@ jobs:
         env:
           CI: 'true'
         with:
-          args: pnpm start:${{ inputs.bot_message }}
+          args: npm run start:${{ inputs.bot_message }} # run command inside image
 
       - name: Upload Screenshots
         uses: actions/upload-artifact@v3
