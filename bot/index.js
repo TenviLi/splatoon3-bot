@@ -1,7 +1,6 @@
 import ScreenshotHelper from './screenshot/ScreenshotHelper.mjs'
 import path from 'path'
 import fs from 'fs/promises'
-import { fileURLToPath } from 'url'
 ;(async () => {
   const arg = process.argv.slice(2)
   const SCREENSHOT_NAME = arg[0]
@@ -20,7 +19,7 @@ import { fileURLToPath } from 'url'
     console.log(`puppeteer screenshot "${screenshotName}" start`)
     const file = await screenshotHelper.capture(screenshotName)
 
-    const filename = fileURLToPath(path.join(import.meta.url, `../../screenshots/${screenshotName}.png`))
+    const filename = path.join(process.cwd(), `./screenshots/${screenshotName}.png`)
     console.log(`puppeteer screenshot "${filename}" succeeded`)
 
     await fs.writeFile(filename, file)

@@ -53,6 +53,8 @@ jobs:
         with:
           args: npm run start:${{ inputs.bot_message }} # run command inside image
 
+      - run: ls screenshots
+
       - name: Upload Screenshots
         uses: actions/upload-artifact@v3
         with:
