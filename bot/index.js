@@ -19,9 +19,10 @@ import { fileURLToPath } from 'url'
   for (const screenshotName of screenshotNames) {
     console.log(`puppeteer screenshot "${screenshotName}" start`)
     const file = await screenshotHelper.capture(screenshotName)
-    console.log(`puppeteer screenshot "${screenshotName}" succeeded`)
 
     const filename = path.join(import.meta.url, `../../screenshots/${screenshotName}.png`)
+    console.log(`puppeteer screenshot "${filename}" succeeded`)
+
     await fs.writeFile(fileURLToPath(filename), file)
     console.log(`write screenshot "screenshots/${screenshotName}.png" succeeded`)
   }
