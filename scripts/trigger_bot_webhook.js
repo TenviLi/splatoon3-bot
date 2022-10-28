@@ -13,11 +13,11 @@ if (!fs.existsSync(screenshot_filename)) {
 
 const buffer = fs.readFileSync(screenshot_filename)
 const base64 = buffer.toString('base64')
-const md5 = md5(buffer)
+const md5sum = md5(buffer)
 
 const body = JSON.stringify({
   msgtype: 'image',
-  image: { base64, md5 },
+  image: { base64, md5: md5sum },
 })
 
 ;(async () => {
