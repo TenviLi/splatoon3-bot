@@ -26,8 +26,8 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: latest
-          run_install: |
-            - args: [--frozen-lockfile, --strict-peer-dependencies]
+          # run_install: |
+          #   - args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Set node version to 16
         uses: actions/setup-node@v2
@@ -38,14 +38,13 @@ jobs:
       - name: Install Dependencies
         env:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
-        run: pnpm install
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
       - name: Build FrontEnd Pages
         run: pnpm build
 
       - name: Download splatoon3.ink Data
-        run: |
-          - ./scripts/download_data.sh
+        run: ./scripts/download_data.sh
 
       - name: Generate Screenshots
         uses: mujo-code/puppeteer-headful@18.9.0
@@ -78,5 +77,4 @@ jobs:
         env:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
           SCREENSHOT_FILENAME: ./screenshots/${{ matrix.screenshot_name }}.png
-        run: |
-          - ./scripts/trigger_bot_webhook.sh
+        run: ./scripts/trigger_bot_webhook.sh
