@@ -1,10 +1,16 @@
 #!/bin/bash
 
 if [[ -e "$SCREENSHOT_FILENAME" ]]; then
-    echo "screenshot \"$SCREENSHOT_FILENAME\" exists"
+  echo "screenshot \"$SCREENSHOT_FILENAME\" exists"
+  echo "(current working directory: $PWD)"
+  echo "files:"
+  ls screenshots/
 else
-    echo "screenshot \"$SCREENSHOT_FILENAME\" not found"
-    exit 1
+  echo "screenshot \"$SCREENSHOT_FILENAME\" not found"
+  echo "(current working directory: $PWD)"
+  echo "files:"
+  ls screenshots/
+  exit 1
 fi
 
 export IMAGE_BASE64=$(cat $SCREENSHOT_FILENAME | base64)
