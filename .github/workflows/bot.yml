@@ -40,11 +40,11 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
-      - name: Build FrontEnd Pages
-        run: pnpm build
-
       - name: Download splatoon3.ink Data
         run: ./scripts/download_data.sh
+
+      - name: Build FrontEnd Pages
+        run: pnpm build
 
       - name: Generate Screenshots
         uses: mujo-code/puppeteer-headful@18.9.0
