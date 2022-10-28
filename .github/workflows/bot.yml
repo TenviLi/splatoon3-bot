@@ -1,0 +1,72 @@
+name: Splatooon3 Bot
+
+on:
+  # schedule:
+  #   - cron: '0 */2 * * *'
+  workflow_call:
+    inputs:
+      bot_message:
+        description: 'schedules, salmon-run, gear'
+        default: 'schedules'
+        required: false
+        type: string
+
+jobs:
+  generate_screenshots:
+    name: Generate Screenshots
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set node version to 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+        run: pnpm install
+
+      - name: Build FrontEnd Pages
+        run: pnpm build
+
+      - name: Download splatoon3.ink Data
+        run: ./scripts/download_data.sh
+
+      - name: Generate Screenshots
+        uses: mujo-code/puppeteer-headful@18.9.0
+        env:
+          CI: 'true'
+        with:
+          args: pnpm start:${{ inputs.bot_message }}
+
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: screenshots/*.png
+          retention-days: 3
+
+  trigger_bot_webhooks:
+    if: inputs.bot_message == 'schedules'
+    name: Trigger Bot Webhooks
+    needs: generate_screenshots
+    strategy:
+      matrix:
+        screenshot_name: [regular, anarchy-open, anarchy-series]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Screenshots
+        uses: actions/download-artifact@v3
+        with:
+          name: screenshots
+      - name: Trigger Bot Webhook (${{ inputs.bot_message }})
+        env:
+          BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
+          SCREENSHOT_FILENAME: ./screenshots/${{ matrix.screenshot_name }}.png
+        run: ./scripts/trigger_bot_webhook.sh

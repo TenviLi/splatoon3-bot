@@ -5,9 +5,13 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "dev:frontend": "vite",
-    "build:frontend": "vite build",
-    "preview:frontend": "vite preview --port 5050"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5050",
+    "donwload-data": "./scripts/download_data.sh",
+    "start:schedules": "node bot/index.js 'regular,anarchy-open,anarchy-series'",
+    "start:salmon-run": "node bot/index.js 'salmon-run'",
+    "start:gear": "node bot/index.js 'gear'"
   },
   "keywords": [],
   "author": "tenvili",
