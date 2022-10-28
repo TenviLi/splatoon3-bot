@@ -7,6 +7,7 @@ specifiers:
   '@vue/reactivity': ^3.2.41
   autoprefixer: ^10.4.12
   ecstatic: ^4.1.4
+  md5: ^2.3.0
   pinia: ^2.0.23
   postcss: ^8.4.18
   puppeteer: ^19.2.0
@@ -19,6 +20,7 @@ specifiers:
 
 dependencies:
   '@vue/reactivity': registry.npmmirror.com/@vue/reactivity/3.2.41
+  md5: registry.npmmirror.com/md5/2.3.0
   pinia: registry.npmmirror.com/pinia/2.0.23_vue@3.2.41
   puppeteer: registry.npmmirror.com/puppeteer/19.2.0
   splatnet3-types: registry.npmmirror.com/splatnet3-types/0.1.20221026095800
@@ -598,6 +600,12 @@ packages:
       supports-color: registry.npmmirror.com/supports-color/5.5.0
     dev: false
 
+  registry.npmmirror.com/charenc/0.0.2:
+    resolution: {integrity: sha512-yrLQ/yVUFXkzg7EDQsPieE/53+0RlaWTs+wBrvW36cyilJ2SaDWfl4Yj7MtLTXleV9uEKefbAGUPv2/iWSooRA==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/charenc/-/charenc-0.0.2.tgz}
+    name: charenc
+    version: 0.0.2
+    dev: false
+
   registry.npmmirror.com/charset/1.0.1:
     resolution: {integrity: sha512-6dVyOOYjpfFcL1Y4qChrAoQLRHvj2ziyhcm0QJlhOcAhykL/k1kTUPbeo+87MNRTRdk2OIIsIXbuF3x2wi5EXg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/charset/-/charset-1.0.1.tgz}
     name: charset
@@ -669,6 +677,12 @@ packages:
       node-fetch: registry.npmmirror.com/node-fetch/2.6.7
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  registry.npmmirror.com/crypt/0.0.2:
+    resolution: {integrity: sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/crypt/-/crypt-0.0.2.tgz}
+    name: crypt
+    version: 0.0.2
     dev: false
 
   registry.npmmirror.com/cssesc/3.0.0:
@@ -1283,6 +1297,12 @@ packages:
       binary-extensions: registry.npmmirror.com/binary-extensions/2.2.0
     dev: true
 
+  registry.npmmirror.com/is-buffer/1.1.6:
+    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/is-buffer/-/is-buffer-1.1.6.tgz}
+    name: is-buffer
+    version: 1.1.6
+    dev: false
+
   registry.npmmirror.com/is-core-module/2.11.0:
     resolution: {integrity: sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/is-core-module/-/is-core-module-2.11.0.tgz}
     name: is-core-module
@@ -1364,6 +1384,16 @@ packages:
     version: 0.25.9
     dependencies:
       sourcemap-codec: registry.npmmirror.com/sourcemap-codec/1.4.8
+
+  registry.npmmirror.com/md5/2.3.0:
+    resolution: {integrity: sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/md5/-/md5-2.3.0.tgz}
+    name: md5
+    version: 2.3.0
+    dependencies:
+      charenc: registry.npmmirror.com/charenc/0.0.2
+      crypt: registry.npmmirror.com/crypt/0.0.2
+      is-buffer: registry.npmmirror.com/is-buffer/1.1.6
+    dev: false
 
   registry.npmmirror.com/merge2/1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/merge2/-/merge2-1.4.1.tgz}

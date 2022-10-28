@@ -71,7 +71,10 @@ jobs:
     name: Trigger Bot Webhook (${{ matrix.screenshot_name }})
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Script
+        uses: Bhacaz/checkout-files@v2
+        with:
+          files: ./scripts/trigger_bot_webhook.js
 
       - name: Download Screenshot
         uses: actions/download-artifact@v3
@@ -85,4 +88,5 @@ jobs:
         env:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
           SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
-        run: ./scripts/trigger_bot_webhook.sh
+        # run: ./scripts/trigger_bot_webhook.sh
+        run: node ./scripts/trigger_bot_webhook.js
