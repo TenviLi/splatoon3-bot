@@ -19,6 +19,7 @@
   "dependencies": {
     "@vue/reactivity": "^3.2.41",
     "md5": "^2.3.0",
+    "node-fetch": "^3.2.10",
     "pinia": "^2.0.23",
     "puppeteer": "^19.2.0",
     "splatnet3-types": "^0.1.20221026095800",
