@@ -3,7 +3,7 @@ name: Splatooon3 Bot
 on:
   # schedule:
   #   - cron: '0 */2 * * *'
-  workflow_call:
+  workflow_dispatch:
     inputs:
       bot_message:
         description: 'schedules, salmon-run, gear'
