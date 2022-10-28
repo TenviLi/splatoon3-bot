@@ -45,7 +45,6 @@ jobs:
 
       - name: Download splatoon3.ink Data
         run: |
-          - git update-index --chmod=+x ./scripts/download_data.sh
           - ./scripts/download_data.sh
 
       - name: Generate Screenshots
@@ -80,5 +79,4 @@ jobs:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
           SCREENSHOT_FILENAME: ./screenshots/${{ matrix.screenshot_name }}.png
         run: |
-          - git update-index --chmod=+x ./scripts/trigger_bot_webhook.sh
           - ./scripts/trigger_bot_webhook.sh
