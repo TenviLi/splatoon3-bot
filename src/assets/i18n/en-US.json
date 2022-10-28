@@ -1,0 +1,64 @@
+{
+  "times": {
+    "now": "Now",
+    "next": "Next",
+    "future": "Future",
+    "checkback": "Check back soon!"
+  },
+  "time": {
+    "in": "in {time}",
+    "remaining": "{time} remaining",
+    "until": "Until {time}",
+    "left": "{time} left",
+    "d": "{n}d | {n}d",
+    "h": "{n}h | {n}h",
+    "m": "{n}m | {n}m",
+    "s": "{n}s | {n}s",
+    "days": "{n} day | {n} days",
+    "hours": "{n} hour | {n} hours",
+    "minutes": "{n} minute | {n} minutes",
+    "seconds": "{n} second | {n} seconds"
+  },
+  "schedule": {
+    "title": "Schedule",
+    "types": {
+      "series": "Series",
+      "open": "Open",
+      "regular": "Regular Battle",
+      "anarchy": "Anarchy Battle",
+      "splatfest": "Splatfest Battle"
+    }
+  },
+  "salmonrun": {
+    "title": "Salmon Run",
+    "weapons": "Supplied Weapons"
+  },
+  "gear": {
+    "title": "Gear",
+    "sale": "Gear on Sale Now",
+    "dailydrop": "The Daily Drop",
+    "order": "Order"
+  },
+  "about": {
+    "title": "About!",
+    "subtitle-1": "What is this?",
+    "text-1": "This site is a fan-made, unofficial source of information for Nintendo's Splatoon 3. You might remember me from {0}!",
+    "subtitle-2": "How was this site made?",
+    "text-2": "On the front end, this site was built with {0}, {1}, and {2}. Static assets are compiled using {3}.",
+    "text-3": "On the back end, the data updaters and Twitter bot were written using {0}. Special thanks to the {1} and {2} projects for their work to make automated Nintendo Switch Online logins possible.",
+    "text-4": "The Twitter bot at {0} uses {1} to automatically generate images for each tweet.",
+    "text-5": "This site is completely open source. You can view the source here on {0}.",
+    "subtitle-3": "Can I use data from this site in my own project?",
+    "text-6": "Yes! I love seeing all the creative projects people come up with that use this site's data.",
+    "text-7": "Please see the {0} page for a list of all available endpoints.",
+    "subtitle-4": "How can I reach you?",
+    "text-8": "Please feel free to contact me on Twitter at {0} or via {1} if you have any other questions!",
+    "email": "email",
+    "schedules": "Splatoon 3 Schedules"
+  },
+  "footer": {
+    "term": "This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.",
+    "about": "About",
+    "data": "Data"
+  }
+}

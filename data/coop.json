@@ -1,0 +1,29 @@
+{
+  "data": {
+    "coopResult": {
+      "historyGroupsOnlyFirst": { "nodes": [] },
+      "regularAverageClearWave": 0,
+      "regularGrade": { "name": "Apprentice", "id": "Q29vcEdyYWRlLTA=" },
+      "regularGradePoint": 40,
+      "monthlyGear": {
+        "__splatoon3ink_id": "2b897acb8435752e",
+        "__typename": "HeadGear",
+        "name": "Lo-Vis Visor",
+        "image": {
+          "url": "https://splatoon3.ink/assets/splatnet/gear_img/a1a46259ea6e22f607a80e995e688c32bdacd2fc77991b35fa0dcdf394c4852e_0.png"
+        }
+      },
+      "scale": { "gold": 0, "silver": 0, "bronze": 0 },
+      "pointCard": {
+        "defeatBossCount": 0,
+        "deliverCount": 0,
+        "goldenDeliverCount": 0,
+        "playCount": 0,
+        "rescueCount": 0,
+        "regularPoint": 0,
+        "totalPoint": 0
+      },
+      "historyGroups": { "nodes": [] }
+    }
+  }
+}
