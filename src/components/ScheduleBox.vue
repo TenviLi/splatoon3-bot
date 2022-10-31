@@ -1,16 +1,13 @@
 <template>
-  <ProductContainer :bg="type.bg" class="w-full pt-10 pb-8">
+  <ProductContainer :bg="type.bg" class="w-full pt-10 pb-4">
     <div class="space-y-2">
       <div class="flex items-center space-x-2 mx-2">
         <img :src="type.img" />
         <div class="font-splatoon1 lg:text-2xl xl:text-3xl text-shadow">
-          {{ $t(`schedule.types.${type.name}`) }}
+          {{ $t(type.name) }}
         </div>
-        <div
-          v-if="type.badge"
-          class="font-splatoon2 text-xs lg:text-sm xl:text-base bg-splatoon-blue rounded px-1 drop-shadow"
-        >
-          {{ $t(`schedule.types.${type.badge}`) }}
+        <div v-if="type.badge" class="font-splatoon2 text-xs lg:text-sm xl:text-base bg-splatoon-blue rounded px-1 drop-shadow">
+          {{ $t(type.badge) }}
         </div>
       </div>
 
@@ -21,14 +18,7 @@
               <div>
                 <RuleIcon :rule="store.activeSchedule.settings.vsRule" class="h-5 lg:h-6" />
               </div>
-              <div class="text-shadow">
-                {{
-                  $t(
-                    `splatnet.rules.${store.activeSchedule.settings.vsRule.id}.name`,
-                    store.activeSchedule.settings.vsRule.name
-                  )
-                }}
-              </div>
+              <div class="text-shadow">{{ $t(`splatnet.rules.${store.activeSchedule.settings.vsRule.id}.name`, store.activeSchedule.settings.vsRule.name) }}</div>
             </template>
 
             <template v-else>
@@ -36,10 +26,7 @@
             </template>
           </div>
 
-          <div
-            class="justify-end text-xs lg:text-sm bg-zinc-100 bg-opacity-80 rounded text-black px-2"
-            v-if="store.activeSchedule"
-          >
+          <div class="justify-end text-xs lg:text-sm bg-zinc-100 bg-opacity-80 rounded text-black px-2" v-if="store.activeSchedule">
             {{ $d(store.activeSchedule.startTime, 'time') }}
             &ndash;
             {{ $d(store.activeSchedule.endTime, 'time') }}
@@ -47,13 +34,27 @@
         </div>
 
         <div class="flex space-x-1">
-          <StageImage class="flex-1" imgClass="rounded-l-xl" :stage="store.activeSchedule?.settings?.vsStages[0]" />
-          <StageImage class="flex-1" imgClass="rounded-r-xl" :stage="store.activeSchedule?.settings?.vsStages[1]" />
+          <StageImage
+            class="flex-1"
+            imgClass="rounded-l-xl"
+            :stage="store.activeSchedule?.settings?.vsStages[0]"
+            />
+          <StageImage
+            class="flex-1"
+            imgClass="rounded-r-xl"
+            :stage="store.activeSchedule?.settings?.vsStages[1]"
+            />
           <div class="flex-1 relative" v-if="tricolor?.isTricolorActive">
-            <StageImage imgClass="rounded-xl" :stage="tricolor?.tricolorStage" />
+            <StageImage
+              imgClass="rounded-xl"
+              :stage="tricolor?.tricolorStage"
+              />
 
             <div class="absolute top-0 right-0 rounded-full bg-black p-1">
-              <img src="@/assets/img/rules/tricolor.svg" class="h-6 w-6" />
+              <img
+                src="@/assets/img/rules/tricolor.svg"
+                class="h-6 w-6"
+                />
             </div>
           </div>
         </div>
@@ -66,76 +67,51 @@
 
         <ScheduleRow :schedule="nextSchedule" />
       </div>
+
+      <div class="text-center pt-2">
+        <button class="bg-zinc-300 bg-opacity-50 hover:bg-opacity-70 px-2 py-1 rounded-full font-splatoon2 text-shadow" @click="open = true">
+          <span class="inline-block rotate-[25deg] text-red">&#57445;</span>
+          {{ $t('schedule.all-upcoming') }}
+        </button>
+      </div>
     </div>
+
+    <ScheduleDialog :type="props.type" :show="open" @close="open = false" />
   </ProductContainer>
 </template>
 
 <script setup>
-import { computed } from '@vue/reactivity'
-import {
-  useAnarchyOpenSchedulesStore,
-  useAnarchySeriesSchedulesStore,
-  useRegularSchedulesStore,
-  useSplatfestSchedulesStore,
-} from '../stores/schedules'
-import { useUSSplatfestsStore } from '@/stores/splatfests'
-import ProductContainer from './ProductContainer.vue'
-import StageImage from './StageImage.vue'
-import ScheduleRow from './ScheduleRow.vue'
-
-import battleRegularSvg from '@/assets/img/modes/regular.svg'
-import battleBankaraSvg from '@/assets/img/modes/bankara.svg'
-import RuleIcon from './RuleIcon.vue'
-import SquidTape from './SquidTape.vue'
+import { computed, ref } from 'vue';
+import { useUSSplatfestsStore } from '@/stores/splatfests';
+import ProductContainer from './ProductContainer.vue';
+import StageImage from './StageImage.vue';
+import ScheduleRow from './ScheduleRow.vue';
+import RuleIcon from './RuleIcon.vue';
+import SquidTape from './SquidTape.vue';
+import { useScheduleTypes } from './concerns/scheduleTypes.mjs';
+import ScheduleDialog from './ScheduleDialog.vue';
 
 const props = defineProps({
   type: {
     type: String,
     required: true,
   },
-})
+});
 
-const types = {
-  regular: {
-    name: 'regular',
-    badge: null,
-    store: useRegularSchedulesStore(),
-    img: battleRegularSvg,
-    bg: 'bg-splatoon-battle-regular bg-tapes',
-  },
-  anarchySeries: {
-    name: 'anarchy',
-    badge: 'series',
-    store: useAnarchySeriesSchedulesStore(),
-    img: battleBankaraSvg,
-    bg: 'bg-splatoon-battle-ranked bg-tapes',
-  },
-  anarchyOpen: {
-    name: 'anarchy',
-    badge: 'open',
-    store: useAnarchyOpenSchedulesStore(),
-    img: battleBankaraSvg,
-    bg: 'bg-splatoon-battle-ranked bg-tapes',
-  },
-  splatfest: {
-    name: 'splatfest',
-    badge: null,
-    store: useSplatfestSchedulesStore(),
-    img: battleRegularSvg,
-    bg: 'bg-splatoon-battle-regular bg-tapes',
-  },
-}
+const { types } = useScheduleTypes();
 
-const type = computed(() => types[props.type])
-const store = computed(() => type.value.store)
-const nextSchedule = computed(() => store.value.upcomingSchedules?.[0])
-const tricolor = computed(() => useUSSplatfestsStore().tricolor)
+const type = computed(() => types[props.type]);
+const store = computed(() => type.value.store);
+const nextSchedule = computed(() => store.value.upcomingSchedules?.[0]);
+const tricolor = computed(() => useUSSplatfestsStore().tricolor);
+
+const open = ref(false);
 </script>
 
 <style scoped>
 :deep(.bg-tapes) {
   background-image: url('@/assets/img/tapes-transparent.png'),
-    linear-gradient(180deg, rgba(2, 0, 36, 0.1) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
+    linear-gradient(180deg, rgba(2, 0, 36, 0.10) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
   background-size: contain;
 }
 </style>

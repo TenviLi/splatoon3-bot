@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@headlessui/vue': ^1.7.3
+  '@heroicons/vue': ^2.0.12
   '@intlify/vite-plugin-vue-i18n': ^6.0.3
   '@vitejs/plugin-vue': ^3.2.0
   '@vue/reactivity': ^3.2.41
@@ -17,6 +19,8 @@ specifiers:
   vue-router: ^4.1.6
 
 dependencies:
+  '@headlessui/vue': registry.npmmirror.com/@headlessui/vue/1.7.3_vue@3.2.41
+  '@heroicons/vue': registry.npmmirror.com/@heroicons/vue/2.0.12_vue@3.2.41
   '@vue/reactivity': registry.npmmirror.com/@vue/reactivity/3.2.41
   pinia: registry.npmmirror.com/pinia/2.0.23_vue@3.2.41
   puppeteer: registry.npmmirror.com/puppeteer/19.2.0
@@ -124,6 +128,29 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  registry.npmmirror.com/@headlessui/vue/1.7.3_vue@3.2.41:
+    resolution: {integrity: sha512-Is4iakKts9u9E0+jEZNzoJpBjwq2SamwEIoEl2RlyYSu6Zco536GsPXaQEfg/o7Eyc1GUUlcL+dJd4Rt7qyf7A==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@headlessui/vue/-/vue-1.7.3.tgz}
+    id: registry.npmmirror.com/@headlessui/vue/1.7.3
+    name: '@headlessui/vue'
+    version: 1.7.3
+    engines: {node: '>=10'}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: registry.npmmirror.com/vue/3.2.41
+    dev: false
+
+  registry.npmmirror.com/@heroicons/vue/2.0.12_vue@3.2.41:
+    resolution: {integrity: sha512-ypuQl/Wei7BoShO65AdRVikXDaSt6hJBRuKs2pVd/6HvxfEz18oXraH+J5G/QPIwObMEVhMb6nkOs9l3WZv/gA==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@heroicons/vue/-/vue-2.0.12.tgz}
+    id: registry.npmmirror.com/@heroicons/vue/2.0.12
+    name: '@heroicons/vue'
+    version: 2.0.12
+    peerDependencies:
+      vue: '>= 3'
+    dependencies:
+      vue: registry.npmmirror.com/vue/3.2.41
+    dev: false
 
   registry.npmmirror.com/@intlify/bundle-utils/3.2.1_vue-i18n@9.2.2:
     resolution: {integrity: sha512-rf4cLBOnbqmpXVcCdcYHilZpMt1m82syh3WLBJlZvGxN2KkH9HeHVH4+bnibF/SDXCHNh6lM6wTpS/qw+PkcMg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@intlify/bundle-utils/-/bundle-utils-3.2.1.tgz}

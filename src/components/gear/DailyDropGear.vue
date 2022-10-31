@@ -6,12 +6,8 @@
           <img :src="brand.image.url" />
         </div>
         <div class="flex flex-col items-center -space-y-2">
-          <SquidTape
-            class="font-splatoon2 text-sm text-black rounded-sm -rotate-2 z-10"
-            bg="bg-splatoon-green"
-            squidBg="bg-black"
-            border="border border-black"
-          >
+          <SquidTape class="font-splatoon2 text-sm text-black rounded-sm -rotate-2 z-10" bg="bg-splatoon-green" squidBg="bg-black"
+            border="border border-black">
             <div class="px-1">
               {{ $t('gear.dailydrop') }}
             </div>
@@ -38,7 +34,7 @@
             v-for="gear in gears"
             :key="gear.id"
             :gear="gear"
-          />
+            />
         </div>
       </template>
 
@@ -54,21 +50,21 @@
 </template>
 
 <script setup>
-import { useGearStore } from '@/stores/gear.mjs'
-import { computed } from '@vue/reactivity'
-import GearCardHorizontal from './GearCardHorizontal.vue'
-import ProductContainer from '../ProductContainer.vue'
-import SquidTape from '../SquidTape.vue'
+import { useGearStore } from '@/stores/gear.mjs';
+import { computed } from '@vue/reactivity';
+import GearCardHorizontal from './GearCardHorizontal.vue';
+import ProductContainer from '../ProductContainer.vue';
+import SquidTape from '../SquidTape.vue';
 
-const gearStore = useGearStore()
-const brand = computed(() => gearStore.dailyDropBrand)
-const gears = computed(() => gearStore.dailyDropGear)
+const gearStore = useGearStore();
+const brand = computed(() => gearStore.dailyDropBrand);
+const gears = computed(() => gearStore.dailyDropGear);
 </script>
 
 <style scoped>
 :deep(.bg-circles) {
   background-image: url('@/assets/img/circles-transparent.png'),
-    linear-gradient(180deg, rgba(2, 0, 36, 0.1) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
+    linear-gradient(180deg, rgba(2, 0, 36, 0.10) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
   background-size: contain;
 }
 </style>

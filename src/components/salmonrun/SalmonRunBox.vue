@@ -26,7 +26,7 @@
 
             <div class="mx-2 divide-y-2 divide-dashed divide-zinc-400">
               <div v-for="schedule in store.upcomingSchedules" :key="schedule.startTime">
-                <SalmonRunRow class="my-2" :schedule="schedule" />
+                <SalmonRunRow class="my-2" :schedule="schedule"/>
               </div>
             </div>
           </div>
@@ -37,13 +37,13 @@
 </template>
 
 <script setup>
-import { useSalmonRunSchedulesStore } from '@/stores/schedules.mjs'
-import ProductContainer from '../ProductContainer.vue'
-import SquidTape from '../SquidTape.vue'
-import SalmonRunRow from './SalmonRunRow.vue'
-import ExpandedSalmonRunRow from './ExpandedSalmonRunRow.vue'
+import { useSalmonRunSchedulesStore } from '@/stores/schedules.mjs';
+import ProductContainer from '../ProductContainer.vue';
+import SquidTape from '../SquidTape.vue';
+import SalmonRunRow from './SalmonRunRow.vue';
+import ExpandedSalmonRunRow from './ExpandedSalmonRunRow.vue';
 
-const store = useSalmonRunSchedulesStore()
+const store = useSalmonRunSchedulesStore();
 </script>
 
 <style scoped>
@@ -56,7 +56,7 @@ const store = useSalmonRunSchedulesStore()
 
 :deep(.bg-monsters) {
   background-image: url('@/assets/img/monsters-transparent-bg.png'),
-    linear-gradient(180deg, rgba(2, 0, 36, 0.1) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.2) 100%);
+    linear-gradient(180deg, rgba(2, 0, 36, 0.10) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.2) 100%);
   background-size: 400px;
   background-position: top center;
 }
