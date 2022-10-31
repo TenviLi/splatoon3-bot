@@ -50,6 +50,7 @@ export default class ScreenshotHelper {
       ],
       executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
     })
+    // https://stackoverflow.com/questions/51789038/set-localstorage-items-before-page-loads-in-puppeteer
 
     // Create a new page and set the viewport
     this.#page = await this.#browser.newPage()
