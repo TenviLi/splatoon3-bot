@@ -50,6 +50,7 @@ jobs:
         uses: mujo-code/puppeteer-headful@18.9.0
         env:
           CI: 'true'
+          TZ: 'Asia/Shanghai'
         with:
           args: npm run start:${{ inputs.bot_message }} # run command inside image
 
