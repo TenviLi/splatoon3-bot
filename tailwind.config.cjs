@@ -1,7 +1,10 @@
-const plugin = require('tailwindcss/plugin')
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-  content: ['./index.html', './src/**/*.{vue,js}'],
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,mjs}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -30,9 +33,9 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addVariant }) {
-      addVariant('mobile', 'body.is-mobile &')
-      addVariant('ss', 'body.for-screenshots &')
-    }),
-  ],
+    plugin(function({ addVariant }) {
+      addVariant('mobile', 'body.is-mobile &');
+      addVariant('ss', 'body.for-screenshots &');
+    })
+  ]
 }
