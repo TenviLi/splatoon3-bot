@@ -1,7 +1,7 @@
 export default {
   'salmon-run': {
     viewport: {
-      width: 400,
+      width: 600,
       height: 720,
       deviceScaleFactor: 2,
     },
@@ -29,7 +29,7 @@ export default {
   },
   gear: {
     viewport: {
-      width: 600,
+      width: 400,
       height: 720,
       deviceScaleFactor: 2,
     },
