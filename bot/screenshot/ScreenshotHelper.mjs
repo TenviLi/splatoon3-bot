@@ -54,6 +54,7 @@ export default class ScreenshotHelper {
 
     // Create a new page and set the viewport
     this.#page = await this.#browser.newPage()
+    await this.applyTimezone()
     await this.applyViewport()
   }
 
@@ -63,6 +64,12 @@ export default class ScreenshotHelper {
         ...defaultViewport,
         ...viewport,
       })
+    }
+  }
+
+  async applyTimezone(timezone = 'Asia/Shanghai') {
+    if (this.#page) {
+      await this.#page.emulateTimezone(timezone)
     }
   }
 
