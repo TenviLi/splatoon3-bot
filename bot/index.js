@@ -1,13 +1,16 @@
 import ScreenshotHelper from './screenshot/ScreenshotHelper.mjs'
 import path from 'path'
 import fs from 'fs/promises'
+import config from './config'
 ;(async () => {
   const arg = process.argv.slice(2)
   const SCREENSHOT_NAME = arg[0]
+
   if (!SCREENSHOT_NAME) {
     console.error('Error: undefiend screenshot name')
     process.exit(1)
   }
+
   const screenshotNames = SCREENSHOT_NAME.split(',').map((n) => n.trim())
   console.log(screenshotNames)
 
@@ -16,8 +19,13 @@ import fs from 'fs/promises'
   console.log('puppeteer start')
 
   for (const screenshotName of screenshotNames) {
+    if (!screenshotName in config) {
+      console.error('Error: invalid screenshot name')
+      process.exit(1)
+    }
+
     console.log(`puppeteer screenshot "${screenshotName}" start`)
-    const file = await screenshotHelper.capture(screenshotName)
+    const file = await screenshotHelper.capture(screenshotName, config[screenshotName])
 
     const filename = path.join(process.cwd(), `./screenshots/${screenshotName}.png`)
     console.log(`puppeteer screenshot "${filename}" succeeded`)
