@@ -1,7 +1,7 @@
 export default {
   'salmon-run': {
     viewport: {
-      width: 600,
+      width: 770,
       height: 720,
       deviceScaleFactor: 2,
     },
