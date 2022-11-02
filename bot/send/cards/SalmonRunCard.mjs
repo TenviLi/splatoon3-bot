@@ -21,7 +21,7 @@ export default class SalmonRunCard extends WxWorkGenerator {
       template_card: {
         card_type: 'news_notice',
         source: {
-          icon_url: `${process.env.UPYUN_DOMAIN}/icon.png!sm`,
+          icon_url: `${process.env.UPYUN_DOMAIN}/icon2.png!sm`,
           desc: '打工提醒小助手',
           desc_color: 0,
         },
