@@ -32,7 +32,7 @@ export default class SchedulesCard extends WxWorkGenerator {
       template_card: {
         card_type: 'news_notice',
         source: {
-          icon_url: `${process.env.UPYUN_DOMAIN}/icon.png`,
+          icon_url: `${process.env.UPYUN_DOMAIN}/icon.png!sm`,
           desc: `今天你喷喷了吗?`,
           desc_color: 0,
         },
@@ -41,7 +41,7 @@ export default class SchedulesCard extends WxWorkGenerator {
           desc: `${$d(stages.regular.startTime, 'time')} - ${$d(stages.regular.endTime, 'time')}`,
         },
         card_image: {
-          url: `${process.env.UPYUN_DOMAIN}/schedules.png`,
+          url: `${process.env.UPYUN_DOMAIN}/schedules.png!sm`,
           aspect_ratio: 2.25,
         },
         vertical_content_list: [
@@ -84,6 +84,10 @@ ${$t(
 )}`,
           },
         ],
+        card_action: {
+          type: 1,
+          url: `${process.env.UPYUN_DOMAIN}/schedules.png!sm`,
+        },
       },
     }
     return payload

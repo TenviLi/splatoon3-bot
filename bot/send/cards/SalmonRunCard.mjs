@@ -21,7 +21,7 @@ export default class SalmonRunCard extends WxWorkGenerator {
       template_card: {
         card_type: 'news_notice',
         source: {
-          icon_url: `${process.env.UPYUN_DOMAIN}/icon.png`,
+          icon_url: `${process.env.UPYUN_DOMAIN}/icon.png!sm`,
           desc: '打工提醒小助手',
           desc_color: 0,
         },
@@ -30,7 +30,7 @@ export default class SalmonRunCard extends WxWorkGenerator {
           desc: `${$d(schedule.startTime, 'dateTimeShortWeekday')} - ${$d(schedule.endTime, 'dateTimeShort')}`,
         },
         card_image: {
-          url: `${process.env.UPYUN_DOMAIN}/salmon-run.png`,
+          url: `${process.env.UPYUN_DOMAIN}/salmon-run.png!sm`,
           aspect_ratio: 2.25,
         },
         vertical_content_list: [
@@ -44,6 +44,10 @@ export default class SalmonRunCard extends WxWorkGenerator {
               keyname: '-',
               value: $t(`splatnet.weapons.${weapon.__splatoon3ink_id}.name`, weapon.name),
             })),
+        card_action: {
+          type: 1,
+          url: `${process.env.UPYUN_DOMAIN}/salmon-run.png!sm`,
+        },
       },
     }
     return payload

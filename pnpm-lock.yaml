@@ -15,7 +15,7 @@ specifiers:
   puppeteer: ^19.2.0
   splatnet3-types: ^0.1.20221026095800
   tailwindcss: ^3.2.1
-  vite: ^3.2.1
+  vite: ^3.2.2
   vue: ^3.2.41
   vue-i18n: ^9.2.2
   vue-router: ^4.1.6
@@ -34,13 +34,13 @@ dependencies:
   vue-router: registry.npmmirror.com/vue-router/4.1.6_vue@3.2.41
 
 devDependencies:
-  '@intlify/vite-plugin-vue-i18n': registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3_vite@3.2.1+vue-i18n@9.2.2
-  '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/3.2.0_vite@3.2.1+vue@3.2.41
+  '@intlify/vite-plugin-vue-i18n': registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3_vite@3.2.2+vue-i18n@9.2.2
+  '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/3.2.0_vite@3.2.2+vue@3.2.41
   autoprefixer: registry.npmmirror.com/autoprefixer/10.4.13_postcss@8.4.18
   ecstatic: registry.npmmirror.com/ecstatic/4.1.4
   postcss: registry.npmmirror.com/postcss/8.4.18
   tailwindcss: registry.npmmirror.com/tailwindcss/3.2.1_postcss@8.4.18
-  vite: registry.npmmirror.com/vite/3.2.1
+  vite: registry.npmmirror.com/vite/3.2.2
 
 packages:
 
@@ -92,10 +92,10 @@ packages:
       js-tokens: registry.npmmirror.com/js-tokens/4.0.0
     dev: false
 
-  registry.npmmirror.com/@babel/parser/7.20.0:
-    resolution: {integrity: sha512-G9VgAhEaICnz8iiJeGJQyVl6J2nTjbW0xeisva0PK6XcKsga7BIaqm4ZF8Rg1Wbaqmy6znspNqhPaPkyukujzg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@babel/parser/-/parser-7.20.0.tgz}
+  registry.npmmirror.com/@babel/parser/7.20.1:
+    resolution: {integrity: sha512-hp0AYxaZJhxULfM1zyp7Wgr+pSUKBcP3M+PHnSzWGdXOzg/kHWIgiUWARvubhUKGOEw3xqY4x+lyZ9ytBVcELw==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@babel/parser/-/parser-7.20.1.tgz}
     name: '@babel/parser'
-    version: 7.20.0
+    version: 7.20.1
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
@@ -230,7 +230,7 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3_vite@3.2.1+vue-i18n@9.2.2:
+  registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3_vite@3.2.2+vue-i18n@9.2.2:
     resolution: {integrity: sha512-6SgNzPAOCR90wvt368lKzi7f/5ZEWJn22UCGvhFsP3XvKqlF3cVzojahgQ6o+LTdCkExeM6wPgd+haFf28E9VQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/-/vite-plugin-vue-i18n-6.0.3.tgz}
     id: registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/6.0.3
     name: '@intlify/vite-plugin-vue-i18n'
@@ -254,7 +254,7 @@ packages:
       debug: registry.npmmirror.com/debug/4.3.4
       fast-glob: registry.npmmirror.com/fast-glob/3.2.12
       source-map: registry.npmmirror.com/source-map/0.6.1
-      vite: registry.npmmirror.com/vite/3.2.1
+      vite: registry.npmmirror.com/vite/3.2.2
       vue-i18n: registry.npmmirror.com/vue-i18n/9.2.2_vue@3.2.41
     transitivePeerDependencies:
       - supports-color
@@ -296,10 +296,10 @@ packages:
       picomatch: registry.npmmirror.com/picomatch/2.3.1
     dev: true
 
-  registry.npmmirror.com/@types/node/18.11.7:
-    resolution: {integrity: sha512-LhFTglglr63mNXUSRYD8A+ZAIu5sFqNJ4Y2fPuY7UlrySJH87rRRlhtVmMHplmfk5WkoJGmDjE9oiTfyX94CpQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.11.7.tgz}
+  registry.npmmirror.com/@types/node/18.11.9:
+    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.11.9.tgz}
     name: '@types/node'
-    version: 18.11.7
+    version: 18.11.9
     dev: false
     optional: true
 
@@ -315,11 +315,11 @@ packages:
     version: 2.10.0
     requiresBuild: true
     dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/18.11.7
+      '@types/node': registry.npmmirror.com/@types/node/18.11.9
     dev: false
     optional: true
 
-  registry.npmmirror.com/@vitejs/plugin-vue/3.2.0_vite@3.2.1+vue@3.2.41:
+  registry.npmmirror.com/@vitejs/plugin-vue/3.2.0_vite@3.2.2+vue@3.2.41:
     resolution: {integrity: sha512-E0tnaL4fr+qkdCNxJ+Xd0yM31UwMkQje76fsDVBBUCoGOUPexu2VDUYHL8P4CwV+zMvWw6nlRw19OnRKmYAJpw==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/@vitejs/plugin-vue/-/plugin-vue-3.2.0.tgz}
     id: registry.npmmirror.com/@vitejs/plugin-vue/3.2.0
     name: '@vitejs/plugin-vue'
@@ -329,7 +329,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: registry.npmmirror.com/vite/3.2.1
+      vite: registry.npmmirror.com/vite/3.2.2
       vue: registry.npmmirror.com/vue/3.2.41
     dev: true
 
@@ -338,7 +338,7 @@ packages:
     name: '@vue/compiler-core'
     version: 3.2.41
     dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser/7.20.0
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.20.1
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.41
       estree-walker: registry.npmmirror.com/estree-walker/2.0.2
       source-map: registry.npmmirror.com/source-map/0.6.1
@@ -356,7 +356,7 @@ packages:
     name: '@vue/compiler-sfc'
     version: 3.2.41
     dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser/7.20.0
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.20.1
       '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core/3.2.41
       '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom/3.2.41
       '@vue/compiler-ssr': registry.npmmirror.com/@vue/compiler-ssr/3.2.41
@@ -385,7 +385,7 @@ packages:
     name: '@vue/reactivity-transform'
     version: 3.2.41
     dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser/7.20.0
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.20.1
       '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core/3.2.41
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.41
       estree-walker: registry.npmmirror.com/estree-walker/2.0.2
@@ -524,7 +524,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: registry.npmmirror.com/browserslist/4.21.4
-      caniuse-lite: registry.npmmirror.com/caniuse-lite/1.0.30001426
+      caniuse-lite: registry.npmmirror.com/caniuse-lite/1.0.30001429
       fraction.js: registry.npmmirror.com/fraction.js/4.2.0
       normalize-range: registry.npmmirror.com/normalize-range/0.1.2
       picocolors: registry.npmmirror.com/picocolors/1.0.0
@@ -586,7 +586,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: registry.npmmirror.com/caniuse-lite/1.0.30001426
+      caniuse-lite: registry.npmmirror.com/caniuse-lite/1.0.30001429
       electron-to-chromium: registry.npmmirror.com/electron-to-chromium/1.4.284
       node-releases: registry.npmmirror.com/node-releases/2.0.6
       update-browserslist-db: registry.npmmirror.com/update-browserslist-db/1.0.10_browserslist@4.21.4
@@ -621,10 +621,10 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  registry.npmmirror.com/caniuse-lite/1.0.30001426:
-    resolution: {integrity: sha512-n7cosrHLl8AWt0wwZw/PJZgUg3lV0gk9LMI7ikGJwhyhgsd2Nb65vKvmSexCqq/J7rbH3mFG6yZZiPR5dLPW5A==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001426.tgz}
+  registry.npmmirror.com/caniuse-lite/1.0.30001429:
+    resolution: {integrity: sha512-511ThLu1hF+5RRRt0zYCf2U2yRr9GPF6m5y90SBCWsvSoYoW7yAGlv/elyPaNfvGCkp6kj/KFZWU0BMA69Prsg==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001429.tgz}
     name: caniuse-lite
-    version: 1.0.30001426
+    version: 1.0.30001429
     dev: true
 
   registry.npmmirror.com/chalk/2.4.2:
@@ -2091,10 +2091,10 @@ packages:
     name: util-deprecate
     version: 1.0.2
 
-  registry.npmmirror.com/vite/3.2.1:
-    resolution: {integrity: sha512-ADtMkfHuWq4tskJsri2n2FZkORO8ZyhI+zIz7zTrDAgDEtct1jdxOg3YsZBfHhKjmMoWLOSCr+64qrEDGo/DbQ==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/vite/-/vite-3.2.1.tgz}
+  registry.npmmirror.com/vite/3.2.2:
+    resolution: {integrity: sha512-pLrhatFFOWO9kS19bQ658CnRYzv0WLbsPih6R+iFeEEhDOuYgYCX2rztUViMz/uy/V8cLCJvLFeiOK7RJEzHcw==, registry: http://registry.npm.bilibili.co/, tarball: https://registry.npmmirror.com/vite/-/vite-3.2.2.tgz}
     name: vite
-    version: 3.2.1
+    version: 3.2.2
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:

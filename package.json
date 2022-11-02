@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 5050",
-    "download-data": "./scripts/download_data.sh",
+    "download-data": "node scripts/download_data.js",
     "start:schedules:old": "node bot/screenshot/old.mjs regular,anarchy-open,anarchy-series",
     "start:salmon-run:old": "node bot/screenshot/old.mjs salmon-run",
     "start:gear:old": "node bot/screenshot/old.mjs gear",
@@ -42,6 +42,6 @@
     "ecstatic": "^4.1.4",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.1",
-    "vite": "^3.2.1"
+    "vite": "^3.2.2"
   }
 }

@@ -46,7 +46,7 @@ jobs:
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
       - name: Download splatoon3.ink Data
-        run: ./scripts/download_data.sh
+        run: pnpm run download-data --experimental-fetch
 
       - name: Build FrontEnd Pages
         run: pnpm build

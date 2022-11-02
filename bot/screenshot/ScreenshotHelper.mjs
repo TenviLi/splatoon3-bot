@@ -113,7 +113,7 @@ export default class ScreenshotHelper {
       // encoding: 'base64',
       type: 'png',
       // omitBackground: true,
-      // quality: 90, // 不支持 png
+      // quality: 80, // 不支持 png
       // path: '',
     }
     const buffer = await body.screenshot(randData)
