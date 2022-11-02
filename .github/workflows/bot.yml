@@ -77,6 +77,7 @@ jobs:
         env:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
           # SCREENSHOT_NAMES: ${{ needs.generate_screenshots.outputs.names }}
+          UPYUN_DOMAIN: ${{ secrets.UPYUN_DOMAIN }}
         run: pnpm run send-message:${{ inputs.bot_message }} --experimental-fetch
 
       - name: Delete workflow runs
