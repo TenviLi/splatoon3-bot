@@ -22,7 +22,7 @@ export default class SalmonRunCard extends WxWorkGenerator {
         card_type: 'news_notice',
         source: {
           icon_url: `${process.env.UPYUN_DOMAIN}/icon2.png!sm`,
-          desc: '打工提醒小助手',
+          desc: '打工的时间到啦!',
           desc_color: 0,
         },
         main_title: {
