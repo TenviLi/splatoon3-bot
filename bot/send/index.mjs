@@ -15,7 +15,6 @@ import WxWorkClient from './Client.mjs'
   const screenshotNames = SCREENSHOT_NAME.split(',').map((n) => n.trim())
   console.log(screenshotNames)
 
-  const wxworkClient = new WxWorkClient()
   for (const screenshotName of screenshotNames) {
     const screenshot_filename = path.join(process.cwd(), `screenshots/${screenshotName}.png`)
 
@@ -29,11 +28,11 @@ import WxWorkClient from './Client.mjs'
     switch (screenshotName) {
       case 'schedules':
         const schedulesCard = new SchedulesCard()
-        schedulesCard.sendMessage(wxworkClient)
+        salmonRunCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SCHEDULES_SCHEDULES_BOT_URL))
         break
       case 'salmon-run':
         const salmonRunCard = new SalmonRunCard()
-        salmonRunCard.sendMessage(wxworkClient)
+        schedulesCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SCHEDULES_SALMON_RUN_BOT_URL))
         break
     }
   }

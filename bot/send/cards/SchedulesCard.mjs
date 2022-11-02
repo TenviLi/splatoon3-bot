@@ -46,42 +46,46 @@ export default class SchedulesCard extends WxWorkGenerator {
         },
         vertical_content_list: [
           {
-            title: '占地对战',
+            title: '🔫 占地对战',
             desc: `${$t(
               `splatnet.stages.${stages.regular.settings.vsStages[0].id}.name`,
               stages.regular.settings.vsStages[0].name
-            )}
-${$t(`splatnet.stages.${stages.regular.settings.vsStages[1].id}.name`, stages.regular.settings.vsStages[1].name)}`,
+            )} . ${$t(
+              `splatnet.stages.${stages.regular.settings.vsStages[1].id}.name`,
+              stages.regular.settings.vsStages[1].name
+            )}`,
           },
           {
             title:
+              '🔰 ' +
               $t(
                 `splatnet.rules.${stages.anarchySeries.settings.vsRule.id}.name`,
                 stages.anarchySeries.settings.vsRule.name
-              ).replace('对战', '') + '  (挑战)',
+              ).replace('对战', '') +
+              '  (挑战)',
             desc: `${$t(
               `splatnet.stages.${stages.anarchySeries.settings.vsStages[0].id}.name`,
               stages.anarchySeries.settings.vsStages[0].name
-            )}
-${$t(
-  `splatnet.stages.${stages.anarchySeries.settings.vsStages[1].id}.name`,
-  stages.anarchySeries.settings.vsStages[1].name
-)}`,
+            )} . ${$t(
+              `splatnet.stages.${stages.anarchySeries.settings.vsStages[1].id}.name`,
+              stages.anarchySeries.settings.vsStages[1].name
+            )}`,
           },
           {
             title:
+              '🔰 ' +
               $t(
                 `splatnet.rules.${stages.anarchyOpen.settings.vsRule.id}.name`,
                 stages.anarchyOpen.settings.vsRule.name
-              ).replace('对战', '') + '  (开放)',
+              ).replace('对战', '') +
+              '  (开放)',
             desc: `${$t(
               `splatnet.stages.${stages.anarchyOpen.settings.vsStages[0].id}.name`,
               stages.anarchyOpen.settings.vsStages[0].name
-            )}
-${$t(
-  `splatnet.stages.${stages.anarchyOpen.settings.vsStages[1].id}.name`,
-  stages.anarchyOpen.settings.vsStages[1].name
-)}`,
+            )} . ${$t(
+              `splatnet.stages.${stages.anarchyOpen.settings.vsStages[1].id}.name`,
+              stages.anarchyOpen.settings.vsStages[1].name
+            )}`,
           },
         ],
         card_action: {

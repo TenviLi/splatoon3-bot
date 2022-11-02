@@ -35,7 +35,7 @@ export default class SalmonRunCard extends WxWorkGenerator {
         },
         vertical_content_list: [
           {
-            title: hasMysteryWeapon ? '随机武器!' : '发放武器:',
+            title: hasMysteryWeapon ? '🎉 随机武器! 随机武器!' : '🐻 发放武器:',
           },
         ],
         horizontal_content_list: hasMysteryWeapon

@@ -2,8 +2,8 @@ export default class WxWorkClient {
   /** @var {TwitterApi} */
   #webhook
 
-  constructor() {
-    this.#webhook = process.env.BOT_WEBHOOK_URL
+  constructor(webhook) {
+    this.#webhook = webhook
   }
 
   async send(message) {
