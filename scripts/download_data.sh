@@ -24,4 +24,4 @@ request_json "locale/en-US"
 #     request_json "locale/zh-CN"
 # fi
 
-ls -R data
+find data -name '*.json' -type f -print

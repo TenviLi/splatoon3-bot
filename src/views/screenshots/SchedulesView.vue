@@ -1,5 +1,5 @@
 <template>
-  <ScreenshotLayout header="Map Schedules">
+  <ScreenshotLayout header="对战日程表">
     <div class="grow flex items-center justify-center">
       <div class="flex space-x-12 items-center mx-6" v-if="usSplatfests.activeFestival">
         <div class="mx-10">
@@ -25,3 +25,11 @@ import { useUSSplatfestsStore } from '@/stores/splatfests'
 import SplatfestBox from '@/components/SplatfestBox.vue'
 const usSplatfests = useUSSplatfestsStore()
 </script>
+
+<style>
+body {
+  background-image: url('@/assets/img/information-bg.jpg');
+  background-size: 400px;
+  background-position: center;
+}
+</style>

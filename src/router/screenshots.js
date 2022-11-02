@@ -8,7 +8,7 @@ import DailyDropGearView from '@/views/screenshots/DailyDropGearView.vue'
 import SplatfestView from '@/views/screenshots/SplatfestView.vue'
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL + 'screenshots/'),
+  history: createWebHashHistory(import.meta.env.BASE_URL + 'screenshots.html'),
   routes: [
     {
       path: '/',

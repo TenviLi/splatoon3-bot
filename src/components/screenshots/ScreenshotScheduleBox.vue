@@ -13,7 +13,14 @@
             <div>
               <RuleIcon :rule="store.activeSchedule.settings.vsRule" class="h-10" />
             </div>
-            <div class="text-shadow">{{ store.activeSchedule.settings.vsRule.name }}</div>
+            <div class="text-shadow">
+              {{
+                $t(
+                  `splatnet.rules.${store.activeSchedule.settings.vsRule.id}.name`,
+                  store.activeSchedule.settings.vsRule.name
+                ).replace('真格鱼虎对战', '真格鱼虎')
+              }}
+            </div>
           </div>
 
           <div>
@@ -24,7 +31,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="space-y-8">
@@ -33,13 +39,13 @@
             imgClass="rounded-2xl"
             :stage="store.activeSchedule.settings.vsStages[0]"
             textSize="text-3xl"
-            />
+          />
           <StageImage
             class="flex-1"
             imgClass="rounded-2xl"
             :stage="store.activeSchedule.settings.vsStages[1]"
             textSize="text-3xl"
-            />
+          />
 
           <div class="flex-1 relative" v-if="tricolor?.isTricolorActive">
             <StageImage imgClass="rounded-2xl" :stage="tricolor?.tricolorStage" />
@@ -55,31 +61,31 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useUSSplatfestsStore } from '@/stores/splatfests';
-import ProductContainer from '../ProductContainer.vue';
-import StageImage from '../StageImage.vue';
-import RuleIcon from '../RuleIcon.vue';
-import { useScheduleTypes } from '@/components/concerns/scheduleTypes.mjs';
+import { computed } from 'vue'
+import { useUSSplatfestsStore } from '@/stores/splatfests'
+import ProductContainer from '../ProductContainer.vue'
+import StageImage from '../StageImage.vue'
+import RuleIcon from '../RuleIcon.vue'
+import { useScheduleTypes } from '@/components/concerns/scheduleTypes.mjs'
 
 const props = defineProps({
   type: {
     type: String,
     required: true,
   },
-});
+})
 
-const { types } = useScheduleTypes();
+const { types } = useScheduleTypes()
 
-const type = computed(() => types[props.type]);
-const store = computed(() => type.value.store);
-const tricolor = computed(() => useUSSplatfestsStore().tricolor);
+const type = computed(() => types[props.type])
+const store = computed(() => type.value.store)
+const tricolor = computed(() => useUSSplatfestsStore().tricolor)
 </script>
 
 <style scoped>
 :deep(.bg-tapes) {
   background-image: url('@/assets/img/tapes-transparent.png'),
-    linear-gradient(180deg, rgba(2, 0, 36, 0.10) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
+    linear-gradient(180deg, rgba(2, 0, 36, 0.1) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
   background-size: contain;
 }
 </style>

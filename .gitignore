@@ -1,5 +1,6 @@
 # Splatoon3 Bot
 screenshots/*.png
+data/**/*.json
 
 # Logs
 logs

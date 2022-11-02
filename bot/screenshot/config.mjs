@@ -34,4 +34,20 @@ export default {
       deviceScaleFactor: 2,
     },
   },
+
+  // screenshots
+  'screenshots-schedules': {
+    viewport: {
+      width: 1200,
+      height: 675,
+      deviceScaleFactor: 2,
+    },
+  },
+  'screenshots-salmon-run': {
+    viewport: {
+      width: 1200,
+      height: 675,
+      deviceScaleFactor: 2,
+    },
+  },
 }

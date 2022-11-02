@@ -15,10 +15,15 @@ on:
           - salmon-run
           - gear
 
+env:
+  TZ: 'Asia/Shanghai'
+
 jobs:
-  generate_screenshots:
+  bot:
     name: Generate Screenshots
     runs-on: ubuntu-latest
+    outputs:
+      names: ${{ steps.set-matrix.outputs.screenshot_names }}
     steps:
       - uses: actions/checkout@v3
 
@@ -50,120 +55,41 @@ jobs:
         uses: mujo-code/puppeteer-headful@18.9.0
         env:
           CI: 'true'
-          TZ: 'Asia/Shanghai'
         with:
           args: npm run start:${{ inputs.bot_message }} # run command inside image
 
       - name: Check Screenshots
-        run: ls screenshots
+        id: set-matrix
+        run: |
+          export screenshot_names=$(ls ./screenshots/*.png | cut -d '.' -f1  | xargs | sed 's/ /,/g')
+          echo "::set-output name=screenshot_names::screenshot_names"
 
       - name: Upload Screenshots
-        uses: actions/upload-artifact@v3
-        with:
-          name: screenshots
-          path: screenshots/*.png
-          retention-days: 3
-
-  trigger_bot_webhooks-schedules:
-    if: inputs.bot_message == 'schedules'
-    needs: generate_screenshots
-    strategy:
-      matrix:
-        screenshot_name: [regular, anarchy-open, anarchy-series]
-    name: Trigger Bot Webhook (${{ matrix.screenshot_name }})
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set Node.js version to 18
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
-
-      - name: Download Screenshots
-        uses: actions/download-artifact@v3
-        with:
-          name: screenshots
-          path: screenshots/
-
-      - name: Check Screenshots
-        run: ls screenshots
+        uses: bwcxyk/upyun-upx-action@1.1
+        env:
+          bucket: ${{ secrets.UPYUN_BUCKET }}
+          operator: ${{ secrets.UPYUN_OPERATOR }}
+          operator_password: ${{ secrets.UPYUN_SECRET }}
+          local_path: ./screenshots/
+          remote_path: /
 
       - name: Trigger Bot Webhook (${{ inputs.bot_message }})
         env:
           BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
-          SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
-        # run: ./scripts/trigger_bot_webhook.sh
-        run: node ./scripts/trigger_bot_webhook.js --experimental-fetch
-
-  trigger_bot_webhooks-salmon-run:
-    if: inputs.bot_message == 'salmon-run'
-    needs: generate_screenshots
-    strategy:
-      matrix:
-        screenshot_name: [salmon-run]
-    name: Trigger Bot Webhook (${{ matrix.screenshot_name }})
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set Node.js version to 18
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
-
-      - name: Download Screenshots
-        uses: actions/download-artifact@v3
-        with:
-          name: screenshots
-          path: screenshots/
-
-      - name: Check Screenshots
-        run: ls screenshots
-
-      - name: Trigger Bot Webhook (${{ inputs.bot_message }})
-        env:
-          BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
-          SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
-        # run: ./scripts/trigger_bot_webhook.sh
-        run: node ./scripts/trigger_bot_webhook.js --experimental-fetch
-
-  trigger_bot_webhooks-gear:
-    if: inputs.bot_message == 'gear'
-    needs: generate_screenshots
-    strategy:
-      matrix:
-        screenshot_name: [gear]
-    name: Trigger Bot Webhook (${{ matrix.screenshot_name }})
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set Node.js version to 18
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
-
-      - name: Download Screenshots
-        uses: actions/download-artifact@v3
-        with:
-          name: screenshots
-          path: screenshots/
-
-      - name: Check Screenshots
-        run: ls screenshots
-
-      - name: Trigger Bot Webhook (${{ inputs.bot_message }})
-        env:
-          BOT_WEBHOOK_URL: ${{ secrets.SPLATOON_SCHEDULES_REGULAR_BOT_URL }}
-          SCREENSHOT_FILENAME: screenshots/${{ matrix.screenshot_name }}.png
-        # run: ./scripts/trigger_bot_webhook.sh
-        run: node ./scripts/trigger_bot_webhook.js --experimental-fetch
+          # SCREENSHOT_NAMES: ${{ needs.generate_screenshots.outputs.names }}
+        run: pnpm run send-message:${{ inputs.bot_message }} --experimental-fetch
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          retain_days: 30
+          retain_days: 7
           keep_minimum_runs: 6
+
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: screenshots/*.png
+          retention-days: 7

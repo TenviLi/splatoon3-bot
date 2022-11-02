@@ -51,6 +51,13 @@ export default class ScreenshotHelper {
       executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
     })
     // https://stackoverflow.com/questions/51789038/set-localstorage-items-before-page-loads-in-puppeteer
+    this.#browser.on('targetchanged', async (target) => {
+      const targetPage = await target.page()
+      const client = await targetPage.target().createCDPSession()
+      await client.send('Runtime.evaluate', {
+        expression: `localStorage.setItem('lang', 'zh-CN')`,
+      })
+    })
 
     // Create a new page and set the viewport
     this.#page = await this.#browser.newPage()
@@ -81,7 +88,7 @@ export default class ScreenshotHelper {
     await this.applyViewport(options.viewport)
 
     // Navigate to the URL
-    let url = new URL(`http://localhost:${this.#httpServer.port}`)
+    let url = new URL(`http://localhost:${this.#httpServer.port}/screenshots.html`)
     url.hash = path
 
     if (this.defaultParams) {
@@ -98,13 +105,14 @@ export default class ScreenshotHelper {
 
     // Wait an additional 500ms
     await this.#page.waitForNetworkIdle({ idleTime: 500 })
+    // await new Promise((r) => setTimeout(r, 100000000))
 
     // Take the screenshot
     const body = (await this.#page.$('#app')) || (await this.#page.$('body'))
     const randData = {
       // encoding: 'base64',
       type: 'png',
-      omitBackground: true,
+      // omitBackground: true,
       // quality: 90, // 不支持 png
       // path: '',
     }

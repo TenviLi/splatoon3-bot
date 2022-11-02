@@ -1,4 +1,4 @@
-import ScreenshotHelper from './screenshot/ScreenshotHelper.mjs'
+import ScreenshotHelper from './ScreenshotHelper.mjs'
 import path from 'path'
 import fs from 'fs/promises'
 import config from './config.mjs'

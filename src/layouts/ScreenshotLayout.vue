@@ -14,16 +14,25 @@
             <div class="text-3xl text-zinc-50">
               {{ props.header }}
             </div>
-            <div>
-              <img src="@/assets/img/twitter-white.png" width="20" height="20" class="inline" />
-              @splatoon3ink
+            <div class="text-xl text-thin text-zinc-500">
+              <img src="@/assets/img/wxwork-icon.png" width="20" height="20" class="inline" />
+              @锂碘
             </div>
-            <div>splatoon3.ink</div>
+            <!-- <div>splatoon3.ink</div> -->
           </div>
         </div>
-        <!-- <div class="flex justify-end items-center mr-6">
-          {{ formatDateTime(time.now) }}
-        </div> -->
+        <div class="flex justify-end items-center mr-6 text-2xl">
+          <!-- {{ formatDateTime(time.now) }} -->
+          {{
+            new Date().toLocaleString('zh-CN', {
+              dateStyle: 'long',
+              timeStyle: 'short',
+            })
+          }}
+          <!-- {{ $d(store.activeSchedule.startTime, 'time') }}
+          &ndash;
+          {{ $d(store.activeSchedule.endTime, 'time') }} -->
+        </div>
       </div>
     </div>
 
@@ -58,7 +67,7 @@ watchEffect(() => {
 function formatDateTime(date) {
   date = new Date(date)
 
-  return date.toLocaleString(undefined, {
+  return date.toLocaleString('zh-CN', {
     dateStyle: 'long',
     timeStyle: 'short',
   })
