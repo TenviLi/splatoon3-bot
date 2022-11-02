@@ -21,7 +21,7 @@ export default class DailyDropGearCard extends WxWorkGenerator {
       template_card: {
         card_type: 'news_notice',
         source: {
-          icon_url: `${process.env.UPYUN_DOMAIN}/icon.png!sm`,
+          icon_url: `${process.env.UPYUN_DOMAIN}/icon.png3!sm`,
           desc: '目前の商店贩卖',
           desc_color: 0,
         },
