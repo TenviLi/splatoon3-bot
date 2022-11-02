@@ -46,7 +46,7 @@ export default class SchedulesCard extends WxWorkGenerator {
         },
         vertical_content_list: [
           {
-            title: '🔫 占地对战',
+            title: '🔫  占地对战',
             desc: `${$t(
               `splatnet.stages.${stages.regular.settings.vsStages[0].id}.name`,
               stages.regular.settings.vsStages[0].name
@@ -57,7 +57,7 @@ export default class SchedulesCard extends WxWorkGenerator {
           },
           {
             title:
-              '🔰 ' +
+              '🔰  ' +
               $t(
                 `splatnet.rules.${stages.anarchySeries.settings.vsRule.id}.name`,
                 stages.anarchySeries.settings.vsRule.name
@@ -73,7 +73,7 @@ export default class SchedulesCard extends WxWorkGenerator {
           },
           {
             title:
-              '🔰 ' +
+              '🔰  ' +
               $t(
                 `splatnet.rules.${stages.anarchyOpen.settings.vsRule.id}.name`,
                 stages.anarchyOpen.settings.vsRule.name
