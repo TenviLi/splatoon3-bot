@@ -1,3 +1,5 @@
+name: Splatooon3 Bot
+
 on:
   # schedule:
   #   - cron: '0 */2 * * *'
@@ -12,8 +14,6 @@ on:
           - schedules
           - salmon-run
           - gear
-
-name: Splatooon3 Bot (${{ inputs.bot_message }})
 
 env:
   TZ: 'Asia/Shanghai'
