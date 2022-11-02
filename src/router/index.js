@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import SalmonRunView from '../views/SalmonRunView.vue'
 import RegularView from '../views/RegularView.vue'
 import AnarchyOpenView from '../views/AnarchyOpenView.vue'
@@ -6,8 +6,7 @@ import AnarchySeriesView from '../views/AnarchySeriesView.vue'
 import GearView from '../views/GearView.vue'
 
 const router = createRouter({
-  // history: createWebHistory(),
-  history: createWebHashHistory(),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/salmon-run',

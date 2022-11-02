@@ -9,9 +9,9 @@
     "build": "vite build",
     "preview": "vite preview --port 5050",
     "donwload-data": "./scripts/download_data.sh",
-    "start:schedules": "node bot/index.js 'regular,anarchy-open,anarchy-series'",
-    "start:salmon-run": "node bot/index.js 'salmon-run'",
-    "start:gear": "node bot/index.js 'gear'"
+    "start:schedules": "node bot/index.mjs 'regular,anarchy-open,anarchy-series'",
+    "start:salmon-run": "node bot/index.mjs 'salmon-run'",
+    "start:gear": "node bot/index.mjs 'gear'"
   },
   "keywords": [],
   "author": "tenvili",
