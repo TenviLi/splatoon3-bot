@@ -3,7 +3,6 @@ import path from 'path'
 import { createPinia, setActivePinia } from 'pinia'
 import { useFestivalsDataStore, useGearDataStore, useSchedulesDataStore } from '../../../src/stores/data.mjs'
 import { useTimeStore } from '../../../src/stores/time.mjs'
-import WxWorkGenerator from '../Client.mjs'
 import prefixedConsole from '../../common/prefixedConsole.mjs'
 import { getTopOfCurrentHour } from '../../common/util.mjs'
 import zhCN from '../../../src/assets/i18n/zh-CN.json' assert { type: 'json' }
@@ -55,7 +54,7 @@ export default class WxWorkGenerator {
   }
 
   /**
-   * @param {WxWorkGenerator} wxworkClient
+   * @param {WxWorkClient} wxworkClient
    */
   async sendMessage(wxworkClient) {
     const message = await this.getMessage()

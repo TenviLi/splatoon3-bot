@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import SalmonRunCard from './cards/SalmonRunCard.mjs'
 import SchedulesCard from './cards/SchedulesCard.mjs'
+import WxWorkClient from './Client.mjs'
 ;(async () => {
   const arg = process.argv.slice(2)
   const SCREENSHOT_NAME = arg[0]
@@ -14,6 +15,7 @@ import SchedulesCard from './cards/SchedulesCard.mjs'
   const screenshotNames = SCREENSHOT_NAME.split(',').map((n) => n.trim())
   console.log(screenshotNames)
 
+  const wxworkClient = new WxWorkClient()
   for (const screenshotName of screenshotNames) {
     const screenshot_filename = path.join(process.cwd(), `screenshots/${screenshotName}.png`)
 
@@ -22,6 +24,17 @@ import SchedulesCard from './cards/SchedulesCard.mjs'
     } else {
       console.error(`screenshot \"${screenshotName}\" not found`)
       process.exit(1)
+    }
+
+    switch (screenshotName) {
+      case 'schedules':
+        const schedulesCard = new SchedulesCard()
+        schedulesCard.sendMessage(wxworkClient)
+        break
+      case 'salmon-run':
+        const salmonRunCard = new SalmonRunCard()
+        salmonRunCard.sendMessage(wxworkClient)
+        break
     }
   }
 })()
