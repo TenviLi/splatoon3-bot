@@ -27,11 +27,11 @@ const router = createRouter({
       component: SalmonRunView,
     },
     {
-      path: '/gear/regular',
+      path: '/gear-regular',
       component: RegularGearView,
     },
     {
-      path: '/gear/dailydrop',
+      path: '/gear',
       component: DailyDropGearView,
     },
     {

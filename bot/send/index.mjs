@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import SalmonRunCard from './cards/SalmonRunCard.mjs'
 import SchedulesCard from './cards/SchedulesCard.mjs'
+import DailyDropGearCard from './cards/DailyDropGearCard.mjs'
 import WxWorkClient from './Client.mjs'
 ;(async () => {
   const arg = process.argv.slice(2)
@@ -33,6 +34,10 @@ import WxWorkClient from './Client.mjs'
       case 'salmon-run':
         const salmonRunCard = new SalmonRunCard()
         salmonRunCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SCHEDULES_SALMON_RUN_BOT_URL))
+        break
+      case 'gear':
+        const gearCard = new DailyDropGearCard()
+        gearCard.sendMessage(new WxWorkClient(process.env.SPLATOON_GEAR_BOT_URL))
         break
     }
   }

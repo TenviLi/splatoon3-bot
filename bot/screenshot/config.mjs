@@ -50,4 +50,11 @@ export default {
       deviceScaleFactor: 2,
     },
   },
+  'screenshots-gear': {
+    viewport: {
+      width: 1200,
+      height: 675,
+      deviceScaleFactor: 2,
+    },
+  },
 }
