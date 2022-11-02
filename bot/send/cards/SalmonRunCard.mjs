@@ -31,7 +31,7 @@ export default class SalmonRunCard extends WxWorkGenerator {
         },
         card_image: {
           url: `${process.env.UPYUN_DOMAIN}/salmon-run.png!sm`,
-          aspect_ratio: 2.25,
+          aspect_ratio: 1.78,
         },
         vertical_content_list: [
           {

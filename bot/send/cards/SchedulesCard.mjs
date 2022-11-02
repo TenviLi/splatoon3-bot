@@ -42,11 +42,11 @@ export default class SchedulesCard extends WxWorkGenerator {
         },
         card_image: {
           url: `${process.env.UPYUN_DOMAIN}/schedules.png!sm`,
-          aspect_ratio: 2.25,
+          aspect_ratio: 1.78,
         },
         vertical_content_list: [
           {
-            title: '占地',
+            title: '占地对战',
             desc: `${$t(
               `splatnet.stages.${stages.regular.settings.vsStages[0].id}.name`,
               stages.regular.settings.vsStages[0].name
@@ -58,7 +58,7 @@ ${$t(`splatnet.stages.${stages.regular.settings.vsStages[1].id}.name`, stages.re
               $t(
                 `splatnet.rules.${stages.anarchySeries.settings.vsRule.id}.name`,
                 stages.anarchySeries.settings.vsRule.name
-              ).replace('对战', '') + ' (挑战)',
+              ).replace('对战', '') + '  (挑战)',
             desc: `${$t(
               `splatnet.stages.${stages.anarchySeries.settings.vsStages[0].id}.name`,
               stages.anarchySeries.settings.vsStages[0].name
@@ -73,7 +73,7 @@ ${$t(
               $t(
                 `splatnet.rules.${stages.anarchyOpen.settings.vsRule.id}.name`,
                 stages.anarchyOpen.settings.vsRule.name
-              ).replace('对战', '') + ' (开放)',
+              ).replace('对战', '') + '  (开放)',
             desc: `${$t(
               `splatnet.stages.${stages.anarchyOpen.settings.vsStages[0].id}.name`,
               stages.anarchyOpen.settings.vsStages[0].name

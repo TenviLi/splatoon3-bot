@@ -23,7 +23,7 @@ const router = createRouter({
       component: SchedulesView,
     },
     {
-      path: '/salmonrun',
+      path: '/salmon-run',
       component: SalmonRunView,
     },
     {
