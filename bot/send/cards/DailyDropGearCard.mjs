@@ -43,7 +43,7 @@ export default class DailyDropGearCard extends WxWorkGenerator {
 
           return {
             keyname: icon,
-            value: `${name}\n  ${power}`,
+            value: `${name}\n(${power})`,
           }
         }),
         card_action: {
