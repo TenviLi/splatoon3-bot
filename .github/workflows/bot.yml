@@ -20,7 +20,7 @@ env:
 
 jobs:
   bot:
-    name: Generate Screenshots
+    name: Generate Screenshots (${{ inputs.bot_message }})
     runs-on: ubuntu-latest
     outputs:
       names: ${{ steps.set-matrix.outputs.screenshot_names }}
@@ -45,13 +45,13 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
-      - name: Download splatoon3.ink Data
+      - name: Download all splatoon3.ink data
         run: pnpm run download-data --experimental-fetch
 
       - name: Build FrontEnd Pages
         run: pnpm build
 
-      - name: Generate Screenshots
+      - name: Generate Screenshots (${{ inputs.bot_message }})
         uses: mujo-code/puppeteer-headful@18.9.0
         env:
           CI: 'true'
@@ -90,7 +90,7 @@ jobs:
           retain_days: 7
           keep_minimum_runs: 6
 
-      - name: Upload Screenshots
+      - name: Upload screenshots into artifacts
         uses: actions/upload-artifact@v3
         with:
           name: screenshots
