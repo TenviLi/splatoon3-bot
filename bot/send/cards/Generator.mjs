@@ -59,7 +59,7 @@ export default class WxWorkGenerator {
    */
   async sendMessage(wxworkClient) {
     const message = await this.getMessage()
-
+    console.log(message)
     await wxworkClient.send(message)
   }
 
