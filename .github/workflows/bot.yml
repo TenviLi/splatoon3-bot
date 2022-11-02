@@ -62,7 +62,7 @@ jobs:
         id: set-matrix
         run: |
           export screenshot_names=$(ls ./screenshots/*.png | cut -d '.' -f1  | xargs | sed 's/ /,/g')
-          echo "::set-output name=screenshot_names::screenshot_names"
+          echo "::set-output name=screenshot_names::$screenshot_names"
 
       - name: Upload Screenshots
         uses: bwcxyk/upyun-upx-action@1.1
