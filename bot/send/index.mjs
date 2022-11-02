@@ -29,11 +29,11 @@ import WxWorkClient from './Client.mjs'
     switch (screenshotName) {
       case 'schedules':
         const schedulesCard = new SchedulesCard()
-        schedulesCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SCHEDULES_SCHEDULES_BOT_URL))
+        schedulesCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SCHEDULES_BOT_URL))
         break
       case 'salmon-run':
         const salmonRunCard = new SalmonRunCard()
-        salmonRunCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SCHEDULES_SALMON_RUN_BOT_URL))
+        salmonRunCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SALMON_RUN_BOT_URL))
         break
       case 'gear':
         const gearCard = new DailyDropGearCard()
