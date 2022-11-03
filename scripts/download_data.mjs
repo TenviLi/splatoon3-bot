@@ -16,9 +16,9 @@ async function request_json(json_name) {
   })
   if (request.ok) {
     const buffer = request.arrayBuffer()
-    writeFileSync(buffer, path.join(process.cwd(), `data/${json_name}.json`))
+    writeFileSync(buffer, json_filename)
   }
-  console.log(`download "${splatoon_ink_api}/${json_name}.json succeeded.`)
+  console.log(`download "${json_filename}" succeeded.`)
 }
 
 ;(async () => {
