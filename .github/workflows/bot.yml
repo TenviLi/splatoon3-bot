@@ -15,9 +15,6 @@ on:
           - salmon-run
           - gear
 
-env:
-  TZ: 'Asia/Shanghai'
-
 jobs:
   bot:
     name: Generate Screenshots (${{ inputs.bot_message }})
