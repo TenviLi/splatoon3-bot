@@ -31,7 +31,7 @@ const router = createRouter({
       component: RegularGearView,
     },
     {
-      path: '/gear',
+      path: '/gear-dailydrop',
       component: DailyDropGearView,
     },
     {

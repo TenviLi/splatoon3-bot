@@ -3,6 +3,8 @@ import path from 'path'
 import SalmonRunCard from './cards/SalmonRunCard.mjs'
 import SchedulesCard from './cards/SchedulesCard.mjs'
 import DailyDropGearCard from './cards/DailyDropGearCard.mjs'
+import RegularGearCard from './cards/RegularGearCard.mjs'
+
 import WxWorkClient from './Client.mjs'
 ;(async () => {
   const arg = process.argv.slice(2)
@@ -35,9 +37,13 @@ import WxWorkClient from './Client.mjs'
         const salmonRunCard = new SalmonRunCard()
         salmonRunCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SALMON_RUN_BOT_URL))
         break
-      case 'gear':
-        const gearCard = new DailyDropGearCard()
-        gearCard.sendMessage(new WxWorkClient(process.env.SPLATOON_GEAR_BOT_URL))
+      case 'gear-dailydrop':
+        const dailyDropGearCard = new DailyDropGearCard()
+        dailyDropGearCard.sendMessage(new WxWorkClient(process.env.SPLATOON_GEAR_BOT_URL))
+        break
+      case 'gear-regular':
+        const regularGearCard = new RegularGearCard()
+        regularGearCard.sendMessage(new WxWorkClient(process.env.SPLATOON_GEAR_BOT_URL))
         break
     }
   }

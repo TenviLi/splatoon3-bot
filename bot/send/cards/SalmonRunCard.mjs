@@ -30,7 +30,7 @@ export default class SalmonRunCard extends WxWorkGenerator {
           desc: `${$d(schedule.startTime, 'dateTimeShortWeekday')} - ${$d(schedule.endTime, 'dateTimeShort')}`,
         },
         card_image: {
-          url: `${process.env.UPYUN_DOMAIN}/salmon-run.png!sm`,
+          url: `${process.env.UPYUN_DOMAIN}/${this.key}.png!sm`,
           aspect_ratio: 1.78,
         },
         vertical_content_list: [
@@ -46,7 +46,7 @@ export default class SalmonRunCard extends WxWorkGenerator {
             })),
         card_action: {
           type: 1,
-          url: `${process.env.UPYUN_DOMAIN}/salmon-run.png!sm`,
+          url: `${process.env.UPYUN_DOMAIN}/${this.key}.png!sm`,
         },
       },
     }

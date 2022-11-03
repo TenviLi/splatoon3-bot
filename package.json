@@ -14,10 +14,10 @@
     "start:gear:old": "node bot/screenshot/old.mjs gear",
     "start:schedules": "node bot/screenshot/index.mjs 'schedules'",
     "start:salmon-run": "node bot/screenshot/index.mjs salmon-run",
-    "start:gear": "node bot/screenshot/index.mjs gear",
+    "start:gear": "node bot/screenshot/index.mjs gear-dailydrop,gear-regular",
     "send-message:schedules": "node bot/send/index.mjs 'schedules'",
     "send-message:salmon-run": "node bot/send/index.mjs salmon-run",
-    "send-message:gear": "node bot/send/index.mjs gear"
+    "send-message:gear": "node bot/send/index.mjs gear-dailydrop,gear-regular"
   },
   "keywords": [],
   "author": "tenvili",

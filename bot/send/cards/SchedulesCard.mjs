@@ -41,7 +41,7 @@ export default class SchedulesCard extends WxWorkGenerator {
           desc: `${$d(stages.regular.startTime, 'time')} - ${$d(stages.regular.endTime, 'time')}`,
         },
         card_image: {
-          url: `${process.env.UPYUN_DOMAIN}/schedules.png!sm`,
+          url: `${process.env.UPYUN_DOMAIN}/${this.key}.png!sm`,
           aspect_ratio: 1.78,
         },
         vertical_content_list: [
@@ -90,7 +90,7 @@ export default class SchedulesCard extends WxWorkGenerator {
         ],
         card_action: {
           type: 1,
-          url: `${process.env.UPYUN_DOMAIN}/schedules.png!sm`,
+          url: `${process.env.UPYUN_DOMAIN}/${this.key}.png!sm`,
         },
       },
     }

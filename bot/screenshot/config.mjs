@@ -50,7 +50,14 @@ export default {
       deviceScaleFactor: 2,
     },
   },
-  'screenshots-gear': {
+  'screenshots-gear-dailydrop': {
+    viewport: {
+      width: 1200,
+      height: 675,
+      deviceScaleFactor: 2,
+    },
+  },
+  'screenshots-gear-regular': {
     viewport: {
       width: 1200,
       height: 675,
