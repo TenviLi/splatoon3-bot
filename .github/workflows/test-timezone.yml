@@ -1,0 +1,16 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+
+name: test-timezone
+  
+jobs:
+  test-timezone:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $(date +%Y-%m-%d" "%H:%M:%S)
+        
