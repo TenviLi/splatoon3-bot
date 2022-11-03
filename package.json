@@ -12,10 +12,10 @@
     "start:schedules:old": "node bot/screenshot/old.mjs regular,anarchy-open,anarchy-series",
     "start:salmon-run:old": "node bot/screenshot/old.mjs salmon-run",
     "start:gear:old": "node bot/screenshot/old.mjs gear",
-    "start:schedules": "node bot/screenshot/index.mjs 'schedules'",
+    "start:schedules": "node bot/screenshot/index.mjs schedules",
     "start:salmon-run": "node bot/screenshot/index.mjs salmon-run",
     "start:gear": "node bot/screenshot/index.mjs gear-dailydrop,gear-regular",
-    "send-message:schedules": "node bot/send/index.mjs 'schedules'",
+    "send-message:schedules": "node bot/send/index.mjs schedules",
     "send-message:salmon-run": "node bot/send/index.mjs salmon-run",
     "send-message:gear": "node bot/send/index.mjs gear-dailydrop,gear-regular"
   },

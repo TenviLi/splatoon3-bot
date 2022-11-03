@@ -1,26 +1,14 @@
-name: Splatooon3 Bot
+name: Splatooon3 Bot (schedule)
 
 on:
-  # schedule:
-  #   - cron: '0 */2 * * *'
-  workflow_dispatch:
-    inputs:
-      bot_message:
-        description: 'Bot notifications type'
-        default: 'schedules'
-        required: false
-        type: choice
-        options:
-          - schedules
-          - salmon-run
-          - gear
-
+  schedule:
+    - cron: '* */2 * * *'
 env:
   TZ: 'Asia/Shanghai'
 
 jobs:
   bot:
-    name: Generate Screenshots (${{ inputs.bot_message }})
+    name: Generate Screenshots
     runs-on: ubuntu-latest
     outputs:
       names: ${{ steps.set-matrix.outputs.screenshot_names }}
@@ -51,13 +39,13 @@ jobs:
       - name: Build FrontEnd Pages
         run: pnpm build
 
-      - name: Generate Screenshots (${{ inputs.bot_message }})
+      - name: Generate Screenshots
         uses: mujo-code/puppeteer-headful@18.9.0
         env:
           CI: 'true'
           TZ: 'Asia/Shanghai'
         with:
-          args: npm run start:${{ inputs.bot_message }} # run command inside image
+          args: node bot/screenshot/index.mjs schedules,salmon-run,gear-dailydrop,gear-regular # run command inside image
 
       - name: Check Screenshots
         id: set-matrix
@@ -74,7 +62,7 @@ jobs:
           local_path: ./screenshots/
           remote_path: /
 
-      - name: Trigger Bot Webhook (${{ inputs.bot_message }})
+      - name: Trigger Bot Webhook
         env:
           TZ: 'Asia/Shanghai'
           # SCREENSHOT_NAMES: ${{ needs.generate_screenshots.outputs.names }}
@@ -82,7 +70,7 @@ jobs:
           SPLATOON_SCHEDULES_BOT_URL: ${{ secrets.SPLATOON_SCHEDULES_BOT_URL }}
           SPLATOON_SALMON_RUN_BOT_URL: ${{ secrets.SPLATOON_SALMON_RUN_BOT_URL }}
           SPLATOON_GEAR_BOT_URL: ${{ secrets.SPLATOON_GEAR_BOT_URL }}
-        run: pnpm run send-message:${{ inputs.bot_message }} --experimental-fetch
+        run: node bot/send/index.mjs schedules,salmon-run,gear-dailydrop,gear-regular --experimental-fetch
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
