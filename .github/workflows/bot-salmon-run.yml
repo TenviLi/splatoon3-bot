@@ -1,8 +1,8 @@
-name: Splatooon3 Bot (schedule)
+name: Splatooon3 Bot (daily twice)
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 2,10 */1 * *'
 env:
   TZ: 'Asia/Shanghai'
 
@@ -45,7 +45,7 @@ jobs:
           CI: 'true'
           TZ: 'Asia/Shanghai'
         with:
-          args: node bot/screenshot/index.mjs schedules,salmon-run,gear-dailydrop,gear-regular # run command inside image
+          args: node bot/screenshot/index.mjs salmon-run,gear-dailydrop,gear-regular # run command inside image
 
       - name: Check Screenshots
         id: set-matrix
@@ -70,7 +70,7 @@ jobs:
           SPLATOON_SCHEDULES_BOT_URL: ${{ secrets.SPLATOON_SCHEDULES_BOT_URL }}
           SPLATOON_SALMON_RUN_BOT_URL: ${{ secrets.SPLATOON_SALMON_RUN_BOT_URL }}
           SPLATOON_GEAR_BOT_URL: ${{ secrets.SPLATOON_GEAR_BOT_URL }}
-        run: node bot/send/index.mjs schedules,salmon-run,gear-dailydrop,gear-regular --experimental-fetch
+        run: node bot/send/index.mjs salmon-run,gear-dailydrop,gear-regular --experimental-fetch
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
