@@ -6,7 +6,7 @@ const splatoon_ink_api = 'https://splatoon3.ink/data'
 async function request_json(json_name) {
   const json_filename = path.join(process.cwd(), `data/${json_name}.json`)
 
-  if (existsSync(json_filename)) unlinkSync(json_filename)
+  // if (existsSync(json_filename)) unlinkSync(json_filename)
 
   console.log(`download "${splatoon_ink_api}/${json_name}.json start.`)
   const request = await fetch(splatoon_ink_api, {

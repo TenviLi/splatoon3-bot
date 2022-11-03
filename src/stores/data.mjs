@@ -1,9 +1,9 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, ref, shallowRef } from 'vue'
-import coop from '../../data/coop.json' assert { type: 'json' }
-import gear from '../../data/gear.json' assert { type: 'json' }
-import festivals from '../../data/festivals.json' assert { type: 'json' }
-import schedules from '../../data/schedules.json' assert { type: 'json' }
+import coop from '@data/coop.json' assert { type: 'json' }
+import gear from '@data/gear.json' assert { type: 'json' }
+import festivals from '@data/festivals.json' assert { type: 'json' }
+import schedules from '@data/schedules.json' assert { type: 'json' }
 
 // Endpoint store definition (used for each individual data endpoint)
 function defineEndpointStore(id, endpoint, transform = null) {
