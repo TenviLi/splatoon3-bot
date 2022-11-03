@@ -2,7 +2,7 @@ name: Splatooon3 Bot (schedule)
 
 on:
   schedule:
-    - cron: '* */2 * * *'
+    - cron: '0 */2 * * *'
 env:
   TZ: 'Asia/Shanghai'
 
