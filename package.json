@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 5050",
-    "download-data": "node scripts/download_data.js",
+    "download-data": "node scripts/download_data.mjs",
     "start:schedules:old": "node bot/screenshot/old.mjs regular,anarchy-open,anarchy-series",
     "start:salmon-run:old": "node bot/screenshot/old.mjs salmon-run",
     "start:gear:old": "node bot/screenshot/old.mjs gear",

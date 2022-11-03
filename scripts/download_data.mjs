@@ -1,4 +1,5 @@
 import { writeFileSync, existsSync, unlinkSync } from 'fs'
+import path from 'path'
 
 const splatoon_ink_api = 'https://splatoon3.ink/data'
 
