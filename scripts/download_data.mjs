@@ -1,4 +1,4 @@
-import { writeFileSync, existsSync, unlinkSync } from 'fs'
+import { writeFile } from 'fs/promises'
 import path from 'path'
 
 const splatoon_ink_api = 'https://splatoon3.ink/data'
@@ -14,11 +14,9 @@ async function request_json(json_name) {
       'User-Agent': 'Splatoon3 Bot (https://github.com/tenvili)',
     },
   })
-  if (request.ok) {
-    const buffer = request.arrayBuffer()
-    writeFileSync(buffer, json_filename)
-  }
-  console.log(`download "${json_filename}" succeeded.`)
+    const buffer = await request.arrayBuffer()
+    await writeFile(json_filename, Buffer.from(buffer))
+    console.log(`download "${json_filename}" succeeded.`)
 }
 
 ;(async () => {
