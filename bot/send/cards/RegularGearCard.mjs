@@ -1,5 +1,6 @@
 import WxWorkGenerator, { $t, $d } from './Generator.mjs'
 import { useGearStore } from '../../../src/stores/gear.mjs'
+import { formatShortDurationFromNow } from '../../../src/common/time'
 import { getGearIcon } from '../../common/util.mjs'
 
 export default class RegularGearCard extends WxWorkGenerator {
@@ -21,6 +22,7 @@ export default class RegularGearCard extends WxWorkGenerator {
       `splatnet.powers.${gear.gear.primaryGearPower.__splatoon3ink_id}.name`,
       gear.gear.primaryGearPower.name
     )
+    const time = $t('time.left', { time: formatShortDurationFromNow(gear.gear.saleEndTime) })
 
     const payload = {
         msgtype: 'template_card',
@@ -28,22 +30,17 @@ export default class RegularGearCard extends WxWorkGenerator {
           card_type: 'news_notice',
           source: {
             icon_url: `${process.env.UPYUN_DOMAIN}/icon3.png!sm`,
-            desc: '目前の商店贩卖',
+            desc: '鱿鱼须商城·目前贩卖',
             desc_color: 0,
           },
           main_title: {
-            title: `「${$t(`splatnet.brands.${brand.brand.id}.name`, brand.brand.name)}」`,
-            desc: $t('time.until', { time: $d(brand?.saleEndTime, 'dateTimeShortWeekday') }),
+            title: `🦑 鱿鱼须商城上新啦`,
+            misc: time,
           },
           card_image: {
             url: `${process.env.UPYUN_DOMAIN}/${this.key}.png!sm`,
             aspect_ratio: 1.78,
           },
-          vertical_content_list: [
-            {
-              title: '🦑 鱿鱼须商城上新啦'
-            },
-          ],
           horizontal_content_list: {
             keyname: icon,
             value: `${name}\n(${power})`,

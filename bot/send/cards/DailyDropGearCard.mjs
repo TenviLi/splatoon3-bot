@@ -22,12 +22,12 @@ export default class DailyDropGearCard extends WxWorkGenerator {
         card_type: 'news_notice',
         source: {
           icon_url: `${process.env.UPYUN_DOMAIN}/icon3.png!sm`,
-          desc: '目前の商店贩卖',
+          desc: '鱿鱼须商城·今日精选',
           desc_color: 0,
         },
         main_title: {
-          title: `「${$t(`splatnet.brands.${brand.brand.id}.name`, brand.brand.name)}」`,
-          desc: $t('time.until', { time: $d(brand?.saleEndTime, 'dateTimeShortWeekday') }),
+          title: `「${$t(`splatnet.brands.${brand?.brand.id}.name`, brand?.brand.name)}」`,
+          desc: $t('time.until', { time: $d(brand?.brand?.saleEndTime, 'dateTimeShortWeekday') }),
         },
         card_image: {
           url: `${process.env.UPYUN_DOMAIN}/gear.png!sm`,

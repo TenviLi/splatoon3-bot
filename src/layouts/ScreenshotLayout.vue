@@ -29,9 +29,6 @@
               timeStyle: 'short',
             })
           }}
-          <!-- {{ $d(store.activeSchedule.startTime, 'time') }}
-          &ndash;
-          {{ $d(store.activeSchedule.endTime, 'time') }} -->
         </div>
       </div>
     </div>
