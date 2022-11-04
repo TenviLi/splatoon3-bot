@@ -67,7 +67,7 @@ export default class RegularGearCard extends WxWorkGenerator {
             desc_color: 0,
           },
           main_title: {
-            title: `🦑 鱿鱼须商城上新啦`,
+            title: `鱿鱼须商城上新啦`,
             desc: time,
           },
           card_image: {
