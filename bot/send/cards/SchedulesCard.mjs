@@ -50,7 +50,7 @@ export default class SchedulesCard extends WxWorkGenerator {
             desc: `${$t(
               `splatnet.stages.${stages.regular.settings.vsStages[0].id}.name`,
               stages.regular.settings.vsStages[0].name
-            )} . ${$t(
+            )}·${$t(
               `splatnet.stages.${stages.regular.settings.vsStages[1].id}.name`,
               stages.regular.settings.vsStages[1].name
             )}`,
@@ -66,7 +66,7 @@ export default class SchedulesCard extends WxWorkGenerator {
             desc: `${$t(
               `splatnet.stages.${stages.anarchySeries.settings.vsStages[0].id}.name`,
               stages.anarchySeries.settings.vsStages[0].name
-            )} . ${$t(
+            )}·${$t(
               `splatnet.stages.${stages.anarchySeries.settings.vsStages[1].id}.name`,
               stages.anarchySeries.settings.vsStages[1].name
             )}`,
@@ -82,7 +82,7 @@ export default class SchedulesCard extends WxWorkGenerator {
             desc: `${$t(
               `splatnet.stages.${stages.anarchyOpen.settings.vsStages[0].id}.name`,
               stages.anarchyOpen.settings.vsStages[0].name
-            )} . ${$t(
+            )}·${$t(
               `splatnet.stages.${stages.anarchyOpen.settings.vsStages[1].id}.name`,
               stages.anarchyOpen.settings.vsStages[1].name
             )}`,
