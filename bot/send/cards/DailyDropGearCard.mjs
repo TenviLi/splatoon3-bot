@@ -25,10 +25,6 @@ export default class DailyDropGearCard extends WxWorkGenerator {
           desc: '鱿鱼须商城·今日精选',
           desc_color: 0,
         },
-        main_title: {
-          title: `「${$t(`splatnet.brands.${brand?.brand.id}.name`, brand?.brand.name)}」`,
-          desc: $t('time.until', { time: $d(brand?.brand?.saleEndTime, 'dateTimeShortWeekday') }),
-        },
         card_image: {
           url: `${process.env.UPYUN_DOMAIN}/gear.png!sm`,
           aspect_ratio: 1.78,
