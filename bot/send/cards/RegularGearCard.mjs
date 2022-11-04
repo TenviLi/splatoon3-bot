@@ -68,7 +68,7 @@ export default class RegularGearCard extends WxWorkGenerator {
           },
           main_title: {
             title: `🦑 鱿鱼须商城上新啦`,
-            misc: time,
+            desc: time,
           },
           card_image: {
             url: `${process.env.UPYUN_DOMAIN}/${this.key}.png!sm`,
