@@ -17,7 +17,7 @@
         <SquidTape class="font-splatoon1 text-4xl text-black rounded-sm -rotate-2 z-10" bg="bg-splatoon-orange"
           squidBg="bg-black" border="border-2 border-black" squidSize="25px">
           <div class="px-3 py-1">
-            Gear on Sale Now
+            {{ $t('gear.sale') }}
           </div>
         </SquidTape>
       </div>
