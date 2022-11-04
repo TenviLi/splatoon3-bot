@@ -4,6 +4,7 @@ import { getGearIcon } from '../../common/util.mjs'
 
 export default class DailyDropGearCard extends WxWorkGenerator {
   name = 'Daily Drop Gear'
+  key = 'gear-dailydrop'
 
   async #getData() {
     await this.preparePinia()
@@ -25,8 +26,12 @@ export default class DailyDropGearCard extends WxWorkGenerator {
           desc: '鱿鱼须商城·今日精选',
           desc_color: 0,
         },
+        main_title: {
+          title: `「${$t(`splatnet.brands.${brand.brand.id}.name`, brand.brand.name)}」`,
+          desc: $t('time.until', { time: $d(brand?.saleEndTime, 'dateTimeShortWeekday') }),
+        },
         card_image: {
-          url: `${process.env.UPYUN_DOMAIN}/gear.png!sm`,
+          url: `${process.env.UPYUN_DOMAIN}/${this.key}.png!sm`,
           aspect_ratio: 1.78,
         },
         horizontal_content_list: gears.map((gear) => {
@@ -44,7 +49,7 @@ export default class DailyDropGearCard extends WxWorkGenerator {
         }),
         card_action: {
           type: 1,
-          url: `${process.env.UPYUN_DOMAIN}/gear.png!sm`,
+          url: `${process.env.UPYUN_DOMAIN}/${this.key}.png!sm`,
         },
       },
     }
