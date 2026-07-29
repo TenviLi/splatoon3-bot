@@ -1,9 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import SalmonRunView from '../views/SalmonRunView.vue'
-import RegularView from '../views/RegularView.vue'
-import AnarchyOpenView from '../views/AnarchyOpenView.vue'
-import AnarchySeriesView from '../views/AnarchySeriesView.vue'
-import GearView from '../views/GearView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -11,27 +6,27 @@ const router = createRouter({
     {
       path: '/salmon-run',
       name: 'salmon-run',
-      component: SalmonRunView,
+      component: () => import('../views/SalmonRunView.vue'),
     },
     {
       path: '/regular',
       name: 'regular',
-      component: RegularView,
+      component: () => import('../views/RegularView.vue'),
     },
     {
       path: '/anarchy-open',
       name: 'anarchy-open',
-      component: AnarchyOpenView,
+      component: () => import('../views/AnarchyOpenView.vue'),
     },
     {
       path: '/anarchy-series',
       name: 'anarchy-series',
-      component: AnarchySeriesView,
+      component: () => import('../views/AnarchySeriesView.vue'),
     },
     {
       path: '/gear',
       name: 'gear',
-      component: GearView,
+      component: () => import('../views/GearView.vue'),
     },
   ],
 })

@@ -2,11 +2,18 @@
   "name": "splatoon3-bot",
   "version": "2.0.0",
   "description": "Splatoon 3 Bot",
-  "private": "true",
+  "private": true,
   "type": "module",
+  "packageManager": "pnpm@11.18.0",
+  "engines": {
+    "node": ">=24 <25",
+    "pnpm": ">=11.18.0 <12"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "check": "pnpm run check:syntax && pnpm run build",
+    "check:syntax": "find bot scripts src -type f \\( -name '*.js' -o -name '*.mjs' \\) -print0 | xargs -0 -n1 node --check",
     "preview": "vite preview --port 5050",
     "download-data": "node scripts/download_data.mjs",
     "start:schedules:old": "node bot/screenshot/old.mjs regular,anarchy-open,anarchy-series",
@@ -23,25 +30,24 @@
   "author": "tenvili",
   "license": "ISC",
   "dependencies": {
-    "@headlessui/vue": "^1.7.3",
-    "@heroicons/vue": "^2.0.12",
-    "@vue/reactivity": "^3.2.41",
-    "console-stamp": "^3.0.6",
-    "mkdirp": "^1.0.4",
-    "pinia": "^2.0.23",
-    "puppeteer": "^19.2.0",
-    "splatnet3-types": "^0.1.20221026095800",
-    "vue": "^3.2.41",
-    "vue-i18n": "^9.2.2",
-    "vue-router": "^4.1.6"
+    "@headlessui/vue": "1.7.23",
+    "@heroicons/vue": "2.2.0",
+    "@vue/devtools-api": "8.2.1",
+    "console-stamp": "3.1.2",
+    "mkdirp": "3.0.1",
+    "pinia": "4.0.2",
+    "puppeteer-core": "25.4.0",
+    "sirv": "3.0.2",
+    "vue": "3.5.40",
+    "vue-i18n": "11.4.8",
+    "vue-router": "5.2.0"
   },
   "devDependencies": {
-    "@intlify/vite-plugin-vue-i18n": "^6.0.3",
-    "@vitejs/plugin-vue": "^3.2.0",
-    "autoprefixer": "^10.4.13",
-    "ecstatic": "^4.1.4",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.1",
-    "vite": "^3.2.2"
+    "@intlify/unplugin-vue-i18n": "11.2.4",
+    "@tailwindcss/postcss": "4.3.3",
+    "@vitejs/plugin-vue": "6.0.8",
+    "postcss": "8.5.25",
+    "tailwindcss": "4.3.3",
+    "vite": "8.1.5"
   }
 }

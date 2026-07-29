@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: true
+strictPeerDependencies: true
+peerDependencyRules:
+  allowedVersions:
+    '@emnapi/core': 1.11.1
+    '@emnapi/runtime': 1.11.1
+minimumReleaseAgeExclude:
+  - postcss@8.5.25

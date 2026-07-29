@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
 import languages from '../assets/i18n/index.mjs'
-import localeCN from '../../data/locale/zh-CN.json' assert { type: 'json' }
+import localeCN from '../../data/locale/zh-CN.json' with { type: 'json' }
 
 export const locales = [
   { code: 'zh-CN', flag: '🇨🇳', name: '中文(简体)' },
@@ -19,7 +19,8 @@ let i18n = null
 export function initializeI18n() {
   if (!i18n) {
     i18n = createI18n({
-      locale: defaultLocale,
+      legacy: false,
+      locale: defaultLocale.code,
       fallbackLocale: 'zh-CN',
       messages: { ...languages },
       datetimeFormats: locales.reduce((result, locale) => ({ ...result, [locale.code]: datetimeFormats }), {}),

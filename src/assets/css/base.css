@@ -1,12 +1,27 @@
 @import url('./fonts.css');
+@import 'tailwindcss';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-splatoon-blue: #603bff;
+  --color-splatoon-purple: #af50ff;
+  --color-splatoon-yellow: #eaff3d;
+  --color-splatoon-green: #6af7ce;
+  --color-splatoon-orange: #ff9750;
+  --color-splatoon-red: #ff505e;
+  --color-splatoon-brown: #7f413f;
+  --color-splatoon-battle-regular: #19d719;
+  --color-splatoon-battle-ranked: #f54910;
+  --color-splatoon-battle-league: #f02d7d;
+  --color-splatoon-salmon-run: #ff5600;
+  --font-splatoon1: var(--font-family-s1);
+  --font-splatoon2: var(--font-family-s2);
+}
+
+@custom-variant mobile (&:where(body.is-mobile *));
+@custom-variant ss (&:where(body.for-screenshots *));
 
 body {
-  @apply text-zinc-100;
-  @apply bg-black;
+  color: var(--color-zinc-100);
   background-color: transparent;
   /* background-image: url('@/assets/img/information-bg.jpg'); */
   /* background-size: 400px; */

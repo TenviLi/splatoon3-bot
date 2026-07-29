@@ -1,0 +1,101 @@
+name: Splatoon3 Bot (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      screenshot_types:
+        description: Comma-separated screenshot types to generate
+        required: true
+        type: string
+      message_types:
+        description: Comma-separated notification types to send
+        required: true
+        type: string
+      artifact_name:
+        description: Stable name used for concurrency and artifacts
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: splatoon3-bot-${{ inputs.artifact_name }}
+  cancel-in-progress: false
+
+jobs:
+  bot:
+    name: Generate screenshots (${{ inputs.artifact_name }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Download Splatoon 3 data
+        run: pnpm run download-data
+
+      - name: Build frontend
+        run: pnpm run build
+
+      - name: Generate screenshots
+        env:
+          PUPPETEER_CHANNEL: chrome
+        run: node bot/screenshot/index.mjs '${{ inputs.screenshot_types }}'
+
+      - name: Archive screenshots
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: screenshots-${{ inputs.artifact_name }}-${{ github.run_id }}
+          path: screenshots/*.png
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Install Upyun CLI
+        env:
+          UPX_VERSION: 0.4.9
+          UPX_SHA256: 830ee3d487fd0d3dd351e0d0d113f036871499e4469ce443f3f1758c7153e878
+        run: |
+          archive="$RUNNER_TEMP/upx.tar.gz"
+          curl --fail --location --silent --show-error --retry 3 \
+            --output "$archive" \
+            "https://github.com/upyun/upx/releases/download/v${UPX_VERSION}/upx_${UPX_VERSION}_linux_amd64.tar.gz"
+          echo "${UPX_SHA256}  ${archive}" | sha256sum --check --strict
+          tar --extract --gzip --file "$archive" --directory "$RUNNER_TEMP"
+          chmod 0755 "$RUNNER_TEMP/upx"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+
+      - name: Upload screenshots to Upyun
+        env:
+          UPX_SERVICENAME: ${{ secrets.UPYUN_BUCKET }}
+          UPX_OPERATOR: ${{ secrets.UPYUN_OPERATOR }}
+          UPX_PASSWORD: ${{ secrets.UPYUN_SECRET }}
+        run: |
+          upx login "$UPX_SERVICENAME" "$UPX_OPERATOR" "$UPX_PASSWORD"
+          trap 'upx logout || true' EXIT
+          upx -q sync -w 10 ./screenshots/ /
+
+      - name: Trigger bot webhook
+        env:
+          UPYUN_DOMAIN: ${{ secrets.UPYUN_DOMAIN }}
+          SPLATOON_SCHEDULES_BOT_URL: ${{ secrets.SPLATOON_SCHEDULES_BOT_URL }}
+          SPLATOON_SALMON_RUN_BOT_URL: ${{ secrets.SPLATOON_SALMON_RUN_BOT_URL }}
+          SPLATOON_GEAR_BOT_URL: ${{ secrets.SPLATOON_GEAR_BOT_URL }}
+        run: node bot/send/index.mjs '${{ inputs.message_types }}'

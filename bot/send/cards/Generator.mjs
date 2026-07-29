@@ -5,8 +5,8 @@ import { useFestivalsDataStore, useGearDataStore, useSchedulesDataStore } from '
 import { useTimeStore } from '../../../src/stores/time.mjs'
 import prefixedConsole from '../../common/prefixedConsole.mjs'
 import { getTopOfCurrentHour } from '../../common/util.mjs'
-import zhCN from '../../../src/assets/i18n/zh-CN.json' assert { type: 'json' }
-import localeCN from '../../../data/locale/zh-CN.json' assert { type: 'json' }
+import zhCN from '../../../src/assets/i18n/zh-CN.json' with { type: 'json' }
+import localeCN from '../../../data/locale/zh-CN.json' with { type: 'json' }
 import { createI18n } from 'vue-i18n'
 
 const i18n = createI18n({

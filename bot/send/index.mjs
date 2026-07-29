@@ -11,7 +11,7 @@ import WxWorkClient from './Client.mjs'
   const SCREENSHOT_NAME = arg[0]
 
   if (!SCREENSHOT_NAME) {
-    console.error('Error: undefiend screenshot name')
+    console.error('Error: undefined screenshot name')
     process.exit(1)
   }
 
@@ -31,19 +31,19 @@ import WxWorkClient from './Client.mjs'
     switch (screenshotName) {
       case 'schedules':
         const schedulesCard = new SchedulesCard()
-        schedulesCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SCHEDULES_BOT_URL))
+        await schedulesCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SCHEDULES_BOT_URL))
         break
       case 'salmon-run':
         const salmonRunCard = new SalmonRunCard()
-        salmonRunCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SALMON_RUN_BOT_URL))
+        await salmonRunCard.sendMessage(new WxWorkClient(process.env.SPLATOON_SALMON_RUN_BOT_URL))
         break
       case 'gear-dailydrop':
         const dailyDropGearCard = new DailyDropGearCard()
-        dailyDropGearCard.sendMessage(new WxWorkClient(process.env.SPLATOON_GEAR_BOT_URL))
+        await dailyDropGearCard.sendMessage(new WxWorkClient(process.env.SPLATOON_GEAR_BOT_URL))
         break
       case 'gear-regular':
         const regularGearCard = new RegularGearCard()
-        regularGearCard.sendMessage(new WxWorkClient(process.env.SPLATOON_GEAR_BOT_URL))
+        await regularGearCard.sendMessage(new WxWorkClient(process.env.SPLATOON_GEAR_BOT_URL))
         break
     }
   }

@@ -1,5 +1,5 @@
-import http from 'http'
-import ecstatic from 'ecstatic'
+import http from 'node:http'
+import sirv from 'sirv'
 
 export default class HttpServer {
   /** @var {http.Server} */
@@ -15,16 +15,19 @@ export default class HttpServer {
         return resolve()
       }
 
-      const handler = ecstatic({ root: './dist' })
+      const handler = sirv('dist', { dev: false })
       this.#server = http.createServer(handler)
-      this.#server.on('listening', () => resolve())
-      this.#server.listen()
+      this.#server.once('error', reject)
+      this.#server.once('listening', resolve)
+      this.#server.listen(0, '127.0.0.1')
     })
   }
 
   async close() {
     if (this.#server) {
-      await this.#server.close()
+      await new Promise((resolve, reject) => {
+        this.#server.close((error) => (error ? reject(error) : resolve()))
+      })
       this.#server = null
     }
   }

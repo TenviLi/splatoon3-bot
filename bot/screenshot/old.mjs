@@ -7,7 +7,7 @@ import config from './config.mjs'
   const SCREENSHOT_NAME = arg[0]
 
   if (!SCREENSHOT_NAME) {
-    console.error('Error: undefiend screenshot name')
+    console.error('Error: undefined screenshot name')
     process.exit(1)
   }
 
@@ -19,7 +19,7 @@ import config from './config.mjs'
   console.log('puppeteer start')
 
   for (const screenshotName of screenshotNames) {
-    if (!screenshotName in config) {
+    if (!(screenshotName in config)) {
       console.error('Error: invalid screenshot name')
       process.exit(1)
     }

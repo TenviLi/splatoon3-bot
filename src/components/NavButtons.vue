@@ -13,6 +13,8 @@
 </template>
 
 <style scoped>
+@reference "../assets/css/base.css";
+
 .router-link {
   @apply text-zinc-300 px-4 py-1 bg-zinc-300 bg-opacity-20 rounded-full;
 }

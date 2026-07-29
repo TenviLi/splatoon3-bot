@@ -1,5 +1,5 @@
 <template>
-  <main class="min-h-screen flex flex-col overflow-hidden">
+  <main class="screenshot-background relative h-screen flex flex-col overflow-hidden">
     <slot />
 
     <div class="h-16"></div>
@@ -74,6 +74,14 @@ const isDev = import.meta.env.DEV
 </script>
 
 <style scoped>
+@reference "../assets/css/base.css";
+
+.screenshot-background {
+  background-image: url('../assets/img/information-bg.jpg');
+  background-position: center;
+  background-size: 400px;
+}
+
 .footer-links a span {
   @apply text-zinc-300;
 }

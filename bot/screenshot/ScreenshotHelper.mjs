@@ -1,5 +1,5 @@
 import { URL } from 'url'
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
 import HttpServer from './HttpServer.mjs'
 
 const defaultViewport = {
@@ -36,31 +36,26 @@ export default class ScreenshotHelper {
     await this.#httpServer.open()
 
     // Launch a new Chrome instance
-    this.#browser = await puppeteer.launch({
+    const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || process.env.PUPPETEER_EXEC_PATH
+    const launchOptions = {
       headless: true,
-      // headless: false, // test
       args: [
-        '--disable-gpu',
         '--disable-dev-shm-usage',
-        '--disable-setuid-sandbox',
         '--no-first-run',
-        '--no-sandbox',
-        '--no-zygote',
-        '--single-process',
       ],
-      executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
-    })
-    // https://stackoverflow.com/questions/51789038/set-localstorage-items-before-page-loads-in-puppeteer
-    this.#browser.on('targetchanged', async (target) => {
-      const targetPage = await target.page()
-      const client = await targetPage.target().createCDPSession()
-      await client.send('Runtime.evaluate', {
-        expression: `localStorage.setItem('lang', 'zh-CN')`,
-      })
-    })
+    }
+
+    if (executablePath) {
+      launchOptions.executablePath = executablePath
+    } else {
+      launchOptions.channel = process.env.PUPPETEER_CHANNEL || 'chrome'
+    }
+
+    this.#browser = await puppeteer.launch(launchOptions)
 
     // Create a new page and set the viewport
     this.#page = await this.#browser.newPage()
+    await this.#page.evaluateOnNewDocument(() => localStorage.setItem('lang', 'zh-CN'))
     await this.applyTimezone()
     await this.applyViewport()
   }
@@ -88,15 +83,12 @@ export default class ScreenshotHelper {
     await this.applyViewport(options.viewport)
 
     // Navigate to the URL
-    let url = new URL(`http://localhost:${this.#httpServer.port}/screenshots.html`)
+    const url = new URL(`http://127.0.0.1:${this.#httpServer.port}/screenshots.html`)
     url.hash = path
 
     if (this.defaultParams) {
-      // We can't use url.searchParams because they need to come after the hash
-      url.hash += '?'
-      for (let key in this.defaultParams) {
-        url.hash += `${key}=${this.defaultParams[key]}`
-      }
+      const params = new URLSearchParams(this.defaultParams)
+      url.hash += `?${params}`
     }
 
     await this.#page.goto(url, {
@@ -107,16 +99,12 @@ export default class ScreenshotHelper {
     await this.#page.waitForNetworkIdle({ idleTime: 500 })
     // await new Promise((r) => setTimeout(r, 100000000))
 
-    // Take the screenshot
-    const body = (await this.#page.$('#app')) || (await this.#page.$('body'))
-    const randData = {
-      // encoding: 'base64',
+    const screenshotOptions = {
       type: 'png',
-      // omitBackground: true,
-      // quality: 80, // 不支持 png
-      // path: '',
+      fullPage: false,
+      captureBeyondViewport: false,
     }
-    const buffer = await body.screenshot(randData)
+    const buffer = await this.#page.screenshot(screenshotOptions)
     return buffer
   }
 

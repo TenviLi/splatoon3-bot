@@ -1,42 +1,35 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import ScreenshotsHomeView from '@/views/screenshots/ScreenshotsHomeView.vue'
-import CountdownView from '@/views/screenshots/CountdownView.vue'
-import SchedulesView from '@/views/screenshots/SchedulesView.vue'
-import SalmonRunView from '@/views/screenshots/SalmonRunView.vue'
-import RegularGearView from '@/views/screenshots/RegularGearView.vue'
-import DailyDropGearView from '@/views/screenshots/DailyDropGearView.vue'
-import SplatfestView from '@/views/screenshots/SplatfestView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL + 'screenshots.html'),
   routes: [
     {
       path: '/',
-      component: ScreenshotsHomeView,
+      component: () => import('@/views/screenshots/ScreenshotsHomeView.vue'),
     },
     {
       path: '/countdown',
-      component: CountdownView,
+      component: () => import('@/views/screenshots/CountdownView.vue'),
     },
     {
       path: '/schedules',
-      component: SchedulesView,
+      component: () => import('@/views/screenshots/SchedulesView.vue'),
     },
     {
       path: '/salmon-run',
-      component: SalmonRunView,
+      component: () => import('@/views/screenshots/SalmonRunView.vue'),
     },
     {
       path: '/gear-regular',
-      component: RegularGearView,
+      component: () => import('@/views/screenshots/RegularGearView.vue'),
     },
     {
       path: '/gear-dailydrop',
-      component: DailyDropGearView,
+      component: () => import('@/views/screenshots/DailyDropGearView.vue'),
     },
     {
       path: '/splatfest',
-      component: SplatfestView,
+      component: () => import('@/views/screenshots/SplatfestView.vue'),
     },
   ],
 })

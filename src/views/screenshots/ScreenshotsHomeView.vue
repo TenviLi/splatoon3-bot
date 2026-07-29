@@ -25,6 +25,8 @@
 </template>
 
 <style scoped>
+@reference "../../assets/css/base.css";
+
 a {
   @apply underline;
 }

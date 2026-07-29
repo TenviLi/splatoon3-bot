@@ -3,7 +3,9 @@ import { fileURLToPath, URL } from 'url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueI18n from '@intlify/vite-plugin-vue-i18n'
+import vueI18n from '@intlify/unplugin-vue-i18n/vite'
+
+const rootDir = fileURLToPath(new URL('.', import.meta.url))
 
 // const redirectToDist = ['/assets/splatnet/', '/data/']
 const redirectToDist = ['/assets/splatnet/']
@@ -13,7 +15,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueI18n({
-      include: resolve(__dirname, './src/assets/i18n/**'),
+      include: resolve(rootDir, './src/assets/i18n/**'),
     }),
     {
       // Quick hack to redirect dynamic assets to the /dist/ directory
@@ -36,10 +38,11 @@ export default defineConfig({
   },
   build: {
     emptyOutDir: false,
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        screenshots: resolve(__dirname, 'screenshots.html'),
+        main: resolve(rootDir, 'index.html'),
+        screenshots: resolve(rootDir, 'screenshots.html'),
       },
     },
   },
