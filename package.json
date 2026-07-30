@@ -16,7 +16,7 @@
     "check:syntax": "find bot scripts src -type f \\( -name '*.js' -o -name '*.mjs' \\) -print0 | xargs -0 -n1 node --check",
     "verify": "node bot/verification/index.mjs",
     "test": "pnpm run test:unit && pnpm run test:visual",
-    "test:unit": "node --test tests/run-plan.test.mjs tests/run-manifest.test.mjs tests/data-snapshot.test.mjs tests/notification-channels.test.mjs tests/notification-delivery.test.mjs tests/upyun-publisher.test.mjs",
+    "test:unit": "node --test tests/run-plan.test.mjs tests/run-manifest.test.mjs tests/data-snapshot.test.mjs tests/browser-runtime.test.mjs tests/notification-channels.test.mjs tests/notification-delivery.test.mjs tests/upyun-publisher.test.mjs",
     "test:visual": "node --test tests/screenshot-visual.test.mjs",
     "test:update-golden": "node tests/generate-screenshot-goldens.mjs",
     "test:localize-fixture": "node tests/localize-fixture-assets.mjs",

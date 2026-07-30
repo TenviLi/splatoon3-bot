@@ -13,14 +13,34 @@ async function isExecutable(filename) {
   }
 }
 
-export async function resolveBrowserLaunchOptions() {
+function isCiEnvironment() {
+  return process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true'
+}
+
+function resolveBrowserArguments({ additionalArgs, runtimePlatform, ci }) {
+  const args = new Set(additionalArgs)
+
+  if (runtimePlatform === 'linux' && ci) {
+    args.add('--no-sandbox')
+    args.add('--disable-setuid-sandbox')
+  }
+
+  return [...args]
+}
+
+export async function resolveBrowserLaunchOptions({
+  additionalArgs = [],
+  runtimePlatform = process.platform,
+  ci = isCiEnvironment(),
+} = {}) {
+  const args = resolveBrowserArguments({ additionalArgs, runtimePlatform, ci })
   const explicitExecutable = process.env.PUPPETEER_EXECUTABLE_PATH || process.env.PUPPETEER_EXEC_PATH
   if (explicitExecutable) {
-    return { executablePath: explicitExecutable }
+    return { executablePath: explicitExecutable, args }
   }
 
   if (process.env.PUPPETEER_CHANNEL) {
-    return { channel: process.env.PUPPETEER_CHANNEL }
+    return { channel: process.env.PUPPETEER_CHANNEL, args }
   }
 
   const platform = detectBrowserPlatform()
@@ -46,7 +66,7 @@ export async function resolveBrowserLaunchOptions() {
     executablePath = installedBrowser.executablePath
   }
 
-  return { executablePath }
+  return { executablePath, args }
 }
 
 export function getPinnedBrowserVersion() {

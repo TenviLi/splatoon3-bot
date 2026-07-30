@@ -115,9 +115,10 @@ export async function renderScreenshotArtifacts(
   const definitions = screenshotNames.map(getScreenshotDefinition)
   const server = await startStaticServer(buildDirectory)
   const browser = await puppeteer.launch({
-    ...(await resolveBrowserLaunchOptions()),
+    ...(await resolveBrowserLaunchOptions({
+      additionalArgs: ['--disable-dev-shm-usage', '--no-first-run'],
+    })),
     headless: true,
-    args: ['--disable-dev-shm-usage', '--no-first-run'],
   })
   const artifacts = []
 

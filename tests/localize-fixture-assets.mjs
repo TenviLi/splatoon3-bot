@@ -25,9 +25,8 @@ await new Promise((resolve, reject) => {
   server.listen(0, '127.0.0.1', resolve)
 })
 const browser = await puppeteer.launch({
-  ...(await resolveBrowserLaunchOptions()),
+  ...(await resolveBrowserLaunchOptions({ additionalArgs: ['--no-first-run'] })),
   headless: true,
-  args: ['--no-first-run'],
 })
 const externalUrls = new Set()
 

@@ -11,6 +11,8 @@ The project currently provides adapters for WeCom, Discord, Telegram, QQ, Feishu
 
 Chrome does not need to be installed manually. The screenshot runtime downloads and caches the Chrome for Testing revision pinned by `puppeteer-core`. Set `PUPPETEER_EXECUTABLE_PATH`, `PUPPETEER_CHANNEL`, or `PUPPETEER_BROWSER_VERSION` only when an explicit override is required.
 
+On Linux CI, the runtime adds Chrome's `--no-sandbox` and `--disable-setuid-sandbox` flags because current GitHub-hosted Ubuntu runners restrict the user-namespace sandbox. These flags are not added to local development launches.
+
 ## Development
 
 ```sh
