@@ -113,9 +113,7 @@ test('rejects invalid direct Target arrays before delivery', async () => {
           webhookUrl: 'https://example.com/salmon-run',
         },
       ]),
-      assetBaseUrl: 'https://cdn.example.com',
-      snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
-      now: Date.parse('2026-07-29T19:00:00Z'),
+      snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'missing'),
     }),
     /No wecom Notification Targets select schedules Notifications/
   )

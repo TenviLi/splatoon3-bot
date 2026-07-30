@@ -19,18 +19,26 @@ function parseTargets(rawConfig, channel) {
   const notificationSelectionSchema = z
     .array(z.string().min(1))
     .min(1)
-    .superRefine((notifications, context) => {
-      const names = new Set()
-      for (const [index, name] of notifications.entries()) {
-        if (names.has(name)) {
-          context.addIssue({ code: 'custom', path: [index], message: `Duplicate Notification: ${name}` })
+    .superRefine((notificationIds, validationContext) => {
+      const seenNotificationIds = new Set()
+      for (const [index, notificationId] of notificationIds.entries()) {
+        if (seenNotificationIds.has(notificationId)) {
+          validationContext.addIssue({
+            code: 'custom',
+            path: [index],
+            message: `Duplicate Notification: ${notificationId}`,
+          })
         }
-        names.add(name)
+        seenNotificationIds.add(notificationId)
 
         try {
-          getNotificationDefinition(name)
+          getNotificationDefinition(notificationId)
         } catch {
-          context.addIssue({ code: 'custom', path: [index], message: `Unknown Notification: ${name}` })
+          validationContext.addIssue({
+            code: 'custom',
+            path: [index],
+            message: `Unknown Notification: ${notificationId}`,
+          })
         }
       }
     })
@@ -55,13 +63,13 @@ function parseTargets(rawConfig, channel) {
     .parse(value)
 }
 
-function selectTargetNotifications(target, notifications) {
+function selectTargetNotificationIds(target, notificationIds) {
   if (!target.notifications) {
-    return notifications
+    return notificationIds
   }
 
-  const selectedNames = new Set(target.notifications)
-  return notifications.filter((notification) => selectedNames.has(notification.id))
+  const selectedNotificationIds = new Set(target.notifications)
+  return notificationIds.filter((notificationId) => selectedNotificationIds.has(notificationId))
 }
 
 async function deliverTargetNotifications(channel, target, notifications, options) {
@@ -107,19 +115,29 @@ export async function deliverNotificationChannel({
   const plan = getRunPlan(profileName)
   const channel = getChannelAdapter(channelName)
   const targets = parseTargets(rawConfig, channel)
-  const context = await createBotContext({ snapshotDirectory, now })
-  const notifications = plan.notifications.map((name) => composeNotification(name, context, { assetBaseUrl }))
   const deliveries = targets
-    .map((target) => ({ target, notifications: selectTargetNotifications(target, notifications) }))
-    .filter(({ notifications: selectedNotifications }) => selectedNotifications.length > 0)
+    .map((target) => ({ target, notificationIds: selectTargetNotificationIds(target, plan.notifications) }))
+    .filter(({ notificationIds }) => notificationIds.length > 0)
 
   if (deliveries.length === 0) {
     throw new Error(`No ${channel.name} Notification Targets select ${plan.name} Notifications`)
   }
 
+  const context = await createBotContext({ snapshotDirectory, now })
+  const notifications = new Map(
+    plan.notifications.map((notificationId) => [
+      notificationId,
+      composeNotification(notificationId, context, { assetBaseUrl }),
+    ])
+  )
   const targetResults = await Promise.all(
-    deliveries.map(({ target, notifications: selectedNotifications }) =>
-      deliverTargetNotifications(channel, target, selectedNotifications, { fetchImpl })
+    deliveries.map(({ target, notificationIds }) =>
+      deliverTargetNotifications(
+        channel,
+        target,
+        notificationIds.map((notificationId) => notifications.get(notificationId)),
+        { fetchImpl }
+      )
     )
   )
   const results = targetResults.flat()
