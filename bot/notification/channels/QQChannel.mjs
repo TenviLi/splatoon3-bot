@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { jsonRequest } from '../HttpTransport.mjs'
-import { escapeMarkdown } from '../format.mjs'
+import { compactText, escapeMarkdown } from '../format.mjs'
 
 export const qqTargetSchema = z.object({
   name: z.string().min(1),
@@ -8,9 +8,18 @@ export const qqTargetSchema = z.object({
   clientSecret: z.string().min(1),
   targetType: z.enum(['channel', 'group', 'user']),
   targetId: z.string().min(1),
+  messageFormat: z.enum(['markdown', 'embed']).optional(),
   apiBaseUrl: z.url().optional(),
   tokenUrl: z.url().optional(),
-}).strict()
+}).strict().superRefine((target, context) => {
+  if (target.targetType !== 'channel' && target.messageFormat !== undefined) {
+    context.addIssue({
+      code: 'custom',
+      path: ['messageFormat'],
+      message: 'QQ messageFormat is only available for channel targets',
+    })
+  }
+})
 
 const tokenCache = new Map()
 
@@ -42,39 +51,88 @@ async function getAccessToken(target, options) {
 
 function createMarkdown(notification) {
   return [
-    `# ${escapeMarkdown(notification.title)}`,
-    notification.subtitle ? escapeMarkdown(notification.subtitle) : null,
-    `![${escapeMarkdown(notification.image.alt)} #675px #1200px](${notification.image.url})`,
-    ...notification.sections.map(
-      (section) => `## ${escapeMarkdown(section.title)}${section.text ? `\n${escapeMarkdown(section.text)}` : ''}`
+    `# ${escapeMarkdown(compactText(notification.title, 200))}`,
+    notification.subtitle ? escapeMarkdown(compactText(notification.subtitle, 300)) : null,
+    `![${escapeMarkdown(compactText(notification.image.alt, 180))} #1200px #675px](${notification.image.url})`,
+    ...notification.sections.slice(0, 8).map(
+      (section) =>
+        [
+          `## ${escapeMarkdown(compactText(section.title, 120))}`,
+          section.text ? escapeMarkdown(compactText(section.text, 600)) : null,
+          ...section.listItems
+            .slice(0, 8)
+            .map((item) => `- ${escapeMarkdown(compactText(item, 120))}`),
+        ]
+          .filter(Boolean)
+          .join('\n')
     ),
-    ...notification.facts.map((fact) => `- **${escapeMarkdown(fact.label)}** ${escapeMarkdown(fact.value)}`),
-    `[${escapeMarkdown(notification.action.label)}](${notification.action.url})`,
+    ...notification.facts
+      .slice(0, 12)
+      .map(
+        (fact) =>
+          `- **${escapeMarkdown(compactText(fact.label, 80))}** ${escapeMarkdown(compactText(fact.value, 240))}`
+      ),
+    `[${escapeMarkdown(compactText(notification.action.label, 80))}](${notification.action.url})`,
   ]
     .filter(Boolean)
     .join('\n\n')
 }
 
-function createEndpoint(target) {
-  const baseUrl = (target.apiBaseUrl || 'https://api.sgroup.qq.com').replace(/\/$/, '')
-  switch (target.targetType) {
-    case 'channel':
-      return `${baseUrl}/channels/${encodeURIComponent(target.targetId)}/messages`
-    case 'group':
-      return `${baseUrl}/v2/groups/${encodeURIComponent(target.targetId)}/messages`
-    case 'user':
-      return `${baseUrl}/v2/users/${encodeURIComponent(target.targetId)}/messages`
+function createChannelEmbed(notification) {
+  const fields = [
+    ...notification.sections.map((section) => ({
+      name: compactText(
+        [section.title, section.text, ...section.listItems.map((item) => `• ${item}`)]
+          .filter(Boolean)
+          .join('\n'),
+        200
+      ),
+    })),
+    ...notification.facts.map((fact) => ({
+      name: compactText(`${fact.label}\n${fact.value}`, 200),
+    })),
+  ].slice(0, 3)
+
+  return {
+    content: `${compactText(notification.action.label, 80)}: ${notification.action.url}`,
+    embed: {
+      title: compactText(notification.title, 32),
+      prompt: compactText(
+        [notification.subtitle, notification.source.name].filter(Boolean).join(' · '),
+        100
+      ),
+      thumbnail: { url: notification.image.url },
+      fields,
+    },
   }
 }
 
+const targetStrategies = Object.freeze({
+  channel: Object.freeze({
+    endpointPath: (targetId) => `/channels/${encodeURIComponent(targetId)}/messages`,
+    createPayload: (notification, target) =>
+      target.messageFormat === 'markdown'
+        ? { markdown: { content: createMarkdown(notification) } }
+        : createChannelEmbed(notification),
+  }),
+  group: Object.freeze({
+    endpointPath: (targetId) => `/v2/groups/${encodeURIComponent(targetId)}/messages`,
+    createPayload: (notification) => ({ msg_type: 2, markdown: { content: createMarkdown(notification) } }),
+  }),
+  user: Object.freeze({
+    endpointPath: (targetId) => `/v2/users/${encodeURIComponent(targetId)}/messages`,
+    createPayload: (notification) => ({ msg_type: 2, markdown: { content: createMarkdown(notification) } }),
+  }),
+})
+
 export async function deliverQQ(notification, target, options = {}) {
   const token = await getAccessToken(target, options)
-  const markdown = { content: createMarkdown(notification) }
-  const payload = target.targetType === 'channel' ? { markdown } : { msg_type: 2, markdown }
+  const strategy = targetStrategies[target.targetType]
+  const baseUrl = (target.apiBaseUrl || 'https://api.sgroup.qq.com').replace(/\/$/, '')
 
   return jsonRequest(
     {
-      url: createEndpoint(target),
+      url: `${baseUrl}${strategy.endpointPath(target.targetId)}`,
       headers: {
         Authorization: `QQBot ${token}`,
         'X-Union-Appid': target.appId,
@@ -82,6 +140,6 @@ export async function deliverQQ(notification, target, options = {}) {
       fetchImpl: options.fetchImpl,
       label: `QQ target ${target.name}`,
     },
-    payload
+    strategy.createPayload(notification, target)
   )
 }

@@ -17,7 +17,7 @@
     "verify": "node bot/verification/index.mjs",
     "verify:actions": "node scripts/verify_actions.mjs",
     "test": "pnpm run test:unit && pnpm run test:browser-ci && pnpm run test:visual",
-    "test:unit": "node --test tests/run-plan.test.mjs tests/run-manifest.test.mjs tests/data-snapshot.test.mjs tests/browser-runtime.test.mjs tests/workflow-policy.test.mjs tests/notification-channels.test.mjs tests/notification-delivery.test.mjs tests/notification-report.test.mjs tests/upyun-publisher.test.mjs",
+    "test:unit": "node --test tests/run-plan.test.mjs tests/run-manifest.test.mjs tests/data-snapshot.test.mjs tests/browser-runtime.test.mjs tests/workflow-policy.test.mjs tests/notification-channels.test.mjs tests/notification-payload-golden.test.mjs tests/notification-delivery.test.mjs tests/notification-report.test.mjs tests/upyun-publisher.test.mjs",
     "test:browser-ci": "node --test tests/browser-ci-smoke.test.mjs",
     "test:visual": "node --test tests/screenshot-visual.test.mjs",
     "test:update-golden": "node tests/generate-screenshot-goldens.mjs",

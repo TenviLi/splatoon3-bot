@@ -79,6 +79,9 @@ function composeSchedules(context, assetBaseUrl) {
 function composeSalmonRun(context, assetBaseUrl) {
   const schedule = requireValue(context.schedules.salmonRun, 'salmon run schedule')
   const hasMysteryWeapon = schedule.settings.weapons.some((weapon) => weapon.name === 'Random')
+  const weaponNames = schedule.settings.weapons.map((weapon) =>
+    context.t(`splatnet.weapons.${weapon.__splatoon3ink_id}.name`, weapon.name)
+  )
 
   return createNotification({
     id: 'salmon-run',
@@ -86,13 +89,12 @@ function composeSalmonRun(context, assetBaseUrl) {
     title: context.t(`splatnet.stages.${schedule.settings.coopStage.id}.name`, schedule.settings.coopStage.name),
     subtitle: `${context.d(schedule.startTime, 'dateTimeShortWeekday')} - ${context.d(schedule.endTime, 'dateTimeShort')}`,
     image: { url: screenshotUrl(assetBaseUrl, 'salmon-run'), alt: 'Splatoon 3 鲑鱼跑排班', aspectRatio: 1.78 },
-    sections: [{ title: hasMysteryWeapon ? '🎉 随机武器! 随机武器!' : '🐻 发放武器:' }],
-    facts: hasMysteryWeapon
-      ? []
-      : schedule.settings.weapons.map((weapon) => ({
-          label: '-',
-          value: context.t(`splatnet.weapons.${weapon.__splatoon3ink_id}.name`, weapon.name),
-        })),
+    sections: [
+      {
+        title: hasMysteryWeapon ? '🎉 随机武器! 随机武器!' : '🐻 发放武器:',
+        listItems: hasMysteryWeapon ? [] : weaponNames,
+      },
+    ],
     action: { label: '查看鲑鱼跑截图', url: screenshotUrl(assetBaseUrl, 'salmon-run') },
     accentColor: 0xf97316,
   })

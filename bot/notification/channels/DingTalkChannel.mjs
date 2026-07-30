@@ -1,12 +1,19 @@
 import crypto from 'node:crypto'
 import { z } from 'zod'
 import { jsonRequest, requireJsonSuccess } from '../HttpTransport.mjs'
+import { compactText, escapeMarkdown } from '../format.mjs'
 
 export const dingTalkTargetSchema = z.object({
   name: z.string().min(1),
   webhookUrl: z.url(),
   secret: z.string().min(1).optional(),
 }).strict()
+
+const maximumMarkdownLength = 12_000
+
+function markdownText(value, maximumLength) {
+  return escapeMarkdown(compactText(value, maximumLength))
+}
 
 function signedWebhookUrl(target) {
   const url = new URL(target.webhookUrl)
@@ -22,27 +29,64 @@ function signedWebhookUrl(target) {
   return url
 }
 
+function fitMarkdownBlocks(blocks) {
+  const includedBlocks = []
+  const overflowNotice = '> 更多内容请点击下方按钮查看'
+
+  for (const block of blocks) {
+    const candidate = [...includedBlocks, block].join('\n\n')
+    if (candidate.length <= maximumMarkdownLength) {
+      includedBlocks.push(block)
+      continue
+    }
+
+    const withOverflowNotice = [...includedBlocks, overflowNotice].join('\n\n')
+    if (withOverflowNotice.length <= maximumMarkdownLength) {
+      includedBlocks.push(overflowNotice)
+    }
+    break
+  }
+
+  return includedBlocks.join('\n\n')
+}
+
 function createMarkdown(notification) {
-  return [
-    `### ${notification.title}`,
-    notification.subtitle,
-    `> ${notification.source.name}`,
-    `![${notification.image.alt}](${notification.image.url})`,
-    ...notification.sections.map((section) => `#### ${section.title}\n${section.text || ''}`),
-    ...notification.facts.map((fact) => `- **${fact.label}** ${fact.value}`),
-  ]
-    .filter(Boolean)
-    .join('\n\n')
+  const blocks = [
+    `### ${markdownText(notification.title, 200)}`,
+    [
+      notification.subtitle ? markdownText(notification.subtitle, 300) : null,
+      `🦑 ${markdownText(notification.source.name, 160)}`,
+    ]
+      .filter(Boolean)
+      .map((line) => `> ${line}`)
+      .join('\n'),
+    `![${markdownText(notification.image.alt, 180)}](${notification.image.url})`,
+    ...notification.sections.slice(0, 8).map((section) =>
+      [
+        `#### ${markdownText(section.title, 120)}`,
+        section.text ? markdownText(section.text, 600) : null,
+        ...section.listItems.slice(0, 8).map((item) => `- ${markdownText(item, 120)}`),
+      ]
+        .filter(Boolean)
+        .join('\n')
+    ),
+    ...notification.facts
+      .slice(0, 12)
+      .map((fact) => `- **${markdownText(fact.label, 80)}** ${markdownText(fact.value, 240)}`),
+  ].filter(Boolean)
+
+  return fitMarkdownBlocks(blocks)
 }
 
 export async function deliverDingTalk(notification, target, options = {}) {
   const payload = {
     msgtype: 'actionCard',
     actionCard: {
-      title: notification.title,
+      title: compactText(notification.title, 200),
       text: createMarkdown(notification),
+      hideAvatar: '0',
       btnOrientation: '0',
-      singleTitle: notification.action.label,
+      singleTitle: compactText(`🖼️ ${notification.action.label}`, 80),
       singleURL: notification.action.url,
     },
   }

@@ -1,6 +1,7 @@
 import crypto from 'node:crypto'
 import { z } from 'zod'
 import { jsonRequest, requireJsonSuccess } from '../HttpTransport.mjs'
+import { compactText, escapeMarkdown } from '../format.mjs'
 
 export const feishuTargetSchema = z.object({
   name: z.string().min(1),
@@ -12,58 +13,114 @@ function createSignature(timestamp, secret) {
   return crypto.createHmac('sha256', `${timestamp}\n${secret}`).update('').digest('base64')
 }
 
-function textElement(content) {
-  return { tag: 'div', text: { tag: 'lark_md', content } }
+function markdownElement(content) {
+  return { tag: 'markdown', content }
+}
+
+function markdownText(value, maximumLength) {
+  return escapeMarkdown(compactText(value, maximumLength))
+}
+
+function headerTemplate(notification) {
+  const templates = {
+    schedules: 'turquoise',
+    'salmon-run': 'orange',
+    'gear-dailydrop': 'yellow',
+    'gear-regular': 'orange',
+  }
+  return templates[notification.id] || 'blue'
+}
+
+function sectionContent(section) {
+  return [
+    `**${markdownText(section.title, 120)}**`,
+    section.text ? markdownText(section.text, 600) : null,
+    ...section.listItems.slice(0, 8).map((item) => `• ${markdownText(item, 120)}`),
+  ]
+    .filter(Boolean)
+    .join('\n')
+}
+
+function factColumnSet(facts) {
+  return {
+    tag: 'column_set',
+    flex_mode: 'none',
+    columns: facts.map((fact) => ({
+      tag: 'column',
+      width: 'weighted',
+      weight: 1,
+      elements: [
+        markdownElement(`**${markdownText(fact.label, 80)}**\n${markdownText(fact.value, 240)}`),
+      ],
+    })),
+  }
 }
 
 export async function deliverFeishu(notification, target, options = {}) {
   const timestamp = Math.floor(Date.now() / 1000)
-  const elements = [
-    textElement(
-      [notification.subtitle, `*${notification.source.name}*`].filter(Boolean).join('\n')
-    ),
-    { tag: 'hr' },
-    ...notification.sections.map((section) =>
-      textElement(`**${section.title}**${section.text ? `\n${section.text}` : ''}`)
-    ),
-  ]
+  const summaryElement = markdownElement(
+    [
+      notification.subtitle ? `**${markdownText(notification.subtitle, 300)}**` : null,
+      `*🦑 ${markdownText(notification.source.name, 160)}*`,
+    ]
+      .filter(Boolean)
+      .join('\n')
+  )
+  const optionalElementGroups = notification.sections
+    .slice(0, 8)
+    .map((section) => [markdownElement(sectionContent(section))])
 
   if (notification.facts.length > 0) {
-    elements.push({
-      tag: 'div',
-      fields: notification.facts.map((fact) => ({
-        is_short: true,
-        text: { tag: 'lark_md', content: `**${fact.label}**\n${fact.value}` },
-      })),
-    })
+    const factRows = []
+    for (let index = 0; index < Math.min(notification.facts.length, 12); index += 2) {
+      factRows.push(factColumnSet(notification.facts.slice(index, index + 2)))
+    }
+    optionalElementGroups.push([
+      ...(optionalElementGroups.length > 0 ? [{ tag: 'hr' }] : []),
+      ...factRows,
+    ])
   }
 
-  elements.push(
-    { tag: 'note', elements: [{ tag: 'plain_text', content: `🖼 ${notification.image.alt}` }] },
+  const trailingElements = [
+    { tag: 'hr' },
+    markdownElement(`[🖼️ ${markdownText(notification.image.alt, 180)}](${notification.image.url})`),
     {
-      tag: 'action',
-      actions: [
-        {
-          tag: 'button',
-          type: 'primary',
-          text: { tag: 'plain_text', content: notification.action.label },
-          url: notification.action.url,
-        },
-      ],
-    }
-  )
+      tag: 'button',
+      type: 'primary',
+      width: 'fill',
+      text: { tag: 'plain_text', content: compactText(notification.action.label, 80) },
+      behaviors: [{ type: 'open_url', default_url: notification.action.url }],
+    },
+  ]
+  const cardElements = () => [
+    summaryElement,
+    ...(optionalElementGroups.length > 0 ? [{ tag: 'hr' }] : []),
+    ...optionalElementGroups.flat(),
+    ...trailingElements,
+  ]
 
   const payload = {
     ...(target.secret ? { timestamp: String(timestamp), sign: createSignature(timestamp, target.secret) } : {}),
     msg_type: 'interactive',
     card: {
+      schema: '2.0',
       config: { wide_screen_mode: true, enable_forward: true },
       header: {
-        template: 'orange',
-        title: { tag: 'plain_text', content: notification.title },
+        template: headerTemplate(notification),
+        title: { tag: 'plain_text', content: compactText(notification.title, 200) },
       },
-      elements,
+      body: {
+        direction: 'vertical',
+        elements: cardElements(),
+      },
     },
+  }
+  while (Buffer.byteLength(JSON.stringify(payload)) > 20_000 && optionalElementGroups.length > 0) {
+    optionalElementGroups.pop()
+    payload.card.body.elements = cardElements()
+  }
+  if (Buffer.byteLength(JSON.stringify(payload)) > 20_000) {
+    throw new Error(`Feishu target ${target.name} card exceeds the 20 KB custom-bot limit`)
   }
   const result = await jsonRequest(
     { url: target.webhookUrl, fetchImpl: options.fetchImpl, label: `Feishu target ${target.name}` },

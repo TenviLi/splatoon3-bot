@@ -17,6 +17,7 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 12
   const { build } = await import('vite')
   const buildDirectory = path.join(process.cwd(), '.cache', 'visual-dist')
   const outputDirectory = path.join(process.cwd(), '.cache', 'visual-current')
+  const productionOutputDirectory = path.join(process.cwd(), '.cache', 'production-media-current')
   const diffDirectory = path.join(process.cwd(), '.cache', 'visual-diff')
   const goldenDirectory = getScreenshotGoldenDirectory()
   const definitions = listScreenshotDefinitions()
@@ -58,5 +59,24 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 12
       await fs.writeFile(path.join(diffDirectory, `${artifact.name}.png`), PNG.sync.write(diff))
     }
     assert.ok(differenceRatio <= 0.001, `${artifact.name} visual difference is ${(differenceRatio * 100).toFixed(3)}%`)
+  }
+
+  const productionArtifacts = await renderScreenshotArtifacts(
+    definitions.map((definition) => definition.name),
+    {
+      buildDirectory,
+      outputDirectory: productionOutputDirectory,
+      renderTime: Date.parse('2026-07-29T19:00:00Z'),
+    }
+  )
+  for (const artifact of productionArtifacts) {
+    const imageBytes = await fs.readFile(artifact.filename)
+    const image = PNG.sync.read(imageBytes)
+    assert.ok(imageBytes.byteLength <= 10 * 1024 * 1024, `${artifact.name} exceeds Telegram's 10 MB photo limit`)
+    assert.ok(image.width + image.height <= 10_000, `${artifact.name} exceeds Telegram's dimension sum limit`)
+    assert.ok(
+      Math.max(image.width / image.height, image.height / image.width) <= 20,
+      `${artifact.name} exceeds Telegram's aspect-ratio limit`
+    )
   }
 })

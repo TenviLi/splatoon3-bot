@@ -10,18 +10,53 @@ export const telegramTargetSchema = z.object({
   disableNotification: z.boolean().optional(),
 }).strict()
 
+const maximumCaptionLength = 1024
+
+function htmlText(value, maximumLength) {
+  return escapeHtml(compactText(value, maximumLength))
+}
+
+function sectionBlock(section) {
+  const details = [
+    section.text ? htmlText(section.text, 300) : null,
+    ...section.listItems.slice(0, 8).map((item) => `• ${htmlText(item, 120)}`),
+  ].filter(Boolean)
+  return [`<b>${htmlText(section.title, 120)}</b>`, ...details].join('\n')
+}
+
+function fitCaptionBlocks(blocks) {
+  const includedBlocks = []
+  const overflowNotice = '<i>更多内容请点击下方按钮查看</i>'
+
+  for (const block of blocks) {
+    const candidate = [...includedBlocks, block].join('\n\n')
+    if (candidate.length <= maximumCaptionLength) {
+      includedBlocks.push(block)
+      continue
+    }
+
+    const withOverflowNotice = [...includedBlocks, overflowNotice].join('\n\n')
+    if (withOverflowNotice.length <= maximumCaptionLength) {
+      includedBlocks.push(overflowNotice)
+    }
+    break
+  }
+
+  return includedBlocks.join('\n\n')
+}
+
 function createCaption(notification) {
   const blocks = [
-    `<b>${escapeHtml(notification.title)}</b>`,
-    notification.subtitle ? escapeHtml(notification.subtitle) : null,
-    `<i>${escapeHtml(notification.source.name)}</i>`,
-    ...notification.sections.map(
-      (section) => `<b>${escapeHtml(section.title)}</b>${section.text ? `\n${escapeHtml(section.text)}` : ''}`
+    `<b>${htmlText(notification.title, 180)}</b>`,
+    notification.subtitle ? `<blockquote>${htmlText(notification.subtitle, 240)}</blockquote>` : null,
+    `<i>🦑 ${htmlText(notification.source.name, 160)}</i>`,
+    ...notification.facts.map(
+      (fact) => `• <b>${htmlText(fact.label, 80)}</b>\n${htmlText(fact.value, 240)}`
     ),
-    ...notification.facts.map((fact) => `<b>${escapeHtml(fact.label)}</b> ${escapeHtml(fact.value)}`),
+    ...notification.sections.map(sectionBlock),
   ].filter(Boolean)
 
-  return compactText(blocks.join('\n\n'), 1024)
+  return fitCaptionBlocks(blocks)
 }
 
 export async function deliverTelegram(notification, target, options = {}) {
@@ -34,7 +69,9 @@ export async function deliverTelegram(notification, target, options = {}) {
     disable_notification: target.disableNotification ?? false,
     ...(target.messageThreadId ? { message_thread_id: target.messageThreadId } : {}),
     reply_markup: {
-      inline_keyboard: [[{ text: notification.action.label, url: notification.action.url }]],
+      inline_keyboard: [
+        [{ text: compactText(`🖼️ ${notification.action.label}`, 64), url: notification.action.url }],
+      ],
     },
   }
   const result = await jsonRequest(

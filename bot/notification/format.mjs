@@ -24,7 +24,7 @@ export function notificationPlainText(notification) {
   return [
     notification.title,
     notification.subtitle,
-    ...notification.sections.flatMap((section) => [section.title, section.text]),
+    ...notification.sections.flatMap((section) => [section.title, section.text, ...section.listItems]),
     ...notification.facts.map((fact) => `${fact.label} ${fact.value}`),
     notification.action.url,
   ]

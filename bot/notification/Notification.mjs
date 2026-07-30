@@ -3,6 +3,7 @@ import { z } from 'zod'
 const textBlockSchema = z.object({
   title: z.string().min(1),
   text: z.string().optional(),
+  listItems: z.array(z.string().min(1)).default([]),
 })
 const factSchema = z.object({
   label: z.string().min(1),

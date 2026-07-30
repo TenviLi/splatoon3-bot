@@ -7,6 +7,9 @@ export const wecomTargetSchema = z.object({
 }).strict()
 
 export async function deliverWeCom(notification, target, options = {}) {
+  const sectionItems = notification.sections.flatMap((section) =>
+    section.listItems.map((item) => ({ keyname: '-', value: item }))
+  )
   const payload = {
     msgtype: 'template_card',
     template_card: {
@@ -28,10 +31,10 @@ export async function deliverWeCom(notification, target, options = {}) {
         title: section.title,
         ...(section.text ? { desc: section.text } : {}),
       })),
-      horizontal_content_list: notification.facts.slice(0, 6).map((fact) => ({
-        keyname: fact.label,
-        value: fact.value,
-      })),
+      horizontal_content_list: [
+        ...sectionItems,
+        ...notification.facts.map((fact) => ({ keyname: fact.label, value: fact.value })),
+      ].slice(0, 6),
       card_action: {
         type: 1,
         url: notification.action.url,

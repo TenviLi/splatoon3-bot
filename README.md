@@ -3,6 +3,7 @@
 Splatoon 3 automation that turns one validated Data Snapshot into deterministic Screenshot Artifacts, publishes the selected PNG files to Upyun, and delivers platform-specific rich notifications.
 
 The project currently provides adapters for WeCom, Discord, Telegram, QQ, Feishu, and DingTalk. Domain terminology is defined in [CONTEXT.md](./CONTEXT.md).
+The platform capability audit and native presentation decisions are documented in [docs/notification-platform-capabilities.md](./docs/notification-platform-capabilities.md).
 
 ## Requirements
 
@@ -124,7 +125,7 @@ The optional `notifications` array routes only the selected Notification IDs to 
 
 ### Discord
 
-`username` and `avatarUrl` are optional webhook presentation overrides.
+`username` and `avatarUrl` are optional webhook presentation overrides. The notification uses one image-rich Embed; its title is the primary clickable action, avoiding a dependency on webhook component permissions.
 
 ```json
 [
@@ -139,7 +140,7 @@ The optional `notifications` array routes only the selected Notification IDs to 
 
 ### Telegram
 
-`chatId` accepts a string or integer. `messageThreadId` and `disableNotification` are optional.
+`chatId` accepts a string or integer. `messageThreadId` and `disableNotification` are optional. The adapter uses a photo-first layout, entity-safe HTML budgeting, and one URL-only inline button.
 
 ```json
 [
@@ -155,7 +156,7 @@ The optional `notifications` array routes only the selected Notification IDs to 
 
 ### QQ
 
-The adapter uses the official QQ Bot access-token flow. `targetType` is `channel`, `group`, or `user`. `apiBaseUrl` and `tokenUrl` are optional test or proxy overrides.
+The adapter uses the official QQ Bot access-token flow. `targetType` is `channel`, `group`, or `user`. Group and user targets use custom Markdown. Channel targets default to the broadly available Embed format; set `messageFormat` to `markdown` only when that bot has QQ's channel custom-Markdown capability. `apiBaseUrl` and `tokenUrl` are optional test or proxy overrides.
 
 ```json
 [
@@ -165,13 +166,21 @@ The adapter uses the official QQ Bot access-token flow. `targetType` is `channel
     "clientSecret": "...",
     "targetType": "group",
     "targetId": "GROUP_OPENID"
+  },
+  {
+    "name": "official-channel-with-markdown-access",
+    "appId": "102...",
+    "clientSecret": "...",
+    "targetType": "channel",
+    "targetId": "CHANNEL_ID",
+    "messageFormat": "markdown"
   }
 ]
 ```
 
 ### Feishu
 
-`secret` is optional and enables signed custom-bot requests.
+`secret` is optional and enables signed custom-bot requests. The webhook-only adapter uses Card Schema 2.0 and an `open_url` button. Public screenshot URLs remain links because inline card images require an app-authenticated `image_key`.
 
 ```json
 [
@@ -185,7 +194,7 @@ The adapter uses the official QQ Bot access-token flow. `targetType` is `channel
 
 ### DingTalk
 
-`secret` is optional and enables signed custom-robot requests.
+`secret` is optional and enables signed custom-robot requests. Each notification uses an ActionCard with the screenshot in Markdown and a URL-only primary action.
 
 ```json
 [
