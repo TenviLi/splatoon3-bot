@@ -13,11 +13,6 @@ on:
           - salmon-run
           - gear
           - salmon-run-and-gear
-      notification_channels:
-        description: Optional comma-separated Notification Channels
-        required: false
-        type: string
-
 permissions:
   contents: read
 
@@ -26,11 +21,11 @@ jobs:
     uses: ./.github/workflows/bot-reusable.yml
     with:
       profile: ${{ inputs.profile }}
-      notification_channels: ${{ inputs.notification_channels }}
     secrets:
       UPYUN_BUCKET: ${{ secrets.UPYUN_BUCKET }}
       UPYUN_OPERATOR: ${{ secrets.UPYUN_OPERATOR }}
       UPYUN_SECRET: ${{ secrets.UPYUN_SECRET }}
+      UPYUN_DOMAIN: ${{ secrets.UPYUN_DOMAIN }}
       BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
       BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
       BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}

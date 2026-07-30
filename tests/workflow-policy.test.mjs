@@ -36,3 +36,20 @@ test('workflows never compute secret names dynamically', async () => {
     assert.doesNotMatch(source, /secrets\s*\[/, filename)
   }
 })
+
+test('notification adapters share the publish job and are enabled by configured Secrets', async () => {
+  const reusableWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-reusable.yml'), 'utf8')
+  const allWorkflows = (await readWorkflows()).map(({ source }) => source).join('\n')
+
+  assert.doesNotMatch(allWorkflows, /BOT_NOTIFICATION_CHANNELS|notification_channels/)
+  assert.doesNotMatch(reusableWorkflow, /^\s+notify-[^:]+:/gm)
+  assert.doesNotMatch(reusableWorkflow, /bot-notify\.yml|strategy:\s*\n\s+matrix:/)
+  assert.doesNotMatch(allWorkflows, /vars\.UPYUN_DOMAIN/)
+  assert.match(reusableWorkflow, /UPYUN_DOMAIN: \$\{\{ secrets\.UPYUN_DOMAIN \}\}/)
+  assert.equal(reusableWorkflow.match(/Install production dependencies/g)?.length, 1)
+
+  for (const channel of ['WECOM', 'DISCORD', 'TELEGRAM', 'QQ', 'FEISHU', 'DINGTALK']) {
+    const secretReference = `BOT_${channel}_CONFIG: ` + '${{ secrets.BOT_' + channel + '_CONFIG }}'
+    assert.ok(reusableWorkflow.includes(secretReference), secretReference)
+  }
+})

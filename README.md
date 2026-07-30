@@ -28,10 +28,10 @@ Useful commands:
 | --- | --- |
 | `pnpm run dev` | Start the Vite development server. |
 | `pnpm run download-data` | Download and atomically publish one validated Data Snapshot. |
-| `pnpm run bot:describe <profile> [channels]` | Resolve a Run Profile and enabled Notification Channels. |
+| `pnpm run bot:describe <profile>` | Resolve a Run Profile and its Screenshot and Notification selections. |
 | `pnpm run bot:prepare <profile>` | Download data, build, render screenshots, and write the Run Manifest. |
 | `pnpm run bot:publish <profile>` | Verify the Run Manifest and PNG hashes, then publish only selected screenshots. |
-| `pnpm run bot:notify <profile> <channel>` | Deliver one Channel using `BOT_CHANNEL_CONFIG`. |
+| `pnpm run bot:notify <profile> [channel]` | Deliver every configured Channel, or one explicitly selected Channel. |
 | `pnpm run test:unit` | Run Run Plan, Data Snapshot, adapter, delivery, Manifest, and publisher tests. |
 | `pnpm run test:browser-ci` | Force Linux CI launch arguments and verify that Chrome starts successfully. |
 | `pnpm run test:visual` | Compare deterministic local screenshots with committed golden PNGs. |
@@ -40,7 +40,7 @@ Useful commands:
 
 ## Run Profiles
 
-YAML selects only a Run Profile. Screenshot names, routes, dimensions, output filenames, notification ordering, and Channel names are owned by `bot/run/RunPlan.mjs`. Workflow jobs map each Channel to exactly one explicit GitHub Secret.
+YAML selects only a Run Profile. Screenshot names, routes, dimensions, output filenames, and notification ordering are owned by `bot/run/RunPlan.mjs`; the Channel adapter registry owns platform names and their explicit GitHub Secret mappings.
 
 | Run Profile | Screenshot Artifacts | Notifications |
 | --- | --- | --- |
@@ -53,37 +53,27 @@ Production Screenshot Definitions use a `1200×675` viewport at `2x` device scal
 
 ## GitHub Actions
 
-Scheduled and manual entry workflows call `.github/workflows/bot-reusable.yml`. A Bot Run has three ordered stages:
+Scheduled and manual entry workflows call `.github/workflows/bot-reusable.yml`. A Bot Run has two ordered stages:
 
 1. `prepare` downloads one complete Data Snapshot, builds the screenshot frontend, validates render structure, creates the selected Screenshot Artifacts, and archives the Bot Run for seven days.
-2. `publish` downloads the archive, validates the Run Manifest plus every selected PNG byte count and SHA-256 digest, stages only those PNG files, and syncs them to Upyun.
-3. Six conditional adapter jobs independently notify enabled Channels after publication succeeds. Each job receives only its platform-specific Secret, and enabled adapters run in parallel.
+2. `publish` downloads the archive once, validates and syncs the selected PNG files to Upyun, then automatically discovers configured `BOT_*_CONFIG` Secrets and runs those Channel adapters in parallel from the same Node.js process.
 
 Official GitHub Actions are pinned to immutable commit SHAs. CI runs `pnpm run verify` for pushes to `main`, pull requests, and manual verification runs.
 
 For a full local runner check on macOS, install and start OrbStack, install `act`, then run `pnpm run verify:actions`. The command builds the pinned `.github/act/Dockerfile` runner with Chrome's Linux runtime libraries, executes the workflow as `linux/amd64`, and reuses the local image on later runs.
 
-The `publish` and `notify` jobs use the `production` GitHub Environment. Configure its deployment-branch policy and optional required reviewers to prevent untrusted refs from using production credentials.
+The `publish` job uses the `production` GitHub Environment. Configure its deployment-branch policy and optional required reviewers to prevent untrusted refs from using production credentials.
 
 The scheduled entry points are:
 
 - `bot-schedules.yml`: `schedules` every two hours.
 - `bot-salmon-run.yml`: `salmon-run-and-gear` at `02:00` and `10:00` UTC.
-- `bot-manual.yml`: manually selects any Run Profile and optionally overrides enabled Channels.
+- `bot-manual.yml`: manually selects any Run Profile and notifies every configured Channel.
 - `notification-smoke.yml`: manually runs the complete prepare, publish, and notify flow for one Channel; it is not side-effect free.
 
 ## Repository Configuration
 
 Configure these under **Settings → Secrets and variables → Actions**.
-
-### Variables
-
-| Repository Variable | Description |
-| --- | --- |
-| `BOT_NOTIFICATION_CHANNELS` | Comma-separated enabled Channels, for example `wecom,discord,telegram`. Values are normalized, deduplicated, and default to `wecom`. |
-| `UPYUN_DOMAIN` | Public asset origin used in notification images and links, for example `https://splatoon.example.com`. |
-
-The manual workflow input `notification_channels` takes precedence over `BOT_NOTIFICATION_CHANNELS`.
 
 ### Secrets
 
@@ -92,6 +82,7 @@ The manual workflow input `notification_channels` takes precedence over `BOT_NOT
 | `UPYUN_BUCKET` | Upyun service name. |
 | `UPYUN_OPERATOR` | Upyun operator. |
 | `UPYUN_SECRET` | Upyun operator password. |
+| `UPYUN_DOMAIN` | Public asset origin used in notification images and links, for example `https://splatoon.example.com`. |
 | `BOT_WECOM_CONFIG` | WeCom Target array. |
 | `BOT_DISCORD_CONFIG` | Discord Target array. |
 | `BOT_TELEGRAM_CONFIG` | Telegram Target array. |
@@ -99,13 +90,13 @@ The manual workflow input `notification_channels` takes precedence over `BOT_NOT
 | `BOT_FEISHU_CONFIG` | Feishu Target array. |
 | `BOT_DINGTALK_CONFIG` | DingTalk Target array. |
 
-Only Secrets for enabled Channels are required. `BOT_CHANNEL_CONFIG` is an internal workflow environment variable and should not be created in repository settings.
+Each configured `BOT_*_CONFIG` Secret automatically enables its Channel adapter. An absent or empty Secret disables that adapter, so `BOT_NOTIFICATION_CHANNELS` and `BOT_CHANNEL_CONFIG` are not used. `UPYUN_DOMAIN` is required when at least one notification Channel is configured.
 
 ## Notification Targets
 
 Every Channel Secret must contain a direct, non-empty JSON array of Target objects. Target `name` values must be unique within one Channel. Schemas are strict, so unknown fields fail configuration validation instead of being silently ignored.
 
-Multiple Targets in one Channel run in parallel. Notifications for the same Target run in Run Profile order.
+Configured Channels and multiple Targets within each Channel run in parallel. Notifications for the same Target run in Run Profile order. GitHub Actions publishes assets and delivers every configured Channel in one Job, so dependencies and the archived Bot Run are loaded only once.
 
 The optional `notifications` array routes only the selected Notification IDs to a Target. Omit it to send every Notification in the active Run Profile. Valid IDs are `schedules`, `salmon-run`, `gear-dailydrop`, and `gear-regular`; a Bot Run fails when none of its Notifications match any configured Target.
 
@@ -209,12 +200,12 @@ The adapter uses the official QQ Bot access-token flow. `targetType` is `channel
 ## Failure Semantics
 
 - The six Data Snapshot resources download concurrently with retries and timeouts, validate before publication, and replace the previous snapshot atomically. Invalid or partial data never replaces a valid snapshot.
-- Archived Data Snapshots verify their recorded byte counts and SHA-256 digests when loaded by notification jobs.
+- Archived Data Snapshots verify their recorded byte counts and SHA-256 digests when loaded for notification delivery.
 - Screenshot capture waits for the application readiness seam, loaded fonts and images, exact viewport geometry, footer position, and zero overflow before writing an artifact atomically.
 - Publication verifies the Run Profile, ordered artifact set, stable filenames, byte counts, and SHA-256 digests. `run-manifest.json` and unrelated files are never uploaded to Upyun.
-- Channel adapter jobs are independent, so one platform failure does not cancel other platforms or expose another platform's Secret.
-- Targets inside a Channel run in parallel. Successful deliveries remain successful when another Target fails; all results are retained and failures are raised together as an `AggregateError`.
-- The final summary marks the Bot Run failed if prepare, publish, or any notification job failed.
+- Configured Channel adapters run concurrently inside one process, so one platform failure does not cancel another platform that is already running.
+- Targets inside a Channel also run in parallel. Successful deliveries remain successful when another Channel or Target fails; all results are retained and failures are raised together as an `AggregateError`.
+- The notification step writes a per-Channel summary and fails the `publish` job only after every configured Channel has completed.
 
 ## Screenshot Fixtures
 

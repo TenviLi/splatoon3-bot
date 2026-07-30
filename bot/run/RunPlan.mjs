@@ -59,15 +59,6 @@ const runProfiles = Object.freeze({
   }),
 })
 
-const notificationChannels = Object.freeze({
-  wecom: Object.freeze({ name: 'wecom' }),
-  discord: Object.freeze({ name: 'discord' }),
-  telegram: Object.freeze({ name: 'telegram' }),
-  qq: Object.freeze({ name: 'qq' }),
-  feishu: Object.freeze({ name: 'feishu' }),
-  dingtalk: Object.freeze({ name: 'dingtalk' }),
-})
-
 function requireEntry(catalog, name, label) {
   const entry = catalog[name]
 
@@ -90,28 +81,10 @@ export function getNotificationDefinition(name) {
   return requireEntry(notificationDefinitions, name, 'notification')
 }
 
-export function getNotificationChannel(name) {
-  return requireEntry(notificationChannels, name, 'notification channel')
-}
-
 export function listRunProfiles() {
   return Object.values(runProfiles)
 }
 
 export function listScreenshotDefinitions() {
   return Object.values(screenshotDefinitions)
-}
-
-export function listNotificationChannels() {
-  return Object.values(notificationChannels)
-}
-
-export function selectNotificationChannels(value = 'wecom') {
-  const names = [...new Set(String(value || 'wecom').split(',').map((name) => name.trim().toLowerCase()).filter(Boolean))]
-
-  if (names.length === 0) {
-    throw new Error('At least one notification channel must be enabled')
-  }
-
-  return names.map(getNotificationChannel)
 }

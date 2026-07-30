@@ -1,20 +1,18 @@
 import fs from 'node:fs/promises'
-import { getRunPlan, selectNotificationChannels } from './RunPlan.mjs'
+import { getRunPlan } from './RunPlan.mjs'
 
-const [profileName, configuredChannels = process.env.BOT_NOTIFICATION_CHANNELS || 'wecom'] = process.argv.slice(2)
+const [profileName] = process.argv.slice(2)
 
 if (!profileName) {
-  throw new Error('Usage: node bot/run/describe.mjs <profile> [channels]')
+  throw new Error('Usage: node bot/run/describe.mjs <profile>')
 }
 
 const plan = getRunPlan(profileName)
-const channels = selectNotificationChannels(configuredChannels)
 const description = {
   profile: plan.name,
   artifactName: plan.artifactName,
   screenshots: plan.screenshots,
   notifications: plan.notifications,
-  notificationChannels: channels.map(({ name }) => name),
 }
 
 if (process.env.GITHUB_OUTPUT) {
@@ -23,7 +21,6 @@ if (process.env.GITHUB_OUTPUT) {
     `artifact_name=${description.artifactName}`,
     `screenshots=${description.screenshots.join(',')}`,
     `notifications=${description.notifications.join(',')}`,
-    `notification_channels=${JSON.stringify(description.notificationChannels)}`,
   ]
 
   await fs.appendFile(process.env.GITHUB_OUTPUT, `${outputs.join('\n')}\n`)

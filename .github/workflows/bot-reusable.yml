@@ -7,8 +7,8 @@ on:
         description: Run Profile to execute
         required: true
         type: string
-      notification_channels:
-        description: Optional comma-separated Notification Channels
+      notification_channel:
+        description: Optional single Notification Channel for smoke testing
         required: false
         default: ''
         type: string
@@ -19,6 +19,8 @@ on:
         required: true
       UPYUN_SECRET:
         required: true
+      UPYUN_DOMAIN:
+        required: false
       BOT_WECOM_CONFIG:
         required: false
       BOT_DISCORD_CONFIG:
@@ -46,7 +48,6 @@ jobs:
     timeout-minutes: 20
     outputs:
       artifact_name: ${{ steps.plan.outputs.artifact_name }}
-      notification_channels: ${{ steps.plan.outputs.notification_channels }}
       profile: ${{ steps.plan.outputs.profile }}
     env:
       TZ: Asia/Shanghai
@@ -79,8 +80,7 @@ jobs:
         id: plan
         env:
           PROFILE: ${{ inputs.profile }}
-          CHANNELS: ${{ inputs.notification_channels || vars.BOT_NOTIFICATION_CHANNELS || 'wecom' }}
-        run: node bot/run/describe.mjs "$PROFILE" "$CHANNELS"
+        run: node bot/run/describe.mjs "$PROFILE"
 
       - name: Prepare Data Snapshot and screenshot artifacts
         env:
@@ -101,7 +101,7 @@ jobs:
           retention-days: 7
 
   publish:
-    name: Publish screenshot artifacts
+    name: Publish and notify
     needs: prepare
     runs-on: ubuntu-24.04
     environment: production
@@ -153,142 +153,15 @@ jobs:
           UPX_PASSWORD: ${{ secrets.UPYUN_SECRET }}
         run: node bot/publish/index.mjs "$PROFILE"
 
-  notify-wecom:
-    name: Notify WeCom
-    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'wecom') }}
-    needs:
-      - prepare
-      - publish
-    uses: ./.github/workflows/bot-notify.yml
-    with:
-      profile: ${{ needs.prepare.outputs.profile }}
-      channel: wecom
-      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
-    secrets:
-      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
-
-  notify-discord:
-    name: Notify Discord
-    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'discord') }}
-    needs:
-      - prepare
-      - publish
-    uses: ./.github/workflows/bot-notify.yml
-    with:
-      profile: ${{ needs.prepare.outputs.profile }}
-      channel: discord
-      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
-    secrets:
-      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
-
-  notify-telegram:
-    name: Notify Telegram
-    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'telegram') }}
-    needs:
-      - prepare
-      - publish
-    uses: ./.github/workflows/bot-notify.yml
-    with:
-      profile: ${{ needs.prepare.outputs.profile }}
-      channel: telegram
-      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
-    secrets:
-      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}
-
-  notify-qq:
-    name: Notify QQ
-    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'qq') }}
-    needs:
-      - prepare
-      - publish
-    uses: ./.github/workflows/bot-notify.yml
-    with:
-      profile: ${{ needs.prepare.outputs.profile }}
-      channel: qq
-      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
-    secrets:
-      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_QQ_CONFIG }}
-
-  notify-feishu:
-    name: Notify Feishu
-    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'feishu') }}
-    needs:
-      - prepare
-      - publish
-    uses: ./.github/workflows/bot-notify.yml
-    with:
-      profile: ${{ needs.prepare.outputs.profile }}
-      channel: feishu
-      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
-    secrets:
-      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_FEISHU_CONFIG }}
-
-  notify-dingtalk:
-    name: Notify DingTalk
-    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'dingtalk') }}
-    needs:
-      - prepare
-      - publish
-    uses: ./.github/workflows/bot-notify.yml
-    with:
-      profile: ${{ needs.prepare.outputs.profile }}
-      channel: dingtalk
-      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
-    secrets:
-      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_DINGTALK_CONFIG }}
-
-  notification-summary:
-    name: Notification summary
-    if: ${{ always() }}
-    needs:
-      - prepare
-      - publish
-      - notify-wecom
-      - notify-discord
-      - notify-telegram
-      - notify-qq
-      - notify-feishu
-      - notify-dingtalk
-    runs-on: ubuntu-24.04
-    timeout-minutes: 1
-    steps:
-      - name: Summarize Bot Run
+      - name: Deliver configured notifications
         env:
-          PREPARE_RESULT: ${{ needs.prepare.result }}
-          PUBLISH_RESULT: ${{ needs.publish.result }}
-          NOTIFICATION_CHANNELS: ${{ needs.prepare.outputs.notification_channels }}
-          WECOM_RESULT: ${{ needs.notify-wecom.result }}
-          DISCORD_RESULT: ${{ needs.notify-discord.result }}
-          TELEGRAM_RESULT: ${{ needs.notify-telegram.result }}
-          QQ_RESULT: ${{ needs.notify-qq.result }}
-          FEISHU_RESULT: ${{ needs.notify-feishu.result }}
-          DINGTALK_RESULT: ${{ needs.notify-dingtalk.result }}
-        run: |
-          failed=0
-          summarize_channel() {
-            channel="$1"
-            result="$2"
-            if [[ "$NOTIFICATION_CHANNELS" == *"\"${channel}\""* ]]; then
-              echo "- notify ${channel}: ${result}"
-              if [ "$result" != success ]; then
-                failed=1
-              fi
-            fi
-          }
-
-          {
-            echo '## Splatoon3 Bot Run'
-            echo "- prepare: ${PREPARE_RESULT}"
-            echo "- publish: ${PUBLISH_RESULT}"
-            summarize_channel wecom "$WECOM_RESULT"
-            summarize_channel discord "$DISCORD_RESULT"
-            summarize_channel telegram "$TELEGRAM_RESULT"
-            summarize_channel qq "$QQ_RESULT"
-            summarize_channel feishu "$FEISHU_RESULT"
-            summarize_channel dingtalk "$DINGTALK_RESULT"
-          } >> "$GITHUB_STEP_SUMMARY"
-
-          if [ "$PREPARE_RESULT" != success ] || [ "$PUBLISH_RESULT" != success ]; then
-            failed=1
-          fi
-          exit "$failed"
+          PROFILE: ${{ needs.prepare.outputs.profile }}
+          CHANNEL: ${{ inputs.notification_channel }}
+          UPYUN_DOMAIN: ${{ secrets.UPYUN_DOMAIN }}
+          BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
+          BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
+          BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}
+          BOT_QQ_CONFIG: ${{ secrets.BOT_QQ_CONFIG }}
+          BOT_FEISHU_CONFIG: ${{ secrets.BOT_FEISHU_CONFIG }}
+          BOT_DINGTALK_CONFIG: ${{ secrets.BOT_DINGTALK_CONFIG }}
+        run: node bot/notification/index.mjs "$PROFILE" "$CHANNEL"

@@ -6,12 +6,42 @@ import { deliverTelegram, telegramTargetSchema } from './TelegramChannel.mjs'
 import { deliverWeCom, wecomTargetSchema } from './WeComChannel.mjs'
 
 const channels = Object.freeze({
-  wecom: Object.freeze({ name: 'wecom', targetSchema: wecomTargetSchema, deliver: deliverWeCom }),
-  discord: Object.freeze({ name: 'discord', targetSchema: discordTargetSchema, deliver: deliverDiscord }),
-  telegram: Object.freeze({ name: 'telegram', targetSchema: telegramTargetSchema, deliver: deliverTelegram }),
-  qq: Object.freeze({ name: 'qq', targetSchema: qqTargetSchema, deliver: deliverQQ }),
-  feishu: Object.freeze({ name: 'feishu', targetSchema: feishuTargetSchema, deliver: deliverFeishu }),
-  dingtalk: Object.freeze({ name: 'dingtalk', targetSchema: dingTalkTargetSchema, deliver: deliverDingTalk }),
+  wecom: Object.freeze({
+    name: 'wecom',
+    configurationEnvironmentVariable: 'BOT_WECOM_CONFIG',
+    targetSchema: wecomTargetSchema,
+    deliver: deliverWeCom,
+  }),
+  discord: Object.freeze({
+    name: 'discord',
+    configurationEnvironmentVariable: 'BOT_DISCORD_CONFIG',
+    targetSchema: discordTargetSchema,
+    deliver: deliverDiscord,
+  }),
+  telegram: Object.freeze({
+    name: 'telegram',
+    configurationEnvironmentVariable: 'BOT_TELEGRAM_CONFIG',
+    targetSchema: telegramTargetSchema,
+    deliver: deliverTelegram,
+  }),
+  qq: Object.freeze({
+    name: 'qq',
+    configurationEnvironmentVariable: 'BOT_QQ_CONFIG',
+    targetSchema: qqTargetSchema,
+    deliver: deliverQQ,
+  }),
+  feishu: Object.freeze({
+    name: 'feishu',
+    configurationEnvironmentVariable: 'BOT_FEISHU_CONFIG',
+    targetSchema: feishuTargetSchema,
+    deliver: deliverFeishu,
+  }),
+  dingtalk: Object.freeze({
+    name: 'dingtalk',
+    configurationEnvironmentVariable: 'BOT_DINGTALK_CONFIG',
+    targetSchema: dingTalkTargetSchema,
+    deliver: deliverDingTalk,
+  }),
 })
 
 export function getChannelAdapter(name) {
@@ -21,4 +51,19 @@ export function getChannelAdapter(name) {
   }
 
   return channel
+}
+
+export function resolveConfiguredNotificationChannels({ environment = process.env, channelName } = {}) {
+  const selectedChannels = channelName ? [getChannelAdapter(channelName)] : Object.values(channels)
+  const configuredChannels = selectedChannels.flatMap((channel) => {
+    const rawConfig = String(environment[channel.configurationEnvironmentVariable] || '').trim()
+    return rawConfig ? [{ channel, rawConfig }] : []
+  })
+
+  if (channelName && configuredChannels.length === 0) {
+    const channel = selectedChannels[0]
+    throw new Error(`${channel.configurationEnvironmentVariable} is required for ${channel.name}`)
+  }
+
+  return configuredChannels
 }

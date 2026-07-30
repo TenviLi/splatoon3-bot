@@ -7,6 +7,7 @@ import { deliverFeishu } from '../bot/notification/channels/FeishuChannel.mjs'
 import { deliverQQ } from '../bot/notification/channels/QQChannel.mjs'
 import { deliverTelegram } from '../bot/notification/channels/TelegramChannel.mjs'
 import { deliverWeCom } from '../bot/notification/channels/WeComChannel.mjs'
+import { resolveConfiguredNotificationChannels } from '../bot/notification/channels/index.mjs'
 
 const notification = createNotification({
   id: 'schedules',
@@ -127,5 +128,34 @@ test('platform business errors reject delivery', async () => {
       fetchImpl: async () => response({ errcode: 93000, errmsg: 'invalid webhook' }),
     }),
     /rejected the notification/
+  )
+})
+
+test('maps every Channel adapter to its explicit configuration Secret', () => {
+  const channelSecrets = [
+    ['wecom', 'BOT_WECOM_CONFIG'],
+    ['discord', 'BOT_DISCORD_CONFIG'],
+    ['telegram', 'BOT_TELEGRAM_CONFIG'],
+    ['qq', 'BOT_QQ_CONFIG'],
+    ['feishu', 'BOT_FEISHU_CONFIG'],
+    ['dingtalk', 'BOT_DINGTALK_CONFIG'],
+  ]
+
+  for (const [channelName, secretName] of channelSecrets) {
+    const rawConfig = `configuration-for-${channelName}`
+    const configuredChannels = resolveConfiguredNotificationChannels({
+      environment: { [secretName]: rawConfig },
+    })
+
+    assert.equal(configuredChannels.length, 1)
+    assert.equal(configuredChannels[0].channel.name, channelName)
+    assert.equal(configuredChannels[0].channel.configurationEnvironmentVariable, secretName)
+    assert.equal(configuredChannels[0].rawConfig, rawConfig)
+  }
+
+  assert.deepEqual(resolveConfiguredNotificationChannels({ environment: { BOT_WECOM_CONFIG: '   ' } }), [])
+  assert.throws(
+    () => resolveConfiguredNotificationChannels({ environment: {}, channelName: 'unknown' }),
+    /Unknown notification channel/
   )
 })

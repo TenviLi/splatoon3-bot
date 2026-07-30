@@ -2,11 +2,11 @@ import { z } from 'zod'
 import { getNotificationDefinition, getRunPlan } from '../run/RunPlan.mjs'
 import { createBotContext } from './BotContext.mjs'
 import { composeNotification } from './NotificationComposer.mjs'
-import { getChannelAdapter } from './channels/index.mjs'
+import { getChannelAdapter, resolveConfiguredNotificationChannels } from './channels/index.mjs'
 
 function parseTargets(rawConfig, channel) {
   if (!rawConfig) {
-    throw new Error(`BOT_CHANNEL_CONFIG is required for ${channel.name}`)
+    throw new Error(`${channel.configurationEnvironmentVariable} is required for ${channel.name}`)
   }
 
   let value
@@ -103,17 +103,7 @@ async function deliverTargetNotifications(channel, target, notifications, option
   return results
 }
 
-export async function deliverNotificationChannel({
-  profileName,
-  channelName,
-  rawConfig = process.env.BOT_CHANNEL_CONFIG,
-  assetBaseUrl = process.env.UPYUN_DOMAIN,
-  snapshotDirectory,
-  now = Date.now(),
-  fetchImpl = fetch,
-}) {
-  const plan = getRunPlan(profileName)
-  const channel = getChannelAdapter(channelName)
+function prepareNotificationChannel(plan, channel, rawConfig) {
   const targets = parseTargets(rawConfig, channel)
   const deliveries = targets
     .map((target) => ({ target, notificationIds: selectTargetNotificationIds(target, plan.notifications) }))
@@ -123,13 +113,21 @@ export async function deliverNotificationChannel({
     throw new Error(`No ${channel.name} Notification Targets select ${plan.name} Notifications`)
   }
 
+  return Object.freeze({ channel, deliveries: Object.freeze(deliveries) })
+}
+
+async function composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now }) {
   const context = await createBotContext({ snapshotDirectory, now })
-  const notifications = new Map(
+  return new Map(
     plan.notifications.map((notificationId) => [
       notificationId,
       composeNotification(notificationId, context, { assetBaseUrl }),
     ])
   )
+}
+
+async function deliverPreparedNotificationChannel(preparedChannel, notifications, fetchImpl) {
+  const { channel, deliveries } = preparedChannel
   const targetResults = await Promise.all(
     deliveries.map(({ target, notificationIds }) =>
       deliverTargetNotifications(
@@ -153,4 +151,92 @@ export async function deliverNotificationChannel({
   }
 
   return results
+}
+
+export async function deliverNotificationChannel({
+  profileName,
+  channelName,
+  rawConfig,
+  assetBaseUrl = process.env.UPYUN_DOMAIN,
+  snapshotDirectory,
+  now = Date.now(),
+  fetchImpl = fetch,
+}) {
+  const plan = getRunPlan(profileName)
+  const channel = getChannelAdapter(channelName)
+  const preparedChannel = prepareNotificationChannel(plan, channel, rawConfig)
+  const notifications = await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
+  return deliverPreparedNotificationChannel(preparedChannel, notifications, fetchImpl)
+}
+
+export async function deliverConfiguredNotificationChannels({
+  profileName,
+  channelName,
+  environment = process.env,
+  assetBaseUrl = environment.UPYUN_DOMAIN,
+  snapshotDirectory,
+  now = Date.now(),
+  fetchImpl = fetch,
+}) {
+  const configuredChannels = resolveConfiguredNotificationChannels({ environment, channelName })
+  if (configuredChannels.length === 0) {
+    return Object.freeze({ channelResults: Object.freeze([]), deliveryResults: Object.freeze([]) })
+  }
+
+  const plan = getRunPlan(profileName)
+  const preparedChannels = configuredChannels.map(({ channel, rawConfig }) => {
+    try {
+      return Object.freeze({
+        channelName: channel.name,
+        status: 'fulfilled',
+        preparedChannel: prepareNotificationChannel(plan, channel, rawConfig),
+      })
+    } catch (error) {
+      return Object.freeze({ channelName: channel.name, status: 'rejected', results: [], error })
+    }
+  })
+  const hasDeliverableChannel = preparedChannels.some(({ status }) => status === 'fulfilled')
+  const notifications = hasDeliverableChannel
+    ? await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
+    : new Map()
+  const channelResults = await Promise.all(
+    preparedChannels.map(async (preparedResult) => {
+      if (preparedResult.status === 'rejected') {
+        return preparedResult
+      }
+
+      try {
+        const results = await deliverPreparedNotificationChannel(
+          preparedResult.preparedChannel,
+          notifications,
+          fetchImpl
+        )
+        return Object.freeze({ channelName: preparedResult.channelName, status: 'fulfilled', results })
+      } catch (error) {
+        return Object.freeze({
+          channelName: preparedResult.channelName,
+          status: 'rejected',
+          results: error.results || [],
+          error,
+        })
+      }
+    })
+  )
+  const report = Object.freeze({
+    channelResults: Object.freeze(channelResults),
+    deliveryResults: Object.freeze(channelResults.flatMap(({ results }) => results)),
+  })
+  const failures = channelResults.filter(({ status }) => status === 'rejected')
+
+  if (failures.length > 0) {
+    const error = new AggregateError(
+      failures.map((failure) => failure.error),
+      `${failures.length} notification channels failed`
+    )
+    error.report = report
+    error.results = report.deliveryResults
+    throw error
+  }
+
+  return report
 }

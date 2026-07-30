@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict'
 import path from 'node:path'
 import test from 'node:test'
-import { deliverNotificationChannel } from '../bot/notification/NotificationDelivery.mjs'
+import {
+  deliverConfiguredNotificationChannels,
+  deliverNotificationChannel,
+} from '../bot/notification/NotificationDelivery.mjs'
 
 function response(value) {
   return new Response(JSON.stringify(value), {
@@ -45,6 +48,95 @@ test('fans out Targets in parallel and preserves partial delivery results', asyn
     assert.equal(error.results.filter((result) => result.status === 'rejected').length, 1)
     return true
   })
+})
+
+test('discovers configured Channel Secrets and preserves cross-channel partial results', async () => {
+  const startedChannels = []
+  let releaseRequests
+  const allRequestsStarted = new Promise((resolve) => {
+    releaseRequests = resolve
+  })
+  const delivery = deliverConfiguredNotificationChannels({
+    profileName: 'schedules',
+    environment: {
+      BOT_WECOM_CONFIG: JSON.stringify([
+        { name: 'wecom', webhookUrl: 'https://wecom.example.com/webhook' },
+      ]),
+      BOT_DISCORD_CONFIG: JSON.stringify([
+        { name: 'discord', webhookUrl: 'https://discord.example.com/webhook' },
+      ]),
+      UPYUN_DOMAIN: 'https://cdn.example.com',
+    },
+    snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+    now: Date.parse('2026-07-29T19:00:00Z'),
+    fetchImpl: async (url) => {
+      const channel = new URL(url).hostname.split('.')[0]
+      startedChannels.push(channel)
+      if (startedChannels.length === 2) {
+        releaseRequests()
+      }
+      await allRequestsStarted
+      return response(channel === 'wecom' ? { errcode: 93000, errmsg: 'rejected' } : { id: 'message' })
+    },
+  })
+
+  await assert.rejects(delivery, (error) => {
+    assert.ok(error instanceof AggregateError)
+    assert.deepEqual(startedChannels.sort(), ['discord', 'wecom'])
+    assert.deepEqual(
+      error.report.channelResults.map(({ channelName, status }) => ({ channelName, status })),
+      [
+        { channelName: 'wecom', status: 'rejected' },
+        { channelName: 'discord', status: 'fulfilled' },
+      ]
+    )
+    assert.equal(error.report.deliveryResults.filter(({ status }) => status === 'fulfilled').length, 1)
+    assert.equal(error.report.deliveryResults.filter(({ status }) => status === 'rejected').length, 1)
+    return true
+  })
+})
+
+test('prepares shared Notification data once before delivering configured Channels', async () => {
+  await assert.rejects(
+    deliverConfiguredNotificationChannels({
+      profileName: 'schedules',
+      environment: {
+        BOT_WECOM_CONFIG: JSON.stringify([
+          { name: 'wecom', webhookUrl: 'https://wecom.example.com/webhook' },
+        ]),
+        BOT_DISCORD_CONFIG: JSON.stringify([
+          { name: 'discord', webhookUrl: 'https://discord.example.com/webhook' },
+        ]),
+      },
+      snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+    }),
+    (error) => {
+      assert.equal(error instanceof AggregateError, false)
+      assert.match(error.message, /UPYUN_DOMAIN is required/)
+      assert.equal(error.report, undefined)
+      return true
+    }
+  )
+})
+
+test('skips delivery without configured Secrets and requires an explicitly selected Channel', async () => {
+  const report = await deliverConfiguredNotificationChannels({
+    profileName: 'schedules',
+    environment: {},
+    snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'missing'),
+  })
+
+  assert.deepEqual(report.channelResults, [])
+  assert.deepEqual(report.deliveryResults, [])
+
+  await assert.rejects(
+    deliverConfiguredNotificationChannels({
+      profileName: 'schedules',
+      channelName: 'telegram',
+      environment: {},
+    }),
+    /BOT_TELEGRAM_CONFIG is required for telegram/
+  )
 })
 
 test('routes only selected Notifications to each Target', async () => {
