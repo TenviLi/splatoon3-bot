@@ -107,12 +107,25 @@ Every Channel Secret must contain a direct, non-empty JSON array of Target objec
 
 Multiple Targets in one Channel run in parallel. Notifications for the same Target run in Run Profile order.
 
+The optional `notifications` array routes only the selected Notification IDs to a Target. Omit it to send every Notification in the active Run Profile. Valid IDs are `schedules`, `salmon-run`, `gear-dailydrop`, and `gear-regular`; a Bot Run fails when none of its Notifications match any configured Target.
+
 ### WeCom
 
 ```json
 [
   {
-    "name": "primary",
+    "name": "battle-schedules",
+    "notifications": ["schedules"],
+    "webhookUrl": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=..."
+  },
+  {
+    "name": "salmon-run",
+    "notifications": ["salmon-run"],
+    "webhookUrl": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=..."
+  },
+  {
+    "name": "gear",
+    "notifications": ["gear-dailydrop", "gear-regular"],
     "webhookUrl": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=..."
   }
 ]
