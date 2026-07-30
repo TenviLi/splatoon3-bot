@@ -82,7 +82,7 @@ Configure these under **Settings → Secrets and variables → Actions**.
 | `UPYUN_BUCKET` | Upyun service name. |
 | `UPYUN_OPERATOR` | Upyun operator. |
 | `UPYUN_SECRET` | Upyun operator password. |
-| `UPYUN_DOMAIN` | Public asset origin used in notification images and links, for example `https://splatoon.example.com`. |
+| `UPYUN_DOMAIN` | Absolute public HTTP(S) asset origin used in notification images and links, for example `https://splatoon.example.com`. |
 | `BOT_WECOM_CONFIG` | WeCom Target array. |
 | `BOT_DISCORD_CONFIG` | Discord Target array. |
 | `BOT_TELEGRAM_CONFIG` | Telegram Target array. |

@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { getNotificationDefinition, getRunPlan } from '../run/RunPlan.mjs'
 import { createBotContext } from './BotContext.mjs'
-import { composeNotification } from './NotificationComposer.mjs'
+import { composeNotification, normalizeAssetBaseUrl } from './NotificationComposer.mjs'
 import { getChannelAdapter, resolveConfiguredNotificationChannels } from './channels/index.mjs'
 
 function parseTargets(rawConfig, channel) {
@@ -117,13 +117,22 @@ function prepareNotificationChannel(plan, channel, rawConfig) {
 }
 
 async function composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now }) {
+  const normalizedAssetBaseUrl = normalizeAssetBaseUrl(assetBaseUrl)
   const context = await createBotContext({ snapshotDirectory, now })
   return new Map(
     plan.notifications.map((notificationId) => [
       notificationId,
-      composeNotification(notificationId, context, { assetBaseUrl }),
+      composeNotification(notificationId, context, { assetBaseUrl: normalizedAssetBaseUrl }),
     ])
   )
+}
+
+function createNotificationDeliveryReport(channelResults, sharedError) {
+  return Object.freeze({
+    channelResults: Object.freeze(channelResults),
+    deliveryResults: Object.freeze(channelResults.flatMap(({ results }) => results)),
+    ...(sharedError ? { sharedError } : {}),
+  })
 }
 
 async function deliverPreparedNotificationChannel(preparedChannel, notifications, fetchImpl) {
@@ -180,41 +189,54 @@ export async function deliverConfiguredNotificationChannels({
 }) {
   const configuredChannels = resolveConfiguredNotificationChannels({ environment, channelName })
   if (configuredChannels.length === 0) {
-    return Object.freeze({ channelResults: Object.freeze([]), deliveryResults: Object.freeze([]) })
+    return createNotificationDeliveryReport([])
   }
 
   const plan = getRunPlan(profileName)
-  const preparedChannels = configuredChannels.map(({ channel, rawConfig }) => {
+  const channelPreparations = configuredChannels.map(({ channel, rawConfig }) => {
     try {
       return Object.freeze({
         channelName: channel.name,
-        status: 'fulfilled',
+        status: 'ready',
         preparedChannel: prepareNotificationChannel(plan, channel, rawConfig),
       })
     } catch (error) {
       return Object.freeze({ channelName: channel.name, status: 'rejected', results: [], error })
     }
   })
-  const hasDeliverableChannel = preparedChannels.some(({ status }) => status === 'fulfilled')
-  const notifications = hasDeliverableChannel
-    ? await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
-    : new Map()
+  const hasDeliverableChannel = channelPreparations.some(({ status }) => status === 'ready')
+  let notifications = new Map()
+  if (hasDeliverableChannel) {
+    try {
+      notifications = await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
+    } catch (error) {
+      const blockedChannelResults = channelPreparations.map((channelPreparation) =>
+        channelPreparation.status === 'rejected'
+          ? channelPreparation
+          : Object.freeze({ channelName: channelPreparation.channelName, status: 'blocked', results: [] })
+      )
+      const report = createNotificationDeliveryReport(blockedChannelResults, error)
+      error.report = report
+      error.results = report.deliveryResults
+      throw error
+    }
+  }
   const channelResults = await Promise.all(
-    preparedChannels.map(async (preparedResult) => {
-      if (preparedResult.status === 'rejected') {
-        return preparedResult
+    channelPreparations.map(async (channelPreparation) => {
+      if (channelPreparation.status === 'rejected') {
+        return channelPreparation
       }
 
       try {
         const results = await deliverPreparedNotificationChannel(
-          preparedResult.preparedChannel,
+          channelPreparation.preparedChannel,
           notifications,
           fetchImpl
         )
-        return Object.freeze({ channelName: preparedResult.channelName, status: 'fulfilled', results })
+        return Object.freeze({ channelName: channelPreparation.channelName, status: 'fulfilled', results })
       } catch (error) {
         return Object.freeze({
-          channelName: preparedResult.channelName,
+          channelName: channelPreparation.channelName,
           status: 'rejected',
           results: error.results || [],
           error,
@@ -222,10 +244,7 @@ export async function deliverConfiguredNotificationChannels({
       }
     })
   )
-  const report = Object.freeze({
-    channelResults: Object.freeze(channelResults),
-    deliveryResults: Object.freeze(channelResults.flatMap(({ results }) => results)),
-  })
+  const report = createNotificationDeliveryReport(channelResults)
   const failures = channelResults.filter(({ status }) => status === 'rejected')
 
   if (failures.length > 0) {

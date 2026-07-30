@@ -113,10 +113,86 @@ test('prepares shared Notification data once before delivering configured Channe
     (error) => {
       assert.equal(error instanceof AggregateError, false)
       assert.match(error.message, /UPYUN_DOMAIN is required/)
-      assert.equal(error.report, undefined)
+      assert.equal(error.report.sharedError, error)
+      assert.deepEqual(
+        error.report.channelResults.map(({ channelName, status }) => ({ channelName, status })),
+        [
+          { channelName: 'wecom', status: 'blocked' },
+          { channelName: 'discord', status: 'blocked' },
+        ]
+      )
       return true
     }
   )
+})
+
+test('delivers valid Channels after another configured Channel fails validation', async () => {
+  const requestedUrls = []
+  const delivery = deliverConfiguredNotificationChannels({
+    profileName: 'schedules',
+    environment: {
+      BOT_WECOM_CONFIG: '{',
+      BOT_DISCORD_CONFIG: JSON.stringify([
+        { name: 'discord', webhookUrl: 'https://discord.example.com/webhook' },
+      ]),
+      UPYUN_DOMAIN: 'https://cdn.example.com',
+    },
+    snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+    now: Date.parse('2026-07-29T19:00:00Z'),
+    fetchImpl: async (url) => {
+      requestedUrls.push(String(url))
+      return response({ id: 'message' })
+    },
+  })
+
+  await assert.rejects(delivery, (error) => {
+    assert.deepEqual(
+      error.report.channelResults.map(({ channelName, status }) => ({ channelName, status })),
+      [
+        { channelName: 'wecom', status: 'rejected' },
+        { channelName: 'discord', status: 'fulfilled' },
+      ]
+    )
+    assert.equal(requestedUrls.length, 1)
+    assert.match(requestedUrls[0], /discord\.example\.com/)
+    return true
+  })
+})
+
+test('rejects invalid notification asset origins before delivery', async () => {
+  const invalidOrigins = [
+    ['cdn.example.com', /must be an absolute HTTP\(S\) URL/],
+    ['https://user:password@cdn.example.com', /must not include credentials/],
+    ['https://cdn.example.com?token=secret', /must not include credentials/],
+    ['https://cdn.example.com#private', /must not include credentials/],
+  ]
+
+  for (const [assetBaseUrl, expectedError] of invalidOrigins) {
+    await assert.rejects(
+      deliverConfiguredNotificationChannels({
+        profileName: 'schedules',
+        environment: {
+          BOT_DISCORD_CONFIG: '{',
+          BOT_WECOM_CONFIG: JSON.stringify([
+            { name: 'wecom', webhookUrl: 'https://wecom.example.com/webhook' },
+          ]),
+          UPYUN_DOMAIN: assetBaseUrl,
+        },
+        snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'missing'),
+      }),
+      (error) => {
+        assert.match(error.message, expectedError)
+        assert.deepEqual(
+          error.report.channelResults.map(({ channelName, status }) => ({ channelName, status })),
+          [
+            { channelName: 'wecom', status: 'blocked' },
+            { channelName: 'discord', status: 'rejected' },
+          ]
+        )
+        return true
+      }
+    )
+  }
 })
 
 test('skips delivery without configured Secrets and requires an explicitly selected Channel', async () => {

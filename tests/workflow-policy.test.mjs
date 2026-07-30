@@ -47,6 +47,7 @@ test('notification adapters share the publish job and are enabled by configured 
   assert.doesNotMatch(allWorkflows, /vars\.UPYUN_DOMAIN/)
   assert.match(reusableWorkflow, /UPYUN_DOMAIN: \$\{\{ secrets\.UPYUN_DOMAIN \}\}/)
   assert.equal(reusableWorkflow.match(/Install production dependencies/g)?.length, 1)
+  assert.match(reusableWorkflow, /publish:\n[\s\S]*?timeout-minutes: 20/)
 
   for (const channel of ['WECOM', 'DISCORD', 'TELEGRAM', 'QQ', 'FEISHU', 'DINGTALK']) {
     const secretReference = `BOT_${channel}_CONFIG: ` + '${{ secrets.BOT_' + channel + '_CONFIG }}'

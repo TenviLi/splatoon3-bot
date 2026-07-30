@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import { deliverConfiguredNotificationChannels } from './NotificationDelivery.mjs'
+import { formatNotificationStepSummary } from './NotificationReport.mjs'
 import { readRunManifest } from '../run/RunManifest.mjs'
 
 const [profileName, channelName] = process.argv.slice(2)
@@ -14,6 +15,10 @@ function logReport(report) {
     return
   }
 
+  if (report.sharedError) {
+    console.error(`Shared notification preparation failed: ${report.sharedError.message}`)
+  }
+
   for (const result of report.deliveryResults) {
     const message = `${result.channel}/${result.target}/${result.notification}`
     if (result.status === 'fulfilled') {
@@ -26,47 +31,49 @@ function logReport(report) {
   for (const channelResult of report.channelResults) {
     if (channelResult.status === 'rejected' && channelResult.results.length === 0) {
       console.error(`${channelResult.channelName}: ${channelResult.error.message}`)
+    } else if (channelResult.status === 'blocked') {
+      console.error(`${channelResult.channelName}: blocked before delivery`)
     }
   }
 }
 
-async function writeStepSummary(report) {
+async function writeStepSummary({ report, failed }) {
   if (!process.env.GITHUB_STEP_SUMMARY) {
     return
   }
 
-  const lines = ['## Notification Delivery']
-  if (report.channelResults.length === 0) {
-    lines.push('- No configured notification channels; delivery skipped')
-  } else {
-    for (const channelResult of report.channelResults) {
-      const delivered = channelResult.results.filter(({ status }) => status === 'fulfilled').length
-      const failed = channelResult.results.filter(({ status }) => status === 'rejected').length
-      lines.push(
-        `- ${channelResult.channelName}: ${channelResult.status} (${delivered} delivered, ${failed} failed)`
-      )
-    }
+  try {
+    await fs.appendFile(process.env.GITHUB_STEP_SUMMARY, formatNotificationStepSummary({ report, failed }))
+  } catch (error) {
+    console.error(`Failed to write GitHub Step Summary: ${error.message}`)
   }
-
-  await fs.appendFile(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`)
 }
 
+let report
+let deliveryError
 try {
   const manifest = await readRunManifest()
   if (manifest.profile !== profileName) {
     throw new Error(`Run manifest profile ${manifest.profile} does not match ${profileName}`)
   }
-  const report = await deliverConfiguredNotificationChannels({
+  report = await deliverConfiguredNotificationChannels({
     profileName,
     channelName: channelName || undefined,
     now: manifest.renderTime,
   })
   logReport(report)
-  await writeStepSummary(report)
 } catch (error) {
+  deliveryError = error
+  report = error.report
   if (error.report) {
     logReport(error.report)
-    await writeStepSummary(error.report)
+  } else {
+    console.error(`Notification delivery failed before Channel execution: ${error.message}`)
   }
-  throw error
+}
+
+await writeStepSummary({ report, failed: Boolean(deliveryError) })
+
+if (deliveryError) {
+  throw deliveryError
 }

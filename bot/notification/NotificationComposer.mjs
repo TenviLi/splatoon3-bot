@@ -2,12 +2,27 @@ import { getGearIcon } from '../common/util.mjs'
 import { getNotificationDefinition } from '../run/RunPlan.mjs'
 import { createNotification } from './Notification.mjs'
 
-function normalizeAssetBaseUrl(value) {
+export function normalizeAssetBaseUrl(value) {
   if (!value) {
     throw new Error('UPYUN_DOMAIN is required to compose notifications')
   }
 
-  return value.replace(/\/$/, '')
+  let url
+  try {
+    url = new URL(value)
+  } catch (error) {
+    throw new Error('UPYUN_DOMAIN must be an absolute HTTP(S) URL', { cause: error })
+  }
+
+  if (!['http:', 'https:'].includes(url.protocol)) {
+    throw new Error('UPYUN_DOMAIN must be an absolute HTTP(S) URL')
+  }
+
+  if (url.username || url.password || url.search || url.hash) {
+    throw new Error('UPYUN_DOMAIN must not include credentials, a query, or a fragment')
+  }
+
+  return url.toString().replace(/\/$/, '')
 }
 
 function assetUrl(baseUrl, relativePath) {
