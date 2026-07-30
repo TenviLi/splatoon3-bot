@@ -3,70 +3,133 @@ name: Splatoon3 Bot (reusable)
 on:
   workflow_call:
     inputs:
-      screenshot_types:
-        description: Comma-separated screenshot types to generate
+      profile:
+        description: Run Profile to execute
         required: true
         type: string
-      message_types:
-        description: Comma-separated notification types to send
-        required: true
+      notification_channels:
+        description: Optional comma-separated Notification Channels
+        required: false
+        default: ''
         type: string
-      artifact_name:
-        description: Stable name used for concurrency and artifacts
+    secrets:
+      UPYUN_BUCKET:
         required: true
-        type: string
+      UPYUN_OPERATOR:
+        required: true
+      UPYUN_SECRET:
+        required: true
+      BOT_WECOM_CONFIG:
+        required: false
+      BOT_DISCORD_CONFIG:
+        required: false
+      BOT_TELEGRAM_CONFIG:
+        required: false
+      BOT_QQ_CONFIG:
+        required: false
+      BOT_FEISHU_CONFIG:
+        required: false
+      BOT_DINGTALK_CONFIG:
+        required: false
 
 permissions:
   contents: read
 
 concurrency:
-  group: splatoon3-bot-${{ inputs.artifact_name }}
+  group: splatoon3-bot-production
   cancel-in-progress: false
 
 jobs:
-  bot:
-    name: Generate screenshots (${{ inputs.artifact_name }})
-    runs-on: ubuntu-latest
+  prepare:
+    name: Prepare ${{ inputs.profile }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
+    outputs:
+      artifact_name: ${{ steps.plan.outputs.artifact_name }}
+      notification_matrix: ${{ steps.plan.outputs.notification_matrix }}
+      profile: ${{ steps.plan.outputs.profile }}
     env:
       TZ: Asia/Shanghai
     steps:
       - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
       - name: Install pnpm
-        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
 
       - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: .node-version
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Download Splatoon 3 data
-        run: pnpm run download-data
-
-      - name: Build frontend
-        run: pnpm run build
-
-      - name: Generate screenshots
-        env:
-          PUPPETEER_CHANNEL: chrome
-        run: node bot/screenshot/index.mjs '${{ inputs.screenshot_types }}'
-
-      - name: Archive screenshots
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - name: Restore Chrome for Testing cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
-          name: screenshots-${{ inputs.artifact_name }}-${{ github.run_id }}
-          path: screenshots/*.png
+          path: ~/.cache/puppeteer
+          key: chrome-for-testing-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+
+      - name: Resolve Run Plan
+        id: plan
+        env:
+          PROFILE: ${{ inputs.profile }}
+          CHANNELS: ${{ inputs.notification_channels || vars.BOT_NOTIFICATION_CHANNELS || 'wecom' }}
+        run: node bot/run/describe.mjs "$PROFILE" "$CHANNELS"
+
+      - name: Prepare Data Snapshot and screenshot artifacts
+        env:
+          PROFILE: ${{ steps.plan.outputs.profile }}
+        run: node bot/run/prepare.mjs "$PROFILE"
+
+      - name: Archive Bot Run
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: screenshots-${{ steps.plan.outputs.artifact_name }}-${{ github.run_id }}
+          path: |
+            screenshots/*.png
+            screenshots/run-manifest.json
+            data/**/*.json
+            data/.snapshot.json
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
+
+  publish:
+    name: Publish screenshot artifacts
+    needs: prepare
+    runs-on: ubuntu-24.04
+    environment: production
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install production dependencies
+        run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
+
+      - name: Download Bot Run
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: screenshots-${{ needs.prepare.outputs.artifact_name }}-${{ github.run_id }}
+          path: .
 
       - name: Install Upyun CLI
         env:
@@ -82,20 +145,80 @@ jobs:
           chmod 0755 "$RUNNER_TEMP/upx"
           echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
 
-      - name: Upload screenshots to Upyun
+      - name: Publish to Upyun
         env:
+          PROFILE: ${{ needs.prepare.outputs.profile }}
           UPX_SERVICENAME: ${{ secrets.UPYUN_BUCKET }}
           UPX_OPERATOR: ${{ secrets.UPYUN_OPERATOR }}
           UPX_PASSWORD: ${{ secrets.UPYUN_SECRET }}
-        run: |
-          upx login "$UPX_SERVICENAME" "$UPX_OPERATOR" "$UPX_PASSWORD"
-          trap 'upx logout || true' EXIT
-          upx -q sync -w 10 ./screenshots/ /
+        run: node bot/publish/index.mjs "$PROFILE"
 
-      - name: Trigger bot webhook
+  notify:
+    name: Notify ${{ matrix.channel }}
+    needs:
+      - prepare
+      - publish
+    runs-on: ubuntu-24.04
+    environment: production
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.notification_matrix) }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install production dependencies
+        run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
+
+      - name: Download Bot Run
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: screenshots-${{ needs.prepare.outputs.artifact_name }}-${{ github.run_id }}
+          path: .
+
+      - name: Deliver notifications
         env:
-          UPYUN_DOMAIN: ${{ secrets.UPYUN_DOMAIN }}
-          SPLATOON_SCHEDULES_BOT_URL: ${{ secrets.SPLATOON_SCHEDULES_BOT_URL }}
-          SPLATOON_SALMON_RUN_BOT_URL: ${{ secrets.SPLATOON_SALMON_RUN_BOT_URL }}
-          SPLATOON_GEAR_BOT_URL: ${{ secrets.SPLATOON_GEAR_BOT_URL }}
-        run: node bot/send/index.mjs '${{ inputs.message_types }}'
+          PROFILE: ${{ needs.prepare.outputs.profile }}
+          CHANNEL: ${{ matrix.channel }}
+          BOT_CHANNEL_CONFIG: ${{ secrets[matrix.secret] }}
+          UPYUN_DOMAIN: ${{ vars.UPYUN_DOMAIN }}
+        run: node bot/notification/index.mjs "$PROFILE" "$CHANNEL"
+
+  notification-summary:
+    name: Notification summary
+    if: ${{ always() }}
+    needs:
+      - prepare
+      - publish
+      - notify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 1
+    steps:
+      - name: Summarize Bot Run
+        env:
+          PREPARE_RESULT: ${{ needs.prepare.result }}
+          PUBLISH_RESULT: ${{ needs.publish.result }}
+          NOTIFY_RESULT: ${{ needs.notify.result }}
+        run: |
+          {
+            echo '## Splatoon3 Bot Run'
+            echo "- prepare: ${PREPARE_RESULT}"
+            echo "- publish: ${PUBLISH_RESULT}"
+            echo "- notify: ${NOTIFY_RESULT}"
+          } >> "$GITHUB_STEP_SUMMARY"
+          test "$PREPARE_RESULT" = success
+          test "$PUBLISH_RESULT" = success
+          test "$NOTIFY_RESULT" = success

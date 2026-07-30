@@ -1,0 +1,597 @@
+{
+  "data": {
+    "gesotown": {
+      "pickupBrand": {
+        "image": {
+          "url": "/fixture-assets/7450d6039109184fb3740ed685553ccb7c3bee2cabb0590a98c26a7a325aa004.png"
+        },
+        "brand": {
+          "name": "Emberz",
+          "usualGearPower": {
+            "__splatoon3ink_id": "1f746cec210906af",
+            "name": "Intensify Action",
+            "desc": "Makes Squid Rolls and Squid Surges easier to do and steadies your aim when firing after jumping.",
+            "image": {
+              "url": "/fixture-assets/666d998aba33e5c87dac74977e32e420eed23cc0e8534db40184d4497c32f072.png"
+            },
+            "isEmptySlot": false
+          },
+          "id": "QnJhbmQtMjA="
+        },
+        "saleEndTime": "2026-07-30T00:00:00Z",
+        "brandGears": [
+          {
+            "id": "U2FsZUdlYXItMF8xNzg1MjgzMjAwXzA=",
+            "saleEndTime": "2026-07-30T00:00:00Z",
+            "price": 15750,
+            "gear": {
+              "__splatoon3ink_id": "fa053d90af54d4ef",
+              "__typename": "HeadGear",
+              "name": "Ink-Tinted Goggles",
+              "primaryGearPower": {
+                "__splatoon3ink_id": "7f398a113a8542f9",
+                "name": "Tenacity",
+                "image": {
+                  "url": "/fixture-assets/4c46807d7859d96f35b3bce401c5097098cb3fe36c94d41e7bcfaf589e9b4123.png"
+                }
+              },
+              "additionalGearPowers": [
+                {
+                  "__splatoon3ink_id": "668f5cf3759aa059",
+                  "name": "Unknown",
+                  "image": {
+                    "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "668f5cf3759aa059",
+                  "name": "Unknown",
+                  "image": {
+                    "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "668f5cf3759aa059",
+                  "name": "Unknown",
+                  "image": {
+                    "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                  }
+                }
+              ],
+              "image": {
+                "url": "/fixture-assets/dd15f3ac2a97c9abcceee9e99c954ce7d92a87bb766fe209d1bd55096cd2fbec.png"
+              },
+              "brand": {
+                "name": "Emberz",
+                "image": {
+                  "url": "/fixture-assets/90585af4032e118b856c5b96dda0242ebda2c9a0771adf68cd327d7160514a11.png"
+                },
+                "id": "QnJhbmQtMjA=",
+                "usualGearPower": {
+                  "__splatoon3ink_id": "1f746cec210906af",
+                  "name": "Intensify Action",
+                  "desc": "Makes Squid Rolls and Squid Surges easier to do and steadies your aim when firing after jumping.",
+                  "image": {
+                    "url": "/fixture-assets/666d998aba33e5c87dac74977e32e420eed23cc0e8534db40184d4497c32f072.png"
+                  },
+                  "isEmptySlot": false
+                }
+              }
+            },
+            "isAlreadyOrdered": false,
+            "nextGear": {
+              "id": "U2FsZUdlYXItMF8xNzg1MjgzMjAwXzE="
+            },
+            "previousGear": null,
+            "ownedGear": null
+          },
+          {
+            "id": "U2FsZUdlYXItMF8xNzg1MjgzMjAwXzE=",
+            "saleEndTime": "2026-07-30T00:00:00Z",
+            "price": 13200,
+            "gear": {
+              "__splatoon3ink_id": "c414d439919e17ea",
+              "__typename": "ClothingGear",
+              "name": "Urban Upcycle Top",
+              "primaryGearPower": {
+                "__splatoon3ink_id": "f09d91b4cb53fbe1",
+                "name": "Special Saver",
+                "image": {
+                  "url": "/fixture-assets/5e9f492840ec2407b9227512d8c4033719d379b61293149cd6bc909becda8ac7.png"
+                }
+              },
+              "additionalGearPowers": [
+                {
+                  "__splatoon3ink_id": "668f5cf3759aa059",
+                  "name": "Unknown",
+                  "image": {
+                    "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "668f5cf3759aa059",
+                  "name": "Unknown",
+                  "image": {
+                    "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "668f5cf3759aa059",
+                  "name": "Unknown",
+                  "image": {
+                    "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                  }
+                }
+              ],
+              "image": {
+                "url": "/fixture-assets/ca7c47a4e809f1c081f3626517653a03729de3a12d728ef9a2ac07f4a7e60717.png"
+              },
+              "brand": {
+                "name": "Emberz",
+                "image": {
+                  "url": "/fixture-assets/90585af4032e118b856c5b96dda0242ebda2c9a0771adf68cd327d7160514a11.png"
+                },
+                "id": "QnJhbmQtMjA=",
+                "usualGearPower": {
+                  "__splatoon3ink_id": "1f746cec210906af",
+                  "name": "Intensify Action",
+                  "desc": "Makes Squid Rolls and Squid Surges easier to do and steadies your aim when firing after jumping.",
+                  "image": {
+                    "url": "/fixture-assets/666d998aba33e5c87dac74977e32e420eed23cc0e8534db40184d4497c32f072.png"
+                  },
+                  "isEmptySlot": false
+                }
+              }
+            },
+            "isAlreadyOrdered": false,
+            "nextGear": {
+              "id": "U2FsZUdlYXItMF8xNzg1MjgzMjAwXzI="
+            },
+            "previousGear": {
+              "id": "U2FsZUdlYXItMF8xNzg1MjgzMjAwXzA="
+            },
+            "ownedGear": null
+          },
+          {
+            "id": "U2FsZUdlYXItMF8xNzg1MjgzMjAwXzI=",
+            "saleEndTime": "2026-07-30T00:00:00Z",
+            "price": 1000,
+            "gear": {
+              "__splatoon3ink_id": "dfcba964fd347b5f",
+              "__typename": "ShoesGear",
+              "name": "BlobMob Flip-Flops",
+              "primaryGearPower": {
+                "__splatoon3ink_id": "4352d3f254655a4f",
+                "name": "Ink Recovery Up",
+                "image": {
+                  "url": "/fixture-assets/9ab06edf3a8af1a39212a2a21afe83b56443b8f4914df2679aa744df330b1d10.png"
+                }
+              },
+              "additionalGearPowers": [
+                {
+                  "__splatoon3ink_id": "668f5cf3759aa059",
+                  "name": "Unknown",
+                  "image": {
+                    "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                  }
+                }
+              ],
+              "image": {
+                "url": "/fixture-assets/14937661ae48f049c1586de7a3c723fa0f508dbcf683681f936050c2d859b51e.png"
+              },
+              "brand": {
+                "name": "Emberz",
+                "image": {
+                  "url": "/fixture-assets/90585af4032e118b856c5b96dda0242ebda2c9a0771adf68cd327d7160514a11.png"
+                },
+                "id": "QnJhbmQtMjA=",
+                "usualGearPower": {
+                  "__splatoon3ink_id": "1f746cec210906af",
+                  "name": "Intensify Action",
+                  "desc": "Makes Squid Rolls and Squid Surges easier to do and steadies your aim when firing after jumping.",
+                  "image": {
+                    "url": "/fixture-assets/666d998aba33e5c87dac74977e32e420eed23cc0e8534db40184d4497c32f072.png"
+                  },
+                  "isEmptySlot": false
+                }
+              }
+            },
+            "isAlreadyOrdered": false,
+            "nextGear": null,
+            "previousGear": {
+              "id": "U2FsZUdlYXItMF8xNzg1MjgzMjAwXzE="
+            },
+            "ownedGear": null
+          }
+        ],
+        "nextBrand": {
+          "name": "Splash Mob",
+          "image": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/brand_img/5bfe0fa5868f4aa0edc436c05ddc230d6d527e9405f070f9472945976928d1e5_0.png"
+          },
+          "id": "QnJhbmQtOA=="
+        }
+      },
+      "limitedGears": [
+        {
+          "id": "U2FsZUdlYXItMV8xNzg1MjU0NDAwXzA=",
+          "saleEndTime": "2026-07-29T16:00:00Z",
+          "price": 17250,
+          "gear": {
+            "__splatoon3ink_id": "25dc67a105f26543",
+            "__typename": "ShoesGear",
+            "name": "Hunting Boots",
+            "primaryGearPower": {
+              "__splatoon3ink_id": "f09d91b4cb53fbe1",
+              "name": "Special Saver",
+              "image": {
+                "url": "/fixture-assets/5e9f492840ec2407b9227512d8c4033719d379b61293149cd6bc909becda8ac7.png"
+              }
+            },
+            "additionalGearPowers": [
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              },
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              },
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              }
+            ],
+            "image": {
+              "url": "https://splatoon3.ink/assets/splatnet/v3/gear_img/b26850abe1a97aa39b6d894acbcdca098ba261b5116d598f2f47346d3d71d033_0.png"
+            },
+            "brand": {
+              "name": "Splash Mob",
+              "image": {
+                "url": "https://splatoon3.ink/assets/splatnet/v3/brand_img/5bfe0fa5868f4aa0edc436c05ddc230d6d527e9405f070f9472945976928d1e5_0.png"
+              },
+              "id": "QnJhbmQtOA==",
+              "usualGearPower": {
+                "__splatoon3ink_id": "351dbd2ad833da59",
+                "name": "Ink Saver (Main)",
+                "desc": "Decreases amount of ink consumed by your main weapon.",
+                "image": {
+                  "url": "/fixture-assets/c84f9ad3e5837bbce1ec3604ef339758c4391c63f0a5c05f1d5a8b2b2687ba80.png"
+                },
+                "isEmptySlot": false
+              }
+            }
+          },
+          "isAlreadyOrdered": false,
+          "nextGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1MjY4ODAwXzA="
+          },
+          "previousGear": null,
+          "ownedGear": null
+        },
+        {
+          "id": "U2FsZUdlYXItMV8xNzg1MjY4ODAwXzA=",
+          "saleEndTime": "2026-07-29T20:00:00Z",
+          "price": 1500,
+          "gear": {
+            "__splatoon3ink_id": "475754f1c3ebc738",
+            "__typename": "HeadGear",
+            "name": "Urchins Cap",
+            "primaryGearPower": {
+              "__splatoon3ink_id": "ef78dc3c91f93dbd",
+              "name": "Quick Super Jump",
+              "image": {
+                "url": "/fixture-assets/26da77afac7fc67f29011710fa3bc0632181e5fa7796e1e72a6c92678854e54e.png"
+              }
+            },
+            "additionalGearPowers": [
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              }
+            ],
+            "image": {
+              "url": "/fixture-assets/58ed3a3f52ba72d7e7b7594a80aa958bb3af97b9bfe0ff607e637f763bbdc3fe.png"
+            },
+            "brand": {
+              "name": "Skalop",
+              "image": {
+                "url": "/fixture-assets/070523b7bb38ef8b5940b60fc032a7fc686e1ba7d2ede34b9b82c1d131091a9b.png"
+              },
+              "id": "QnJhbmQtNw==",
+              "usualGearPower": {
+                "__splatoon3ink_id": "7f6d89f40eabc41d",
+                "name": "Quick Respawn",
+                "desc": "Reduces respawn time after getting splatted repeatedly without splatting any opponents.",
+                "image": {
+                  "url": "/fixture-assets/8390499839d23072c3838074c901eb292f7fa0e792eeaf9b2365d088c476c9e2.png"
+                },
+                "isEmptySlot": false
+              }
+            }
+          },
+          "isAlreadyOrdered": false,
+          "nextGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1MjgzMjAwXzA="
+          },
+          "previousGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1MjU0NDAwXzA="
+          },
+          "ownedGear": null
+        },
+        {
+          "id": "U2FsZUdlYXItMV8xNzg1MjgzMjAwXzA=",
+          "saleEndTime": "2026-07-30T00:00:00Z",
+          "price": 3125,
+          "gear": {
+            "__splatoon3ink_id": "3f7b8fff000e304d",
+            "__typename": "HeadGear",
+            "name": "FishFry Biscuit Bandana",
+            "primaryGearPower": {
+              "__splatoon3ink_id": "1f746cec210906af",
+              "name": "Intensify Action",
+              "image": {
+                "url": "/fixture-assets/666d998aba33e5c87dac74977e32e420eed23cc0e8534db40184d4497c32f072.png"
+              }
+            },
+            "additionalGearPowers": [
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              }
+            ],
+            "image": {
+              "url": "/fixture-assets/fcdccd70223a271282493106c6096d9bca0318e625d67ef49d6ca35b4b8cde49.png"
+            },
+            "brand": {
+              "name": "Firefin",
+              "image": {
+                "url": "/fixture-assets/288e74ee25a23506e93f19a32d17016aca6da0b68773df18bed03ba94770e83c.png"
+              },
+              "id": "QnJhbmQtNg==",
+              "usualGearPower": {
+                "__splatoon3ink_id": "2497992da827dbbf",
+                "name": "Ink Saver (Sub)",
+                "desc": "Decreases amount of ink consumed by your sub weapon.",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/skill_img/11293d8fe7cfb82d55629c058a447f67968fc449fd52e7dd53f7f162fa4672e3_0.png"
+                },
+                "isEmptySlot": false
+              }
+            }
+          },
+          "isAlreadyOrdered": false,
+          "nextGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1Mjk3NjAwXzA="
+          },
+          "previousGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1MjY4ODAwXzA="
+          },
+          "ownedGear": null
+        },
+        {
+          "id": "U2FsZUdlYXItMV8xNzg1Mjk3NjAwXzA=",
+          "saleEndTime": "2026-07-30T04:00:00Z",
+          "price": 13800,
+          "gear": {
+            "__splatoon3ink_id": "b91eb6d04f17ee7f",
+            "__typename": "HeadGear",
+            "name": "Noise Cancelers",
+            "primaryGearPower": {
+              "__splatoon3ink_id": "ef78dc3c91f93dbd",
+              "name": "Quick Super Jump",
+              "image": {
+                "url": "/fixture-assets/26da77afac7fc67f29011710fa3bc0632181e5fa7796e1e72a6c92678854e54e.png"
+              }
+            },
+            "additionalGearPowers": [
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              },
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              },
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              }
+            ],
+            "image": {
+              "url": "/fixture-assets/4618e3f597c4b154b9f0496e2256495f55966f7c4e51a3a630e487749f6eb30a.png"
+            },
+            "brand": {
+              "name": "Forge",
+              "image": {
+                "url": "/fixture-assets/056b5037ad8f942a1a415aa2ab4943d842fd33f81d6f7cba6cffe9a0ae557566.png"
+              },
+              "id": "QnJhbmQtNQ==",
+              "usualGearPower": {
+                "__splatoon3ink_id": "75bb4b4b145f5f22",
+                "name": "Special Power Up",
+                "desc": "Upgrades your special weapon.",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/skill_img/fba267bd56f536253a6bcce1e919d8a48c2b793c1b554ac968af8d2068b22cab_0.png"
+                },
+                "isEmptySlot": false
+              }
+            }
+          },
+          "isAlreadyOrdered": false,
+          "nextGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1MzEyMDAwXzA="
+          },
+          "previousGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1MjgzMjAwXzA="
+          },
+          "ownedGear": null
+        },
+        {
+          "id": "U2FsZUdlYXItMV8xNzg1MzEyMDAwXzA=",
+          "saleEndTime": "2026-07-30T08:00:00Z",
+          "price": 1325,
+          "gear": {
+            "__splatoon3ink_id": "54306bd8f71bb745",
+            "__typename": "ClothingGear",
+            "name": "Tri-Shred Tee",
+            "primaryGearPower": {
+              "__splatoon3ink_id": "351dbd2ad833da59",
+              "name": "Ink Saver (Main)",
+              "image": {
+                "url": "/fixture-assets/c84f9ad3e5837bbce1ec3604ef339758c4391c63f0a5c05f1d5a8b2b2687ba80.png"
+              }
+            },
+            "additionalGearPowers": [
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              }
+            ],
+            "image": {
+              "url": "/fixture-assets/0a64172612e576c335fe350390239e9c7edb3a629545730514a17a3218938d59.png"
+            },
+            "brand": {
+              "name": "SquidForce",
+              "image": {
+                "url": "/fixture-assets/cc556863492307535fa5f53cec0e1a21cb0c3558245ed1f88899b41f8890ec84.png"
+              },
+              "id": "QnJhbmQtMA==",
+              "usualGearPower": {
+                "__splatoon3ink_id": "7a177ddb3aeaed0b",
+                "name": "Ink Resistance Up",
+                "desc": "Reduces damage taken and improves mobility when walking through enemy ink.",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/skill_img/db36f7e89194ed642f53465abfa449669031a66d7538135c703d3f7d41f99c0d_0.png"
+                },
+                "isEmptySlot": false
+              }
+            }
+          },
+          "isAlreadyOrdered": false,
+          "nextGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1MzI2NDAwXzA="
+          },
+          "previousGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1Mjk3NjAwXzA="
+          },
+          "ownedGear": {
+            "__typename": "ClothingGear",
+            "name": "Tri-Shred Tee",
+            "image": {
+              "url": "/fixture-assets/0a64172612e576c335fe350390239e9c7edb3a629545730514a17a3218938d59.png"
+            },
+            "primaryGearPower": {
+              "__splatoon3ink_id": "7f6d89f40eabc41d",
+              "name": "Quick Respawn",
+              "image": {
+                "url": "/fixture-assets/8390499839d23072c3838074c901eb292f7fa0e792eeaf9b2365d088c476c9e2.png"
+              }
+            },
+            "additionalGearPowers": [
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "U2FsZUdlYXItMV8xNzg1MzI2NDAwXzA=",
+          "saleEndTime": "2026-07-30T12:00:00Z",
+          "price": 15000,
+          "gear": {
+            "__splatoon3ink_id": "d22ab67b6963492d",
+            "__typename": "ClothingGear",
+            "name": "Baseball Jersey",
+            "primaryGearPower": {
+              "__splatoon3ink_id": "7f6d89f40eabc41d",
+              "name": "Quick Respawn",
+              "image": {
+                "url": "/fixture-assets/8390499839d23072c3838074c901eb292f7fa0e792eeaf9b2365d088c476c9e2.png"
+              }
+            },
+            "additionalGearPowers": [
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              },
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              },
+              {
+                "__splatoon3ink_id": "668f5cf3759aa059",
+                "name": "Unknown",
+                "image": {
+                  "url": "/fixture-assets/22f6924ed33e3988cc206c111c8b81771d0d8415ebbb77bc83974721453a48a4.png"
+                }
+              }
+            ],
+            "image": {
+              "url": "/fixture-assets/6284d077accfb7ac6cae2276a32b616a48f8d669a3b1e3a41a95b9843715809b.png"
+            },
+            "brand": {
+              "name": "Firefin",
+              "image": {
+                "url": "/fixture-assets/288e74ee25a23506e93f19a32d17016aca6da0b68773df18bed03ba94770e83c.png"
+              },
+              "id": "QnJhbmQtNg==",
+              "usualGearPower": {
+                "__splatoon3ink_id": "2497992da827dbbf",
+                "name": "Ink Saver (Sub)",
+                "desc": "Decreases amount of ink consumed by your sub weapon.",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/skill_img/11293d8fe7cfb82d55629c058a447f67968fc449fd52e7dd53f7f162fa4672e3_0.png"
+                },
+                "isEmptySlot": false
+              }
+            }
+          },
+          "isAlreadyOrdered": false,
+          "nextGear": null,
+          "previousGear": {
+            "id": "U2FsZUdlYXItMV8xNzg1MzEyMDAwXzA="
+          },
+          "ownedGear": null
+        }
+      ]
+    }
+  }
+}

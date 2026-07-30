@@ -1,0 +1,2379 @@
+{
+  "data": {
+    "regularSchedules": {
+      "nodes": [
+        {
+          "startTime": "2026-07-29T14:00:00Z",
+          "endTime": "2026-07-29T16:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 9,
+                "name": "Flounder Heights",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/488017f3ce712fca9fb37d61fe306343054449bb2d2bb1751d95f54a98564cae_1.png"
+                },
+                "id": "VnNTdGFnZS05"
+              },
+              {
+                "vsStageId": 23,
+                "name": "Marlin Airport",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/21ea0549b3d29de56ec20affef8866297929d0defb82a27cd199c9d8dade508c_1.png"
+                },
+                "id": "VnNTdGFnZS0yMw=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T16:00:00Z",
+          "endTime": "2026-07-29T18:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 15,
+                "name": "MakoMart",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/a8ba96c3dbd015b7bc6ea4fa067245c4e9aee62b6696cb41e02d35139dd21fe7_1.png"
+                },
+                "id": "VnNTdGFnZS0xNQ=="
+              },
+              {
+                "vsStageId": 26,
+                "name": "Urchin Underpass",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/249c981fdd888e79ada712ddf899bddbead508d71043af3ff96c90a7b5959c73_1.png"
+                },
+                "id": "VnNTdGFnZS0yNg=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T18:00:00Z",
+          "endTime": "2026-07-29T20:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 12,
+                "name": "Mahi-Mahi Resort",
+                "image": {
+                  "url": "/fixture-assets/b3bc767045803c4a2c1f8b3f46f9378d2bfcf42b42afe5a49f58684f270fd557.png"
+                },
+                "id": "VnNTdGFnZS0xMg=="
+              },
+              {
+                "vsStageId": 13,
+                "name": "Inkblot Art Academy",
+                "image": {
+                  "url": "/fixture-assets/980f19c29951211240b3d8d440d2930dd4fe2bec9223ff027346d8c8e588e2fc.png"
+                },
+                "id": "VnNTdGFnZS0xMw=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T20:00:00Z",
+          "endTime": "2026-07-29T22:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 19,
+                "name": "Crableg Capital",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/4e0e9e2046aff1d635e23946d9f0a461486d2aab349079e551037e426ac82c7a_1.png"
+                },
+                "id": "VnNTdGFnZS0xOQ=="
+              },
+              {
+                "vsStageId": 24,
+                "name": "Lemuria Hub",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/2ba481293efc554ac217f21b6d56dd08f9d66e72b286f20714abd5ef1520f47a_1.png"
+                },
+                "id": "VnNTdGFnZS0yNA=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T22:00:00Z",
+          "endTime": "2026-07-30T00:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 3,
+                "name": "Hagglefish Market",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/8dc2f16d39c630bab40cead5b2485ca3559e829d0d3de0c2232c7a62fefb5fa9_1.png"
+                },
+                "id": "VnNTdGFnZS0z"
+              },
+              {
+                "vsStageId": 8,
+                "name": "Barnacle & Dime",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f70e9f5af477a39ccfab631bfb81c9e2cedb4cd0947fe260847c214a6d23695f_1.png"
+                },
+                "id": "VnNTdGFnZS04"
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T00:00:00Z",
+          "endTime": "2026-07-30T02:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 10,
+                "name": "Hammerhead Bridge",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/1db8ab338b64b464df50e7f9e270e59423ff8caac6f09679a24f1b7acf3a82f3_1.png"
+                },
+                "id": "VnNTdGFnZS0xMA=="
+              },
+              {
+                "vsStageId": 11,
+                "name": "Museum d'Alfonsino",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png"
+                },
+                "id": "VnNTdGFnZS0xMQ=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T02:00:00Z",
+          "endTime": "2026-07-30T04:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 1,
+                "name": "Scorch Gorge",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png"
+                },
+                "id": "VnNTdGFnZS0x"
+              },
+              {
+                "vsStageId": 5,
+                "name": "Um'ami Ruins",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f14c2a64e49d243679fc0884af91e1a07dc65600f9b90aefe92d7790dcffb191_1.png"
+                },
+                "id": "VnNTdGFnZS01"
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T04:00:00Z",
+          "endTime": "2026-07-30T06:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 2,
+                "name": "Eeltail Alley",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/898e1ae6c737a9d44552c7c81f9b710676492681525c514eadc68a6780aa52af_1.png"
+                },
+                "id": "VnNTdGFnZS0y"
+              },
+              {
+                "vsStageId": 21,
+                "name": "Robo ROM-en",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/692365fa7e56cf19cfa403a8546e69cf60fd9ca2171bde66cdaa53dc0e736ac9_1.png"
+                },
+                "id": "VnNTdGFnZS0yMQ=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T06:00:00Z",
+          "endTime": "2026-07-30T08:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 6,
+                "name": "Mincemeat Metalworks",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/de1f212e9ff0648f36cd3b8e0917ef36b3bd51445159297dcb948f34a09f2f05_1.png"
+                },
+                "id": "VnNTdGFnZS02"
+              },
+              {
+                "vsStageId": 20,
+                "name": "Shipshape Cargo Co.",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b65a70eedf129848b9d2b492bb68712abf91a5cbda13131848947fb04c51d665_1.png"
+                },
+                "id": "VnNTdGFnZS0yMA=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T08:00:00Z",
+          "endTime": "2026-07-30T10:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 11,
+                "name": "Museum d'Alfonsino",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png"
+                },
+                "id": "VnNTdGFnZS0xMQ=="
+              },
+              {
+                "vsStageId": 26,
+                "name": "Urchin Underpass",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/249c981fdd888e79ada712ddf899bddbead508d71043af3ff96c90a7b5959c73_1.png"
+                },
+                "id": "VnNTdGFnZS0yNg=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T10:00:00Z",
+          "endTime": "2026-07-30T12:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 22,
+                "name": "Bluefin Depot",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/3e468df1f38d6323cc8d9446049696d66e47831e68cd31032502349b11960500_1.png"
+                },
+                "id": "VnNTdGFnZS0yMg=="
+              },
+              {
+                "vsStageId": 24,
+                "name": "Lemuria Hub",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/2ba481293efc554ac217f21b6d56dd08f9d66e72b286f20714abd5ef1520f47a_1.png"
+                },
+                "id": "VnNTdGFnZS0yNA=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T12:00:00Z",
+          "endTime": "2026-07-30T14:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 4,
+                "name": "Undertow Spillway",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/9b1c17b2075479d0397d2fb96efbc6fa3a28900712920e5fe1e9dfc59c6abc5c_1.png"
+                },
+                "id": "VnNTdGFnZS00"
+              },
+              {
+                "vsStageId": 9,
+                "name": "Flounder Heights",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/488017f3ce712fca9fb37d61fe306343054449bb2d2bb1751d95f54a98564cae_1.png"
+                },
+                "id": "VnNTdGFnZS05"
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T14:00:00Z",
+          "endTime": "2026-07-30T16:00:00Z",
+          "regularMatchSetting": {
+            "__isVsSetting": "RegularMatchSetting",
+            "__typename": "RegularMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 17,
+                "name": "Humpback Pump Track",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/7b3cf118bd9f45d141cd6db0ee75b06e697fa83945c7fe1e6f8483de6a591f5f_1.png"
+                },
+                "id": "VnNTdGFnZS0xNw=="
+              },
+              {
+                "vsStageId": 19,
+                "name": "Crableg Capital",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/4e0e9e2046aff1d635e23946d9f0a461486d2aab349079e551037e426ac82c7a_1.png"
+                },
+                "id": "VnNTdGFnZS0xOQ=="
+              }
+            ],
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "festMatchSettings": null
+        }
+      ]
+    },
+    "bankaraSchedules": {
+      "nodes": [
+        {
+          "startTime": "2026-07-29T14:00:00Z",
+          "endTime": "2026-07-29T16:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 7,
+                  "name": "Brinewater Springs",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/cd84d711b47a424334569ac20f33f8e0ab6a652dc07854dcd36508a0081e9034_1.png"
+                  },
+                  "id": "VnNTdGFnZS03"
+                },
+                {
+                  "vsStageId": 11,
+                  "name": "Museum d'Alfonsino",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xMQ=="
+                }
+              ],
+              "vsRule": {
+                "name": "Rainmaker",
+                "rule": "GOAL",
+                "id": "VnNSdWxlLTM="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 3,
+                  "name": "Hagglefish Market",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/8dc2f16d39c630bab40cead5b2485ca3559e829d0d3de0c2232c7a62fefb5fa9_1.png"
+                  },
+                  "id": "VnNTdGFnZS0z"
+                },
+                {
+                  "vsStageId": 19,
+                  "name": "Crableg Capital",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/4e0e9e2046aff1d635e23946d9f0a461486d2aab349079e551037e426ac82c7a_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xOQ=="
+                }
+              ],
+              "vsRule": {
+                "name": "Tower Control",
+                "rule": "LOFT",
+                "id": "VnNSdWxlLTI="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T16:00:00Z",
+          "endTime": "2026-07-29T18:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 9,
+                  "name": "Flounder Heights",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/488017f3ce712fca9fb37d61fe306343054449bb2d2bb1751d95f54a98564cae_1.png"
+                  },
+                  "id": "VnNTdGFnZS05"
+                },
+                {
+                  "vsStageId": 19,
+                  "name": "Crableg Capital",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/4e0e9e2046aff1d635e23946d9f0a461486d2aab349079e551037e426ac82c7a_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xOQ=="
+                }
+              ],
+              "vsRule": {
+                "name": "Clam Blitz",
+                "rule": "CLAM",
+                "id": "VnNSdWxlLTQ="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 7,
+                  "name": "Brinewater Springs",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/cd84d711b47a424334569ac20f33f8e0ab6a652dc07854dcd36508a0081e9034_1.png"
+                  },
+                  "id": "VnNTdGFnZS03"
+                },
+                {
+                  "vsStageId": 12,
+                  "name": "Mahi-Mahi Resort",
+                  "image": {
+                    "url": "/fixture-assets/b3bc767045803c4a2c1f8b3f46f9378d2bfcf42b42afe5a49f58684f270fd557.png"
+                  },
+                  "id": "VnNTdGFnZS0xMg=="
+                }
+              ],
+              "vsRule": {
+                "name": "Splat Zones",
+                "rule": "AREA",
+                "id": "VnNSdWxlLTE="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T18:00:00Z",
+          "endTime": "2026-07-29T20:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 1,
+                  "name": "Scorch Gorge",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png"
+                  },
+                  "id": "VnNTdGFnZS0x"
+                },
+                {
+                  "vsStageId": 6,
+                  "name": "Mincemeat Metalworks",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/de1f212e9ff0648f36cd3b8e0917ef36b3bd51445159297dcb948f34a09f2f05_1.png"
+                  },
+                  "id": "VnNTdGFnZS02"
+                }
+              ],
+              "vsRule": {
+                "name": "Tower Control",
+                "rule": "LOFT",
+                "id": "VnNSdWxlLTI="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 4,
+                  "name": "Undertow Spillway",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/9b1c17b2075479d0397d2fb96efbc6fa3a28900712920e5fe1e9dfc59c6abc5c_1.png"
+                  },
+                  "id": "VnNTdGFnZS00"
+                },
+                {
+                  "vsStageId": 20,
+                  "name": "Shipshape Cargo Co.",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b65a70eedf129848b9d2b492bb68712abf91a5cbda13131848947fb04c51d665_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yMA=="
+                }
+              ],
+              "vsRule": {
+                "name": "Rainmaker",
+                "rule": "GOAL",
+                "id": "VnNSdWxlLTM="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T20:00:00Z",
+          "endTime": "2026-07-29T22:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 13,
+                  "name": "Inkblot Art Academy",
+                  "image": {
+                    "url": "/fixture-assets/980f19c29951211240b3d8d440d2930dd4fe2bec9223ff027346d8c8e588e2fc.png"
+                  },
+                  "id": "VnNTdGFnZS0xMw=="
+                },
+                {
+                  "vsStageId": 17,
+                  "name": "Humpback Pump Track",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/7b3cf118bd9f45d141cd6db0ee75b06e697fa83945c7fe1e6f8483de6a591f5f_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xNw=="
+                }
+              ],
+              "vsRule": {
+                "name": "Splat Zones",
+                "rule": "AREA",
+                "id": "VnNSdWxlLTE="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 21,
+                  "name": "Robo ROM-en",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/692365fa7e56cf19cfa403a8546e69cf60fd9ca2171bde66cdaa53dc0e736ac9_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yMQ=="
+                },
+                {
+                  "vsStageId": 23,
+                  "name": "Marlin Airport",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/21ea0549b3d29de56ec20affef8866297929d0defb82a27cd199c9d8dade508c_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yMw=="
+                }
+              ],
+              "vsRule": {
+                "name": "Clam Blitz",
+                "rule": "CLAM",
+                "id": "VnNSdWxlLTQ="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T22:00:00Z",
+          "endTime": "2026-07-30T00:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 5,
+                  "name": "Um'ami Ruins",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f14c2a64e49d243679fc0884af91e1a07dc65600f9b90aefe92d7790dcffb191_1.png"
+                  },
+                  "id": "VnNTdGFnZS01"
+                },
+                {
+                  "vsStageId": 23,
+                  "name": "Marlin Airport",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/21ea0549b3d29de56ec20affef8866297929d0defb82a27cd199c9d8dade508c_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yMw=="
+                }
+              ],
+              "vsRule": {
+                "name": "Rainmaker",
+                "rule": "GOAL",
+                "id": "VnNSdWxlLTM="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 9,
+                  "name": "Flounder Heights",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/488017f3ce712fca9fb37d61fe306343054449bb2d2bb1751d95f54a98564cae_1.png"
+                  },
+                  "id": "VnNTdGFnZS05"
+                },
+                {
+                  "vsStageId": 22,
+                  "name": "Bluefin Depot",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/3e468df1f38d6323cc8d9446049696d66e47831e68cd31032502349b11960500_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yMg=="
+                }
+              ],
+              "vsRule": {
+                "name": "Tower Control",
+                "rule": "LOFT",
+                "id": "VnNSdWxlLTI="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T00:00:00Z",
+          "endTime": "2026-07-30T02:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 8,
+                  "name": "Barnacle & Dime",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f70e9f5af477a39ccfab631bfb81c9e2cedb4cd0947fe260847c214a6d23695f_1.png"
+                  },
+                  "id": "VnNTdGFnZS04"
+                },
+                {
+                  "vsStageId": 15,
+                  "name": "MakoMart",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/a8ba96c3dbd015b7bc6ea4fa067245c4e9aee62b6696cb41e02d35139dd21fe7_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xNQ=="
+                }
+              ],
+              "vsRule": {
+                "name": "Tower Control",
+                "rule": "LOFT",
+                "id": "VnNSdWxlLTI="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 1,
+                  "name": "Scorch Gorge",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png"
+                  },
+                  "id": "VnNTdGFnZS0x"
+                },
+                {
+                  "vsStageId": 5,
+                  "name": "Um'ami Ruins",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f14c2a64e49d243679fc0884af91e1a07dc65600f9b90aefe92d7790dcffb191_1.png"
+                  },
+                  "id": "VnNTdGFnZS01"
+                }
+              ],
+              "vsRule": {
+                "name": "Clam Blitz",
+                "rule": "CLAM",
+                "id": "VnNSdWxlLTQ="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T02:00:00Z",
+          "endTime": "2026-07-30T04:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 18,
+                  "name": "Manta Maria",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/0b7fd997781e03eb9d5bf1875ed070f698afc654f4fe929452c65aa26c0a35fd_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xOA=="
+                },
+                {
+                  "vsStageId": 24,
+                  "name": "Lemuria Hub",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/2ba481293efc554ac217f21b6d56dd08f9d66e72b286f20714abd5ef1520f47a_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yNA=="
+                }
+              ],
+              "vsRule": {
+                "name": "Rainmaker",
+                "rule": "GOAL",
+                "id": "VnNSdWxlLTM="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 6,
+                  "name": "Mincemeat Metalworks",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/de1f212e9ff0648f36cd3b8e0917ef36b3bd51445159297dcb948f34a09f2f05_1.png"
+                  },
+                  "id": "VnNTdGFnZS02"
+                },
+                {
+                  "vsStageId": 8,
+                  "name": "Barnacle & Dime",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f70e9f5af477a39ccfab631bfb81c9e2cedb4cd0947fe260847c214a6d23695f_1.png"
+                  },
+                  "id": "VnNTdGFnZS04"
+                }
+              ],
+              "vsRule": {
+                "name": "Splat Zones",
+                "rule": "AREA",
+                "id": "VnNSdWxlLTE="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T04:00:00Z",
+          "endTime": "2026-07-30T06:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 20,
+                  "name": "Shipshape Cargo Co.",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b65a70eedf129848b9d2b492bb68712abf91a5cbda13131848947fb04c51d665_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yMA=="
+                },
+                {
+                  "vsStageId": 26,
+                  "name": "Urchin Underpass",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/249c981fdd888e79ada712ddf899bddbead508d71043af3ff96c90a7b5959c73_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yNg=="
+                }
+              ],
+              "vsRule": {
+                "name": "Clam Blitz",
+                "rule": "CLAM",
+                "id": "VnNSdWxlLTQ="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 16,
+                  "name": "Wahoo World",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xNg=="
+                },
+                {
+                  "vsStageId": 18,
+                  "name": "Manta Maria",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/0b7fd997781e03eb9d5bf1875ed070f698afc654f4fe929452c65aa26c0a35fd_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xOA=="
+                }
+              ],
+              "vsRule": {
+                "name": "Tower Control",
+                "rule": "LOFT",
+                "id": "VnNSdWxlLTI="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T06:00:00Z",
+          "endTime": "2026-07-30T08:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 2,
+                  "name": "Eeltail Alley",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/898e1ae6c737a9d44552c7c81f9b710676492681525c514eadc68a6780aa52af_1.png"
+                  },
+                  "id": "VnNTdGFnZS0y"
+                },
+                {
+                  "vsStageId": 12,
+                  "name": "Mahi-Mahi Resort",
+                  "image": {
+                    "url": "/fixture-assets/b3bc767045803c4a2c1f8b3f46f9378d2bfcf42b42afe5a49f58684f270fd557.png"
+                  },
+                  "id": "VnNTdGFnZS0xMg=="
+                }
+              ],
+              "vsRule": {
+                "name": "Splat Zones",
+                "rule": "AREA",
+                "id": "VnNSdWxlLTE="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 13,
+                  "name": "Inkblot Art Academy",
+                  "image": {
+                    "url": "/fixture-assets/980f19c29951211240b3d8d440d2930dd4fe2bec9223ff027346d8c8e588e2fc.png"
+                  },
+                  "id": "VnNTdGFnZS0xMw=="
+                },
+                {
+                  "vsStageId": 15,
+                  "name": "MakoMart",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/a8ba96c3dbd015b7bc6ea4fa067245c4e9aee62b6696cb41e02d35139dd21fe7_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xNQ=="
+                }
+              ],
+              "vsRule": {
+                "name": "Rainmaker",
+                "rule": "GOAL",
+                "id": "VnNSdWxlLTM="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T08:00:00Z",
+          "endTime": "2026-07-30T10:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 7,
+                  "name": "Brinewater Springs",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/cd84d711b47a424334569ac20f33f8e0ab6a652dc07854dcd36508a0081e9034_1.png"
+                  },
+                  "id": "VnNTdGFnZS03"
+                },
+                {
+                  "vsStageId": 10,
+                  "name": "Hammerhead Bridge",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/1db8ab338b64b464df50e7f9e270e59423ff8caac6f09679a24f1b7acf3a82f3_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xMA=="
+                }
+              ],
+              "vsRule": {
+                "name": "Tower Control",
+                "rule": "LOFT",
+                "id": "VnNSdWxlLTI="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 18,
+                  "name": "Manta Maria",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/0b7fd997781e03eb9d5bf1875ed070f698afc654f4fe929452c65aa26c0a35fd_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xOA=="
+                },
+                {
+                  "vsStageId": 22,
+                  "name": "Bluefin Depot",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/3e468df1f38d6323cc8d9446049696d66e47831e68cd31032502349b11960500_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yMg=="
+                }
+              ],
+              "vsRule": {
+                "name": "Clam Blitz",
+                "rule": "CLAM",
+                "id": "VnNSdWxlLTQ="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T10:00:00Z",
+          "endTime": "2026-07-30T12:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 17,
+                  "name": "Humpback Pump Track",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/7b3cf118bd9f45d141cd6db0ee75b06e697fa83945c7fe1e6f8483de6a591f5f_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xNw=="
+                },
+                {
+                  "vsStageId": 19,
+                  "name": "Crableg Capital",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/4e0e9e2046aff1d635e23946d9f0a461486d2aab349079e551037e426ac82c7a_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xOQ=="
+                }
+              ],
+              "vsRule": {
+                "name": "Rainmaker",
+                "rule": "GOAL",
+                "id": "VnNSdWxlLTM="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 23,
+                  "name": "Marlin Airport",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/21ea0549b3d29de56ec20affef8866297929d0defb82a27cd199c9d8dade508c_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yMw=="
+                },
+                {
+                  "vsStageId": 26,
+                  "name": "Urchin Underpass",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/249c981fdd888e79ada712ddf899bddbead508d71043af3ff96c90a7b5959c73_1.png"
+                  },
+                  "id": "VnNTdGFnZS0yNg=="
+                }
+              ],
+              "vsRule": {
+                "name": "Splat Zones",
+                "rule": "AREA",
+                "id": "VnNSdWxlLTE="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T12:00:00Z",
+          "endTime": "2026-07-30T14:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 6,
+                  "name": "Mincemeat Metalworks",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/de1f212e9ff0648f36cd3b8e0917ef36b3bd51445159297dcb948f34a09f2f05_1.png"
+                  },
+                  "id": "VnNTdGFnZS02"
+                },
+                {
+                  "vsStageId": 8,
+                  "name": "Barnacle & Dime",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f70e9f5af477a39ccfab631bfb81c9e2cedb4cd0947fe260847c214a6d23695f_1.png"
+                  },
+                  "id": "VnNTdGFnZS04"
+                }
+              ],
+              "vsRule": {
+                "name": "Clam Blitz",
+                "rule": "CLAM",
+                "id": "VnNSdWxlLTQ="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 5,
+                  "name": "Um'ami Ruins",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f14c2a64e49d243679fc0884af91e1a07dc65600f9b90aefe92d7790dcffb191_1.png"
+                  },
+                  "id": "VnNTdGFnZS01"
+                },
+                {
+                  "vsStageId": 13,
+                  "name": "Inkblot Art Academy",
+                  "image": {
+                    "url": "/fixture-assets/980f19c29951211240b3d8d440d2930dd4fe2bec9223ff027346d8c8e588e2fc.png"
+                  },
+                  "id": "VnNTdGFnZS0xMw=="
+                }
+              ],
+              "vsRule": {
+                "name": "Tower Control",
+                "rule": "LOFT",
+                "id": "VnNSdWxlLTI="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T14:00:00Z",
+          "endTime": "2026-07-30T16:00:00Z",
+          "bankaraMatchSettings": [
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 1,
+                  "name": "Scorch Gorge",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png"
+                  },
+                  "id": "VnNTdGFnZS0x"
+                },
+                {
+                  "vsStageId": 9,
+                  "name": "Flounder Heights",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/488017f3ce712fca9fb37d61fe306343054449bb2d2bb1751d95f54a98564cae_1.png"
+                  },
+                  "id": "VnNTdGFnZS05"
+                }
+              ],
+              "vsRule": {
+                "name": "Splat Zones",
+                "rule": "AREA",
+                "id": "VnNSdWxlLTE="
+              },
+              "bankaraMode": "CHALLENGE"
+            },
+            {
+              "__isVsSetting": "BankaraMatchSetting",
+              "__typename": "BankaraMatchSetting",
+              "vsStages": [
+                {
+                  "vsStageId": 4,
+                  "name": "Undertow Spillway",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/9b1c17b2075479d0397d2fb96efbc6fa3a28900712920e5fe1e9dfc59c6abc5c_1.png"
+                  },
+                  "id": "VnNTdGFnZS00"
+                },
+                {
+                  "vsStageId": 14,
+                  "name": "Sturgeon Shipyard",
+                  "image": {
+                    "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/48684c69d5c5a4ffaf16b712a4895545a8d01196115d514fc878ce99863bb3e9_1.png"
+                  },
+                  "id": "VnNTdGFnZS0xNA=="
+                }
+              ],
+              "vsRule": {
+                "name": "Rainmaker",
+                "rule": "GOAL",
+                "id": "VnNSdWxlLTM="
+              },
+              "bankaraMode": "OPEN"
+            }
+          ],
+          "festMatchSettings": null
+        }
+      ]
+    },
+    "xSchedules": {
+      "nodes": [
+        {
+          "startTime": "2026-07-29T14:00:00Z",
+          "endTime": "2026-07-29T16:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 4,
+                "name": "Undertow Spillway",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/9b1c17b2075479d0397d2fb96efbc6fa3a28900712920e5fe1e9dfc59c6abc5c_1.png"
+                },
+                "id": "VnNTdGFnZS00"
+              },
+              {
+                "vsStageId": 13,
+                "name": "Inkblot Art Academy",
+                "image": {
+                  "url": "/fixture-assets/980f19c29951211240b3d8d440d2930dd4fe2bec9223ff027346d8c8e588e2fc.png"
+                },
+                "id": "VnNTdGFnZS0xMw=="
+              }
+            ],
+            "vsRule": {
+              "name": "Splat Zones",
+              "rule": "AREA",
+              "id": "VnNSdWxlLTE="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T16:00:00Z",
+          "endTime": "2026-07-29T18:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 11,
+                "name": "Museum d'Alfonsino",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png"
+                },
+                "id": "VnNTdGFnZS0xMQ=="
+              },
+              {
+                "vsStageId": 23,
+                "name": "Marlin Airport",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/21ea0549b3d29de56ec20affef8866297929d0defb82a27cd199c9d8dade508c_1.png"
+                },
+                "id": "VnNTdGFnZS0yMw=="
+              }
+            ],
+            "vsRule": {
+              "name": "Tower Control",
+              "rule": "LOFT",
+              "id": "VnNSdWxlLTI="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T18:00:00Z",
+          "endTime": "2026-07-29T20:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 7,
+                "name": "Brinewater Springs",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/cd84d711b47a424334569ac20f33f8e0ab6a652dc07854dcd36508a0081e9034_1.png"
+                },
+                "id": "VnNTdGFnZS03"
+              },
+              {
+                "vsStageId": 17,
+                "name": "Humpback Pump Track",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/7b3cf118bd9f45d141cd6db0ee75b06e697fa83945c7fe1e6f8483de6a591f5f_1.png"
+                },
+                "id": "VnNTdGFnZS0xNw=="
+              }
+            ],
+            "vsRule": {
+              "name": "Clam Blitz",
+              "rule": "CLAM",
+              "id": "VnNSdWxlLTQ="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T20:00:00Z",
+          "endTime": "2026-07-29T22:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 1,
+                "name": "Scorch Gorge",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png"
+                },
+                "id": "VnNTdGFnZS0x"
+              },
+              {
+                "vsStageId": 9,
+                "name": "Flounder Heights",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/488017f3ce712fca9fb37d61fe306343054449bb2d2bb1751d95f54a98564cae_1.png"
+                },
+                "id": "VnNTdGFnZS05"
+              }
+            ],
+            "vsRule": {
+              "name": "Rainmaker",
+              "rule": "GOAL",
+              "id": "VnNSdWxlLTM="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-29T22:00:00Z",
+          "endTime": "2026-07-30T00:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 18,
+                "name": "Manta Maria",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/0b7fd997781e03eb9d5bf1875ed070f698afc654f4fe929452c65aa26c0a35fd_1.png"
+                },
+                "id": "VnNTdGFnZS0xOA=="
+              },
+              {
+                "vsStageId": 19,
+                "name": "Crableg Capital",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/4e0e9e2046aff1d635e23946d9f0a461486d2aab349079e551037e426ac82c7a_1.png"
+                },
+                "id": "VnNTdGFnZS0xOQ=="
+              }
+            ],
+            "vsRule": {
+              "name": "Splat Zones",
+              "rule": "AREA",
+              "id": "VnNSdWxlLTE="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T00:00:00Z",
+          "endTime": "2026-07-30T02:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 2,
+                "name": "Eeltail Alley",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/898e1ae6c737a9d44552c7c81f9b710676492681525c514eadc68a6780aa52af_1.png"
+                },
+                "id": "VnNTdGFnZS0y"
+              },
+              {
+                "vsStageId": 16,
+                "name": "Wahoo World",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png"
+                },
+                "id": "VnNTdGFnZS0xNg=="
+              }
+            ],
+            "vsRule": {
+              "name": "Rainmaker",
+              "rule": "GOAL",
+              "id": "VnNSdWxlLTM="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T02:00:00Z",
+          "endTime": "2026-07-30T04:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 12,
+                "name": "Mahi-Mahi Resort",
+                "image": {
+                  "url": "/fixture-assets/b3bc767045803c4a2c1f8b3f46f9378d2bfcf42b42afe5a49f58684f270fd557.png"
+                },
+                "id": "VnNTdGFnZS0xMg=="
+              },
+              {
+                "vsStageId": 20,
+                "name": "Shipshape Cargo Co.",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b65a70eedf129848b9d2b492bb68712abf91a5cbda13131848947fb04c51d665_1.png"
+                },
+                "id": "VnNTdGFnZS0yMA=="
+              }
+            ],
+            "vsRule": {
+              "name": "Tower Control",
+              "rule": "LOFT",
+              "id": "VnNSdWxlLTI="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T04:00:00Z",
+          "endTime": "2026-07-30T06:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 5,
+                "name": "Um'ami Ruins",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/f14c2a64e49d243679fc0884af91e1a07dc65600f9b90aefe92d7790dcffb191_1.png"
+                },
+                "id": "VnNTdGFnZS01"
+              },
+              {
+                "vsStageId": 24,
+                "name": "Lemuria Hub",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/2ba481293efc554ac217f21b6d56dd08f9d66e72b286f20714abd5ef1520f47a_1.png"
+                },
+                "id": "VnNTdGFnZS0yNA=="
+              }
+            ],
+            "vsRule": {
+              "name": "Splat Zones",
+              "rule": "AREA",
+              "id": "VnNSdWxlLTE="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T06:00:00Z",
+          "endTime": "2026-07-30T08:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 10,
+                "name": "Hammerhead Bridge",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/1db8ab338b64b464df50e7f9e270e59423ff8caac6f09679a24f1b7acf3a82f3_1.png"
+                },
+                "id": "VnNTdGFnZS0xMA=="
+              },
+              {
+                "vsStageId": 16,
+                "name": "Wahoo World",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png"
+                },
+                "id": "VnNTdGFnZS0xNg=="
+              }
+            ],
+            "vsRule": {
+              "name": "Clam Blitz",
+              "rule": "CLAM",
+              "id": "VnNSdWxlLTQ="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T08:00:00Z",
+          "endTime": "2026-07-30T10:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 6,
+                "name": "Mincemeat Metalworks",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/de1f212e9ff0648f36cd3b8e0917ef36b3bd51445159297dcb948f34a09f2f05_1.png"
+                },
+                "id": "VnNTdGFnZS02"
+              },
+              {
+                "vsStageId": 12,
+                "name": "Mahi-Mahi Resort",
+                "image": {
+                  "url": "/fixture-assets/b3bc767045803c4a2c1f8b3f46f9378d2bfcf42b42afe5a49f58684f270fd557.png"
+                },
+                "id": "VnNTdGFnZS0xMg=="
+              }
+            ],
+            "vsRule": {
+              "name": "Rainmaker",
+              "rule": "GOAL",
+              "id": "VnNSdWxlLTM="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T10:00:00Z",
+          "endTime": "2026-07-30T12:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 4,
+                "name": "Undertow Spillway",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/9b1c17b2075479d0397d2fb96efbc6fa3a28900712920e5fe1e9dfc59c6abc5c_1.png"
+                },
+                "id": "VnNTdGFnZS00"
+              },
+              {
+                "vsStageId": 21,
+                "name": "Robo ROM-en",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/692365fa7e56cf19cfa403a8546e69cf60fd9ca2171bde66cdaa53dc0e736ac9_1.png"
+                },
+                "id": "VnNTdGFnZS0yMQ=="
+              }
+            ],
+            "vsRule": {
+              "name": "Tower Control",
+              "rule": "LOFT",
+              "id": "VnNSdWxlLTI="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T12:00:00Z",
+          "endTime": "2026-07-30T14:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 11,
+                "name": "Museum d'Alfonsino",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png"
+                },
+                "id": "VnNTdGFnZS0xMQ=="
+              },
+              {
+                "vsStageId": 15,
+                "name": "MakoMart",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/a8ba96c3dbd015b7bc6ea4fa067245c4e9aee62b6696cb41e02d35139dd21fe7_1.png"
+                },
+                "id": "VnNTdGFnZS0xNQ=="
+              }
+            ],
+            "vsRule": {
+              "name": "Splat Zones",
+              "rule": "AREA",
+              "id": "VnNSdWxlLTE="
+            }
+          },
+          "festMatchSettings": null
+        },
+        {
+          "startTime": "2026-07-30T14:00:00Z",
+          "endTime": "2026-07-30T16:00:00Z",
+          "xMatchSetting": {
+            "__isVsSetting": "XMatchSetting",
+            "__typename": "XMatchSetting",
+            "vsStages": [
+              {
+                "vsStageId": 2,
+                "name": "Eeltail Alley",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/898e1ae6c737a9d44552c7c81f9b710676492681525c514eadc68a6780aa52af_1.png"
+                },
+                "id": "VnNTdGFnZS0y"
+              },
+              {
+                "vsStageId": 26,
+                "name": "Urchin Underpass",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/249c981fdd888e79ada712ddf899bddbead508d71043af3ff96c90a7b5959c73_1.png"
+                },
+                "id": "VnNTdGFnZS0yNg=="
+              }
+            ],
+            "vsRule": {
+              "name": "Clam Blitz",
+              "rule": "CLAM",
+              "id": "VnNSdWxlLTQ="
+            }
+          },
+          "festMatchSettings": null
+        }
+      ]
+    },
+    "eventSchedules": {
+      "nodes": [
+        {
+          "leagueMatchSetting": {
+            "leagueMatchEvent": {
+              "leagueMatchEventId": "CostumeParty",
+              "name": "Sheldon's Dress-Up Showdown",
+              "desc": "Raid Sheldon's arsenal and closet for<br />random weapons and outfits!",
+              "regulationUrl": null,
+              "regulation": "Make the most of a random assortment of Sheldon's weapons and outfits in this come-as-you-are Challenge!<br /><br />・ You'll be assigned an outfit and weapon at the start of battle.<br />・ Your loadout will completely change with each subsequent battle!<br />・ Sheldon is graciously loaning all of the equipment, so you don't need to own the items you're using. You also don't get to keep them.",
+              "id": "TGVhZ3VlTWF0Y2hFdmVudC1Db3N0dW1lUGFydHk="
+            },
+            "vsStages": [
+              {
+                "vsStageId": 19,
+                "name": "Crableg Capital",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/4e0e9e2046aff1d635e23946d9f0a461486d2aab349079e551037e426ac82c7a_1.png"
+                },
+                "id": "VnNTdGFnZS0xOQ=="
+              },
+              {
+                "vsStageId": 21,
+                "name": "Robo ROM-en",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/692365fa7e56cf19cfa403a8546e69cf60fd9ca2171bde66cdaa53dc0e736ac9_1.png"
+                },
+                "id": "VnNTdGFnZS0yMQ=="
+              }
+            ],
+            "__isVsSetting": "LeagueMatchSetting",
+            "__typename": "LeagueMatchSetting",
+            "vsRule": {
+              "name": "Tower Control",
+              "rule": "LOFT",
+              "id": "VnNSdWxlLTI="
+            }
+          },
+          "timePeriods": [
+            {
+              "startTime": "2026-08-03T02:00:00Z",
+              "endTime": "2026-08-03T04:00:00Z"
+            },
+            {
+              "startTime": "2026-08-03T06:00:00Z",
+              "endTime": "2026-08-03T08:00:00Z"
+            },
+            {
+              "startTime": "2026-08-03T10:00:00Z",
+              "endTime": "2026-08-03T12:00:00Z"
+            },
+            {
+              "startTime": "2026-08-03T14:00:00Z",
+              "endTime": "2026-08-03T16:00:00Z"
+            },
+            {
+              "startTime": "2026-08-03T18:00:00Z",
+              "endTime": "2026-08-03T20:00:00Z"
+            },
+            {
+              "startTime": "2026-08-03T22:00:00Z",
+              "endTime": "2026-08-04T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "leagueMatchSetting": {
+            "leagueMatchEvent": {
+              "leagueMatchEventId": "Geyser",
+              "name": "Oh My Gush",
+              "desc": "The stages you know and love are now<br />filled with gushers. How will you use them?",
+              "regulationUrl": null,
+              "regulation": "Where did all those gushers come from? Might as well make the most of them!<br /><br />・ Gushers have appeared in the stage!<br />・ Attack a gusher to make it erupt with your color of ink.<br />・ You can use them to hide or climb.<br />・ Both primary and secondary abilities will be enabled.",
+              "id": "TGVhZ3VlTWF0Y2hFdmVudC1HZXlzZXI="
+            },
+            "vsStages": [
+              {
+                "vsStageId": 1,
+                "name": "Scorch Gorge",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png"
+                },
+                "id": "VnNTdGFnZS0x"
+              },
+              {
+                "vsStageId": 2,
+                "name": "Eeltail Alley",
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/low_resolution/898e1ae6c737a9d44552c7c81f9b710676492681525c514eadc68a6780aa52af_1.png"
+                },
+                "id": "VnNTdGFnZS0y"
+              }
+            ],
+            "__isVsSetting": "LeagueMatchSetting",
+            "__typename": "LeagueMatchSetting",
+            "vsRule": {
+              "name": "Turf War",
+              "rule": "TURF_WAR",
+              "id": "VnNSdWxlLTA="
+            }
+          },
+          "timePeriods": [
+            {
+              "startTime": "2026-08-12T02:00:00Z",
+              "endTime": "2026-08-12T04:00:00Z"
+            },
+            {
+              "startTime": "2026-08-12T06:00:00Z",
+              "endTime": "2026-08-12T08:00:00Z"
+            },
+            {
+              "startTime": "2026-08-12T10:00:00Z",
+              "endTime": "2026-08-12T12:00:00Z"
+            },
+            {
+              "startTime": "2026-08-12T14:00:00Z",
+              "endTime": "2026-08-12T16:00:00Z"
+            },
+            {
+              "startTime": "2026-08-12T18:00:00Z",
+              "endTime": "2026-08-12T20:00:00Z"
+            },
+            {
+              "startTime": "2026-08-12T22:00:00Z",
+              "endTime": "2026-08-13T00:00:00Z"
+            }
+          ]
+        }
+      ]
+    },
+    "festSchedules": {
+      "nodes": [
+        {
+          "startTime": "2026-07-29T14:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-29T16:00:00Z"
+        },
+        {
+          "startTime": "2026-07-29T16:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-29T18:00:00Z"
+        },
+        {
+          "startTime": "2026-07-29T18:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-29T20:00:00Z"
+        },
+        {
+          "startTime": "2026-07-29T20:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-29T22:00:00Z"
+        },
+        {
+          "startTime": "2026-07-29T22:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T00:00:00Z"
+        },
+        {
+          "startTime": "2026-07-30T00:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T02:00:00Z"
+        },
+        {
+          "startTime": "2026-07-30T02:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T04:00:00Z"
+        },
+        {
+          "startTime": "2026-07-30T04:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T06:00:00Z"
+        },
+        {
+          "startTime": "2026-07-30T06:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T08:00:00Z"
+        },
+        {
+          "startTime": "2026-07-30T08:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T10:00:00Z"
+        },
+        {
+          "startTime": "2026-07-30T10:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T12:00:00Z"
+        },
+        {
+          "startTime": "2026-07-30T12:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T14:00:00Z"
+        },
+        {
+          "startTime": "2026-07-30T14:00:00Z",
+          "festMatchSettings": null,
+          "endTime": "2026-07-30T16:00:00Z"
+        }
+      ]
+    },
+    "coopGroupingSchedule": {
+      "bannerImage": null,
+      "regularSchedules": {
+        "nodes": [
+          {
+            "startTime": "2026-07-29T08:00:00Z",
+            "endTime": "2026-07-31T00:00:00Z",
+            "setting": {
+              "__typename": "CoopNormalSetting",
+              "boss": {
+                "name": "Cohozuna",
+                "id": "Q29vcEVuZW15LTIz"
+              },
+              "coopStage": {
+                "name": "Bonerattle Arena",
+                "thumbnailImage": {
+                  "url": "/fixture-assets/87dee5f1852c4fad943a3033594fba11ecf858f5ee185bef68156b4100baef77.png"
+                },
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/5f09625c9031652ca1edcf8028265b03ecc28475ab3d56910960a68430d7948a_0.png"
+                },
+                "id": "Q29vcFN0YWdlLTk="
+              },
+              "__isCoopSetting": "CoopNormalSetting",
+              "weapons": [
+                {
+                  "__splatoon3ink_id": "914ca6f3cba7aa98",
+                  "name": "Recycled Brella 24 Mk I",
+                  "image": {
+                    "url": "/fixture-assets/babd637def293f890d1c86d9264016e48109eed72b533e85318861778fb03599.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "83c543ed4ae19005",
+                  "name": "Splat Dualies",
+                  "image": {
+                    "url": "/fixture-assets/ee51469276534099509cc7eff668ada4355d417742751bddae3c9b4836b9e0f4.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "d39ba7409f6e1fbc",
+                  "name": "Dualie Squelchers",
+                  "image": {
+                    "url": "/fixture-assets/407113d403ff54e837e3a7697b6744a0d0fb3414dcdbdf79b00816886350c068.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "5c8a27c6818f20e6",
+                  "name": "Bamboozler 14 Mk I",
+                  "image": {
+                    "url": "/fixture-assets/2a235626667fef8bd40f6a3c0545c124e433a137d0bc928ba88ace4b93beb6d8.png"
+                  }
+                }
+              ]
+            },
+            "__splatoon3ink_king_salmonid_guess": "Cohozuna"
+          },
+          {
+            "startTime": "2026-07-31T00:00:00Z",
+            "endTime": "2026-08-01T16:00:00Z",
+            "setting": {
+              "__typename": "CoopNormalSetting",
+              "boss": {
+                "name": "Horrorboros",
+                "id": "Q29vcEVuZW15LTI0"
+              },
+              "coopStage": {
+                "name": "Jammin' Salmon Junction",
+                "thumbnailImage": {
+                  "url": "/fixture-assets/78f414d5ef7612779912760f7b874e34052655ea94091aebfe6b44602627e652.png"
+                },
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/0e05d4caa34089a447535708370286f4ee6068661359b4d7cf6c319863424f84_0.png"
+                },
+                "id": "Q29vcFN0YWdlLTg="
+              },
+              "__isCoopSetting": "CoopNormalSetting",
+              "weapons": [
+                {
+                  "__splatoon3ink_id": "7065ab46c609e6d7",
+                  "name": "Douser Dualies FF",
+                  "image": {
+                    "url": "/fixture-assets/0cb9c5e58adfb9957803a93c7c5e3e9da1c82da190820bc4c427bf507da0fd8b.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "523fca90c5771a63",
+                  "name": "Dark Tetra Dualies",
+                  "image": {
+                    "url": "/fixture-assets/413539e5f94b0956b549ed404a64364258e32a9e164082b7f92c9e05377c7a4d.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "cd34251e67bd3f3e",
+                  "name": "Mini Splatling",
+                  "image": {
+                    "url": "/fixture-assets/238bbb46d8b2af5bf9b9ae52ab2c533fb7b3c48349858be4555891de5dc2bd2c.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "2136716c07457658",
+                  "name": "Tri-Stringer",
+                  "image": {
+                    "url": "/fixture-assets/641fb8926085127c2c852ea74926d5c4410710841136500072a3d59bdeb8b769.png"
+                  }
+                }
+              ]
+            },
+            "__splatoon3ink_king_salmonid_guess": "Horrorboros"
+          },
+          {
+            "startTime": "2026-08-01T16:00:00Z",
+            "endTime": "2026-08-03T08:00:00Z",
+            "setting": {
+              "__typename": "CoopNormalSetting",
+              "boss": {
+                "name": "Triumvirate",
+                "id": "Q29vcEVuZW15LTMw"
+              },
+              "coopStage": {
+                "name": "Gone Fission Hydroplant",
+                "thumbnailImage": {
+                  "url": "/fixture-assets/fd520bef313c412f37959907f748f7f7313ab31b13f739a57239650d02521bdf.png"
+                },
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/f1e4df4cff1dc5e0acc66a9654fecf949224f7e4f6bd36305d4600ac3fa3db7b_0.png"
+                },
+                "id": "Q29vcFN0YWdlLTc="
+              },
+              "__isCoopSetting": "CoopNormalSetting",
+              "weapons": [
+                {
+                  "__splatoon3ink_id": "01b960996da8ed63",
+                  "name": "Random",
+                  "image": {
+                    "url": "/fixture-assets/1fffa9fe9cef57c1ff970e9a083e29a9f7859e71b1a3c213feffdf8edb92ba16.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "01b960996da8ed63",
+                  "name": "Random",
+                  "image": {
+                    "url": "/fixture-assets/1fffa9fe9cef57c1ff970e9a083e29a9f7859e71b1a3c213feffdf8edb92ba16.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "01b960996da8ed63",
+                  "name": "Random",
+                  "image": {
+                    "url": "/fixture-assets/1fffa9fe9cef57c1ff970e9a083e29a9f7859e71b1a3c213feffdf8edb92ba16.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "01b960996da8ed63",
+                  "name": "Random",
+                  "image": {
+                    "url": "/fixture-assets/1fffa9fe9cef57c1ff970e9a083e29a9f7859e71b1a3c213feffdf8edb92ba16.png"
+                  }
+                }
+              ]
+            },
+            "__splatoon3ink_king_salmonid_guess": "Triumvirate"
+          },
+          {
+            "startTime": "2026-08-03T08:00:00Z",
+            "endTime": "2026-08-05T00:00:00Z",
+            "setting": {
+              "__typename": "CoopNormalSetting",
+              "boss": {
+                "name": "Cohozuna",
+                "id": "Q29vcEVuZW15LTIz"
+              },
+              "coopStage": {
+                "name": "Marooner's Bay",
+                "thumbnailImage": {
+                  "url": "/fixture-assets/1cade82679cb9f0fd6dc407700df8c029f84c6a58e6da0f118813024249a89b7.png"
+                },
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/1a29476c1ab5fdbc813e2df99cd290ce56dfe29755b97f671a7250e5f77f4961_0.png"
+                },
+                "id": "Q29vcFN0YWdlLTY="
+              },
+              "__isCoopSetting": "CoopNormalSetting",
+              "weapons": [
+                {
+                  "__splatoon3ink_id": "de8a2a542dbe6b99",
+                  "name": "S-BLAST '92",
+                  "image": {
+                    "url": "/fixture-assets/e93be8c593d635217b5451c6f98bf27354b715413d019f634d2c3d3e5d1552b0.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "ed647072fa99c73e",
+                  "name": "Splash-o-matic",
+                  "image": {
+                    "url": "/fixture-assets/25b4565a563efa1afa0648118891713ebe151da98cd53b9936087821d8c1d5ce.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "c95b060287d757a2",
+                  "name": "Splatana Stamper",
+                  "image": {
+                    "url": "/fixture-assets/c605abc792b3410f5ab7d64da9f20b903f1d8923a2c83aff1ecabdf58e713140.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "dc9f150e86663adb",
+                  "name": "E-liter 4K",
+                  "image": {
+                    "url": "/fixture-assets/f70b611fa241e6a1913c749a6c70d3dacaaa1d0dc7dadae9964650f790782e85.png"
+                  }
+                }
+              ]
+            },
+            "__splatoon3ink_king_salmonid_guess": "Cohozuna"
+          },
+          {
+            "startTime": "2026-08-05T00:00:00Z",
+            "endTime": "2026-08-06T16:00:00Z",
+            "setting": {
+              "__typename": "CoopNormalSetting",
+              "boss": {
+                "name": "Horrorboros",
+                "id": "Q29vcEVuZW15LTI0"
+              },
+              "coopStage": {
+                "name": "Spawning Grounds",
+                "thumbnailImage": {
+                  "url": "/fixture-assets/422666b2260872d1cdb341c121933cc705e23f6301cbe6504c4fc271765759c4.png"
+                },
+                "image": {
+                  "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/be584c7c7f547b8cbac318617f646680541f88071bc71db73cd461eb3ea6326e_0.png"
+                },
+                "id": "Q29vcFN0YWdlLTE="
+              },
+              "__isCoopSetting": "CoopNormalSetting",
+              "weapons": [
+                {
+                  "__splatoon3ink_id": "fe3b9b3b87ca491e",
+                  "name": "Slosher",
+                  "image": {
+                    "url": "/fixture-assets/90bfe53823a65a6f94dbcbd367a0cb2ff66f9cfe8573c9b330cd0e93b825d07b.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "b5b716854159da15",
+                  "name": "Mint Decavitator",
+                  "image": {
+                    "url": "/fixture-assets/76f77a8997a528e7597d739e1e289df8f1bb7caec80bacdbb181b63c4256c533.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "dde2f92988536cd2",
+                  "name": "Blaster",
+                  "image": {
+                    "url": "/fixture-assets/d75234d86779b450f77cfa4a842cb24055fb47e0ff249e0686255e2ab3b427dd.png"
+                  }
+                },
+                {
+                  "__splatoon3ink_id": "535d3c822bba0415",
+                  "name": "Classic Squiffer",
+                  "image": {
+                    "url": "/fixture-assets/4fcef639d224c1cfa99e12e46c744858118d09c0af3c854ea56b6e8753c914c8.png"
+                  }
+                }
+              ]
+            },
+            "__splatoon3ink_king_salmonid_guess": "Horrorboros"
+          }
+        ]
+      },
+      "bigRunSchedules": {
+        "nodes": []
+      },
+      "teamContestSchedules": {
+        "nodes": []
+      }
+    },
+    "currentFest": null,
+    "currentPlayer": {
+      "userIcon": {
+        "url": "https://cdn-image-e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com/1/2066ebe78273022a"
+      }
+    },
+    "vsStages": {
+      "nodes": [
+        {
+          "vsStageId": 1,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_0.png"
+          },
+          "name": "Scorch Gorge",
+          "stats": null,
+          "id": "VnNTdGFnZS0x"
+        },
+        {
+          "vsStageId": 2,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/898e1ae6c737a9d44552c7c81f9b710676492681525c514eadc68a6780aa52af_0.png"
+          },
+          "name": "Eeltail Alley",
+          "stats": null,
+          "id": "VnNTdGFnZS0y"
+        },
+        {
+          "vsStageId": 3,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/8dc2f16d39c630bab40cead5b2485ca3559e829d0d3de0c2232c7a62fefb5fa9_0.png"
+          },
+          "name": "Hagglefish Market",
+          "stats": null,
+          "id": "VnNTdGFnZS0z"
+        },
+        {
+          "vsStageId": 4,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/9b1c17b2075479d0397d2fb96efbc6fa3a28900712920e5fe1e9dfc59c6abc5c_0.png"
+          },
+          "name": "Undertow Spillway",
+          "stats": null,
+          "id": "VnNTdGFnZS00"
+        },
+        {
+          "vsStageId": 5,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/f14c2a64e49d243679fc0884af91e1a07dc65600f9b90aefe92d7790dcffb191_0.png"
+          },
+          "name": "Um'ami Ruins",
+          "stats": null,
+          "id": "VnNTdGFnZS01"
+        },
+        {
+          "vsStageId": 6,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/de1f212e9ff0648f36cd3b8e0917ef36b3bd51445159297dcb948f34a09f2f05_0.png"
+          },
+          "name": "Mincemeat Metalworks",
+          "stats": null,
+          "id": "VnNTdGFnZS02"
+        },
+        {
+          "vsStageId": 7,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/cd84d711b47a424334569ac20f33f8e0ab6a652dc07854dcd36508a0081e9034_0.png"
+          },
+          "name": "Brinewater Springs",
+          "stats": null,
+          "id": "VnNTdGFnZS03"
+        },
+        {
+          "vsStageId": 8,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/f70e9f5af477a39ccfab631bfb81c9e2cedb4cd0947fe260847c214a6d23695f_0.png"
+          },
+          "name": "Barnacle & Dime",
+          "stats": null,
+          "id": "VnNTdGFnZS04"
+        },
+        {
+          "vsStageId": 9,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/488017f3ce712fca9fb37d61fe306343054449bb2d2bb1751d95f54a98564cae_0.png"
+          },
+          "name": "Flounder Heights",
+          "stats": null,
+          "id": "VnNTdGFnZS05"
+        },
+        {
+          "vsStageId": 10,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/1db8ab338b64b464df50e7f9e270e59423ff8caac6f09679a24f1b7acf3a82f3_0.png"
+          },
+          "name": "Hammerhead Bridge",
+          "stats": null,
+          "id": "VnNTdGFnZS0xMA=="
+        },
+        {
+          "vsStageId": 11,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_0.png"
+          },
+          "name": "Museum d'Alfonsino",
+          "stats": null,
+          "id": "VnNTdGFnZS0xMQ=="
+        },
+        {
+          "vsStageId": 12,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/8273118c1ffe1bf6fe031c7d8c9795dab52632c9b76e8e9f01f644ac5ae0ccc0_0.png"
+          },
+          "name": "Mahi-Mahi Resort",
+          "stats": null,
+          "id": "VnNTdGFnZS0xMg=="
+        },
+        {
+          "vsStageId": 13,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/40aba8b36a9439e2d670fde5b3478819ea8a94f9e503b9d783248a5716786f35_0.png"
+          },
+          "name": "Inkblot Art Academy",
+          "stats": null,
+          "id": "VnNTdGFnZS0xMw=="
+        },
+        {
+          "vsStageId": 14,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/48684c69d5c5a4ffaf16b712a4895545a8d01196115d514fc878ce99863bb3e9_0.png"
+          },
+          "name": "Sturgeon Shipyard",
+          "stats": null,
+          "id": "VnNTdGFnZS0xNA=="
+        },
+        {
+          "vsStageId": 15,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/a8ba96c3dbd015b7bc6ea4fa067245c4e9aee62b6696cb41e02d35139dd21fe7_0.png"
+          },
+          "name": "MakoMart",
+          "stats": null,
+          "id": "VnNTdGFnZS0xNQ=="
+        },
+        {
+          "vsStageId": 16,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_0.png"
+          },
+          "name": "Wahoo World",
+          "stats": null,
+          "id": "VnNTdGFnZS0xNg=="
+        },
+        {
+          "vsStageId": 17,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/7b3cf118bd9f45d141cd6db0ee75b06e697fa83945c7fe1e6f8483de6a591f5f_0.png"
+          },
+          "name": "Humpback Pump Track",
+          "stats": null,
+          "id": "VnNTdGFnZS0xNw=="
+        },
+        {
+          "vsStageId": 18,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/0b7fd997781e03eb9d5bf1875ed070f698afc654f4fe929452c65aa26c0a35fd_0.png"
+          },
+          "name": "Manta Maria",
+          "stats": null,
+          "id": "VnNTdGFnZS0xOA=="
+        },
+        {
+          "vsStageId": 19,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/4e0e9e2046aff1d635e23946d9f0a461486d2aab349079e551037e426ac82c7a_0.png"
+          },
+          "name": "Crableg Capital",
+          "stats": null,
+          "id": "VnNTdGFnZS0xOQ=="
+        },
+        {
+          "vsStageId": 20,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/b65a70eedf129848b9d2b492bb68712abf91a5cbda13131848947fb04c51d665_0.png"
+          },
+          "name": "Shipshape Cargo Co.",
+          "stats": null,
+          "id": "VnNTdGFnZS0yMA=="
+        },
+        {
+          "vsStageId": 21,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/692365fa7e56cf19cfa403a8546e69cf60fd9ca2171bde66cdaa53dc0e736ac9_0.png"
+          },
+          "name": "Robo ROM-en",
+          "stats": null,
+          "id": "VnNTdGFnZS0yMQ=="
+        },
+        {
+          "vsStageId": 22,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/3e468df1f38d6323cc8d9446049696d66e47831e68cd31032502349b11960500_0.png"
+          },
+          "name": "Bluefin Depot",
+          "stats": null,
+          "id": "VnNTdGFnZS0yMg=="
+        },
+        {
+          "vsStageId": 23,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/21ea0549b3d29de56ec20affef8866297929d0defb82a27cd199c9d8dade508c_0.png"
+          },
+          "name": "Marlin Airport",
+          "stats": null,
+          "id": "VnNTdGFnZS0yMw=="
+        },
+        {
+          "vsStageId": 24,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/2ba481293efc554ac217f21b6d56dd08f9d66e72b286f20714abd5ef1520f47a_0.png"
+          },
+          "name": "Lemuria Hub",
+          "stats": null,
+          "id": "VnNTdGFnZS0yNA=="
+        },
+        {
+          "vsStageId": 26,
+          "originalImage": {
+            "url": "https://splatoon3.ink/assets/splatnet/v3/stage_img/icon/high_resolution/249c981fdd888e79ada712ddf899bddbead508d71043af3ff96c90a7b5959c73_0.png"
+          },
+          "name": "Urchin Underpass",
+          "stats": null,
+          "id": "VnNTdGFnZS0yNg=="
+        }
+      ]
+    }
+  }
+}

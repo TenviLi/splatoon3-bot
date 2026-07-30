@@ -1,0 +1,64 @@
+import assert from 'node:assert/strict'
+import fs from 'node:fs/promises'
+import os from 'node:os'
+import path from 'node:path'
+import test from 'node:test'
+import { readRunManifest, validateRunManifest, writeRunManifest } from '../bot/run/RunManifest.mjs'
+
+function createManifest(overrides = {}) {
+  return {
+    version: 1,
+    profile: 'schedules',
+    renderTime: Date.parse('2026-07-30T00:00:00Z'),
+    snapshot: {
+      createdAt: '2026-07-30T00:00:00.000Z',
+      source: 'https://splatoon3.ink/data',
+    },
+    artifacts: [
+      {
+        name: 'schedules',
+        filename: '/temporary/screenshots/schedules.png',
+        bytes: 123,
+        sha256: 'a'.repeat(64),
+        browserVersion: '138.0.0.0',
+      },
+    ],
+    ...overrides,
+  }
+}
+
+test('writes and reads a valid Run Manifest atomically', async (context) => {
+  const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-manifest-'))
+  const filename = path.join(temporaryDirectory, 'run-manifest.json')
+  context.after(() => fs.rm(temporaryDirectory, { recursive: true, force: true }))
+
+  await writeRunManifest(createManifest(), filename)
+
+  assert.deepEqual(await readRunManifest(filename), createManifest())
+})
+
+test('requires exactly the ordered Screenshot Artifacts selected by the Run Profile', () => {
+  assert.throws(
+    () => validateRunManifest(createManifest({ artifacts: [] })),
+    /contains 0 artifacts, expected 1/
+  )
+  assert.throws(
+    () =>
+      validateRunManifest(
+        createManifest({
+          artifacts: [{ ...createManifest().artifacts[0], name: 'salmon-run', filename: 'salmon-run.png' }],
+        })
+      ),
+    /is salmon-run, expected schedules/
+  )
+})
+
+test('requires the stable output filename from the Screenshot Definition', () => {
+  assert.throws(
+    () =>
+      validateRunManifest(
+        createManifest({ artifacts: [{ ...createManifest().artifacts[0], filename: 'renamed.png' }] })
+      ),
+    /uses renamed.png, expected schedules.png/
+  )
+})

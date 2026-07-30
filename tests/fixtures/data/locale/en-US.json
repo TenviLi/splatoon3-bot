@@ -1,0 +1,2687 @@
+{
+  "gear": {
+    "e8ab0e3e655b8391": {
+      "name": "Bream-Brim Cap"
+    },
+    "017f4bb178ae2555": {
+      "name": "Moto Shades"
+    },
+    "ababea5943c18ea9": {
+      "name": "Barazushi Wrap"
+    },
+    "d1ddf6a044e31f77": {
+      "name": "Suede Basics"
+    },
+    "f78714f08fa31b1f": {
+      "name": "Blue Moto Boots"
+    },
+    "59705e7558d8dddd": {
+      "name": "Red Cuttlegear LS"
+    },
+    "7a2ad2199089c4ae": {
+      "name": "Annaki Drive Tee "
+    },
+    "1bb6d34f9f76dff9": {
+      "name": "Short Beanie"
+    },
+    "e9b23fae2db070df": {
+      "name": "White 3-Straps"
+    },
+    "1310e7c50402119e": {
+      "name": "Cyan Dakroniks"
+    },
+    "aae831af78d23c56": {
+      "name": "Vintage Check Shirt"
+    },
+    "76a01e9488af4599": {
+      "name": "Piranha Moccasins"
+    },
+    "04a394c879266415": {
+      "name": "Skate Helmet"
+    },
+    "6e38644c66a730fe": {
+      "name": "Squink Wingtips"
+    },
+    "e9bd96d35a062618": {
+      "name": "Lo-Vis Visor"
+    },
+    "485f3a4b50643a31": {
+      "name": "Jet Cap"
+    },
+    "560a8c075c90b9d2": {
+      "name": "Sun Visor"
+    },
+    "2cabdbbaf8250933": {
+      "name": "Tentatek Slogan Tee"
+    },
+    "80998aee7ddcc6b2": {
+      "name": "Sea Slug Volt 95s"
+    },
+    "7fc1a5536febbc0e": {
+      "name": "Toni Kensa Goggles"
+    },
+    "f5d27c917569dd63": {
+      "name": "Retro Gamer Jersey"
+    },
+    "fd14ca8cb35c76c1": {
+      "name": "Squid-Stitch Tee"
+    },
+    "3cc9c374e50d736d": {
+      "name": "Short Knit Layers"
+    },
+    "92308328ca96ea04": {
+      "name": "Fancyfish Stitch"
+    },
+    "ed5e54b43414f51f": {
+      "name": "Squid Squad Band Tee"
+    },
+    "c74fe5477ab02f2b": {
+      "name": "Ink-Guard Goggles"
+    },
+    "80fb0eda51ba01c9": {
+      "name": "Panda Kung-Fu Zip-Up"
+    },
+    "68b8af2a12635dec": {
+      "name": "Arrow Pull-Ons"
+    },
+    "63ad32c0c0ae9e48": {
+      "name": "Striped Beanie"
+    },
+    "f238e17aced17dcb": {
+      "name": "Squid-Stitch Cap"
+    },
+    "e0ed31a22488ba2a": {
+      "name": "Blue Tentatek Tee"
+    },
+    "b6868f3461e513dd": {
+      "name": "Brain Strainer"
+    },
+    "c9a7bef53f71de4d": {
+      "name": "Ink-Black Paddle Jack"
+    },
+    "f990ae778fb58518": {
+      "name": "Dark Urban Vest"
+    },
+    "717fbb2c21bd4d5a": {
+      "name": "Straw Boater"
+    },
+    "c26a82350267c668": {
+      "name": "Ocho OctoPhones"
+    },
+    "117545568f0044bb": {
+      "name": "Green Tee"
+    },
+    "14148115c21252c9": {
+      "name": "Splash Goggles"
+    },
+    "136a65f45a9021f3": {
+      "name": "Squidlife Headphones"
+    },
+    "4298ea7016d68d7f": {
+      "name": "Mint Tee"
+    },
+    "e0bdc2aa6cbf28c3": {
+      "name": "Gray College Sweat"
+    },
+    "4667d60c68450557": {
+      "name": "Cycling Cap"
+    },
+    "078007235244a529": {
+      "name": "Red Power Stripes"
+    },
+    "5fc65fb55c534eb4": {
+      "name": "Blue Lo-Tops"
+    },
+    "714d5944500fbc8e": {
+      "name": "Octoking Facemask"
+    },
+    "ed9d4af7a3f2f522": {
+      "name": "Octoking HK Jersey"
+    },
+    "b4d2003229cc69cd": {
+      "name": "Blue & Black Squidkid IV"
+    },
+    "e8f74588deabb91f": {
+      "name": "Cyan Dadfoot Sandals"
+    },
+    "cf5c062f1e43b84c": {
+      "name": "Astro Helm"
+    },
+    "bfa9f1b99a67f0fd": {
+      "name": "Inky Kid Clams"
+    },
+    "4058d3abb1e4e352": {
+      "name": "Tenya OctoReds"
+    },
+    "dcdcce44cc986830": {
+      "name": "Cream Basics"
+    },
+    "4b2937e5f71b6bb4": {
+      "name": "N-Pacer Sweat"
+    },
+    "c180b715b8e53b1d": {
+      "name": "Tulip Parasol"
+    },
+    "ec52a840e63fb709": {
+      "name": "Green Striped LS"
+    },
+    "b6d814dee4763330": {
+      "name": "Green Rain Boots"
+    },
+    "4629b1994d6b27cb": {
+      "name": "Octarian Retro"
+    },
+    "d4c85d2d735e464d": {
+      "name": "N-Pacer CaO"
+    },
+    "5eafa1e64cfbbd52": {
+      "name": "Squid-Pattern Waistcoat"
+    },
+    "0c753da3c6c590cf": {
+      "name": "White Tee"
+    },
+    "acf5348674a9524b": {
+      "name": "Hockey Helmet"
+    },
+    "4a7fcf9c1f8c4dfc": {
+      "name": "Five-Alarm Helmet"
+    },
+    "703305c6c0eedf0b": {
+      "name": "Motocross Nose Guard"
+    },
+    "3f7b8fff000e304d": {
+      "name": "FishFry Biscuit Bandana"
+    },
+    "a9fb5bbd38e00533": {
+      "name": "Green Zip Hoodie"
+    },
+    "4a6425e4a5cbc56d": {
+      "name": "Red FishFry Sandals"
+    },
+    "b84d8c828976da4d": {
+      "name": "Lightweight Cap"
+    },
+    "39c54805c7099592": {
+      "name": "Red & White Squidkid V"
+    },
+    "836c409c224327da": {
+      "name": "Deca Tackle Visor Helmet"
+    },
+    "f6dc0e36ef83917a": {
+      "name": "Tri-Squid Tee"
+    },
+    "b6e69d69ac2344ca": {
+      "name": "Long-Billed Cap"
+    },
+    "1fb3ac8c185aa46d": {
+      "name": "Squidstar Waistcoat"
+    },
+    "6f78aaabd4eaca78": {
+      "name": "Red Hi-Tops"
+    },
+    "ec6c894d7932e077": {
+      "name": "Acerola Rain Boots"
+    },
+    "f9d9b9e159237f70": {
+      "name": "Takoroka Visor"
+    },
+    "4a8e059dc7eb0372": {
+      "name": "Lumberjack Shirt"
+    },
+    "7a6462687e63cfe7": {
+      "name": "360 All-Scopes"
+    },
+    "22c1e6eaedbab424": {
+      "name": "Dusty Field Jacket"
+    },
+    "b6ccc8ec8b1ccd66": {
+      "name": "Squidfin Hook Cans"
+    },
+    "1f7bdf4cc8896df5": {
+      "name": "King Facemask"
+    },
+    "a54a86f593f07471": {
+      "name": "BlobMob Mask"
+    },
+    "5c2ec2598836a14a": {
+      "name": "Berry BlobMob Tee"
+    },
+    "58c453ebef2ec176": {
+      "name": "E-JECT 30XX"
+    },
+    "d9fa61c2e08b8edf": {
+      "name": "White Laceless Dakroniks"
+    },
+    "53c3f7c4ef8eb14a": {
+      "name": "White Leather F-3"
+    },
+    "a19dcb9db1b6a870": {
+      "name": "Custom Trail Boots"
+    },
+    "164e70329fff7e10": {
+      "name": "Gray Vector Tee"
+    },
+    "5b2b3d4a7850f32a": {
+      "name": "Shirt & Tie"
+    },
+    "a0f68c9f0489a1ee": {
+      "name": "White Kicks"
+    },
+    "72c8bf6ad74b12cd": {
+      "name": "MTB Helmet"
+    },
+    "30bcefc0e5206648": {
+      "name": "Zapfish Satin Jacket"
+    },
+    "47c439e64b588715": {
+      "name": "Suede Marine Lace-Ups"
+    },
+    "85cd9f1ce488ef28": {
+      "name": "Pilot Goggles"
+    },
+    "7a1755df7ff2c291": {
+      "name": "Astro Wear"
+    },
+    "0fd13c0fc8750e82": {
+      "name": "Wet Floor Band Tee"
+    },
+    "d42a4135dc77a8a0": {
+      "name": "Safari Hat"
+    },
+    "c41abf60a87ece6a": {
+      "name": "White LS"
+    },
+    "fa36a523e2b54888": {
+      "name": "Stealth Goggles"
+    },
+    "6cc693bf2514fb9e": {
+      "name": "Takoroka Mesh"
+    },
+    "56499d773cc89216": {
+      "name": "Takoroka Windcrusher"
+    },
+    "ad1453c835f0dd18": {
+      "name": "White Arrows"
+    },
+    "1ea2b1826bfe9dcc": {
+      "name": "Black Polo"
+    },
+    "f4d9cf36f44d5d2f": {
+      "name": "Reel Sweat"
+    },
+    "2ff6f13540a0ec13": {
+      "name": "Zekko Mesh"
+    },
+    "6a4233aab2a89c2e": {
+      "name": "Squidmark LS"
+    },
+    "a71146cfd9b53b1d": {
+      "name": "Blowfish Newsie"
+    },
+    "06b390f07db3377f": {
+      "name": "Deep Sinker Helm"
+    },
+    "655f570aed6c9f1e": {
+      "name": "Annaki Evolution Tee"
+    },
+    "9089992996ad5abf": {
+      "name": "Bucket Hat"
+    },
+    "e90de38c33172401": {
+      "name": "Black Layered LS"
+    },
+    "1ceee981c71928c8": {
+      "name": "White Headband"
+    },
+    "1e13f651df5e62d1": {
+      "name": "Icewave Tee"
+    },
+    "c4d02236f582d0a7": {
+      "name": "Red 3-Straps"
+    },
+    "5fdaa7d21b661331": {
+      "name": "Annaki Blue Cuff"
+    },
+    "6e80a02afaee906a": {
+      "name": "Streetstyle Cap"
+    },
+    "894701a3ffb7639d": {
+      "name": "Berry Ski Jacket"
+    },
+    "d9fdb8074c2f0ec8": {
+      "name": "SV925 Circle Shades"
+    },
+    "e96c1b6cacd445ee": {
+      "name": "Turquoise Kicks"
+    },
+    "e095352827007788": {
+      "name": "Black Inky Rider"
+    },
+    "540f9752a3d30e48": {
+      "name": "Commander Tunic"
+    },
+    "c7046c5675149293": {
+      "name": "Urchins Jersey"
+    },
+    "a871be865230f417": {
+      "name": "Black 8-Bit FishFry"
+    },
+    "25dc67a105f26543": {
+      "name": "Hunting Boots"
+    },
+    "5444a1b5e3a8cdc6": {
+      "name": "Pink Hoodie"
+    },
+    "7bb94b71fd60d36d": {
+      "name": "Neon Sea Slugs"
+    },
+    "2ad2124dfca512b4": {
+      "name": "Canary Trainers"
+    },
+    "7df3f12f9059a3f4": {
+      "name": "White Deca Logo Tee"
+    },
+    "fdad1947cfa0ff25": {
+      "name": "Reggae Tee"
+    },
+    "07f0b1a126042377": {
+      "name": "Varsity Baseball LS"
+    },
+    "80c5b5ad61078a69": {
+      "name": "Invisifloats"
+    },
+    "1096291eb0c76e82": {
+      "name": "Rodeo Shirt"
+    },
+    "0f6d8d23897cd952": {
+      "name": "Commander Cap"
+    },
+    "47337f863e270138": {
+      "name": "Aloha Shirt"
+    },
+    "fa441bde1e48c941": {
+      "name": "Home-Team Catcher"
+    },
+    "736e591555dd7fc2": {
+      "name": "White 8-Bit FishFry"
+    },
+    "0816f54b999801aa": {
+      "name": "Jellyvader Cap"
+    },
+    "a408fcb87e3e02f0": {
+      "name": "Mako Bucket Hi-Tops"
+    },
+    "8ac15fbadd7c5921": {
+      "name": "Patched Hat"
+    },
+    "779752e0250dfac3": {
+      "name": "Digi-Camo Forge Mask"
+    },
+    "1be0651a23a1b2a3": {
+      "name": "Annaki Beret & Glasses"
+    },
+    "04e1732a004fc33e": {
+      "name": "Bamboo Hat"
+    },
+    "8bd2358514cb89d2": {
+      "name": "Blue Peaks Tee"
+    },
+    "fbb643bceee306f4": {
+      "name": "Sunny Climbing Shoes"
+    },
+    "938ac2d7c31d8341": {
+      "name": "House-Tag Denim Cap"
+    },
+    "c660b59aec2bee52": {
+      "name": "Snorkel Mask"
+    },
+    "5f3d30b4208dc045": {
+      "name": "Dakro Golden Tee"
+    },
+    "869d6602bfb2f65f": {
+      "name": "Layered Vector LS"
+    },
+    "e8816dc35ffe0f3f": {
+      "name": "White Layered LS"
+    },
+    "0527171ee847d92f": {
+      "name": "See-an-Enemy HUD"
+    },
+    "82f1f448a4f0fe54": {
+      "name": "Yamagiri Beanie"
+    },
+    "d8ab4619e04183ac": {
+      "name": "Paisley Bandana"
+    },
+    "ac2d0e974ab4a45d": {
+      "name": "Plum Casuals"
+    },
+    "07f932e3030844f9": {
+      "name": "Arrow Toesies Blu"
+    },
+    "dc9a9d6bcbbb840b": {
+      "name": "Squidvader Cap"
+    },
+    "4cca02d88c65ca82": {
+      "name": "Studio Headphones"
+    },
+    "cd98b57718c53757": {
+      "name": "18K Aviators"
+    },
+    "b9a3223d252b2822": {
+      "name": "King Flip Mesh"
+    },
+    "c346697fc3b20f47": {
+      "name": "Green Velour Octoking Tee"
+    },
+    "d81b2ac527e806d9": {
+      "name": "Navy Enperrials"
+    },
+    "27ef20ef1418f1e3": {
+      "name": "Retro Future Suit"
+    },
+    "0b5863953939a70d": {
+      "name": "Camo Zip Hoodie"
+    },
+    "57e9324c62107383": {
+      "name": "Sporty Bobble Hat"
+    },
+    "6a69aeb21b9ba9a1": {
+      "name": "White Norimaki 750s"
+    },
+    "fa053d90af54d4ef": {
+      "name": "Ink-Tinted Goggles"
+    },
+    "9315d36102631844": {
+      "name": "Red Work Boots"
+    },
+    "4a64ff9da8eedc99": {
+      "name": "Slipstream United"
+    },
+    "a63033c3b7a63dfa": {
+      "name": "Orange-Mesh Sneakers"
+    },
+    "5df05f57955e0148": {
+      "name": "Annaki Habaneros"
+    },
+    "2955f82ca50e5b91": {
+      "name": "Choco Layered LS"
+    },
+    "5eca902a06dba6e9": {
+      "name": "Force ReBoots"
+    },
+    "5127c0c8183f29b2": {
+      "name": "Retro Future Helmet"
+    },
+    "265fc965fe5c5cde": {
+      "name": "Grape Tee"
+    },
+    "d73ff773043f35a1": {
+      "name": "Mister Shrug Tee"
+    },
+    "a4adb096a8093e9f": {
+      "name": "Fashion Splash Shirt"
+    },
+    "67dba8c242796b8a": {
+      "name": "Yellow-Mesh Sneakers"
+    },
+    "61bf38eee6c6572c": {
+      "name": "Tan Retro Tee"
+    },
+    "aa77710e35ac07bb": {
+      "name": "Green Iromaki 750s"
+    },
+    "1bc642ca33260c9c": {
+      "name": "Black Velour Octoking Tee "
+    },
+    "6c980ddeb7175277": {
+      "name": "Octo Tackle Helmet Deco"
+    },
+    "55f313d77f02df5d": {
+      "name": "Black & Blue Squidkid V"
+    },
+    "c53e7522d9b61206": {
+      "name": "Layered Anchor LS"
+    },
+    "1edd243cc32bb86a": {
+      "name": "Brinestone Jacket"
+    },
+    "fd4b717166d199f0": {
+      "name": "Squidbeak Shield"
+    },
+    "b7c3f1f0fd72870a": {
+      "name": "Negative Longcuff Sweater"
+    },
+    "35a13bf492b1cdca": {
+      "name": "Toni Kensa Black Hi-Tops"
+    },
+    "27d171e5ddd674ba": {
+      "name": "Swim Goggles"
+    },
+    "9e34382421cb08fa": {
+      "name": "Olive Zekko Parka"
+    },
+    "f992fb41a27a9bcc": {
+      "name": "Black Seahorses"
+    },
+    "ef86ba769a8d0073": {
+      "name": "Black Anchor Tee"
+    },
+    "186b8207f53c589c": {
+      "name": "Painter's Mask"
+    },
+    "8b2d94a9c615dd15": {
+      "name": "Trail Boots"
+    },
+    "724616560d3ed93c": {
+      "name": "Brinestone Boots"
+    },
+    "2c659e423ed057e6": {
+      "name": "Fake Contacts"
+    },
+    "fe5b6419a8cdca16": {
+      "name": "Retro Specs"
+    },
+    "7581836257a42a71": {
+      "name": "Lime Easy-Stripe Shirt"
+    },
+    "3c06458bec5647de": {
+      "name": "White Sailor Suit"
+    },
+    "d6332fcfb6eb65e9": {
+      "name": "Sesame Salt 270s"
+    },
+    "9048ca4ab3f36892": {
+      "name": "Punk Cherries"
+    },
+    "54d9c61ae642db21": {
+      "name": "Pineapple Ringer"
+    },
+    "3c650363f66ad2c0": {
+      "name": "Howdy Hat"
+    },
+    "897e3e33543aa8b3": {
+      "name": "Chirpy Chips Band Tee"
+    },
+    "126fa11f05f485a1": {
+      "name": "Matcha Down Jacket"
+    },
+    "a3c0aaa52ff9edf5": {
+      "name": "3D Glasses"
+    },
+    "b2d0d4cd3fcb5b7d": {
+      "name": "Skull Bandana"
+    },
+    "fb1f5c374902e6ce": {
+      "name": "Pink Dadfoot Sandals"
+    },
+    "77b90ea18d788e94": {
+      "name": "Annaki Charms"
+    },
+    "740d7f06529e32df": {
+      "name": "Rockin' Leather Jacket"
+    },
+    "bca8d8cd3914c33d": {
+      "name": "Camping Hat"
+    },
+    "24fecc01c498fe63": {
+      "name": "Jungle Hat"
+    },
+    "edf1dea3e7835924": {
+      "name": "Light Bomber Jacket"
+    },
+    "7001e372753eddb0": {
+      "name": "Hacker Jacket"
+    },
+    "cf304a572eaaea9f": {
+      "name": "Forge Inkling Parka"
+    },
+    "b6e4c48bd78463ef": {
+      "name": "Bike Helmet"
+    },
+    "3583daf7ca4ab304": {
+      "name": "Dots-on-Dots Shirt"
+    },
+    "b0ca2b7c1afe237f": {
+      "name": "Athletic Arrows"
+    },
+    "5f76f2b1505537dc": {
+      "name": "Blowfish Bell Hat"
+    },
+    "e3de2716bb4dd373": {
+      "name": "Octo Tee"
+    },
+    "d1269481accd1b9d": {
+      "name": "Sunset Orca Hi-Tops"
+    },
+    "da4b679ea7dc0d42": {
+      "name": "Jogging Headband"
+    },
+    "ed5e8fd9b5adac7b": {
+      "name": "Orange Lo-Tops"
+    },
+    "ecc5689c8b41d7f4": {
+      "name": "Amber Sea Slug Hi-Tops"
+    },
+    "1f7bc4016aa78813": {
+      "name": "Manatee Swag Sweat"
+    },
+    "afbc3f87a7318524": {
+      "name": "Trevally Derby Rollers"
+    },
+    "38db2d5e2baec937": {
+      "name": "Inkfall Shirt"
+    },
+    "35324a023fbc73b4": {
+      "name": "Squash Headband"
+    },
+    "8decd5a8eb7a14e6": {
+      "name": "Dakro Nana Tee"
+    },
+    "fdb81880bfec0fe9": {
+      "name": "Blue Laceless Dakroniks"
+    },
+    "e1a0a98264c0d15d": {
+      "name": "Special-Forces Beret"
+    },
+    "d121326530879316": {
+      "name": "Chocolate Dakroniks"
+    },
+    "1825c769977fdd6e": {
+      "name": "FishFry Visor"
+    },
+    "9bd38df5a3309513": {
+      "name": "Designer Headphones"
+    },
+    "4af3f9ca3bc0153f": {
+      "name": "Red Slip-Ons"
+    },
+    "cc46e0b1647b6d4c": {
+      "name": "Fishing Vest"
+    },
+    "2861118daf0a6249": {
+      "name": "El Rey Calamar"
+    },
+    "c3bde248ba3d37c2": {
+      "name": "Party Hard Hat"
+    },
+    "946d0a6e1191f142": {
+      "name": "Fugu Bell Hat"
+    },
+    "aa58c763cf07cea0": {
+      "name": "Black FishFry Bandana"
+    },
+    "47ab9705df2564a5": {
+      "name": "Carnivore Tee"
+    },
+    "52f6ded7fa0502c2": {
+      "name": "LE Lo-Tops"
+    },
+    "0295f1fc011135dd": {
+      "name": "Takoroka Rainbow Tie Dye"
+    },
+    "da541f46db31f714": {
+      "name": "Knockout Boots"
+    },
+    "cf7abf3339465232": {
+      "name": "Blue Iromaki 750s"
+    },
+    "87d83548f67baeb3": {
+      "name": "Squid Facemask"
+    },
+    "1bb16ccccd8ab5be": {
+      "name": "Pearl 01STERs"
+    },
+    "40c238f5bb55f658": {
+      "name": "Striped Peaks LS"
+    },
+    "942bfc9013d17a23": {
+      "name": "Cooler Jacket"
+    },
+    "0af9763735c58ea7": {
+      "name": "Chili-Pepper Ski Jacket"
+    },
+    "7c8ad6e187f38815": {
+      "name": "Pink Trainers"
+    },
+    "a901c49ae3f31cb1": {
+      "name": "Navy King Tank"
+    },
+    "445447f824e8029a": {
+      "name": "Patchwork Bomber"
+    },
+    "e6dd154d985fa3d0": {
+      "name": "Pearl Tee"
+    },
+    "834c7c26012d118c": {
+      "name": "Half-Rim Glasses"
+    },
+    "846a98a5b4d88670": {
+      "name": "Kung-Fu Zip-Up"
+    },
+    "70985cc8ba0a905e": {
+      "name": "Octavio Dome"
+    },
+    "876024e49bf245f6": {
+      "name": "Backward Cap"
+    },
+    "4a5ed56bd3248aa3": {
+      "name": "Half-Sleeve Sweater"
+    },
+    "d5ab820f303fa0be": {
+      "name": "Wharfside Cap"
+    },
+    "214d4e491366d30d": {
+      "name": "Octoglasses"
+    },
+    "0252cb58e13e9234": {
+      "name": "Varsity Jacket"
+    },
+    "600b6773ead26809": {
+      "name": "Do-Rag, Cap & Glasses"
+    },
+    "3f873e363f704cb1": {
+      "name": "Woolly Urchins Classic"
+    },
+    "8389cd5d7f55b970": {
+      "name": "Apex Sweater"
+    },
+    "8b237659c0671b55": {
+      "name": "Blueberry Casuals"
+    },
+    "7a13112bd1a0c47d": {
+      "name": "Anchor Sweat"
+    },
+    "92dc509d51e9c1cd": {
+      "name": "Hard Hat Replica"
+    },
+    "a0abca747544faed": {
+      "name": "Black Tee"
+    },
+    "2fb39d1dadd7c944": {
+      "name": "Crazy Arrows"
+    },
+    "0027dbe5263d0a98": {
+      "name": "Hunter Hi-Tops"
+    },
+    "1e2a7de223596dc4": {
+      "name": "White Inky Rider"
+    },
+    "0b86a012394472f8": {
+      "name": "White Arrowbands"
+    },
+    "d8658688d12980e4": {
+      "name": "Custom Painted F-3 "
+    },
+    "4f70200654fbe026": {
+      "name": "Soccer Shoes"
+    },
+    "def63dfb2de0a349": {
+      "name": "Orange Dadfoot Sandals"
+    },
+    "fab4005bf9bda9c9": {
+      "name": "Red Hi-Horses"
+    },
+    "ec0c785a1a9caf90": {
+      "name": "Annaki Choker Tee"
+    },
+    "14775ed65b5bedb8": {
+      "name": "Annaki Tigers"
+    },
+    "2c822f1b9419edc8": {
+      "name": "Black Arrowbands"
+    },
+    "94e95bc919483853": {
+      "name": "Yellow Urban Vest"
+    },
+    "e4c46623fc89ebbb": {
+      "name": "Black Trainers"
+    },
+    "3dfb98fbdf638609": {
+      "name": "Whale-Knit Sweater"
+    },
+    "5de86f8b5e2cf16e": {
+      "name": "Green Lace-Ups"
+    },
+    "2d08e8989db642d7": {
+      "name": "Pirate-Stripe Tee"
+    },
+    "1631bf7a3f6f38cc": {
+      "name": "Takoroka Crazy Baseball LS"
+    },
+    "d4e783da0e6e162c": {
+      "name": "Mountie Hat"
+    },
+    "4dddf1b2dacb4424": {
+      "name": "B-ball Headband"
+    },
+    "42df0b2cf7471ddc": {
+      "name": "Zombie Hi-Horses"
+    },
+    "e51c45457e2f73f7": {
+      "name": "Five-Panel Cap"
+    },
+    "bc4b2d948ec1a680": {
+      "name": "Orca Bolero"
+    },
+    "3e542c698f06dcc5": {
+      "name": "Ink-Black Flap Cap"
+    },
+    "2b99f9c3db9793de": {
+      "name": "Barazushi Anorak"
+    },
+    "1c7ce2a39971d7a7": {
+      "name": "Arctic Duck Boots"
+    },
+    "42b5402e9eb64e49": {
+      "name": "Two-Stripe Mesh"
+    },
+    "fbd88e96c0d03263": {
+      "name": "Deepsea Leather Boots"
+    },
+    "e8dba35f379071e9": {
+      "name": "Logo Aloha Shirt"
+    },
+    "8e474adbf0b1de1b": {
+      "name": "Black Flip-Flops"
+    },
+    "6a8cd7c7c28ce3b7": {
+      "name": "U Jellys"
+    },
+    "ae595eff83b88b5b": {
+      "name": "Pro Trail Boots"
+    },
+    "97c43b98b082324d": {
+      "name": "Black Urchin Rock Tee"
+    },
+    "39d667e7b1fae70a": {
+      "name": "Knitted Hat"
+    },
+    "452d724de6df3056": {
+      "name": "Tea-Green Hunting Boots"
+    },
+    "11c60e7c644758c3": {
+      "name": "Cephalo Pods"
+    },
+    "3434c77d55faa725": {
+      "name": "Forge Octarian Jacket"
+    },
+    "98a96c07973e423f": {
+      "name": "Squid-Stitch Slip-Ons"
+    },
+    "ef4a34530ef5783b": {
+      "name": "Lemon Mountain Coat"
+    },
+    "2b969e7257d3ae82": {
+      "name": "Button-Clown Shirt"
+    },
+    "56773ddb229a6d31": {
+      "name": "Shrimp-Pink Polo"
+    },
+    "d22ab67b6963492d": {
+      "name": "Baseball Jersey"
+    },
+    "4765baeb4824bee4": {
+      "name": "ω-3 Tee"
+    },
+    "7465dafe561618e5": {
+      "name": "Purple Hi-Horses"
+    },
+    "686e6d924bceaa29": {
+      "name": "Full-Moon Glasses"
+    },
+    "7ae7524ec9a91481": {
+      "name": "Punk Nights"
+    },
+    "b67967731fad7ccb": {
+      "name": "Winkle Stripe Helm"
+    },
+    "3ec43b15e540fca6": {
+      "name": "Firewave Tee"
+    },
+    "7f4e56e3170981d7": {
+      "name": "Cream Hi-Tops"
+    },
+    "64fd436581a6370b": {
+      "name": "Tinted Shades"
+    },
+    "2122b1e6bf54cef3": {
+      "name": "Musselforge Flip-Flops"
+    },
+    "770a14b00c42b23e": {
+      "name": "Rainy-Day Tee"
+    },
+    "ce56023598fa2be7": {
+      "name": "Sailor-Stripe Tee"
+    },
+    "bce1966d8aa5d9fc": {
+      "name": "Navy Deca Logo Tee"
+    },
+    "a58903f46daad145": {
+      "name": "White Seahorses"
+    },
+    "02c8eed846264962": {
+      "name": "Orca Hi-Tops"
+    },
+    "4fa3680c71e09bc5": {
+      "name": "Ink-Wash Shirt"
+    },
+    "7a897902d2c040b6": {
+      "name": "Suede Nation Lace-Ups"
+    },
+    "a75e7ce05c103f50": {
+      "name": "Takoroka Jersey"
+    },
+    "8bfe4f8ea3cb903c": {
+      "name": "Sun & Shade Squidkid IV"
+    },
+    "e990a916e127dbfb": {
+      "name": "FC Albacore"
+    },
+    "798039fff916ccab": {
+      "name": "Red & Black Squidkid IV"
+    },
+    "c106a08662150465": {
+      "name": "Lob-Stars Jersey"
+    },
+    "6375b52a355cc737": {
+      "name": "Honey & Orange Squidkid V"
+    },
+    "fe88471fdaa4835b": {
+      "name": "Tennis Headband"
+    },
+    "7681064f94162dbc": {
+      "name": "Silver Tentatek Vest"
+    },
+    "6ad37669627efb77": {
+      "name": "Forge Mask"
+    },
+    "28f201c6c29913cd": {
+      "name": "Retro Sweat"
+    },
+    "8721ccd8a97ca6d9": {
+      "name": "Tan Work Boots"
+    },
+    "f7dcc7ae0546ef44": {
+      "name": "N-Pacer Ag"
+    },
+    "f19dcafde4a9d74e": {
+      "name": "Classic Straw Boater"
+    },
+    "0e9a7c1cbf2a1562": {
+      "name": "Umibozu Home Jersey"
+    },
+    "2555a54f428af796": {
+      "name": "Desert Chukkas"
+    },
+    "d74020abaeb90118": {
+      "name": "Dark Bomber Jacket"
+    },
+    "05f76b87a280a584": {
+      "name": "Hickory Work Cap"
+    },
+    "11c0bdc9f869694b": {
+      "name": "Missus Shrug Tee"
+    },
+    "8e280599b2678219": {
+      "name": "Polka-Dot Slip-Ons"
+    },
+    "1f481bd6fbe94a6d": {
+      "name": "Fresh Octo Tee"
+    },
+    "96ba51e5d6e29bdd": {
+      "name": "Blue Sailor Suit"
+    },
+    "090050f61f468d22": {
+      "name": "Hothouse Hoodie"
+    },
+    "bf5eac0a0e51a1a5": {
+      "name": "Zink Layered LS"
+    },
+    "a227780efff6806b": {
+      "name": "Classic Bowler"
+    },
+    "8f624df76895e669": {
+      "name": "Baby-Jelly Shirt & Tie"
+    },
+    "862a010c5177a0b4": {
+      "name": "White V-Neck Tee"
+    },
+    "552a8ee1ea64d236": {
+      "name": "Red Vector Tee"
+    },
+    "ef82c7026049a3ac": {
+      "name": "N-Pacer Au"
+    },
+    "fe2f80cba9d4761f": {
+      "name": "Annaki Arachno Boots"
+    },
+    "b2ae6a4fffa46ba5": {
+      "name": "Yellow Seahorses"
+    },
+    "5882ffd030005203": {
+      "name": "Cream Tundra Fleece"
+    },
+    "49cf4db6f834714d": {
+      "name": "White Baseball LS"
+    },
+    "18c479f527c4b352": {
+      "name": "Purple Iromaki 750s"
+    },
+    "2359ff6288a27d78": {
+      "name": "Orange Iromaki 750s"
+    },
+    "3bae00fd5738d4a1": {
+      "name": "Luminous Delta Straps"
+    },
+    "5c3987aa4bbca169": {
+      "name": "Vaporwave Tee"
+    },
+    "d8a06f7070e1db3c": {
+      "name": "Yellow Iromaki 750s"
+    },
+    "9430037390d32f5f": {
+      "name": "Golf Visor"
+    },
+    "ff5f2a9a0718704b": {
+      "name": "Zink LS"
+    },
+    "e9f987a770e84550": {
+      "name": "Bobble Hat"
+    },
+    "3127d54717172294": {
+      "name": "Airflow & Hustle Jacket"
+    },
+    "13e5e6e89ff2bf76": {
+      "name": "Blue 16-Bit FishFry"
+    },
+    "f99d83847b5d7f5d": {
+      "name": "Clownfish Basics"
+    },
+    "c52c8de93993209d": {
+      "name": "Barazushi Black Tee"
+    },
+    "23bba62ce2a06226": {
+      "name": "Red Sea Slugs"
+    },
+    "85acbc1607f78ad7": {
+      "name": "Annaki Yellow Cuff"
+    },
+    "8b2135f32fdb1a21": {
+      "name": "Eelzebub Tee"
+    },
+    "ff0bfb7aeac4aa6d": {
+      "name": "Seashell Bamboo Hat"
+    },
+    "3ee3b47f0bb29a1c": {
+      "name": "Mountain Vest"
+    },
+    "7b70812eb0a76cb5": {
+      "name": "Ivory Peaks Tee"
+    },
+    "3ae1c8a4eecf91e3": {
+      "name": "Rockenberg Black"
+    },
+    "dfc27f7c2061cfae": {
+      "name": "Squidband"
+    },
+    "21101f0d5bf0921d": {
+      "name": "Suede Gray Lace-Ups"
+    },
+    "cbdbce0206687c53": {
+      "name": "Face Visor"
+    },
+    "1f9d649297bea610": {
+      "name": "LE Soccer Shoes"
+    },
+    "f44f52ed02948c5f": {
+      "name": "Annaki Mask"
+    },
+    "464a6619f85c3fd6": {
+      "name": "Black Hoodie"
+    },
+    "ceac8b8a4aa32494": {
+      "name": "Blue Retro Tee"
+    },
+    "3e4d3fcbd77372a8": {
+      "name": "SplatJack 5000"
+    },
+    "25d4c06caa7e3d92": {
+      "name": "Shark Moccasins"
+    },
+    "5ca83e32e9497c1b": {
+      "name": "Navy Striped LS"
+    },
+    "155b6953f80040cc": {
+      "name": "Matte Bike Helmet"
+    },
+    "3b1d28cec3eabf6e": {
+      "name": "Black Squideye"
+    },
+    "a7774baa69c08989": {
+      "name": "Wasabi Tabi"
+    },
+    "258ad6bf82aefb7e": {
+      "name": "Apple Ringer"
+    },
+    "d995b74c6e31c321": {
+      "name": "Squid Nordic"
+    },
+    "78b48dab45f802b7": {
+      "name": "Icy Down Boots"
+    },
+    "c2f605fb93b0eed8": {
+      "name": "Firefin Facemask"
+    },
+    "229d49cb636089c0": {
+      "name": "Jean Dream Bucket"
+    },
+    "a12167e8d2f28bc4": {
+      "name": "Pink Easy-Stripe Shirt"
+    },
+    "7b9e84e66e0a554e": {
+      "name": "Punk Whites"
+    },
+    "c635489c278a591d": {
+      "name": "Treasure Hunter"
+    },
+    "d00c5befc82384e4": {
+      "name": "Blue Power Stripes"
+    },
+    "a1b3d54b2903008f": {
+      "name": "Inkopolis Squaps Jersey"
+    },
+    "ba1d6adea1fb8693": {
+      "name": "Pilot Hat"
+    },
+    "db926cd04a5b01fc": {
+      "name": "Camo Mesh"
+    },
+    "2d07b8dad42f4fbc": {
+      "name": "Yellow FishFry Sandals"
+    },
+    "2cc0fa9e18daa012": {
+      "name": "Rockenberg White"
+    },
+    "70b0d57f0d203fff": {
+      "name": "FA-01 Reversed"
+    },
+    "e76101f0587cdb9f": {
+      "name": "Arctic Monster Parka"
+    },
+    "92fd25365b270e34": {
+      "name": "Navy College Sweat"
+    },
+    "b73ff4a38bcf855a": {
+      "name": "Cycling Shirt"
+    },
+    "11c3cd9aea59ffdf": {
+      "name": "Blue Slip-Ons"
+    },
+    "8e552be8f6c72a9e": {
+      "name": "Prune Parashooter"
+    },
+    "b17553b34aa1cbad": {
+      "name": "Sneaky Beanie"
+    },
+    "2bbb730975a3d2e4": {
+      "name": "Gold Hi-Horses"
+    },
+    "f091d084f1d5cf34": {
+      "name": "Baby-Jelly Shirt"
+    },
+    "e15fbebc0370e1e1": {
+      "name": "Bubble Rain Boots"
+    },
+    "ce512460e6ed3d20": {
+      "name": "Hightide Era Band Tee"
+    },
+    "ed34871ab0a997d2": {
+      "name": "Toni Kensa Soccer Shoes"
+    },
+    "2176fd45cb9c3edb": {
+      "name": "Seahorse Shoreliner"
+    },
+    "d5f196b8363c0ae7": {
+      "name": "Banana Basics"
+    },
+    "b91eb6d04f17ee7f": {
+      "name": "Noise Cancelers"
+    },
+    "f1948086b33446c9": {
+      "name": "Sudadera Roja"
+    },
+    "a2a53544339fc704": {
+      "name": "Slash King Tank"
+    },
+    "a25f5df4d4740c9d": {
+      "name": "Punk Yellows"
+    },
+    "cabb500a341a7297": {
+      "name": "Mawcasins"
+    },
+    "2c9ead76e9c61617": {
+      "name": "Tricolor Rugby"
+    },
+    "b3316e0644d12c28": {
+      "name": "Slamgerine Slip-Ons"
+    },
+    "912f9e7163429951": {
+      "name": "Zekko Long Carrot Tee"
+    },
+    "be10ceef113e4e3a": {
+      "name": "Hula Punk Shirt"
+    },
+    "2f4a097a5033d97f": {
+      "name": "Annaki Beret"
+    },
+    "76c98dcadfa3254e": {
+      "name": "Black Baseball LS"
+    },
+    "45e78598c560379c": {
+      "name": "Squidmark Sweat"
+    },
+    "c843942decb0f961": {
+      "name": "Orca Woven Hi-Tops"
+    },
+    "2fa83f60d8f22b0d": {
+      "name": "Orange Arrows"
+    },
+    "1cee77c2490c09af": {
+      "name": "Barazushi Sakura Tee"
+    },
+    "3c85da60025f9def": {
+      "name": "FA-01 Jacket"
+    },
+    "b576c3ea2b65179f": {
+      "name": "Gray Mixed Shirt"
+    },
+    "7d5e52e2c5bb83f5": {
+      "name": "Gas Mask"
+    },
+    "60d3f51d54b887f4": {
+      "name": "Striped Rugby"
+    },
+    "da94f64e21dea66e": {
+      "name": "Black Norimaki 750s"
+    },
+    "5ac5e0b7f775993e": {
+      "name": "Birch Climbing Shoes"
+    },
+    "2fb640094d3a6c34": {
+      "name": "Purple Sea Slugs"
+    },
+    "d37d9ade15ae4da0": {
+      "name": "Snowy Down Boots"
+    },
+    "73f36206e060c254": {
+      "name": "Zekko Jade Coat"
+    },
+    "d4f2b1c866322ba6": {
+      "name": "Cycle King Cap"
+    },
+    "fdbf97ede04f7a65": {
+      "name": "New-Leaf Leather Boots"
+    },
+    "c1e0f231ee4d92b1": {
+      "name": "Navy Eminence Jacket"
+    },
+    "2be6447881c7b9b4": {
+      "name": "Zekko Hoodie"
+    },
+    "66b67f985e1298a7": {
+      "name": "Soccer Headband"
+    },
+    "486ad6046068e579": {
+      "name": "Gray Sea-Slug Hi-Tops"
+    },
+    "6aa82c7f381ed1c7": {
+      "name": "Sky-Blue Squideye"
+    },
+    "39b603cc8ff686a1": {
+      "name": "Business Animal"
+    },
+    "c5f63a7dd65a0fbb": {
+      "name": "Purple Camo LS"
+    },
+    "ded2baae55f2c88d": {
+      "name": "Takoroka Nylon Vintage"
+    },
+    "13acfddef4b45a90": {
+      "name": "Visor Skate Helmet"
+    },
+    "181e90d1f357ed37": {
+      "name": "Roasted Brogues"
+    },
+    "05a55e56f538f82d": {
+      "name": "Takoroka Galactic Tie Dye"
+    },
+    "d10e72d4801b381a": {
+      "name": "Cycle King Jersey"
+    },
+    "ca15723961648c14": {
+      "name": "Deep-Octo Satin Jacket"
+    },
+    "e017349bb9753a06": {
+      "name": "Forest Vest"
+    },
+    "fe17ac29feb37984": {
+      "name": "Annaki Red Cuff"
+    },
+    "e3212426964499e5": {
+      "name": "Pullover Coat"
+    },
+    "d02f5fc500ba6b54": {
+      "name": "Annaki Flannel Hoodie"
+    },
+    "2589ba77b0a02527": {
+      "name": "Red Iromaki 750s"
+    },
+    "e965474df895c0b1": {
+      "name": "Zekko Baseball LS"
+    },
+    "bf788cd30ce7483f": {
+      "name": "Basic Tee"
+    },
+    "318589f647f8e971": {
+      "name": "Octobowler Shirt"
+    },
+    "6205386c349c6378": {
+      "name": "Tri-Octo Tee"
+    },
+    "f7e0b2ddf93d8d6c": {
+      "name": "Gray Yellow-Soled Wingtips"
+    },
+    "dfcba964fd347b5f": {
+      "name": "BlobMob Flip-Flops"
+    },
+    "f1828d6cf750b256": {
+      "name": "Cherry Kicks"
+    },
+    "725408ce3ea63916": {
+      "name": "School Jersey"
+    },
+    "f5a3386de83657f5": {
+      "name": "Oyster Clogs"
+    },
+    "8b7c930b2cc0e498": {
+      "name": "Krak-On 528"
+    },
+    "f038fe3a7d8c2f6e": {
+      "name": "Suede Bosses"
+    },
+    "2b9bb9aa6b80f37e": {
+      "name": "Double Egg Shades"
+    },
+    "475754f1c3ebc738": {
+      "name": "Urchins Cap"
+    },
+    "e35713e444afb4eb": {
+      "name": "Barazushi Rice Tee"
+    },
+    "0bc0dd62a917ee69": {
+      "name": "Green Cardigan"
+    },
+    "b6b1c7798a550792": {
+      "name": "Duskwave Tee"
+    },
+    "6ca4c132c95f9752": {
+      "name": "Red Tentatek Tee"
+    },
+    "d4245c778feaf1c1": {
+      "name": "Round-Collar Shirt"
+    },
+    "b63cbc8e8458640d": {
+      "name": "Rugby King 10"
+    },
+    "71c037bdda583422": {
+      "name": "Herbivore Tee"
+    },
+    "2b91bcfea4de8809": {
+      "name": "Black LS"
+    },
+    "b2b55186b82c26c4": {
+      "name": "Black Dakroniks"
+    },
+    "52a5f2aa1751da27": {
+      "name": "Toni K. Baseball Jersey"
+    },
+    "f4bb5340ac46da94": {
+      "name": "Squid Satin Jacket"
+    },
+    "aa71e1548a9e8522": {
+      "name": "Firefin Navy Sweat"
+    },
+    "a3af22e465c67d1e": {
+      "name": "Part-Time Pirate"
+    },
+    "f3cace8e957f4afd": {
+      "name": "Neon Delta Straps"
+    },
+    "79e4d4f396b69ce3": {
+      "name": "Zekko Cap"
+    },
+    "d796324f1b393800": {
+      "name": "Dark-Roast Boaties"
+    },
+    "fe399237cbf576e4": {
+      "name": "Turbo Tabi Red"
+    },
+    "65e73e9933b18441": {
+      "name": "Red-Check Shirt"
+    },
+    "8982ccbce58f2648": {
+      "name": "King Jersey"
+    },
+    "34edc9c65a0cbc8f": {
+      "name": "B-ball Jersey (Away)"
+    },
+    "511e4ea2d524ae08": {
+      "name": "Khaki Ranger Vest"
+    },
+    "1b9f5bc1f3c1668d": {
+      "name": "Violet Trainers"
+    },
+    "d3694d8bbc94fc3f": {
+      "name": "Crimson Parashooter"
+    },
+    "06f518a80857a451": {
+      "name": "White Urchin Rock Tee"
+    },
+    "c7d0a936a7586b25": {
+      "name": "Snow Delta Straps"
+    },
+    "8fd5ab805c9687e2": {
+      "name": "Grape Hoodie"
+    },
+    "c414d439919e17ea": {
+      "name": "Urban Upcycle Top"
+    },
+    "52469e6a40ca387e": {
+      "name": "Paintball Mask"
+    },
+    "bc8f60c1cd372c25": {
+      "name": "Gray Hoodie"
+    },
+    "e661aec8cd01d146": {
+      "name": "Fugu Tee"
+    },
+    "f121f611a8379f3f": {
+      "name": "Black V-Neck Tee"
+    },
+    "dc8774834a34a71b": {
+      "name": "Green-Check Shirt"
+    },
+    "dfa51097b684078e": {
+      "name": "Striped Shirt"
+    },
+    "460574ad6d73934b": {
+      "name": "Chilly Mountain Coat"
+    },
+    "91bd0e01207ec3a5": {
+      "name": "Smoky Wingtips"
+    },
+    "7c409e0ca76b942b": {
+      "name": "White Anchor Tee"
+    },
+    "22b856345ca7de8e": {
+      "name": "Truffle Canvas Hi-Tops"
+    },
+    "759f10e900939f5c": {
+      "name": "Linen Shirt"
+    },
+    "3cd9aae585dfe373": {
+      "name": "Hothouse Hat"
+    },
+    "3f3cfe05a3715159": {
+      "name": "Blue Sea Slugs"
+    },
+    "2fe326f7560d8a83": {
+      "name": "Front-Zip Vest"
+    },
+    "df7d0d498a52ac44": {
+      "name": "Orca Passion Hi-Tops"
+    },
+    "59fe2b198bc53392": {
+      "name": "Sage Polo"
+    },
+    "f566a101b0f5b132": {
+      "name": "Squid Yellow Layered LS"
+    },
+    "e328bb1204b9fab3": {
+      "name": "Navy Red-Soled Wingtips"
+    },
+    "2df705182a19c965": {
+      "name": "Choco Clogs"
+    },
+    "24168d03237b4558": {
+      "name": "Cyan Trainers"
+    },
+    "ea7403918192ffc4": {
+      "name": "Chili Octo Aloha"
+    },
+    "85c6fc1e82e176a5": {
+      "name": "Sunny-Day Tee"
+    },
+    "50dee75a7a249665": {
+      "name": "Red Battlecrab Shell"
+    },
+    "fc4daf64413e0935": {
+      "name": "Olive Ski Jacket"
+    },
+    "0db3b2e4f86aac92": {
+      "name": "Positive Longcuff Sweater"
+    },
+    "1ca9c9434d3f3c41": {
+      "name": "Tumeric Zekko Coat"
+    },
+    "82bd94ed894a16dc": {
+      "name": "Rugby King 08"
+    },
+    "82e84adc3d2d435b": {
+      "name": "Kensa Coat"
+    },
+    "1cb182b28706dc7a": {
+      "name": "Khaki 16-Bit FishFry"
+    },
+    "051dbc8aeb5ddf6d": {
+      "name": "League Tee"
+    },
+    "3e2118823fe00aab": {
+      "name": "Camo Layered LS"
+    },
+    "8fa248d2c2f6dbb5": {
+      "name": "Zekko Redleaf Coat"
+    },
+    "30e29e191ae487ff": {
+      "name": "Moto Boots"
+    },
+    "b1fad79c10f879c9": {
+      "name": "White King Tank"
+    },
+    "c03f0c705e5a2ad3": {
+      "name": "Kid Clams"
+    },
+    "86196cf11c56cd37": {
+      "name": "White Striped LS"
+    },
+    "2672cbe3aa792e52": {
+      "name": "Gray 8-Bit FishFry"
+    },
+    "54306bd8f71bb745": {
+      "name": "Tri-Shred Tee"
+    },
+    "32c45f03137ffd14": {
+      "name": "Orange Cardigan"
+    },
+    "bba99111b562edae": {
+      "name": "Octo Jumper Away"
+    },
+    "79e4ced3f9a8ce7b": {
+      "name": "Friend Tee"
+    },
+    "1f976b82a5d4d4d2": {
+      "name": "Octosquid Tandem Tee"
+    },
+    "527b06f73d3b7018": {
+      "name": "Zekko Long Radish Tee"
+    },
+    "13fe3940b4d7a989": {
+      "name": "Birded Corduroy Jacket"
+    },
+    "28d6795565c997b8": {
+      "name": "White Shirt"
+    },
+    "7b9c71c2c795b6a6": {
+      "name": "B-ball Jersey (Home)"
+    },
+    "e8285de857d1444c": {
+      "name": "Shirt with Blue Hoodie"
+    },
+    "38f2ab404277f174": {
+      "name": "Annaki Polpo-Pic Tank"
+    },
+    "8031c9bc0bc5729f": {
+      "name": "Red Hula Punk with Tie"
+    }
+  },
+  "festivals": {
+    "JUEA-00100": {
+      "title": "What would you be in a fantasy world?",
+      "teams": [
+        {
+          "teamName": "Wizard"
+        },
+        {
+          "teamName": "Knight"
+        },
+        {
+          "teamName": "Ninja"
+        }
+      ]
+    },
+    "JUEA-00019": {
+      "title": "Which is the most important to you?",
+      "teams": [
+        {
+          "teamName": "Past"
+        },
+        {
+          "teamName": "Present"
+        },
+        {
+          "teamName": "Future"
+        }
+      ]
+    },
+    "JUEA-00018": {
+      "title": "Which could you eat every day?",
+      "teams": [
+        {
+          "teamName": "Bread"
+        },
+        {
+          "teamName": "Rice"
+        },
+        {
+          "teamName": "Pasta"
+        }
+      ]
+    },
+    "JUEA-00017": {
+      "title": "Which would you reserve for a day?",
+      "teams": [
+        {
+          "teamName": "Palace"
+        },
+        {
+          "teamName": "Theme Park"
+        },
+        {
+          "teamName": "Beach"
+        }
+      ]
+    },
+    "JUEA-00016": {
+      "title": "What would you do at the world's end?",
+      "teams": [
+        {
+          "teamName": "Same Ol'"
+        },
+        {
+          "teamName": "Bucket List"
+        },
+        {
+          "teamName": "Save the Day"
+        }
+      ]
+    },
+    "JUEA-00015": {
+      "title": "It's spring! A time for fuzzy fluffiness!",
+      "teams": [
+        {
+          "teamName": "Baby Chicks"
+        },
+        {
+          "teamName": "Li'l Bunnies"
+        },
+        {
+          "teamName": "Bear Cubs"
+        }
+      ]
+    },
+    "UEA-00014": {
+      "title": "Which instrument would you play?",
+      "teams": [
+        {
+          "teamName": "Drums"
+        },
+        {
+          "teamName": "Guitar"
+        },
+        {
+          "teamName": "Keyboard"
+        }
+      ]
+    },
+    "UEA-00013": {
+      "title": "What's the best day of the weekend?",
+      "teams": [
+        {
+          "teamName": "Friday"
+        },
+        {
+          "teamName": "Saturday"
+        },
+        {
+          "teamName": "Sunday"
+        }
+      ]
+    },
+    "JUEA-00012": {
+      "title": "Who do you spend the holidays with?",
+      "teams": [
+        {
+          "teamName": "Friends"
+        },
+        {
+          "teamName": "Family"
+        },
+        {
+          "teamName": "Solo"
+        }
+      ]
+    },
+    "UEA-90011": {
+      "title": "What's your go-to greeting?",
+      "teams": [
+        {
+          "teamName": "Handshake"
+        },
+        {
+          "teamName": "Fist Bump"
+        },
+        {
+          "teamName": "Hug"
+        }
+      ]
+    },
+    "JUEA-00010": {
+      "title": "Which would be the best friend?",
+      "teams": [
+        {
+          "teamName": "Zombie"
+        },
+        {
+          "teamName": "Skeleton"
+        },
+        {
+          "teamName": "Ghost"
+        }
+      ]
+    },
+    "JUEA-00009": {
+      "title": "Who would be the best leader?",
+      "teams": [
+        {
+          "teamName": "Shiver"
+        },
+        {
+          "teamName": "Frye"
+        },
+        {
+          "teamName": "Big Man"
+        }
+      ]
+    },
+    "JUEA-00008": {
+      "title": "What's most important in life?",
+      "teams": [
+        {
+          "teamName": "Money"
+        },
+        {
+          "teamName": "Fame"
+        },
+        {
+          "teamName": "Love"
+        }
+      ]
+    },
+    "JUEA-00007": {
+      "title": "Which flavor of ice cream is best?",
+      "teams": [
+        {
+          "teamName": "Vanilla"
+        },
+        {
+          "teamName": "Strawberry"
+        },
+        {
+          "teamName": "Mint Chip"
+        }
+      ]
+    },
+    "JUEA-00006": {
+      "title": "Which do you seek?",
+      "teams": [
+        {
+          "teamName": "Power"
+        },
+        {
+          "teamName": "Wisdom"
+        },
+        {
+          "teamName": "Courage"
+        }
+      ]
+    },
+    "JUEA-00005": {
+      "title": "Which of these is real?",
+      "teams": [
+        {
+          "teamName": "Nessie"
+        },
+        {
+          "teamName": "Aliens"
+        },
+        {
+          "teamName": "Bigfoot"
+        }
+      ]
+    },
+    "JUEA-00004": {
+      "title": "What's your favorite chocolate?",
+      "teams": [
+        {
+          "teamName": "Dark Chocolate"
+        },
+        {
+          "teamName": "Milk Chocolate"
+        },
+        {
+          "teamName": "White Chocolate"
+        }
+      ]
+    },
+    "JUEA-00003": {
+      "title": "What's your favorite taste sensation?",
+      "teams": [
+        {
+          "teamName": "Spicy"
+        },
+        {
+          "teamName": "Sweet"
+        },
+        {
+          "teamName": "Sour"
+        }
+      ]
+    },
+    "JUEA-00002": {
+      "title": "What's your partner Pokémon type?",
+      "teams": [
+        {
+          "teamName": "Grass"
+        },
+        {
+          "teamName": "Fire"
+        },
+        {
+          "teamName": "Water"
+        }
+      ]
+    },
+    "JUEA-00001": {
+      "title": "What would you bring to a deserted island?",
+      "teams": [
+        {
+          "teamName": "Gear"
+        },
+        {
+          "teamName": "Grub"
+        },
+        {
+          "teamName": "Fun"
+        }
+      ]
+    },
+    "JUEA-00101": {
+      "title": "What would make you happiest?",
+      "teams": [
+        {
+          "teamName": "Money"
+        },
+        {
+          "teamName": "Experiences"
+        },
+        {
+          "teamName": "Presents"
+        }
+      ]
+    },
+    "JUEA-00200": {
+      "title": "What's your favorite chocolate?",
+      "teams": [
+        {
+          "teamName": "Dark Chocolate"
+        },
+        {
+          "teamName": "Milk Chocolate"
+        },
+        {
+          "teamName": "White Chocolate"
+        }
+      ]
+    },
+    "JUEA-00102": {
+      "title": "When do you get things done?",
+      "teams": [
+        {
+          "teamName": "Morning"
+        },
+        {
+          "teamName": "Afternoon"
+        },
+        {
+          "teamName": "Night"
+        }
+      ]
+    },
+    "JUEA-00103": {
+      "title": "Which would you rather travel by?",
+      "teams": [
+        {
+          "teamName": "Land"
+        },
+        {
+          "teamName": "Sea"
+        },
+        {
+          "teamName": "Air"
+        }
+      ]
+    },
+    "JUEA-00104": {
+      "title": "Which would be the best friend?",
+      "teams": [
+        {
+          "teamName": "Zombie"
+        },
+        {
+          "teamName": "Skeleton"
+        },
+        {
+          "teamName": "Ghost"
+        }
+      ]
+    },
+    "JUEA-00105": {
+      "title": "Who do you spend the holidays with?",
+      "teams": [
+        {
+          "teamName": "Friends"
+        },
+        {
+          "teamName": "Family"
+        },
+        {
+          "teamName": "Solo"
+        }
+      ]
+    },
+    "JUEA-00106": {
+      "title": "It's spring! A time for fuzzy fluffiness!",
+      "teams": [
+        {
+          "teamName": "Baby Chicks"
+        },
+        {
+          "teamName": "Li'l Bunnies"
+        },
+        {
+          "teamName": "Bear Cubs"
+        }
+      ]
+    },
+    "JUEA-00201": {
+      "title": "What's your fighting style?",
+      "teams": [
+        {
+          "teamName": "Speed"
+        },
+        {
+          "teamName": "Power"
+        },
+        {
+          "teamName": "Tactics"
+        }
+      ]
+    }
+  },
+  "stages": {
+    "VnNTdGFnZS0x": {
+      "name": "Scorch Gorge"
+    },
+    "VnNTdGFnZS0y": {
+      "name": "Eeltail Alley"
+    },
+    "VnNTdGFnZS0z": {
+      "name": "Hagglefish Market"
+    },
+    "VnNTdGFnZS00": {
+      "name": "Undertow Spillway"
+    },
+    "VnNTdGFnZS01": {
+      "name": "Um'ami Ruins"
+    },
+    "VnNTdGFnZS02": {
+      "name": "Mincemeat Metalworks"
+    },
+    "VnNTdGFnZS03": {
+      "name": "Brinewater Springs"
+    },
+    "VnNTdGFnZS04": {
+      "name": "Barnacle & Dime"
+    },
+    "VnNTdGFnZS05": {
+      "name": "Flounder Heights"
+    },
+    "VnNTdGFnZS0xMA==": {
+      "name": "Hammerhead Bridge"
+    },
+    "VnNTdGFnZS0xMQ==": {
+      "name": "Museum d'Alfonsino"
+    },
+    "VnNTdGFnZS0xMg==": {
+      "name": "Mahi-Mahi Resort"
+    },
+    "VnNTdGFnZS0xMw==": {
+      "name": "Inkblot Art Academy"
+    },
+    "VnNTdGFnZS0xNA==": {
+      "name": "Sturgeon Shipyard"
+    },
+    "VnNTdGFnZS0xNQ==": {
+      "name": "MakoMart"
+    },
+    "VnNTdGFnZS0xNg==": {
+      "name": "Wahoo World"
+    },
+    "VnNTdGFnZS0xNw==": {
+      "name": "Humpback Pump Track"
+    },
+    "VnNTdGFnZS0xOA==": {
+      "name": "Manta Maria"
+    },
+    "VnNTdGFnZS0xOQ==": {
+      "name": "Crableg Capital"
+    },
+    "VnNTdGFnZS0yMA==": {
+      "name": "Shipshape Cargo Co."
+    },
+    "VnNTdGFnZS0yMQ==": {
+      "name": "Robo ROM-en"
+    },
+    "VnNTdGFnZS0yMg==": {
+      "name": "Bluefin Depot"
+    },
+    "VnNTdGFnZS0yMw==": {
+      "name": "Marlin Airport"
+    },
+    "VnNTdGFnZS0yNA==": {
+      "name": "Lemuria Hub"
+    },
+    "Q29vcFN0YWdlLTY=": {
+      "name": "Marooner's Bay"
+    },
+    "Q29vcFN0YWdlLTE=": {
+      "name": "Spawning Grounds"
+    },
+    "Q29vcFN0YWdlLTI=": {
+      "name": "Sockeye Station"
+    },
+    "Q29vcFN0YWdlLTc=": {
+      "name": "Gone Fission Hydroplant"
+    },
+    "Q29vcFN0YWdlLTQ=": {
+      "name": "Salmonid Smokeyard"
+    },
+    "Q29vcFN0YWdlLTg=": {
+      "name": "Jammin' Salmon Junction"
+    },
+    "Q29vcFN0YWdlLTk=": {
+      "name": "Bonerattle Arena"
+    },
+    "Q29vcFN0YWdlLTEwMA==": {
+      "name": "Wahoo World"
+    },
+    "Q29vcFN0YWdlLTEwMg==": {
+      "name": "Inkblot Art Academy"
+    },
+    "Q29vcFN0YWdlLTEwMw==": {
+      "name": "Undertow Spillway"
+    },
+    "VnNTdGFnZS0yNg==": {
+      "name": "Urchin Underpass"
+    },
+    "Q29vcFN0YWdlLTEwNA==": {
+      "name": "Um'ami Ruins"
+    },
+    "Q29vcFN0YWdlLTEwNQ==": {
+      "name": "Barnacle & Dime"
+    },
+    "Q29vcFN0YWdlLTEwNg==": {
+      "name": "Eeltail Alley"
+    },
+    "Q29vcFN0YWdlLS0x": {
+      "name": "Multiple Sites"
+    }
+  },
+  "rules": {
+    "VnNSdWxlLTA=": {
+      "name": "Turf War"
+    },
+    "VnNSdWxlLTQ=": {
+      "name": "Clam Blitz"
+    },
+    "VnNSdWxlLTE=": {
+      "name": "Splat Zones"
+    },
+    "VnNSdWxlLTI=": {
+      "name": "Tower Control"
+    },
+    "VnNSdWxlLTM=": {
+      "name": "Rainmaker"
+    }
+  },
+  "weapons": {
+    "67b2e7ac4bf64e71": {
+      "name": "Splatana Wiper"
+    },
+    "e78ca547494ad3c3": {
+      "name": "Carbon Roller"
+    },
+    "79e6297eb501599f": {
+      "name": "Dapple Dualies"
+    },
+    "885c30f6102de958": {
+      "name": ".96 Gal"
+    },
+    "3b31490a368e92e1": {
+      "name": "Glooga Dualies"
+    },
+    "d9632c243eb36d73": {
+      "name": "Octobrush"
+    },
+    "03146bb3dc0defd4": {
+      "name": "Flingza Roller"
+    },
+    "66cd48f017d3f078": {
+      "name": "Wellstring V"
+    },
+    "d39ba7409f6e1fbc": {
+      "name": "Dualie Squelchers"
+    },
+    "5567ca94a5374d21": {
+      "name": "Sploosh-o-matic"
+    },
+    "9e45e49e1e9c4853": {
+      "name": "Jet Squelcher"
+    },
+    "342c1b18ce2732ea": {
+      "name": "Tenta Brella"
+    },
+    "de148ea51e7c28fa": {
+      "name": "Splattershot Jr."
+    },
+    "e115c15c4a20d8ba": {
+      "name": "Splat Roller"
+    },
+    "05a0ddd5b919b698": {
+      "name": "Luna Blaster"
+    },
+    "2136716c07457658": {
+      "name": "Tri-Stringer"
+    },
+    "747937841598fff7": {
+      "name": "Random"
+    },
+    "23deec47199c37d1": {
+      "name": "Splat Brella"
+    },
+    "439343ee49a5126b": {
+      "name": "Ballpoint Splatling"
+    },
+    "5e5481f626f02cbf": {
+      "name": "H-3 Nozzlenose"
+    },
+    "535d3c822bba0415": {
+      "name": "Classic Squiffer"
+    },
+    "c95b060287d757a2": {
+      "name": "Splatana Stamper"
+    },
+    "280ed6683d3eb523": {
+      "name": "Squeezer"
+    },
+    "83c543ed4ae19005": {
+      "name": "Splat Dualies"
+    },
+    "183dfb6256c39892": {
+      "name": "Rapid Blaster Pro"
+    },
+    "eb5098db38e209e1": {
+      "name": "Bloblobber"
+    },
+    "c19e07d4db9a4075": {
+      "name": "Explosher"
+    },
+    "e60629ecf35192a1": {
+      "name": "Splattershot"
+    },
+    "5c8a27c6818f20e6": {
+      "name": "Bamboozler 14 Mk I"
+    },
+    "b5b716854159da15": {
+      "name": "Mint Decavitator"
+    },
+    "935949ea2945806b": {
+      "name": "Aerospray MG"
+    },
+    "523fca90c5771a63": {
+      "name": "Dark Tetra Dualies"
+    },
+    "5463ec85acff180c": {
+      "name": "Sloshing Machine"
+    },
+    "895eaa9e4e5b427b": {
+      "name": "Inkbrush"
+    },
+    "3aac272457998973": {
+      "name": "Heavy Splatling"
+    },
+    "513c64dd6cd5e723": {
+      "name": ".52 Gal"
+    },
+    "85c6eda8dffc77a0": {
+      "name": "Splattershot Nova"
+    },
+    "1f7612f08f804c54": {
+      "name": "REEF-LUX 450"
+    },
+    "de8a2a542dbe6b99": {
+      "name": "S-BLAST '92"
+    },
+    "17b8d348d6380ae9": {
+      "name": "Goo Tuber"
+    },
+    "b4ebb5629d8c3e5f": {
+      "name": "Undercover Brella"
+    },
+    "0578f3b3d9af08ed": {
+      "name": "L-3 Nozzlenose"
+    },
+    "ed647072fa99c73e": {
+      "name": "Splash-o-matic"
+    },
+    "09284d9bd3b61ea1": {
+      "name": "Dread Wringer"
+    },
+    "961a7063fc94f087": {
+      "name": "Splat Charger"
+    },
+    "b3ab498b8a8a0667": {
+      "name": "N-ZAP '85"
+    },
+    "d22945127fb7584f": {
+      "name": "Snipewriter 5H"
+    },
+    "01b960996da8ed63": {
+      "name": "Random"
+    },
+    "dde2f92988536cd2": {
+      "name": "Blaster"
+    },
+    "6ede65010706778d": {
+      "name": "Nautilus 47"
+    },
+    "dc9f150e86663adb": {
+      "name": "E-liter 4K"
+    },
+    "b4df43b5b0d90b7a": {
+      "name": "Tri-Slosher"
+    },
+    "3ab1a91f59f81345": {
+      "name": "Painbrush"
+    },
+    "7065ab46c609e6d7": {
+      "name": "Douser Dualies FF"
+    },
+    "d9a573867cb6ba9a": {
+      "name": "Heavy Edit Splatling"
+    },
+    "cd34251e67bd3f3e": {
+      "name": "Mini Splatling"
+    },
+    "c100f88e8b925e1c": {
+      "name": "Hydra Splatling"
+    },
+    "3ed1b23808b91e54": {
+      "name": "Dynamo Roller"
+    },
+    "914ca6f3cba7aa98": {
+      "name": "Recycled Brella 24 Mk I"
+    },
+    "fe3b9b3b87ca491e": {
+      "name": "Slosher"
+    },
+    "830801a9f4555917": {
+      "name": "Clash Blaster"
+    },
+    "b04c2fbbe1c98e63": {
+      "name": "Big Swig Roller"
+    },
+    "f74d638ac101904e": {
+      "name": "Splattershot Pro"
+    },
+    "884321fa6165eb37": {
+      "name": "Rapid Blaster"
+    },
+    "30f4e84e186e226f": {
+      "name": "Range Blaster"
+    }
+  },
+  "bosses": {
+    "Q29vcEVuZW15LTIz": {
+      "name": "Cohozuna"
+    },
+    "Q29vcEVuZW15LTI0": {
+      "name": "Horrorboros"
+    },
+    "Q29vcEVuZW15LTI1": {
+      "name": "Megalodontia"
+    },
+    "Q29vcEVuZW15LTMw": {
+      "name": "Triumvirate"
+    }
+  },
+  "events": {
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9MaW5lTWFya2Vy": {
+      "name": "Work the Angles",
+      "desc": "Who's the best shot with an Angle Shooter?<br />Let's find out.",
+      "regulation": "Aim is the name of the game! Bring your Angle Shooters for this battle of the best bounces.<br /><br />・ You can only use weapons that come with the Angle Shooter sub weapon.<br />・ Angle Shooter damage will be greatly increased for all players.<br />・ Angle Shooter ink consumption will also be greatly increased for all players.<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb250aGx5TGVhZ3VlTWF0Y2hSZWFs": {
+      "name": "Monthly Challenge",
+      "desc": "Aim for the highest Challenge Power!",
+      "regulation": "How high can you get your Challenge Power this month?<br /><br />・ Only primary gear abilities will be enabled in Turf War battles. Secondary gear abilities will have no effect!<br />・ There will be no limits on gear abilities in Anarchy Battle modes!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NwaW5uZXI=": {
+      "name": "Barrel of Splats",
+      "desc": "Muster as much firepower as you can<br />in this battle of the splatlings!",
+      "regulation": "Bring the heat with your best splatling loadout, and see who's left standing.<br /><br />・ Players can only choose different varieties of splatlings!<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9SYWlubWFrZXI=": {
+      "name": "Modded Rainmaker Test-Fire",
+      "desc": "Sheldon has been tinkering with the<br />Rainmaker, and he wants you to test it!",
+      "regulation": "Help test Sheldon's latest modifications to the Rainmaker weapon, and get some good battling in while you're at it!<br /><br />・ All battles will be in Rainmaker mode.<br />・ Fully charged Rainmaker shots will now fire in three directions!<br />・ The abilities of the player holding the Rainmaker will be boosted!<br />・ The Rainmaker will explode 30 seconds after being picked up. Watch out!<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9Ta2V3ZXI=": {
+      "name": "Reefslider Rally",
+      "desc": "Rev up your Reefsliders, and ride<br />into battle!",
+      "regulation": "Who's got two pectoral fins and is ready to ride? Literally every player in this Challenge!<br /><br />・ You can only use weapons that come with the Reefslider special.<br />・ The special gauge will fill quickly all by itself!<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db3N0dW1lUGFydHk=": {
+      "name": "Sheldon's Dress-Up Showdown",
+      "desc": "Raid Sheldon's arsenal and closet for<br />random weapons and outfits!",
+      "regulation": "Make the most of a random assortment of Sheldon's weapons and outfits in this come-as-you-are Challenge!<br /><br />・ You'll be assigned an outfit and weapon at the start of battle.<br />・ Your loadout will completely change with each subsequent battle!<br />・ Sheldon is graciously loaning all of the equipment, so you don't need to own the items you're using. You also don't get to keep them."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1HZXlzZXI=": {
+      "name": "Oh My Gush",
+      "desc": "The stages you know and love are now<br />filled with gushers. How will you use them?",
+      "regulation": "Where did all those gushers come from? Might as well make the most of them!<br /><br />・ Gushers have appeared in the stage!<br />・ Attack a gusher to make it erupt with your color of ink.<br />・ You can use them to hide or climb.<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0JsYXN0ZXI=": {
+      "name": "Fastest Blasters",
+      "desc": "Bring your blasters and get ready<br />for blastoff!",
+      "regulation": "Have you mastered blasters? Let's see what you can do!<br /><br />・ Players can only choose different varieties of blasters!<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9Ub3dlckNvbnRyb2w=": {
+      "name": "Towering Tower Control",
+      "desc": "The tower is way bigger than before!<br />All aboard!",
+      "regulation": "Can you control the biggest tower ever?<br /><br />・ All battles will be in Tower Control mode.<br />・ The tower is now enormous—your whole team can fit!<br />・ Coordinate with teammates to attack the enemy base.<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVNob3Q=": {
+      "name": "Too Many Trizookas!",
+      "desc": "A high-powered Trizooka battle!",
+      "regulation": "Can you defeat a Trizooka user with a Trizooka of your own?! Now's the time to find out!<br /><br />・ You can only use weapons that come with the Trizooka special.<br />・ The special gauge will fill quickly all by itself!<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYWlubWFrZXJEcm9w": {
+      "name": "Making It Rain...Here?",
+      "desc": "Try out the Rainmaker in places it was never<br />meant to be used!",
+      "regulation": "See what you can do with the Rainmaker in a regular battle!<br /><br />・ The mode will not be Rainmaker.<br />・ The Rainmaker will appear in the center of the stage.<br />・ Any player who obtains the Rainmaker can use it to their advantage!<br />・ If the player holding the Rainmaker is defeated, the Rainmaker will return to the center of the stage.<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0NoYXJnZXI=": {
+      "name": "Fully Charged",
+      "desc": "Time to see if you're a hotshot<br />with your favorite charger!",
+      "regulation": "Bring your favorite charger and take your shot!<br /><br />・ Players can only choose different varieties of chargers!<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9DdXJsaW5nQm9tYg==": {
+      "name": "Curling Hurl",
+      "desc": "Toss out jumbo-sized Curling Bombs in<br />this frenetic Challenge!",
+      "regulation": "Make way for the giant Curling Bombs as they glide across the battlefield.<br /><br />・ You can only use weapons that come with the Curling Bomb sub weapon.<br />・ Curling Bombs will be enlarged!<br />・ Curling Bomb contact damage will be greatly increased for all players.<br />・ Their explosion size will be greatly increased too!<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1QYWlyQ3Vw": {
+      "name": "Duel of Dynamic Duos",
+      "desc": "See what you can do as a duo!",
+      "regulation": "Team chemistry is the name of the game in fast-paced two vs. two battles!<br /><br />・ Explore new strategies as you try to become the top team on the map!<br />・ Respawn time will be shortened!<br />・ You can participate as a team of 2 or solo.<br />・ Both primary and secondary abilities will be enabled!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX01hbmV1dmVy": {
+      "name": "Dualies at Ten Paces",
+      "desc": "Enter a battlefield filled with slippery<br />customers in this all-dualies war!",
+      "regulation": "Stick and move with the best of 'em in this dualies dustup!<br /><br />・ Players can only choose different varieties of dualies.<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Sb2xsZXJCcnVzaFNwZWVkVXA=": {
+      "name": "Full Stream Ahead",
+      "desc": "Stampede over your opponents with even<br />faster rollers and brushes!",
+      "regulation": "Rollers and brushes move faster than ever. The ink race is on!<br /><br />・ Players can only choose different varieties of rollers or brushes.<br />・ All players have greatly increased ink speed.<br />・ Ink consumption while inking will also be greatly increased for all players.<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NoZWx0ZXI=": {
+      "name": "Brella Good",
+      "desc": "Come back with your brella or on it!",
+      "regulation": "It's time for a brellabration! Are you a canopy or a can't-opy?<br /><br />・ Players can only choose different varieties of brellas.<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVN0YW1w": {
+      "name": "Ultra Stamp Rally",
+      "desc": "Go on a stampage with your Ultra Stamp!",
+      "regulation": "Deliver beatdowns left and right in this Ultra Stamp Challenge!<br /><br />・ You can only use weapons with the Ultra Stamp special.<br />・ The special gauge will fill quickly all by itself!<br />・ Only primary gear abilities will be enabled! Secondary gear abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9TcGxhc2hCb21i": {
+      "name": "Splat Bomb Rush",
+      "desc": "Let the Splat Bombs fly in this free-for-all!",
+      "regulation": "It's Splat Bombs away in this explosive Challenge!<br /><br />・ You can only use weapons with the Splat Bomb sub weapon.<br />・ Splat Bomb ink consumption will be cut in half!<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb25BbmRHZWFyUG93ZXI=": {
+      "name": "Sheldon's Gear-Ability Shuffle",
+      "desc": "Let Sheldon pick your loadout for a battle<br />of random weapons and gear abilities!",
+      "regulation": "Make the most of a random assortment of Sheldon's weapons and gear abilities in this test of adaptability!<br /><br />・ You'll be assigned gear abilities and a weapon at the start of battle.<br />・ One gear ability you receive will be set to maximum power!<br />・ Three secondary gear abilities will also be assigned, regardless of the available slots on your gear.<br />・ Once the battle ends, your gear's previous abilities will be restored."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclNwZWNpYWxXZWFwb25fQ2hhcmlvdA==": {
+      "name": "Bucket of Crab Tanks",
+      "desc": "Crab Tanks on the loose! Strafe to safety!",
+      "regulation": "Whether faster Crab Tanks are your dream or nightmare, now they're real!<br /><br />・ You can only use weapons with the Crab Tank special.<br />・ The sideways walking speed of the Crab Tank will be greatly increased!<br />・ Your speed when rolling with the ZL Button will not change.<br />・ Only primary gear abilities will be enabled! Secondary gear abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlckJlYWNvbg==": {
+      "name": "Super Jump-a-thon",
+      "desc": "Super Jump up and away! Stand by your<br />teammates with their Squid Beakons!",
+      "regulation": "Never fight alone with these high-speed Super Jumps to your allies' Squid Beakons!<br /><br />・ You can only use weapons with the Squid Beakon sub weapon.<br />・ Super Jumps are much faster!<br />・ Only primary gear abilities will be enabled, except for Quick Super Jump and Sub Power Up. Secondary gear abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1Nsb3NoZXI=": {
+      "name": "Supreme Sloshers",
+      "desc": "Go forth and slosher the opposition!",
+      "regulation": "Do your slosher strats have what it takes? Let's find out!<br /><br />・ Players can only choose different varieties of sloshers.<br />・ Both primary and secondary abilities will be enabled."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1IaWdoSnVtcA==": {
+      "name": "Extreme Jump Battle",
+      "desc": "Jump power UP! See where it takes you!",
+      "regulation": "With the ability to jump higher than ever, you can explore new attack routes and strategies on the map!<br /><br />・ Jump power will be greatly increased for all players.<br />・ Armor durability will be increased after doing a Squid Spawn.<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb24=": {
+      "name": "The Sheldon Sampler Challenge",
+      "desc": "Make the most of random weapons!",
+      "regulation": "\"I'm happy to loan out my entire inventory for this Challenge. Try something different, and see if you find a new favorite!\"<br /> -Sheldon<br /><br />・ Weapons will be randomly assigned before each battle.<br />・ Sheldon will be graciously loaning these weapons out, so don't worry if you don't own every possible weapon.<br />・ Both primary and secondary abilities will be enabled!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1JvbGxlckJydXNo": {
+      "name": "Art Battle for the Ages",
+      "desc": "It's rollers vs. brushes for bragging rights!",
+      "regulation": "This Challenge only allows rollers and brushes—it's not for the faint of art!<br /><br />・ The only weapons you can use are rollers or brushes!<br />・ Both primary and secondary abilities will be enabled!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1EZWVwRm9n": {
+      "name": "Foggy Notion",
+      "desc": "The stakes are high in low-vis battles!",
+      "regulation": "Can you use the fog cover to your advantage?<br /><br />・ The stage will be shrouded in fog through the battle.<br />・ However, the density of the fog will change as the battle goes on!<br />・ Both primary and secondary abilities will be enabled!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9aaXBDYXN0ZXI=": {
+      "name": "Zip-to-It Zipcaster Challenge",
+      "desc": "Fly free with unlimited Zipcaster use!",
+      "regulation": "This Challenge asks: Where would you go and how would you battle if you could use the Zipcaster to your heart's content?<br /><br />・ You can only use weapons that come with the Zipcaster special.<br />・ The special gauge will fill quickly all by itself!<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9KZXRQYWNr": {
+      "name": "Inkjets for Everyone!",
+      "desc": "A high-flying Inkjet battle!",
+      "regulation": "Take to the air with your Inkjet special, and splat it out in the sky!<br /><br />・ You can only use weapons that come with the Inkjet special.<br />・ The special gauge will fill quickly all by itself!<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1GYXN0TW92ZQ==": {
+      "name": "Swim It to Win It",
+      "desc": "Swim speed up for all players!",
+      "regulation": "Glide through your team's ink faster than ever in swim form. Oh, and try to win the battle while you're at it!<br /><br />・ Swim-form movement will be greatly increased for all players.<br />・ Only primary gear abilities will be enabled! Secondary abilities will have no effect.<br />・ Swim Speed Up gear abilities will have no effect."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwUGFjaWZpYw==": {
+      "name": "Elite Challenge (Takoroka)",
+      "desc": "A special Challenge available only to<br />the chosen!",
+      "regulation": "This Challenge is for players in the Takoroka Division of X Battles. Only players ranked within the top 1,000 X Rankings in the previous season for the mode specified by this Challenge can participate.<br /><br />It is not possible to enter as a pair or as a team."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwQXRsYW50aWM=": {
+      "name": "Elite Challenge (Tentatek)",
+      "desc": "A special Challenge available only to<br />the chosen!",
+      "regulation": "This Challenge is for players in the Tentatek Division of X Battles. Only players ranked within the top 1,000 X Rankings in the previous season for the mode specified by this Challenge can participate.<br /><br />It is not possible to enter as a pair or as a team."
+    }
+  },
+  "brands": {
+    "QnJhbmQtMTk=": {
+      "name": "Barazushi"
+    },
+    "QnJhbmQtMw==": {
+      "name": "Rockenberg"
+    },
+    "QnJhbmQtOTg=": {
+      "name": "Cuttlegear"
+    },
+    "QnJhbmQtMTU=": {
+      "name": "Annaki"
+    },
+    "QnJhbmQtOQ==": {
+      "name": "Inkline"
+    },
+    "QnJhbmQtOA==": {
+      "name": "Splash Mob"
+    },
+    "QnJhbmQtMQ==": {
+      "name": "Zink"
+    },
+    "QnJhbmQtNw==": {
+      "name": "Skalop"
+    },
+    "QnJhbmQtNg==": {
+      "name": "Firefin"
+    },
+    "QnJhbmQtMTA=": {
+      "name": "Tentatek"
+    },
+    "QnJhbmQtMTc=": {
+      "name": "Toni Kensa"
+    },
+    "QnJhbmQtMg==": {
+      "name": "Krak-On"
+    },
+    "QnJhbmQtNQ==": {
+      "name": "Forge"
+    },
+    "QnJhbmQtMTE=": {
+      "name": "Takoroka"
+    },
+    "QnJhbmQtNA==": {
+      "name": "Zekko"
+    },
+    "QnJhbmQtMTY=": {
+      "name": "Enperry"
+    },
+    "QnJhbmQtMA==": {
+      "name": "SquidForce"
+    },
+    "QnJhbmQtMjA=": {
+      "name": "Emberz"
+    }
+  },
+  "powers": {
+    "1f746cec210906af": {
+      "name": "Intensify Action"
+    },
+    "9da8a55c915271b6": {
+      "name": "Run Speed Up"
+    },
+    "668f5cf3759aa059": {
+      "name": "Unknown"
+    },
+    "2497992da827dbbf": {
+      "name": "Ink Saver (Sub)"
+    },
+    "e6cf18b7c3d7777a": {
+      "name": "Sub Resistance Up"
+    },
+    "351dbd2ad833da59": {
+      "name": "Ink Saver (Main)"
+    },
+    "ef78dc3c91f93dbd": {
+      "name": "Quick Super Jump"
+    },
+    "719305cabfd863f9": {
+      "name": "Comeback"
+    },
+    "5739c59fcddc57ca": {
+      "name": "Ninja Squid"
+    },
+    "4352d3f254655a4f": {
+      "name": "Ink Recovery Up"
+    },
+    "ad9a06bbb1123add": {
+      "name": "Thermal Ink"
+    },
+    "7f6d89f40eabc41d": {
+      "name": "Quick Respawn"
+    },
+    "a3d44c0645fcc37a": {
+      "name": "Sub Power Up"
+    },
+    "1e735ea69cb58677": {
+      "name": "Swim Speed Up"
+    },
+    "79a401dc1b5a80b1": {
+      "name": "Last-Ditch Effort"
+    },
+    "7f398a113a8542f9": {
+      "name": "Tenacity"
+    },
+    "7a177ddb3aeaed0b": {
+      "name": "Ink Resistance Up"
+    },
+    "f09d91b4cb53fbe1": {
+      "name": "Special Saver"
+    },
+    "24f62ff0fc66449b": {
+      "name": "Object Shredder"
+    },
+    "bf7742050e8638f9": {
+      "name": "Special Charge Up"
+    },
+    "75bb4b4b145f5f22": {
+      "name": "Special Power Up"
+    },
+    "a94450681ff5481a": {
+      "name": "Respawn Punisher"
+    },
+    "fc0d34e5084cfa0c": {
+      "name": "Stealth Jump"
+    },
+    "2aa79bd15fcdafe7": {
+      "name": "Opening Gambit"
+    },
+    "c3692f89900a0839": {
+      "name": "Haunt"
+    },
+    "31d03e5fdf33d308": {
+      "name": "Drop Roller"
+    }
+  }
+}

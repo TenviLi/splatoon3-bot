@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
 import languages from '../assets/i18n/index.mjs'
-import localeCN from '../../data/locale/zh-CN.json' with { type: 'json' }
+import localeCN from '@data/locale/zh-CN.json' with { type: 'json' }
 
 export const locales = [
   { code: 'zh-CN', flag: '🇨🇳', name: '中文(简体)' },

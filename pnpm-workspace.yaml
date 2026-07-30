@@ -1,6 +1,8 @@
 allowBuilds:
   esbuild: true
 strictPeerDependencies: true
+overrides:
+  brace-expansion@<=5.0.7: 5.0.8
 peerDependencyRules:
   allowedVersions:
     '@emnapi/core': 1.11.1

@@ -3,8 +3,8 @@ name: Splatoon3 Bot (manual)
 on:
   workflow_dispatch:
     inputs:
-      bot_message:
-        description: Bot notification type
+      profile:
+        description: Run Profile
         default: schedules
         required: true
         type: choice
@@ -12,6 +12,11 @@ on:
           - schedules
           - salmon-run
           - gear
+          - salmon-run-and-gear
+      notification_channels:
+        description: Optional comma-separated Notification Channels
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -20,7 +25,15 @@ jobs:
   bot:
     uses: ./.github/workflows/bot-reusable.yml
     with:
-      screenshot_types: ${{ inputs.bot_message == 'gear' && 'gear-dailydrop,gear-regular' || inputs.bot_message }}
-      message_types: ${{ inputs.bot_message == 'gear' && 'gear-dailydrop,gear-regular' || inputs.bot_message }}
-      artifact_name: ${{ inputs.bot_message }}
-    secrets: inherit
+      profile: ${{ inputs.profile }}
+      notification_channels: ${{ inputs.notification_channels }}
+    secrets:
+      UPYUN_BUCKET: ${{ secrets.UPYUN_BUCKET }}
+      UPYUN_OPERATOR: ${{ secrets.UPYUN_OPERATOR }}
+      UPYUN_SECRET: ${{ secrets.UPYUN_SECRET }}
+      BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
+      BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
+      BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}
+      BOT_QQ_CONFIG: ${{ secrets.BOT_QQ_CONFIG }}
+      BOT_FEISHU_CONFIG: ${{ secrets.BOT_FEISHU_CONFIG }}
+      BOT_DINGTALK_CONFIG: ${{ secrets.BOT_DINGTALK_CONFIG }}

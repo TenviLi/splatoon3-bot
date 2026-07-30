@@ -1,0 +1,47 @@
+name: Notification Channel smoke test
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: Run Profile used for the smoke notification
+        default: schedules
+        required: true
+        type: choice
+        options:
+          - schedules
+          - salmon-run
+          - gear
+          - salmon-run-and-gear
+      channel:
+        description: Notification Channel to test
+        default: wecom
+        required: true
+        type: choice
+        options:
+          - wecom
+          - discord
+          - telegram
+          - qq
+          - feishu
+          - dingtalk
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    uses: ./.github/workflows/bot-reusable.yml
+    with:
+      profile: ${{ inputs.profile }}
+      notification_channels: ${{ inputs.channel }}
+    secrets:
+      UPYUN_BUCKET: ${{ secrets.UPYUN_BUCKET }}
+      UPYUN_OPERATOR: ${{ secrets.UPYUN_OPERATOR }}
+      UPYUN_SECRET: ${{ secrets.UPYUN_SECRET }}
+      BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
+      BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
+      BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}
+      BOT_QQ_CONFIG: ${{ secrets.BOT_QQ_CONFIG }}
+      BOT_FEISHU_CONFIG: ${{ secrets.BOT_FEISHU_CONFIG }}
+      BOT_DINGTALK_CONFIG: ${{ secrets.BOT_DINGTALK_CONFIG }}
