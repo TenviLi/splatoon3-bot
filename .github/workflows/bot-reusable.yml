@@ -46,7 +46,7 @@ jobs:
     timeout-minutes: 20
     outputs:
       artifact_name: ${{ steps.plan.outputs.artifact_name }}
-      notification_matrix: ${{ steps.plan.outputs.notification_matrix }}
+      notification_channels: ${{ steps.plan.outputs.notification_channels }}
       profile: ${{ steps.plan.outputs.profile }}
     env:
       TZ: Asia/Shanghai
@@ -153,49 +153,89 @@ jobs:
           UPX_PASSWORD: ${{ secrets.UPYUN_SECRET }}
         run: node bot/publish/index.mjs "$PROFILE"
 
-  notify:
-    name: Notify ${{ matrix.channel }}
+  notify-wecom:
+    name: Notify WeCom
+    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'wecom') }}
     needs:
       - prepare
       - publish
-    runs-on: ubuntu-24.04
-    environment: production
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix: ${{ fromJSON(needs.prepare.outputs.notification_matrix) }}
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
+    uses: ./.github/workflows/bot-notify.yml
+    with:
+      profile: ${{ needs.prepare.outputs.profile }}
+      channel: wecom
+      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
+    secrets:
+      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+  notify-discord:
+    name: Notify Discord
+    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'discord') }}
+    needs:
+      - prepare
+      - publish
+    uses: ./.github/workflows/bot-notify.yml
+    with:
+      profile: ${{ needs.prepare.outputs.profile }}
+      channel: discord
+      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
+    secrets:
+      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
 
-      - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: .node-version
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
+  notify-telegram:
+    name: Notify Telegram
+    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'telegram') }}
+    needs:
+      - prepare
+      - publish
+    uses: ./.github/workflows/bot-notify.yml
+    with:
+      profile: ${{ needs.prepare.outputs.profile }}
+      channel: telegram
+      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
+    secrets:
+      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}
 
-      - name: Install production dependencies
-        run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
+  notify-qq:
+    name: Notify QQ
+    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'qq') }}
+    needs:
+      - prepare
+      - publish
+    uses: ./.github/workflows/bot-notify.yml
+    with:
+      profile: ${{ needs.prepare.outputs.profile }}
+      channel: qq
+      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
+    secrets:
+      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_QQ_CONFIG }}
 
-      - name: Download Bot Run
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: screenshots-${{ needs.prepare.outputs.artifact_name }}-${{ github.run_id }}
-          path: .
+  notify-feishu:
+    name: Notify Feishu
+    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'feishu') }}
+    needs:
+      - prepare
+      - publish
+    uses: ./.github/workflows/bot-notify.yml
+    with:
+      profile: ${{ needs.prepare.outputs.profile }}
+      channel: feishu
+      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
+    secrets:
+      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_FEISHU_CONFIG }}
 
-      - name: Deliver notifications
-        env:
-          PROFILE: ${{ needs.prepare.outputs.profile }}
-          CHANNEL: ${{ matrix.channel }}
-          BOT_CHANNEL_CONFIG: ${{ secrets[matrix.secret] }}
-          UPYUN_DOMAIN: ${{ vars.UPYUN_DOMAIN }}
-        run: node bot/notification/index.mjs "$PROFILE" "$CHANNEL"
+  notify-dingtalk:
+    name: Notify DingTalk
+    if: ${{ contains(fromJSON(needs.prepare.outputs.notification_channels), 'dingtalk') }}
+    needs:
+      - prepare
+      - publish
+    uses: ./.github/workflows/bot-notify.yml
+    with:
+      profile: ${{ needs.prepare.outputs.profile }}
+      channel: dingtalk
+      artifact_name: ${{ needs.prepare.outputs.artifact_name }}
+    secrets:
+      BOT_CHANNEL_CONFIG: ${{ secrets.BOT_DINGTALK_CONFIG }}
 
   notification-summary:
     name: Notification summary
@@ -203,7 +243,12 @@ jobs:
     needs:
       - prepare
       - publish
-      - notify
+      - notify-wecom
+      - notify-discord
+      - notify-telegram
+      - notify-qq
+      - notify-feishu
+      - notify-dingtalk
     runs-on: ubuntu-24.04
     timeout-minutes: 1
     steps:
@@ -211,14 +256,39 @@ jobs:
         env:
           PREPARE_RESULT: ${{ needs.prepare.result }}
           PUBLISH_RESULT: ${{ needs.publish.result }}
-          NOTIFY_RESULT: ${{ needs.notify.result }}
+          NOTIFICATION_CHANNELS: ${{ needs.prepare.outputs.notification_channels }}
+          WECOM_RESULT: ${{ needs.notify-wecom.result }}
+          DISCORD_RESULT: ${{ needs.notify-discord.result }}
+          TELEGRAM_RESULT: ${{ needs.notify-telegram.result }}
+          QQ_RESULT: ${{ needs.notify-qq.result }}
+          FEISHU_RESULT: ${{ needs.notify-feishu.result }}
+          DINGTALK_RESULT: ${{ needs.notify-dingtalk.result }}
         run: |
+          failed=0
+          summarize_channel() {
+            channel="$1"
+            result="$2"
+            if [[ "$NOTIFICATION_CHANNELS" == *"\"${channel}\""* ]]; then
+              echo "- notify ${channel}: ${result}"
+              if [ "$result" != success ]; then
+                failed=1
+              fi
+            fi
+          }
+
           {
             echo '## Splatoon3 Bot Run'
             echo "- prepare: ${PREPARE_RESULT}"
             echo "- publish: ${PUBLISH_RESULT}"
-            echo "- notify: ${NOTIFY_RESULT}"
+            summarize_channel wecom "$WECOM_RESULT"
+            summarize_channel discord "$DISCORD_RESULT"
+            summarize_channel telegram "$TELEGRAM_RESULT"
+            summarize_channel qq "$QQ_RESULT"
+            summarize_channel feishu "$FEISHU_RESULT"
+            summarize_channel dingtalk "$DINGTALK_RESULT"
           } >> "$GITHUB_STEP_SUMMARY"
-          test "$PREPARE_RESULT" = success
-          test "$PUBLISH_RESULT" = success
-          test "$NOTIFY_RESULT" = success
+
+          if [ "$PREPARE_RESULT" != success ] || [ "$PUBLISH_RESULT" != success ]; then
+            failed=1
+          fi
+          exit "$failed"

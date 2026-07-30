@@ -6,6 +6,10 @@ import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
 import { listScreenshotDefinitions } from '../bot/run/RunPlan.mjs'
 import { renderScreenshotArtifacts } from '../bot/screenshot/ScreenshotRunner.mjs'
+import {
+  getScreenshotGoldenDirectory,
+  listScreenshotGoldenEnvironments,
+} from './support/ScreenshotGoldenEnvironment.mjs'
 
 test('screenshot artifacts match structural and visual contracts', { timeout: 120_000 }, async () => {
   process.env.SPLATOON_DATA_DIRECTORY = 'tests/fixtures/data'
@@ -14,8 +18,16 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 12
   const buildDirectory = path.join(process.cwd(), '.cache', 'visual-dist')
   const outputDirectory = path.join(process.cwd(), '.cache', 'visual-current')
   const diffDirectory = path.join(process.cwd(), '.cache', 'visual-diff')
-  const goldenDirectory = path.join(process.cwd(), 'tests', 'golden', 'screenshots')
+  const goldenDirectory = getScreenshotGoldenDirectory()
   const definitions = listScreenshotDefinitions()
+  const expectedGoldenFilenames = definitions.map((definition) => definition.outputFilename).sort()
+
+  for (const environment of listScreenshotGoldenEnvironments()) {
+    const filenames = (await fs.readdir(getScreenshotGoldenDirectory(environment)))
+      .filter((filename) => filename.endsWith('.png'))
+      .sort()
+    assert.deepEqual(filenames, expectedGoldenFilenames, `${environment} golden screenshots are incomplete`)
+  }
 
   await build({ build: { outDir: buildDirectory, emptyOutDir: true } })
   const artifacts = await renderScreenshotArtifacts(

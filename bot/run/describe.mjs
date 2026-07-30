@@ -14,9 +14,7 @@ const description = {
   artifactName: plan.artifactName,
   screenshots: plan.screenshots,
   notifications: plan.notifications,
-  notificationMatrix: {
-    include: channels.map(({ name, secret }) => ({ channel: name, secret })),
-  },
+  notificationChannels: channels.map(({ name }) => name),
 }
 
 if (process.env.GITHUB_OUTPUT) {
@@ -25,7 +23,7 @@ if (process.env.GITHUB_OUTPUT) {
     `artifact_name=${description.artifactName}`,
     `screenshots=${description.screenshots.join(',')}`,
     `notifications=${description.notifications.join(',')}`,
-    `notification_matrix=${JSON.stringify(description.notificationMatrix)}`,
+    `notification_channels=${JSON.stringify(description.notificationChannels)}`,
   ]
 
   await fs.appendFile(process.env.GITHUB_OUTPUT, `${outputs.join('\n')}\n`)

@@ -123,11 +123,8 @@ export async function renderScreenshotArtifacts(
   const artifacts = []
 
   try {
-    const page = await browser.newPage()
-    await page.evaluateOnNewDocument(() => localStorage.setItem('lang', 'zh-CN'))
-    await page.emulateTimezone('Asia/Shanghai')
-
     for (const definition of definitions) {
+      const page = await browser.newPage()
       const viewport = {
         ...definition.viewport,
         deviceScaleFactor: deviceScaleFactor ?? definition.viewport.deviceScaleFactor,
@@ -140,6 +137,8 @@ export async function renderScreenshotArtifacts(
       page.on('requestfailed', onRequestFailed)
 
       try {
+        await page.evaluateOnNewDocument(() => localStorage.setItem('lang', 'zh-CN'))
+        await page.emulateTimezone('Asia/Shanghai')
         await page.setViewport(viewport)
         const url = new URL(`http://127.0.0.1:${server.port}/screenshots.html`)
         url.hash = `/${definition.route}?${new URLSearchParams({ time: String(renderTime) })}`
@@ -172,10 +171,10 @@ export async function renderScreenshotArtifacts(
       } finally {
         page.off('pageerror', onPageError)
         page.off('requestfailed', onRequestFailed)
+        await page.close()
       }
     }
 
-    await page.close()
     return artifacts
   } finally {
     await browser.close()

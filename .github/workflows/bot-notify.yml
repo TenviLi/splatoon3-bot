@@ -1,0 +1,62 @@
+name: Splatoon3 Bot notification adapter
+
+on:
+  workflow_call:
+    inputs:
+      profile:
+        description: Run Profile to notify
+        required: true
+        type: string
+      channel:
+        description: Notification Channel adapter to execute
+        required: true
+        type: string
+      artifact_name:
+        description: Archived Bot Run artifact name
+        required: true
+        type: string
+    secrets:
+      BOT_CHANNEL_CONFIG:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Notify ${{ inputs.channel }}
+    runs-on: ubuntu-24.04
+    environment: production
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install production dependencies
+        run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
+
+      - name: Download Bot Run
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: screenshots-${{ inputs.artifact_name }}-${{ github.run_id }}
+          path: .
+
+      - name: Deliver notifications
+        env:
+          PROFILE: ${{ inputs.profile }}
+          CHANNEL: ${{ inputs.channel }}
+          BOT_CHANNEL_CONFIG: ${{ secrets.BOT_CHANNEL_CONFIG }}
+          UPYUN_DOMAIN: ${{ vars.UPYUN_DOMAIN }}
+        run: node bot/notification/index.mjs "$PROFILE" "$CHANNEL"

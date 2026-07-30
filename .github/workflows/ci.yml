@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   verify:
+    name: Verify engineering contracts
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -25,16 +26,29 @@ jobs:
           persist-credentials: false
 
       - name: Install pnpm
+        if: ${{ env.ACT != 'true' }}
         uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
 
+      - name: Verify local pnpm
+        if: ${{ env.ACT == 'true' }}
+        run: pnpm --version
+
       - name: Set up Node.js
+        if: ${{ env.ACT != 'true' }}
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: .node-version
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
+      - name: Set up Node.js for local runner
+        if: ${{ env.ACT == 'true' }}
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+
       - name: Restore Chrome for Testing cache
+        if: ${{ env.ACT != 'true' }}
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/puppeteer

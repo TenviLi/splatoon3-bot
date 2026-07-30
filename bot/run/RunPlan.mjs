@@ -60,12 +60,12 @@ const runProfiles = Object.freeze({
 })
 
 const notificationChannels = Object.freeze({
-  wecom: Object.freeze({ name: 'wecom', secret: 'BOT_WECOM_CONFIG' }),
-  discord: Object.freeze({ name: 'discord', secret: 'BOT_DISCORD_CONFIG' }),
-  telegram: Object.freeze({ name: 'telegram', secret: 'BOT_TELEGRAM_CONFIG' }),
-  qq: Object.freeze({ name: 'qq', secret: 'BOT_QQ_CONFIG' }),
-  feishu: Object.freeze({ name: 'feishu', secret: 'BOT_FEISHU_CONFIG' }),
-  dingtalk: Object.freeze({ name: 'dingtalk', secret: 'BOT_DINGTALK_CONFIG' }),
+  wecom: Object.freeze({ name: 'wecom' }),
+  discord: Object.freeze({ name: 'discord' }),
+  telegram: Object.freeze({ name: 'telegram' }),
+  qq: Object.freeze({ name: 'qq' }),
+  feishu: Object.freeze({ name: 'feishu' }),
+  dingtalk: Object.freeze({ name: 'dingtalk' }),
 })
 
 function requireEntry(catalog, name, label) {

@@ -28,17 +28,19 @@ Useful commands:
 | --- | --- |
 | `pnpm run dev` | Start the Vite development server. |
 | `pnpm run download-data` | Download and atomically publish one validated Data Snapshot. |
-| `pnpm run bot:describe <profile> [channels]` | Resolve a Run Profile and Notification Channel matrix. |
+| `pnpm run bot:describe <profile> [channels]` | Resolve a Run Profile and enabled Notification Channels. |
 | `pnpm run bot:prepare <profile>` | Download data, build, render screenshots, and write the Run Manifest. |
 | `pnpm run bot:publish <profile>` | Verify the Run Manifest and PNG hashes, then publish only selected screenshots. |
 | `pnpm run bot:notify <profile> <channel>` | Deliver one Channel using `BOT_CHANNEL_CONFIG`. |
 | `pnpm run test:unit` | Run Run Plan, Data Snapshot, adapter, delivery, Manifest, and publisher tests. |
+| `pnpm run test:browser-ci` | Force Linux CI launch arguments and verify that Chrome starts successfully. |
 | `pnpm run test:visual` | Compare deterministic local screenshots with committed golden PNGs. |
 | `pnpm run verify` | Run actionlint, syntax checks, all tests, production build, and the full dependency audit. |
+| `pnpm run verify:actions` | Execute the GitHub `Verify` job locally in an OrbStack `linux/amd64` runner through `act`. |
 
 ## Run Profiles
 
-YAML selects only a Run Profile. Screenshot names, routes, dimensions, output filenames, notification ordering, Channel names, and Secret mappings are owned by `bot/run/RunPlan.mjs`.
+YAML selects only a Run Profile. Screenshot names, routes, dimensions, output filenames, notification ordering, and Channel names are owned by `bot/run/RunPlan.mjs`. Workflow jobs map each Channel to exactly one explicit GitHub Secret.
 
 | Run Profile | Screenshot Artifacts | Notifications |
 | --- | --- | --- |
@@ -55,9 +57,11 @@ Scheduled and manual entry workflows call `.github/workflows/bot-reusable.yml`. 
 
 1. `prepare` downloads one complete Data Snapshot, builds the screenshot frontend, validates render structure, creates the selected Screenshot Artifacts, and archives the Bot Run for seven days.
 2. `publish` downloads the archive, validates the Run Manifest plus every selected PNG byte count and SHA-256 digest, stages only those PNG files, and syncs them to Upyun.
-3. `notify` fans out one matrix job per enabled Notification Channel after publication succeeds.
+3. Six conditional adapter jobs independently notify enabled Channels after publication succeeds. Each job receives only its platform-specific Secret, and enabled adapters run in parallel.
 
 Official GitHub Actions are pinned to immutable commit SHAs. CI runs `pnpm run verify` for pushes to `main`, pull requests, and manual verification runs.
+
+For a full local runner check on macOS, install and start OrbStack, install `act`, then run `pnpm run verify:actions`. The command builds the pinned `.github/act/Dockerfile` runner with Chrome's Linux runtime libraries, executes the workflow as `linux/amd64`, and reuses the local image on later runs.
 
 The `publish` and `notify` jobs use the `production` GitHub Environment. Configure its deployment-branch policy and optional required reviewers to prevent untrusted refs from using production credentials.
 
@@ -195,7 +199,7 @@ The adapter uses the official QQ Bot access-token flow. `targetType` is `channel
 - Archived Data Snapshots verify their recorded byte counts and SHA-256 digests when loaded by notification jobs.
 - Screenshot capture waits for the application readiness seam, loaded fonts and images, exact viewport geometry, footer position, and zero overflow before writing an artifact atomically.
 - Publication verifies the Run Profile, ordered artifact set, stable filenames, byte counts, and SHA-256 digests. `run-manifest.json` and unrelated files are never uploaded to Upyun.
-- Channel matrix jobs use `fail-fast: false`, so one platform failure does not cancel other platforms.
+- Channel adapter jobs are independent, so one platform failure does not cancel other platforms or expose another platform's Secret.
 - Targets inside a Channel run in parallel. Successful deliveries remain successful when another Target fails; all results are retained and failures are raised together as an `AggregateError`.
 - The final summary marks the Bot Run failed if prepare, publish, or any notification job failed.
 
@@ -204,6 +208,10 @@ The adapter uses the official QQ Bot access-token flow. `targetType` is `channel
 Visual tests use committed fixture JSON, local fixture images, a fixed render time, and committed golden PNGs. Successful external fixture image requests are forbidden, so the test does not depend on the live `splatoon3.ink` image CDN.
 
 Golden files use `1x` device scale to keep repository size manageable; structural assertions independently enforce the production `2x` Screenshot Definitions. Pixel differences above `0.1%` fail the test and write diff images under `.cache/visual-diff/`.
+
+Golden screenshots are platform-specific because Chrome uses different font rasterizers on macOS and Linux. Local Apple Silicon runs compare against `tests/golden/screenshots/darwin-arm64`, while GitHub Actions and the OrbStack `act` runner compare against `tests/golden/screenshots/linux-x64`. Both sets must contain every Screenshot Definition.
+
+The local `act` runner image derives its pnpm, Chrome for Testing, and browser-installer versions from the checked-out project. Baking those tools into the image avoids repeated network-dependent bootstrap work inside each OrbStack workflow container; GitHub-hosted runners continue to use the official setup Actions and caches.
 
 After intentionally refreshing fixture JSON from live data, update assets and baselines in this order:
 
