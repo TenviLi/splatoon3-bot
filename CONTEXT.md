@@ -29,7 +29,7 @@ A platform-neutral message describing current Splatoon information and its Scree
 _Avoid_: Card payload, webhook body
 
 **Notification Channel**:
-A delivery medium such as WeCom, Discord, Telegram, QQ, Feishu, or DingTalk.
+A delivery medium such as WeCom, Discord, Telegram, QQ, Feishu, DingTalk, WhatsApp, LINE, or Slack.
 _Avoid_: Platform client, webhook type
 
 **Notification Target**:

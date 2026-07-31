@@ -119,12 +119,15 @@ function prepareNotificationChannel(plan, channel, rawConfig) {
 async function composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now }) {
   const normalizedAssetBaseUrl = normalizeAssetBaseUrl(assetBaseUrl)
   const context = await createBotContext({ snapshotDirectory, now })
-  return new Map(
-    plan.notifications.map((notificationId) => [
-      notificationId,
-      composeNotification(notificationId, context, { assetBaseUrl: normalizedAssetBaseUrl }),
-    ])
-  )
+  return Object.freeze({
+    assetBaseUrl: normalizedAssetBaseUrl,
+    notifications: new Map(
+      plan.notifications.map((notificationId) => [
+        notificationId,
+        composeNotification(notificationId, context, { assetBaseUrl: normalizedAssetBaseUrl }),
+      ])
+    ),
+  })
 }
 
 function createNotificationDeliveryReport(channelResults, sharedError) {
@@ -135,15 +138,15 @@ function createNotificationDeliveryReport(channelResults, sharedError) {
   })
 }
 
-async function deliverPreparedNotificationChannel(preparedChannel, notifications, fetchImpl) {
+async function deliverPreparedNotificationChannel(preparedChannel, notificationRun, fetchImpl) {
   const { channel, deliveries } = preparedChannel
   const targetResults = await Promise.all(
     deliveries.map(({ target, notificationIds }) =>
       deliverTargetNotifications(
         channel,
         target,
-        notificationIds.map((notificationId) => notifications.get(notificationId)),
-        { fetchImpl }
+        notificationIds.map((notificationId) => notificationRun.notifications.get(notificationId)),
+        { fetchImpl, assetBaseUrl: notificationRun.assetBaseUrl }
       )
     )
   )
@@ -174,8 +177,8 @@ export async function deliverNotificationChannel({
   const plan = getRunPlan(profileName)
   const channel = getChannelAdapter(channelName)
   const preparedChannel = prepareNotificationChannel(plan, channel, rawConfig)
-  const notifications = await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
-  return deliverPreparedNotificationChannel(preparedChannel, notifications, fetchImpl)
+  const notificationRun = await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
+  return deliverPreparedNotificationChannel(preparedChannel, notificationRun, fetchImpl)
 }
 
 export async function deliverConfiguredNotificationChannels({
@@ -205,10 +208,10 @@ export async function deliverConfiguredNotificationChannels({
     }
   })
   const hasDeliverableChannel = channelPreparations.some(({ status }) => status === 'ready')
-  let notifications = new Map()
+  let notificationRun
   if (hasDeliverableChannel) {
     try {
-      notifications = await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
+      notificationRun = await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
     } catch (error) {
       const blockedChannelResults = channelPreparations.map((channelPreparation) =>
         channelPreparation.status === 'rejected'
@@ -230,7 +233,7 @@ export async function deliverConfiguredNotificationChannels({
       try {
         const results = await deliverPreparedNotificationChannel(
           channelPreparation.preparedChannel,
-          notifications,
+          notificationRun,
           fetchImpl
         )
         return Object.freeze({ channelName: channelPreparation.channelName, status: 'fulfilled', results })

@@ -2,48 +2,71 @@ import path from 'node:path'
 import { createBotContext } from '../../bot/notification/BotContext.mjs'
 import { createNotification } from '../../bot/notification/Notification.mjs'
 import { composeNotification } from '../../bot/notification/NotificationComposer.mjs'
-import { deliverDingTalk } from '../../bot/notification/channels/DingTalkChannel.mjs'
-import { deliverDiscord } from '../../bot/notification/channels/DiscordChannel.mjs'
-import { deliverFeishu } from '../../bot/notification/channels/FeishuChannel.mjs'
-import { deliverQQ } from '../../bot/notification/channels/QQChannel.mjs'
-import { deliverTelegram } from '../../bot/notification/channels/TelegramChannel.mjs'
-import { deliverWeCom } from '../../bot/notification/channels/WeComChannel.mjs'
+import { getChannelAdapter } from '../../bot/notification/channels/index.mjs'
 import { listRunProfiles } from '../../bot/run/RunPlan.mjs'
 
 const notificationIds = Object.freeze([
   ...new Set(listRunProfiles().flatMap((profile) => profile.notifications)),
 ])
+const validImageMetadata = Object.freeze({ format: 'png', width: 1024, height: 576, bytes: 800_000 })
 
 const platformCases = Object.freeze([
   Object.freeze({
     name: 'wecom',
-    deliver: deliverWeCom,
     target: Object.freeze({ name: 'golden', webhookUrl: 'https://example.com/wecom' }),
     successBody: Object.freeze({ errcode: 0 }),
   }),
   Object.freeze({
     name: 'discord',
-    deliver: deliverDiscord,
     target: Object.freeze({ name: 'golden', webhookUrl: 'https://discord.com/api/webhooks/1/token' }),
     successBody: Object.freeze({ id: 'message' }),
   }),
   Object.freeze({
     name: 'telegram',
-    deliver: deliverTelegram,
     target: Object.freeze({ name: 'golden', botToken: 'token', chatId: '-10001' }),
     successBody: Object.freeze({ ok: true, result: Object.freeze({ message_id: 1 }) }),
   }),
   Object.freeze({
     name: 'feishu',
-    deliver: deliverFeishu,
     target: Object.freeze({ name: 'golden', webhookUrl: 'https://example.com/feishu' }),
     successBody: Object.freeze({ code: 0 }),
   }),
   Object.freeze({
     name: 'dingtalk',
-    deliver: deliverDingTalk,
     target: Object.freeze({ name: 'golden', webhookUrl: 'https://example.com/dingtalk' }),
     successBody: Object.freeze({ errcode: 0 }),
+  }),
+  Object.freeze({
+    name: 'slack',
+    target: Object.freeze({ name: 'golden', webhookUrl: 'https://hooks.slack.com/services/T/B/key' }),
+    createSuccessResponse: () => new Response('ok', { status: 200 }),
+  }),
+  Object.freeze({
+    name: 'line',
+    target: Object.freeze({
+      name: 'golden',
+      channelAccessToken: 'line-token',
+      targetType: 'user',
+      targetId: 'U0123456789abcdef0123456789abcdef',
+    }),
+    successBody: Object.freeze({}),
+    options: Object.freeze({ inspectImage: async () => validImageMetadata }),
+  }),
+  Object.freeze({
+    name: 'whatsapp',
+    target: Object.freeze({
+      name: 'golden',
+      accessToken: 'whatsapp-token',
+      phoneNumberId: '123456789012345',
+      recipientPhoneNumber: '8613800000000',
+      templateName: 'splatoon_notification',
+      languageCode: 'zh_CN',
+    }),
+    successBody: Object.freeze({ messages: Object.freeze([Object.freeze({ id: 'wamid.golden' })]) }),
+    options: Object.freeze({
+      assetBaseUrl: 'https://cdn.example.com',
+      inspectImage: async () => validImageMetadata,
+    }),
   }),
 ])
 
@@ -75,12 +98,13 @@ function response(value) {
   })
 }
 
-async function capturePayload(deliver, notification, target, successBody) {
+async function capturePayload(deliver, notification, platformCase) {
   let payload
-  await deliver(notification, target, {
-    fetchImpl: async (_url, options) => {
-      payload = JSON.parse(options.body)
-      return response(successBody)
+  await deliver(notification, platformCase.target, {
+    ...platformCase.options,
+    fetchImpl: async (_url, requestOptions) => {
+      payload = JSON.parse(requestOptions.body)
+      return platformCase.createSuccessResponse?.() || response(platformCase.successBody)
     },
   })
   return payload
@@ -88,7 +112,7 @@ async function capturePayload(deliver, notification, target, successBody) {
 
 async function captureQQPayload(notification, target) {
   let payload
-  await deliverQQ(notification, target, {
+  await getChannelAdapter('qq').deliver(notification, target, {
     fetchImpl: async (url, options) => {
       if (String(url).includes('getAppAccessToken')) {
         return response({ access_token: `token-${target.targetType}`, expires_in: '7200' })
@@ -120,10 +144,9 @@ export async function createNotificationPayloadGolden() {
   for (const notification of notifications) {
     for (const platformCase of platformCases) {
       payloads[platformCase.name][notification.id] = await capturePayload(
-        platformCase.deliver,
+        getChannelAdapter(platformCase.name).deliver,
         notification,
-        platformCase.target,
-        platformCase.successBody
+        platformCase
       )
     }
     payloads['qq-group'][notification.id] = await captureQQPayload(notification, {

@@ -12,12 +12,12 @@ export function escapeMarkdown(value) {
 }
 
 export function compactText(value, maximumLength) {
-  const text = String(value)
-  if (text.length <= maximumLength) {
-    return text
+  const characters = Array.from(String(value))
+  if (characters.length <= maximumLength) {
+    return characters.join('')
   }
 
-  return `${text.slice(0, maximumLength - 1)}…`
+  return `${characters.slice(0, maximumLength - 1).join('')}…`
 }
 
 export function notificationPlainText(notification) {

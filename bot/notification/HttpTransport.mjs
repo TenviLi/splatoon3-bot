@@ -26,6 +26,8 @@ export async function request({
   timeoutMs = 15_000,
   attempts = 2,
   label = 'notification request',
+  isRetryableResponse,
+  waitImpl = wait,
 }) {
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
@@ -46,19 +48,25 @@ export async function request({
       }
 
       const error = new Error(`${label} failed with HTTP ${response.status}: ${responseBody.text.slice(0, 500)}`)
-      if (!retryableStatuses.has(response.status) || attempt === attempts) {
+      const retryable =
+        retryableStatuses.has(response.status) || Boolean(isRetryableResponse?.(response, responseBody))
+      if (!retryable || attempt === attempts) {
         error.retryable = false
+        error.responseHeaders = response.headers
+        error.responseBody = responseBody
+        error.status = response.status
         throw error
       }
 
-      const retryAfter = Number(response.headers.get('retry-after'))
-      await wait(Number.isFinite(retryAfter) ? retryAfter * 1000 : 500 * attempt)
+      const retryAfterHeader = response.headers.get('retry-after')
+      const retryAfter = retryAfterHeader === null ? Number.NaN : Number(retryAfterHeader)
+      await waitImpl(Number.isFinite(retryAfter) ? retryAfter * 1000 : 500 * attempt)
     } catch (error) {
       if (attempt === attempts || error.retryable === false) {
         throw error
       }
 
-      await wait(500 * attempt)
+      await waitImpl(500 * attempt)
     }
   }
 
@@ -79,4 +87,12 @@ export function requireJsonSuccess(result, predicate, label) {
   }
 
   return result.json
+}
+
+export function requireTextSuccess(result, predicate, label) {
+  if (!predicate(result.text)) {
+    throw new Error(`${label} rejected the notification: ${result.text.slice(0, 500)}`)
+  }
+
+  return result.text
 }

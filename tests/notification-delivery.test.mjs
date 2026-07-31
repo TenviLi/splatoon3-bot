@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import path from 'node:path'
 import test from 'node:test'
+import { PNG } from 'pngjs'
 import {
   deliverConfiguredNotificationChannels,
   deliverNotificationChannel,
@@ -11,6 +12,11 @@ function response(value) {
     status: 200,
     headers: { 'content-type': 'application/json' },
   })
+}
+
+function pngResponse(width, height) {
+  const buffer = PNG.sync.write(new PNG({ width, height }))
+  return new Response(buffer, { status: 200, headers: { 'content-type': 'image/png' } })
 }
 
 test('fans out Targets in parallel and preserves partial delivery results', async () => {
@@ -310,4 +316,36 @@ test('rejects invalid direct Target arrays before delivery', async () => {
     }),
     /Duplicate Notification Target name/
   )
+})
+
+test('passes the normalized asset origin into WhatsApp template validation', async () => {
+  let payload
+  const results = await deliverNotificationChannel({
+    profileName: 'schedules',
+    channelName: 'whatsapp',
+    rawConfig: JSON.stringify([
+      {
+        name: 'personal',
+        accessToken: 'token',
+        phoneNumberId: '123456789012345',
+        recipientPhoneNumber: '8613800000000',
+        templateName: 'splatoon_notification',
+        languageCode: 'zh_CN',
+      },
+    ]),
+    assetBaseUrl: 'https://cdn.example.com/',
+    snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+    now: Date.parse('2026-07-29T19:00:00Z'),
+    fetchImpl: async (url, options) => {
+      if (String(url).startsWith('https://cdn.example.com/')) {
+        return pngResponse(1024, 576)
+      }
+      payload = JSON.parse(options.body)
+      return response({ messages: [{ id: 'wamid.1' }] })
+    },
+  })
+
+  assert.equal(results[0].status, 'fulfilled')
+  assert.equal(payload.template.components[0].parameters[0].image.link, 'https://cdn.example.com/schedules.png!sm')
+  assert.equal(payload.template.components[2].parameters[0].text, 'schedules.png%21sm')
 })

@@ -2,7 +2,7 @@
 
 Splatoon 3 automation that turns one validated Data Snapshot into deterministic Screenshot Artifacts, publishes the selected PNG files to Upyun, and delivers platform-specific rich notifications.
 
-The project currently provides adapters for WeCom, Discord, Telegram, QQ, Feishu, and DingTalk. Domain terminology is defined in [CONTEXT.md](./CONTEXT.md).
+The project currently provides adapters for WeCom, Discord, Telegram, QQ, Feishu, DingTalk, WhatsApp, LINE, and Slack. Domain terminology is defined in [CONTEXT.md](./CONTEXT.md).
 The platform capability audit and native presentation decisions are documented in [docs/notification-platform-capabilities.md](./docs/notification-platform-capabilities.md).
 
 ## Requirements
@@ -90,6 +90,9 @@ Configure these under **Settings → Secrets and variables → Actions**.
 | `BOT_QQ_CONFIG` | QQ Target array. |
 | `BOT_FEISHU_CONFIG` | Feishu Target array. |
 | `BOT_DINGTALK_CONFIG` | DingTalk Target array. |
+| `BOT_WHATSAPP_CONFIG` | WhatsApp Cloud API Target array. |
+| `BOT_LINE_CONFIG` | LINE Messaging API Target array. |
+| `BOT_SLACK_CONFIG` | Slack Incoming Webhook Target array. |
 
 Each configured `BOT_*_CONFIG` Secret automatically enables its Channel adapter. An absent or empty Secret disables that adapter, so `BOT_NOTIFICATION_CHANNELS` and `BOT_CHANNEL_CONFIG` are not used. `UPYUN_DOMAIN` is required when at least one notification Channel is configured.
 
@@ -206,6 +209,65 @@ The adapter uses the official QQ Bot access-token flow. `targetType` is `channel
 ]
 ```
 
+### WhatsApp
+
+The adapter uses Meta's Graph API `v25.0` and always sends an approved media template, so delayed scheduled runs never depend on a 24-hour customer-service window. Before configuring a Target, register a WhatsApp Business phone number, obtain explicit recipient opt-in, configure billing, and obtain approval for the exact template contract below. A synchronous success means Meta accepted the message; delivery receipts require a separate webhook receiver.
+
+Create a named-parameter template named `splatoon_notification`:
+
+- Submit the accurate category; recurring game updates should default to `MARKETING` unless Meta approves another category.
+- Add an `IMAGE` header.
+- Use body text `Splatoon 3 通知已更新\n\n{{title}}\n{{context}}\n{{details}}\n\n点击下方按钮查看完整截图。`.
+- Add footer text `今天你喷喷了吗？`.
+- Add one URL button named `查看截图` with URL `<exact UPYUN_DOMAIN>/{{action_path}}`.
+
+The adapter supplies the screenshot header plus the four named parameters, validates the approved URL prefix locally, inspects the real public image before sending, and rejects missing or mismatched image MIME types, unsupported media bytes, images above 5 MB, or malformed API acceptance responses. Meta throughput codes receive bounded retries; policy, template, and recipient errors fail with their official code and details.
+
+```json
+[
+  {
+    "name": "personal-updates",
+    "notifications": ["schedules", "salmon-run", "gear-dailydrop", "gear-regular"],
+    "accessToken": "EAA...",
+    "phoneNumberId": "123456789012345",
+    "recipientPhoneNumber": "8613800000000",
+    "templateName": "splatoon_notification",
+    "languageCode": "zh_CN"
+  }
+]
+```
+
+### LINE
+
+The adapter sends one native Flex Message bubble with an accent header, uncropped `16:9` screenshot hero, compact sections and facts, and a URL-only primary action. `targetType` is `user`, `group`, or `room`; the matching `targetId` must begin with `U`, `C`, or `R`. The recipient must be eligible for push delivery under LINE's Official Account rules.
+
+The LINE adapter projects each platform-neutral screenshot URL to the Upyun `!sm/fw/1024` derivative. Keep the `sm` image-processing version enabled; before sending, the adapter downloads the real derivative and rejects missing or mismatched image MIME types, unsupported media bytes, dimensions above `1024×1024`, or files above 10 MB. Use `notification-smoke.yml` to verify destination eligibility before enabling scheduled delivery.
+
+```json
+[
+  {
+    "name": "personal-chat",
+    "channelAccessToken": "...",
+    "targetType": "user",
+    "targetId": "U0123456789abcdef0123456789abcdef",
+    "notificationDisabled": false
+  }
+]
+```
+
+### Slack
+
+Create a Slack app, enable Incoming Webhooks, add an official `https://hooks.slack.com/services/...` or Slack Gov webhook to the destination channel, and store it in `BOT_SLACK_CONFIG`. The adapter uses Block Kit with accessible fallback text, a header, source context, screenshot, two-column facts, and a callback-free `mrkdwn` action link. It intentionally avoids Block Kit buttons because even URL buttons require an interaction acknowledgement endpoint, and it accepts delivery only when Slack returns the documented `ok` success token.
+
+```json
+[
+  {
+    "name": "team-channel",
+    "webhookUrl": "https://hooks.slack.com/services/T.../B.../..."
+  }
+]
+```
+
 ## Failure Semantics
 
 - The six Data Snapshot resources download concurrently with retries and timeouts, validate before publication, and replace the previous snapshot atomically. Invalid or partial data never replaces a valid snapshot.
@@ -230,6 +292,7 @@ After intentionally refreshing fixture JSON from live data, update assets and ba
 
 ```sh
 pnpm run test:localize-fixture
+pnpm run test:update-notification-golden
 pnpm run test:update-golden
 pnpm run test:visual
 pnpm run verify

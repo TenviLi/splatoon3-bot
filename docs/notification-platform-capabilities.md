@@ -2,7 +2,7 @@
 
 Research date: 2026-07-31
 
-This note compares platform-native rich-message options for the notification adapters. The default recommendations deliberately avoid interaction callbacks, platform-side state, manual template approval, and extra media-upload credentials unless explicitly noted.
+This note compares platform-native rich-message options for the notification adapters. The default recommendations deliberately avoid interaction callbacks, platform-side state, and extra media-upload credentials unless explicitly noted. WhatsApp is the intentional exception: compliant proactive delivery requires user opt-in and an approved message template.
 
 ## Recommended Direction
 
@@ -13,6 +13,9 @@ This note compares platform-native rich-message options for the notification ada
 | QQ | Custom Markdown for group/user; capability-aware fallback for channels | Markdown link | Do not depend on keyboards; fix image dimensions and split behavior by target type |
 | Feishu/Lark | Card schema 2.0 | `open_url` button behavior | Migrate from the legacy card shape; keep remote screenshot as a link unless app credentials are added |
 | DingTalk | `actionCard` | `singleURL` or URL-only `btns` | Keep ActionCard for individual notifications; reserve FeedCard for digests |
+| WhatsApp | Approved media template | Template URL button | Always use a template; require opt-in and fail closed when the approved contract does not match |
+| LINE | One Flex Message bubble | Flex `uri` button | Use a screenshot hero, compact facts, and a callback-free URI action |
+| Slack | Incoming Webhook with Block Kit | `mrkdwn` or rich-text link | Use native blocks, but avoid button elements because even URL buttons require acknowledgements |
 
 Across adapters, preserve the common `Notification` model but add adapter-owned layout and length budgets. A single universal text renderer would discard the strongest native features of each platform.
 
@@ -200,14 +203,236 @@ Safe individual payload:
 }
 ```
 
-## Implementation Priorities
+## WhatsApp Cloud API
 
-1. Make text budgeting structured and adapter-specific, especially Telegram HTML and Discord's aggregate embed limit.
-2. Move Feishu to card schema 2.0 with semantic header colors and a URL-only button.
-3. Make QQ rendering target-type-aware; fix screenshot dimensions and add a channel Embed fallback.
-4. Refine Discord field grouping, thumbnail/footer usage, and mobile readability without adding component dependencies.
-5. Keep DingTalk ActionCard, but add an optional digest/FeedCard path only if notification volume grows.
-6. Add payload golden tests per adapter and notification type. These should assert platform limits, escaped content, URL-only actions, and absence of callback identifiers.
+### Official capabilities
+
+- Businesses must obtain opt-in before messaging a person on WhatsApp. The recipient must have provided their mobile number and consented to subsequent messages or calls from the named business. [Get opt-in for WhatsApp](https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in)
+- A customer service window starts when the user messages or calls the business and lasts 24 hours, resetting on another user message or call. Free-form service messages are only available inside that window; outside it, only pre-approved template messages can be sent. [Service messages and customer service windows](https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages#customer-service-windows) [Template fundamentals](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview)
+- Cloud API sends through `POST /{Version}/{Phone-Number-ID}/messages` with an `Authorization: Bearer ...` header. A successful response accepts the request and returns a WhatsApp message ID; delivery status and some asynchronous errors are exposed through optional `messages` webhooks. The adapter pins the current Graph API `v25.0` in source. [Graph API changelog](https://developers.facebook.com/docs/graph-api/changelog/) [Messages API](https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api) [Error codes](https://developers.facebook.com/documentation/business-messaging/whatsapp/support/error-codes)
+- Templates can contain header, body, footer, and button components. A media header can use a public image URL at send time, although Meta recommends uploaded media IDs for higher reliability and throughput. URL buttons open the device browser, support one variable appended to the URL, and do not require an interaction callback. [Template media](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-media) [Template components: URL buttons](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/components#url-buttons)
+- Relevant hard limits include a 1,024-character template body, a 60-character footer, at most two URL buttons, and 5 MB for JPEG or PNG images. Template status must be `APPROVED` before sending. [Template components](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/components) [Supported media types](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/media#supported-media-types)
+- Each registered business phone number supports up to 80 messages per second by default and may be upgraded automatically to 1,000. Separate account-specific messaging limits cap template delivery outside service windows; operators must read the effective tier from WhatsApp Manager rather than hard-code a recipient limit. [Throughput](https://developers.facebook.com/documentation/business-messaging/whatsapp/throughput) [Messaging limits](https://developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits)
+
+### Adapter recommendation
+
+Use an approved media template for every scheduled notification, even if a customer service window happens to be open. This avoids storing user-session state and guarantees that a delayed workflow does not accidentally cross the 24-hour boundary.
+
+- Treat opt-in as an operator prerequisite that cannot be inferred from a Secret. Document it and never send to scraped or unconsented phone numbers.
+- Use one project-owned template contract with an image header, concise fixed copy surrounding named body parameters, and one URL button. The screenshot is the visual hero; the body should carry `title`, `context`, and a bounded `details` summary.
+- Create the template under the category that accurately matches the use case. Recurring game-content notifications may be treated as marketing by Meta; do not mislabel them as utility to bypass review or pricing.
+- Keep visual formatting in the approved template and pass plain parameter values. Text headers do not support Markdown special characters; URL-button parameters containing special characters must be percent-encoded before sending.
+- Configure the approved URL button as `${UPYUN_DOMAIN}/{{action_path}}`. Before sending, require `notification.action.url` to share that exact prefix, strip the prefix, percent-encode the suffix, and pass it as the button parameter. Fail locally rather than sending a malformed or unapproved URL shape.
+- Use the public screenshot URL in the image-header parameter for the first implementation. Enforce HTTPS, matching JPEG/PNG MIME and bytes, and the 5 MB limit. A later upload-and-cache path can reuse the same access token and media IDs, but it should be an explicit reliability optimization rather than hidden target state.
+- A `200` response proves API acceptance, not recipient delivery. A webhook service is optional for sending and for the URL button, but is required if the project later promises delivery receipts or asynchronous-failure reporting.
+- Handle errors by Meta error `code` and `details`, not only HTTP status. Retry transient or throughput errors with bounded backoff; do not retry opt-out, policy, invalid-template, or invalid-recipient failures.
+
+Recommended `BOT_WHATSAPP_CONFIG` Secret schema:
+
+```json
+[
+  {
+    "name": "personal-updates",
+    "notifications": ["schedules", "salmon-run", "gear-dailydrop", "gear-regular"],
+    "accessToken": "EAA...",
+    "phoneNumberId": "123456789012345",
+    "recipientPhoneNumber": "8613800000000",
+    "templateName": "splatoon_notification",
+    "languageCode": "zh_CN"
+  }
+]
+```
+
+Keep the Graph API version pinned in source code rather than the Secret so upgrades are reviewed and payload-golden tests remain deterministic. `WABA_ID` is needed to create or manage templates, but not for this runtime send-target contract.
+
+The referenced `splatoon_notification` template has this exact project contract:
+
+- `category`: submit as `MARKETING` unless Meta explicitly approves a different accurate category.
+- `parameter_format`: `named`.
+- `HEADER`: `IMAGE`; the send-time `image.link` is `notification.image.url`.
+- `BODY`: `Splatoon 3 通知已更新\n\n{{title}}\n{{context}}\n{{details}}\n\n点击下方按钮查看完整截图。`
+- `FOOTER`: `今天你喷喷了吗？`
+- First and only button: `URL`, label `查看截图`, URL `<exact UPYUN_DOMAIN origin>/{{action_path}}`. Replace the placeholder origin with the real public origin before template submission.
+
+The adapter must project parameters as follows and must truncate by Unicode code point without cutting formatting tokens:
+
+| Parameter | Source | Local budget |
+| --- | --- | --- |
+| `title` | `notification.title` | 120 characters |
+| `context` | `notification.subtitle ?? notification.source.name` | 160 characters |
+| `details` | Sections first, then facts, using one compact line per item | 560 characters |
+| `action_path` | Percent-encoded suffix after the exact `${UPYUN_DOMAIN}/` prefix | Resulting approved URL at most 2,000 characters |
+
+The fixed copy plus these budgets stays below the 1,024-character body limit. A missing value becomes `-`; the adapter must never omit a named parameter because error `132000` is returned when the send payload does not match the approved template variables.
+
+Safe template-send direction:
+
+```js
+{
+  messaging_product: "whatsapp",
+  recipient_type: "individual",
+  to: recipientPhoneNumber,
+  type: "template",
+  template: {
+    name: templateName,
+    language: { code: languageCode },
+    components: [
+      { type: "header", parameters: [{ type: "image", image: { link: screenshotUrl } }] },
+      {
+        type: "body",
+        parameters: [
+          { type: "text", parameter_name: "title", text: boundedTitle },
+          { type: "text", parameter_name: "context", text: boundedContext },
+          { type: "text", parameter_name: "details", text: boundedDetails }
+        ]
+      },
+      {
+        type: "button",
+        sub_type: "url",
+        index: "0",
+        parameters: [{
+          type: "text",
+          parameter_name: "action_path",
+          text: encodedActionPath
+        }]
+      }
+    ]
+  }
+}
+```
+
+## LINE Messaging API
+
+### Official capabilities
+
+- Push messages can be sent at any time to users who added the LINE Official Account as a friend, chats the account has joined, or a non-friend user who messaged the account within the previous seven days. LINE can still return `200` when a deleted, blocked, or otherwise ineligible user does not receive the message. [Send push message](https://developers.line.biz/en/reference/messaging-api/#send-push-message)
+- The push endpoint is `POST https://api.line.me/v2/bot/message/push`, authenticated by a channel access token in the Bearer header. It accepts a user, group, or room ID as `to`, up to five message objects per request, and an optional `X-Line-Retry-Key` for idempotent retries. [Send push message](https://developers.line.biz/en/reference/messaging-api/#send-push-message)
+- Flex Messages provide native bubble and carousel layouts with header, hero, body, and footer blocks. Required `altText` is limited to 1,500 characters, a bubble definition to 30 KB, and a carousel to 50 KB and 12 bubbles. Rendering can vary by client OS, version, resolution, language, and font. [Flex Message](https://developers.line.biz/en/reference/messaging-api/#flex-message) [Send Flex Messages](https://developers.line.biz/en/docs/messaging-api/using-flex-messages/)
+- A Flex image can load a public HTTPS JPEG or PNG URL, with a maximum URL length of 2,000 characters, image dimensions of 1,024 by 1,024, and file size of 10 MB; LINE recommends 1 MB or less. [Flex image component](https://developers.line.biz/en/reference/messaging-api/#f-image)
+- A Flex button can use a `uri` action. Tapping it opens the URI in LINE's in-app browser; unlike a postback action, it does not require a webhook callback. URI actions support `http`, `https`, `line`, and `tel` schemes and a 1,000-character URI. [URI action](https://developers.line.biz/en/reference/messaging-api/#uri-action)
+- Push messages are limited to 2,000 requests per second per channel and are also subject to the account's monthly message quota. Common failures include `400` invalid targets or message objects, `401` invalid access token, `409` duplicate retry key, and `429` rate or monthly-quota exhaustion. [Rate limits and status codes](https://developers.line.biz/en/reference/messaging-api/#rate-limits) [Send push message errors](https://developers.line.biz/en/reference/messaging-api/#send-push-message-error-response)
+
+### Adapter recommendation
+
+Use one Flex bubble per notification and make it look intentionally native:
+
+- Use a compact accent-colored header with the source and title, a full-width `16:9` hero image in `fit` mode so screenshots are never cropped, a body for subtitle and sections, two-column rows for short facts, and one primary footer button.
+- Apply the same `uri` action to the hero image and footer button. Both are ordinary navigation and need no callback server.
+- Generate `altText` from the title and most important context so notifications and clients without Flex rendering remain useful.
+- Keep the bubble below 30 KB and the whole HTTP body below LINE's 2 MB common request limit. The LINE adapter projects the platform-neutral image URL to Upyun's `!sm/fw/1024` form, which explicitly caps these `16:9` screenshots at `1024×576`; Upyun documents that URL parameters may follow and override a named thumbnail version. Before sending, inspect the real CDN response and reject a missing or mismatched image MIME type, unsupported bytes, dimensions above `1024×1024`, or a file above 10 MB. [Upyun image processing](https://help.upyun.com/knowledge-base/image/)
+- Generate one UUID retry key per target and notification delivery, and reuse it only for retries of that same logical delivery. Preserve `X-Line-Request-Id` in errors for diagnosis.
+- Treat a `409` response carrying `X-Line-Accepted-Request-Id` as an already accepted duplicate of the same retry key, not as a second failed delivery.
+- Treat `200` as API acceptance rather than proof of display because blocked or deleted recipients can be silently skipped.
+
+Recommended `BOT_LINE_CONFIG` Secret schema:
+
+```json
+[
+  {
+    "name": "personal-chat",
+    "notifications": ["schedules", "salmon-run", "gear-dailydrop", "gear-regular"],
+    "channelAccessToken": "...",
+    "targetType": "user",
+    "targetId": "U0123456789abcdef0123456789abcdef"
+  }
+]
+```
+
+`targetType` should be one of `user`, `group`, or `room`. The API only sends `targetId` as `to`, but the explicit type gives strict configuration validation and clearer error messages.
+
+Safe payload direction:
+
+```js
+{
+  to: targetId,
+  messages: [{
+    type: "flex",
+    altText,
+    contents: {
+      type: "bubble",
+      header: accentHeader,
+      hero: {
+        type: "image",
+        url: screenshotUrl,
+        size: "full",
+        aspectRatio: "16:9",
+        aspectMode: "fit",
+        action: { type: "uri", uri: actionUrl }
+      },
+      body: boundedBody,
+      footer: {
+        type: "box",
+        layout: "vertical",
+        contents: [{
+          type: "button",
+          style: "primary",
+          color: accentHex,
+          action: { type: "uri", label: actionLabel, uri: actionUrl }
+        }]
+      }
+    }
+  }]
+}
+```
+
+## Slack Incoming Webhooks and Block Kit
+
+### Official capabilities
+
+- An Incoming Webhook is a secret URL bound to one Slack app installation and channel. Posting JSON can use Slack text formatting and Block Kit; the webhook cannot override its configured channel, username, or icon and cannot delete a posted message. [Sending messages using incoming webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/)
+- Block Kit supports up to 50 blocks per message. Useful native pieces here include a 150-character header, section text up to 3,000 characters, up to ten two-column fields of 2,000 characters each, and a public image block with a 3,000-character URL and 2,000-character alt text. [Blocks](https://docs.slack.dev/reference/block-kit/blocks/) [Header block](https://docs.slack.dev/reference/block-kit/blocks/header-block/) [Section block](https://docs.slack.dev/reference/block-kit/blocks/section-block/) [Image block](https://docs.slack.dev/reference/block-kit/blocks/image-block/)
+- A Block Kit button with a `url` still emits an interaction payload and requires an acknowledgement response. It is therefore not safe for a webhook-only adapter with no callback endpoint. Ordinary `mrkdwn` links and rich-text link elements provide callback-free navigation. [Button element](https://docs.slack.dev/reference/block-kit/block-elements/button-element/) [Formatting links](https://docs.slack.dev/messaging/formatting-message-text/#linking-urls)
+- Slack `mrkdwn` requires `&`, `<`, and `>` to be escaped when they are literal text. Link syntax deliberately uses `<url|label>`, so escape user-visible fragments before constructing the final link token. [Escaping text](https://docs.slack.dev/messaging/formatting-message-text/#escaping-text)
+- Incoming Webhooks are limited to one message per second, with short bursts allowed. A `429` response includes `Retry-After`; successful delivery normally returns HTTP `200` and plain text `ok`. Other failures use HTTP status plus a plain-text token such as `invalid_payload`, `action_prohibited`, or `channel_is_archived`. [Rate limits](https://docs.slack.dev/apis/web-api/rate-limits/) [Incoming Webhook errors](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/#handling_errors)
+
+### Adapter recommendation
+
+Use Block Kit without interactive components:
+
+- Include top-level `text` as an accessible fallback and notification preview.
+- Use a header block for the title, a context block for source and subtitle, a full-width image block for the screenshot, section blocks for narrative content, and section `fields` for two-column facts.
+- End with a divider and a prominent bold `mrkdwn` link such as `*<url|View screenshot →>*`. Do not imitate a button with unsupported markup and do not add a real button until an interactivity Request URL and acknowledgement service exist.
+- Set `verbatim: true` on `mrkdwn` text objects and construct links explicitly after escaping literal `&`, `<`, and `>`. This prevents notification data from accidentally becoming a channel, user, or special mention.
+- Keep the default app name and icon controlled by the Slack app configuration; do not expose ineffective per-target overrides. Accept only official Slack or Slack Gov HTTPS Incoming Webhook URLs.
+- Enforce aggregate block count, escaped-output field budgets, and action-link URL budgets before serialization without truncating inside `&amp;`, `&lt;`, or `&gt;` entities. Retry only `429` and transient server errors, respecting `Retry-After`; do not retry structural or channel-state errors without a configuration change.
+- Treat the documented plain-text `ok` response as the success contract even when an intermediary returns HTTP `200`; reject any other response body.
+
+Recommended `BOT_SLACK_CONFIG` Secret schema:
+
+```json
+[
+  {
+    "name": "team-channel",
+    "notifications": ["schedules", "salmon-run", "gear-dailydrop", "gear-regular"],
+    "webhookUrl": "https://hooks.slack.com/services/T.../B.../..."
+  }
+]
+```
+
+Safe payload direction:
+
+```js
+{
+  text: fallbackText,
+  unfurl_links: false,
+  unfurl_media: false,
+  blocks: [
+    { type: "header", text: { type: "plain_text", text: title, emoji: true } },
+    { type: "context", elements: contextElements },
+    { type: "image", image_url: screenshotUrl, alt_text: imageAlt },
+    ...sectionBlocks,
+    ...factFieldBlocks,
+    { type: "divider" },
+    { type: "section", text: { type: "mrkdwn", text: actionLink, verbatim: true } }
+  ]
+}
+```
+
+## Implementation Status
+
+All three platforms are implemented as ordinary adapters in the existing concurrent partial-success delivery process. Their Secrets are optional and auto-enable each Channel; GitHub Actions keeps one shared publish-and-notify Job rather than creating one Job per platform. Contract and payload-golden tests cover native layout, escaping, platform budgets, retry behavior, target validation, and callback-free actions.
+
+WhatsApp remains operationally disabled until its Secret exists, but configuration alone is not sufficient: the operator must also complete opt-in, billing, phone-number registration, and exact media-template approval. LINE should likewise be enabled only after a smoke run confirms the real CDN derivative and destination eligibility.
 
 ## Official-Documentation Access Notes
 
@@ -215,3 +440,6 @@ Safe individual payload:
 - QQ official pages were directly accessible. The 2026-04-23 custom-Markdown update is current relative to this research date, but QQ's overview and generated endpoint tables are not perfectly consistent about universal ARK support; the recommendation intentionally avoids relying on that uncertainty.
 - Feishu's official custom-bot guide was directly accessible in its first-party Markdown representation.
 - DingTalk's official documentation is dynamically rendered. The message-type names, webhook model, and rate limit were verified from official rendered pages, but exact field-length limits were not reliably extractable; this note intentionally omits them rather than citing unofficial values.
+- Meta's current first-party WhatsApp Business Platform pages were directly accessible in their official Markdown and rendered forms. Template categorization remains subject to Meta review, so this note does not promise that a recurring Splatoon notification will be accepted as `UTILITY`.
+- LINE's official Messaging API reference and source Markdown were directly accessible. The recommendation intentionally treats push `200` responses as acceptance only because LINE documents silent non-delivery cases.
+- Slack's official developer documentation was directly accessible. The callback requirement for URL buttons is explicit; the webhook-only recommendation therefore uses a normal link instead of an interactive button.

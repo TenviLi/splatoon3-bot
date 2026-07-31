@@ -33,6 +33,12 @@ on:
         required: false
       BOT_DINGTALK_CONFIG:
         required: false
+      BOT_WHATSAPP_CONFIG:
+        required: false
+      BOT_LINE_CONFIG:
+        required: false
+      BOT_SLACK_CONFIG:
+        required: false
 
 permissions:
   contents: read
@@ -164,4 +170,7 @@ jobs:
           BOT_QQ_CONFIG: ${{ secrets.BOT_QQ_CONFIG }}
           BOT_FEISHU_CONFIG: ${{ secrets.BOT_FEISHU_CONFIG }}
           BOT_DINGTALK_CONFIG: ${{ secrets.BOT_DINGTALK_CONFIG }}
+          BOT_WHATSAPP_CONFIG: ${{ secrets.BOT_WHATSAPP_CONFIG }}
+          BOT_LINE_CONFIG: ${{ secrets.BOT_LINE_CONFIG }}
+          BOT_SLACK_CONFIG: ${{ secrets.BOT_SLACK_CONFIG }}
         run: node bot/notification/index.mjs "$PROFILE" "$CHANNEL"

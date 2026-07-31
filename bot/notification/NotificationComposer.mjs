@@ -65,7 +65,11 @@ function composeSchedules(context, assetBaseUrl) {
     source: { name: '今天你喷喷了吗?', iconUrl: assetUrl(assetBaseUrl, 'icon.png!sm') },
     title: '日程已更新',
     subtitle: `${context.d(regular.startTime, 'time')} - ${context.d(regular.endTime, 'time')}`,
-    image: { url: screenshotUrl(assetBaseUrl, 'schedules'), alt: 'Splatoon 3 对战日程', aspectRatio: 1.78 },
+    image: {
+      url: screenshotUrl(assetBaseUrl, 'schedules'),
+      alt: 'Splatoon 3 对战日程',
+      aspectRatio: 1.78,
+    },
     sections: [
       { title: '🔫  占地对战', text: stageNames(regular) },
       rankedSection(anarchySeries, '挑战'),
@@ -88,7 +92,11 @@ function composeSalmonRun(context, assetBaseUrl) {
     source: { name: '打工的时间到啦!', iconUrl: assetUrl(assetBaseUrl, 'icon2.png!sm') },
     title: context.t(`splatnet.stages.${schedule.settings.coopStage.id}.name`, schedule.settings.coopStage.name),
     subtitle: `${context.d(schedule.startTime, 'dateTimeShortWeekday')} - ${context.d(schedule.endTime, 'dateTimeShort')}`,
-    image: { url: screenshotUrl(assetBaseUrl, 'salmon-run'), alt: 'Splatoon 3 鲑鱼跑排班', aspectRatio: 1.78 },
+    image: {
+      url: screenshotUrl(assetBaseUrl, 'salmon-run'),
+      alt: 'Splatoon 3 鲑鱼跑排班',
+      aspectRatio: 1.78,
+    },
     sections: [
       {
         title: hasMysteryWeapon ? '🎉 随机武器! 随机武器!' : '🐻 发放武器:',
@@ -109,7 +117,11 @@ function composeDailyDropGear(context, assetBaseUrl) {
     source: { name: '鱿鱼须商城·今日精选', iconUrl: assetUrl(assetBaseUrl, 'icon3.png!sm') },
     title: `「${context.t(`splatnet.brands.${brand.brand.id}.name`, brand.brand.name)}」`,
     subtitle: context.t('time.until', { time: context.d(brand.saleEndTime, 'dateTimeShortWeekday') }),
-    image: { url: screenshotUrl(assetBaseUrl, 'gear-dailydrop'), alt: '鱿鱼须商城今日精选', aspectRatio: 1.78 },
+    image: {
+      url: screenshotUrl(assetBaseUrl, 'gear-dailydrop'),
+      alt: '鱿鱼须商城今日精选',
+      aspectRatio: 1.78,
+    },
     facts: gears.map((gear) => ({
       label: getGearIcon(gear) || '装备',
       value: `${context.t(`splatnet.gear.${gear.gear.__splatoon3ink_id}.name`, gear.gear.name)}\n(${context.t(
@@ -129,7 +141,11 @@ function composeRegularGear(context, assetBaseUrl) {
     id: 'gear-regular',
     source: { name: '鱿鱼须商城·目前贩卖', iconUrl: assetUrl(assetBaseUrl, 'icon3.png!sm') },
     title: '鱿鱼须商城上新啦',
-    image: { url: screenshotUrl(assetBaseUrl, 'gear-regular'), alt: '鱿鱼须商城目前贩卖装备', aspectRatio: 1.78 },
+    image: {
+      url: screenshotUrl(assetBaseUrl, 'gear-regular'),
+      alt: '鱿鱼须商城目前贩卖装备',
+      aspectRatio: 1.78,
+    },
     facts: [
       {
         label: getGearIcon(gear) || '装备',

@@ -456,124 +456,6 @@
       }
     }
   },
-  "qq-group": {
-    "schedules": {
-      "msg_type": 2,
-      "markdown": {
-        "content": "# 日程已更新\n\n2:00 \\- 4:00\n\n![Splatoon 3 对战日程 #1200px #675px](https://cdn.example.com/schedules.png!sm)\n\n## 🔫  占地对战\n鬼头刀SPA度假区·海女美术大学\n\n[查看日程截图](https://cdn.example.com/schedules.png!sm)"
-      }
-    },
-    "salmon-run": {
-      "msg_type": 2,
-      "markdown": {
-        "content": "# 鲑鱼心脏斗技场\n\n7/29周三 16:00 \\- 7/31 8:00\n\n![Splatoon 3 鲑鱼跑排班 #1200px #675px](https://cdn.example.com/salmon-run.png!sm)\n\n## 🐻 发放武器:\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲\n\n[查看鲑鱼跑截图](https://cdn.example.com/salmon-run.png!sm)"
-      }
-    },
-    "gear-dailydrop": {
-      "msg_type": 2,
-      "markdown": {
-        "content": "# 「七轮」\n\n到7/30周四 8:00为止\n\n![鱿鱼须商城今日精选 #1200px #675px](https://cdn.example.com/gear-dailydrop.png!sm)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)\n\n[查看今日精选](https://cdn.example.com/gear-dailydrop.png!sm)"
-      }
-    },
-    "gear-regular": {
-      "msg_type": 2,
-      "markdown": {
-        "content": "# 鱿鱼须商城上新啦\n\n![鱿鱼须商城目前贩卖装备 #1200px #675px](https://cdn.example.com/gear-regular.png!sm)\n\n- **👕** 棒球运动服\n\\(缩短复活时间\\)\n\n[查看目前贩卖](https://cdn.example.com/gear-regular.png!sm)"
-      }
-    },
-    "escaping-contract": {
-      "msg_type": 2,
-      "markdown": {
-        "content": "# 特殊 <&\\> \\*标题\\* \\[链接\\]\n\n时间 <02:00\\> & \\_下划线\\_\n\n![截图 \\(特殊\\) <&\\> #1200px #675px](https://cdn.example.com/escaping.png!sm)\n\n## 模式 \\*A\\* \\[测试\\]\n场地 <A\\> & B \\_下划线\\_\n- 武器 \\(测试\\)\n\n- **规则 \\[链接\\]** 值 \\*粗体\\* & <tag\\>\n\n[查看 \\[详情\\]](https://cdn.example.com/escaping.png!sm)"
-      }
-    }
-  },
-  "qq-channel": {
-    "schedules": {
-      "content": "查看日程截图: https://cdn.example.com/schedules.png!sm",
-      "embed": {
-        "title": "日程已更新",
-        "prompt": "2:00 - 4:00 · 今天你喷喷了吗?",
-        "thumbnail": {
-          "url": "https://cdn.example.com/schedules.png!sm"
-        },
-        "fields": [
-          {
-            "name": "🔫  占地对战\n鬼头刀SPA度假区·海女美术大学"
-          }
-        ]
-      }
-    },
-    "salmon-run": {
-      "content": "查看鲑鱼跑截图: https://cdn.example.com/salmon-run.png!sm",
-      "embed": {
-        "title": "鲑鱼心脏斗技场",
-        "prompt": "7/29周三 16:00 - 7/31 8:00 · 打工的时间到啦!",
-        "thumbnail": {
-          "url": "https://cdn.example.com/salmon-run.png!sm"
-        },
-        "fields": [
-          {
-            "name": "🐻 发放武器:\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲"
-          }
-        ]
-      }
-    },
-    "gear-dailydrop": {
-      "content": "查看今日精选: https://cdn.example.com/gear-dailydrop.png!sm",
-      "embed": {
-        "title": "「七轮」",
-        "prompt": "到7/30周四 8:00为止 · 鱿鱼须商城·今日精选",
-        "thumbnail": {
-          "url": "https://cdn.example.com/gear-dailydrop.png!sm"
-        },
-        "fields": [
-          {
-            "name": "🧢\n桶眼鱼护目镜\n(逆境强化)"
-          },
-          {
-            "name": "👕\n鱼片衬衫 城市\n(降低特殊武器减少量)"
-          },
-          {
-            "name": "👟\nBS拖鞋\n(提升墨汁回复力)"
-          }
-        ]
-      }
-    },
-    "gear-regular": {
-      "content": "查看目前贩卖: https://cdn.example.com/gear-regular.png!sm",
-      "embed": {
-        "title": "鱿鱼须商城上新啦",
-        "prompt": "鱿鱼须商城·目前贩卖",
-        "thumbnail": {
-          "url": "https://cdn.example.com/gear-regular.png!sm"
-        },
-        "fields": [
-          {
-            "name": "👕\n棒球运动服\n(缩短复活时间)"
-          }
-        ]
-      }
-    },
-    "escaping-contract": {
-      "content": "查看 [详情]: https://cdn.example.com/escaping.png!sm",
-      "embed": {
-        "title": "特殊 <&> *标题* [链接]",
-        "prompt": "时间 <02:00> & _下划线_ · 来源 <&> *喷喷*",
-        "thumbnail": {
-          "url": "https://cdn.example.com/escaping.png!sm"
-        },
-        "fields": [
-          {
-            "name": "模式 *A* [测试]\n场地 <A> & B _下划线_\n• 武器 (测试)"
-          },
-          {
-            "name": "规则 [链接]\n值 *粗体* & <tag>"
-          }
-        ]
-      }
-    }
-  },
   "feishu": {
     "schedules": {
       "msg_type": "interactive",
@@ -979,6 +861,1377 @@
         "btnOrientation": "0",
         "singleTitle": "🖼️ 查看 [详情]",
         "singleURL": "https://cdn.example.com/escaping.png!sm"
+      }
+    }
+  },
+  "slack": {
+    "schedules": {
+      "text": "日程已更新\n2:00 - 4:00\n🔫  占地对战\n鬼头刀SPA度假区·海女美术大学\nhttps://cdn.example.com/schedules.png!sm",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "日程已更新",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/icon.png!sm",
+              "alt_text": "今天你喷喷了吗?"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*今天你喷喷了吗?*  ·  2:00 - 4:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/schedules.png!sm",
+          "alt_text": "Splatoon 3 对战日程",
+          "title": {
+            "type": "plain_text",
+            "text": "Splatoon 3 对战日程",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🔫  占地对战*\n鬼头刀SPA度假区·海女美术大学",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/schedules.png!sm|查看日程截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "salmon-run": {
+      "text": "鲑鱼心脏斗技场\n7/29周三 16:00 - 7/31 8:00\n🐻 发放武器:\n24式可替换伞·甲\n斯普拉机动枪\n双重清洁枪\n14式竹筒枪·甲\nhttps://cdn.example.com/salmon-run.png!sm",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "鲑鱼心脏斗技场",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/icon2.png!sm",
+              "alt_text": "打工的时间到啦!"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*打工的时间到啦!*  ·  7/29周三 16:00 - 7/31 8:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/salmon-run.png!sm",
+          "alt_text": "Splatoon 3 鲑鱼跑排班",
+          "title": {
+            "type": "plain_text",
+            "text": "Splatoon 3 鲑鱼跑排班",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🐻 发放武器:*\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/salmon-run.png!sm|查看鲑鱼跑截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "gear-dailydrop": {
+      "text": "「七轮」\n到7/30周四 8:00为止\n🧢 桶眼鱼护目镜\n(逆境强化)\n👕 鱼片衬衫 城市\n(降低特殊武器减少量)\n👟 BS拖鞋\n(提升墨汁回复力)\nhttps://cdn.example.com/gear-dailydrop.png!sm",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "「七轮」",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/icon3.png!sm",
+              "alt_text": "鱿鱼须商城·今日精选"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*鱿鱼须商城·今日精选*  ·  到7/30周四 8:00为止",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/gear-dailydrop.png!sm",
+          "alt_text": "鱿鱼须商城今日精选",
+          "title": {
+            "type": "plain_text",
+            "text": "鱿鱼须商城今日精选",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*🧢*\n桶眼鱼护目镜\n(逆境强化)",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*👕*\n鱼片衬衫 城市\n(降低特殊武器减少量)",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*👟*\nBS拖鞋\n(提升墨汁回复力)",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/gear-dailydrop.png!sm|查看今日精选 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "gear-regular": {
+      "text": "鱿鱼须商城上新啦\n👕 棒球运动服\n(缩短复活时间)\nhttps://cdn.example.com/gear-regular.png!sm",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "鱿鱼须商城上新啦",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/icon3.png!sm",
+              "alt_text": "鱿鱼须商城·目前贩卖"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*鱿鱼须商城·目前贩卖*",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/gear-regular.png!sm",
+          "alt_text": "鱿鱼须商城目前贩卖装备",
+          "title": {
+            "type": "plain_text",
+            "text": "鱿鱼须商城目前贩卖装备",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*👕*\n棒球运动服\n(缩短复活时间)",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/gear-regular.png!sm|查看目前贩卖 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "escaping-contract": {
+      "text": "特殊 &lt;&amp;&gt; *标题* [链接]\n时间 &lt;02:00&gt; &amp; _下划线_\n模式 *A* [测试]\n场地 &lt;A&gt; &amp; B _下划线_\n武器 (测试)\n规则 [链接] 值 *粗体* &amp; &lt;tag&gt;\nhttps://cdn.example.com/escaping.png!sm",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "特殊 <&> *标题* [链接]",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/icon.png!sm",
+              "alt_text": "来源 <&> *喷喷*"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*来源 &lt;&amp;&gt; *喷喷**  ·  时间 &lt;02:00&gt; &amp; _下划线_",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/escaping.png!sm",
+          "alt_text": "截图 (特殊) <&>",
+          "title": {
+            "type": "plain_text",
+            "text": "截图 (特殊) <&>",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*模式 *A* [测试]*\n场地 &lt;A&gt; &amp; B _下划线_\n• 武器 (测试)",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*规则 [链接]*\n值 *粗体* &amp; &lt;tag&gt;",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/escaping.png!sm|查看 [详情] ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    }
+  },
+  "line": {
+    "schedules": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "日程已更新 · 2:00 - 4:00 · 查看日程截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#39C5BB",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 今天你喷喷了吗?",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "日程已更新",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/schedules.png!sm/fw/1024",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看日程截图",
+                "uri": "https://cdn.example.com/schedules.png!sm"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "2:00 - 4:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🔫  占地对战",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#39C5BB",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "鬼头刀SPA度假区·海女美术大学",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#39C5BB",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看日程截图",
+                    "uri": "https://cdn.example.com/schedules.png!sm"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "salmon-run": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "鲑鱼心脏斗技场 · 7/29周三 16:00 - 7/31 8:00 · 查看鲑鱼跑截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#F97316",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 打工的时间到啦!",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "鲑鱼心脏斗技场",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/salmon-run.png!sm/fw/1024",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看鲑鱼跑截图",
+                "uri": "https://cdn.example.com/salmon-run.png!sm"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "7/29周三 16:00 - 7/31 8:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🐻 发放武器:",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#F97316",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 24式可替换伞·甲",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 斯普拉机动枪",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 双重清洁枪",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 14式竹筒枪·甲",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#F97316",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看鲑鱼跑截图",
+                    "uri": "https://cdn.example.com/salmon-run.png!sm"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "gear-dailydrop": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "「七轮」 · 到7/30周四 8:00为止 · 查看今日精选",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#FACC15",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 鱿鱼须商城·今日精选",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "「七轮」",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/gear-dailydrop.png!sm/fw/1024",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看今日精选",
+                "uri": "https://cdn.example.com/gear-dailydrop.png!sm"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "到7/30周四 8:00为止",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🧢",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "桶眼鱼护目镜\n(逆境强化)",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "👕",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "鱼片衬衫 城市\n(降低特殊武器减少量)",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "👟",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "BS拖鞋\n(提升墨汁回复力)",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#FACC15",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看今日精选",
+                    "uri": "https://cdn.example.com/gear-dailydrop.png!sm"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "gear-regular": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "鱿鱼须商城上新啦 · 鱿鱼须商城·目前贩卖 · 查看目前贩卖",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#FB923C",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 鱿鱼须商城·目前贩卖",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "鱿鱼须商城上新啦",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/gear-regular.png!sm/fw/1024",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看目前贩卖",
+                "uri": "https://cdn.example.com/gear-regular.png!sm"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "👕",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "棒球运动服\n(缩短复活时间)",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#FB923C",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看目前贩卖",
+                    "uri": "https://cdn.example.com/gear-regular.png!sm"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "escaping-contract": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "特殊 <&> *标题* [链接] · 时间 <02:00> & _下划线_ · 查看 [详情]",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#FF5A36",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 来源 <&> *喷喷*",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "特殊 <&> *标题* [链接]",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/escaping.png!sm/fw/1024",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看 [详情]",
+                "uri": "https://cdn.example.com/escaping.png!sm"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "时间 <02:00> & _下划线_",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "模式 *A* [测试]",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#FF5A36",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "场地 <A> & B _下划线_",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 武器 (测试)",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "规则 [链接]",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "值 *粗体* & <tag>",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#FF5A36",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看 [详情]",
+                    "uri": "https://cdn.example.com/escaping.png!sm"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    }
+  },
+  "whatsapp": {
+    "schedules": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/schedules.png!sm"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "日程已更新"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "2:00 - 4:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "🔫 占地对战｜鬼头刀SPA度假区·海女美术大学"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "schedules.png%21sm"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "salmon-run": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/salmon-run.png!sm"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "鲑鱼心脏斗技场"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "7/29周三 16:00 - 7/31 8:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "🐻 发放武器:\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "salmon-run.png%21sm"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gear-dailydrop": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/gear-dailydrop.png!sm"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "「七轮」"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "到7/30周四 8:00为止"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "🧢｜桶眼鱼护目镜 (逆境强化)\n👕｜鱼片衬衫 城市 (降低特殊武器减少量)\n👟｜BS拖鞋 (提升墨汁回复力)"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "gear-dailydrop.png%21sm"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gear-regular": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/gear-regular.png!sm"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "鱿鱼须商城上新啦"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "鱿鱼须商城·目前贩卖"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "👕｜棒球运动服 (缩短复活时间)"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "gear-regular.png%21sm"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "escaping-contract": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/escaping.png!sm"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "特殊 <&> *标题* [链接]"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "时间 <02:00> & _下划线_"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "模式 *A* [测试]｜场地 <A> & B _下划线_\n• 武器 (测试)\n规则 [链接]｜值 *粗体* & <tag>"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "escaping.png%21sm"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "qq-group": {
+    "schedules": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 日程已更新\n\n2:00 \\- 4:00\n\n![Splatoon 3 对战日程 #1200px #675px](https://cdn.example.com/schedules.png!sm)\n\n## 🔫  占地对战\n鬼头刀SPA度假区·海女美术大学\n\n[查看日程截图](https://cdn.example.com/schedules.png!sm)"
+      }
+    },
+    "salmon-run": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 鲑鱼心脏斗技场\n\n7/29周三 16:00 \\- 7/31 8:00\n\n![Splatoon 3 鲑鱼跑排班 #1200px #675px](https://cdn.example.com/salmon-run.png!sm)\n\n## 🐻 发放武器:\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲\n\n[查看鲑鱼跑截图](https://cdn.example.com/salmon-run.png!sm)"
+      }
+    },
+    "gear-dailydrop": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 「七轮」\n\n到7/30周四 8:00为止\n\n![鱿鱼须商城今日精选 #1200px #675px](https://cdn.example.com/gear-dailydrop.png!sm)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)\n\n[查看今日精选](https://cdn.example.com/gear-dailydrop.png!sm)"
+      }
+    },
+    "gear-regular": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 鱿鱼须商城上新啦\n\n![鱿鱼须商城目前贩卖装备 #1200px #675px](https://cdn.example.com/gear-regular.png!sm)\n\n- **👕** 棒球运动服\n\\(缩短复活时间\\)\n\n[查看目前贩卖](https://cdn.example.com/gear-regular.png!sm)"
+      }
+    },
+    "escaping-contract": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 特殊 <&\\> \\*标题\\* \\[链接\\]\n\n时间 <02:00\\> & \\_下划线\\_\n\n![截图 \\(特殊\\) <&\\> #1200px #675px](https://cdn.example.com/escaping.png!sm)\n\n## 模式 \\*A\\* \\[测试\\]\n场地 <A\\> & B \\_下划线\\_\n- 武器 \\(测试\\)\n\n- **规则 \\[链接\\]** 值 \\*粗体\\* & <tag\\>\n\n[查看 \\[详情\\]](https://cdn.example.com/escaping.png!sm)"
+      }
+    }
+  },
+  "qq-channel": {
+    "schedules": {
+      "content": "查看日程截图: https://cdn.example.com/schedules.png!sm",
+      "embed": {
+        "title": "日程已更新",
+        "prompt": "2:00 - 4:00 · 今天你喷喷了吗?",
+        "thumbnail": {
+          "url": "https://cdn.example.com/schedules.png!sm"
+        },
+        "fields": [
+          {
+            "name": "🔫  占地对战\n鬼头刀SPA度假区·海女美术大学"
+          }
+        ]
+      }
+    },
+    "salmon-run": {
+      "content": "查看鲑鱼跑截图: https://cdn.example.com/salmon-run.png!sm",
+      "embed": {
+        "title": "鲑鱼心脏斗技场",
+        "prompt": "7/29周三 16:00 - 7/31 8:00 · 打工的时间到啦!",
+        "thumbnail": {
+          "url": "https://cdn.example.com/salmon-run.png!sm"
+        },
+        "fields": [
+          {
+            "name": "🐻 发放武器:\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲"
+          }
+        ]
+      }
+    },
+    "gear-dailydrop": {
+      "content": "查看今日精选: https://cdn.example.com/gear-dailydrop.png!sm",
+      "embed": {
+        "title": "「七轮」",
+        "prompt": "到7/30周四 8:00为止 · 鱿鱼须商城·今日精选",
+        "thumbnail": {
+          "url": "https://cdn.example.com/gear-dailydrop.png!sm"
+        },
+        "fields": [
+          {
+            "name": "🧢\n桶眼鱼护目镜\n(逆境强化)"
+          },
+          {
+            "name": "👕\n鱼片衬衫 城市\n(降低特殊武器减少量)"
+          },
+          {
+            "name": "👟\nBS拖鞋\n(提升墨汁回复力)"
+          }
+        ]
+      }
+    },
+    "gear-regular": {
+      "content": "查看目前贩卖: https://cdn.example.com/gear-regular.png!sm",
+      "embed": {
+        "title": "鱿鱼须商城上新啦",
+        "prompt": "鱿鱼须商城·目前贩卖",
+        "thumbnail": {
+          "url": "https://cdn.example.com/gear-regular.png!sm"
+        },
+        "fields": [
+          {
+            "name": "👕\n棒球运动服\n(缩短复活时间)"
+          }
+        ]
+      }
+    },
+    "escaping-contract": {
+      "content": "查看 [详情]: https://cdn.example.com/escaping.png!sm",
+      "embed": {
+        "title": "特殊 <&> *标题* [链接]",
+        "prompt": "时间 <02:00> & _下划线_ · 来源 <&> *喷喷*",
+        "thumbnail": {
+          "url": "https://cdn.example.com/escaping.png!sm"
+        },
+        "fields": [
+          {
+            "name": "模式 *A* [测试]\n场地 <A> & B _下划线_\n• 武器 (测试)"
+          },
+          {
+            "name": "规则 [链接]\n值 *粗体* & <tag>"
+          }
+        ]
       }
     }
   }
