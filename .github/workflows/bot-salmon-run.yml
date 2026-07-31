@@ -11,7 +11,7 @@ jobs:
   bot:
     uses: ./.github/workflows/bot-reusable.yml
     with:
-      profile: salmon-run-and-gear
+      profile: all
     secrets:
       UPYUN_BUCKET: ${{ secrets.UPYUN_BUCKET }}
       UPYUN_OPERATOR: ${{ secrets.UPYUN_OPERATOR }}

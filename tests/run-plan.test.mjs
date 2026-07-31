@@ -12,6 +12,12 @@ test('run profiles concentrate screenshot and notification selections', () => {
     'gear-dailydrop',
     'gear-regular',
   ])
+  assert.deepEqual(getRunPlan('all').notifications, [
+    'schedules',
+    'salmon-run',
+    'gear-dailydrop',
+    'gear-regular',
+  ])
   assert.equal(getScreenshotDefinition('gear-regular').outputFilename, 'gear-regular.png')
 })
 

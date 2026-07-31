@@ -3,6 +3,7 @@ import test from 'node:test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { listChannelAdapters } from '../bot/notification/channels/index.mjs'
+import { getRunPlan, listRunProfiles } from '../bot/run/RunPlan.mjs'
 
 const workflowDirectory = path.join(process.cwd(), '.github', 'workflows')
 
@@ -27,6 +28,12 @@ function workflowDispatchChoiceOptions(source, inputName) {
   const inputBlock = nextInput === -1 ? followingSource : followingSource.slice(0, nextInput + 1)
   const options = inputBlock.match(/^          - ([a-z0-9-]+)[ \t]*$/gm) || []
   return options.map((line) => line.replace(/^\s*-\s*/, '').trim())
+}
+
+function scheduledUtcHours(source) {
+  const hours = source.match(/^\s+- cron: '0 ([0-9,]+) \* \* \*'$/m)?.[1]
+  assert.ok(hours, 'Scheduled workflow must declare static UTC hours')
+  return hours.split(',').map(Number)
 }
 
 test('remote actions use immutable commit references', async () => {
@@ -88,5 +95,38 @@ test('notification adapters share the publish job and are enabled by configured 
     workflowDispatchChoiceOptions(smokeWorkflow, 'channel'),
     channels.map(({ name }) => name),
     'Notification smoke choices must match the Channel adapter registry'
+  )
+
+  const profileNames = listRunProfiles().map(({ name }) => name)
+  for (const filename of ['bot-manual.yml', 'notification-smoke.yml']) {
+    const source = await fs.readFile(path.join(workflowDirectory, filename), 'utf8')
+    assert.deepEqual(
+      workflowDispatchChoiceOptions(source, 'profile'),
+      profileNames,
+      `${filename} Profile choices must match the Run Profile registry`
+    )
+  }
+})
+
+test('daily twice workflow delivers every Notification', async () => {
+  const dailyWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-salmon-run.yml'), 'utf8')
+  const schedulesWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-schedules.yml'), 'utf8')
+  const profileName = dailyWorkflow.match(/^      profile: ([a-z0-9-]+)$/m)?.[1]
+  assert.ok(profileName, 'bot-salmon-run.yml must select a static Run Profile')
+
+  assert.deepEqual(getRunPlan(profileName).notifications, [
+    'schedules',
+    'salmon-run',
+    'gear-dailydrop',
+    'gear-regular',
+  ])
+
+  const dailyHours = scheduledUtcHours(dailyWorkflow)
+  const schedulesHours = scheduledUtcHours(schedulesWorkflow)
+  assert.deepEqual(dailyHours, [2, 10])
+  assert.deepEqual(
+    [...dailyHours, ...schedulesHours].sort((left, right) => left - right),
+    Array.from({ length: 12 }, (_, index) => index * 2),
+    'Scheduled entry workflows must deliver schedules exactly once every two hours'
   )
 })

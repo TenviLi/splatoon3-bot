@@ -49,6 +49,7 @@ YAML selects only a Run Profile. Screenshot names, routes, dimensions, output fi
 | `salmon-run` | `salmon-run.png` | `salmon-run` |
 | `gear` | `gear-dailydrop.png`, `gear-regular.png` | `gear-dailydrop`, then `gear-regular` |
 | `salmon-run-and-gear` | `salmon-run.png`, `gear-dailydrop.png`, `gear-regular.png` | Salmon Run, then both gear notifications |
+| `all` | All four Screenshot Artifacts | Schedules, Salmon Run, then both gear notifications |
 
 Production Screenshot Definitions use a `1200×675` viewport at `2x` device scale, producing `2400×1350` PNG files.
 
@@ -67,8 +68,8 @@ The `publish` job uses the `production` GitHub Environment. Configure its deploy
 
 The scheduled entry points are:
 
-- `bot-schedules.yml`: `schedules` every two hours.
-- `bot-salmon-run.yml`: `salmon-run-and-gear` at `02:00` and `10:00` UTC.
+- `bot-schedules.yml`: `schedules` at the remaining even UTC hours.
+- `bot-salmon-run.yml`: `all` at `02:00` and `10:00` UTC, completing exactly one schedules delivery every two hours without overlap.
 - `bot-manual.yml`: manually selects any Run Profile and notifies every configured Channel.
 - `notification-smoke.yml`: manually runs the complete prepare, publish, and notify flow for one Channel; it is not side-effect free.
 

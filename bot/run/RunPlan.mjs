@@ -57,6 +57,12 @@ const runProfiles = Object.freeze({
     screenshots: Object.freeze(['salmon-run', 'gear-dailydrop', 'gear-regular']),
     notifications: Object.freeze(['salmon-run', 'gear-dailydrop', 'gear-regular']),
   }),
+  all: Object.freeze({
+    name: 'all',
+    artifactName: 'all',
+    screenshots: Object.freeze(['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular']),
+    notifications: Object.freeze(['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular']),
+  }),
 })
 
 function requireEntry(catalog, name, label) {

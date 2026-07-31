@@ -13,6 +13,7 @@ on:
           - salmon-run
           - gear
           - salmon-run-and-gear
+          - all
       channel:
         description: Notification Channel to test
         default: wecom
