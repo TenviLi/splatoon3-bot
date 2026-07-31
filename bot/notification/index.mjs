@@ -1,6 +1,10 @@
 import fs from 'node:fs/promises'
 import { deliverConfiguredNotificationChannels } from './NotificationDelivery.mjs'
 import { formatNotificationStepSummary } from './NotificationReport.mjs'
+import {
+  assertPublicationManifestMatchesRun,
+  readPublicationManifest,
+} from '../publish/PublicationManifest.mjs'
 import { readRunManifest } from '../run/RunManifest.mjs'
 
 const [profileName, channelName] = process.argv.slice(2)
@@ -56,10 +60,14 @@ try {
   if (manifest.profile !== profileName) {
     throw new Error(`Run manifest profile ${manifest.profile} does not match ${profileName}`)
   }
+  const publicationManifest = await readPublicationManifest()
+  assertPublicationManifestMatchesRun(publicationManifest, manifest)
   report = await deliverConfiguredNotificationChannels({
     profileName,
     channelName: channelName || undefined,
+    publicationManifest,
     now: manifest.renderTime,
+    timeZone: manifest.timeZone,
   })
   logReport(report)
 } catch (error) {

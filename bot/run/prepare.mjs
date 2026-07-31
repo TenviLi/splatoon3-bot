@@ -1,5 +1,6 @@
 import { build } from 'vite'
-import { downloadDataSnapshot } from '../data/DataSnapshot.mjs'
+import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
+import { downloadDataSnapshot, loadDataSnapshot } from '../data/DataSnapshot.mjs'
 import { renderScreenshotArtifacts } from '../screenshot/ScreenshotRunner.mjs'
 import { getRunPlan } from './RunPlan.mjs'
 import { writeRunManifest } from './RunManifest.mjs'
@@ -11,17 +12,29 @@ if (!profileName) {
 }
 
 const plan = getRunPlan(profileName)
-const renderTime = Date.now()
-const snapshot = await downloadDataSnapshot({ createdAt: new Date(renderTime) })
+const preparationTime = Date.now()
+const timeZone = resolveBotTimeZone()
+const useExistingDataSnapshot = process.env.BOT_USE_EXISTING_DATA_SNAPSHOT === 'true'
+if (!useExistingDataSnapshot) {
+  await downloadDataSnapshot({ createdAt: new Date(preparationTime) })
+}
+const dataSnapshot = await loadDataSnapshot()
+if (!dataSnapshot.manifest || !dataSnapshot.manifestSha256) {
+  throw new Error('A validated Data Snapshot Manifest is required to prepare a Bot Run')
+}
+const snapshot = dataSnapshot.manifest
+const renderTime = useExistingDataSnapshot ? Date.parse(snapshot.createdAt) : preparationTime
 await build()
-const artifacts = await renderScreenshotArtifacts(plan.screenshots, { renderTime })
+const artifacts = await renderScreenshotArtifacts(plan.screenshots, { renderTime, timeZone })
 const manifest = await writeRunManifest({
-  version: 1,
+  version: 2,
   profile: plan.name,
   renderTime,
+  timeZone,
   snapshot: {
     createdAt: snapshot.createdAt,
     source: snapshot.source,
+    manifestSha256: dataSnapshot.manifestSha256,
   },
   artifacts: artifacts.map(({ name, filename, bytes, sha256, browserVersion }) => ({
     name,

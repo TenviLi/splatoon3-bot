@@ -37,6 +37,14 @@ async function startSnapshotServer(values) {
   }
 }
 
+test('ships the deterministic fixture with a verified Data Snapshot Manifest', async () => {
+  const snapshot = await loadDataSnapshot(path.join(import.meta.dirname, 'fixtures/data'))
+
+  assert.equal(snapshot.manifest.createdAt, '2026-07-29T19:00:00.000Z')
+  assert.equal(snapshot.manifestSha256, '80c31540131253c528fb04b0fea9f86b0679b04b9f3a072618d019191bf93452')
+  assert.equal(Object.keys(snapshot.manifest.files).length, 6)
+})
+
 test('publishes one validated Data Snapshot', async (context) => {
   const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-snapshot-'))
   const destinationDirectory = path.join(temporaryDirectory, 'data')

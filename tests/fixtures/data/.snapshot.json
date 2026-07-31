@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "createdAt": "2026-07-29T19:00:00.000Z",
+  "source": "https://splatoon3.ink/data",
+  "files": {
+    "schedules.json": {
+      "sha256": "61f0cc02b8875d1ea7f1cf3305c6783bfa8ea8eee304ccfc0aee250ca424d63d",
+      "bytes": 90042
+    },
+    "gear.json": {
+      "sha256": "30ac2e562317ed1696e8cd8e1ddf1ef45688dff6cddc3a00f7e52b3dd8446f3f",
+      "bytes": 23491
+    },
+    "festivals.json": {
+      "sha256": "375ddeabcbd874263866c2fded0529f2eac630456986be55a4689f700c460546",
+      "bytes": 631456
+    },
+    "coop.json": {
+      "sha256": "f094c0e5d9516a4e9af81a7548aee3a3c223e392e7ef453fda13e6cb5b802a8b",
+      "bytes": 983
+    },
+    "locale/zh-CN.json": {
+      "sha256": "ed55cdc4be26bd49bf94221be432773568c289bfbb04ab19ceabbf2004ce803e",
+      "bytes": 171430
+    },
+    "locale/en-US.json": {
+      "sha256": "282230dc31ebcd70f2666506b28e4ec3d1e2b4337d5aa8b4744852d4b1febeac",
+      "bytes": 69419
+    }
+  }
+}

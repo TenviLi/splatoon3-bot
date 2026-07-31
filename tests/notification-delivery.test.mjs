@@ -2,10 +2,12 @@ import assert from 'node:assert/strict'
 import path from 'node:path'
 import test from 'node:test'
 import { PNG } from 'pngjs'
+import { stringify as stringifyYaml } from 'yaml'
 import {
   deliverConfiguredNotificationChannels,
   deliverNotificationChannel,
 } from '../bot/notification/NotificationDelivery.mjs'
+import { createPublicationManifestFixture } from './support/PublicationManifestFixture.mjs'
 
 function response(value) {
   return new Response(JSON.stringify(value), {
@@ -29,10 +31,10 @@ test('fans out Targets in parallel and preserves partial delivery results', asyn
   const delivery = deliverNotificationChannel({
     profileName: 'schedules',
     channelName: 'wecom',
-    rawConfig: JSON.stringify(
+    rawConfig: stringifyYaml(
       targets.map((name) => ({ name, webhookUrl: `https://example.com/${name}` }))
     ),
-    assetBaseUrl: 'https://cdn.example.com',
+    publicationManifest: createPublicationManifestFixture('schedules'),
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-29T19:00:00Z'),
     fetchImpl: async (url) => {
@@ -56,6 +58,54 @@ test('fans out Targets in parallel and preserves partial delivery results', asyn
   })
 })
 
+test('composes notifications from exact Publication Manifest URLs', async () => {
+  const publicationManifest = createPublicationManifestFixture('schedules', {
+    brandingBaseUrl: 'https://brand.example.com',
+  })
+  const expectedImageUrl = publicationManifest.artifacts[0].notificationImage.url
+  let payload
+
+  await deliverNotificationChannel({
+    profileName: 'schedules',
+    channelName: 'wecom',
+    rawConfig: stringifyYaml([{ name: 'wecom', webhookUrl: 'https://wecom.example.com/webhook' }]),
+    publicationManifest,
+    snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+    now: Date.parse('2026-07-29T19:00:00Z'),
+    fetchImpl: async (_url, options) => {
+      payload = JSON.parse(options.body)
+      return response({ errcode: 0 })
+    },
+  })
+
+  assert.equal(payload.template_card.card_image.url, expectedImageUrl)
+  assert.equal(payload.template_card.card_action.url, expectedImageUrl)
+  assert.equal(payload.template_card.source.icon_url, 'https://brand.example.com/icon.png')
+})
+
+test('rejects a valid archived Data Snapshot from another Bot Run', async () => {
+  const publicationManifest = createPublicationManifestFixture('schedules')
+  publicationManifest.snapshotManifestSha256 = 'c'.repeat(64)
+  let requested = false
+
+  await assert.rejects(
+    deliverNotificationChannel({
+      profileName: 'schedules',
+      channelName: 'wecom',
+      rawConfig: stringifyYaml([{ name: 'wecom', webhookUrl: 'https://wecom.example.com/webhook' }]),
+      publicationManifest,
+      snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+      now: Date.parse('2026-07-29T19:00:00Z'),
+      fetchImpl: async () => {
+        requested = true
+        return response({ errcode: 0 })
+      },
+    }),
+    /Archived Data Snapshot Manifest does not match Publication Manifest/
+  )
+  assert.equal(requested, false)
+})
+
 test('discovers configured Channel Secrets and preserves cross-channel partial results', async () => {
   const startedChannels = []
   let releaseRequests
@@ -65,14 +115,14 @@ test('discovers configured Channel Secrets and preserves cross-channel partial r
   const delivery = deliverConfiguredNotificationChannels({
     profileName: 'schedules',
     environment: {
-      BOT_WECOM_CONFIG: JSON.stringify([
+      BOT_WECOM_CONFIG: stringifyYaml([
         { name: 'wecom', webhookUrl: 'https://wecom.example.com/webhook' },
       ]),
-      BOT_DISCORD_CONFIG: JSON.stringify([
+      BOT_DISCORD_CONFIG: stringifyYaml([
         { name: 'discord', webhookUrl: 'https://discord.example.com/webhook' },
       ]),
-      UPYUN_DOMAIN: 'https://cdn.example.com',
     },
+    publicationManifest: createPublicationManifestFixture('schedules'),
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-29T19:00:00Z'),
     fetchImpl: async (url) => {
@@ -107,10 +157,10 @@ test('prepares shared Notification data once before delivering configured Channe
     deliverConfiguredNotificationChannels({
       profileName: 'schedules',
       environment: {
-        BOT_WECOM_CONFIG: JSON.stringify([
+        BOT_WECOM_CONFIG: stringifyYaml([
           { name: 'wecom', webhookUrl: 'https://wecom.example.com/webhook' },
         ]),
-        BOT_DISCORD_CONFIG: JSON.stringify([
+        BOT_DISCORD_CONFIG: stringifyYaml([
           { name: 'discord', webhookUrl: 'https://discord.example.com/webhook' },
         ]),
       },
@@ -118,7 +168,7 @@ test('prepares shared Notification data once before delivering configured Channe
     }),
     (error) => {
       assert.equal(error instanceof AggregateError, false)
-      assert.match(error.message, /UPYUN_DOMAIN is required/)
+      assert.match(error.message, /expected object/)
       assert.equal(error.report.sharedError, error)
       assert.deepEqual(
         error.report.channelResults.map(({ channelName, status }) => ({ channelName, status })),
@@ -137,12 +187,12 @@ test('delivers valid Channels after another configured Channel fails validation'
   const delivery = deliverConfiguredNotificationChannels({
     profileName: 'schedules',
     environment: {
-      BOT_WECOM_CONFIG: '{',
-      BOT_DISCORD_CONFIG: JSON.stringify([
+      BOT_WECOM_CONFIG: 'targets: [',
+      BOT_DISCORD_CONFIG: stringifyYaml([
         { name: 'discord', webhookUrl: 'https://discord.example.com/webhook' },
       ]),
-      UPYUN_DOMAIN: 'https://cdn.example.com',
     },
+    publicationManifest: createPublicationManifestFixture('schedules'),
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-29T19:00:00Z'),
     fetchImpl: async (url) => {
@@ -167,7 +217,7 @@ test('delivers valid Channels after another configured Channel fails validation'
 
 test('rejects invalid notification asset origins before delivery', async () => {
   const invalidOrigins = [
-    ['cdn.example.com', /must be an absolute HTTP\(S\) URL/],
+    ['cdn.example.com', /assetBaseUrl must be an absolute HTTPS URL/],
     ['https://user:password@cdn.example.com', /must not include credentials/],
     ['https://cdn.example.com?token=secret', /must not include credentials/],
     ['https://cdn.example.com#private', /must not include credentials/],
@@ -178,12 +228,12 @@ test('rejects invalid notification asset origins before delivery', async () => {
       deliverConfiguredNotificationChannels({
         profileName: 'schedules',
         environment: {
-          BOT_DISCORD_CONFIG: '{',
-          BOT_WECOM_CONFIG: JSON.stringify([
+          BOT_DISCORD_CONFIG: 'targets: [',
+          BOT_WECOM_CONFIG: stringifyYaml([
             { name: 'wecom', webhookUrl: 'https://wecom.example.com/webhook' },
           ]),
-          UPYUN_DOMAIN: assetBaseUrl,
         },
+        publicationManifest: createPublicationManifestFixture('schedules', { assetBaseUrl }),
         snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'missing'),
       }),
       (error) => {
@@ -217,7 +267,7 @@ test('skips delivery without configured Secrets and requires an explicitly selec
       channelName: 'telegram',
       environment: {},
     }),
-    /BOT_TELEGRAM_CONFIG is required for telegram/
+    /BOT_TELEGRAM_CONFIG is required/
   )
 })
 
@@ -225,7 +275,7 @@ test('routes only selected Notifications to each Target', async () => {
   const results = await deliverNotificationChannel({
     profileName: 'salmon-run-and-gear',
     channelName: 'wecom',
-    rawConfig: JSON.stringify([
+    rawConfig: stringifyYaml([
       {
         name: 'schedules',
         notifications: ['schedules'],
@@ -242,7 +292,7 @@ test('routes only selected Notifications to each Target', async () => {
         webhookUrl: 'https://example.com/gear',
       },
     ]),
-    assetBaseUrl: 'https://cdn.example.com',
+    publicationManifest: createPublicationManifestFixture('salmon-run-and-gear'),
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-29T19:00:00Z'),
     fetchImpl: async () => response({ errcode: 0 }),
@@ -263,14 +313,14 @@ test('rejects invalid direct Target arrays before delivery', async () => {
     deliverNotificationChannel({
       profileName: 'schedules',
       channelName: 'wecom',
-      rawConfig: JSON.stringify([
+      rawConfig: stringifyYaml([
         {
           name: 'unknown-notification',
           notifications: ['unknown'],
           webhookUrl: 'https://example.com/unknown',
         },
       ]),
-      assetBaseUrl: 'https://cdn.example.com',
+      publicationManifest: createPublicationManifestFixture('schedules'),
       snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     }),
     /Unknown Notification: unknown/
@@ -280,7 +330,7 @@ test('rejects invalid direct Target arrays before delivery', async () => {
     deliverNotificationChannel({
       profileName: 'schedules',
       channelName: 'wecom',
-      rawConfig: JSON.stringify([
+      rawConfig: stringifyYaml([
         {
           name: 'salmon-run-only',
           notifications: ['salmon-run'],
@@ -296,8 +346,8 @@ test('rejects invalid direct Target arrays before delivery', async () => {
     deliverNotificationChannel({
       profileName: 'schedules',
       channelName: 'wecom',
-      rawConfig: JSON.stringify({ name: 'not-an-array' }),
-      assetBaseUrl: 'https://cdn.example.com',
+      rawConfig: stringifyYaml({ name: 'not-an-array' }),
+      publicationManifest: createPublicationManifestFixture('schedules'),
       snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     }),
     /expected array/
@@ -307,11 +357,11 @@ test('rejects invalid direct Target arrays before delivery', async () => {
     deliverNotificationChannel({
       profileName: 'schedules',
       channelName: 'wecom',
-      rawConfig: JSON.stringify([
+      rawConfig: stringifyYaml([
         { name: 'duplicate', webhookUrl: 'https://example.com/one' },
         { name: 'duplicate', webhookUrl: 'https://example.com/two' },
       ]),
-      assetBaseUrl: 'https://cdn.example.com',
+      publicationManifest: createPublicationManifestFixture('schedules'),
       snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     }),
     /Duplicate Notification Target name/
@@ -320,10 +370,13 @@ test('rejects invalid direct Target arrays before delivery', async () => {
 
 test('passes the normalized asset origin into WhatsApp template validation', async () => {
   let payload
+  const publicationManifest = createPublicationManifestFixture('schedules', {
+    assetBaseUrl: 'https://cdn.example.com/',
+  })
   const results = await deliverNotificationChannel({
     profileName: 'schedules',
     channelName: 'whatsapp',
-    rawConfig: JSON.stringify([
+    rawConfig: stringifyYaml([
       {
         name: 'personal',
         accessToken: 'token',
@@ -333,7 +386,7 @@ test('passes the normalized asset origin into WhatsApp template validation', asy
         languageCode: 'zh_CN',
       },
     ]),
-    assetBaseUrl: 'https://cdn.example.com/',
+    publicationManifest,
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-29T19:00:00Z'),
     fetchImpl: async (url, options) => {
@@ -346,6 +399,12 @@ test('passes the normalized asset origin into WhatsApp template validation', asy
   })
 
   assert.equal(results[0].status, 'fulfilled')
-  assert.equal(payload.template.components[0].parameters[0].image.link, 'https://cdn.example.com/schedules.png!sm')
-  assert.equal(payload.template.components[2].parameters[0].text, 'schedules.png%21sm')
+  assert.equal(
+    payload.template.components[0].parameters[0].image.link,
+    publicationManifest.artifacts[0].notificationImage.url
+  )
+  assert.equal(
+    payload.template.components[2].parameters[0].text,
+    `notification-images/${'a'.repeat(64)}/schedules.png`
+  )
 })

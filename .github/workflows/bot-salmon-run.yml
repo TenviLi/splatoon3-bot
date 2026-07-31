@@ -13,10 +13,7 @@ jobs:
     with:
       profile: all
     secrets:
-      UPYUN_BUCKET: ${{ secrets.UPYUN_BUCKET }}
-      UPYUN_OPERATOR: ${{ secrets.UPYUN_OPERATOR }}
-      UPYUN_SECRET: ${{ secrets.UPYUN_SECRET }}
-      UPYUN_DOMAIN: ${{ secrets.UPYUN_DOMAIN }}
+      S3_CONFIG: ${{ secrets.S3_CONFIG }}
       BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
       BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
       BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}

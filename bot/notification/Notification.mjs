@@ -21,6 +21,8 @@ export const notificationSchema = z.object({
   image: z.object({
     url: z.url(),
     alt: z.string().min(1),
+    width: z.number().int().positive(),
+    height: z.number().int().positive(),
     aspectRatio: z.number().positive(),
   }),
   sections: z.array(textBlockSchema).default([]),

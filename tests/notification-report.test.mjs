@@ -22,7 +22,7 @@ test('summarizes skipped, shared, and per-Channel notification failures', () => 
           channelName: 'wecom',
           status: 'rejected',
           results: [],
-          error: new Error('Invalid JSON\nconfiguration'),
+          error: new Error('Invalid YAML\nconfiguration'),
         },
         {
           channelName: 'discord',
@@ -31,11 +31,11 @@ test('summarizes skipped, shared, and per-Channel notification failures', () => 
         },
       ],
       deliveryResults: [],
-      sharedError: new Error('UPYUN_DOMAIN is required'),
+      sharedError: new Error('Asset base URL is required'),
     },
   })
 
-  assert.doesNotMatch(summary, /UPYUN_DOMAIN|Invalid JSON/)
+  assert.doesNotMatch(summary, /Asset base URL|Invalid YAML/)
   assert.match(summary, /shared preparation failed; inspect the step log/)
   assert.match(summary, /wecom: rejected before delivery; inspect the step log/)
   assert.match(summary, /discord: blocked before delivery/)

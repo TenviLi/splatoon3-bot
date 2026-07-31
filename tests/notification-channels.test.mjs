@@ -21,7 +21,13 @@ const notification = createNotification({
   source: { name: '今天你喷喷了吗?', iconUrl: 'https://example.com/icon.png' },
   title: '日程已更新',
   subtitle: '02:00 - 04:00',
-  image: { url: 'https://example.com/schedules.png', alt: '对战日程', aspectRatio: 1.78 },
+  image: {
+    url: 'https://example.com/schedules.png',
+    alt: '对战日程',
+    width: 1024,
+    height: 576,
+    aspectRatio: 1024 / 576,
+  },
   sections: [{ title: '占地对战', text: '鱼肉碎金属·烟管鱼市场', listItems: ['斯普拉射击枪'] }],
   facts: [{ label: '规则', value: '占地' }],
   action: { label: '查看日程截图', url: 'https://example.com/schedules.png' },
@@ -32,7 +38,13 @@ const denseNotification = createNotification({
   source: { name: '来源'.repeat(200), iconUrl: 'https://example.com/icon.png' },
   title: '日程已更新'.repeat(100),
   subtitle: '02:00 - 04:00 '.repeat(400),
-  image: { url: 'https://example.com/schedules.png', alt: '对战日程'.repeat(200), aspectRatio: 1.78 },
+  image: {
+    url: 'https://example.com/schedules.png',
+    alt: '对战日程'.repeat(200),
+    width: 1024,
+    height: 576,
+    aspectRatio: 1024 / 576,
+  },
   sections: Array.from({ length: 30 }, (_, index) => ({
     title: `模式 ${index} `.repeat(80),
     text: `场地 ${index} `.repeat(500),
@@ -46,11 +58,11 @@ const denseNotification = createNotification({
 })
 const lineNotification = createNotification({
   ...notification,
-  image: { ...notification.image, url: 'https://example.com/schedules.png!sm' },
+  image: { ...notification.image, url: 'https://example.com/schedules.png' },
 })
 const denseLineNotification = createNotification({
   ...denseNotification,
-  image: { ...denseNotification.image, url: 'https://example.com/schedules.png!sm' },
+  image: { ...denseNotification.image, url: 'https://example.com/schedules.png' },
 })
 const validImageMetadata = Object.freeze({ format: 'png', width: 1024, height: 576, bytes: 800_000 })
 
@@ -190,7 +202,7 @@ test('QQ uses official access tokens and native Markdown', async () => {
   assert.equal(requests[1].options.headers.Authorization, 'QQBot access-token')
   const messagePayload = JSON.parse(requests[1].options.body)
   assert.match(messagePayload.markdown.content, /schedules\.png/)
-  assert.match(messagePayload.markdown.content, /#1200px #675px/)
+  assert.match(messagePayload.markdown.content, /#1024px #576px/)
   assert.match(messagePayload.markdown.content, /- 斯普拉射击枪/)
 })
 
@@ -232,6 +244,55 @@ test('QQ defaults channel targets to an Embed and gates channel-only formatting'
       messageFormat,
     }).success, false)
   }
+})
+
+test('QQ isolates cached tokens by credential boundaries and token endpoint', async () => {
+  const tokenRequests = []
+  const messageAuthorizations = []
+  const targets = [
+    {
+      name: 'first',
+      appId: 'cache:boundary',
+      clientSecret: 'secret',
+      tokenUrl: 'https://auth.example.com/token-one',
+    },
+    {
+      name: 'second',
+      appId: 'cache',
+      clientSecret: 'boundary:secret',
+      tokenUrl: 'https://auth.example.com/token-one',
+    },
+    {
+      name: 'third',
+      appId: 'cache:boundary',
+      clientSecret: 'secret',
+      tokenUrl: 'https://auth.example.com/token-two',
+    },
+  ]
+
+  for (const [index, target] of targets.entries()) {
+    await deliverQQ(
+      notification,
+      { ...target, targetType: 'group', targetId: `group-${index}` },
+      {
+        fetchImpl: async (url, options) => {
+          if (String(url).startsWith('https://auth.example.com/')) {
+            tokenRequests.push(String(url))
+            return response({ access_token: `token-${index}`, expires_in: '7200' })
+          }
+          messageAuthorizations.push(options.headers.Authorization)
+          return response({ id: `message-${index}` })
+        },
+      }
+    )
+  }
+
+  assert.deepEqual(tokenRequests, [
+    'https://auth.example.com/token-one',
+    'https://auth.example.com/token-one',
+    'https://auth.example.com/token-two',
+  ])
+  assert.deepEqual(messageAuthorizations, ['QQBot token-0', 'QQBot token-1', 'QQBot token-2'])
 })
 
 test('Feishu uses an interactive card', async () => {
@@ -478,7 +539,7 @@ test('LINE uses an uncropped Flex bubble and a stable retry key', async () => {
   assert.equal(requestOptions.headers.Authorization, 'Bearer channel-access-token')
   assert.equal(requestOptions.headers['X-Line-Retry-Key'], '07820c6b-df31-4a10-8270-dd7cd0396535')
   assert.equal(bubble.header.backgroundColor, '#FF5A36')
-  assert.equal(bubble.hero.url, `${lineNotification.image.url}/fw/1024`)
+  assert.equal(bubble.hero.url, lineNotification.image.url)
   assert.equal(bubble.hero.aspectMode, 'fit')
   assert.equal(bubble.hero.action.type, 'uri')
   assert.equal(bubble.footer.contents[0].action.uri, notification.action.url)

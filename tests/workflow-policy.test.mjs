@@ -55,7 +55,7 @@ test('workflows never compute secret names dynamically', async () => {
   }
 })
 
-test('notification adapters share the publish job and are enabled by configured Secrets', async () => {
+test('notification adapters share the publication stage and are enabled by configured Secrets', async () => {
   const reusableWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-reusable.yml'), 'utf8')
   const readme = await fs.readFile(path.join(process.cwd(), 'README.md'), 'utf8')
   const allWorkflows = (await readWorkflows()).map(({ source }) => source).join('\n')
@@ -63,10 +63,66 @@ test('notification adapters share the publish job and are enabled by configured 
   assert.doesNotMatch(allWorkflows, /BOT_NOTIFICATION_CHANNELS|notification_channels/)
   assert.doesNotMatch(reusableWorkflow, /^\s+notify-[^:]+:/gm)
   assert.doesNotMatch(reusableWorkflow, /bot-notify\.yml|strategy:\s*\n\s+matrix:/)
-  assert.doesNotMatch(allWorkflows, /vars\.UPYUN_DOMAIN/)
-  assert.match(reusableWorkflow, /UPYUN_DOMAIN: \$\{\{ secrets\.UPYUN_DOMAIN \}\}/)
+  assert.doesNotMatch(allWorkflows, /UPYUN_|UPX_|upx(?:\s|\.)/i)
+  assert.match(reusableWorkflow, /^      S3_CONFIG:\n        required: true$/m)
+  assert.match(reusableWorkflow, /S3_CONFIG: \$\{\{ secrets\.S3_CONFIG \}\}/)
+  assert.match(reusableWorkflow, /BOT_BRANDING_CONFIG: \$\{\{ vars\.BOT_BRANDING_CONFIG \}\}/)
+  assert.match(reusableWorkflow, /BOT_TIME_ZONE: \$\{\{ vars\.BOT_TIME_ZONE \|\| 'Asia\/Shanghai' \}\}/)
+  assert.match(reusableWorkflow, /runs-on: \$\{\{ vars\.BOT_RUNNER \|\| 'ubuntu-24\.04' \}\}/)
+  assert.match(reusableWorkflow, /environment: \$\{\{ vars\.BOT_ENVIRONMENT \|\| 'production' \}\}/)
+  assert.match(
+    reusableWorkflow,
+    /group: \$\{\{ vars\.BOT_CONCURRENCY_GROUP \|\| 'splatoon3-bot-production' \}\}/
+  )
+  assert.match(
+    reusableWorkflow,
+    /retention-days: \$\{\{ vars\.BOT_ARTIFACT_RETENTION_DAYS \|\| '7' \}\}/
+  )
+  assert.doesNotMatch(reusableWorkflow, /Install Upyun CLI|curl[\s\S]*upyun/i)
+  assert.match(readme, /Every Channel Secret must contain a direct, non-empty YAML sequence/)
+  for (const variableName of [
+    'BOT_BRANDING_CONFIG',
+    'BOT_TIME_ZONE',
+    'BOT_RUNNER',
+    'BOT_ENVIRONMENT',
+    'BOT_CONCURRENCY_GROUP',
+    'BOT_ARTIFACT_RETENTION_DAYS',
+  ]) {
+    assert.ok(readme.includes(`| \`${variableName}\` |`), `${variableName} must be documented in README.md`)
+  }
+  assert.doesNotMatch(readme, /```json/)
   assert.equal(reusableWorkflow.match(/Install production dependencies/g)?.length, 1)
   assert.match(reusableWorkflow, /publish:\n[\s\S]*?timeout-minutes: 20/)
+  assert.match(reusableWorkflow, /BOT_USE_EXISTING_DATA_SNAPSHOT:/)
+  assert.match(reusableWorkflow, /SPLATOON_PUBLIC_DIRECTORY:/)
+  assert.match(
+    reusableWorkflow,
+    /Stage Bot Run for local Actions verification\n\s+if: \$\{\{ env\.ACT == 'true' \}\}/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Archive Bot Run\n\s+if: \$\{\{ env\.ACT != 'true' \}\}\n\s+uses: actions\/upload-artifact@/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Download Bot Run\n\s+if: \$\{\{ env\.ACT != 'true' \}\}\n\s+uses: actions\/download-artifact@/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Restore Bot Run for local Actions verification\n\s+if: \$\{\{ env\.ACT == 'true' \}\}/
+  )
+  assert.equal(reusableWorkflow.match(/ACT_BOT_RUN_DIRECTORY/g)?.length, 5)
+
+  const localActionsVerifier = await fs.readFile(
+    path.join(process.cwd(), 'scripts', 'verify_actions.mjs'),
+    'utf8'
+  )
+  assert.match(localActionsVerifier, /notification-smoke\.yml/)
+  assert.match(localActionsVerifier, /Expected two S3 uploads and one WeCom delivery/)
+  assert.match(localActionsVerifier, /--container-options/)
+  assert.match(localActionsVerifier, /ACT_BOT_RUN_DIRECTORY=/)
+  assert.match(localActionsVerifier, /shouldRetry: isTransientActFailure/)
+  assert.doesNotMatch(localActionsVerifier, /--artifact-server-path/)
 
   const channels = listChannelAdapters()
   for (const channel of channels) {
@@ -83,6 +139,7 @@ test('notification adapters share the publish job and are enabled by configured 
 
   for (const filename of ['bot-schedules.yml', 'bot-salmon-run.yml', 'bot-manual.yml', 'notification-smoke.yml']) {
     const source = await fs.readFile(path.join(workflowDirectory, filename), 'utf8')
+    assert.ok(source.includes('S3_CONFIG: ${{ secrets.S3_CONFIG }}'), `${filename}: S3_CONFIG Secret`)
     for (const channel of channels) {
       const secretName = channel.configurationEnvironmentVariable
       const secretReference = `${secretName}: ` + '${{ secrets.' + secretName + ' }}'

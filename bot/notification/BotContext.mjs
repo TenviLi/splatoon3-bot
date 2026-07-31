@@ -1,9 +1,10 @@
 import { createI18n } from 'vue-i18n'
 import zhCN from '../../src/assets/i18n/zh-CN.json' with { type: 'json' }
+import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { loadDataSnapshot } from '../data/DataSnapshot.mjs'
 import { getTopOfCurrentHour } from '../common/util.mjs'
 
-function createTranslator(locale) {
+function createTranslator(locale, timeZone) {
   const i18n = createI18n({
     legacy: false,
     locale: 'zh-CN',
@@ -13,9 +14,22 @@ function createTranslator(locale) {
     },
     datetimeFormats: {
       'zh-CN': {
-        dateTimeShort: { month: 'numeric', day: 'numeric', hour: 'numeric', minute: '2-digit' },
-        dateTimeShortWeekday: { month: 'numeric', weekday: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' },
-        time: { hour: 'numeric', minute: '2-digit' },
+        dateTimeShort: {
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          timeZone,
+        },
+        dateTimeShortWeekday: {
+          month: 'numeric',
+          weekday: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          timeZone,
+        },
+        time: { hour: 'numeric', minute: '2-digit', timeZone },
       },
     },
   }).global
@@ -26,12 +40,16 @@ function createTranslator(locale) {
   })
 }
 
-export async function createBotContext({ snapshotDirectory, now = Date.now() } = {}) {
+export async function createBotContext({
+  snapshotDirectory,
+  now = Date.now(),
+  timeZone = resolveBotTimeZone(),
+} = {}) {
   const snapshot = await loadDataSnapshot(snapshotDirectory)
   const currentTime = getTopOfCurrentHour(new Date(now))
   const schedulesData = snapshot.values.schedules.data
   const gearData = snapshot.values.gear.data
-  const translator = createTranslator(snapshot.values['locale/zh-CN'])
+  const translator = createTranslator(snapshot.values['locale/zh-CN'], timeZone)
   const stageImages = new Map(schedulesData.vsStages.nodes.map((stage) => [stage.id, stage.originalImage]))
   const activeSchedule = (nodes, selectSettings) => {
     const node = nodes.find(
@@ -70,6 +88,7 @@ export async function createBotContext({ snapshotDirectory, now = Date.now() } =
     ...translator,
     now,
     snapshotManifest: snapshot.manifest,
+    snapshotManifestSha256: snapshot.manifestSha256,
     schedules: Object.freeze({
       regular: activeSchedule(schedulesData.regularSchedules.nodes, (node) => node.regularMatchSetting),
       anarchySeries: activeSchedule(schedulesData.bankaraSchedules.nodes, (node) =>

@@ -229,10 +229,11 @@ export async function loadDataSnapshot(directory = path.join(process.cwd(), 'dat
   )
 
   let manifest = null
+  let manifestSha256 = null
   try {
-    manifest = snapshotManifestSchema.parse(
-      JSON.parse(await fs.readFile(path.join(absoluteDirectory, '.snapshot.json'), 'utf8'))
-    )
+    const manifestBuffer = await fs.readFile(path.join(absoluteDirectory, '.snapshot.json'))
+    manifest = snapshotManifestSchema.parse(JSON.parse(manifestBuffer.toString('utf8')))
+    manifestSha256 = crypto.createHash('sha256').update(manifestBuffer).digest('hex')
   } catch (error) {
     if (error.code !== 'ENOENT') {
       throw error
@@ -252,6 +253,7 @@ export async function loadDataSnapshot(directory = path.join(process.cwd(), 'dat
 
   return Object.freeze({
     manifest,
+    manifestSha256,
     values: Object.freeze(Object.fromEntries(entries.map(({ definition, json }) => [definition.name, json]))),
   })
 }

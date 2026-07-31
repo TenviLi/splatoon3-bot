@@ -24,6 +24,10 @@ _Avoid_: Screenshot type, page config
 A rendered PNG produced from a Screenshot Definition, Data Snapshot, and fixed render time.
 _Avoid_: Screenshot file, image output
 
+**Publication Manifest**:
+A credential-free record that binds one Bot Run and its Data Snapshot Manifest to immutable published image variants, public URLs, dimensions, byte counts, SHA-256 digests, branding, render time, and time zone.
+_Avoid_: Upload result, URL map
+
 **Notification**:
 A platform-neutral message describing current Splatoon information and its Screenshot Artifact.
 _Avoid_: Card payload, webhook body

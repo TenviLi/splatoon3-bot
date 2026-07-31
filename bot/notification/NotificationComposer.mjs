@@ -1,37 +1,10 @@
 import { getGearIcon } from '../common/util.mjs'
+import {
+  getPublishedArtifact,
+  validatePublicationManifest,
+} from '../publish/PublicationManifest.mjs'
 import { getNotificationDefinition } from '../run/RunPlan.mjs'
 import { createNotification } from './Notification.mjs'
-
-export function normalizeAssetBaseUrl(value) {
-  if (!value) {
-    throw new Error('UPYUN_DOMAIN is required to compose notifications')
-  }
-
-  let url
-  try {
-    url = new URL(value)
-  } catch (error) {
-    throw new Error('UPYUN_DOMAIN must be an absolute HTTP(S) URL', { cause: error })
-  }
-
-  if (!['http:', 'https:'].includes(url.protocol)) {
-    throw new Error('UPYUN_DOMAIN must be an absolute HTTP(S) URL')
-  }
-
-  if (url.username || url.password || url.search || url.hash) {
-    throw new Error('UPYUN_DOMAIN must not include credentials, a query, or a fragment')
-  }
-
-  return url.toString().replace(/\/$/, '')
-}
-
-function assetUrl(baseUrl, relativePath) {
-  return `${baseUrl}/${relativePath}`
-}
-
-function screenshotUrl(baseUrl, screenshotName) {
-  return assetUrl(baseUrl, `${screenshotName}.png!sm`)
-}
 
 function requireValue(value, label) {
   if (!value) {
@@ -41,7 +14,18 @@ function requireValue(value, label) {
   return value
 }
 
-function composeSchedules(context, assetBaseUrl) {
+function notificationImage(artifact, alt) {
+  return {
+    url: artifact.notificationImage.url,
+    alt,
+    width: artifact.notificationImage.width,
+    height: artifact.notificationImage.height,
+    aspectRatio: Number((artifact.notificationImage.width / artifact.notificationImage.height).toFixed(2)),
+  }
+}
+
+function composeSchedules(context, publicationManifest) {
+  const artifact = getPublishedArtifact(publicationManifest, 'schedules')
   const regular = requireValue(context.schedules.regular, 'regular schedule')
   const anarchySeries = requireValue(context.schedules.anarchySeries, 'anarchy series schedule')
   const anarchyOpen = requireValue(context.schedules.anarchyOpen, 'anarchy open schedule')
@@ -62,25 +46,22 @@ function composeSchedules(context, assetBaseUrl) {
 
   return createNotification({
     id: 'schedules',
-    source: { name: '今天你喷喷了吗?', iconUrl: assetUrl(assetBaseUrl, 'icon.png!sm') },
+    source: { name: '今天你喷喷了吗?', iconUrl: publicationManifest.branding.icons.schedules },
     title: '日程已更新',
     subtitle: `${context.d(regular.startTime, 'time')} - ${context.d(regular.endTime, 'time')}`,
-    image: {
-      url: screenshotUrl(assetBaseUrl, 'schedules'),
-      alt: 'Splatoon 3 对战日程',
-      aspectRatio: 1.78,
-    },
+    image: notificationImage(artifact, 'Splatoon 3 对战日程'),
     sections: [
       { title: '🔫  占地对战', text: stageNames(regular) },
       rankedSection(anarchySeries, '挑战'),
       rankedSection(anarchyOpen, '开放'),
     ].filter(Boolean),
-    action: { label: '查看日程截图', url: screenshotUrl(assetBaseUrl, 'schedules') },
+    action: { label: '查看日程截图', url: artifact.notificationImage.url },
     accentColor: 0x39c5bb,
   })
 }
 
-function composeSalmonRun(context, assetBaseUrl) {
+function composeSalmonRun(context, publicationManifest) {
+  const artifact = getPublishedArtifact(publicationManifest, 'salmon-run')
   const schedule = requireValue(context.schedules.salmonRun, 'salmon run schedule')
   const hasMysteryWeapon = schedule.settings.weapons.some((weapon) => weapon.name === 'Random')
   const weaponNames = schedule.settings.weapons.map((weapon) =>
@@ -89,39 +70,32 @@ function composeSalmonRun(context, assetBaseUrl) {
 
   return createNotification({
     id: 'salmon-run',
-    source: { name: '打工的时间到啦!', iconUrl: assetUrl(assetBaseUrl, 'icon2.png!sm') },
+    source: { name: '打工的时间到啦!', iconUrl: publicationManifest.branding.icons.salmonRun },
     title: context.t(`splatnet.stages.${schedule.settings.coopStage.id}.name`, schedule.settings.coopStage.name),
     subtitle: `${context.d(schedule.startTime, 'dateTimeShortWeekday')} - ${context.d(schedule.endTime, 'dateTimeShort')}`,
-    image: {
-      url: screenshotUrl(assetBaseUrl, 'salmon-run'),
-      alt: 'Splatoon 3 鲑鱼跑排班',
-      aspectRatio: 1.78,
-    },
+    image: notificationImage(artifact, 'Splatoon 3 鲑鱼跑排班'),
     sections: [
       {
         title: hasMysteryWeapon ? '🎉 随机武器! 随机武器!' : '🐻 发放武器:',
         listItems: hasMysteryWeapon ? [] : weaponNames,
       },
     ],
-    action: { label: '查看鲑鱼跑截图', url: screenshotUrl(assetBaseUrl, 'salmon-run') },
+    action: { label: '查看鲑鱼跑截图', url: artifact.notificationImage.url },
     accentColor: 0xf97316,
   })
 }
 
-function composeDailyDropGear(context, assetBaseUrl) {
+function composeDailyDropGear(context, publicationManifest) {
+  const artifact = getPublishedArtifact(publicationManifest, 'gear-dailydrop')
   const brand = requireValue(context.gear.dailyDropBrand, 'daily drop brand')
   const gears = requireValue(context.gear.dailyDropGear, 'daily drop gear')
 
   return createNotification({
     id: 'gear-dailydrop',
-    source: { name: '鱿鱼须商城·今日精选', iconUrl: assetUrl(assetBaseUrl, 'icon3.png!sm') },
+    source: { name: '鱿鱼须商城·今日精选', iconUrl: publicationManifest.branding.icons.gear },
     title: `「${context.t(`splatnet.brands.${brand.brand.id}.name`, brand.brand.name)}」`,
     subtitle: context.t('time.until', { time: context.d(brand.saleEndTime, 'dateTimeShortWeekday') }),
-    image: {
-      url: screenshotUrl(assetBaseUrl, 'gear-dailydrop'),
-      alt: '鱿鱼须商城今日精选',
-      aspectRatio: 1.78,
-    },
+    image: notificationImage(artifact, '鱿鱼须商城今日精选'),
     facts: gears.map((gear) => ({
       label: getGearIcon(gear) || '装备',
       value: `${context.t(`splatnet.gear.${gear.gear.__splatoon3ink_id}.name`, gear.gear.name)}\n(${context.t(
@@ -129,23 +103,20 @@ function composeDailyDropGear(context, assetBaseUrl) {
         gear.gear.primaryGearPower.name
       )})`,
     })),
-    action: { label: '查看今日精选', url: screenshotUrl(assetBaseUrl, 'gear-dailydrop') },
+    action: { label: '查看今日精选', url: artifact.notificationImage.url },
     accentColor: 0xfacc15,
   })
 }
 
-function composeRegularGear(context, assetBaseUrl) {
+function composeRegularGear(context, publicationManifest) {
+  const artifact = getPublishedArtifact(publicationManifest, 'gear-regular')
   const gear = requireValue(context.gear.regularGear?.slice().reverse()[0], 'regular gear')
 
   return createNotification({
     id: 'gear-regular',
-    source: { name: '鱿鱼须商城·目前贩卖', iconUrl: assetUrl(assetBaseUrl, 'icon3.png!sm') },
+    source: { name: '鱿鱼须商城·目前贩卖', iconUrl: publicationManifest.branding.icons.gear },
     title: '鱿鱼须商城上新啦',
-    image: {
-      url: screenshotUrl(assetBaseUrl, 'gear-regular'),
-      alt: '鱿鱼须商城目前贩卖装备',
-      aspectRatio: 1.78,
-    },
+    image: notificationImage(artifact, '鱿鱼须商城目前贩卖装备'),
     facts: [
       {
         label: getGearIcon(gear) || '装备',
@@ -155,7 +126,7 @@ function composeRegularGear(context, assetBaseUrl) {
         )})`,
       },
     ],
-    action: { label: '查看目前贩卖', url: screenshotUrl(assetBaseUrl, 'gear-regular') },
+    action: { label: '查看目前贩卖', url: artifact.notificationImage.url },
     accentColor: 0xfb923c,
   })
 }
@@ -167,7 +138,7 @@ const composers = Object.freeze({
   'gear-regular': composeRegularGear,
 })
 
-export function composeNotification(name, context, { assetBaseUrl = process.env.UPYUN_DOMAIN } = {}) {
+export function composeNotification(name, context, { publicationManifest } = {}) {
   getNotificationDefinition(name)
   const composer = composers[name]
 
@@ -175,5 +146,5 @@ export function composeNotification(name, context, { assetBaseUrl = process.env.
     throw new Error(`No notification composer for ${name}`)
   }
 
-  return composer(context, normalizeAssetBaseUrl(assetBaseUrl))
+  return composer(context, validatePublicationManifest(publicationManifest))
 }

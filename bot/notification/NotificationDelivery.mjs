@@ -1,21 +1,12 @@
 import { z } from 'zod'
+import { parseYamlEnvironment } from '../config/YamlEnvironment.mjs'
+import { validatePublicationManifest } from '../publish/PublicationManifest.mjs'
 import { getNotificationDefinition, getRunPlan } from '../run/RunPlan.mjs'
 import { createBotContext } from './BotContext.mjs'
-import { composeNotification, normalizeAssetBaseUrl } from './NotificationComposer.mjs'
+import { composeNotification } from './NotificationComposer.mjs'
 import { getChannelAdapter, resolveConfiguredNotificationChannels } from './channels/index.mjs'
 
 function parseTargets(rawConfig, channel) {
-  if (!rawConfig) {
-    throw new Error(`${channel.configurationEnvironmentVariable} is required for ${channel.name}`)
-  }
-
-  let value
-  try {
-    value = JSON.parse(rawConfig)
-  } catch (error) {
-    throw new Error(`Invalid JSON in ${channel.name} channel configuration`, { cause: error })
-  }
-
   const notificationSelectionSchema = z
     .array(z.string().min(1))
     .min(1)
@@ -44,7 +35,7 @@ function parseTargets(rawConfig, channel) {
     })
   const targetSchema = channel.targetSchema.extend({ notifications: notificationSelectionSchema.optional() })
 
-  return z
+  const targetsSchema = z
     .array(targetSchema)
     .min(1)
     .superRefine((targets, context) => {
@@ -60,7 +51,11 @@ function parseTargets(rawConfig, channel) {
         names.add(target.name)
       }
     })
-    .parse(value)
+
+  return parseYamlEnvironment(rawConfig, {
+    variableName: channel.configurationEnvironmentVariable,
+    schema: targetsSchema,
+  })
 }
 
 function selectTargetNotificationIds(target, notificationIds) {
@@ -116,15 +111,21 @@ function prepareNotificationChannel(plan, channel, rawConfig) {
   return Object.freeze({ channel, deliveries: Object.freeze(deliveries) })
 }
 
-async function composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now }) {
-  const normalizedAssetBaseUrl = normalizeAssetBaseUrl(assetBaseUrl)
-  const context = await createBotContext({ snapshotDirectory, now })
+async function composeRunNotifications(plan, { publicationManifest, snapshotDirectory, now, timeZone }) {
+  const publication = validatePublicationManifest(publicationManifest)
+  if (publication.profile !== plan.name) {
+    throw new Error(`Publication manifest profile ${publication.profile} does not match ${plan.name}`)
+  }
+  const context = await createBotContext({ snapshotDirectory, now, timeZone })
+  if (context.snapshotManifestSha256 !== publication.snapshotManifestSha256) {
+    throw new Error('Archived Data Snapshot Manifest does not match Publication Manifest')
+  }
   return Object.freeze({
-    assetBaseUrl: normalizedAssetBaseUrl,
+    assetBaseUrl: publication.assetBaseUrl,
     notifications: new Map(
       plan.notifications.map((notificationId) => [
         notificationId,
-        composeNotification(notificationId, context, { assetBaseUrl: normalizedAssetBaseUrl }),
+        composeNotification(notificationId, context, { publicationManifest: publication }),
       ])
     ),
   })
@@ -169,15 +170,21 @@ export async function deliverNotificationChannel({
   profileName,
   channelName,
   rawConfig,
-  assetBaseUrl = process.env.UPYUN_DOMAIN,
+  publicationManifest,
   snapshotDirectory,
   now = Date.now(),
+  timeZone,
   fetchImpl = fetch,
 }) {
   const plan = getRunPlan(profileName)
   const channel = getChannelAdapter(channelName)
   const preparedChannel = prepareNotificationChannel(plan, channel, rawConfig)
-  const notificationRun = await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
+  const notificationRun = await composeRunNotifications(plan, {
+    publicationManifest,
+    snapshotDirectory,
+    now,
+    timeZone,
+  })
   return deliverPreparedNotificationChannel(preparedChannel, notificationRun, fetchImpl)
 }
 
@@ -185,9 +192,10 @@ export async function deliverConfiguredNotificationChannels({
   profileName,
   channelName,
   environment = process.env,
-  assetBaseUrl = environment.UPYUN_DOMAIN,
+  publicationManifest,
   snapshotDirectory,
   now = Date.now(),
+  timeZone,
   fetchImpl = fetch,
 }) {
   const configuredChannels = resolveConfiguredNotificationChannels({ environment, channelName })
@@ -211,7 +219,12 @@ export async function deliverConfiguredNotificationChannels({
   let notificationRun
   if (hasDeliverableChannel) {
     try {
-      notificationRun = await composeRunNotifications(plan, { assetBaseUrl, snapshotDirectory, now })
+      notificationRun = await composeRunNotifications(plan, {
+        publicationManifest,
+        snapshotDirectory,
+        now,
+        timeZone,
+      })
     } catch (error) {
       const blockedChannelResults = channelPreparations.map((channelPreparation) =>
         channelPreparation.status === 'rejected'

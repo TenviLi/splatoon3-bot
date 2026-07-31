@@ -222,25 +222,21 @@ Use an approved media template for every scheduled notification, even if a custo
 - Use one project-owned template contract with an image header, concise fixed copy surrounding named body parameters, and one URL button. The screenshot is the visual hero; the body should carry `title`, `context`, and a bounded `details` summary.
 - Create the template under the category that accurately matches the use case. Recurring game-content notifications may be treated as marketing by Meta; do not mislabel them as utility to bypass review or pricing.
 - Keep visual formatting in the approved template and pass plain parameter values. Text headers do not support Markdown special characters; URL-button parameters containing special characters must be percent-encoded before sending.
-- Configure the approved URL button as `${UPYUN_DOMAIN}/{{action_path}}`. Before sending, require `notification.action.url` to share that exact prefix, strip the prefix, percent-encode the suffix, and pass it as the button parameter. Fail locally rather than sending a malformed or unapproved URL shape.
+- Configure the approved URL button from the exact published asset namespace (`S3_CONFIG.publicBaseUrl` plus `keyPrefix`) as `<asset base URL>/{{action_path}}`. Before sending, require `notification.action.url` to share that exact prefix, strip the prefix, percent-encode each path segment while preserving separators, and pass it as the button parameter. Fail locally rather than sending a malformed or unapproved URL shape.
 - Use the public screenshot URL in the image-header parameter for the first implementation. Enforce HTTPS, matching JPEG/PNG MIME and bytes, and the 5 MB limit. A later upload-and-cache path can reuse the same access token and media IDs, but it should be an explicit reliability optimization rather than hidden target state.
 - A `200` response proves API acceptance, not recipient delivery. A webhook service is optional for sending and for the URL button, but is required if the project later promises delivery receipts or asynchronous-failure reporting.
 - Handle errors by Meta error `code` and `details`, not only HTTP status. Retry transient or throughput errors with bounded backoff; do not retry opt-out, policy, invalid-template, or invalid-recipient failures.
 
 Recommended `BOT_WHATSAPP_CONFIG` Secret schema:
 
-```json
-[
-  {
-    "name": "personal-updates",
-    "notifications": ["schedules", "salmon-run", "gear-dailydrop", "gear-regular"],
-    "accessToken": "EAA...",
-    "phoneNumberId": "123456789012345",
-    "recipientPhoneNumber": "8613800000000",
-    "templateName": "splatoon_notification",
-    "languageCode": "zh_CN"
-  }
-]
+```yaml
+- name: personal-updates
+  notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]
+  accessToken: EAA...
+  phoneNumberId: "123456789012345"
+  recipientPhoneNumber: "8613800000000"
+  templateName: splatoon_notification
+  languageCode: zh_CN
 ```
 
 Keep the Graph API version pinned in source code rather than the Secret so upgrades are reviewed and payload-golden tests remain deterministic. `WABA_ID` is needed to create or manage templates, but not for this runtime send-target contract.
@@ -252,7 +248,7 @@ The referenced `splatoon_notification` template has this exact project contract:
 - `HEADER`: `IMAGE`; the send-time `image.link` is `notification.image.url`.
 - `BODY`: `Splatoon 3 通知已更新\n\n{{title}}\n{{context}}\n{{details}}\n\n点击下方按钮查看完整截图。`
 - `FOOTER`: `今天你喷喷了吗？`
-- First and only button: `URL`, label `查看截图`, URL `<exact UPYUN_DOMAIN origin>/{{action_path}}`. Replace the placeholder origin with the real public origin before template submission.
+- First and only button: `URL`, label `查看截图`, URL `<exact published asset base URL>/{{action_path}}`. Replace the placeholder origin with the real public namespace before template submission.
 
 The adapter must project parameters as follows and must truncate by Unicode code point without cutting formatting tokens:
 
@@ -261,7 +257,7 @@ The adapter must project parameters as follows and must truncate by Unicode code
 | `title` | `notification.title` | 120 characters |
 | `context` | `notification.subtitle ?? notification.source.name` | 160 characters |
 | `details` | Sections first, then facts, using one compact line per item | 560 characters |
-| `action_path` | Percent-encoded suffix after the exact `${UPYUN_DOMAIN}/` prefix | Resulting approved URL at most 2,000 characters |
+| `action_path` | Percent-encoded suffix after the exact published asset base URL prefix | Resulting approved URL at most 2,000 characters |
 
 The fixed copy plus these budgets stays below the 1,024-character body limit. A missing value becomes `-`; the adapter must never omit a named parameter because error `132000` is returned when the send payload does not match the approved template variables.
 
@@ -319,23 +315,19 @@ Use one Flex bubble per notification and make it look intentionally native:
 - Use a compact accent-colored header with the source and title, a full-width `16:9` hero image in `fit` mode so screenshots are never cropped, a body for subtitle and sections, two-column rows for short facts, and one primary footer button.
 - Apply the same `uri` action to the hero image and footer button. Both are ordinary navigation and need no callback server.
 - Generate `altText` from the title and most important context so notifications and clients without Flex rendering remain useful.
-- Keep the bubble below 30 KB and the whole HTTP body below LINE's 2 MB common request limit. The LINE adapter projects the platform-neutral image URL to Upyun's `!sm/fw/1024` form, which explicitly caps these `16:9` screenshots at `1024×576`; Upyun documents that URL parameters may follow and override a named thumbnail version. Before sending, inspect the real CDN response and reject a missing or mismatched image MIME type, unsupported bytes, dimensions above `1024×1024`, or a file above 10 MB. [Upyun image processing](https://help.upyun.com/knowledge-base/image/)
+- Keep the bubble below 30 KB and the whole HTTP body below LINE's 2 MB common request limit. The provider-neutral S3 publisher creates the real `1024×576` notification PNG before upload rather than projecting a CDN transformation URL. Before sending, inspect the public object and reject a missing or mismatched image MIME type, unsupported bytes, dimensions above `1024×1024`, or a file above 10 MB.
 - Generate one UUID retry key per target and notification delivery, and reuse it only for retries of that same logical delivery. Preserve `X-Line-Request-Id` in errors for diagnosis.
 - Treat a `409` response carrying `X-Line-Accepted-Request-Id` as an already accepted duplicate of the same retry key, not as a second failed delivery.
 - Treat `200` as API acceptance rather than proof of display because blocked or deleted recipients can be silently skipped.
 
 Recommended `BOT_LINE_CONFIG` Secret schema:
 
-```json
-[
-  {
-    "name": "personal-chat",
-    "notifications": ["schedules", "salmon-run", "gear-dailydrop", "gear-regular"],
-    "channelAccessToken": "...",
-    "targetType": "user",
-    "targetId": "U0123456789abcdef0123456789abcdef"
-  }
-]
+```yaml
+- name: personal-chat
+  notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]
+  channelAccessToken: "..."
+  targetType: user
+  targetId: U0123456789abcdef0123456789abcdef
 ```
 
 `targetType` should be one of `user`, `group`, or `room`. The API only sends `targetId` as `to`, but the explicit type gives strict configuration validation and clearer error messages.
@@ -399,14 +391,10 @@ Use Block Kit without interactive components:
 
 Recommended `BOT_SLACK_CONFIG` Secret schema:
 
-```json
-[
-  {
-    "name": "team-channel",
-    "notifications": ["schedules", "salmon-run", "gear-dailydrop", "gear-regular"],
-    "webhookUrl": "https://hooks.slack.com/services/T.../B.../..."
-  }
-]
+```yaml
+- name: team-channel
+  notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]
+  webhookUrl: https://hooks.slack.com/services/T.../B.../...
 ```
 
 Safe payload direction:

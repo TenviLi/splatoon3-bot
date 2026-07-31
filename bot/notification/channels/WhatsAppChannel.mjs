@@ -50,7 +50,7 @@ function requireHttpsImageUrl(value) {
 
 function templateActionPath(notification, assetBaseUrl) {
   if (!assetBaseUrl) {
-    throw new Error('WhatsApp delivery requires the normalized UPYUN_DOMAIN')
+    throw new Error('WhatsApp delivery requires the normalized asset base URL')
   }
 
   const baseUrl = new URL(assetBaseUrl)
@@ -68,9 +68,14 @@ function templateActionPath(notification, assetBaseUrl) {
     throw new Error('WhatsApp action URL must include a path after the approved template prefix')
   }
 
-  const encodedSuffix = encodeURIComponent(suffix).replace(/[!'()*]/g, (character) =>
-    `%${character.codePointAt(0).toString(16).toUpperCase()}`
-  )
+  const encodedSuffix = suffix
+    .split('/')
+    .map((segment) =>
+      encodeURIComponent(decodeURIComponent(segment)).replace(/[!'()*]/g, (character) =>
+        `%${character.codePointAt(0).toString(16).toUpperCase()}`
+      )
+    )
+    .join('/')
   if (`${prefix}${encodedSuffix}`.length > 2_000) {
     throw new Error('WhatsApp template action URL exceeds 2000 characters')
   }

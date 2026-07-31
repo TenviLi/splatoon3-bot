@@ -13,14 +13,8 @@ on:
         default: ''
         type: string
     secrets:
-      UPYUN_BUCKET:
+      S3_CONFIG:
         required: true
-      UPYUN_OPERATOR:
-        required: true
-      UPYUN_SECRET:
-        required: true
-      UPYUN_DOMAIN:
-        required: false
       BOT_WECOM_CONFIG:
         required: false
       BOT_DISCORD_CONFIG:
@@ -44,19 +38,20 @@ permissions:
   contents: read
 
 concurrency:
-  group: splatoon3-bot-production
+  group: ${{ vars.BOT_CONCURRENCY_GROUP || 'splatoon3-bot-production' }}
   cancel-in-progress: false
 
 jobs:
   prepare:
     name: Prepare ${{ inputs.profile }}
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     outputs:
       artifact_name: ${{ steps.plan.outputs.artifact_name }}
       profile: ${{ steps.plan.outputs.profile }}
     env:
-      TZ: Asia/Shanghai
+      BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
+      TZ: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -88,12 +83,35 @@ jobs:
           PROFILE: ${{ inputs.profile }}
         run: node bot/run/describe.mjs "$PROFILE"
 
+      - name: Stage fixture Data Snapshot for local Actions verification
+        if: ${{ env.ACT == 'true' }}
+        run: |
+          rm -rf data
+          cp -R tests/fixtures/data data
+
       - name: Prepare Data Snapshot and screenshot artifacts
         env:
           PROFILE: ${{ steps.plan.outputs.profile }}
+          BOT_USE_EXISTING_DATA_SNAPSHOT: ${{ env.ACT == 'true' && 'true' || '' }}
+          SPLATOON_PUBLIC_DIRECTORY: ${{ env.ACT == 'true' && 'tests/fixtures/public' || '' }}
         run: node bot/run/prepare.mjs "$PROFILE"
 
+      - name: Stage Bot Run for local Actions verification
+        if: ${{ env.ACT == 'true' }}
+        run: |
+          test -n "$ACT_BOT_RUN_DIRECTORY"
+          mkdir -p "$ACT_BOT_RUN_DIRECTORY"
+          archive="$ACT_BOT_RUN_DIRECTORY/bot-run.tar"
+          temporary_archive="$archive.tmp"
+          rm -f "$temporary_archive"
+          {
+            find screenshots -maxdepth 1 -type f \( -name '*.png' -o -name 'run-manifest.json' \) -print0
+            find data -type f -name '*.json' -print0
+          } | sort -z | tar --null --files-from=- --create --file="$temporary_archive"
+          mv "$temporary_archive" "$archive"
+
       - name: Archive Bot Run
+        if: ${{ env.ACT != 'true' }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: screenshots-${{ steps.plan.outputs.artifact_name }}-${{ github.run_id }}
@@ -104,13 +122,13 @@ jobs:
             data/.snapshot.json
           include-hidden-files: true
           if-no-files-found: error
-          retention-days: 7
+          retention-days: ${{ vars.BOT_ARTIFACT_RETENTION_DAYS || '7' }}
 
   publish:
     name: Publish and notify
     needs: prepare
-    runs-on: ubuntu-24.04
-    environment: production
+    runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
+    environment: ${{ vars.BOT_ENVIRONMENT || 'production' }}
     timeout-minutes: 20
     steps:
       - name: Check out repository
@@ -132,38 +150,31 @@ jobs:
         run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
 
       - name: Download Bot Run
+        if: ${{ env.ACT != 'true' }}
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: screenshots-${{ needs.prepare.outputs.artifact_name }}-${{ github.run_id }}
           path: .
 
-      - name: Install Upyun CLI
-        env:
-          UPX_VERSION: 0.4.9
-          UPX_SHA256: 830ee3d487fd0d3dd351e0d0d113f036871499e4469ce443f3f1758c7153e878
+      - name: Restore Bot Run for local Actions verification
+        if: ${{ env.ACT == 'true' }}
         run: |
-          archive="$RUNNER_TEMP/upx.tar.gz"
-          curl --fail --location --silent --show-error --retry 3 \
-            --output "$archive" \
-            "https://github.com/upyun/upx/releases/download/v${UPX_VERSION}/upx_${UPX_VERSION}_linux_amd64.tar.gz"
-          echo "${UPX_SHA256}  ${archive}" | sha256sum --check --strict
-          tar --extract --gzip --file "$archive" --directory "$RUNNER_TEMP"
-          chmod 0755 "$RUNNER_TEMP/upx"
-          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+          test -n "$ACT_BOT_RUN_DIRECTORY"
+          archive="$ACT_BOT_RUN_DIRECTORY/bot-run.tar"
+          test -s "$archive"
+          tar --extract --file="$archive" --directory=.
 
-      - name: Publish to Upyun
+      - name: Publish through S3
         env:
           PROFILE: ${{ needs.prepare.outputs.profile }}
-          UPX_SERVICENAME: ${{ secrets.UPYUN_BUCKET }}
-          UPX_OPERATOR: ${{ secrets.UPYUN_OPERATOR }}
-          UPX_PASSWORD: ${{ secrets.UPYUN_SECRET }}
+          S3_CONFIG: ${{ secrets.S3_CONFIG }}
+          BOT_BRANDING_CONFIG: ${{ vars.BOT_BRANDING_CONFIG }}
         run: node bot/publish/index.mjs "$PROFILE"
 
       - name: Deliver configured notifications
         env:
           PROFILE: ${{ needs.prepare.outputs.profile }}
           CHANNEL: ${{ inputs.notification_channel }}
-          UPYUN_DOMAIN: ${{ secrets.UPYUN_DOMAIN }}
           BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
           BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
           BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}

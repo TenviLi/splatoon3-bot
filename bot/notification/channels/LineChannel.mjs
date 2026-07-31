@@ -80,17 +80,6 @@ function requireHttpsUrl(value, maximumLength, label) {
   return url.toString()
 }
 
-function lineImageUrl(value) {
-  const url = new URL(requireHttpsUrl(value, 2_000, 'image URL'))
-  if (!url.pathname.includes('!')) {
-    throw new Error('LINE image URL must use an Upyun image-processing version')
-  }
-  if (!url.pathname.endsWith('/fw/1024')) {
-    url.pathname = `${url.pathname.replace(/\/$/, '')}/fw/1024`
-  }
-  return requireHttpsUrl(url, 2_000, 'image URL')
-}
-
 function validateImageMetadata(metadata) {
   if (!['png', 'jpeg'].includes(metadata.format)) {
     throw new Error('LINE image must be PNG or JPEG')
@@ -203,7 +192,7 @@ function createFlexMessage(notification, imageUrl) {
 }
 
 export async function deliverLine(notification, target, options = {}) {
-  const imageUrl = lineImageUrl(notification.image.url)
+  const imageUrl = requireHttpsUrl(notification.image.url, 2_000, 'image URL')
   const imageMetadata = await (options.inspectImage || inspectRemoteImage)(imageUrl, {
     fetchImpl: options.fetchImpl,
     maximumBytes: maximumImageBytes,

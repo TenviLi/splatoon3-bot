@@ -1,24 +1,31 @@
-import fs from 'node:fs/promises'
 import path from 'node:path'
 import { z } from 'zod'
+import { botTimeZoneSchema } from '../config/BotTimeZone.mjs'
+import { readManifestFile, writeManifestFile } from '../manifest/ManifestFile.mjs'
 import { getRunPlan, getScreenshotDefinition } from './RunPlan.mjs'
 
 const runManifestSchema = z.object({
-  version: z.literal(1),
+  version: z.literal(2),
   profile: z.string().min(1),
   renderTime: z.number().int().nonnegative(),
-  snapshot: z.object({
-    createdAt: z.string().min(1),
-    source: z.string().min(1),
-  }),
-  artifacts: z.array(
-    z.object({
-      name: z.string().min(1),
-      filename: z.string().min(1),
-      bytes: z.number().int().positive(),
-      sha256: z.string().regex(/^[a-f0-9]{64}$/),
-      browserVersion: z.string().min(1),
+  timeZone: botTimeZoneSchema,
+  snapshot: z
+    .object({
+      createdAt: z.string().min(1),
+      source: z.string().min(1),
+      manifestSha256: z.string().regex(/^[a-f0-9]{64}$/),
     })
+    .strict(),
+  artifacts: z.array(
+    z
+      .object({
+        name: z.string().min(1),
+        filename: z.string().min(1),
+        bytes: z.number().int().positive(),
+        sha256: z.string().regex(/^[a-f0-9]{64}$/),
+        browserVersion: z.string().min(1),
+      })
+      .strict()
   ),
 }).strict()
 
@@ -52,15 +59,9 @@ export function validateRunManifest(value) {
 }
 
 export async function writeRunManifest(value, filename = defaultRunManifestFilename) {
-  const manifest = validateRunManifest(value)
-  const absoluteFilename = path.resolve(filename)
-  await fs.mkdir(path.dirname(absoluteFilename), { recursive: true })
-  const temporaryFilename = `${absoluteFilename}.${process.pid}.tmp`
-  await fs.writeFile(temporaryFilename, `${JSON.stringify(manifest, null, 2)}\n`)
-  await fs.rename(temporaryFilename, absoluteFilename)
-  return manifest
+  return writeManifestFile({ filename, value, validate: validateRunManifest })
 }
 
 export async function readRunManifest(filename = defaultRunManifestFilename) {
-  return validateRunManifest(JSON.parse(await fs.readFile(path.resolve(filename), 'utf8')))
+  return readManifestFile({ filename, validate: validateRunManifest })
 }

@@ -1,3 +1,4 @@
+import crypto from 'node:crypto'
 import { z } from 'zod'
 import { jsonRequest } from '../HttpTransport.mjs'
 import { compactText, escapeMarkdown } from '../format.mjs'
@@ -24,7 +25,11 @@ export const qqTargetSchema = z.object({
 const tokenCache = new Map()
 
 async function getAccessToken(target, options) {
-  const cacheKey = `${target.appId}:${target.clientSecret}`
+  const tokenUrl = new URL(target.tokenUrl || 'https://bots.qq.com/app/getAppAccessToken').toString()
+  const cacheKey = crypto
+    .createHash('sha256')
+    .update(JSON.stringify([tokenUrl, target.appId, target.clientSecret]))
+    .digest('hex')
   const cached = tokenCache.get(cacheKey)
   if (cached && cached.expiresAt > Date.now() + 60_000) {
     return cached.token
@@ -32,7 +37,7 @@ async function getAccessToken(target, options) {
 
   const result = await jsonRequest(
     {
-      url: target.tokenUrl || 'https://bots.qq.com/app/getAppAccessToken',
+      url: tokenUrl,
       fetchImpl: options.fetchImpl,
       label: `QQ token for ${target.name}`,
       attempts: 2,
@@ -53,7 +58,7 @@ function createMarkdown(notification) {
   return [
     `# ${escapeMarkdown(compactText(notification.title, 200))}`,
     notification.subtitle ? escapeMarkdown(compactText(notification.subtitle, 300)) : null,
-    `![${escapeMarkdown(compactText(notification.image.alt, 180))} #1200px #675px](${notification.image.url})`,
+    `![${escapeMarkdown(compactText(notification.image.alt, 180))} #${notification.image.width}px #${notification.image.height}px](${notification.image.url})`,
     ...notification.sections.slice(0, 8).map(
       (section) =>
         [

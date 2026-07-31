@@ -24,6 +24,8 @@ RUN apt-get update \
 ARG PNPM_VERSION
 ARG PUPPETEER_BROWSERS_VERSION
 ARG CHROME_VERSION
+ARG NPM_REGISTRY=https://registry.npmjs.org
+ARG CHROME_DOWNLOAD_BASE_URL
 
 RUN retry() { \
     attempts=0; \
@@ -33,12 +35,21 @@ RUN retry() { \
       sleep $((attempts * 5)); \
     done; \
   }; \
+  install_browser() { \
+    if [ -n "${CHROME_DOWNLOAD_BASE_URL}" ]; then \
+      npx --yes "@puppeteer/browsers@${PUPPETEER_BROWSERS_VERSION}" install "chrome@${CHROME_VERSION}" --path /root/.cache/puppeteer --base-url "${CHROME_DOWNLOAD_BASE_URL}"; \
+    else \
+      npx --yes "@puppeteer/browsers@${PUPPETEER_BROWSERS_VERSION}" install "chrome@${CHROME_VERSION}" --path /root/.cache/puppeteer; \
+    fi; \
+  }; \
   test -n "${PNPM_VERSION}" \
   && test -n "${PUPPETEER_BROWSERS_VERSION}" \
   && test -n "${CHROME_VERSION}" \
+  && test -n "${NPM_REGISTRY}" \
+  && npm config set registry "${NPM_REGISTRY}" \
   && npm config set fetch-retries 5 \
   && npm config set fetch-retry-mintimeout 10000 \
   && npm config set fetch-retry-maxtimeout 120000 \
   && retry npm install --global "pnpm@${PNPM_VERSION}" \
-  && retry npx --yes "@puppeteer/browsers@${PUPPETEER_BROWSERS_VERSION}" install "chrome@${CHROME_VERSION}" --path /root/.cache/puppeteer \
+  && retry install_browser \
   && pnpm --version

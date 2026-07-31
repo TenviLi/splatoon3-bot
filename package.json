@@ -1,7 +1,7 @@
 {
   "name": "splatoon3-bot",
   "version": "2.0.0",
-  "description": "Splatoon 3 Bot",
+  "description": "Deterministic Splatoon 3 screenshots and native rich notifications",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.18.0",
@@ -17,7 +17,7 @@
     "verify": "node bot/verification/index.mjs",
     "verify:actions": "node scripts/verify_actions.mjs",
     "test": "pnpm run test:unit && pnpm run test:browser-ci && pnpm run test:visual",
-    "test:unit": "node --test tests/run-plan.test.mjs tests/run-manifest.test.mjs tests/data-snapshot.test.mjs tests/browser-runtime.test.mjs tests/workflow-policy.test.mjs tests/remote-image-inspector.test.mjs tests/notification-channels.test.mjs tests/notification-payload-golden.test.mjs tests/notification-delivery.test.mjs tests/notification-report.test.mjs tests/upyun-publisher.test.mjs",
+    "test:unit": "node --test tests/run-plan.test.mjs tests/run-manifest.test.mjs tests/data-snapshot.test.mjs tests/browser-runtime.test.mjs tests/bot-configuration.test.mjs tests/workflow-policy.test.mjs tests/remote-image-inspector.test.mjs tests/notification-channels.test.mjs tests/notification-payload-golden.test.mjs tests/notification-delivery.test.mjs tests/notification-report.test.mjs tests/s3-publisher.test.mjs",
     "test:browser-ci": "node --test tests/browser-ci-smoke.test.mjs",
     "test:visual": "node --test tests/screenshot-visual.test.mjs",
     "test:update-golden": "node tests/generate-screenshot-goldens.mjs",
@@ -38,17 +38,20 @@
   },
   "keywords": [],
   "author": "tenvili",
-  "license": "ISC",
+  "license": "GPL-3.0-only",
   "dependencies": {
+    "@aws-sdk/client-s3": "3.1100.0",
     "@headlessui/vue": "1.7.23",
     "@heroicons/vue": "2.2.0",
     "@vue/devtools-api": "8.2.1",
     "pinia": "4.0.2",
     "puppeteer-core": "25.4.0",
+    "sharp": "0.35.3",
     "sirv": "3.0.2",
     "vue": "3.5.40",
     "vue-i18n": "11.4.8",
     "vue-router": "5.2.0",
+    "yaml": "2.9.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -60,6 +63,6 @@
     "pngjs": "^7.0.0",
     "postcss": "8.5.25",
     "tailwindcss": "4.3.3",
-    "vite": "8.1.5"
+    "vite": "8.2.0"
   }
 }

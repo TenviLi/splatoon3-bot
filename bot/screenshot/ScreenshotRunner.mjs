@@ -4,6 +4,7 @@ import http from 'node:http'
 import path from 'node:path'
 import puppeteer from 'puppeteer-core'
 import sirv from 'sirv'
+import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { getScreenshotDefinition } from '../run/RunPlan.mjs'
 import { getPinnedBrowserVersion, resolveBrowserLaunchOptions } from './BrowserRuntime.mjs'
 
@@ -108,6 +109,7 @@ export async function renderScreenshotArtifacts(
     buildDirectory = path.join(process.cwd(), 'dist'),
     outputDirectory = path.join(process.cwd(), 'screenshots'),
     renderTime = Date.now(),
+    timeZone = resolveBotTimeZone(),
     deviceScaleFactor = null,
     readyTimeoutMs = 20_000,
   } = {}
@@ -138,7 +140,7 @@ export async function renderScreenshotArtifacts(
 
       try {
         await page.evaluateOnNewDocument(() => localStorage.setItem('lang', 'zh-CN'))
-        await page.emulateTimezone('Asia/Shanghai')
+        await page.emulateTimezone(timeZone)
         await page.setViewport(viewport)
         const url = new URL(`http://127.0.0.1:${server.port}/screenshots.html`)
         url.hash = `/${definition.route}?${new URLSearchParams({ time: String(renderTime) })}`

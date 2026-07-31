@@ -4,6 +4,7 @@ import { createNotification } from '../../bot/notification/Notification.mjs'
 import { composeNotification } from '../../bot/notification/NotificationComposer.mjs'
 import { getChannelAdapter } from '../../bot/notification/channels/index.mjs'
 import { listRunProfiles } from '../../bot/run/RunPlan.mjs'
+import { createPublicationManifestFixture } from './PublicationManifestFixture.mjs'
 
 const notificationIds = Object.freeze([
   ...new Set(listRunProfiles().flatMap((profile) => profile.notifications)),
@@ -72,13 +73,15 @@ const platformCases = Object.freeze([
 
 const escapingNotification = createNotification({
   id: 'escaping-contract',
-  source: { name: '来源 <&> *喷喷*', iconUrl: 'https://cdn.example.com/icon.png!sm' },
+  source: { name: '来源 <&> *喷喷*', iconUrl: 'https://cdn.example.com/icon.png' },
   title: '特殊 <&> *标题* [链接]',
   subtitle: '时间 <02:00> & _下划线_',
   image: {
-    url: 'https://cdn.example.com/escaping.png!sm',
+    url: 'https://cdn.example.com/escaping.png',
     alt: '截图 (特殊) <&>',
-    aspectRatio: 1.78,
+    width: 1024,
+    height: 576,
+    aspectRatio: 1024 / 576,
   },
   sections: [
     {
@@ -88,7 +91,7 @@ const escapingNotification = createNotification({
     },
   ],
   facts: [{ label: '规则 [链接]', value: '值 *粗体* & <tag>' }],
-  action: { label: '查看 [详情]', url: 'https://cdn.example.com/escaping.png!sm' },
+  action: { label: '查看 [详情]', url: 'https://cdn.example.com/escaping.png' },
 })
 
 function response(value) {
@@ -129,9 +132,10 @@ export async function createNotificationPayloadGolden() {
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-29T19:00:00Z'),
   })
+  const publicationManifest = createPublicationManifestFixture('all')
   const notifications = [
     ...notificationIds.map((notificationId) =>
-      composeNotification(notificationId, context, { assetBaseUrl: 'https://cdn.example.com' })
+      composeNotification(notificationId, context, { publicationManifest })
     ),
     escapingNotification,
   ]
