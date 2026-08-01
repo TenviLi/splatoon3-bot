@@ -1,0 +1,7046 @@
+{
+  "stages": {
+    "VnNTdGFnZS0x": {
+      "name": "Roggentrog"
+    },
+    "VnNTdGFnZS0y": {
+      "name": "Forelviaduct"
+    },
+    "VnNTdGFnZS0z": {
+      "name": "Boter-bij-de-vismarkt"
+    },
+    "VnNTdGFnZS00": {
+      "name": "Baarsreservoir"
+    },
+    "VnNTdGFnZS02": {
+      "name": "Zilversmelt-hoogovens"
+    },
+    "VnNTdGFnZS0xMA==": {
+      "name": "Brandingbrug"
+    },
+    "VnNTdGFnZS0xMQ==": {
+      "name": "Galerie Le Guppy"
+    },
+    "VnNTdGFnZS0xMg==": {
+      "name": "El Dorade-resort"
+    },
+    "VnNTdGFnZS0xMw==": {
+      "name": "Koraalcampus"
+    },
+    "VnNTdGFnZS0xNA==": {
+      "name": "Walruswerf"
+    },
+    "VnNTdGFnZS0xNQ==": {
+      "name": "Bultrugbazaar"
+    },
+    "VnNTdGFnZS0xNg==": {
+      "name": "Waterwonderland"
+    },
+    "Q29vcFN0YWdlLTc=": {
+      "name": "Kwikwi-krachtcentrale"
+    },
+    "Q29vcFN0YWdlLTE=": {
+      "name": "Salmonietendam"
+    },
+    "Q29vcFN0YWdlLTI=": {
+      "name": "Fort Ammoniet"
+    },
+    "Q29vcFN0YWdlLTY=": {
+      "name": "Wrak van de ms Grondel"
+    },
+    "VnNTdGFnZS03": {
+      "name": "Barbeelbaden"
+    },
+    "VnNTdGFnZS05": {
+      "name": "Baleinbuurt"
+    },
+    "Q29vcFN0YWdlLTEwMA==": {
+      "name": "Waterwonderland"
+    },
+    "Q29vcFN0YWdlLS05OTk=": {
+      "name": ""
+    },
+    "VnNTdGFnZS01": {
+      "name": "Ruisvoornruïnes"
+    },
+    "VnNTdGFnZS0xOA==": {
+      "name": "Klipvisklipper"
+    },
+    "Q29vcFN0YWdlLTEwMg==": {
+      "name": "Koraalcampus"
+    },
+    "VnNTdGFnZS04": {
+      "name": "Winkelcentrum Poon & Zeehaan"
+    },
+    "VnNTdGFnZS0xNw==": {
+      "name": "Lekkerbektrack"
+    },
+    "Q29vcFN0YWdlLTg=": {
+      "name": "Graattraject"
+    },
+    "Q29vcFN0YWdlLTEwMw==": {
+      "name": "Baarsreservoir"
+    },
+    "VnNTdGFnZS0xOQ==": {
+      "name": "Visstickdistrict"
+    },
+    "VnNTdGFnZS0yMA==": {
+      "name": "Tarbot Transport"
+    },
+    "Q29vcFN0YWdlLTQ=": {
+      "name": "Visrokerij"
+    },
+    "Q29vcFN0YWdlLTEwNA==": {
+      "name": "Ruisvoornruïnes"
+    },
+    "VnNTdGFnZS0yMQ==": {
+      "name": "Bami-Byte"
+    },
+    "VnNTdGFnZS0yMg==": {
+      "name": "Blauwvin-depot"
+    },
+    "Q29vcFN0YWdlLTEwNQ==": {
+      "name": "Winkelcentrum Poon & Zeehaan"
+    },
+    "VnNTdGFnZS0yMw==": {
+      "name": "Trekvis Airport"
+    },
+    "Q29vcFN0YWdlLTk=": {
+      "name": "Vechtfuik"
+    },
+    "Q29vcFN0YWdlLTEwNg==": {
+      "name": "Forelviaduct"
+    },
+    "VnNTdGFnZS0yNA==": {
+      "name": "Lemurië Centraal"
+    },
+    "Q29vcFN0YWdlLS0x": {
+      "name": "Meerdere locaties"
+    },
+    "Q29vcFN0YWdlLTEwNw==": {
+      "name": "Splatlands-Arena"
+    },
+    "VnNTdGFnZS0yNg==": {
+      "name": "Knooppunt Kabeljauw"
+    }
+  },
+  "rules": {
+    "VnNSdWxlLTA=": {
+      "name": "Grondoorlog"
+    },
+    "VnNSdWxlLTI=": {
+      "name": "Torentwist"
+    },
+    "VnNSdWxlLTM=": {
+      "name": "Bazookarper"
+    },
+    "VnNSdWxlLTE=": {
+      "name": "Spetterzone"
+    },
+    "VnNSdWxlLTQ=": {
+      "name": "Schelpenstrijd"
+    },
+    "undefined": {}
+  },
+  "weapons": {
+    "48d6e062dd8b7efb": {
+      "name": "Kladderwerper"
+    },
+    "3adcc67d997a5aa8": {
+      "name": "Carbonroller"
+    },
+    "61d373353a48eb2e": {
+      "name": "Kliederkachel"
+    },
+    "cfcd1cb4b09dc134": {
+      "name": "Straalplonzer"
+    },
+    "7813d8c4d9103b07": {
+      "name": "Triomorser"
+    },
+    "57684fd4ee281e09": {
+      "name": "Klodderroller"
+    },
+    "7a4705bd110b0cee": {
+      "name": "Spatkuip"
+    },
+    "ba2b27f7c17b1632": {
+      "name": "Triospanner"
+    },
+    "3939e000515fe04c": {
+      "name": "Quadhoppers Zwart"
+    },
+    "6c5bbce4a6c63d0c": {
+      "name": "Floeper"
+    },
+    "39e383c2f6d1ca3e": {
+      "name": "Nautilus 47"
+    },
+    "627d43fa3ab06066": {
+      "name": "Flitsblaster"
+    },
+    "4dc28c8d9bca2dae": {
+      "name": "Dubbelknallers"
+    },
+    "670ae6f0c617cca4": {
+      "name": "Klodderblaster"
+    },
+    "9e45d86ccd5fea1e": {
+      "name": "Stylospetling"
+    },
+    "e2b5e6b340555596": {
+      "name": "Spetbuizer"
+    },
+    "59d665d32bb4122a": {
+      "name": "Spetterspuit"
+    },
+    "77e4f6414e5a257d": {
+      "name": "Wisserbladzwieper"
+    },
+    "2c34cb021254c8f8": {
+      "name": "Superspetter Pro"
+    },
+    "f668bd94e7ebf62d": {
+      "name": "Flitsblaster Pro"
+    },
+    "d3d579406dbc0fc8": {
+      "name": "Kladderwerper"
+    },
+    "8c157e85b75798e7": {
+      "name": "Carbonroller"
+    },
+    "6529a2c7f83ca858": {
+      "name": "Kliederkachel"
+    },
+    "92f330252fdd9421": {
+      "name": "Straalplonzer"
+    },
+    "7d97fc215efe47fa": {
+      "name": "Triomorser"
+    },
+    "0637f4b4225f22b8": {
+      "name": "Klodderroller"
+    },
+    "13ef7ad9ba855fe1": {
+      "name": "Spatkuip"
+    },
+    "7ed9dd50b97d24f3": {
+      "name": "Triospanner"
+    },
+    "8e59d00fc471083a": {
+      "name": "Quadhoppers Zwart"
+    },
+    "f09bb1bb306659dd": {
+      "name": "Floeper"
+    },
+    "af505e7c4bdb7888": {
+      "name": "Nautilus 47"
+    },
+    "2d3900d357e005e9": {
+      "name": "Flitsblaster"
+    },
+    "582d03e42a63596a": {
+      "name": "Dubbelknallers"
+    },
+    "9208eee9ecd2026e": {
+      "name": "Klodderblaster"
+    },
+    "cb9126ea2928b619": {
+      "name": "Stylospetling"
+    },
+    "70aa6b216ca8f01c": {
+      "name": "Spetbuizer"
+    },
+    "41492e011c163cc1": {
+      "name": "Spetterspuit"
+    },
+    "df5b39ea3d32b25b": {
+      "name": "Wisserbladzwieper"
+    },
+    "617dedf1c26235dc": {
+      "name": "Superspetter Pro"
+    },
+    "83275e416e7c1bc2": {
+      "name": "Flitsblaster Pro"
+    },
+    "1f6ce9f852641707": {
+      "name": "Willekeurig"
+    },
+    "d9bbd083353c118d": {
+      "name": ".52 Kaliter"
+    },
+    "9a9dcaa55c2f6545": {
+      "name": "Superspetter"
+    },
+    "8c0617eafedab081": {
+      "name": "Bamboem 14-A"
+    },
+    "0037f260dd45e397": {
+      "name": "Kampeerplenzer"
+    },
+    "cf6021b669c84379": {
+      "name": "N-ZAP '85"
+    },
+    "b5c29680486b0d1c": {
+      "name": "Inktkwast"
+    },
+    "a99a6dd8efd4d5bb": {
+      "name": "H-3 Langsnuit"
+    },
+    "50563f3849b68e0a": {
+      "name": "Blusling"
+    },
+    "1e344559d62809b2": {
+      "name": "Dubbelspatters"
+    },
+    "e594a5f9535eaf40": {
+      "name": "Octokwast"
+    },
+    "7a2dd4e35809d537": {
+      "name": "Dynamoroller"
+    },
+    "1e9e39f56c9f6d1a": {
+      "name": "Octopoets"
+    },
+    "5903a8cef02e4298": {
+      "name": "Kelvin 525"
+    },
+    "1208a614c4bb22cf": {
+      "name": "Knalblaster"
+    },
+    "cb1243d9c1908a38": {
+      "name": "Mini-Spetling"
+    },
+    "57717b83b81f474f": {
+      "name": "E-liter 4K"
+    },
+    "e70b1ea70b5916be": {
+      "name": "Spettertuit"
+    },
+    "4b6949b9e979636c": {
+      "name": "Lunablaster"
+    },
+    "53cefbb18bb74cb3": {
+      "name": "Paraplenzer"
+    },
+    "1d1dd4a9165c4a0c": {
+      "name": "Bloplader"
+    },
+    "97745a7307013de3": {
+      "name": "Dubbelplonzers"
+    },
+    "11ba9e5928b14318": {
+      "name": "Spetling"
+    },
+    "5615e681937a3f12": {
+      "name": "L-3 Stompsnuit"
+    },
+    "24cab1bbfb443770": {
+      "name": "Plenzer"
+    },
+    "ab50e9ae40810698": {
+      "name": ".96 Kaliter"
+    },
+    "319a3174ebcb8224": {
+      "name": "Superspetter jr."
+    },
+    "a31def86914d98ae": {
+      "name": "Klotstrommel"
+    },
+    "afc40370eb8a1aa5": {
+      "name": "Teleblaster"
+    },
+    "daa5ab5b571faec5": {
+      "name": "Flexroller"
+    },
+    "8f8bfbac8a43c2c7": {
+      "name": "Stempelzwieper"
+    },
+    "70e60082b7f73c24": {
+      "name": "RIF-LEX 450"
+    },
+    "13d0d18880c2f4e4": {
+      "name": "Morser"
+    },
+    "66e9cd75721a942f": {
+      "name": "Superspetter Nova"
+    },
+    "7f8967b3ae112ffc": {
+      "name": "Breedroller"
+    },
+    "a1ea7028b1bcdd28": {
+      "name": "Schotlood 5H"
+    },
+    "edcfecb7e8acd1a7": {
+      "name": "Willekeurig"
+    },
+    "fdf543c48448da4e": {
+      "name": "Spettertuit"
+    },
+    "20efbeb85f11abdb": {
+      "name": "Floeper"
+    },
+    "b4417b7d33c4ab76": {
+      "name": "Spatkuip"
+    },
+    "a7d8fc7be0a046c5": {
+      "name": "Triospanner"
+    },
+    "b88acfa356b2b714": {
+      "name": "Paraplenzer"
+    },
+    "f17da8de892bcdfe": {
+      "name": "N-ZAP '85"
+    },
+    "e11e5913db5eb0c2": {
+      "name": "Klodderroller"
+    },
+    "b481841e5def66d6": {
+      "name": "Octopoets"
+    },
+    "6834571f25b34c9b": {
+      "name": "Inktkwast"
+    },
+    "f6c61a0f1a701928": {
+      "name": ".52 Kaliter"
+    },
+    "78795dccc3ffeef2": {
+      "name": "Kliederkachel"
+    },
+    "585c7915a3dc5f28": {
+      "name": "Bloplader"
+    },
+    "2fc3e19d592734ea": {
+      "name": "Willekeurig"
+    },
+    "32982b9043dd8d1e": {
+      "name": "RIF-LEX 450"
+    },
+    "09465cbd66e15c68": {
+      "name": "Dubbelknallers"
+    },
+    "23c3b20f6e9ed6ec": {
+      "name": "Klotstrommel"
+    },
+    "cacef7e261a01e16": {
+      "name": "Flitsblaster"
+    },
+    "7df085c7508e8535": {
+      "name": "Triomorser"
+    },
+    "61a156e5e66059eb": {
+      "name": "Superspetter Nova"
+    },
+    "4d532284b062ba27": {
+      "name": "Dynamoroller"
+    },
+    "1f7f2880bcca7894": {
+      "name": ".96 Kaliter"
+    },
+    "c8cdd727419d9309": {
+      "name": "Kelvin 525"
+    },
+    "f695f95bfc09af76": {
+      "name": "L-3 Stompsnuit"
+    },
+    "c1a8381441bb38a7": {
+      "name": "Stempelzwieper"
+    },
+    "91aa1bf7ac84f262": {
+      "name": "Schotlood 5H"
+    },
+    "3a6b429b6f247c59": {
+      "name": "Wisserbladzwieper"
+    },
+    "44b6f56d15a02529": {
+      "name": "Klodderblaster"
+    },
+    "6f2cb494a35976ab": {
+      "name": "Flexroller"
+    },
+    "70897086ac95fc07": {
+      "name": "Kampeerplenzer"
+    },
+    "49171e6de78e50c7": {
+      "name": "Superspetter jr."
+    },
+    "5d214c667c007340": {
+      "name": "Superspetter Pro"
+    },
+    "d6c4482a8ef368b6": {
+      "name": "Teleblaster"
+    },
+    "dfa290ce0cdeae98": {
+      "name": "E-liter 4K"
+    },
+    "53054d13f95bfdac": {
+      "name": "Kladderwerper"
+    },
+    "7529642b716dda2a": {
+      "name": "Mini-Spetling"
+    },
+    "6832e7cb1f31ec60": {
+      "name": "Breedroller"
+    },
+    "8823b314132f4724": {
+      "name": "Spetbuizer"
+    },
+    "974ad42eab86aa42": {
+      "name": "Spetterspuit"
+    },
+    "98ce5f188f2896e8": {
+      "name": "Knalblaster"
+    },
+    "ec55cea9d34b4b87": {
+      "name": "Stylospetling"
+    },
+    "b0343d4f4b600e95": {
+      "name": "Straalplonzer"
+    },
+    "6ca015df6356568c": {
+      "name": "Superspetter"
+    },
+    "9e5ea39b1890ffe1": {
+      "name": "Morser"
+    },
+    "efb18bcc3e8d0faa": {
+      "name": "Bamboem 14-A"
+    },
+    "8afbd08cdbde979e": {
+      "name": "Carbonroller"
+    },
+    "a6524fda305001c3": {
+      "name": "Dubbelplonzers"
+    },
+    "3870511200d2f54e": {
+      "name": "Flitsblaster Pro"
+    },
+    "7b1ca52db7863e83": {
+      "name": "Octokwast"
+    },
+    "488255e9a515eeb2": {
+      "name": "H-3 Langsnuit"
+    },
+    "de0a10dff827d3fd": {
+      "name": "Spetling"
+    },
+    "9ec907326e0a0fbb": {
+      "name": "Lunablaster"
+    },
+    "970da796325a8adb": {
+      "name": "Plenzer"
+    },
+    "20ac9088101d14aa": {
+      "name": "Dubbelspatters"
+    },
+    "aae42b6ef1b5090d": {
+      "name": "Blusling"
+    },
+    "3feb54ef838cb9e2": {
+      "name": "Quadhoppers Zwart"
+    },
+    "fec6f764a77ec60e": {
+      "name": "Nautilus 47"
+    },
+    "6e17fbe20efecca9": {
+      "name": "Willekeurig"
+    },
+    "d194e691a458ad5f": {
+      "name": "Onbekend"
+    },
+    "ae62156873b8c5e5": {
+      "name": "S-BLAST '92"
+    },
+    "4ae1bd005e4c7d9c": {
+      "name": "Kwistkwast"
+    },
+    "4d4fe461ef7da22c": {
+      "name": "N-ZAP '85"
+    },
+    "48500e4854b4d769": {
+      "name": "Spatkuip"
+    },
+    "f07d321b3cd6f911": {
+      "name": "Teleblaster"
+    },
+    "e78ea63c50327ab0": {
+      "name": ".96 Kaliter"
+    },
+    "c1ecd761954cda63": {
+      "name": ".52 Kaliter"
+    },
+    "2542d849264ace37": {
+      "name": "Onbekend"
+    },
+    "52b07849caaff002": {
+      "name": "Kwistkwast"
+    },
+    "b81fe809fde4ef6e": {
+      "name": "Octopoets"
+    },
+    "b00695d610c23c39": {
+      "name": "RIF-LEX 450"
+    },
+    "1147e54cfc5e773c": {
+      "name": "Wisserbladzwieper"
+    },
+    "3f1d1069bff0b101": {
+      "name": "Spetbuizer"
+    },
+    "a51a03de4aae0dfa": {
+      "name": "Dubbelknallers"
+    },
+    "a36afedc0e51535e": {
+      "name": "Stempelzwieper"
+    },
+    "19238861042970e3": {
+      "name": "Kliederkachel"
+    },
+    "d1d178c4f8590045": {
+      "name": "Flitsblaster Pro"
+    },
+    "544a9b3e9bff7ecd": {
+      "name": "Wringmorser"
+    },
+    "7b91a5e2edac50a9": {
+      "name": "Examinator"
+    },
+    "52e07029f01362a4": {
+      "name": "Willekeurig"
+    },
+    "82b29bd56c0d9c19": {
+      "name": "Superspetter jr."
+    },
+    "f722bde112a8fdae": {
+      "name": "L-3 Stompsnuit"
+    },
+    "310a426d80bfdfa2": {
+      "name": "Flexroller"
+    },
+    "5ae1ff2b659034c5": {
+      "name": "Bamboem 14-A"
+    },
+    "ee63111a561f70a4": {
+      "name": "Carbonroller"
+    },
+    "13451fa24f36cc4e": {
+      "name": "Floeper"
+    },
+    "06b7fbbc77816153": {
+      "name": "S-BLAST '92"
+    },
+    "d666414e2d626aa5": {
+      "name": "Schotlood 5H"
+    },
+    "eb6231843a965f03": {
+      "name": "Dubbelspatters"
+    },
+    "6113b4a2c34d5bff": {
+      "name": "Plenzer"
+    },
+    "b29b38c98d5d0048": {
+      "name": "Straalplonzer"
+    },
+    "ce24986e8f457ce0": {
+      "name": "Triomorser"
+    },
+    "8ee303742717ed13": {
+      "name": "Superspetter Nova"
+    },
+    "0e7b0928658d7dd6": {
+      "name": "Stylospetling"
+    },
+    "4131c07c5976c5ef": {
+      "name": "Bloplader"
+    },
+    "bc57d58a39020d81": {
+      "name": "Spetterspuit"
+    },
+    "b4abca58bf916e93": {
+      "name": "Breedroller"
+    },
+    "f557d0c6ff897fc4": {
+      "name": "Nautilus 47"
+    },
+    "8e342dbd807d8d46": {
+      "name": "Triospanner"
+    },
+    "429db9b9ae8ba39b": {
+      "name": "Mini-Spetling"
+    },
+    "d8b795e7c2821984": {
+      "name": "H-3 Langsnuit"
+    },
+    "5cb99591156af714": {
+      "name": "Inktkwast"
+    },
+    "88daf38799f67c1b": {
+      "name": "Spettertuit"
+    },
+    "d4b87e1ce44d6598": {
+      "name": "Dynamoroller"
+    },
+    "97976ade5f6d082d": {
+      "name": "Kladderwerper"
+    },
+    "0a115698cc8dc6ca": {
+      "name": "Klotstrommel"
+    },
+    "0811ac580dabb9bd": {
+      "name": "Klodderblaster"
+    },
+    "dcc2f3eb27c24104": {
+      "name": "Spetling"
+    },
+    "d787b110879b0d56": {
+      "name": "E-liter 4K"
+    },
+    "19c90a1562d9878f": {
+      "name": "Morser"
+    },
+    "ffaf97c32fd844f1": {
+      "name": "Kampeerplenzer"
+    },
+    "28ec68160548dcde": {
+      "name": "Lunablaster"
+    },
+    "404be707119ba76e": {
+      "name": "Knalblaster"
+    },
+    "53f75e074a3437ea": {
+      "name": "Dubbelplonzers"
+    },
+    "3fe96aff1432baba": {
+      "name": "Blusling"
+    },
+    "d24eaa4ebe408bfa": {
+      "name": "Quadhoppers Zwart"
+    },
+    "caa7a0e57efa2b9f": {
+      "name": "Flitsblaster"
+    },
+    "354c11e2554de95a": {
+      "name": "Superspetter Pro"
+    },
+    "5cf46dbf5920ce92": {
+      "name": "Octokwast"
+    },
+    "35cac2ee460ca333": {
+      "name": "Klodderroller"
+    },
+    "2ddc299399ca8cda": {
+      "name": "Superspetter"
+    },
+    "09f425cd12f255dd": {
+      "name": "Kelvin 525"
+    },
+    "38f96c2c8c6004be": {
+      "name": "Paraplenzer"
+    },
+    "9d04354f179ebf6f": {
+      "name": "Willekeurig"
+    },
+    "7fcad30c78a42543": {
+      "name": "Blusknallers BW"
+    },
+    "67fb4f2b86efdc62": {
+      "name": "Protoplenzer 24-I"
+    },
+    "124ab41419b0fc67": {
+      "name": "Schrobbehak PM"
+    },
+    "a2f19b4715667fcc": {
+      "name": "Pentapomper"
+    },
+    "b3ab498b8a8a0667": {
+      "name": "N-ZAP '85"
+    },
+    "5463ec85acff180c": {
+      "name": "Klotstrommel"
+    },
+    "b4ebb5629d8c3e5f": {
+      "name": "Paraplenzer"
+    },
+    "535d3c822bba0415": {
+      "name": "Octopoets"
+    },
+    "e60629ecf35192a1": {
+      "name": "Superspetter"
+    },
+    "67b2e7ac4bf64e71": {
+      "name": "Wisserbladzwieper"
+    },
+    "6ede65010706778d": {
+      "name": "Nautilus 47"
+    },
+    "c100f88e8b925e1c": {
+      "name": "Blusling"
+    },
+    "935949ea2945806b": {
+      "name": "Kladderwerper"
+    },
+    "ed647072fa99c73e": {
+      "name": "Spetterspuit"
+    },
+    "09284d9bd3b61ea1": {
+      "name": "Wringmorser"
+    },
+    "dc9f150e86663adb": {
+      "name": "E-liter 4K"
+    },
+    "5567ca94a5374d21": {
+      "name": "Spettertuit"
+    },
+    "895eaa9e4e5b427b": {
+      "name": "Inktkwast"
+    },
+    "e78ca547494ad3c3": {
+      "name": "Carbonroller"
+    },
+    "66cd48f017d3f078": {
+      "name": "Pentapomper"
+    },
+    "513c64dd6cd5e723": {
+      "name": ".52 Kaliter"
+    },
+    "280ed6683d3eb523": {
+      "name": "Floeper"
+    },
+    "de8a2a542dbe6b99": {
+      "name": "S-BLAST '92"
+    },
+    "3aac272457998973": {
+      "name": "Spetling"
+    },
+    "747937841598fff7": {
+      "name": "Willekeurig"
+    },
+    "5e5481f626f02cbf": {
+      "name": "H-3 Langsnuit"
+    },
+    "85c6eda8dffc77a0": {
+      "name": "Superspetter Nova"
+    },
+    "03146bb3dc0defd4": {
+      "name": "Flexroller"
+    },
+    "0578f3b3d9af08ed": {
+      "name": "L-3 Stompsnuit"
+    },
+    "b04c2fbbe1c98e63": {
+      "name": "Breedroller"
+    },
+    "05a0ddd5b919b698": {
+      "name": "Lunablaster"
+    },
+    "cd34251e67bd3f3e": {
+      "name": "Mini-Spetling"
+    },
+    "5c8a27c6818f20e6": {
+      "name": "Bamboem 14-A"
+    },
+    "d39ba7409f6e1fbc": {
+      "name": "Dubbelplonzers"
+    },
+    "23deec47199c37d1": {
+      "name": "Plenzer"
+    },
+    "c95b060287d757a2": {
+      "name": "Stempelzwieper"
+    },
+    "830801a9f4555917": {
+      "name": "Knalblaster"
+    },
+    "342c1b18ce2732ea": {
+      "name": "Kampeerplenzer"
+    },
+    "eb5098db38e209e1": {
+      "name": "Spatkuip"
+    },
+    "3ed1b23808b91e54": {
+      "name": "Dynamoroller"
+    },
+    "2136716c07457658": {
+      "name": "Triospanner"
+    },
+    "c19e07d4db9a4075": {
+      "name": "Kliederkachel"
+    },
+    "885c30f6102de958": {
+      "name": ".96 Kaliter"
+    },
+    "83c543ed4ae19005": {
+      "name": "Dubbelknallers"
+    },
+    "961a7063fc94f087": {
+      "name": "Bloplader"
+    },
+    "01b960996da8ed63": {
+      "name": "Willekeurig"
+    },
+    "914ca6f3cba7aa98": {
+      "name": "Protoplenzer 24-I"
+    },
+    "b5b716854159da15": {
+      "name": "Schrobbehak PM"
+    },
+    "f74d638ac101904e": {
+      "name": "Superspetter Pro"
+    },
+    "884321fa6165eb37": {
+      "name": "Flitsblaster"
+    },
+    "523fca90c5771a63": {
+      "name": "Quadhoppers Zwart"
+    },
+    "79e6297eb501599f": {
+      "name": "Dubbelspatters"
+    },
+    "d22945127fb7584f": {
+      "name": "Schotlood 5H"
+    },
+    "1f7612f08f804c54": {
+      "name": "RIF-LEX 450"
+    },
+    "de148ea51e7c28fa": {
+      "name": "Superspetter jr."
+    },
+    "9e45e49e1e9c4853": {
+      "name": "Straalplonzer"
+    },
+    "439343ee49a5126b": {
+      "name": "Stylospetling"
+    },
+    "b4df43b5b0d90b7a": {
+      "name": "Triomorser"
+    },
+    "17b8d348d6380ae9": {
+      "name": "Spetbuizer"
+    },
+    "7065ab46c609e6d7": {
+      "name": "Blusknallers BW"
+    },
+    "3ab1a91f59f81345": {
+      "name": "Kwistkwast"
+    },
+    "fe3b9b3b87ca491e": {
+      "name": "Morser"
+    },
+    "e115c15c4a20d8ba": {
+      "name": "Klodderroller"
+    },
+    "d9a573867cb6ba9a": {
+      "name": "Examinator"
+    },
+    "183dfb6256c39892": {
+      "name": "Flitsblaster Pro"
+    },
+    "d9632c243eb36d73": {
+      "name": "Octokwast"
+    },
+    "dde2f92988536cd2": {
+      "name": "Klodderblaster"
+    },
+    "3b31490a368e92e1": {
+      "name": "Kelvin 525"
+    },
+    "30f4e84e186e226f": {
+      "name": "Teleblaster"
+    }
+  },
+  "brands": {
+    "QnJhbmQtOA==": {
+      "name": "Splash Mob"
+    },
+    "QnJhbmQtMTk=": {
+      "name": "Barazushi"
+    },
+    "QnJhbmQtMjA=": {
+      "name": "Emberz"
+    },
+    "QnJhbmQtMA==": {
+      "name": "SquidForce"
+    },
+    "QnJhbmQtMw==": {
+      "name": "Rockenberg"
+    },
+    "QnJhbmQtNA==": {
+      "name": "Zekko"
+    },
+    "QnJhbmQtNQ==": {
+      "name": "Forge"
+    },
+    "QnJhbmQtNg==": {
+      "name": "Firefin"
+    },
+    "QnJhbmQtMTE=": {
+      "name": "Takoroka"
+    },
+    "QnJhbmQtMTA=": {
+      "name": "Tentatek"
+    },
+    "QnJhbmQtOQ==": {
+      "name": "Inkline"
+    },
+    "QnJhbmQtMg==": {
+      "name": "Krak-On"
+    },
+    "QnJhbmQtNw==": {
+      "name": "Skalop"
+    },
+    "QnJhbmQtMTc=": {
+      "name": "Toni Kensa"
+    },
+    "QnJhbmQtMQ==": {
+      "name": "Zink"
+    },
+    "QnJhbmQtMTY=": {
+      "name": "Enperry"
+    },
+    "QnJhbmQtMTU=": {
+      "name": "Annaki"
+    },
+    "QnJhbmQtOTg=": {
+      "name": "Kraakwaar"
+    }
+  },
+  "gear": {
+    "1f6189fcaf092a8f": {
+      "name": "Bolhoed"
+    },
+    "81921ab4f3fc42fa": {
+      "name": "Wit overhemd"
+    },
+    "8af6d74efc8ee977": {
+      "name": "Rode klittenbandschoenen"
+    },
+    "e0ef16dcbf779fd8": {
+      "name": "Witte suède sneakers"
+    },
+    "406929c86d7a258e": {
+      "name": "Bessen-BlobMob-T-shirt"
+    },
+    "3dc58146de458313": {
+      "name": "Wit T-shirt"
+    },
+    "c2bb9f1294c295da": {
+      "name": "Motorlaarzen"
+    },
+    "43847b716e0167b8": {
+      "name": "Ovale zonnebril"
+    },
+    "71abfaf22d9b6bbe": {
+      "name": "Motorzonnebril"
+    },
+    "b53bdaf8c13d29f2": {
+      "name": "Slaapmasker"
+    },
+    "174d4dbb6348257b": {
+      "name": "Bolhoed"
+    },
+    "ad7271a600e96517": {
+      "name": "Wit overhemd"
+    },
+    "24232b34f82cb2d3": {
+      "name": "Rode klittenbandschoenen"
+    },
+    "b8fd00bc6b0e03f8": {
+      "name": "Witte suède sneakers"
+    },
+    "aac289491487b78e": {
+      "name": "Bessen-BlobMob-T-shirt"
+    },
+    "42fd0a010e3834d6": {
+      "name": "Wit T-shirt"
+    },
+    "d6ae0f6877fbe8e7": {
+      "name": "Motorlaarzen"
+    },
+    "2e502b645aa81e2c": {
+      "name": "Ovale zonnebril"
+    },
+    "66b70d0194f48051": {
+      "name": "Motorzonnebril"
+    },
+    "2b897acb8435752e": {
+      "name": "Slaapmasker"
+    },
+    "11826a638e557c8c": {
+      "name": "Gestreept matrozen-T-shirt"
+    },
+    "eeea995329a3b65a": {
+      "name": "Duikbril"
+    },
+    "8c2f59eb75da5ece": {
+      "name": "Firefin-bandana"
+    },
+    "5f1f38129dc8708e": {
+      "name": "Reboot-laarzen"
+    },
+    "b4efce44ed819f22": {
+      "name": "Beige retro-T-shirt"
+    },
+    "a8037dfb0ea3cfc9": {
+      "name": "Stiekeme bril"
+    },
+    "c9b62256129de184": {
+      "name": "Beige bergen-T-shirt"
+    },
+    "4402242820b66e9b": {
+      "name": "Sneeuwwitte sandalen"
+    },
+    "9dda2a64daaa651f": {
+      "name": "Borduurwerkoverhemd"
+    },
+    "d4c2c203e5ef0568": {
+      "name": "Ochtendtinten-T-shirt"
+    },
+    "947dcdc899197eb1": {
+      "name": "Zeeoorheadset"
+    },
+    "1bd94af735c58372": {
+      "name": "Gestreepte werkpet"
+    },
+    "643a053973902353": {
+      "name": "Retrokoptelefoon"
+    },
+    "677b0d3b7d27ad00": {
+      "name": "Parelwitte 03ST3Rs"
+    },
+    "5268305e6503989f": {
+      "name": "BlobMob-mondkapje"
+    },
+    "23dfd1075a93a33d": {
+      "name": "Clownsoverhemd"
+    },
+    "324df9a75e061379": {
+      "name": "BlobMob-teenslippers"
+    },
+    "127b76d4323e74bb": {
+      "name": "Wit laagjesshirt"
+    },
+    "b4b3212cb5cd7bae": {
+      "name": "Umibozu-jersey (thuis)"
+    },
+    "784d73e378d54a65": {
+      "name": "Rode hoge sneakers"
+    },
+    "5a2640a1b24f4104": {
+      "name": "Klassieke strohoed"
+    },
+    "913c8abcf3b7f553": {
+      "name": "Instappers met patroon"
+    },
+    "2724594845943e60": {
+      "name": "SquidForce-trui"
+    },
+    "70e9d5e472ac488e": {
+      "name": "Zeepaardjesoverhemd"
+    },
+    "1e8eb9a8cf359ddb": {
+      "name": "Bruine klompen"
+    },
+    "0f9024a487709d60": {
+      "name": "Rode Squidkid IV"
+    },
+    "d8dc38f9cff8a7c0": {
+      "name": "Bril met halve rand"
+    },
+    "536ee3c575414b1c": {
+      "name": "Witte halfrubberen laarzen"
+    },
+    "aa6d34604fc32094": {
+      "name": "Inktvis-Tri-shirt"
+    },
+    "93a1f4889a507aca": {
+      "name": "Hoge zombiesneakers"
+    },
+    "74557810f479b67d": {
+      "name": "Oranje pijlsneakers"
+    },
+    "956b07f16e9239e5": {
+      "name": "Kraakcommando-schild"
+    },
+    "917b0ff5e7deb49d": {
+      "name": "Kensa-jack"
+    },
+    "8cb74f9b9027d2e1": {
+      "name": "Geel laagjesshirt"
+    },
+    "633c2879fd8e03e7": {
+      "name": "Katten-honkbaljack"
+    },
+    "1612c8b009f235b2": {
+      "name": "Dokwerkerspet"
+    },
+    "eb43f28ba5c38ec6": {
+      "name": "Wit T-shirt met V-hals"
+    },
+    "61e8f58a1c752d85": {
+      "name": "Zwart Barazushi-T-shirt"
+    },
+    "81e8fd0b464e2414": {
+      "name": "Zwarte suède sneakers"
+    },
+    "fa6f79b5f26ce405": {
+      "name": "Flanellen Annaki-hoody"
+    },
+    "a50223bf951b4680": {
+      "name": "Visaas-overhemd"
+    },
+    "f7c12d451f1fcd8f": {
+      "name": "Haaienvinsneakers"
+    },
+    "68b8d5cfeb33c744": {
+      "name": "Pijlenlaarsjes"
+    },
+    "ae84b607bf8777f9": {
+      "name": "Rode badslippers"
+    },
+    "2e526124ce7e8f6f": {
+      "name": "Pixelpet"
+    },
+    "b8b4c69bd9db92ef": {
+      "name": "Rood krabbenpantser"
+    },
+    "a7919c8be2a28d62": {
+      "name": "Blauwe Squidkid IV"
+    },
+    "3675b37346898e14": {
+      "name": "King-rugbyshirt 08"
+    },
+    "cdf0aa473ac99c5c": {
+      "name": "Gele orka-sneakers"
+    },
+    "d00e44e66d68e35b": {
+      "name": "Zwart Rockenberg-T-shirt"
+    },
+    "8edd77ea62ba9e9f": {
+      "name": "King-rugbyshirt 10"
+    },
+    "1fec43172d6fa45f": {
+      "name": "Wielertrui"
+    },
+    "f90966ee929161d3": {
+      "name": "Kaki hoge schoenen"
+    },
+    "3156cd52b7438c4a": {
+      "name": "18K aviatorbril"
+    },
+    "007b0011ba440126": {
+      "name": "Wit Rockenberg-T-shirt"
+    },
+    "5f0b0a4b682ede5a": {
+      "name": "Roze plastic sandalen"
+    },
+    "ed2f366255fe2400": {
+      "name": "Groene Hi-Tops"
+    },
+    "1373e5fdef7d81d0": {
+      "name": "Wollen honkbalpet"
+    },
+    "65d7097e248028a8": {
+      "name": "Basketbalshirt (thuis)"
+    },
+    "2f2c0867bcd60fa2": {
+      "name": "Getinte zonnebril"
+    },
+    "dc2d135b5dedc8d0": {
+      "name": "Zekko-honkbalshirt"
+    },
+    "4318b892228fff97": {
+      "name": "Blauwe Lo-Tops"
+    },
+    "b7c5f3453773550b": {
+      "name": "Wasabi-tabisneakers"
+    },
+    "d0aa19a37f3cd296": {
+      "name": "Turquoise sportschoenen"
+    },
+    "8a4df8e058429a82": {
+      "name": "Bruin laagjesshirt"
+    },
+    "db62936fd681df2b": {
+      "name": "Zwart T-shirt"
+    },
+    "41bedd53522bb38d": {
+      "name": "Tafeltennishoofdband"
+    },
+    "b815880233a35cd6": {
+      "name": "Paarse Hi-Tops"
+    },
+    "cfecc281c452aa74": {
+      "name": "Carnavalhallahelm"
+    },
+    "e8ba8734c2ebfa80": {
+      "name": "Zwarte teenslippers"
+    },
+    "f83218ce2928e443": {
+      "name": "Firefin-mondkapje"
+    },
+    "d8398bdfdddfb898": {
+      "name": "Zwart pixel-T-shirt"
+    },
+    "441c1f7903f5412d": {
+      "name": "Bruine werkschoenen"
+    },
+    "c0630f568ecb669c": {
+      "name": "Gezichtsvizier"
+    },
+    "bdbd666af9084dbe": {
+      "name": "Speciale wandelschoenen"
+    },
+    "fbc70cfb825986de": {
+      "name": "Whizzkidhelm"
+    },
+    "81be854769c15200": {
+      "name": "Voltvis-honkbaljack"
+    },
+    "baa3c99301fbf998": {
+      "name": "Tennishoofdband"
+    },
+    "4261e5c7df04b91a": {
+      "name": "Grijze klompen"
+    },
+    "f52b184f2b9aecb1": {
+      "name": "Grijs pijlen-T-shirt"
+    },
+    "b2446e7ab074da26": {
+      "name": "Lila Barazushi-T-shirt"
+    },
+    "2be678af332735c1": {
+      "name": "Takoroka-zonneklep"
+    },
+    "e1acfff65d803f23": {
+      "name": "Retro-Takoroka-jack"
+    },
+    "1f28c536cbdc80c2": {
+      "name": "Wit pixel-T-shirt"
+    },
+    "386fb7e34a2abc2a": {
+      "name": "Witte hoofdband"
+    },
+    "f4d7dfa61cc72a67": {
+      "name": "Ronde bril"
+    },
+    "4c02bd493cf9b01e": {
+      "name": "Rode Hi-Tops"
+    },
+    "7b854854cece266d": {
+      "name": "Bamboehoed"
+    },
+    "de236faed2faac4c": {
+      "name": "Olijfgroen ski-jack"
+    },
+    "1dc35b1abeefcd35": {
+      "name": "Spijkerstofvissershoed"
+    },
+    "ad5679cf966d56d0": {
+      "name": "Witte klittenbandschoenen"
+    },
+    "678373bb7134e71d": {
+      "name": "Roze sportschoenen"
+    },
+    "3c5acd12e6e2d7de": {
+      "name": "Annaki-mondkapje"
+    },
+    "4fea8b21041700fd": {
+      "name": "Grijze hoody"
+    },
+    "2d60b55fc7167d95": {
+      "name": "Donkerbruine bootschoenen"
+    },
+    "e2d69f22cb5653f5": {
+      "name": "Streetstyle-pet"
+    },
+    "110ff0c454074cfa": {
+      "name": "Grijs Barazushi-T-shirt"
+    },
+    "9fa5cc8851fcf88c": {
+      "name": "Honkbalpet"
+    },
+    "0f00a6635aede845": {
+      "name": "IJshockeyhelm"
+    },
+    "f9ffbfce0e2875d0": {
+      "name": "Getinte bril"
+    },
+    "6f2d6bded7e3b5a3": {
+      "name": "Lapjesbomberjack"
+    },
+    "eaff9715e83e69d6": {
+      "name": "Ringer-T-shirt ananas"
+    },
+    "703d46b112a2fb1e": {
+      "name": "Turquoise plastic sandalen"
+    },
+    "4fbc8152a1d9b11c": {
+      "name": "Verscheurd Tri-shirt"
+    },
+    "95a7d0caf568a88b": {
+      "name": "Schelpenhelm"
+    },
+    "a64eaf2183a3df2a": {
+      "name": "Hoekige Annaki-bril"
+    },
+    "2134bc4107ef589f": {
+      "name": "Annaki-mocassins"
+    },
+    "f8d476712897b5ea": {
+      "name": "Logo-overhemd"
+    },
+    "bc5773c0d48ba324": {
+      "name": "Vissershoed"
+    },
+    "4397b925c765efa4": {
+      "name": "Rode parachutistenjas"
+    },
+    "f7360a8678a652e1": {
+      "name": "Matchagroene donsjas"
+    },
+    "e592552a3149cbc2": {
+      "name": "Spetteroverhemd"
+    },
+    "896386102c8cc7c9": {
+      "name": "Zink-laagjesshirt"
+    },
+    "aa220e98e0b8ce4d": {
+      "name": "Groen laagjes-T-shirt"
+    },
+    "72d90ee8f6051b8e": {
+      "name": "Luchtig jack"
+    },
+    "eb19bc1bf079b53e": {
+      "name": "Studiokoptelefoon"
+    },
+    "3a661f31ee2e6ae3": {
+      "name": "Zeekoe-designertrui"
+    },
+    "215ca40180b6f437": {
+      "name": "Firefin-zonneklep"
+    },
+    "39bbd0d9f8a9be1e": {
+      "name": "Wollen muts"
+    },
+    "154047abb13f296a": {
+      "name": "A.L.G. 30XX"
+    },
+    "3165dd0fe53699ed": {
+      "name": "Zwart octopusoog-T-shirt"
+    },
+    "4333c406473ac20d": {
+      "name": "Jachtlaarzen"
+    },
+    "5f3cbcd31423e391": {
+      "name": "Houthakkershemd"
+    },
+    "49df3a5d8d0a99ac": {
+      "name": "Gele badslippers"
+    },
+    "fb978d294c4a18b9": {
+      "name": "Donkere bolero"
+    },
+    "dd87314a71de50ff": {
+      "name": "Forge-mondkapje"
+    },
+    "926ada9976cdae43": {
+      "name": "Pilotenbril"
+    },
+    "97ed5418f991d678": {
+      "name": "Kantoorjungleoverhemd"
+    },
+    "9c3d6d6c10d9d41f": {
+      "name": "Kaki boswachteroverhemd"
+    },
+    "c661525659d90ef4": {
+      "name": "Takoroka-pet"
+    },
+    "dfeb51ebc84513c4": {
+      "name": "Octopus-hawaïhemd"
+    },
+    "67a744219d496350": {
+      "name": "Oranje gespsneakers"
+    },
+    "8be6bc50a7bc8ab5": {
+      "name": "Sneeuwmonsterparka"
+    },
+    "1cf11459184751e4": {
+      "name": "Wandelschoenen"
+    },
+    "df03a24d19aa6f8e": {
+      "name": "Blauw retro-T-shirt"
+    },
+    "8ed3f04671809fb9": {
+      "name": "Haaientrui"
+    },
+    "b192c92961b2adf6": {
+      "name": "Geüpcycled overhemd"
+    },
+    "809e99c2ffa7312a": {
+      "name": "Aalzebub-T-shirt"
+    },
+    "c97a0167cc492b36": {
+      "name": "Oranje plastic sandalen"
+    },
+    "476e9139880248e4": {
+      "name": "Annaki-shirt en choker"
+    },
+    "a4d6ce587f7547b4": {
+      "name": "Blauwe pijlsandalen"
+    },
+    "9aec8fb9cb1ba2b8": {
+      "name": "Zwart bikerjack"
+    },
+    "7df1610b801fb8e5": {
+      "name": "Zwembril"
+    },
+    "fb29dd121ab3b5f2": {
+      "name": "Donker peddeljack"
+    },
+    "3b84e904cd60534c": {
+      "name": "Rode wereldse hoody"
+    },
+    "445ffa87c30bbac0": {
+      "name": "Octo-koptelefoon 8X"
+    },
+    "662beb4fb9ea74f9": {
+      "name": "Zwarte pet met flappen"
+    },
+    "15d0c6619faead78": {
+      "name": "Catcherhelm (thuis)"
+    },
+    "940500ce3bf4cc00": {
+      "name": "Rode turbo-tabisneakers"
+    },
+    "ff8cd1836a1d4fc2": {
+      "name": "Rode basketbalschoenen"
+    },
+    "878e926050e1816b": {
+      "name": "Octopus-Tri-shirt"
+    },
+    "8bf529c3f3753265": {
+      "name": "Zwarte polo"
+    },
+    "e2a0872fdee7a498": {
+      "name": "Designerkoptelefoon"
+    },
+    "95b7d8bd81a014ae": {
+      "name": "Hawaïhemd"
+    },
+    "f2184eafd208d20c": {
+      "name": "Octobowler-hemd"
+    },
+    "ed176e1f5f945985": {
+      "name": "Pilotenhelm"
+    },
+    "4f4fc3a6e642be37": {
+      "name": "Inktvlekhemd"
+    },
+    "77d5515a65d72500": {
+      "name": "Combi-inktopus-Tri-shirt"
+    },
+    "14c7c198c5f1332c": {
+      "name": "Ringer-T-shirt appel"
+    },
+    "580b51c0cb8c045b": {
+      "name": "Beanie"
+    },
+    "eb6566409e55ddad": {
+      "name": "Blauw bergen-T-shirt"
+    },
+    "b4a91c3b5329437c": {
+      "name": "Donkere bomberjas"
+    },
+    "99108a6528e78424": {
+      "name": "Lichtblauw octopusoog-T-shirt"
+    },
+    "94fa81f8a11b0a30": {
+      "name": "Barazushi-anorak"
+    },
+    "6da49b6929c446ee": {
+      "name": "Annaki-baret"
+    },
+    "a085384ce9c3e9ee": {
+      "name": "Annaki-tijgermocassins"
+    },
+    "bd7a4b5395750d95": {
+      "name": "Chocobruine Dakroniks"
+    },
+    "8540e611a17cd249": {
+      "name": "Vuurtinten-T-shirt"
+    },
+    "2f2e954b23c261c7": {
+      "name": "Wielerpetje"
+    },
+    "4301fb8489341eef": {
+      "name": "Octo-helm Deco"
+    },
+    "9b8a23e17b1b5ea3": {
+      "name": "Klassieke bandana"
+    },
+    "d4d0bc79dce60c64": {
+      "name": "Gele klimschoenen"
+    },
+    "591b7bcd94410bf0": {
+      "name": "Lichtgewicht pet"
+    },
+    "a217ef7797136fcb": {
+      "name": "T-shirt"
+    },
+    "29a7def9b876a301": {
+      "name": "Verfmasker"
+    },
+    "e1f937486dd6b7c9": {
+      "name": "Octokings-mondkapje"
+    },
+    "ca976a3bc9cd78b2": {
+      "name": "N-Pacer-sweater"
+    },
+    "972b9fce355daced": {
+      "name": "Rode werkschoenen"
+    },
+    "aa51588a1699ae25": {
+      "name": "Kosmisch Takoroka-shirt"
+    },
+    "38776da1845adf08": {
+      "name": "Kogelvispet"
+    },
+    "68a94c789b4c8b44": {
+      "name": "Rode punkschoenen"
+    },
+    "76f5e76c784b1c50": {
+      "name": "Toni Kensa-zwembril"
+    },
+    "36e84fe6b7608c8c": {
+      "name": "Rood-witte Squidkid V"
+    },
+    "405281a377614420": {
+      "name": "Mountainbikehelm"
+    },
+    "42ea283da9409cdb": {
+      "name": "Zebra-T-shirt"
+    },
+    "3c90c890a335af86": {
+      "name": "Krokodillenmocassins"
+    },
+    "7262e999c5bad9da": {
+      "name": "Geruit hemd met gilet"
+    },
+    "4faf2e67e092b400": {
+      "name": "Doodshoofdbandana"
+    },
+    "c639924b729138ab": {
+      "name": "Blauwe Octo-trui"
+    },
+    "c21aaf1b52292dc7": {
+      "name": "Forge-Inklingparka"
+    },
+    "26136d489a89af87": {
+      "name": "Tulphoed"
+    },
+    "5483b9aa63533859": {
+      "name": "Lichtbruine veldjas"
+    },
+    "dac35d4c46be1969": {
+      "name": "Groene regenlaarzen"
+    },
+    "1c6debb9237e2890": {
+      "name": "Beige toendra-fleecejas"
+    },
+    "94c1e453748a9abe": {
+      "name": "Trui met blauwe manchet"
+    },
+    "95fcba8b9a39cd62": {
+      "name": "Zwarte punkschoenen"
+    },
+    "1f6ddf2cf1d59bae": {
+      "name": "Roetzwarte sandalen"
+    },
+    "69be0ed9f464ea4a": {
+      "name": "Voetbalschoenen"
+    },
+    "c2281bc39bd310d0": {
+      "name": "Retrobril"
+    },
+    "17667e85698763c8": {
+      "name": "Honkbalshirt"
+    },
+    "37b13a41409cd558": {
+      "name": "Howdy-hoed"
+    },
+    "0316c51eca942a1c": {
+      "name": "Annaki-baret met zonnebril"
+    },
+    "b443eba90e562d26": {
+      "name": "Brogues met rode zool"
+    },
+    "7866d2e458dcc9fa": {
+      "name": "Barazushi-shawl"
+    },
+    "a80df2b5cf118944": {
+      "name": "Vriestinten-T-shirt"
+    },
+    "94849c9f9b825920": {
+      "name": "Pijlinktvispet"
+    },
+    "417931be054a0f92": {
+      "name": "SquidForce-mondkapje"
+    },
+    "b867088a8ddb9a80": {
+      "name": "Gespenschoenen"
+    },
+    "6586ab2c5d8cd989": {
+      "name": "Brandweerhelm"
+    },
+    "796fd2d7906261c9": {
+      "name": "Witte plateauschoenen"
+    },
+    "5de5a3a955b0f195": {
+      "name": "Universiteitsjack"
+    },
+    "0bd7ec5e419c3452": {
+      "name": "Denim pet"
+    },
+    "e3a023a3f503e0be": {
+      "name": "Neongroene sportschoenen"
+    },
+    "1d3e46a11ffbec9c": {
+      "name": "Gestreept piraten-T-shirt"
+    },
+    "87aa11437da121f4": {
+      "name": "Transparante sandalen"
+    },
+    "ab11b6ea4ebdade0": {
+      "name": "Donkere gestikte trui"
+    },
+    "99e79d22b382f957": {
+      "name": "Octo-T-shirt"
+    },
+    "f09f6db7abb23197": {
+      "name": "Ronde bril met donker glas"
+    },
+    "5cf438885bf2554f": {
+      "name": "Skateboardhelm"
+    },
+    "9c4320cc4dfec243": {
+      "name": "Neon sandalen"
+    },
+    "a3c11aa2e7cf664c": {
+      "name": "Lakschoenen"
+    },
+    "03ec7a070e37e788": {
+      "name": "Luipaard-T-shirt"
+    },
+    "367af2966d3db91b": {
+      "name": "Blauwe instappers"
+    },
+    "e8158157baabac9d": {
+      "name": "Pijlenlaagjesshirt"
+    },
+    "2e8ef62f986efb1a": {
+      "name": "Witte punkschoenen"
+    },
+    "7e360df7a2031adb": {
+      "name": "Groen vest"
+    },
+    "1424ac52938446da": {
+      "name": "Wittevlekhemd"
+    },
+    "86ed2bb62a052e30": {
+      "name": "Regenboog-Takoroka-shirt"
+    },
+    "3875567d34d4b02e": {
+      "name": "Sneeuwlaarzen"
+    },
+    "0c80632bd1cd6e33": {
+      "name": "Cyberheadset"
+    },
+    "77ec26940c8cb823": {
+      "name": "Annaki-shirt met octologo"
+    },
+    "d53fb73cf3178709": {
+      "name": "Arcadepetje"
+    },
+    "a4be5aeea14fb98e": {
+      "name": "Rood pijlen-T-shirt"
+    },
+    "18eb5bc19afe5630": {
+      "name": "Astrovest"
+    },
+    "2e477937b45b9bf1": {
+      "name": "Tennishoofdband"
+    },
+    "5d2dcaa61161c940": {
+      "name": "Blauw retro-T-shirt"
+    },
+    "386633c7575f5799": {
+      "name": "Wasabi-tabisneakers"
+    },
+    "140bb5be8a10e415": {
+      "name": "Rood pijlen-T-shirt"
+    },
+    "8a06264363dc442e": {
+      "name": "Kraakcommando-schild"
+    },
+    "c6943b3c0624caa6": {
+      "name": "Blauw bergen-T-shirt"
+    },
+    "18ccd9c4c536cfcb": {
+      "name": "Jachtlaarzen"
+    },
+    "a51018edf02ccd2b": {
+      "name": "Annaki-baret"
+    },
+    "9dec389c738b37e0": {
+      "name": "Octokings-mondkapje"
+    },
+    "8a54d8320180ed80": {
+      "name": "Astrovest"
+    },
+    "7c4e57ac7c8125ad": {
+      "name": "Carnavalhallahelm"
+    },
+    "27cde5ac6a27fc42": {
+      "name": "Vriestinten-T-shirt"
+    },
+    "3ae0b8c5b6a9c7d1": {
+      "name": "Oranje gespsneakers"
+    },
+    "205209ff92cf9649": {
+      "name": "Hoekige Annaki-bril"
+    },
+    "b1f0a05a6d48d75f": {
+      "name": "Takoroka-zonneklep"
+    },
+    "0eae7f8f26b324a3": {
+      "name": "Kosmisch Takoroka-shirt"
+    },
+    "d40177e7c95129c4": {
+      "name": "Gele orka-sneakers"
+    },
+    "1db8d62e28e3f777": {
+      "name": "Designerkoptelefoon"
+    },
+    "5e7cf04d1b4ebb65": {
+      "name": "SquidForce-trui"
+    },
+    "c437adc806514b68": {
+      "name": "Toni Kensa-zwembril"
+    },
+    "c7f4f236b1b1acaf": {
+      "name": "Wit laagjesshirt"
+    },
+    "ff07fc7fea090c5d": {
+      "name": "Pijlinktvispet"
+    },
+    "f76a40701374d87f": {
+      "name": "Spetteroverhemd"
+    },
+    "d3aa78342476dabb": {
+      "name": "Parelwitte 03ST3Rs"
+    },
+    "65f2389e2551aa9d": {
+      "name": "Wit overhemd"
+    },
+    "27e59065162c99fd": {
+      "name": "Beige toendra-fleecejas"
+    },
+    "0f0a9dc12a4785e3": {
+      "name": "Spijkerstofvissershoed"
+    },
+    "77a0a7e69e9cb3eb": {
+      "name": "Getinte bril"
+    },
+    "871a7c71df6c0c13": {
+      "name": "Voltvis-honkbaljack"
+    },
+    "8b44b1dce41b50b6": {
+      "name": "SquidForce-mondkapje"
+    },
+    "56268700452c1b25": {
+      "name": "Zwart T-shirt"
+    },
+    "80f6cfc13e62e6be": {
+      "name": "Witte hoofdband"
+    },
+    "b7e40a7b549a79dd": {
+      "name": "Kantoorjungleoverhemd"
+    },
+    "9cea6b281c46f02d": {
+      "name": "Gestreept matrozen-T-shirt"
+    },
+    "ec672b8e3a24967a": {
+      "name": "Oranje pijlsneakers"
+    },
+    "7cf59e349730844e": {
+      "name": "Zwart bikerjack"
+    },
+    "d51664ffba14f9e2": {
+      "name": "Luipaard-T-shirt"
+    },
+    "4ccf03623757040e": {
+      "name": "Octopus-hawaïhemd"
+    },
+    "043c63fb45d5e851": {
+      "name": "18K aviatorbril"
+    },
+    "28ff27092935457f": {
+      "name": "Houthakkershemd"
+    },
+    "c77eecb20c1f5181": {
+      "name": "Motorlaarzen"
+    },
+    "56fd188f51ae97fb": {
+      "name": "Donkerbruine bootschoenen"
+    },
+    "34b422786c86f418": {
+      "name": "Groene regenlaarzen"
+    },
+    "cb0b7ab8e7295dbf": {
+      "name": "Wit pixel-T-shirt"
+    },
+    "e0f4077174545fd4": {
+      "name": "T-shirt"
+    },
+    "31cca66cb8302359": {
+      "name": "Zwarte pet met flappen"
+    },
+    "c21d764e16dbfdec": {
+      "name": "Sneeuwmonsterparka"
+    },
+    "cbefacb0a5df777a": {
+      "name": "Kaki hoge schoenen"
+    },
+    "89a2a0db33110dd2": {
+      "name": "Groene Hi-Tops"
+    },
+    "e083c158245d4c48": {
+      "name": "Haaienmocassins"
+    },
+    "3270135c65096897": {
+      "name": "Krokodillenmocassins"
+    },
+    "d230f1d9b960725d": {
+      "name": "Streetstyle-pet"
+    },
+    "7e8413f7b3cf5ceb": {
+      "name": "Zwarte sneakers"
+    },
+    "616574265163e7e3": {
+      "name": "King-rugbyshirt 08"
+    },
+    "9346b1b98476bbc1": {
+      "name": "Rood-witte Squidkid V"
+    },
+    "847c2657f38e53ef": {
+      "name": "Paars camouflageshirt"
+    },
+    "7b028b5cc1b7867d": {
+      "name": "Kwallenhemd"
+    },
+    "e23a3865c0477fe8": {
+      "name": "Camouflagepet"
+    },
+    "45e49487d33db87f": {
+      "name": "Felgekleurde pijlsneakers"
+    },
+    "c4bba67c76b56fa1": {
+      "name": "Tafeltennishoofdband"
+    },
+    "8a7b18e5ddaae50f": {
+      "name": "Wielertrui"
+    },
+    "ae64690d1dab8d29": {
+      "name": "Paarse Hi-Tops"
+    },
+    "4a6e438cb4859f08": {
+      "name": "SquidForce-shirt"
+    },
+    "698e6beea41bd7f2": {
+      "name": "Umibozu-jersey (thuis)"
+    },
+    "e84215bb7666d575": {
+      "name": "Neongroene sportschoenen"
+    },
+    "c41670529c10fb74": {
+      "name": "Wollen honkbalpet"
+    },
+    "7b9a5f033307914c": {
+      "name": "Lo-Tops SE"
+    },
+    "52618e9157867562": {
+      "name": "Strohoed"
+    },
+    "8ebfc778fd94f761": {
+      "name": "Grijze hoody"
+    },
+    "373e8fe2e4aaef53": {
+      "name": "Wintersportmuts"
+    },
+    "e806e700efbcc80a": {
+      "name": "Witte klittenbandschoenen"
+    },
+    "e9eabd141adca3c8": {
+      "name": "Gasmasker"
+    },
+    "6c75edfc2aec9aff": {
+      "name": "Wielerpetje"
+    },
+    "2e5784eabfaf365a": {
+      "name": "Hemelsblauw T-shirt"
+    },
+    "30b02d8f6e4ba5ce": {
+      "name": "Omgekeerde pet"
+    },
+    "e8c17867f35e97ba": {
+      "name": "Zwarte polo"
+    },
+    "b8d03155b8359cd4": {
+      "name": "Rode regenlaarzen"
+    },
+    "85113506dad12892": {
+      "name": "Roze sportschoenen"
+    },
+    "8bb8e35a0861301b": {
+      "name": "Paarse sportschoenen"
+    },
+    "1bc59e492b8e911b": {
+      "name": "Wit T-shirt"
+    },
+    "a21a2cbeefca9a17": {
+      "name": "Catcherhelm (thuis)"
+    },
+    "21121bbf04be0ce6": {
+      "name": "Brogues met rode zool"
+    },
+    "32fb257fbc67458c": {
+      "name": "Octobril"
+    },
+    "9e941af8fd7f3a65": {
+      "name": "Rode badslippers"
+    },
+    "754cbff89db13c07": {
+      "name": "Grijze universiteitstrui"
+    },
+    "3223d4cf801cf75e": {
+      "name": "Rode punkschoenen"
+    },
+    "15986ad4b8822172": {
+      "name": "Jet-pet"
+    },
+    "30b54946c324ee87": {
+      "name": "Studiokoptelefoon"
+    },
+    "be93570b3dfcda47": {
+      "name": "Honkbalshirt met lange mouwen"
+    },
+    "e6b1d38ede3aa7d6": {
+      "name": "Retrobril"
+    },
+    "a92b28638f891fd9": {
+      "name": "Gestreept piraten-T-shirt"
+    },
+    "a333316891127558": {
+      "name": "Rode klittenbandschoenen"
+    },
+    "cbf435379fe95dff": {
+      "name": "Rode Hi-Tops"
+    },
+    "541a455fbe3a624a": {
+      "name": "Zwart Rockenberg-T-shirt"
+    },
+    "dcb9dbc4b13d272a": {
+      "name": "Zeekoe-designertrui"
+    },
+    "cab0f186ad1322fa": {
+      "name": "Speciale wandelschoenen"
+    },
+    "7715c2bcc13a974e": {
+      "name": "Oranje Lo-Tops"
+    },
+    "b9cbb286c50180de": {
+      "name": "Grijze klompen"
+    },
+    "b9072da6fffeb4db": {
+      "name": "Stiekeme bril"
+    },
+    "49c4378193f79511": {
+      "name": "Lichtbruine veldjas"
+    },
+    "a01cfea15f866ef4": {
+      "name": "Blauwe pijlsandalen"
+    },
+    "4db166f77d487365": {
+      "name": "Groen vest"
+    },
+    "2667f143da0e2bd4": {
+      "name": "Wit bikerjack"
+    },
+    "ace43854cbc4c9f9": {
+      "name": "Transparante sandalen"
+    },
+    "d45bcfa397aec03c": {
+      "name": "Sneeuwlaarzen"
+    },
+    "804b511b4d2053d0": {
+      "name": "Duikbril"
+    },
+    "b6d4e4220aa18f5f": {
+      "name": "Wit matrozenshirt"
+    },
+    "9d3c5380b5ca659e": {
+      "name": "Zeeoorheadset"
+    },
+    "d0b16b85d6dc11ca": {
+      "name": "A.L.G. 30XX"
+    },
+    "bd7d231965eefb39": {
+      "name": "Universiteitsjack"
+    },
+    "da568279ee87fafa": {
+      "name": "Avonturiershelm"
+    },
+    "e8cbe3c7f691dadc": {
+      "name": "Anemoonvissneakers"
+    },
+    "c71f63b8ad569ac4": {
+      "name": "Retrokoptelefoon"
+    },
+    "be9ae82550da96a3": {
+      "name": "Annaki-baret met zonnebril"
+    },
+    "3528e2b33fb9474a": {
+      "name": "Flanellen Annaki-hoody"
+    },
+    "e87cc4250b483a12": {
+      "name": "Annaki-mocassins"
+    },
+    "c7cdb065c09f67a4": {
+      "name": "Pijlenlaagjesshirt"
+    },
+    "4ed3a76fa6dfb413": {
+      "name": "Firefin-mondkapje"
+    },
+    "5db0e9f8bd1dff6a": {
+      "name": "Gele punkschoenen"
+    },
+    "9e41a2025ac3bccd": {
+      "name": "Zwart octopusoog-T-shirt"
+    },
+    "cac6c7a04df6f1fa": {
+      "name": "Gestreepte werkpet"
+    },
+    "a78a614805f7a641": {
+      "name": "Hemd met sterrengilet"
+    },
+    "5aa899466fa9ddc9": {
+      "name": "Blauwe Octo-trui"
+    },
+    "84dc6deb53cc912d": {
+      "name": "Groen laagjes-T-shirt"
+    },
+    "8d93a94ab2bdb735": {
+      "name": "Squashhoofdband"
+    },
+    "e7ebb9753dfbdcc8": {
+      "name": "Bergkoningpetje"
+    },
+    "5633908a845e4e7c": {
+      "name": "Lichtblauw octopusoog-T-shirt"
+    },
+    "c4093a765f80e764": {
+      "name": "Rode sportschoenen"
+    },
+    "aa7ea4b2b45eae59": {
+      "name": "Camouflagehoed"
+    },
+    "dc2e86e88752af50": {
+      "name": "Haaientrui"
+    },
+    "4823fbbefd97ec52": {
+      "name": "Donkere gestikte trui"
+    },
+    "26d9563c7966ad10": {
+      "name": "Pet met dubbele streep"
+    },
+    "ab1ceac8d4b32ee8": {
+      "name": "Honkbalshirt"
+    },
+    "7725ed498aefb0e5": {
+      "name": "Katten-honkbaljack"
+    },
+    "324a1892277505c4": {
+      "name": "Gele sneakers"
+    },
+    "e9887854adfe42f4": {
+      "name": "Donkere bolero"
+    },
+    "fa42c0f96a64140a": {
+      "name": "Pijlenlaarsjes"
+    },
+    "b35955d7b890005d": {
+      "name": "Blauwe sportschoenen"
+    },
+    "23f2126b48533e18": {
+      "name": "Octobowler-hemd"
+    },
+    "151deacf70ff815c": {
+      "name": "Roze plastic sandalen"
+    },
+    "7de63a6ea3188e45": {
+      "name": "Rode turbo-tabisneakers"
+    },
+    "f2a97473b7ff4994": {
+      "name": "Wit Rockenberg-T-shirt"
+    },
+    "eeb7f851d6d03a1c": {
+      "name": "FC Barracuda-shirt"
+    },
+    "f49599b4fce20615": {
+      "name": "Reboot-laarzen"
+    },
+    "dec2087ca8cb0bfc": {
+      "name": "Fietshelm"
+    },
+    "11b5ac727232c981": {
+      "name": "Gespenschoenen"
+    },
+    "aeaac39e2dc204f3": {
+      "name": "Borduurwerkoverhemd"
+    },
+    "0ec5cbbcd16bfe95": {
+      "name": "Rode hoge sneakers"
+    },
+    "43b1330110d98b43": {
+      "name": "Skateboardhelm met klep"
+    },
+    "0cb3ba242150ff62": {
+      "name": "Pixelpet"
+    },
+    "22b36194c34496c8": {
+      "name": "Vissershoed"
+    },
+    "ef331a7388c97a29": {
+      "name": "Voetbalhoofdband"
+    },
+    "1a34c66ac04618f2": {
+      "name": "Reggae-T-shirt"
+    },
+    "5c6f69c9b678391a": {
+      "name": "Zekko-pet"
+    },
+    "53342e08f018501c": {
+      "name": "Rood ruitjeshemd"
+    },
+    "22b42ad62ddcd07a": {
+      "name": "Bergkoningtrui"
+    },
+    "b385c1e1cb26d5ed": {
+      "name": "Aalzebub-T-shirt"
+    },
+    "60ca4729e3f15d1e": {
+      "name": "Wollen muts"
+    },
+    "21f40c5b5e0944c9": {
+      "name": "Blauwe instappers"
+    },
+    "15cc79efd51771b5": {
+      "name": "Neon sandalen"
+    },
+    "a37864e4d90d134b": {
+      "name": "Basketbalhoofdband"
+    },
+    "010738818c392695": {
+      "name": "N-Pacer-sweater"
+    },
+    "4a2353a1575a8290": {
+      "name": "Commandobaret"
+    },
+    "b2ad2d5ea085054d": {
+      "name": "Combi-inktopus-Tri-shirt"
+    },
+    "e310c94042779445": {
+      "name": "Rode basketbalschoenen"
+    },
+    "52a43aa594631dac": {
+      "name": "Zwembril"
+    },
+    "5875ae7d9d7b9bc9": {
+      "name": "Rodeohemd"
+    },
+    "5ac23847a7403f5f": {
+      "name": "Witte bril met sportband"
+    },
+    "a8798b39bbe60dc9": {
+      "name": "Zekko-hoody"
+    },
+    "2f6897d5337ef3c7": {
+      "name": "Blauwe Lo-Tops"
+    },
+    "670ca2ce87b93517": {
+      "name": "Vuurtinten-T-shirt"
+    },
+    "014836c7ad07a8a0": {
+      "name": "Ansjovis United-shirt"
+    },
+    "7977b53f60122aa5": {
+      "name": "Luchtig jack"
+    },
+    "b3b468c4167d50c9": {
+      "name": "Octopus-Tri-shirt"
+    },
+    "c1fb87d0986b3110": {
+      "name": "Motorzonnebril"
+    },
+    "7deaf3ffc38d6e26": {
+      "name": "Barazushi-shawl"
+    },
+    "c1e95c3e79957842": {
+      "name": "Witte suède sneakers"
+    },
+    "e0db7f21921c8896": {
+      "name": "Bril met halve rand"
+    },
+    "663d2d0d77d19f7a": {
+      "name": "Kaki boswachteroverhemd"
+    },
+    "5ef885ea53ba7623": {
+      "name": "Schelpenhelm"
+    },
+    "feefadef9c6913ca": {
+      "name": "Rode wereldse hoody"
+    },
+    "8704ea9cb1b02be6": {
+      "name": "Turquoise plastic sandalen"
+    },
+    "481c98f17ad59d5a": {
+      "name": "Haaienvinsneakers"
+    },
+    "a029e2ef214c22fe": {
+      "name": "Basketbalshirt (uit)"
+    },
+    "ad006f42035ebcb4": {
+      "name": "Lichtgewicht pet"
+    },
+    "48e546f1426ac978": {
+      "name": "Fuchsia-ski-jack"
+    },
+    "2282d3ec5c8051f0": {
+      "name": "Wandelschoenen"
+    },
+    "071368490f760424": {
+      "name": "Donker peddeljack"
+    },
+    "412636790b35a65c": {
+      "name": "Voetbalschoenen"
+    },
+    "596fa31adf4aa87a": {
+      "name": "Sportjack"
+    },
+    "82f87be2c3a9473c": {
+      "name": "Blauw matrozenshirt"
+    },
+    "2c518328e23b6c3b": {
+      "name": "Zwart Barazushi-T-shirt"
+    },
+    "e73c1d9a445cda99": {
+      "name": "Linnen overhemd"
+    },
+    "10ab2df57e67ba18": {
+      "name": "Diepzeeduikhelm"
+    },
+    "29f17fd823703a0f": {
+      "name": "Zeepaardjesoverhemd"
+    },
+    "35ffc82643c8e185": {
+      "name": "Paars overhemd"
+    },
+    "f83c3e0b0e67da46": {
+      "name": "BlobMob-teenslippers"
+    },
+    "2b091623c0a70815": {
+      "name": "Rode parachutistenjas"
+    },
+    "2611e40d7416a442": {
+      "name": "Zwart pixel-T-shirt"
+    },
+    "3e202b6ce2a582f1": {
+      "name": "Ronde bril"
+    },
+    "330aacc363e5845e": {
+      "name": "Crèmekleurige Hi-Tops"
+    },
+    "9d9836d97fda8ac7": {
+      "name": "Octo-T-shirt"
+    },
+    "72a39ca7750ebc9a": {
+      "name": "Annaki-mondkapje"
+    },
+    "1653c4bd81c1fca0": {
+      "name": "Bobbelmuts"
+    },
+    "8f2be32a75ddae98": {
+      "name": "Annaki-shirt en choker"
+    },
+    "e6e15e567a79ecad": {
+      "name": "Geüpcycled overhemd"
+    },
+    "13247e74e366ad11": {
+      "name": "Regenboog-Takoroka-shirt"
+    },
+    "7244bbb6fa6dd60c": {
+      "name": "Rood krabbenpantser"
+    },
+    "d3e8ec173f27043d": {
+      "name": "Driekleurig rugbyshirt"
+    },
+    "5be2787b792c09bb": {
+      "name": "Howdy-hoed"
+    },
+    "87b6100f3777fe50": {
+      "name": "Wit honkbalshirt"
+    },
+    "feb663db4af39d2d": {
+      "name": "Bruine werkschoenen"
+    },
+    "6531683ab4673e80": {
+      "name": "Chocobruine Dakroniks"
+    },
+    "b1602fce67fb450e": {
+      "name": "Kantooroverhemd"
+    },
+    "7121355fe5d80761": {
+      "name": "King-rugbyshirt 10"
+    },
+    "2ff1222353bca464": {
+      "name": "Blauwe Squidkid IV"
+    },
+    "f870b775538d7bda": {
+      "name": "Bolhoed"
+    },
+    "9cf4622ca7ce7e55": {
+      "name": "Beige bergen-T-shirt"
+    },
+    "e2aff5329f12f6c0": {
+      "name": "Snorkel"
+    },
+    "5ef6db896d91815e": {
+      "name": "Takoroka-pet"
+    },
+    "b230bdd781e25f18": {
+      "name": "Bruin laagjesshirt"
+    },
+    "26bde4f6c5b85ed2": {
+      "name": "Geel laagjesshirt"
+    },
+    "8e1ef333aba79d20": {
+      "name": "Arcadepetje"
+    },
+    "0b7dde5389d0ee8b": {
+      "name": "Logo-overhemd"
+    },
+    "b9b4cb55323a7527": {
+      "name": "Zwarte teenslippers"
+    },
+    "59522e8c6e0c07d6": {
+      "name": "Zwarte sportschoenen"
+    },
+    "f96b3d08eb0694a1": {
+      "name": "Basketbalshirt (thuis)"
+    },
+    "058141cd5b316d2f": {
+      "name": "Oranje plastic sandalen"
+    },
+    "d34760401e956f50": {
+      "name": "Dokwerkerspet"
+    },
+    "f7eaa5e5ba5a13b7": {
+      "name": "Grijs Barazushi-T-shirt"
+    },
+    "0d687aec1c2a6479": {
+      "name": "Groen ruitjeshemd"
+    },
+    "1436f36ed60576f8": {
+      "name": "Rode Squidkid IV"
+    },
+    "1dcd176bcc8a9a81": {
+      "name": "Matchagroene donsjas"
+    },
+    "e8114c9ecd6ac82a": {
+      "name": "Retrotrui"
+    },
+    "6ee344613c5c028e": {
+      "name": "Verfmasker"
+    },
+    "52808e2a2d63e506": {
+      "name": "Forge-mondkapje"
+    },
+    "05f55d34f1214a58": {
+      "name": "Ankertrui"
+    },
+    "d775d09a4140449f": {
+      "name": "Gestreept rugbyshirt"
+    },
+    "39bcec4d0355d54a": {
+      "name": "Barazushi-anorak"
+    },
+    "7ed4455ab20f5eae": {
+      "name": "Haaktrui"
+    },
+    "0251669c9a2a4b5e": {
+      "name": "Olijfgroen ski-jack"
+    },
+    "5c7a84791c254160": {
+      "name": "Blauw streepjesshirt"
+    },
+    "4b8cb6a0fe561b78": {
+      "name": "Ankerlaagjesshirt"
+    },
+    "e827b09ca8ef70b4": {
+      "name": "Gele badslippers"
+    },
+    "55ccbc201e874773": {
+      "name": "Groene hoody"
+    },
+    "e989c1d6fbf8793d": {
+      "name": "Pilotenbril"
+    },
+    "96d5af4512d5ae03": {
+      "name": "Zwart anker-T-shirt"
+    },
+    "ad08c74748807719": {
+      "name": "Zwart shirt"
+    },
+    "b460886d43061423": {
+      "name": "Witte punkschoenen"
+    },
+    "52c409d170293a57": {
+      "name": "Turquoise sportschoenen"
+    },
+    "63d8eaa93e3fc816": {
+      "name": "Wit streepjesshirt"
+    },
+    "79cac08df90185e7": {
+      "name": "Firefin-zonneklep"
+    },
+    "7f2c6e310407338f": {
+      "name": "BlobMob-mondkapje"
+    },
+    "2e7f830522350b1e": {
+      "name": "Octo-koptelefoon 8X"
+    },
+    "172290d83938d008": {
+      "name": "Tulphoed"
+    },
+    "ad48083990ed95aa": {
+      "name": "Honkbalpet"
+    },
+    "9157ea3a67f9fac5": {
+      "name": "Gezichtsvizier"
+    },
+    "bdd419c8c5293d6e": {
+      "name": "Zink-laagjesshirt"
+    },
+    "d4c18fe2dd802194": {
+      "name": "Universiteitshonkbalshirt"
+    },
+    "4acbce907f616512": {
+      "name": "Blauwe universiteitstrui"
+    },
+    "d0b621ef1d45f241": {
+      "name": "Ronde bril met donker glas"
+    },
+    "7e300376c8890289": {
+      "name": "Witte plateauschoenen"
+    },
+    "a055f015e95f240e": {
+      "name": "Ouderwets ruitjeshemd"
+    },
+    "fbef99853ff68885": {
+      "name": "Zonneklep"
+    },
+    "31ea6a3eea5e21f0": {
+      "name": "Lapjesbomberjack"
+    },
+    "9816563e1a920b12": {
+      "name": "Speciale editie voetbalschoenen"
+    },
+    "d947da422eddbbef": {
+      "name": "Forge-Octarianenparka"
+    },
+    "841935d5b21844f4": {
+      "name": "Paintballmasker"
+    },
+    "7f3e6124903c83f1": {
+      "name": "IJshockeyhelm"
+    },
+    "fac3e478c9f3f182": {
+      "name": "Ochtendtinten-T-shirt"
+    },
+    "01b1662df8836f48": {
+      "name": "Wit shirt"
+    },
+    "85e9989386171c1f": {
+      "name": "Zwarte suède sneakers"
+    },
+    "2fbabdc653413803": {
+      "name": "Ringer-T-shirt ananas"
+    },
+    "357263d4f91f363e": {
+      "name": "Mountainbikehelm"
+    },
+    "bb6d68f21888cbfa": {
+      "name": "Wittevlekhemd"
+    },
+    "bd7c6a8f0191ed38": {
+      "name": "Skateboardhelm"
+    },
+    "52e9806c34abb0b0": {
+      "name": "Commandantentuniek"
+    },
+    "162f1b11ca51e2fd": {
+      "name": "Bamboehoed"
+    },
+    "36a5806084910ef4": {
+      "name": "Blauw Firefin-sweatshirt"
+    },
+    "03d8d2955078ee57": {
+      "name": "T-shirt met inktvispatroon"
+    },
+    "4eb117d3a5aa5455": {
+      "name": "Golfpetje"
+    },
+    "e42387337f76faf6": {
+      "name": "Gele bodywarmer"
+    },
+    "3125b00f7fd15cad": {
+      "name": "Zonnig T-shirt"
+    },
+    "aa16c23045178494": {
+      "name": "Donkere bomberjas"
+    },
+    "fb19bfd12b79e32d": {
+      "name": "Gele klimschoenen"
+    },
+    "c1cdbefa0d3d2f70": {
+      "name": "Denim pet"
+    },
+    "834b9f01cf020eb7": {
+      "name": "Grijs overhemd"
+    },
+    "cd97547e9c6a599a": {
+      "name": "Berg-bodywarmer"
+    },
+    "caf2aa40d9aec693": {
+      "name": "Klassieke schoenen"
+    },
+    "4a90769cb6dd4986": {
+      "name": "Licht Annaki-T-shirt"
+    },
+    "88416ed7bd575c5f": {
+      "name": "Wit T-shirt met V-hals"
+    },
+    "b10618ef7470423a": {
+      "name": "Trui met blauwe manchet"
+    },
+    "aced009ff69cddcb": {
+      "name": "Clownsoverhemd"
+    },
+    "e3253efb57c5b7b4": {
+      "name": "Avondtinten-T-shirt"
+    },
+    "f9fc2fd370f27f0f": {
+      "name": "Lila Barazushi-T-shirt"
+    },
+    "441fc9c609fb78db": {
+      "name": "Blauwe motorlaarzen"
+    },
+    "72107d39c7bcdded": {
+      "name": "Instappers met patroon"
+    },
+    "93707121f776c182": {
+      "name": "Rode instappers"
+    },
+    "1989f89bb3683c76": {
+      "name": "Safarihoed"
+    },
+    "0f6542c7bce6a1bc": {
+      "name": "Sportieve bobbelmuts"
+    },
+    "d76287251a1e80d6": {
+      "name": "Zwarte bril met sportband"
+    },
+    "8213bcccf19e57af": {
+      "name": "Zink-shirt"
+    },
+    "d9943c007083e6f7": {
+      "name": "Gestreept overhemd"
+    },
+    "221d0311cd12d185": {
+      "name": "Witte halfrubberen laarzen"
+    },
+    "f2575241e38df613": {
+      "name": "Zwart laagjesshirt"
+    },
+    "d945e6abb1a996a1": {
+      "name": "Zeegroen T-shirt"
+    },
+    "8031db4a158a3989": {
+      "name": "Klassieke bandana"
+    },
+    "533d8059221cc2b4": {
+      "name": "Beige retro-T-shirt"
+    },
+    "dc83c3421324afe6": {
+      "name": "Beanie"
+    },
+    "ce0e032a9b4af85d": {
+      "name": "Groen streepjesshirt"
+    },
+    "9dff73f3667fdcb6": {
+      "name": "Gestreepte beanie"
+    },
+    "42ab92eaf82e62c2": {
+      "name": "Witte sneakers"
+    },
+    "5cda8399729f1da0": {
+      "name": "Zwarte punkschoenen"
+    },
+    "4da9a3e38eacbe7e": {
+      "name": "Hawaïhemd"
+    },
+    "32cd97b7e0986fac": {
+      "name": "Annaki-shirt met octologo"
+    },
+    "0d3ee1609e03de03": {
+      "name": "Annaki-tijgermocassins"
+    },
+    "27b32d23702d94c3": {
+      "name": "Piratenlaagjesshirt"
+    },
+    "a36e93fc754b5976": {
+      "name": "Hoge zombiesneakers"
+    },
+    "c8666480bf24eb6d": {
+      "name": "Firefin-bandana"
+    },
+    "53af593f14387630": {
+      "name": "Zebra-T-shirt"
+    },
+    "0fb0286fad46c510": {
+      "name": "Campinghoed"
+    },
+    "441a9f62090040d4": {
+      "name": "Bruine klompen"
+    },
+    "2691ff00a9194f98": {
+      "name": "Turquoise plateauschoenen"
+    },
+    "b4efe275a0125131": {
+      "name": "Gestreept bergen-shirt"
+    },
+    "181f44dc42cbf585": {
+      "name": "Retrojack"
+    },
+    "59792e4065882111": {
+      "name": "Inktvlekhemd"
+    },
+    "9054693c3406b3b6": {
+      "name": "Commandantenmuts"
+    },
+    "6edabb924ca30eba": {
+      "name": "Ringer-T-shirt appel"
+    },
+    "b0cdccea20fe9e90": {
+      "name": "Gouden Hi-Tops"
+    },
+    "213291c16e6652c8": {
+      "name": "Gekleurde contactlenzen"
+    },
+    "935b340da97b0b66": {
+      "name": "Grijs pijlen-T-shirt"
+    },
+    "1de5be8ab33dceac": {
+      "name": "Nachtkijker"
+    },
+    "937c341f17e5a9c1": {
+      "name": "Bananensneakers"
+    },
+    "f2188922df753fe4": {
+      "name": "Grasgroene polo"
+    },
+    "ff76780318953100": {
+      "name": "Jogginghoofdband"
+    },
+    "6cdfd6177ee63ef1": {
+      "name": "Lakschoenen"
+    },
+    "cdcc3d261b2c1828": {
+      "name": "Rode plateauschoenen"
+    },
+    "5bf6555d90b4df74": {
+      "name": "Kensa-jack"
+    },
+    "46820b5e398d1e36": {
+      "name": "Visaas-overhemd"
+    },
+    "4d4bb2908b58e139": {
+      "name": "Roetzwarte sandalen"
+    },
+    "763d513ccca9bf8b": {
+      "name": "Inktvis-Tri-shirt"
+    },
+    "3979fa46ebaba2a7": {
+      "name": "Schelpenbamboehoed"
+    },
+    "b0870bfc3eb49fe3": {
+      "name": "Stadsjungle-bodywarmer"
+    },
+    "6ec52267789770f5": {
+      "name": "Professionele wandelschoenen"
+    },
+    "998629eaaa157867": {
+      "name": "5-panelenpet"
+    },
+    "b7f3e26f8a1544f7": {
+      "name": "Verkenningsvizier"
+    },
+    "16741989f7bc5677": {
+      "name": "Oorbeschermers"
+    },
+    "99d22d0532addd41": {
+      "name": "Getinte zonnebril"
+    },
+    "99214ef4b56ffb20": {
+      "name": "Geruit hemd met gilet"
+    },
+    "f672fb25d7248ff7": {
+      "name": "Camouflagelaagjesshirt"
+    },
+    "f5ca1c29b2047ef3": {
+      "name": "Paarse veterschoenen"
+    },
+    "8ab19ce5633846f9": {
+      "name": "Forge-Inklingparka"
+    },
+    "5c0fc4542d1da5a4": {
+      "name": "Doo-rag, pet en bril"
+    },
+    "c4dbb5fea439175e": {
+      "name": "Witte pijlsneakers"
+    },
+    "cc775dc2ff3964f8": {
+      "name": "Parel-T-shirt"
+    },
+    "cf955552672b674c": {
+      "name": "Camouflagelaarzen"
+    },
+    "e61bde3181df8c7a": {
+      "name": "Camouflagehoody"
+    },
+    "d79e64ab5db14090": {
+      "name": "Sneeuwwitte sandalen"
+    },
+    "af8660445814e2b3": {
+      "name": "Rode werkschoenen"
+    },
+    "a7a660bef9c79e3b": {
+      "name": "Blauwe veterschoenen"
+    },
+    "6eea9c713727092b": {
+      "name": "Oranje vest"
+    },
+    "b63342280edf91b5": {
+      "name": "Gestipte regenlaarzen"
+    },
+    "acabf9ac54637182": {
+      "name": "Bos-bodywarmer"
+    },
+    "de48557eac2da8a6": {
+      "name": "Paars T-shirt"
+    },
+    "0f3ac8b716be26ab": {
+      "name": "Retrofuturistisch pak"
+    },
+    "301a85fdbe03289b": {
+      "name": "Krak-On 528"
+    },
+    "5078ec81ed6efea7": {
+      "name": "Klassieke strohoed"
+    },
+    "c2e392f6ed4cb720": {
+      "name": "Retro-Takoroka-jack"
+    },
+    "d4e2330204850d48": {
+      "name": "Octo-helm Deco"
+    },
+    "46f23bcca7707183": {
+      "name": "Zekko-honkbalshirt"
+    },
+    "e9859aa4fe3f0d1c": {
+      "name": "Zalmroze polo"
+    },
+    "41f0e7ec75716ddc": {
+      "name": "Takoroka-zonneklep"
+    },
+    "5b0557344cd36425": {
+      "name": "FC Barracuda-shirt"
+    },
+    "873bfeba1b933f45": {
+      "name": "Speciale editie voetbalschoenen"
+    },
+    "32e5708015b6270b": {
+      "name": "Donkere bomberjas"
+    },
+    "022bf421f1783138": {
+      "name": "Gestreepte beanie"
+    },
+    "bcb5b728741af87b": {
+      "name": "Howdy-hoed"
+    },
+    "54fafa40a7cd9067": {
+      "name": "Turquoise plastic sandalen"
+    },
+    "165cd977ff77a706": {
+      "name": "Nachtkijker"
+    },
+    "b536f417bf39ed0a": {
+      "name": "Ochtendtinten-T-shirt"
+    },
+    "e4c369d93032f229": {
+      "name": "Retrofuturistisch pak"
+    },
+    "14fb4312bf1faea2": {
+      "name": "Gestreepte werkpet"
+    },
+    "7f239deca08e5284": {
+      "name": "Flanellen Annaki-hoody"
+    },
+    "671364cfc53ad0f3": {
+      "name": "Zonneklep"
+    },
+    "1dfe5eb961eb0076": {
+      "name": "SquidForce-trui"
+    },
+    "2f6388b4c18402f3": {
+      "name": "Zwarte sportschoenen"
+    },
+    "f67cd7c6f0d19029": {
+      "name": "Snorkel"
+    },
+    "9e15c0322eb85f1a": {
+      "name": "Wit matrozenshirt"
+    },
+    "f37c08c1d2550601": {
+      "name": "Octo-helm Deco"
+    },
+    "107192b2e9272b68": {
+      "name": "Arcadepetje"
+    },
+    "de43e2f6b530fd2d": {
+      "name": "Jogginghoofdband"
+    },
+    "bea92dbf4d62aa90": {
+      "name": "Paarse veterschoenen"
+    },
+    "230cc3b55472beac": {
+      "name": "Lila Barazushi-T-shirt"
+    },
+    "639d7496f4b7af1d": {
+      "name": "Piratenlaagjesshirt"
+    },
+    "c36f631780c921cf": {
+      "name": "Lakschoenen"
+    },
+    "0f459e011b7bb002": {
+      "name": "Camouflagepet"
+    },
+    "f21f24964aaa7066": {
+      "name": "Honkbalshirt met lange mouwen"
+    },
+    "d86aad39599f4065": {
+      "name": "Rode badslippers"
+    },
+    "f48dd410da86210a": {
+      "name": "Rode basketbalschoenen"
+    },
+    "020cbdc9af5e3e45": {
+      "name": "Retrofuturistische helm"
+    },
+    "64aab49611fc93c4": {
+      "name": "Kogelvispet"
+    },
+    "b33d67ba5b4ab31a": {
+      "name": "Wollen honkbalpet"
+    },
+    "6a40a878005661b0": {
+      "name": "Rode hoge sneakers"
+    },
+    "b661146512d1322e": {
+      "name": "Oranje Lo-Tops"
+    },
+    "97c2fdf4bd9bb222": {
+      "name": "Forge-mondkapje"
+    },
+    "6de4a18c353d37a7": {
+      "name": "Motorzonnebril"
+    },
+    "5dd8bdfbbe7e54e2": {
+      "name": "Zwart Barazushi-T-shirt"
+    },
+    "b3df787b7d14accd": {
+      "name": "Witte suède sneakers"
+    },
+    "4f451de9164badf0": {
+      "name": "Barazushi-shawl"
+    },
+    "f0e91a90325c86a2": {
+      "name": "Haaktrui"
+    },
+    "610a421d2a949858": {
+      "name": "Kantooroverhemd"
+    },
+    "34db0a16d0ceb43d": {
+      "name": "Blauwe Squidkid IV"
+    },
+    "a3eaa9fe5d855f41": {
+      "name": "Beige retro-T-shirt"
+    },
+    "ccd632c76a0dfcdc": {
+      "name": "Logo-overhemd"
+    },
+    "644f56276a3130f2": {
+      "name": "Getinte bril"
+    },
+    "5b4fa9031de89d0c": {
+      "name": "Bessen-BlobMob-T-shirt"
+    },
+    "6f907830cc4a8d57": {
+      "name": "Haaienvinsneakers"
+    },
+    "464b98ee7b3b1826": {
+      "name": "Zeegroen T-shirt"
+    },
+    "c5e7e526d4122983": {
+      "name": "Rode Hi-Tops"
+    },
+    "3500f899eb166d10": {
+      "name": "Zwart pixel-T-shirt"
+    },
+    "b73fd0f89c6bd0b6": {
+      "name": "Ankertrui"
+    },
+    "14d5b8fddc16926c": {
+      "name": "Roze plastic sandalen"
+    },
+    "845b316cccec990e": {
+      "name": "Rode wereldse hoody"
+    },
+    "22b8f34808bd3a1d": {
+      "name": "Gezichtsvizier"
+    },
+    "53815ad9370322db": {
+      "name": "Spetteroverhemd"
+    },
+    "bb714e704b3d3ff3": {
+      "name": "Parelwitte 03ST3Rs"
+    },
+    "39b74c520098b6c0": {
+      "name": "Klassieke schoenen"
+    },
+    "166ae313ef584d58": {
+      "name": "Bruine klompen"
+    },
+    "4e58107a7e152733": {
+      "name": "Groene regenlaarzen"
+    },
+    "58cf4382b2ccac9e": {
+      "name": "Doo-rag, pet en bril"
+    },
+    "dd0651ac758f0e0c": {
+      "name": "Octobowler-hemd"
+    },
+    "032291744634a68e": {
+      "name": "Anemoonvissneakers"
+    },
+    "ff06f3e0350b7d42": {
+      "name": "Borduurwerkoverhemd"
+    },
+    "f05978d794e9dbed": {
+      "name": "Zalmroze polo"
+    },
+    "52a23a9e47969e4e": {
+      "name": "Transparante sandalen"
+    },
+    "2646b55fbb3eb64e": {
+      "name": "Wit laagjesshirt"
+    },
+    "6a8c440ac7e7fa06": {
+      "name": "SquidForce-shirt"
+    },
+    "0ed9446ae2a3a4f9": {
+      "name": "Linnen overhemd"
+    },
+    "26e7a628ed34e552": {
+      "name": "Annaki-baret"
+    },
+    "adbe82fa2da86d1e": {
+      "name": "Annaki-shirt met octologo"
+    },
+    "f445f4e98b26be6f": {
+      "name": "Annaki-mocassins"
+    },
+    "8d31d39aae6f1713": {
+      "name": "Pijlenlaagjesshirt"
+    },
+    "ac95ab6feff12f2e": {
+      "name": "Rode sportschoenen"
+    },
+    "077ab79c6af4a2ca": {
+      "name": "Witte halfrubberen laarzen"
+    },
+    "49229273190dec9c": {
+      "name": "Zwarte sneakers"
+    },
+    "6bb6aaa795b2e1d0": {
+      "name": "Inktvlekhemd"
+    },
+    "25f8783c95f6df42": {
+      "name": "Mountainbikehelm"
+    },
+    "3ae4bf025cd10453": {
+      "name": "Lo-Tops SE"
+    },
+    "ef77d8d6c1b77631": {
+      "name": "Basketbalhoofdband"
+    },
+    "0de76819ba6db45e": {
+      "name": "Speciale wandelschoenen"
+    },
+    "9df69f0ea25b6c07": {
+      "name": "Gele klimschoenen"
+    },
+    "9f8f4c3d386715b2": {
+      "name": "Gele sneakers"
+    },
+    "ab80ed25de6866d2": {
+      "name": "Crèmekleurige Hi-Tops"
+    },
+    "b611ac13be703e89": {
+      "name": "Octokings-mondkapje"
+    },
+    "ff605fdcf2e810a4": {
+      "name": "N-Pacer-sweater"
+    },
+    "8d2399d7e4a8dc54": {
+      "name": "Zwarte polo"
+    },
+    "2c7cdb6a60f1956c": {
+      "name": "Takoroka-pet"
+    },
+    "81f6888c0af09c8a": {
+      "name": "Blauw retro-T-shirt"
+    },
+    "1e924094e8a7a9cf": {
+      "name": "Wittevlekhemd"
+    },
+    "e1c5b55e8e289883": {
+      "name": "Zwembril"
+    },
+    "8809f0a06f39d9ce": {
+      "name": "Basketbalshirt (uit)"
+    },
+    "a907b1af05ca21dd": {
+      "name": "Oranje pijlsneakers"
+    },
+    "ec712f04e4e16ef7": {
+      "name": "Voetbalhoofdband"
+    },
+    "3de1617917f3891e": {
+      "name": "Geüpcycled overhemd"
+    },
+    "0fb378b360db0eda": {
+      "name": "Ronde bril met donker glas"
+    },
+    "3e3584a685b92219": {
+      "name": "Paars overhemd"
+    },
+    "ae6cebb2075d1bef": {
+      "name": "Rode plateauschoenen"
+    },
+    "edd86028e8a15697": {
+      "name": "Camouflagelaagjesshirt"
+    },
+    "fb7207c8ae2c68a5": {
+      "name": "Camouflagelaarzen"
+    },
+    "520dd7b84f4b0d7a": {
+      "name": "Verfmasker"
+    },
+    "0647b7698074cf44": {
+      "name": "Zwart T-shirt"
+    },
+    "2d111c51efa16dcf": {
+      "name": "Designerkoptelefoon"
+    },
+    "771073efa12490ba": {
+      "name": "Rode turbo-tabisneakers"
+    },
+    "53b5aa53aa00b7b3": {
+      "name": "Turquoise plateauschoenen"
+    },
+    "d1d32898239578d3": {
+      "name": "Carnavalhallahelm"
+    },
+    "2abc2617b7ca0f57": {
+      "name": "Gele orka-sneakers"
+    },
+    "4143f36fe1e54ab7": {
+      "name": "Roze sportschoenen"
+    },
+    "03d5f18baaea8fc0": {
+      "name": "Chocobruine Dakroniks"
+    },
+    "3563c735804a09e4": {
+      "name": "Skateboardhelm met klep"
+    },
+    "8357bf95b5912213": {
+      "name": "Reggae-T-shirt"
+    },
+    "13e5d86453c55a2b": {
+      "name": "Strohoed"
+    },
+    "cb29cf507690d98a": {
+      "name": "Omgekeerde pet"
+    },
+    "3640d5f81539f503": {
+      "name": "Witte sneakers"
+    },
+    "47269fcfcabbc782": {
+      "name": "Ronde bril"
+    },
+    "8f2be09f9abb7ccb": {
+      "name": "Vriestinten-T-shirt"
+    },
+    "42589ff1d3d887b0": {
+      "name": "Combi-inktopus-Tri-shirt"
+    },
+    "aca9811fae6ebd28": {
+      "name": "Vissershoed"
+    },
+    "02eb3f1b43205e2f": {
+      "name": "Firefin-bandana"
+    },
+    "5856b235d7aba150": {
+      "name": "Clownsoverhemd"
+    },
+    "50e736bfac15d862": {
+      "name": "Kaki boswachteroverhemd"
+    },
+    "808646c4aa0f6457": {
+      "name": "Turquoise sportschoenen"
+    },
+    "fd887cccf2906c67": {
+      "name": "Bobbelmuts"
+    },
+    "5f31e15c30e65e41": {
+      "name": "Haaientrui"
+    },
+    "5914364358380b1a": {
+      "name": "Zeepaardjesoverhemd"
+    },
+    "f21b90e17052b073": {
+      "name": "Rodeohemd"
+    },
+    "9de6a55d0e7d1532": {
+      "name": "Zwarte pet met flappen"
+    },
+    "363315d23dffb972": {
+      "name": "Bolhoed"
+    },
+    "bc8dda8de25c745c": {
+      "name": "Witte klittenbandschoenen"
+    },
+    "c1a8c26856affc26": {
+      "name": "Zwart anker-T-shirt"
+    },
+    "ee94de5f1d4914d1": {
+      "name": "Gekleurde contactlenzen"
+    },
+    "8264e44e248fca1c": {
+      "name": "Retrojack"
+    },
+    "553fa256959ae19c": {
+      "name": "Paars camouflageshirt"
+    },
+    "88d7384ac556ac71": {
+      "name": "Blauwe pijlsandalen"
+    },
+    "fb43159290f75d81": {
+      "name": "Universiteitshonkbalshirt"
+    },
+    "c6fbed6d02b1a4ab": {
+      "name": "Octobril"
+    },
+    "dcee539309bead7e": {
+      "name": "Beanie"
+    },
+    "eb4d4d676f24e2b9": {
+      "name": "Commandobaret"
+    },
+    "6481cb10fec0fab3": {
+      "name": "Blauwe instappers"
+    },
+    "94328b49199304b5": {
+      "name": "Instappers met patroon"
+    },
+    "cb2e1853fed5bb18": {
+      "name": "Groen streepjesshirt"
+    },
+    "4fb2f0eccd0aefcf": {
+      "name": "Ringer-T-shirt appel"
+    },
+    "a9343a2231f67ad1": {
+      "name": "Donker peddeljack"
+    },
+    "68d1abdb0a14a38e": {
+      "name": "Blauwe sportschoenen"
+    },
+    "ad599305868bdb30": {
+      "name": "Blauw Firefin-sweatshirt"
+    },
+    "309a29eea36abfb4": {
+      "name": "Honkbalshirt"
+    },
+    "edcf321b99f16053": {
+      "name": "Zekko-honkbalshirt"
+    },
+    "6020f88eda72ce9c": {
+      "name": "BlobMob-mondkapje"
+    },
+    "46978f8e65a171d3": {
+      "name": "Zwart Rockenberg-T-shirt"
+    },
+    "dce5f5d22c745b4f": {
+      "name": "Rode werkschoenen"
+    },
+    "ba0e6bd8b19c1589": {
+      "name": "Blauwe veterschoenen"
+    },
+    "37a8947236c61232": {
+      "name": "Pijlenlaarsjes"
+    },
+    "f0497f5430747e45": {
+      "name": "Bamboehoed"
+    },
+    "90ed2a3ed5963886": {
+      "name": "Neon sandalen"
+    },
+    "b5fbab180c5dc3e7": {
+      "name": "Rood ruitjeshemd"
+    },
+    "9e4bf04f7bdd91a9": {
+      "name": "Paarse sportschoenen"
+    },
+    "0d5ac21522734f30": {
+      "name": "Annaki-mondkapje"
+    },
+    "7e3c92428cec4715": {
+      "name": "Annaki-shirt en choker"
+    },
+    "349fadecc62409e7": {
+      "name": "Annaki-tijgermocassins"
+    },
+    "3f05232d650c7467": {
+      "name": "Squashhoofdband"
+    },
+    "c749455d979a467e": {
+      "name": "Retrokoptelefoon"
+    },
+    "c552777e3a31db60": {
+      "name": "Rode regenlaarzen"
+    },
+    "d7fff7546134348a": {
+      "name": "Zwarte suède sneakers"
+    },
+    "7122c82d094cbad8": {
+      "name": "Parel-T-shirt"
+    },
+    "99962cbe8b9157c8": {
+      "name": "Hoge zombiesneakers"
+    },
+    "c4967d483b4a7293": {
+      "name": "18K aviatorbril"
+    },
+    "c3f4230208339596": {
+      "name": "Lichtgewicht pet"
+    },
+    "ef44c8d54fbe03ba": {
+      "name": "Voltvis-honkbaljack"
+    },
+    "f6ebc451ec2d29be": {
+      "name": "Rode klittenbandschoenen"
+    },
+    "924dcaf66eb6d0f3": {
+      "name": "Rood pijlen-T-shirt"
+    },
+    "59815deb13d9d8ae": {
+      "name": "Inktvis-Tri-shirt"
+    },
+    "bc26fcccdec0a6da": {
+      "name": "Wollen muts"
+    },
+    "9764a1e9d9d51706": {
+      "name": "Retrobril"
+    },
+    "bcff9a76de760cd3": {
+      "name": "Hoekige Annaki-bril"
+    },
+    "ab56fbfe1b844f9e": {
+      "name": "Octopus-Tri-shirt"
+    },
+    "df50d7deaa59949e": {
+      "name": "Grijze klompen"
+    },
+    "a196ff26fb407f38": {
+      "name": "Rood-witte Squidkid V"
+    },
+    "f359a2ee18129468": {
+      "name": "Katten-honkbaljack"
+    },
+    "fdb92c8b3c05fc25": {
+      "name": "Zwart bikerjack"
+    },
+    "d24ec1ac4f32ab65": {
+      "name": "Wasabi-tabisneakers"
+    },
+    "b5618eeec40534ba": {
+      "name": "Zwart laagjesshirt"
+    },
+    "7a8f918bd5533667": {
+      "name": "Wit bikerjack"
+    },
+    "4a1abb8ec72bdb44": {
+      "name": "Gele punkschoenen"
+    },
+    "407c06b41fc7fd8a": {
+      "name": "Studiokoptelefoon"
+    },
+    "c4e6458376a142eb": {
+      "name": "Zwarte bril met sportband"
+    },
+    "ea51dd77650a15bc": {
+      "name": "Motorlaarzen"
+    },
+    "41c55c011078c88d": {
+      "name": "Voetbalschoenen"
+    },
+    "c093e05fd52e5e74": {
+      "name": "Dokwerkerspet"
+    },
+    "7b5c70fb861231bb": {
+      "name": "Gele bodywarmer"
+    },
+    "5534e82363e3828b": {
+      "name": "Wit honkbalshirt"
+    },
+    "0d11119906fc8dfd": {
+      "name": "Toni Kensa-zwembril"
+    },
+    "922ab622dd80308a": {
+      "name": "Denim pet"
+    },
+    "2f8ca1ef4b452c83": {
+      "name": "Tulphoed"
+    },
+    "a5ddb4bd0d128785": {
+      "name": "Beige bergen-T-shirt"
+    },
+    "2b4b7313b5c5b509": {
+      "name": "Catcherhelm (thuis)"
+    },
+    "689839e7192a445d": {
+      "name": "5-panelenpet"
+    },
+    "ad580141546a45ad": {
+      "name": "Wit T-shirt met V-hals"
+    },
+    "c73a0f101ac9bc77": {
+      "name": "SquidForce-mondkapje"
+    },
+    "01d5c109bfdbefb6": {
+      "name": "Wit T-shirt"
+    },
+    "7d9eaf41429a15e0": {
+      "name": "Kraakcommando-schild"
+    },
+    "8c04ff42acf817c1": {
+      "name": "Bergkoningtrui"
+    },
+    "9e3706d8ad88af66": {
+      "name": "Glamrockjas"
+    },
+    "fe67137750f84a90": {
+      "name": "Gestreept rugbyshirt"
+    },
+    "375899ec709e6752": {
+      "name": "Grijs pijlen-T-shirt"
+    },
+    "f041a4d08be16423": {
+      "name": "Jet-pet"
+    },
+    "5720e976710c3988": {
+      "name": "Wit overhemd"
+    },
+    "fde83159c6a4dd52": {
+      "name": "Jachtlaarzen"
+    },
+    "6d2061be537d3134": {
+      "name": "Kogelvis-T-shirt"
+    },
+    "a242908b34fc7696": {
+      "name": "Witte punkschoenen"
+    },
+    "687f422b32db5b3b": {
+      "name": "Bril met halve rand"
+    },
+    "929b44ba55cd192b": {
+      "name": "King-rugbyshirt 10"
+    },
+    "485fd707635e0b68": {
+      "name": "Zonnig T-shirt"
+    },
+    "80c2339dc6b430b0": {
+      "name": "Kaki hoge schoenen"
+    },
+    "b69ddf6a87cbc725": {
+      "name": "A.L.G. 30XX"
+    },
+    "6f21683f5f49f466": {
+      "name": "Rode punkschoenen"
+    },
+    "7202b06ebe99ae80": {
+      "name": "Groen laagjes-T-shirt"
+    },
+    "2e92df51b55f4ede": {
+      "name": "Oorbeschermers"
+    },
+    "af71bf55a10c58fa": {
+      "name": "Visaas-overhemd"
+    },
+    "3baf3fe9f83cb7ab": {
+      "name": "Zeeoorheadset"
+    },
+    "cd3962089969a1fb": {
+      "name": "Pet met dubbele streep"
+    },
+    "3425e298dc3ae3a8": {
+      "name": "Camouflagehoody"
+    },
+    "6b9446521205bca4": {
+      "name": "Golfpetje"
+    },
+    "40abebcc874bc498": {
+      "name": "Klassieke strohoed"
+    },
+    "94919ff195bf7e57": {
+      "name": "Skateboardhelm"
+    },
+    "c8838d81157d8cfc": {
+      "name": "Octo-T-shirt"
+    },
+    "bda6efb218732916": {
+      "name": "Groen ruitjeshemd"
+    },
+    "1ab1c420deae9d99": {
+      "name": "King-rugbyshirt 08"
+    },
+    "d02484a216f59d30": {
+      "name": "Tennishoofdband"
+    },
+    "1a9b9d4bc02192e9": {
+      "name": "Wit Rockenberg-T-shirt"
+    },
+    "a7debe539a584c52": {
+      "name": "Pixelpet"
+    },
+    "a4e997f449149409": {
+      "name": "Tafeltennishoofdband"
+    },
+    "93ec4226623f88bd": {
+      "name": "Zink-laagjesshirt"
+    },
+    "f2c54f819291e8c0": {
+      "name": "Blauwe Lo-Tops"
+    },
+    "ddd54257197eba57": {
+      "name": "Ouderwets ruitjeshemd"
+    },
+    "877eb0c9258b904b": {
+      "name": "Pilotenbril"
+    },
+    "bbc5dcdb8c4ace85": {
+      "name": "Haaienmocassins"
+    },
+    "72d59274c3532410": {
+      "name": "Driekleurig rugbyshirt"
+    },
+    "fc930f680e403928": {
+      "name": "Olijfgroen ski-jack"
+    },
+    "3ae4fd56bef51592": {
+      "name": "Firefin-zonneklep"
+    },
+    "35977e28181a0a29": {
+      "name": "Camouflagehoed"
+    },
+    "49549cdc599039f9": {
+      "name": "Sneeuwlaarzen"
+    },
+    "7da4267dbe72c548": {
+      "name": "Zwart octopusoog-T-shirt"
+    },
+    "5cd5d860449e5dfe": {
+      "name": "Witte pijlsneakers"
+    },
+    "af60e641db707a20": {
+      "name": "Sportjack"
+    },
+    "fe8f675324b4d4dd": {
+      "name": "IJshockeyhelm"
+    },
+    "268eb9cc2f878021": {
+      "name": "Gestreept overhemd"
+    },
+    "d9f87ca945f48c33": {
+      "name": "BlobMob-teenslippers"
+    },
+    "21209b23c56be140": {
+      "name": "Spijkerstofvissershoed"
+    },
+    "e97e793e9abeb305": {
+      "name": "Krokodillenmocassins"
+    },
+    "e5dd7cea0689d0e8": {
+      "name": "Gestipte regenlaarzen"
+    },
+    "7135a4cfcc976f70": {
+      "name": "Ansjovis United-shirt"
+    },
+    "f3f71bd9d8cc8670": {
+      "name": "Geel laagjesshirt"
+    },
+    "2322523514391611": {
+      "name": "Streetstyle-pet"
+    },
+    "797d94c82a58a2dd": {
+      "name": "Schelpenbamboehoed"
+    },
+    "219e27353c8d8b8b": {
+      "name": "Klassieke bandana"
+    },
+    "c1f0da9544b68681": {
+      "name": "Hemd met sterrengilet"
+    },
+    "49b64342ad392190": {
+      "name": "Campinghoed"
+    },
+    "f89e6b05bd25b0cb": {
+      "name": "T-shirt"
+    },
+    "a805c2a7f5be45e8": {
+      "name": "Hawaïhemd"
+    },
+    "ec77f4ff49185d6c": {
+      "name": "Donkerbruine bootschoenen"
+    },
+    "5cfe62645d9c13e2": {
+      "name": "Zink-shirt"
+    },
+    "9088bd2213ba7f6f": {
+      "name": "Witte hoofdband"
+    },
+    "1095d26889f8d14a": {
+      "name": "Lapjesbomberjack"
+    },
+    "8bc72431627b3b8c": {
+      "name": "Rode instappers"
+    },
+    "0758ad01236afdf7": {
+      "name": "Grijs Barazushi-T-shirt"
+    },
+    "d472410b5448cafc": {
+      "name": "Wintersportmuts"
+    },
+    "0ada092cf002c607": {
+      "name": "Oranje gespsneakers"
+    },
+    "f684f56be6a50d22": {
+      "name": "Grijs overhemd"
+    },
+    "7ee0f9e2b3e8b734": {
+      "name": "Sneeuwwitte sandalen"
+    },
+    "27326e0984c69d61": {
+      "name": "Annaki-baret met zonnebril"
+    },
+    "ae28605434b4f96d": {
+      "name": "Honkbalpet"
+    },
+    "279f03edfec347e6": {
+      "name": "Wit streepjesshirt"
+    },
+    "03657609a5383fd8": {
+      "name": "Universiteitsjack"
+    },
+    "043b5e53546d5989": {
+      "name": "Vuurtinten-T-shirt"
+    },
+    "cb2b1657512a88a5": {
+      "name": "Doodshoofdbandana"
+    },
+    "dabfba2134e9111d": {
+      "name": "Gespenschoenen"
+    },
+    "f127c8d7674c4620": {
+      "name": "Wit pixel-T-shirt"
+    },
+    "16348f8c466079c4": {
+      "name": "Bruine werkschoenen"
+    },
+    "33778454d822eea6": {
+      "name": "Witte plateauschoenen"
+    },
+    "df2accb1fb986f19": {
+      "name": "Lichtblauw octopusoog-T-shirt"
+    },
+    "9d4307c244d67a8a": {
+      "name": "Zekko-hoody"
+    },
+    "ca2b2fdd4dbff31d": {
+      "name": "Fietshelm"
+    },
+    "9ae6fdc4bfadb32f": {
+      "name": "Professionele wandelschoenen"
+    },
+    "5780ff9f95bf952a": {
+      "name": "Grijze hoody"
+    },
+    "baecc21b3df75989": {
+      "name": "Ringer-T-shirt ananas"
+    },
+    "a5b1931e7350ee7e": {
+      "name": "Glamrocklaarzen"
+    },
+    "6490c9b2d3e9e55c": {
+      "name": "Regenboog-Takoroka-shirt"
+    },
+    "d9b6af6685f32635": {
+      "name": "Gestreept piraten-T-shirt"
+    },
+    "6e470bc87582e65f": {
+      "name": "Schelpenhelm"
+    },
+    "ca44e6f72d227bc7": {
+      "name": "Forge-Inklingparka"
+    },
+    "e9a9583478105368": {
+      "name": "Duikbril"
+    },
+    "447e163eb5e91c11": {
+      "name": "Wit shirt"
+    },
+    "6239fc0d6546d4ce": {
+      "name": "Gasmasker"
+    },
+    "cef84ba92071d475": {
+      "name": "Gele badslippers"
+    },
+    "9163083f8b43ee39": {
+      "name": "Octopus-hawaïhemd"
+    },
+    "a3c8d0b074dfdc24": {
+      "name": "Bergkoningpetje"
+    },
+    "81fb8c10755777c8": {
+      "name": "Safarihoed"
+    },
+    "4e6a0c2993910076": {
+      "name": "Stiekeme bril"
+    },
+    "238aa5a08883c76e": {
+      "name": "Blauwe motorlaarzen"
+    },
+    "f552243dffd76af2": {
+      "name": "Geruit hemd met gilet"
+    },
+    "49c452781177d633": {
+      "name": "Witte bril met sportband"
+    },
+    "d212072056094742": {
+      "name": "Groene hoody"
+    },
+    "c40f8886f06a98c2": {
+      "name": "Wielerpetje"
+    },
+    "03b0da89cfcfe463": {
+      "name": "Rode parachutistenjas"
+    },
+    "e90d10cbc94a4305": {
+      "name": "Paintballmasker"
+    },
+    "fce054d3ceb37c00": {
+      "name": "Hemelsblauw T-shirt"
+    },
+    "e97c7d2b14c2c7f3": {
+      "name": "Avondtinten-T-shirt"
+    },
+    "29060f4096d9748d": {
+      "name": "Zwart honkbalshirt"
+    },
+    "0587111241fa2676": {
+      "name": "Paars T-shirt"
+    },
+    "d19dd2ff9d46ed73": {
+      "name": "Barazushi-anorak"
+    },
+    "bd0b6a5b9644670c": {
+      "name": "Donkere bolero"
+    },
+    "7dc41ca5666da73d": {
+      "name": "Ovale zonnebril"
+    },
+    "1340619784620f8c": {
+      "name": "Brogues met rode zool"
+    },
+    "f48ca09d46db8416": {
+      "name": "Getinte zonnebril"
+    },
+    "91cbaf4d221a868d": {
+      "name": "Wit anker-T-shirt"
+    },
+    "96c8d17e70de2eb5": {
+      "name": "Firefin-mondkapje"
+    },
+    "9ebbd722f94f18c0": {
+      "name": "Bananensneakers"
+    },
+    "822ecce491d7169d": {
+      "name": "Kwallenhemd"
+    },
+    "8fb3c55fb9483589": {
+      "name": "Donkere gestikte trui"
+    },
+    "c06825c4fa96529b": {
+      "name": "Grijze universiteitstrui"
+    },
+    "ad92fbc1d2a018a6": {
+      "name": "Blauw streepjesshirt"
+    },
+    "fe89d6fe118a1082": {
+      "name": "Oranje plastic sandalen"
+    },
+    "24076aa304814391": {
+      "name": "Zwarte teenslippers"
+    },
+    "a43fb7d3698b62fa": {
+      "name": "Felgekleurde pijlsneakers"
+    },
+    "a3a474685c6dccc7": {
+      "name": "Reboot-laarzen"
+    },
+    "78bed018d9c457b9": {
+      "name": "Houthakkershemd"
+    },
+    "c20f02fd42c83ed8": {
+      "name": "Berg-bodywarmer"
+    },
+    "34ea327e3101a9d9": {
+      "name": "Zebra-T-shirt"
+    },
+    "4b6107b3fd6f9204": {
+      "name": "Gestreept bergen-shirt"
+    },
+    "448f2ec0069b99b7": {
+      "name": "Neongroene sportschoenen"
+    },
+    "3079b092607313fd": {
+      "name": "Roetzwarte sandalen"
+    },
+    "56cb73e0e01cb36a": {
+      "name": "Luchtig jack"
+    },
+    "fa7e974e8af06a5d": {
+      "name": "3D-bril"
+    },
+    "8ced9dc8330b5dc3": {
+      "name": "Beige toendra-fleecejas"
+    },
+    "866a08cf40deb604": {
+      "name": "Rood krabbenpantser"
+    },
+    "f61d8502d2864a59": {
+      "name": "Rode Squidkid IV"
+    },
+    "68b07806f87b7fdc": {
+      "name": "Gouden Hi-Tops"
+    },
+    "fd69616af9d65ea1": {
+      "name": "Ankerlaagjesshirt"
+    },
+    "4153cf3a13213beb": {
+      "name": "Wandelschoenen"
+    },
+    "3ffc6dab701c8088": {
+      "name": "Luipaard-T-shirt"
+    },
+    "d477323916cd5c9d": {
+      "name": "Octo-koptelefoon 8X"
+    },
+    "cb394cc96c28628e": {
+      "name": "Groen vest"
+    },
+    "f295015cb0bdb14c": {
+      "name": "Licht Annaki-T-shirt"
+    },
+    "30d9d21a0c737542": {
+      "name": "Zekko-pet"
+    },
+    "e8896a6fe1d958b0": {
+      "name": "Bos-bodywarmer"
+    },
+    "53cf395da163419e": {
+      "name": "Kensa-jack"
+    },
+    "2a0dcc1ebb5d0aab": {
+      "name": "Zeekoe-designertrui"
+    },
+    "a12c002b9fbdd89e": {
+      "name": "Trui met blauwe manchet"
+    },
+    "2665aa6be3dd37dd": {
+      "name": "Fuchsia-ski-jack"
+    },
+    "77eb1354aaaa1bd0": {
+      "name": "Matchagroene donsjas"
+    },
+    "08a29f2c233a9830": {
+      "name": "Basketbalshirt (thuis)"
+    },
+    "6fa1c75d84696301": {
+      "name": "Aalzebub-T-shirt"
+    },
+    "8b0acdb34251b7de": {
+      "name": "Coder-trenchcoat"
+    },
+    "7c6ace01914078ce": {
+      "name": "Wielertrui"
+    },
+    "750183f042bd1db2": {
+      "name": "Kantoorjungleoverhemd"
+    },
+    "2d26be71b5e05c99": {
+      "name": "Avonturiershelm"
+    },
+    "4acc71634cf0c49d": {
+      "name": "Blauw matrozenshirt"
+    },
+    "961843e8ba4940f8": {
+      "name": "Umibozu-jersey (thuis)"
+    },
+    "cd6fc0172053df61": {
+      "name": "Zwarte punkschoenen"
+    },
+    "ac60a10353017222": {
+      "name": "Retrotrui"
+    },
+    "a4fa58043fb830ae": {
+      "name": "Stadsjungle-bodywarmer"
+    },
+    "abf447be716c1706": {
+      "name": "Sportieve bobbelmuts"
+    },
+    "b85b682621cc7442": {
+      "name": "Krak-On 528"
+    },
+    "80ec83b0038dd076": {
+      "name": "Forge-Octarianenparka"
+    },
+    "fec27befca72c566": {
+      "name": "Pijlinktvispet"
+    },
+    "95beb8064d1e8b10": {
+      "name": "Blauwe Octo-trui"
+    },
+    "c04f7023e2c335be": {
+      "name": "Retro-Takoroka-jack"
+    },
+    "647839916e8213a5": {
+      "name": "Zwart shirt"
+    },
+    "17c6bb9a8ee265d6": {
+      "name": "Bruin laagjesshirt"
+    },
+    "65dfcf665903cfbd": {
+      "name": "Paarse Hi-Tops"
+    },
+    "802a75b77d81cfee": {
+      "name": "Makreelrolschaatsen"
+    },
+    "bd2ef5b10854405c": {
+      "name": "Kosmisch Takoroka-shirt"
+    },
+    "932601d19123295d": {
+      "name": "Grasgroene polo"
+    },
+    "e5ad5ddbf4cb32ca": {
+      "name": "T-shirt met inktvispatroon"
+    },
+    "8bb43bfd2d665e2e": {
+      "name": "Groene Hi-Tops"
+    },
+    "8ba8f7916fee909a": {
+      "name": "Gestreept matrozen-T-shirt"
+    },
+    "7bc703d182d4e506": {
+      "name": "Inktregenjas"
+    },
+    "e80f64d26b7adb9e": {
+      "name": "Toernooi-T-shirt"
+    },
+    "c5755274c5a0c59f": {
+      "name": "Rood Kraakwaar-shirt"
+    },
+    "8e0f4d608d3eacb1": {
+      "name": "Geel-oranje Squidkid V"
+    },
+    "c87f70d6fa4a9a65": {
+      "name": "Lichtbruine veldjas"
+    },
+    "e197e4e23acc4182": {
+      "name": "Forge-camo-mondkapje"
+    },
+    "7fdbb43946ec6297": {
+      "name": "N-Pacer CaO"
+    },
+    "56d06c205b8a7ebc": {
+      "name": "Omgekeerd pilotenjack"
+    },
+    "8cebb0e49b4e3e2c": {
+      "name": "Calamars-hockeyshirt"
+    },
+    "da632ce42f54490b": {
+      "name": "Crèmekleurige sneakers"
+    },
+    "535a8474b6f697ad": {
+      "name": "Calamars-gaaspet"
+    },
+    "9c0aee99b016f5db": {
+      "name": "Kleurige suède schoenen"
+    },
+    "55cdb4e56f49e558": {
+      "name": "N-Pacer Au"
+    },
+    "547d8af04660898f": {
+      "name": "Blauwe Iromaki 750"
+    },
+    "1cb376884d36078c": {
+      "name": "Violette sportschoenen"
+    },
+    "9ba4020f41929d25": {
+      "name": "Stippeloverhemd"
+    },
+    "e5eae9ab82cc9a16": {
+      "name": "Meneer Boeiuh-T-shirt"
+    },
+    "427e38ef64ca14ba": {
+      "name": "Zwarte Firefin-bandana"
+    },
+    "899420e993e16273": {
+      "name": "Groen strokenshirt"
+    },
+    "59cdb008bb9c547c": {
+      "name": "Sneeuwmonsterparka"
+    },
+    "332641fa838b2e5a": {
+      "name": "Toni Kensa-noppenschoenen"
+    },
+    "b9c4100e8f08619c": {
+      "name": "Witte veterloze Dakroniks"
+    },
+    "7573da037608e9ae": {
+      "name": "Octokings-hockeyshirt"
+    },
+    "b2c983286319ca1c": {
+      "name": "Zigzagmuts"
+    },
+    "7a18f1a6fb75e061": {
+      "name": "Rode scifi-sneakers"
+    },
+    "f0d0456799e894a6": {
+      "name": "Bladerhoed"
+    },
+    "051b30eda8b58b9e": {
+      "name": "Theegroene jachtlaarzen"
+    },
+    "ad75f381c18583b7": {
+      "name": "Mevrouw Boeiuh-T-shirt"
+    },
+    "cad0556ac4e06714": {
+      "name": "Takoroka-trui"
+    },
+    "1a4fc14d2703585f": {
+      "name": "Bloemkoolkleurige trui"
+    },
+    "ba9bcecbe0b37cdf": {
+      "name": "Vrienden-T-shirt"
+    },
+    "c3a04785f4eca419": {
+      "name": "Blauw Tentatek-T-shirt"
+    },
+    "cbfe2d21d8fe7a07": {
+      "name": "Trui met rode manchet"
+    },
+    "c4685d379082c2e2": {
+      "name": "Roze strokenshirt"
+    },
+    "1fea522b14e27847": {
+      "name": "Turquoise suède schoenen"
+    },
+    "daec38a5bc7c3e59": {
+      "name": "Zilveren Tentatek-vest"
+    },
+    "d9dc51dc43d33701": {
+      "name": "Brogues met gele zool"
+    },
+    "74de3873017ce340": {
+      "name": "Zwart Octokings-T-shirt"
+    },
+    "3713c999b29e8c01": {
+      "name": "N-Pacer Ag"
+    },
+    "4f99e5c66aad12c1": {
+      "name": "Groen Zekko-jack"
+    },
+    "ec6590d0dd15a5a1": {
+      "name": "Sportieve pijlsneakers"
+    },
+    "a6952fb74167f392": {
+      "name": "Tentatek-T-shirt met opdruk"
+    },
+    "0755dfa2ac2318a7": {
+      "name": "Orka-sneakers"
+    },
+    "73bade4d3649905c": {
+      "name": "Muts met mondkapje"
+    },
+    "7a88d5dfbe30774f": {
+      "name": "Blauwe parachutistenjas"
+    },
+    "c1ace23e1c06f1c4": {
+      "name": "Witte Calamars-tanktop"
+    },
+    "4bc2097b3fac8300": {
+      "name": "Blauwe Enperrial-laarzen"
+    },
+    "e94c292e5fb008d0": {
+      "name": "Grote Calamar-masker"
+    },
+    "1ecc180b661f1244": {
+      "name": "Blauwe universiteitstrui"
+    },
+    "e48d3e8064323c13": {
+      "name": "Piranhamocassins"
+    },
+    "9820df97f859a016": {
+      "name": "Octo-honkbaljack"
+    },
+    "93fe84ba8a9abcce": {
+      "name": "Lichte gestikte trui"
+    },
+    "c97ea2fd29776617": {
+      "name": "Wit Deca-T-shirt"
+    },
+    "30fe4268374ac134": {
+      "name": "Oorhaak-koptelefoon"
+    },
+    "66f9750b9bd86775": {
+      "name": "Kungfu-jack"
+    },
+    "7a490814ed98d01d": {
+      "name": "Elegante veterschoenen"
+    },
+    "de41fbc457077ad0": {
+      "name": "Zwarte Norimaki 750s"
+    },
+    "f8333ab0e1d86794": {
+      "name": "Matte mountainbikehelm"
+    },
+    "b06b8deef0b3e0a5": {
+      "name": "Chirpy Chips-T-shirt"
+    },
+    "af346e548cb6b4d1": {
+      "name": "Groene klimschoenen"
+    },
+    "54b65fd857f7aaee": {
+      "name": "Blauw pixelshirt"
+    },
+    "4da9007a0ff47efd": {
+      "name": "Trui met gele manchet"
+    },
+    "dc7da58ba73a0a43": {
+      "name": "Blauwe scifi-sneakers"
+    },
+    "f219ad755cfbbfa6": {
+      "name": "Boterbloembergjas"
+    },
+    "946ec833149a3ca2": {
+      "name": "Rode Iromaki 750"
+    },
+    "b341ae28f69ee30c": {
+      "name": "Rood Tentatek-T-shirt"
+    },
+    "4b7b3a4229e29dc5": {
+      "name": "Bruine hoge sneakers"
+    },
+    "618f64b8ea656029": {
+      "name": "Trui met korte mouwen"
+    },
+    "357a3c08594a278c": {
+      "name": "Takoroka-honkbalshirt"
+    },
+    "44f01da5afb25f4c": {
+      "name": "Groene Lace-Ups"
+    },
+    "801beab26083fca8": {
+      "name": "Mosterdgeel Zekko-jack"
+    },
+    "6a2e837a682a2db9": {
+      "name": "Zwart T-shirt met V-hals"
+    },
+    "92917595854b262e": {
+      "name": "Oranje Iromaki 750"
+    },
+    "eb112ff59e8a2c04": {
+      "name": "Pilotenjack"
+    },
+    "040571f7835a7829": {
+      "name": "Fugu-klokhoed"
+    },
+    "dfcd2c583e872ced": {
+      "name": "Magenta orka-sneakers"
+    },
+    "85fd53d1b0cfb9d2": {
+      "name": "Oranje gaassneakers"
+    },
+    "c5b83741b6cd41b1": {
+      "name": "Pilotenjack F-3"
+    },
+    "5814270de809fa99": {
+      "name": "Bodywarmer met rits"
+    },
+    "d785e688317398ec": {
+      "name": "Toni Kensa-scifi-sneakers"
+    },
+    "32a4e7bb135400ee": {
+      "name": "Motorcrossmasker"
+    },
+    "0a11e649f99c5d3f": {
+      "name": "Zwart Kraakwaar-shirt"
+    },
+    "b6f9a937ceadd04a": {
+      "name": "Squid Squad-T-shirt"
+    },
+    "73cffaddc2124b2e": {
+      "name": "Pet met lange klep"
+    },
+    "dab9b9c2a1829473": {
+      "name": "Platte pet"
+    },
+    "29ab812cee5dae5f": {
+      "name": "Deca-helm met vizier"
+    },
+    "f1ddaf0b08059eee": {
+      "name": "Bokslaarzen"
+    },
+    "785256dcaa77e9e4": {
+      "name": "Geborduurd jasje"
+    },
+    "b91392fb40960610": {
+      "name": "Groen Octokings-T-shirt"
+    },
+    "c6c5bd47083d4497": {
+      "name": "Oranje vest"
+    },
+    "952245bb74d9875a": {
+      "name": "Instappers met stippen"
+    },
+    "e1a9e0f133d5516b": {
+      "name": "Chilipeper-ski-jack"
+    },
+    "ff56d19eb5c55ead": {
+      "name": "Lapjeshoed"
+    },
+    "340ae557a37310d8": {
+      "name": "Wortelkleurige trui"
+    },
+    "51fb55a6432642a2": {
+      "name": "Vinvis-teenslippers"
+    },
+    "44661af07c20bd37": {
+      "name": "Hightide Era-T-shirt"
+    },
+    "48ef706828d63d58": {
+      "name": "Zwarte gespenschoenen"
+    },
+    "d48d03756430c0f9": {
+      "name": "Hemelsblauwe Dakroniks"
+    },
+    "b0b92bf5b69d6053": {
+      "name": "Annaki-spinnenweblaarzen"
+    },
+    "7c0ca2caf1423dd5": {
+      "name": "Witte Norimaki 750s"
+    },
+    "d8fd8460bcac1095": {
+      "name": "Volt 95-sportschoenen"
+    },
+    "a2cce99350090cd7": {
+      "name": "Calamars-mondkapje"
+    },
+    "632fa9796cc55ed4": {
+      "name": "Paarse Iromaki 750"
+    },
+    "9e1afcf71588a40d": {
+      "name": "Pilotenmuts"
+    },
+    "9725c786d7dcefcd": {
+      "name": "Anti-inktbril"
+    },
+    "58fb1fcdf52d6679": {
+      "name": "Fleecetrui"
+    },
+    "ce00406f664f1852": {
+      "name": "Wit festival-T-shirt"
+    },
+    "131a18be6b46c36c": {
+      "name": "Grijze suède schoenen"
+    },
+    "9f10262c6f25ffc8": {
+      "name": "Zekko-jack"
+    },
+    "01c0f4d48724eec9": {
+      "name": "Blauw Deca-shirt"
+    },
+    "074c079548490976": {
+      "name": "Blauwe veterloze Dakroniks"
+    },
+    "5cdec592846865ba": {
+      "name": "Wollen trui met hemd"
+    },
+    "4adc17515efcee7c": {
+      "name": "Cool jack"
+    },
+    "cfc68b28e3ec53ee": {
+      "name": "Mountie-hoed"
+    },
+    "ee56bac36d2a28ab": {
+      "name": "Wit pilotenjack F-3"
+    },
+    "cad907c4d7da7100": {
+      "name": "Blauwe Calamars-mantel"
+    },
+    "9f93b86b9baad6cd": {
+      "name": "Zwart-blauwe Squidkid V"
+    },
+    "65c28a2a09cb1ebe": {
+      "name": "Grijze hoge sneakers"
+    },
+    "4dd689531a8d5718": {
+      "name": "Calamars-hoody"
+    },
+    "f67587eadf5e5bf1": {
+      "name": "Gebreid walvisvest"
+    },
+    "05255ad76cd461c4": {
+      "name": "Groene Zekko-hoody"
+    },
+    "6b95a53fd109dc04": {
+      "name": "Geweven orka-sneakers"
+    },
+    "844a38dac1bd108b": {
+      "name": "Toni Kensa-honkbalshirt"
+    },
+    "c68cda5a2a65a13a": {
+      "name": "Gouden Dakro-shirt"
+    },
+    "1fc53de66c1fa6d7": {
+      "name": "Groene Iromaki 750"
+    },
+    "bb4a4bdd917b17a4": {
+      "name": "Kanariegele sportschoenen"
+    },
+    "2168abb849180313": {
+      "name": "Lichte bomberjas"
+    },
+    "eeff374790526a71": {
+      "name": "Zekko-pet met bril"
+    },
+    "8ef7d3b01a6b1f6b": {
+      "name": "Blauw bergen-T-shirt"
+    },
+    "6da65c2e69d1de5e": {
+      "name": "Visaas-overhemd met stropdas"
+    },
+    "a70056294f2761a3": {
+      "name": "Hemd met blauwe hoody"
+    },
+    "e70595a9c88c8df4": {
+      "name": "IJsbergjas"
+    },
+    "ee9b0f2a6d25a0a3": {
+      "name": "Octarianen-retrotrui"
+    },
+    "62eef2cc4b2a87be": {
+      "name": "Leren rockerjack"
+    },
+    "884aafcae5b40248": {
+      "name": "Octavio-helm"
+    },
+    "1e49698cc6fc2a6c": {
+      "name": "Bladgroene laarzen"
+    },
+    "60f430591e88e53b": {
+      "name": "Kaki pixelshirt"
+    },
+    "dac71120a0367e3c": {
+      "name": "Gele gaassneakers"
+    },
+    "b34d5800a8b5d9f0": {
+      "name": "Donker Annaki-T-shirt"
+    },
+    "49e73227e92c4a1e": {
+      "name": "Gestreepte Calamars-tanktop"
+    },
+    "085c747cca0912bd": {
+      "name": "Wet Floor-T-shirt"
+    },
+    "400829748e391d8f": {
+      "name": "Sesam & Zout 270"
+    },
+    "f8e4d65b3f352189": {
+      "name": "Zwarte Hi-Tops"
+    },
+    "cf0d9f0261dfb30a": {
+      "name": "Blauwe Calamars-tanktop"
+    },
+    "d1e56e8ae2c74c8f": {
+      "name": "Geel-blauwe Squidkid IV"
+    },
+    "64fb566f7ee6129d": {
+      "name": "Klushelm (replica)"
+    },
+    "0e92be91a85a1f99": {
+      "name": "Diepzeeblauwe laarzen"
+    },
+    "ed3ebcb67be5c59c": {
+      "name": "Vissersvest"
+    },
+    "647eaef7de61d58b": {
+      "name": "Kwallenhemd met stropdas"
+    },
+    "89ef143c331e379a": {
+      "name": "Zwarte Dakroniks"
+    },
+    "eaf740ce4651695b": {
+      "name": "Geel inktvislaagjesshirt"
+    },
+    "2dbb457c2acd535c": {
+      "name": "LobStars-shirt"
+    },
+    "7f074f182f66bb0f": {
+      "name": "Verscheurd Tri-shirt"
+    },
+    "475754f1c3ebc738": {
+      "name": "Honkbalpet"
+    },
+    "fd14ca8cb35c76c1": {
+      "name": "T-shirt met inktvispatroon"
+    },
+    "f19dcafde4a9d74e": {
+      "name": "Klassieke strohoed"
+    },
+    "54306bd8f71bb745": {
+      "name": "Verscheurd Tri-shirt"
+    },
+    "d9fdb8074c2f0ec8": {
+      "name": "Ronde bril met donker glas"
+    },
+    "2555a54f428af796": {
+      "name": "Kaki hoge schoenen"
+    },
+    "2fa83f60d8f22b0d": {
+      "name": "Oranje pijlsneakers"
+    },
+    "946d0a6e1191f142": {
+      "name": "Fugu-klokhoed"
+    },
+    "1fb3ac8c185aa46d": {
+      "name": "Hemd met sterrengilet"
+    },
+    "92dc509d51e9c1cd": {
+      "name": "Klushelm (replica)"
+    },
+    "05f76b87a280a584": {
+      "name": "Gestreepte werkpet"
+    },
+    "6c980ddeb7175277": {
+      "name": "Octo-helm Deco"
+    },
+    "b6b1c7798a550792": {
+      "name": "Ochtendtinten-T-shirt"
+    },
+    "5444a1b5e3a8cdc6": {
+      "name": "Roze hoody"
+    },
+    "24fecc01c498fe63": {
+      "name": "Camouflagehoed"
+    },
+    "cbdbce0206687c53": {
+      "name": "Gezichtsvizier"
+    },
+    "38db2d5e2baec937": {
+      "name": "Inktvlekhemd"
+    },
+    "ed34871ab0a997d2": {
+      "name": "Toni Kensa-noppenschoenen"
+    },
+    "d73ff773043f35a1": {
+      "name": "Meneer Boeiuh-T-shirt"
+    },
+    "cd98b57718c53757": {
+      "name": "18K aviatorbril"
+    },
+    "f038fe3a7d8c2f6e": {
+      "name": "Zwarte suède sneakers"
+    },
+    "e1a0a98264c0d15d": {
+      "name": "Commandobaret"
+    },
+    "d02f5fc500ba6b54": {
+      "name": "Flanellen Annaki-hoody"
+    },
+    "f6dc0e36ef83917a": {
+      "name": "Inktvis-Tri-shirt"
+    },
+    "017f4bb178ae2555": {
+      "name": "Motorzonnebril"
+    },
+    "2b99f9c3db9793de": {
+      "name": "Barazushi-anorak"
+    },
+    "1c7ce2a39971d7a7": {
+      "name": "Witte halfrubberen laarzen"
+    },
+    "f5a3386de83657f5": {
+      "name": "Grijze klompen"
+    },
+    "b2d0d4cd3fcb5b7d": {
+      "name": "Doodshoofdbandana"
+    },
+    "1f9d649297bea610": {
+      "name": "Speciale editie voetbalschoenen"
+    },
+    "e8ab0e3e655b8391": {
+      "name": "Snapperpet"
+    },
+    "cc46e0b1647b6d4c": {
+      "name": "Vissersvest"
+    },
+    "bf5eac0a0e51a1a5": {
+      "name": "Zink-laagjesshirt"
+    },
+    "79e4ced3f9a8ce7b": {
+      "name": "Vrienden-T-shirt"
+    },
+    "ba1d6adea1fb8693": {
+      "name": "Pilotenmuts"
+    },
+    "86196cf11c56cd37": {
+      "name": "Wit streepjesshirt"
+    },
+    "e9b23fae2db070df": {
+      "name": "Witte klittenbandschoenen"
+    },
+    "d995b74c6e31c321": {
+      "name": "Wintersportmuts"
+    },
+    "ababea5943c18ea9": {
+      "name": "Barazushi-shawl"
+    },
+    "d81b2ac527e806d9": {
+      "name": "Blauwe Enperrial-laarzen"
+    },
+    "f238e17aced17dcb": {
+      "name": "Pijlinktvispet"
+    },
+    "80998aee7ddcc6b2": {
+      "name": "Volt 95-sportschoenen"
+    },
+    "04e1732a004fc33e": {
+      "name": "Bamboehoed"
+    },
+    "8bd2358514cb89d2": {
+      "name": "Blauw bergen-T-shirt"
+    },
+    "3bae00fd5738d4a1": {
+      "name": "Roetzwarte sandalen"
+    },
+    "714d5944500fbc8e": {
+      "name": "Octokings-mondkapje"
+    },
+    "e9bd96d35a062618": {
+      "name": "Slaapmasker"
+    },
+    "d42a4135dc77a8a0": {
+      "name": "Safarihoed"
+    },
+    "b6e4c48bd78463ef": {
+      "name": "Fietshelm"
+    },
+    "4765baeb4824bee4": {
+      "name": "ω-3-T-shirt"
+    },
+    "3cd9aae585dfe373": {
+      "name": "Bladerhoed"
+    },
+    "72c8bf6ad74b12cd": {
+      "name": "Mountainbikehelm"
+    },
+    "73f36206e060c254": {
+      "name": "Groen Zekko-jack"
+    },
+    "7a897902d2c040b6": {
+      "name": "Kleurige suède schoenen"
+    },
+    "d37d9ade15ae4da0": {
+      "name": "Sneeuwlaarzen"
+    },
+    "b6d814dee4763330": {
+      "name": "Groene regenlaarzen"
+    },
+    "0816f54b999801aa": {
+      "name": "Arcadepetje"
+    },
+    "d4f2b1c866322ba6": {
+      "name": "Bergkoningpetje"
+    },
+    "9315d36102631844": {
+      "name": "Rode werkschoenen"
+    },
+    "b6868f3461e513dd": {
+      "name": "Whizzkidhelm"
+    },
+    "70b0d57f0d203fff": {
+      "name": "Omgekeerd pilotenjack"
+    },
+    "9430037390d32f5f": {
+      "name": "Golfpetje"
+    },
+    "34edc9c65a0cbc8f": {
+      "name": "Basketbalshirt (uit)"
+    },
+    "fdb81880bfec0fe9": {
+      "name": "Blauwe veterloze Dakroniks"
+    },
+    "b576c3ea2b65179f": {
+      "name": "Grijs overhemd"
+    },
+    "318589f647f8e971": {
+      "name": "Octobowler-hemd"
+    },
+    "06f518a80857a451": {
+      "name": "Wit festival-T-shirt"
+    },
+    "1e13f651df5e62d1": {
+      "name": "Vriestinten-T-shirt"
+    },
+    "92308328ca96ea04": {
+      "name": "Borduurwerkoverhemd"
+    },
+    "4a8e059dc7eb0372": {
+      "name": "Houthakkershemd"
+    },
+    "e96c1b6cacd445ee": {
+      "name": "Turquoise plateauschoenen"
+    },
+    "2359ff6288a27d78": {
+      "name": "Oranje Iromaki 750"
+    },
+    "d9fa61c2e08b8edf": {
+      "name": "Witte veterloze Dakroniks"
+    },
+    "c52c8de93993209d": {
+      "name": "Zwart Barazushi-T-shirt"
+    },
+    "7b9e84e66e0a554e": {
+      "name": "Witte punkschoenen"
+    },
+    "e990a916e127dbfb": {
+      "name": "Ansjovis United-shirt"
+    },
+    "39c54805c7099592": {
+      "name": "Rood-witte Squidkid V"
+    },
+    "22c1e6eaedbab424": {
+      "name": "Lichtbruine veldjas"
+    },
+    "3cc9c374e50d736d": {
+      "name": "Wollen trui met hemd"
+    },
+    "fbd88e96c0d03263": {
+      "name": "Diepzeeblauwe laarzen"
+    },
+    "97c43b98b082324d": {
+      "name": "Zwart festival-T-shirt"
+    },
+    "fe5b6419a8cdca16": {
+      "name": "Retrobril"
+    },
+    "3f873e363f704cb1": {
+      "name": "Wollen honkbalpet"
+    },
+    "dcdcce44cc986830": {
+      "name": "Crèmekleurige sneakers"
+    },
+    "2fb39d1dadd7c944": {
+      "name": "Felgekleurde pijlsneakers"
+    },
+    "e8dba35f379071e9": {
+      "name": "Logo-overhemd"
+    },
+    "7681064f94162dbc": {
+      "name": "Zilveren Tentatek-vest"
+    },
+    "0295f1fc011135dd": {
+      "name": "Regenboog-Takoroka-shirt"
+    },
+    "f3cace8e957f4afd": {
+      "name": "Neon sandalen"
+    },
+    "912f9e7163429951": {
+      "name": "Wortelkleurige trui"
+    },
+    "a54a86f593f07471": {
+      "name": "BlobMob-mondkapje"
+    },
+    "2b969e7257d3ae82": {
+      "name": "Clownsoverhemd"
+    },
+    "58c453ebef2ec176": {
+      "name": "A.L.G. 30XX"
+    },
+    "e661aec8cd01d146": {
+      "name": "Kogelvis-T-shirt"
+    },
+    "cf5c062f1e43b84c": {
+      "name": "Pilotenhelm"
+    },
+    "1ceee981c71928c8": {
+      "name": "Witte hoofdband"
+    },
+    "155b6953f80040cc": {
+      "name": "Matte mountainbikehelm"
+    },
+    "3f7b8fff000e304d": {
+      "name": "Firefin-bandana"
+    },
+    "aa71e1548a9e8522": {
+      "name": "Blauw Firefin-sweatshirt"
+    },
+    "2d07b8dad42f4fbc": {
+      "name": "Gele badslippers"
+    },
+    "c4d02236f582d0a7": {
+      "name": "Rode klittenbandschoenen"
+    },
+    "1825c769977fdd6e": {
+      "name": "Firefin-zonneklep"
+    },
+    "82f1f448a4f0fe54": {
+      "name": "Zigzagmuts"
+    },
+    "4a7fcf9c1f8c4dfc": {
+      "name": "Brandweerhelm"
+    },
+    "3dfb98fbdf638609": {
+      "name": "Gebreid walvisvest"
+    },
+    "3b1d28cec3eabf6e": {
+      "name": "Zwart octopusoog-T-shirt"
+    },
+    "7c8ad6e187f38815": {
+      "name": "Roze sportschoenen"
+    },
+    "600b6773ead26809": {
+      "name": "Doo-rag, pet en bril"
+    },
+    "4667d60c68450557": {
+      "name": "Wielerpetje"
+    },
+    "c346697fc3b20f47": {
+      "name": "Groen Octokings-T-shirt"
+    },
+    "2f4a097a5033d97f": {
+      "name": "Annaki-baret"
+    },
+    "e0bdc2aa6cbf28c3": {
+      "name": "Grijze universiteitstrui"
+    },
+    "87d83548f67baeb3": {
+      "name": "SquidForce-mondkapje"
+    },
+    "862a010c5177a0b4": {
+      "name": "Wit T-shirt met V-hals"
+    },
+    "2fe326f7560d8a83": {
+      "name": "Bodywarmer met rits"
+    },
+    "4058d3abb1e4e352": {
+      "name": "Rode basketbalschoenen"
+    },
+    "dfa51097b684078e": {
+      "name": "Gestreept overhemd"
+    },
+    "7a6462687e63cfe7": {
+      "name": "Cyberheadset"
+    },
+    "fdbf97ede04f7a65": {
+      "name": "Bladgroene laarzen"
+    },
+    "834c7c26012d118c": {
+      "name": "Bril met halve rand"
+    },
+    "04a394c879266415": {
+      "name": "Skateboardhelm"
+    },
+    "e6dd154d985fa3d0": {
+      "name": "Parel-T-shirt"
+    },
+    "dc9a9d6bcbbb840b": {
+      "name": "Pixelpet"
+    },
+    "57e9324c62107383": {
+      "name": "Sportieve bobbelmuts"
+    },
+    "3f3cfe05a3715159": {
+      "name": "Blauwe sportschoenen"
+    },
+    "b73ff4a38bcf855a": {
+      "name": "Wielertrui"
+    },
+    "a227780efff6806b": {
+      "name": "Bolhoed"
+    },
+    "6cc693bf2514fb9e": {
+      "name": "Takoroka-pet"
+    },
+    "ded2baae55f2c88d": {
+      "name": "Retro-Takoroka-jack"
+    },
+    "07f932e3030844f9": {
+      "name": "Blauwe pijlsandalen"
+    },
+    "7a1755df7ff2c291": {
+      "name": "Astrovest"
+    },
+    "f7e0b2ddf93d8d6c": {
+      "name": "Brogues met gele zool"
+    },
+    "2df705182a19c965": {
+      "name": "Bruine klompen"
+    },
+    "05a55e56f538f82d": {
+      "name": "Kosmisch Takoroka-shirt"
+    },
+    "91bd0e01207ec3a5": {
+      "name": "Elegante veterschoenen"
+    },
+    "3ee3b47f0bb29a1c": {
+      "name": "Berg-bodywarmer"
+    },
+    "63ad32c0c0ae9e48": {
+      "name": "Gestreepte beanie"
+    },
+    "0bc0dd62a917ee69": {
+      "name": "Groen vest"
+    },
+    "76a01e9488af4599": {
+      "name": "Piranhamocassins"
+    },
+    "c2f605fb93b0eed8": {
+      "name": "Firefin-mondkapje"
+    },
+    "0252cb58e13e9234": {
+      "name": "Universiteitsjack"
+    },
+    "e90de38c33172401": {
+      "name": "Zwart laagjesshirt"
+    },
+    "be10ceef113e4e3a": {
+      "name": "Visaas-overhemd"
+    },
+    "06b390f07db3377f": {
+      "name": "Diepzeeduikhelm"
+    },
+    "fdad1947cfa0ff25": {
+      "name": "Reggae-T-shirt"
+    },
+    "f44f52ed02948c5f": {
+      "name": "Annaki-mondkapje"
+    },
+    "8031c9bc0bc5729f": {
+      "name": "Visaas-overhemd met stropdas"
+    },
+    "5df05f57955e0148": {
+      "name": "Annaki-mocassins"
+    },
+    "6ad37669627efb77": {
+      "name": "Forge-mondkapje"
+    },
+    "2be6447881c7b9b4": {
+      "name": "Zekko-hoody"
+    },
+    "1cb182b28706dc7a": {
+      "name": "Kaki pixelshirt"
+    },
+    "1bb6d34f9f76dff9": {
+      "name": "Beanie"
+    },
+    "c26a82350267c668": {
+      "name": "Octo-koptelefoon 8X"
+    },
+    "77b90ea18d788e94": {
+      "name": "Hoekige Annaki-bril"
+    },
+    "540f9752a3d30e48": {
+      "name": "Commandantentuniek"
+    },
+    "1e2a7de223596dc4": {
+      "name": "Wit bikerjack"
+    },
+    "4f70200654fbe026": {
+      "name": "Voetbalschoenen"
+    },
+    "52469e6a40ca387e": {
+      "name": "Paintballmasker"
+    },
+    "3c06458bec5647de": {
+      "name": "Wit matrozenshirt"
+    },
+    "c635489c278a591d": {
+      "name": "Avonturiershelm"
+    },
+    "b84d8c828976da4d": {
+      "name": "Lichtgewicht pet"
+    },
+    "28f201c6c29913cd": {
+      "name": "Retrotrui"
+    },
+    "1f7bc4016aa78813": {
+      "name": "Zeekoe-designertrui"
+    },
+    "725408ce3ea63916": {
+      "name": "Sportjack"
+    },
+    "0027dbe5263d0a98": {
+      "name": "Groene Hi-Tops"
+    },
+    "8bfe4f8ea3cb903c": {
+      "name": "Geel-blauwe Squidkid IV"
+    },
+    "dfc27f7c2061cfae": {
+      "name": "Tafeltennishoofdband"
+    },
+    "bce1966d8aa5d9fc": {
+      "name": "Blauw Deca-shirt"
+    },
+    "1310e7c50402119e": {
+      "name": "Hemelsblauwe Dakroniks"
+    },
+    "0f6d8d23897cd952": {
+      "name": "Commandantenmuts"
+    },
+    "b2ae6a4fffa46ba5": {
+      "name": "Gele sneakers"
+    },
+    "0b86a012394472f8": {
+      "name": "Witte bril met sportband"
+    },
+    "214d4e491366d30d": {
+      "name": "Octobril"
+    },
+    "a871be865230f417": {
+      "name": "Zwart pixel-T-shirt"
+    },
+    "e4c46623fc89ebbb": {
+      "name": "Zwarte sportschoenen"
+    },
+    "a1b3d54b2903008f": {
+      "name": "Vliegvissen-hockeyshirt"
+    },
+    "d5ab820f303fa0be": {
+      "name": "Dokwerkerspet"
+    },
+    "846a98a5b4d88670": {
+      "name": "Kungfu-jack"
+    },
+    "0527171ee847d92f": {
+      "name": "Verkenningsvizier"
+    },
+    "64fd436581a6370b": {
+      "name": "Getinte zonnebril"
+    },
+    "3e542c698f06dcc5": {
+      "name": "Zwarte pet met flappen"
+    },
+    "1cee77c2490c09af": {
+      "name": "Lila Barazushi-T-shirt"
+    },
+    "b9a3223d252b2822": {
+      "name": "Calamars-gaaspet"
+    },
+    "8b2d94a9c615dd15": {
+      "name": "Wandelschoenen"
+    },
+    "bc8f60c1cd372c25": {
+      "name": "Grijze hoody"
+    },
+    "b2b55186b82c26c4": {
+      "name": "Zwarte Dakroniks"
+    },
+    "80fb0eda51ba01c9": {
+      "name": "Panda-kungfu-jack"
+    },
+    "1bb16ccccd8ab5be": {
+      "name": "Parelwitte 03ST3Rs"
+    },
+    "fe2f80cba9d4761f": {
+      "name": "Annaki-spinnenweblaarzen"
+    },
+    "18c479f527c4b352": {
+      "name": "Paarse Iromaki 750"
+    },
+    "5c3987aa4bbca169": {
+      "name": "Avondtinten-T-shirt"
+    },
+    "27ef20ef1418f1e3": {
+      "name": "Retrofuturistisch pak"
+    },
+    "27d171e5ddd674ba": {
+      "name": "Zwembril"
+    },
+    "2ff6f13540a0ec13": {
+      "name": "Zekko-pet"
+    },
+    "1ea2b1826bfe9dcc": {
+      "name": "Zwarte polo"
+    },
+    "ed5e8fd9b5adac7b": {
+      "name": "Oranje Lo-Tops"
+    },
+    "7fc1a5536febbc0e": {
+      "name": "Toni Kensa-zwembril"
+    },
+    "a408fcb87e3e02f0": {
+      "name": "Haaienvinsneakers"
+    },
+    "2c9ead76e9c61617": {
+      "name": "Driekleurig rugbyshirt"
+    },
+    "02c8eed846264962": {
+      "name": "Orka-sneakers"
+    },
+    "f1948086b33446c9": {
+      "name": "Rode wereldse hoody"
+    },
+    "5127c0c8183f29b2": {
+      "name": "Retrofuturistische helm"
+    },
+    "f7dcc7ae0546ef44": {
+      "name": "N-Pacer Ag"
+    },
+    "c843942decb0f961": {
+      "name": "Geweven orka-sneakers"
+    },
+    "9bd38df5a3309513": {
+      "name": "Designerkoptelefoon"
+    },
+    "94e95bc919483853": {
+      "name": "Gele bodywarmer"
+    },
+    "f4bb5340ac46da94": {
+      "name": "Katten-honkbaljack"
+    },
+    "7ae7524ec9a91481": {
+      "name": "Zwarte punkschoenen"
+    },
+    "fa053d90af54d4ef": {
+      "name": "Getinte bril"
+    },
+    "edf1dea3e7835924": {
+      "name": "Lichte bomberjas"
+    },
+    "1edd243cc32bb86a": {
+      "name": "Glamrockjas"
+    },
+    "1f7bdf4cc8896df5": {
+      "name": "Calamars-mondkapje"
+    },
+    "0af9763735c58ea7": {
+      "name": "Chilipeper-ski-jack"
+    },
+    "2589ba77b0a02527": {
+      "name": "Rode Iromaki 750"
+    },
+    "f9d9b9e159237f70": {
+      "name": "Takoroka-zonneklep"
+    },
+    "1631bf7a3f6f38cc": {
+      "name": "Takoroka-honkbalshirt"
+    },
+    "b0ca2b7c1afe237f": {
+      "name": "Sportieve pijlsneakers"
+    },
+    "13fe3940b4d7a989": {
+      "name": "Geborduurd jasje"
+    },
+    "2c822f1b9419edc8": {
+      "name": "Zwarte bril met sportband"
+    },
+    "724616560d3ed93c": {
+      "name": "Glamrocklaarzen"
+    },
+    "5fc65fb55c534eb4": {
+      "name": "Blauwe Lo-Tops"
+    },
+    "655f570aed6c9f1e": {
+      "name": "Donker Annaki-T-shirt"
+    },
+    "8e552be8f6c72a9e": {
+      "name": "Blauwe parachutistenjas"
+    },
+    "30e29e191ae487ff": {
+      "name": "Motorlaarzen"
+    },
+    "6f78aaabd4eaca78": {
+      "name": "Rode Hi-Tops"
+    },
+    "98a96c07973e423f": {
+      "name": "Instappers met patroon"
+    },
+    "e15fbebc0370e1e1": {
+      "name": "Gestipte regenlaarzen"
+    },
+    "11c3cd9aea59ffdf": {
+      "name": "Blauwe instappers"
+    },
+    "9089992996ad5abf": {
+      "name": "Vissershoed"
+    },
+    "ef86ba769a8d0073": {
+      "name": "Zwart anker-T-shirt"
+    },
+    "cf7abf3339465232": {
+      "name": "Blauwe Iromaki 750"
+    },
+    "a3c0aaa52ff9edf5": {
+      "name": "3D-bril"
+    },
+    "c414d439919e17ea": {
+      "name": "Geüpcycled overhemd"
+    },
+    "dfcba964fd347b5f": {
+      "name": "BlobMob-teenslippers"
+    },
+    "fd4b717166d199f0": {
+      "name": "Kraakcommando-schild"
+    },
+    "7001e372753eddb0": {
+      "name": "Coder-trenchcoat"
+    },
+    "d1269481accd1b9d": {
+      "name": "Gele orka-sneakers"
+    },
+    "464a6619f85c3fd6": {
+      "name": "Zwarte hoody"
+    },
+    "b67967731fad7ccb": {
+      "name": "Schelpenhelm"
+    },
+    "fa36a523e2b54888": {
+      "name": "Nachtkijker"
+    },
+    "e9f987a770e84550": {
+      "name": "Bobbelmuts"
+    },
+    "ec52a840e63fb709": {
+      "name": "Groen streepjesshirt"
+    },
+    "897e3e33543aa8b3": {
+      "name": "Chirpy Chips-T-shirt"
+    },
+    "a25f5df4d4740c9d": {
+      "name": "Gele punkschoenen"
+    },
+    "67dba8c242796b8a": {
+      "name": "Gele gaassneakers"
+    },
+    "afbc3f87a7318524": {
+      "name": "Makreelrolschaatsen"
+    },
+    "47ab9705df2564a5": {
+      "name": "Luipaard-T-shirt"
+    },
+    "e8f74588deabb91f": {
+      "name": "Turquoise plastic sandalen"
+    },
+    "56773ddb229a6d31": {
+      "name": "Zalmroze polo"
+    },
+    "6a8cd7c7c28ce3b7": {
+      "name": "Transparante sandalen"
+    },
+    "779752e0250dfac3": {
+      "name": "Forge-camo-mondkapje"
+    },
+    "ecc5689c8b41d7f4": {
+      "name": "Bruine hoge sneakers"
+    },
+    "4cca02d88c65ca82": {
+      "name": "Studiokoptelefoon"
+    },
+    "117545568f0044bb": {
+      "name": "Groen laagjes-T-shirt"
+    },
+    "c74fe5477ab02f2b": {
+      "name": "Anti-inktbril"
+    },
+    "3e4d3fcbd77372a8": {
+      "name": "Inktregenjas"
+    },
+    "740d7f06529e32df": {
+      "name": "Leren rockerjack"
+    },
+    "e3212426964499e5": {
+      "name": "Fleecetrui"
+    },
+    "1b9f5bc1f3c1668d": {
+      "name": "Violette sportschoenen"
+    },
+    "2c659e423ed057e6": {
+      "name": "Gekleurde contactlenzen"
+    },
+    "a3af22e465c67d1e": {
+      "name": "Piratenlaagjesshirt"
+    },
+    "6ca4c132c95f9752": {
+      "name": "Rood Tentatek-T-shirt"
+    },
+    "717fbb2c21bd4d5a": {
+      "name": "Strohoed"
+    },
+    "2861118daf0a6249": {
+      "name": "Grote Calamar-masker"
+    },
+    "65e73e9933b18441": {
+      "name": "Rood ruitjeshemd"
+    },
+    "a901c49ae3f31cb1": {
+      "name": "Blauwe Calamars-tanktop"
+    },
+    "b6e69d69ac2344ca": {
+      "name": "Pet met lange klep"
+    },
+    "1ca9c9434d3f3c41": {
+      "name": "Mosterdgeel Zekko-jack"
+    },
+    "da541f46db31f714": {
+      "name": "Bokslaarzen"
+    },
+    "df7d0d498a52ac44": {
+      "name": "Magenta orka-sneakers"
+    },
+    "30bcefc0e5206648": {
+      "name": "Voltvis-honkbaljack"
+    },
+    "2cc0fa9e18daa012": {
+      "name": "Wit Rockenberg-T-shirt"
+    },
+    "078007235244a529": {
+      "name": "Rode scifi-sneakers"
+    },
+    "78b48dab45f802b7": {
+      "name": "Camouflagelaarzen"
+    },
+    "39b603cc8ff686a1": {
+      "name": "Kantoorjungleoverhemd"
+    },
+    "942bfc9013d17a23": {
+      "name": "Cool jack"
+    },
+    "0db3b2e4f86aac92": {
+      "name": "Lichte gestikte trui"
+    },
+    "54d9c61ae642db21": {
+      "name": "Ringer-T-shirt ananas"
+    },
+    "686e6d924bceaa29": {
+      "name": "Ronde bril"
+    },
+    "4a5ed56bd3248aa3": {
+      "name": "Trui met korte mouwen"
+    },
+    "b6ccc8ec8b1ccd66": {
+      "name": "Oorhaak-koptelefoon"
+    },
+    "770a14b00c42b23e": {
+      "name": "Hemelsblauw T-shirt"
+    },
+    "70985cc8ba0a905e": {
+      "name": "Octavio-helm"
+    },
+    "96ba51e5d6e29bdd": {
+      "name": "Blauw matrozenshirt"
+    },
+    "1bc642ca33260c9c": {
+      "name": "Zwart Octokings-T-shirt"
+    },
+    "d796324f1b393800": {
+      "name": "Donkerbruine bootschoenen"
+    },
+    "39d667e7b1fae70a": {
+      "name": "Wollen muts"
+    },
+    "f990ae778fb58518": {
+      "name": "Stadsjungle-bodywarmer"
+    },
+    "4a6425e4a5cbc56d": {
+      "name": "Rode badslippers"
+    },
+    "2fb640094d3a6c34": {
+      "name": "Paarse sportschoenen"
+    },
+    "e017349bb9753a06": {
+      "name": "Bos-bodywarmer"
+    },
+    "4298ea7016d68d7f": {
+      "name": "Zeegroen T-shirt"
+    },
+    "1f976b82a5d4d4d2": {
+      "name": "Combi-inktopus-Tri-shirt"
+    },
+    "c5f63a7dd65a0fbb": {
+      "name": "Paars camouflageshirt"
+    },
+    "a71146cfd9b53b1d": {
+      "name": "Platte pet"
+    },
+    "7f4e56e3170981d7": {
+      "name": "Crèmekleurige Hi-Tops"
+    },
+    "24168d03237b4558": {
+      "name": "Turquoise sportschoenen"
+    },
+    "21101f0d5bf0921d": {
+      "name": "Grijze suède schoenen"
+    },
+    "aa58c763cf07cea0": {
+      "name": "Zwarte Firefin-bandana"
+    },
+    "0c753da3c6c590cf": {
+      "name": "Wit T-shirt"
+    },
+    "6e80a02afaee906a": {
+      "name": "Streetstyle-pet"
+    },
+    "4dddf1b2dacb4424": {
+      "name": "Basketbalhoofdband"
+    },
+    "869d6602bfb2f65f": {
+      "name": "Pijlenlaagjesshirt"
+    },
+    "38f2ab404277f174": {
+      "name": "Annaki-shirt met octologo"
+    },
+    "1f481bd6fbe94a6d": {
+      "name": "Vers T-shirt"
+    },
+    "b17553b34aa1cbad": {
+      "name": "Muts met mondkapje"
+    },
+    "47c439e64b588715": {
+      "name": "Turquoise suède schoenen"
+    },
+    "59fe2b198bc53392": {
+      "name": "Grasgroene polo"
+    },
+    "25d4c06caa7e3d92": {
+      "name": "Krokodillenmocassins"
+    },
+    "8decd5a8eb7a14e6": {
+      "name": "Geel Dakro-shirt"
+    },
+    "f091d084f1d5cf34": {
+      "name": "Kwallenhemd"
+    },
+    "d4245c778feaf1c1": {
+      "name": "Paars overhemd"
+    },
+    "ceac8b8a4aa32494": {
+      "name": "Blauw retro-T-shirt"
+    },
+    "181e90d1f357ed37": {
+      "name": "Klassieke schoenen"
+    },
+    "d10e72d4801b381a": {
+      "name": "Bergkoningtrui"
+    },
+    "5ac5e0b7f775993e": {
+      "name": "Groene klimschoenen"
+    },
+    "82bd94ed894a16dc": {
+      "name": "King-rugbyshirt 08"
+    },
+    "a58903f46daad145": {
+      "name": "Witte sneakers"
+    },
+    "e76101f0587cdb9f": {
+      "name": "Sneeuwmonsterparka"
+    },
+    "52a5f2aa1751da27": {
+      "name": "Toni Kensa-honkbalshirt"
+    },
+    "7b70812eb0a76cb5": {
+      "name": "Beige bergen-T-shirt"
+    },
+    "7a2ad2199089c4ae": {
+      "name": "Licht Annaki-T-shirt"
+    },
+    "485f3a4b50643a31": {
+      "name": "Jet-pet"
+    },
+    "db926cd04a5b01fc": {
+      "name": "Camouflagepet"
+    },
+    "a4adb096a8093e9f": {
+      "name": "Spetteroverhemd"
+    },
+    "d5f196b8363c0ae7": {
+      "name": "Bananensneakers"
+    },
+    "560a8c075c90b9d2": {
+      "name": "Zonneklep"
+    },
+    "c7d0a936a7586b25": {
+      "name": "Sneeuwwitte sandalen"
+    },
+    "836c409c224327da": {
+      "name": "Deca-helm met vizier"
+    },
+    "5ca83e32e9497c1b": {
+      "name": "Blauw streepjesshirt"
+    },
+    "f78714f08fa31b1f": {
+      "name": "Blauwe motorlaarzen"
+    },
+    "79e4d4f396b69ce3": {
+      "name": "Zekko-pet met bril"
+    },
+    "dc8774834a34a71b": {
+      "name": "Groen ruitjeshemd"
+    },
+    "7465dafe561618e5": {
+      "name": "Paarse Hi-Tops"
+    },
+    "8f624df76895e669": {
+      "name": "Kwallenhemd met stropdas"
+    },
+    "fab4005bf9bda9c9": {
+      "name": "Rode hoge sneakers"
+    },
+    "703305c6c0eedf0b": {
+      "name": "Motorcrossmasker"
+    },
+    "cf304a572eaaea9f": {
+      "name": "Forge-Inklingparka"
+    },
+    "60d3f51d54b887f4": {
+      "name": "Gestreept rugbyshirt"
+    },
+    "13acfddef4b45a90": {
+      "name": "Skateboardhelm met klep"
+    },
+    "6375b52a355cc737": {
+      "name": "Geel-oranje Squidkid V"
+    },
+    "c106a08662150465": {
+      "name": "LobStars-shirt"
+    },
+    "ed5e54b43414f51f": {
+      "name": "Squid Squad-T-shirt"
+    },
+    "7a13112bd1a0c47d": {
+      "name": "Ankertrui"
+    },
+    "5fdaa7d21b661331": {
+      "name": "Trui met blauwe manchet"
+    },
+    "2176fd45cb9c3edb": {
+      "name": "Zeepaardjesoverhemd"
+    },
+    "d3694d8bbc94fc3f": {
+      "name": "Rode parachutistenjas"
+    },
+    "85cd9f1ce488ef28": {
+      "name": "Pilotenbril"
+    },
+    "0b5863953939a70d": {
+      "name": "Camouflagehoody"
+    },
+    "bca8d8cd3914c33d": {
+      "name": "Campinghoed"
+    },
+    "3e2118823fe00aab": {
+      "name": "Camouflagelaagjesshirt"
+    },
+    "1be0651a23a1b2a3": {
+      "name": "Annaki-baret met zonnebril"
+    },
+    "5c2ec2598836a14a": {
+      "name": "Bessen-BlobMob-T-shirt"
+    },
+    "f5d27c917569dd63": {
+      "name": "Retrojack"
+    },
+    "4fa3680c71e09bc5": {
+      "name": "Wittevlekhemd"
+    },
+    "2ad2124dfca512b4": {
+      "name": "Kanariegele sportschoenen"
+    },
+    "ed9d4af7a3f2f522": {
+      "name": "Octokings-hockeyshirt"
+    },
+    "8982ccbce58f2648": {
+      "name": "Calamars-hockeyshirt"
+    },
+    "938ac2d7c31d8341": {
+      "name": "Denim pet"
+    },
+    "511e4ea2d524ae08": {
+      "name": "Kaki boswachteroverhemd"
+    },
+    "8389cd5d7f55b970": {
+      "name": "Haaientrui"
+    },
+    "1096291eb0c76e82": {
+      "name": "Rodeohemd"
+    },
+    "5eca902a06dba6e9": {
+      "name": "Reboot-laarzen"
+    },
+    "ca15723961648c14": {
+      "name": "Octo-honkbaljack"
+    },
+    "bba99111b562edae": {
+      "name": "Blauwe Octo-trui"
+    },
+    "50dee75a7a249665": {
+      "name": "Rood krabbenpantser"
+    },
+    "bf788cd30ce7483f": {
+      "name": "T-shirt"
+    },
+    "6205386c349c6378": {
+      "name": "Octopus-Tri-shirt"
+    },
+    "fe399237cbf576e4": {
+      "name": "Rode turbo-tabisneakers"
+    },
+    "c3bde248ba3d37c2": {
+      "name": "Carnavalhallahelm"
+    },
+    "0e9a7c1cbf2a1562": {
+      "name": "Umibozu-jersey (thuis)"
+    },
+    "8fa248d2c2f6dbb5": {
+      "name": "Zekko-jack"
+    },
+    "8721ccd8a97ca6d9": {
+      "name": "Bruine werkschoenen"
+    },
+    "bc4b2d948ec1a680": {
+      "name": "Donkere bolero"
+    },
+    "35324a023fbc73b4": {
+      "name": "Squashhoofdband"
+    },
+    "736e591555dd7fc2": {
+      "name": "Wit pixel-T-shirt"
+    },
+    "fe88471fdaa4835b": {
+      "name": "Tennishoofdband"
+    },
+    "6aa82c7f381ed1c7": {
+      "name": "Lichtblauw octopusoog-T-shirt"
+    },
+    "55f313d77f02df5d": {
+      "name": "Zwart-blauwe Squidkid V"
+    },
+    "3583daf7ca4ab304": {
+      "name": "Stippeloverhemd"
+    },
+    "486ad6046068e579": {
+      "name": "Grijze hoge sneakers"
+    },
+    "798039fff916ccab": {
+      "name": "Rode Squidkid IV"
+    },
+    "186b8207f53c589c": {
+      "name": "Verfmasker"
+    },
+    "61bf38eee6c6572c": {
+      "name": "Beige retro-T-shirt"
+    },
+    "445447f824e8029a": {
+      "name": "Lapjesbomberjack"
+    },
+    "71c037bdda583422": {
+      "name": "Zebra-T-shirt"
+    },
+    "e3de2716bb4dd373": {
+      "name": "Octo-T-shirt"
+    },
+    "b3316e0644d12c28": {
+      "name": "Oranje gespsneakers"
+    },
+    "ad1453c835f0dd18": {
+      "name": "Witte pijlsneakers"
+    },
+    "ec6c894d7932e077": {
+      "name": "Rode regenlaarzen"
+    },
+    "5b2b3d4a7850f32a": {
+      "name": "Kantooroverhemd"
+    },
+    "5de86f8b5e2cf16e": {
+      "name": "Groene Lace-Ups"
+    },
+    "136a65f45a9021f3": {
+      "name": "Retrokoptelefoon"
+    },
+    "b1fad79c10f879c9": {
+      "name": "Witte Calamars-tanktop"
+    },
+    "6a69aeb21b9ba9a1": {
+      "name": "Witte Norimaki 750s"
+    },
+    "da4b679ea7dc0d42": {
+      "name": "Jogginghoofdband"
+    },
+    "3127d54717172294": {
+      "name": "Luchtig jack"
+    },
+    "258ad6bf82aefb7e": {
+      "name": "Ringer-T-shirt appel"
+    },
+    "e965474df895c0b1": {
+      "name": "Zekko-honkbalshirt"
+    },
+    "e51c45457e2f73f7": {
+      "name": "5-panelenpet"
+    },
+    "b91eb6d04f17ee7f": {
+      "name": "Oorbeschermers"
+    },
+    "265fc965fe5c5cde": {
+      "name": "Paars T-shirt"
+    },
+    "d1ddf6a044e31f77": {
+      "name": "Witte suède sneakers"
+    },
+    "59705e7558d8dddd": {
+      "name": "Rood Kraakwaar-shirt"
+    },
+    "aae831af78d23c56": {
+      "name": "Ouderwets ruitjeshemd"
+    },
+    "6e38644c66a730fe": {
+      "name": "Lakschoenen"
+    },
+    "2cabdbbaf8250933": {
+      "name": "Tentatek-T-shirt met opdruk"
+    },
+    "68b8af2a12635dec": {
+      "name": "Pijlenlaarsjes"
+    },
+    "e0ed31a22488ba2a": {
+      "name": "Blauw Tentatek-T-shirt"
+    },
+    "c9a7bef53f71de4d": {
+      "name": "Donker peddeljack"
+    },
+    "14148115c21252c9": {
+      "name": "Duikbril"
+    },
+    "b4d2003229cc69cd": {
+      "name": "Blauwe Squidkid IV"
+    },
+    "bfa9f1b99a67f0fd": {
+      "name": "Zwarte gespenschoenen"
+    },
+    "4b2937e5f71b6bb4": {
+      "name": "N-Pacer-sweater"
+    },
+    "c180b715b8e53b1d": {
+      "name": "Tulphoed"
+    },
+    "4629b1994d6b27cb": {
+      "name": "Octarianen-retrotrui"
+    },
+    "d4c85d2d735e464d": {
+      "name": "N-Pacer CaO"
+    },
+    "5eafa1e64cfbbd52": {
+      "name": "Geruit hemd met gilet"
+    },
+    "acf5348674a9524b": {
+      "name": "IJshockeyhelm"
+    },
+    "a9fb5bbd38e00533": {
+      "name": "Groene hoody"
+    },
+    "53c3f7c4ef8eb14a": {
+      "name": "Wit pilotenjack F-3"
+    },
+    "a19dcb9db1b6a870": {
+      "name": "Speciale wandelschoenen"
+    },
+    "164e70329fff7e10": {
+      "name": "Grijs pijlen-T-shirt"
+    },
+    "a0f68c9f0489a1ee": {
+      "name": "Witte plateauschoenen"
+    },
+    "0fd13c0fc8750e82": {
+      "name": "Wet Floor-T-shirt"
+    },
+    "c41abf60a87ece6a": {
+      "name": "Wit shirt"
+    },
+    "56499d773cc89216": {
+      "name": "Takoroka-windjack"
+    },
+    "f4d9cf36f44d5d2f": {
+      "name": "Haaktrui"
+    },
+    "6a4233aab2a89c2e": {
+      "name": "SquidForce-shirt"
+    },
+    "894701a3ffb7639d": {
+      "name": "Fuchsia-ski-jack"
+    },
+    "e095352827007788": {
+      "name": "Zwart bikerjack"
+    },
+    "c7046c5675149293": {
+      "name": "Honkbalshirt"
+    },
+    "25dc67a105f26543": {
+      "name": "Jachtlaarzen"
+    },
+    "7bb94b71fd60d36d": {
+      "name": "Neongroene sportschoenen"
+    },
+    "7df3f12f9059a3f4": {
+      "name": "Wit Deca-T-shirt"
+    },
+    "07f0b1a126042377": {
+      "name": "Universiteitshonkbalshirt"
+    },
+    "80c5b5ad61078a69": {
+      "name": "Stiekeme bril"
+    },
+    "47337f863e270138": {
+      "name": "Hawaïhemd"
+    },
+    "fa441bde1e48c941": {
+      "name": "Catcherhelm (thuis)"
+    },
+    "8ac15fbadd7c5921": {
+      "name": "Lapjeshoed"
+    },
+    "fbb643bceee306f4": {
+      "name": "Gele klimschoenen"
+    },
+    "c660b59aec2bee52": {
+      "name": "Snorkel"
+    },
+    "5f3d30b4208dc045": {
+      "name": "Gouden Dakro-shirt"
+    },
+    "e8816dc35ffe0f3f": {
+      "name": "Wit laagjesshirt"
+    },
+    "d8ab4619e04183ac": {
+      "name": "Klassieke bandana"
+    },
+    "ac2d0e974ab4a45d": {
+      "name": "Paarse veterschoenen"
+    },
+    "4a64ff9da8eedc99": {
+      "name": "FC Barracuda-shirt"
+    },
+    "a63033c3b7a63dfa": {
+      "name": "Oranje gaassneakers"
+    },
+    "2955f82ca50e5b91": {
+      "name": "Bruin laagjesshirt"
+    },
+    "aa77710e35ac07bb": {
+      "name": "Groene Iromaki 750"
+    },
+    "c53e7522d9b61206": {
+      "name": "Ankerlaagjesshirt"
+    },
+    "b7c3f1f0fd72870a": {
+      "name": "Donkere gestikte trui"
+    },
+    "35a13bf492b1cdca": {
+      "name": "Toni Kensa-scifi-sneakers"
+    },
+    "9e34382421cb08fa": {
+      "name": "Groene Zekko-hoody"
+    },
+    "f992fb41a27a9bcc": {
+      "name": "Zwarte sneakers"
+    },
+    "7581836257a42a71": {
+      "name": "Groen strokenshirt"
+    },
+    "d6332fcfb6eb65e9": {
+      "name": "Sesam & Zout 270"
+    },
+    "9048ca4ab3f36892": {
+      "name": "Rode punkschoenen"
+    },
+    "3c650363f66ad2c0": {
+      "name": "Howdy-hoed"
+    },
+    "126fa11f05f485a1": {
+      "name": "Matchagroene donsjas"
+    },
+    "fb1f5c374902e6ce": {
+      "name": "Roze plastic sandalen"
+    },
+    "5f76f2b1505537dc": {
+      "name": "Kogelvispet"
+    },
+    "d121326530879316": {
+      "name": "Chocobruine Dakroniks"
+    },
+    "4af3f9ca3bc0153f": {
+      "name": "Rode instappers"
+    },
+    "52f6ded7fa0502c2": {
+      "name": "Lo-Tops SE"
+    },
+    "40c238f5bb55f658": {
+      "name": "Gestreept bergen-shirt"
+    },
+    "876024e49bf245f6": {
+      "name": "Omgekeerde pet"
+    },
+    "8b237659c0671b55": {
+      "name": "Blauwe veterschoenen"
+    },
+    "a0abca747544faed": {
+      "name": "Zwart T-shirt"
+    },
+    "d8658688d12980e4": {
+      "name": "Pilotenjack F-3"
+    },
+    "def63dfb2de0a349": {
+      "name": "Oranje plastic sandalen"
+    },
+    "ec0c785a1a9caf90": {
+      "name": "Annaki-shirt en choker"
+    },
+    "14775ed65b5bedb8": {
+      "name": "Annaki-tijgermocassins"
+    },
+    "2d08e8989db642d7": {
+      "name": "Gestreept piraten-T-shirt"
+    },
+    "d4e783da0e6e162c": {
+      "name": "Mountie-hoed"
+    },
+    "42df0b2cf7471ddc": {
+      "name": "Hoge zombiesneakers"
+    },
+    "42b5402e9eb64e49": {
+      "name": "Pet met dubbele streep"
+    },
+    "8e474adbf0b1de1b": {
+      "name": "Zwarte teenslippers"
+    },
+    "ae595eff83b88b5b": {
+      "name": "Professionele wandelschoenen"
+    },
+    "452d724de6df3056": {
+      "name": "Theegroene jachtlaarzen"
+    },
+    "11c60e7c644758c3": {
+      "name": "Zeeoorheadset"
+    },
+    "3434c77d55faa725": {
+      "name": "Forge-Octarianenparka"
+    },
+    "ef4a34530ef5783b": {
+      "name": "Boterbloembergjas"
+    },
+    "d22ab67b6963492d": {
+      "name": "Honkbalshirt met lange mouwen"
+    },
+    "3ec43b15e540fca6": {
+      "name": "Vuurtinten-T-shirt"
+    },
+    "2122b1e6bf54cef3": {
+      "name": "Vinvis-teenslippers"
+    },
+    "ce56023598fa2be7": {
+      "name": "Gestreept matrozen-T-shirt"
+    },
+    "a75e7ce05c103f50": {
+      "name": "Takoroka-trui"
+    },
+    "d74020abaeb90118": {
+      "name": "Donkere bomberjas"
+    },
+    "11c0bdc9f869694b": {
+      "name": "Mevrouw Boeiuh-T-shirt"
+    },
+    "8e280599b2678219": {
+      "name": "Instappers met stippen"
+    },
+    "090050f61f468d22": {
+      "name": "Bladerhoody"
+    },
+    "552a8ee1ea64d236": {
+      "name": "Rood pijlen-T-shirt"
+    },
+    "ef82c7026049a3ac": {
+      "name": "N-Pacer Au"
+    },
+    "5882ffd030005203": {
+      "name": "Beige toendra-fleecejas"
+    },
+    "49cf4db6f834714d": {
+      "name": "Wit honkbalshirt"
+    },
+    "d8a06f7070e1db3c": {
+      "name": "Gele Iromaki 750"
+    },
+    "ff5f2a9a0718704b": {
+      "name": "Zink-shirt"
+    },
+    "13e5e6e89ff2bf76": {
+      "name": "Blauw pixelshirt"
+    },
+    "f99d83847b5d7f5d": {
+      "name": "Anemoonvissneakers"
+    },
+    "23bba62ce2a06226": {
+      "name": "Rode sportschoenen"
+    },
+    "85acbc1607f78ad7": {
+      "name": "Trui met gele manchet"
+    },
+    "8b2135f32fdb1a21": {
+      "name": "Aalzebub-T-shirt"
+    },
+    "ff0bfb7aeac4aa6d": {
+      "name": "Schelpenbamboehoed"
+    },
+    "3ae1c8a4eecf91e3": {
+      "name": "Zwart Rockenberg-T-shirt"
+    },
+    "a7774baa69c08989": {
+      "name": "Wasabi-tabisneakers"
+    },
+    "229d49cb636089c0": {
+      "name": "Spijkerstofvissershoed"
+    },
+    "a12167e8d2f28bc4": {
+      "name": "Roze strokenshirt"
+    },
+    "d00c5befc82384e4": {
+      "name": "Blauwe scifi-sneakers"
+    },
+    "92fd25365b270e34": {
+      "name": "Blauwe universiteitstrui"
+    },
+    "2bbb730975a3d2e4": {
+      "name": "Gouden Hi-Tops"
+    },
+    "ce512460e6ed3d20": {
+      "name": "Hightide Era-T-shirt"
+    },
+    "a2a53544339fc704": {
+      "name": "Gestreepte Calamars-tanktop"
+    },
+    "cabb500a341a7297": {
+      "name": "Haaienmocassins"
+    },
+    "76c98dcadfa3254e": {
+      "name": "Zwart honkbalshirt"
+    },
+    "45e78598c560379c": {
+      "name": "SquidForce-trui"
+    },
+    "3c85da60025f9def": {
+      "name": "Pilotenjack"
+    },
+    "7d5e52e2c5bb83f5": {
+      "name": "Gasmasker"
+    },
+    "da94f64e21dea66e": {
+      "name": "Zwarte Norimaki 750s"
+    },
+    "c1e0f231ee4d92b1": {
+      "name": "Blauwe Calamars-mantel"
+    },
+    "66b67f985e1298a7": {
+      "name": "Voetbalhoofdband"
+    },
+    "fe17ac29feb37984": {
+      "name": "Trui met rode manchet"
+    },
+    "f1828d6cf750b256": {
+      "name": "Rode plateauschoenen"
+    },
+    "8b7c930b2cc0e498": {
+      "name": "Krak-On 528"
+    },
+    "2b9bb9aa6b80f37e": {
+      "name": "Ovale zonnebril"
+    },
+    "e35713e444afb4eb": {
+      "name": "Grijs Barazushi-T-shirt"
+    },
+    "b63cbc8e8458640d": {
+      "name": "King-rugbyshirt 10"
+    },
+    "2b91bcfea4de8809": {
+      "name": "Zwart shirt"
+    },
+    "8fd5ab805c9687e2": {
+      "name": "Calamars-hoody"
+    },
+    "f121f611a8379f3f": {
+      "name": "Zwart T-shirt met V-hals"
+    },
+    "460574ad6d73934b": {
+      "name": "IJsbergjas"
+    },
+    "7c409e0ca76b942b": {
+      "name": "Wit anker-T-shirt"
+    },
+    "22b856345ca7de8e": {
+      "name": "Zwarte Hi-Tops"
+    },
+    "759f10e900939f5c": {
+      "name": "Linnen overhemd"
+    },
+    "f566a101b0f5b132": {
+      "name": "Geel inktvislaagjesshirt"
+    },
+    "e328bb1204b9fab3": {
+      "name": "Brogues met rode zool"
+    },
+    "ea7403918192ffc4": {
+      "name": "Octopus-hawaïhemd"
+    },
+    "85c6fc1e82e176a5": {
+      "name": "Zonnig T-shirt"
+    },
+    "fc4daf64413e0935": {
+      "name": "Olijfgroen ski-jack"
+    },
+    "82e84adc3d2d435b": {
+      "name": "Kensa-jack"
+    },
+    "051dbc8aeb5ddf6d": {
+      "name": "Toernooi-T-shirt"
+    },
+    "c03f0c705e5a2ad3": {
+      "name": "Gespenschoenen"
+    },
+    "2672cbe3aa792e52": {
+      "name": "Grijs pixel-T-shirt"
+    },
+    "32c45f03137ffd14": {
+      "name": "Oranje vest"
+    },
+    "527b06f73d3b7018": {
+      "name": "Bloemkoolkleurige trui"
+    },
+    "28d6795565c997b8": {
+      "name": "Wit overhemd"
+    },
+    "7b9c71c2c795b6a6": {
+      "name": "Basketbalshirt (thuis)"
+    },
+    "e8285de857d1444c": {
+      "name": "Hemd met blauwe hoody"
+    }
+  },
+  "powers": {
+    "032c2b30027d6a23": {
+      "name": "Hoofdspaarder"
+    },
+    "294d158b20a03702": {
+      "name": "Opfrisser"
+    },
+    "8eff7c5906b17202": {
+      "name": "Ninja-inktvis"
+    },
+    "a6ee72ab2e279e1d": {
+      "name": "Zwemdiploma"
+    },
+    "793e8f393b093b33": {
+      "name": "Sluipsprong"
+    },
+    "7491b2168b321d3e": {
+      "name": "Turbosprong"
+    },
+    "9a736dd26cc6d3c5": {
+      "name": "Hardloper"
+    },
+    "ea552d4a7c94a0eb": {
+      "name": "Rolmodel"
+    },
+    "1a994b9f1d422b23": {
+      "name": "Specialist"
+    },
+    "4b8e1b77f6b1ef60": {
+      "name": "Onbekend"
+    },
+    "1406c4da9fe690c9": {
+      "name": "Hoofdspaarder"
+    },
+    "c8179c066b561cd5": {
+      "name": "Opfrisser"
+    },
+    "0e71bff24c3f37ad": {
+      "name": "Ninja-inktvis"
+    },
+    "03c7b7bc6cb68512": {
+      "name": "Zwemdiploma"
+    },
+    "b4e72a2b9c9f3d53": {
+      "name": "Sluipsprong"
+    },
+    "1f86150af97debf6": {
+      "name": "Turbosprong"
+    },
+    "16cbf780227d6f6d": {
+      "name": "Hardloper"
+    },
+    "c54714a0c4aa3e11": {
+      "name": "Rolmodel"
+    },
+    "e2c02f122de2c567": {
+      "name": "Specialist"
+    },
+    "264ff06a6e99b11a": {
+      "name": "Onbekend"
+    },
+    "1d202ffb6e81bce5": {
+      "name": "Repercussie"
+    },
+    "815a9a65c869e5d9": {
+      "name": "Subdemper"
+    },
+    "d419d93c9ca266f2": {
+      "name": "Inkttolerantie"
+    },
+    "0e164aae93afae43": {
+      "name": "Speciaalspaarder"
+    },
+    "28c5ec4430082450": {
+      "name": "Comeback"
+    },
+    "aedd94fe223261d5": {
+      "name": "Actie-assistentie"
+    },
+    "c43ab03140bb13f2": {
+      "name": "Inktvulling"
+    },
+    "6dcecca7e07e73c4": {
+      "name": "Speciaallader"
+    },
+    "8afb83ffeb289865": {
+      "name": "Revanche"
+    },
+    "9d5a18e4c5e5645e": {
+      "name": "Vliegende start"
+    },
+    "0e2ac5e15d77b2cb": {
+      "name": "Subtopper"
+    },
+    "3820d64c12f27290": {
+      "name": "Sloper"
+    },
+    "8340c4eed8943fc7": {
+      "name": "Subspaarder"
+    },
+    "5602e981c1c00258": {
+      "name": "Markeerstift"
+    },
+    "44d2c5620c1d3c73": {
+      "name": "Volharding"
+    },
+    "51f03088c1111fd7": {
+      "name": "Eindsprint"
+    },
+    "d00bc8d303659ec6": {
+      "name": "Inktvulling"
+    },
+    "41a16a26faa38d13": {
+      "name": "Comeback"
+    },
+    "bde0eb22530d4466": {
+      "name": "Speciaallader"
+    },
+    "86cdcc0fd608423a": {
+      "name": "Rolmodel"
+    },
+    "276cddac2f57fa12": {
+      "name": "Repercussie"
+    },
+    "cd3ddfd6e986e696": {
+      "name": "Specialist"
+    },
+    "92122d477e563d7b": {
+      "name": "Inkttolerantie"
+    },
+    "cef7771e1562e6f9": {
+      "name": "Onbekend"
+    },
+    "1d855c39cfd4d1ad": {
+      "name": "Subdemper"
+    },
+    "4eb2633ea2cc53c5": {
+      "name": "Subtopper"
+    },
+    "65995d04d06440c3": {
+      "name": "Actie-assistentie"
+    },
+    "57aceb0bcb925e93": {
+      "name": "Subspaarder"
+    },
+    "73e2e892e74ab1b9": {
+      "name": "Eindsprint"
+    },
+    "0c8e815c244cde48": {
+      "name": "Volharding"
+    },
+    "620af3d72bd265ea": {
+      "name": "Zwemdiploma"
+    },
+    "870b81ce67189ad3": {
+      "name": "Revanche"
+    },
+    "8182fe5e6b07ef53": {
+      "name": "Hoofdspaarder"
+    },
+    "3d1ad74f74989f8d": {
+      "name": "Turbosprong"
+    },
+    "fad0ac5cace2e2a4": {
+      "name": "Hardloper"
+    },
+    "cf48bc70458f9b0b": {
+      "name": "Markeerstift"
+    },
+    "98f9e51856a7a8fb": {
+      "name": "Ninja-inktvis"
+    },
+    "e6087224d046f0dc": {
+      "name": "Speciaalspaarder"
+    },
+    "009a41cd1f5702c0": {
+      "name": "Sluipsprong"
+    },
+    "23fa65038ff7b3be": {
+      "name": "Opfrisser"
+    },
+    "f60a2e453b279d3c": {
+      "name": "Sloper"
+    },
+    "3d4c8db9a6144122": {
+      "name": "Vliegende start"
+    },
+    "bb95857faf2ee2ce": {
+      "name": "Speciaallader"
+    },
+    "7fda9e58be0148ba": {
+      "name": "Hardloper"
+    },
+    "4b93ede887594882": {
+      "name": "Actie-assistentie"
+    },
+    "eb113dfd628fe97d": {
+      "name": "Hoofdspaarder"
+    },
+    "481e489df1599c5e": {
+      "name": "Subtopper"
+    },
+    "50cbb1f4d01ed04f": {
+      "name": "Eindsprint"
+    },
+    "b6c2fce7a284b8cf": {
+      "name": "Inktvulling"
+    },
+    "189689c8bda666d7": {
+      "name": "Inkttolerantie"
+    },
+    "5b196254c80fd4b5": {
+      "name": "Onbekend"
+    },
+    "9a60bd30bf6280cb": {
+      "name": "Revanche"
+    },
+    "9db907b90b370d4f": {
+      "name": "Subspaarder"
+    },
+    "96f1a2dd35702375": {
+      "name": "Specialist"
+    },
+    "68c079f60fbccc99": {
+      "name": "Subdemper"
+    },
+    "df5bce5ddddb57e0": {
+      "name": "Speciaalspaarder"
+    },
+    "add7e9d4bf832d64": {
+      "name": "Volharding"
+    },
+    "b6d2e0293e72924e": {
+      "name": "Zwemdiploma"
+    },
+    "806fd26d33ffcdd6": {
+      "name": "Comeback"
+    },
+    "fbdf26d37a2c74be": {
+      "name": "Turbosprong"
+    },
+    "df2ac662442781ce": {
+      "name": "Repercussie"
+    },
+    "514d40657c1ab7ed": {
+      "name": "Sluipsprong"
+    },
+    "4aca3727ab8e8509": {
+      "name": "Markeerstift"
+    },
+    "b441c990d3de0d1a": {
+      "name": "Rolmodel"
+    },
+    "88338f2180bbb23d": {
+      "name": "Vliegende start"
+    },
+    "cc519de29fe8f2e5": {
+      "name": "Opfrisser"
+    },
+    "d939d4401935ee27": {
+      "name": "Sloper"
+    },
+    "3ea0270d5dbdd966": {
+      "name": "Ninja-inktvis"
+    },
+    "7f6d89f40eabc41d": {
+      "name": "Comeback"
+    },
+    "7a177ddb3aeaed0b": {
+      "name": "Inkttolerantie"
+    },
+    "9da8a55c915271b6": {
+      "name": "Hardloper"
+    },
+    "1f746cec210906af": {
+      "name": "Actie-assistentie"
+    },
+    "bf7742050e8638f9": {
+      "name": "Speciaallader"
+    },
+    "2497992da827dbbf": {
+      "name": "Subspaarder"
+    },
+    "1e735ea69cb58677": {
+      "name": "Zwemdiploma"
+    },
+    "ef78dc3c91f93dbd": {
+      "name": "Turbosprong"
+    },
+    "c3692f89900a0839": {
+      "name": "Revanche"
+    },
+    "4352d3f254655a4f": {
+      "name": "Inktvulling"
+    },
+    "f09d91b4cb53fbe1": {
+      "name": "Speciaalspaarder"
+    },
+    "351dbd2ad833da59": {
+      "name": "Hoofdspaarder"
+    },
+    "668f5cf3759aa059": {
+      "name": "Onbekend"
+    },
+    "75bb4b4b145f5f22": {
+      "name": "Specialist"
+    },
+    "e6cf18b7c3d7777a": {
+      "name": "Subdemper"
+    },
+    "79a401dc1b5a80b1": {
+      "name": "Eindsprint"
+    },
+    "a3d44c0645fcc37a": {
+      "name": "Subtopper"
+    },
+    "31d03e5fdf33d308": {
+      "name": "Rolmodel"
+    },
+    "7f398a113a8542f9": {
+      "name": "Volharding"
+    },
+    "a94450681ff5481a": {
+      "name": "Repercussie"
+    },
+    "ad9a06bbb1123add": {
+      "name": "Markeerstift"
+    },
+    "fc0d34e5084cfa0c": {
+      "name": "Sluipsprong"
+    },
+    "719305cabfd863f9": {
+      "name": "Opfrisser"
+    },
+    "24f62ff0fc66449b": {
+      "name": "Sloper"
+    },
+    "2aa79bd15fcdafe7": {
+      "name": "Vliegende start"
+    },
+    "5739c59fcddc57ca": {
+      "name": "Ninja-inktvis"
+    }
+  },
+  "festivals": {
+    "JUEA-00004": {
+      "title": "Wat is de lekkerste chocolade?",
+      "teams": [
+        {
+          "teamName": "Puur"
+        },
+        {
+          "teamName": "Melk"
+        },
+        {
+          "teamName": "Wit"
+        }
+      ]
+    },
+    "JUEA-00003": {
+      "title": "Wat vind je het lekkerst?",
+      "teams": [
+        {
+          "teamName": "Pittig"
+        },
+        {
+          "teamName": "Zoet"
+        },
+        {
+          "teamName": "Zuur"
+        }
+      ]
+    },
+    "JUEA-00002": {
+      "title": "Welk type partner-Pokémon kies jij?",
+      "teams": [
+        {
+          "teamName": "Gras"
+        },
+        {
+          "teamName": "Vuur"
+        },
+        {
+          "teamName": "Water"
+        }
+      ]
+    },
+    "JUEA-00001": {
+      "title": "Wat neem je mee naar een onbewoond eiland?",
+      "teams": [
+        {
+          "teamName": "Werktuigen"
+        },
+        {
+          "teamName": "Voedsel"
+        },
+        {
+          "teamName": "Vermaak"
+        }
+      ]
+    },
+    "JUEA-00005": {
+      "title": "Welke bestaat er echt?",
+      "teams": [
+        {
+          "teamName": "Nessie"
+        },
+        {
+          "teamName": "Ruimtewezens"
+        },
+        {
+          "teamName": "Bigfoot"
+        }
+      ]
+    },
+    "JUEA-00006": {
+      "title": "Waar zoek je naar?",
+      "teams": [
+        {
+          "teamName": "Kracht"
+        },
+        {
+          "teamName": "Wijsheid"
+        },
+        {
+          "teamName": "Moed"
+        }
+      ]
+    },
+    "JUEA-00007": {
+      "title": "Welk ijs is het lekkerst?",
+      "teams": [
+        {
+          "teamName": "Vanille"
+        },
+        {
+          "teamName": "Aardbei"
+        },
+        {
+          "teamName": "Choco-munt"
+        }
+      ]
+    },
+    "JUEA-00008": {
+      "title": "Waar draait het om in het leven?",
+      "teams": [
+        {
+          "teamName": "Geld"
+        },
+        {
+          "teamName": "Roem"
+        },
+        {
+          "teamName": "Liefde"
+        }
+      ]
+    },
+    "JUEA-00009": {
+      "title": "Wie is de beste leider?",
+      "teams": [
+        {
+          "teamName": "Haya"
+        },
+        {
+          "teamName": "Muriël"
+        },
+        {
+          "teamName": "Ray"
+        }
+      ]
+    },
+    "JUEA-00010": {
+      "title": "Welke griezel is het gezelligst?",
+      "teams": [
+        {
+          "teamName": "Zombie"
+        },
+        {
+          "teamName": "Skelet"
+        },
+        {
+          "teamName": "Spook"
+        }
+      ]
+    },
+    "UEA-90011": {
+      "title": "Welke begroeting geef jij het liefst?",
+      "teams": [
+        {
+          "teamName": "Handdruk"
+        },
+        {
+          "teamName": "Boks"
+        },
+        {
+          "teamName": "Knuffel"
+        }
+      ]
+    },
+    "JUEA-00012": {
+      "title": "Met wie breng je graag de feestdagen door?",
+      "teams": [
+        {
+          "teamName": "Vrienden"
+        },
+        {
+          "teamName": "Familie"
+        },
+        {
+          "teamName": "Mezelf"
+        }
+      ]
+    },
+    "UEA-00013": {
+      "title": "Wat is de leukste dag van het weekend?",
+      "teams": [
+        {
+          "teamName": "Vrijdag"
+        },
+        {
+          "teamName": "Zaterdag"
+        },
+        {
+          "teamName": "Zondag"
+        }
+      ]
+    },
+    "UEA-00014": {
+      "title": "Welk instrument kies jij in een band?",
+      "teams": [
+        {
+          "teamName": "Drumstel"
+        },
+        {
+          "teamName": "Gitaar"
+        },
+        {
+          "teamName": "Keyboard"
+        }
+      ]
+    },
+    "JUEA-00015": {
+      "title": "Welke babydier is het schattigst?",
+      "teams": [
+        {
+          "teamName": "Kuikentje"
+        },
+        {
+          "teamName": "Babykonijn"
+        },
+        {
+          "teamName": "Berenwelp"
+        }
+      ]
+    },
+    "JUEA-00016": {
+      "title": "Wat doe je als de wereld gaat eindigen?",
+      "teams": [
+        {
+          "teamName": "Zelfde als altijd"
+        },
+        {
+          "teamName": "Dromen nastreven"
+        },
+        {
+          "teamName": "Wereld redden"
+        }
+      ]
+    },
+    "JUEA-00017": {
+      "title": "Wat zou je een dag willen afhuren?",
+      "teams": [
+        {
+          "teamName": "Paleis"
+        },
+        {
+          "teamName": "Pretpark"
+        },
+        {
+          "teamName": "Strand"
+        }
+      ]
+    },
+    "JUEA-00018": {
+      "title": "Wat zou je het liefst elke dag eten?",
+      "teams": [
+        {
+          "teamName": "Brood"
+        },
+        {
+          "teamName": "Rijst"
+        },
+        {
+          "teamName": "Pasta"
+        }
+      ]
+    },
+    "JUEA-00019": {
+      "title": "Welke tijd is het belangrijkst voor jou?",
+      "teams": [
+        {
+          "teamName": "Verleden"
+        },
+        {
+          "teamName": "Heden"
+        },
+        {
+          "teamName": "Toekomst"
+        }
+      ]
+    },
+    "JUEA-00100": {
+      "title": "Wat zou jij zijn in een fantasiewereld?",
+      "teams": [
+        {
+          "teamName": "Tovenaar"
+        },
+        {
+          "teamName": "Ridder"
+        },
+        {
+          "teamName": "Ninja"
+        }
+      ]
+    },
+    "JUEA-00105": {
+      "title": "Met wie breng je graag de feestdagen door?",
+      "teams": [
+        {
+          "teamName": "Vrienden"
+        },
+        {
+          "teamName": "Familie"
+        },
+        {
+          "teamName": "Mezelf"
+        }
+      ]
+    },
+    "JUEA-00104": {
+      "title": "Welke griezel is het gezelligst?",
+      "teams": [
+        {
+          "teamName": "Zombie"
+        },
+        {
+          "teamName": "Skelet"
+        },
+        {
+          "teamName": "Spook"
+        }
+      ]
+    },
+    "JUEA-00103": {
+      "title": "Hoe reis je het liefst?",
+      "teams": [
+        {
+          "teamName": "Land"
+        },
+        {
+          "teamName": "Zee"
+        },
+        {
+          "teamName": "Lucht"
+        }
+      ]
+    },
+    "JUEA-00102": {
+      "title": "Wanneer ben jij het actiefst?",
+      "teams": [
+        {
+          "teamName": "Ochtend"
+        },
+        {
+          "teamName": "Middag"
+        },
+        {
+          "teamName": "Avond"
+        }
+      ]
+    },
+    "JUEA-00200": {
+      "title": "Wat is de lekkerste chocolade?",
+      "teams": [
+        {
+          "teamName": "Puur"
+        },
+        {
+          "teamName": "Melk"
+        },
+        {
+          "teamName": "Wit"
+        }
+      ]
+    },
+    "JUEA-00101": {
+      "title": "Wat maakt jou het gelukkigst?",
+      "teams": [
+        {
+          "teamName": "Geld"
+        },
+        {
+          "teamName": "Ervaringen"
+        },
+        {
+          "teamName": "Cadeaus"
+        }
+      ]
+    },
+    "JUEA-00106": {
+      "title": "Welke babydier is het schattigst?",
+      "teams": [
+        {
+          "teamName": "Kuikentje"
+        },
+        {
+          "teamName": "Babykonijn"
+        },
+        {
+          "teamName": "Berenwelp"
+        }
+      ]
+    },
+    "JUEA-00201": {
+      "title": "Wat is jouw favoriete vechtstijl?",
+      "teams": [
+        {
+          "teamName": "Snelheid"
+        },
+        {
+          "teamName": "Kracht"
+        },
+        {
+          "teamName": "Handigheid"
+        }
+      ]
+    }
+  },
+  "events": {
+    "TGVhZ3VlTWF0Y2hFdmVudC1OZXdTZWFzb25DdXA=": {
+      "name": "Seizoensopener",
+      "desc": "Vier het nieuwe seizoen in een nieuw level!",
+      "regulation": "Gelijke omstandigheden voor iedereen: iedereen speelt dit level voor het eerst!<br /><br />・ Verken het nieuwe level en ontwikkel nieuwe strategieën!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt tijdens Grondoorlogen. Extra effecten doen niet mee!<br />・ Bij alle chaosgevecht-vechtstijlen zijn alle effecten van de partij!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVNob3Q=": {
+      "name": "Trizooka-trammelant",
+      "desc": "Een overweldigende Trizooka-kanonnade!",
+      "regulation": "Wat is er effectief tegen een Trizooka? Wat dacht je van... een Trizooka!<br /><br />・ Je kunt alleen wapensets gebruiken met de Trizooka als speciaal wapen.<br />・ De speciale meter vult zich razendsnel en helemaal vanzelf!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb24=": {
+      "name": "Krabberts proeftuin",
+      "desc": "Een wedloop van willekeurige wapens!",
+      "regulation": "\"Mijn hele arsenaal staat ter beschikking! Ik hoop dat iedereen een nieuw lievelingswapen ontdekt!\"<br /> - Krabbert<br /><br />・ Er worden willekeurig wapens toegewezen aan het begin van elk gevecht.<br />・ Krabbert leent deze wapens uit, dus het maakt niet uit welke wapens je zelf al bezit.<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb250aGx5TGVhZ3VlTWF0Y2hSZWFs": {
+      "name": "Eventgevecht van de maand",
+      "desc": "Bereik de hoogste eventkracht!",
+      "regulation": "Hoe hoog krijg jij je eventkracht deze maand?<br /><br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt tijdens Grondoorlogen. Extra effecten doen niet mee!<br />・ Bij alle chaosgevecht-vechtstijlen zijn alle effecten van de partij!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1EZWVwRm9n": {
+      "name": "De mist in",
+      "desc": "Een schimmig strijdtoneel.",
+      "regulation": "Je ziet geen hand voor ogen! Kun jij voordeel halen uit de slechte zichtbaarheid?<br /><br />・ Het level is bedekt onder een mistlaag.<br />・ Hoe dik die mist is, verandert in de loop van het gevecht!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1QYWlyQ3Vw": {
+      "name": "Duel van de dynamische duo's",
+      "desc": "Minder is meer: welk tweetal wint?",
+      "regulation": "Twee teams van twee treden tegen elkaar aan in deze razendsnelle dubbelstrijd! <br /><br />・ Experimenteer met tactieken om het slagveld te domineren!<br />・ Uitgeschakelde spelers keren sneller terug!<br />・ Je kunt meedoen als team van twee of als solospeler.<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1JvbGxlckJydXNo": {
+      "name": "Kunstzinnig knokken",
+      "desc": "Creatief kliederen met rollers en kwasten!",
+      "regulation": "Strijd voeren is geen kunst, of toch wel? Hier zijn maar twee soorten wapens toegestaan!<br /><br />・ De enige toegestane wapens zijn rollers en kwasten!<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1IaWdoSnVtcA==": {
+      "name": "Op springen",
+      "desc": "Kies het luchtruim met grotere sprongen!",
+      "regulation": "Elk hupje wordt een hoogtepunt! Benut levels op totaal andere manieren nu je hoger springt dan ooit.<br /><br />・ Alle spelers hebben extra sprongkracht.<br />・ Je verminderde kwetsbaarheid nadat je de strijd in bent geschoten, duurt langer.<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9aaXBDYXN0ZXI=": {
+      "name": "Tentakabel-tentamen",
+      "desc": "Onbeperkt vliegen met Tentakabels!",
+      "regulation": "In dit eventgevecht staat de Tentakabel centraal: welke hoekjes van het level benut jij allemaal als je die onbeperkt in kunt zetten?<br /><br />・ Je kunt alleen wapensets gebruiken met de Tentakabel als speciaal wapen.<br />・ De speciale meter vult zich razendsnel en helemaal vanzelf!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Ob3RGb3VuZA==": {
+      "name": "？？？？？",
+      "desc": "？？？？？",
+      "regulation": ""
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9MaW5lTWFya2Vy": {
+      "name": "Alle hoeken van de kamer",
+      "desc": "Ketskogelkampioenen aan het werk!",
+      "regulation": "Het gevaar zit hier in een klein hoekje... Of een rechte hoek. Of vanuit welke hoek je de vijand ook onder vuur neemt met je Ketskogel.<br /><br />・ Je kunt alleen wapens gebruiken met de Ketskogel als subwapen.<br />・ De Ketskogel deelt een stuk meer schade uit dan normaal.<br />・ De Ketskogel gebruikt ook een stuk meer inkt.<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db21wZXRpdGlvblJlaGVhcnNhbHNKUA==": {
+      "name": "Testtoernooi (Japan)",
+      "desc": "Train voor toekomstig toernooisucces!",
+      "regulation": "Dit eventgevecht dient als een trainingsronde voor toekomstige toernooien in de regio Japan. Iedereen kan meedoen, ook spelers die niet van plan zijn om ooit mee te doen aan een toernooi.<br /><br />Om deel te nemen aan toernooien is mogelijk een aparte aanmelding vereist. Daarnaast kan de deelname aan een toernooi niet mogelijk zijn op basis van bepaalde factoren, zoals waar de speler woont."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1GYXN0TW92ZQ==": {
+      "name": "Inktvis moet zwemmen!",
+      "desc": "Iedereen zwemt supersnel!",
+      "regulation": "Zwem als een razende door je inkt! Vergeet alleen niet dat er ook nog een gevecht aan de gang is...<br /><br />・ De bewegingssnelheid in inktvisvorm is sterk verhoogd voor alle spelers.<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!<br />・ Het effect 'Zwemdiploma' doet niet mee."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db21wZXRpdGlvbnNKUA==": {
+      "name": "Toernooikwalificatie (Japan)",
+      "desc": "Vecht om een plek in een toernooi!",
+      "regulation": "Dit type eventgevecht dient als kwalificatie voor een toernooi in de regio Japan. Meedoen verplicht niet tot deelname: ook spelers die niet willen deelnemen aan het toernooi, mogen aan het eventgevecht meedoen!<br /><br />Om deel te nemen aan een toernooi is er naast kwalificatie mogelijk nog een andere vorm van aanmelding vereist. Daarnaast kan de deelname ook beperkt zijn afhankelijk van het land waar een speler woont of andere factoren."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9KZXRQYWNr": {
+      "name": "Inktjets in volle vlucht",
+      "desc": "Het gevaar komt van boven!",
+      "regulation": "Kies het luchtruim met een Inktjet voor een bijzonder hoogdravende strijd!<br /><br />・ Je kunt alleen wapens gebruiken met de Inktjet als speciaal wapen.<br />・ De speciale meter vult zich razendsnel en helemaal vanzelf!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9SYWlubWFrZXI=": {
+      "name": "Bazookarperbeproeving",
+      "desc": "Krabbert zoekt Bazookarper-testers!",
+      "regulation": "Help Krabbert om de nieuwste aanpassingen aan de Bazookarper te testen, en ga tegelijk leuke gevechten aan!<br /><br />・ Er wordt alleen met de Bazookarper gespeeld.<br />・ Een volledig opgeladen Bazookarper schiet nu in drie richtingen tegelijk!<br />・ De speler die de Bazookarper draagt, krijgt een boost!<br />・ Pas op! De Bazookarper explodeert 30 seconden nadat hij is opgeraapt.<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db3N0dW1lUGFydHk=": {
+      "name": "Krabberts chaotische showdown",
+      "desc": "Willekeurige wapens en willekeurige uitrusting!",
+      "regulation": "Zomaar een greep uit het brede arsenaal van Krabberts wapens en uitrusting! Als dat geen feestje wordt!<br /><br />・ Er worden willekeurig wapens en uitrusting toegewezen aan het begin van elk gevecht.<br />・ Voor het volgende gevecht krijg je weer allemaal andere dingen toegewezen!<br />・ Krabbert leent deze spullen uit, dus het maakt niet uit wat je zelf al bezit. Maar je mag het ook niet houden."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NwaW5uZXI=": {
+      "name": "Furieuze vuurkracht",
+      "desc": "Vecht het uit met de krachtige spetlingen!",
+      "regulation": "Kies je lievelings-spetling en probeer je staande te houden in de inktstorm die uit gaat barsten!<br /><br />・ Spelers kunnen alleen spetlingen gebruiken!<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9Ta2V3ZXI=": {
+      "name": "Naar de Opblaashaaien",
+      "desc": "Ben jij happig op hele scholen Opblaashaaien?",
+      "regulation": "Een kraker vol grote kaken: iedereen neemt het tegen elkaar op met Opblaashaaien!<br /><br />・ Je kunt alleen wapens gebruiken met de Opblaashaai als subwapen.<br />・ De speciale meter vult zich razendsnel en helemaal vanzelf!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1HZXlzZXI=": {
+      "name": "Geisersterk",
+      "desc": "Er zijn overal geisers. Hopelijk zullen die je<br />naar nieuwe hoogtes stuwen!",
+      "regulation": "Waar komen al die geisers vandaan? En gaat er al inspiratie borrelen over hoe je ze kunt gebruiken?<br /><br />・ Het level dat je speelt, bevat nu geisers!<br />・ Val een geiser aan om die inkt van jouw kleur te laten spuiten.<br />・ Je kunt ze gebruiken om je te verstoppen of de hoogte in te gaan.<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0JsYXN0ZXI=": {
+      "name": "Blastublieft!",
+      "desc": "Hoe behendig ben je met blasters?",
+      "regulation": "Laat maar eens zien hoe snel je kunt schieten!<br /><br />・ Spelers kunnen alleen soorten blasters als wapens kiezen!<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9Ub3dlckNvbnRyb2w=": {
+      "name": "Titanentorentwist",
+      "desc": "De toren is veel groter dan normaal.<br />Kom er allemaal maar op!",
+      "regulation": "Behoud jij de controle over de grootste toren ooit? ・ De gevechtstijl is Torentwist. ・ De toren is nu enorm! Er is ruimte voor je hele team! ・ Werk samen met je team om de basis van de tegenstander aan te vallen. ・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYWlubWFrZXJEcm9w": {
+      "name": "Bazookarper op bezoek",
+      "desc": "Gebruik de Bazookarper op plaatsen waar<br />hij nooit voor bedoeld was!",
+      "regulation": "Kijk wat je met de Bazookarper kunt doen tijdens een gewoon gevecht!<br /><br />・ De vechtstijl is niet Bazookarper.<br />・ De Bazookarper verschijnt in het midden van het level.<br />・ Doe er je voordeel mee als je de Bazookarper te pakken krijgt!<br />・ Als de speler die de Bazookarper heeft, verslagen wordt, keert de Bazookarper terug naar het midden van het level.<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0NoYXJnZXI=": {
+      "name": "Laderlading",
+      "desc": "Ben jij met afstand de beste?",
+      "regulation": "Het is even wachten, maar dan komt er schot in de zaak.<br /><br />・ Spelers kunnen alleen soorten laders als wapens kiezen!<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX01hbmV1dmVy": {
+      "name": "Dubbelknalfuif",
+      "desc": "Dubbel de knallers, dubbel de pret!",
+      "regulation": "Grijp deze kans met beide handen aan!<br /><br />・ Spelers kunnen alleen soorten dubbelknallers als wapens kiezen!<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Sb2xsZXJCcnVzaFNwZWVkVXA=": {
+      "name": "Op volle kwast vooruit rollen",
+      "desc": "Wals over alle tegenstanders heen<br />met nog snellere rollers en kwasten!",
+      "regulation": "Je geeft het level nog sneller kleur dan normaal met rollers en kwasten!<br /><br />・ Spelers kunnen alleen soorten rollers of kwasten als wapens kiezen!<br />・ De inktsnelheid is sterk verhoogd voor alle spelers.<br />・ De hoeveelheid inkt die spelers gebruiken tijdens het verven, is ook sterk verhoogd.<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9DdXJsaW5nQm9tYg==": {
+      "name": "Curlingclash",
+      "desc": "Extra grote Curlingbommen zorgen<br />voor extra veel chaos!",
+      "regulation": "Opgepast! Er glijden enorme Curlingbommen over het slagveld!<br /><br />・ Je kunt alleen wapens gebruiken met Curlingbommen als subwapen.<br />・ Curlingbommen zijn groter dan normaal!<br />・ Curlingbommen richten extra schade aan als ze spelers raken.<br />・ De explosies van Curlingbommen zijn ook groter dan normaal!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NoZWx0ZXI=": {
+      "name": "Plenzerpandemonium",
+      "desc": "Het regent dat het plenst!",
+      "regulation": "Hoe erg het ook inkt regent, tijdens dit gevecht ben je goed beschermd!<br /><br />・ Spelers kunnen alleen soorten plenzers als wapens kiezen!<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVN0YW1w": {
+      "name": "Ultrastempel-uitdaging",
+      "desc": "Hiervoor gaat iedereen plat.",
+      "regulation": "Druk je stempel op de strijd in deze Ultrastempel-uitdaging!<br /><br />・ Je kunt alleen wapensets gebruiken met de Ultrastempel als speciaal wapen.<br />・ De speciale meter vult zich razendsnel en helemaal vanzelf!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9TcGxhc2hCb21i": {
+      "name": "Klodderbommenkabaal",
+      "desc": "Laat de Klodderbommen in het rond vliegen!",
+      "regulation": "Het is een en al Klodderbommen wat de klok slaat in deze explosieve uitdaging!<br /><br />・ Je kunt alleen wapensets gebruiken met de Klodderbom als subwapen.<br />・ Klodderbommen gebruiken de helft van de inkt die ze normaal gebruiken!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlckJlYWNvbg==": {
+      "name": "Vliegensvlugge Springschotels",
+      "desc": "De versterking wordt snel opgediend!",
+      "regulation": "Dankzij de snelle Springschotels in deze uitdaging sta je er zelden alleen voor!<br /><br />・ Je kunt alleen wapensets gebruiken met de Springschotel als subwapen.<br />・ Supersprongen zijn een stuk sneller!<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee! Uitzonderingen daarop zijn Turbosprong en Subtopper."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclNwZWNpYWxXZWFwb25fQ2hhcmlvdA==": {
+      "name": "Een emmer vol Krabbentanks",
+      "desc": "Beweeg opzij voor de Krabbentanks!",
+      "regulation": "Of snelle Krabbentanks nou een droom of een nachtmerrie van je zijn, ze zijn nu werkelijkheid geworden!<br /><br />・ Je kunt alleen wapensets gebruiken met de Krabbentank als speciaal wapen.<br />・ De zijwaartse bewegingssnelheid van Krabbentanks is enorm verhoogd!<br />・ Je snelheid bij het rollen met de ZL-knop is hetzelfde als normaal.<br />・ Alleen de hoofdeffecten van uitrusting worden gebruikt. Extra effecten doen niet mee!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1Nsb3NoZXI=": {
+      "name": "Morsermanie",
+      "desc": "Morser op los!",
+      "regulation": "Heb jij controle over je morsers?<br /><br />・ Spelers kunnen alleen soorten morsers als hoofdwapen kiezen!<br />・ Zowel de hoofdeffecten als de extra effecten van uitrusting worden gebruikt!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb25BbmRHZWFyUG93ZXI=": {
+      "name": "Krabberts grabbelton",
+      "desc": "Krabbert kiest willekeurige wapens<br />en effecten voor je uit!",
+      "regulation": "Wees creatief met de wapens en effecten die je per toeval krijgt!<br /><br />・ Aan het begin van het gevecht krijg je een wapen en effecten toegewezen.<br />・ Eén effect is op het maximale niveau!<br />・ Er zijn ook drie effectvakjes beschikbaar, ongeacht hoeveel effectvakjes de uitrusting normaal zou hebben.<br />・ Na afloop van het gevecht krijgt je uitrusting de normale effecten terug."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwUGFjaWZpYw==": {
+      "name": "Elite-event (Takoroka-competitie)",
+      "desc": "Een speciaal eventgevecht voor<br />uitzonderlijke strijders!",
+      "regulation": "Dit eventgevecht is voor spelers van X-gevechten in de Takoroka-competitie. Alleen spelers in de top 1000 van de X-ranglijst van het vorige seizoen voor de relevante spelstand voor dit eventgevecht, kunnen meedoen.<br /><br />Het is niet mogelijk om mee te doen als duo of als team."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwQXRsYW50aWM=": {
+      "name": "Elite-event (Tentatek-competitie)",
+      "desc": "Een speciaal eventgevecht voor<br />uitzonderlijke strijders!",
+      "regulation": "Dit eventgevecht is voor spelers van X-gevechten in de Tentatek-competitie. Alleen spelers in de top 1000 van de X-ranglijst van het vorige seizoen voor de relevante spelstand voor dit eventgevecht, kunnen meedoen.<br /><br />Het is niet mogelijk om mee te doen als duo of als team."
+    }
+  },
+  "bosses": {
+    "Q29vcEVuZW15LTI0": {
+      "name": "Horroboros"
+    },
+    "Q29vcEVuZW15LTIz": {
+      "name": "Sumosalmo"
+    },
+    "Q29vcEVuZW15LTI1": {
+      "name": "Beugelbakkes"
+    },
+    "Q29vcEVuZW15LTMx": {
+      "name": "Willekeurig"
+    },
+    "Q29vcEVuZW15LTMw": {
+      "name": "Monstertrio"
+    }
+  }
+}

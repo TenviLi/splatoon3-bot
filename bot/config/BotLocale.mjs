@@ -1,11 +1,12 @@
 import { z } from 'zod'
 import {
+  botLocaleDefinitions,
   defaultBotLocale,
   normalizeBotLocale,
   supportedBotLocales,
 } from '../../src/common/botLocale.mjs'
 
-export { defaultBotLocale, supportedBotLocales }
+export { botLocaleDefinitions, defaultBotLocale, supportedBotLocales }
 
 export const botLocaleSchema = z.string().transform((value, context) => {
   try {

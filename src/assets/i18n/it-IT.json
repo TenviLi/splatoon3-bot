@@ -1,0 +1,69 @@
+{
+  "times": {
+    "now": "In corso!",
+    "next": "Prossimo",
+    "future": "Successivi"
+  },
+  "time": {
+    "in": "tra {time}",
+    "remaining": "{time} rimanenti",
+    "until": "Fino a: {time}",
+    "left": "{time} rimanenti",
+    "d": "{n}g | {n}g",
+    "h": "{n}o | {n}o",
+    "m": "{n}m | {n}m",
+    "s": "{n}s | {n}s",
+    "days": "{n} giorno | {n} giorni",
+    "hours": "{n} ora | {n} ore",
+    "minutes": "{n} minuto | {n} minuti",
+    "seconds": "{n} secondo | {n} secondi"
+  },
+  "schedule": {
+    "title": "Calendario",
+    "types": {
+      "series": "Serie",
+      "open": "Aperta",
+      "pro": "Sfida",
+      "tricolor": "Tricolore",
+      "regular": "Partita amichevole",
+      "anarchy": "Partita anarchica",
+      "splatfest": "Partita tematica",
+      "xmatch": "Partita X",
+      "league": "Partita di lega"
+    }
+  },
+  "salmonrun": {
+    "title": "Salmon Run",
+    "weapons": "Armi fornite",
+    "bigrun": "Big Run",
+    "eggstrawork": "Sfida tra colleghi"
+  },
+  "festival": {
+    "title": "Festival",
+    "upcoming": "Festival",
+    "active": "Festival",
+    "past": "Festival",
+    "results": {
+      "title": "Risultati",
+      "conchshells": "Conchiglie",
+      "votes": "Voti",
+      "open": "Aperta",
+      "pro": "Sfida",
+      "tricolor": "Attacco tricolore",
+      "won": "Vittoria per {team}!"
+    }
+  },
+  "gear": {
+    "title": "Oggetti",
+    "sale": "Articoli in offerta",
+    "dailydrop": "Selezione del giorno",
+    "order": "Ordina"
+  },
+  "events": {
+    "title": "Partita evento",
+    "available": "A seguire",
+    "not_available": "Non ci sono partite evento in programma.",
+    "now": "Attuale",
+    "now_open": "In corso!"
+  }
+}

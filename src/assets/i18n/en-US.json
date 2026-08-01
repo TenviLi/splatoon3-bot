@@ -24,17 +24,44 @@
     "types": {
       "series": "Series",
       "open": "Open",
+      "pro": "Pro",
+      "tricolor": "Tricolor",
       "regular": "Regular Battle",
       "anarchy": "Anarchy Battle",
-      "splatfest": "Splatfest Battle"
+      "splatfest": "Splatfest Battle",
+      "xmatch": "X Battle",
+      "league": "League Battle"
     },
-    "rainmakerLong": "Rainmaker",
-    "rainmakerShort": "Rainmaker",
     "all-upcoming": "All Upcoming Stages"
   },
   "salmonrun": {
     "title": "Salmon Run",
-    "weapons": "Supplied Weapons"
+    "weapons": "Supplied Weapons",
+    "bigrun": "Big Run",
+    "eggstrawork": "Eggstra Work",
+    "opens": "Shift opens"
+  },
+  "festival": {
+    "title": "Splatfests",
+    "upcoming": "Upcoming Splatfest",
+    "active": "Splatfest",
+    "past": "Recent Splatfest",
+    "results": {
+      "title": "Results!",
+      "conchshells": "Conch Shells",
+      "votes": "Votes",
+      "open": "Open",
+      "pro": "Pro",
+      "tricolor": "Tricolor Battle",
+      "won": "Team {team} wins!"
+    }
+  },
+  "events": {
+    "title": "Challenges",
+    "available": "Next",
+    "not_available": "No Challenges currently scheduled.",
+    "now": "Now",
+    "now_open": "Now Open!"
   },
   "gear": {
     "title": "Gear",
@@ -42,54 +69,15 @@
     "dailydrop": "The Daily Drop",
     "order": "Order"
   },
-  "screenshot": {
-    "headers": {
-      "schedules": "Battle Schedules",
-      "salmonRun": "Salmon Run Reminder",
-      "dailyDropGear": "SplatNet Shop · The Daily Drop",
-      "regularGear": "SplatNet Shop · Gear on Sale"
-    }
-  },
-  "notification": {
-    "common": {
-      "gear": "Gear"
-    },
-    "schedules": {
-      "source": "Ready for another match?",
-      "title": "Schedules updated",
-      "regularSection": "🔫  Turf War",
-      "rankedSection": "🔰  {rule}  ({mode})",
-      "ruleSuffix": "",
-      "imageAlt": "Splatoon 3 battle schedules",
-      "action": "View schedule image"
-    },
-    "salmonRun": {
-      "source": "Your shift is ready!",
-      "randomWeapons": "🎉 Random weapons!",
-      "suppliedWeapons": "🐻 Supplied weapons:",
-      "imageAlt": "Splatoon 3 Salmon Run schedule",
-      "action": "View Salmon Run image"
-    },
-    "dailyDropGear": {
-      "source": "SplatNet Shop · The Daily Drop",
-      "imageAlt": "SplatNet Shop Daily Drop",
-      "action": "View the Daily Drop"
-    },
-    "regularGear": {
-      "source": "SplatNet Shop · Gear on Sale",
-      "title": "New gear is available",
-      "imageAlt": "SplatNet Shop gear on sale",
-      "action": "View gear on sale"
-    }
-  },
   "about": {
     "title": "About!",
     "subtitle-1": "What is this?",
     "text-1": "This site is a fan-made, unofficial source of information for Nintendo's Splatoon 3. You might remember me from {0}!",
+    "text-special-thanks": "Special thanks to all of the {0} who have helped improve the site, as well as the {1} and {2} projects for their work to make automated Nintendo Switch Online logins possible.",
     "subtitle-2": "How was this site made?",
     "text-2": "On the front end, this site was built with {0}, {1}, and {2}. Static assets are compiled using {3}.",
-    "text-3": "On the back end, the data updaters and Twitter bot were written using {0}. Special thanks to the {1} and {2} projects for their work to make automated Nintendo Switch Online logins possible.",
-    "text-4": "The Twitter bot at {0} uses {1} to automatically generate images for each tweet.",
+    "text-3": "On the back end, the data updaters and Twitter bot were written using {0}.",
+    "text-4": "The {0} bots use {1} to automatically generate images for each post.",
     "text-5": "This site is completely open source. You can view the source here on {0}.",
     "subtitle-3": "Can I use data from this site in my own project?",
     "text-6": "Yes! I love seeing all the creative projects people come up with that use this site's data.",
@@ -102,6 +90,10 @@
   "footer": {
     "term": "This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.",
     "about": "About",
+    "socials": "Social Media",
     "data": "Data"
+  },
+  "social": {
+    "description": "Stay up to date with the latest news and updates from Splatoon3.ink on social media! Check the list below to find your favorite platform."
   }
 }

@@ -9,6 +9,6 @@ if (!profileName) {
 const manifest = await publishToS3({ profileName })
 for (const artifact of manifest.artifacts) {
   console.log(
-    `${artifact.name}: published ${artifact.notificationImage.key} and ${artifact.originalImage.key}`
+    `${artifact.name}: published ${artifact.notificationImage.key}, ${artifact.compactImage.key}, and ${artifact.originalImage.key}`
   )
 }

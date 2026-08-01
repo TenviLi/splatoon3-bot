@@ -1,0 +1,7046 @@
+{
+  "stages": {
+    "VnNTdGFnZS0x": {
+      "name": "Grank Canyon"
+    },
+    "VnNTdGFnZS0y": {
+      "name": "Sobborgo Siluriano"
+    },
+    "VnNTdGFnZS0z": {
+      "name": "Mercato Fruttato"
+    },
+    "VnNTdGFnZS00": {
+      "name": "Cisterna Cernia"
+    },
+    "VnNTdGFnZS02": {
+      "name": "Discarica Tritatutto"
+    },
+    "VnNTdGFnZS0xMA==": {
+      "name": "Ponte Sgombro"
+    },
+    "VnNTdGFnZS0xMQ==": {
+      "name": "Museo di Cefalò"
+    },
+    "VnNTdGFnZS0xMg==": {
+      "name": "Villanguilla"
+    },
+    "VnNTdGFnZS0xMw==": {
+      "name": "Campus Hippocampus"
+    },
+    "VnNTdGFnZS0xNA==": {
+      "name": "Cantiere Pinnenere"
+    },
+    "VnNTdGFnZS0xNQ==": {
+      "name": "Mercatotano"
+    },
+    "VnNTdGFnZS0xNg==": {
+      "name": "Soglioland"
+    },
+    "Q29vcFN0YWdlLTc=": {
+      "name": "Centrale Anguilla Elettrica"
+    },
+    "Q29vcFN0YWdlLTE=": {
+      "name": "Diga salmonoide"
+    },
+    "Q29vcFN0YWdlLTI=": {
+      "name": "Fortezza Spiralsalmone"
+    },
+    "Q29vcFN0YWdlLTY=": {
+      "name": "Isoletta del relitto"
+    },
+    "VnNTdGFnZS03": {
+      "name": "Fermenterme"
+    },
+    "VnNTdGFnZS05": {
+      "name": "Cime Sogliolose"
+    },
+    "Q29vcFN0YWdlLTEwMA==": {
+      "name": "Soglioland"
+    },
+    "Q29vcFN0YWdlLS05OTk=": {
+      "name": ""
+    },
+    "VnNTdGFnZS01": {
+      "name": "Rovine Salsadipesce"
+    },
+    "VnNTdGFnZS0xOA==": {
+      "name": "Manta Maria"
+    },
+    "Q29vcFN0YWdlLTEwMg==": {
+      "name": "Campus Hippocampus"
+    },
+    "VnNTdGFnZS04": {
+      "name": "Empolporio"
+    },
+    "VnNTdGFnZS0xNw==": {
+      "name": "Tintodromo Montecarpa"
+    },
+    "Q29vcFN0YWdlLTg=": {
+      "name": "R-Accordo musicale"
+    },
+    "Q29vcFN0YWdlLTEwMw==": {
+      "name": "Cisterna Cernia"
+    },
+    "VnNTdGFnZS0xOQ==": {
+      "name": "Granchiacieli"
+    },
+    "VnNTdGFnZS0yMA==": {
+      "name": "Platessa Trasporti S.r.l."
+    },
+    "Q29vcFN0YWdlLTQ=": {
+      "name": "Fortino Fumino"
+    },
+    "Q29vcFN0YWdlLTEwNA==": {
+      "name": "Rovine Salsadipesce"
+    },
+    "VnNTdGFnZS0yMQ==": {
+      "name": "Roboramen"
+    },
+    "VnNTdGFnZS0yMg==": {
+      "name": "Molo Mollusco"
+    },
+    "Q29vcFN0YWdlLTEwNQ==": {
+      "name": "Empolporio"
+    },
+    "VnNTdGFnZS0yMw==": {
+      "name": "Aeroporto Ondabianca"
+    },
+    "Q29vcFN0YWdlLTk=": {
+      "name": "Arena Ossoscosso"
+    },
+    "Q29vcFN0YWdlLTEwNg==": {
+      "name": "Sobborgo Siluriano"
+    },
+    "VnNTdGFnZS0yNA==": {
+      "name": "Stazione Lemuria"
+    },
+    "Q29vcFN0YWdlLS0x": {
+      "name": "Siti multipli"
+    },
+    "Q29vcFN0YWdlLTEwNw==": {
+      "name": "Arena di Splattonia"
+    },
+    "VnNTdGFnZS0yNg==": {
+      "name": "Periferia urbana"
+    }
+  },
+  "rules": {
+    "VnNSdWxlLTA=": {
+      "name": "Mischia mollusca"
+    },
+    "VnNSdWxlLTI=": {
+      "name": "Torre mobile"
+    },
+    "VnNSdWxlLTM=": {
+      "name": "Bazookarp"
+    },
+    "VnNSdWxlLTE=": {
+      "name": "Zona splat"
+    },
+    "VnNSdWxlLTQ=": {
+      "name": "Vongol gol"
+    },
+    "undefined": {}
+  },
+  "weapons": {
+    "48d6e062dd8b7efb": {
+      "name": "Aerografo"
+    },
+    "3adcc67d997a5aa8": {
+      "name": "Rullo di carbonio"
+    },
+    "61d373353a48eb2e": {
+      "name": "Termosecchiostro"
+    },
+    "cfcd1cb4b09dc134": {
+      "name": "Sweeper"
+    },
+    "7813d8c4d9103b07": {
+      "name": "Secchiostro triplo"
+    },
+    "57684fd4ee281e09": {
+      "name": "Rullo splat"
+    },
+    "7a4705bd110b0cee": {
+      "name": "Secchiostro vasca"
+    },
+    "ba2b27f7c17b1632": {
+      "name": "Tri-calamarco"
+    },
+    "3939e000515fe04c": {
+      "name": "Moscarpino duplo nero"
+    },
+    "6c5bbce4a6c63d0c": {
+      "name": "Strizzer"
+    },
+    "39e383c2f6d1ca3e": {
+      "name": "Nautilus 47"
+    },
+    "627d43fa3ab06066": {
+      "name": "Blaster rapido"
+    },
+    "4dc28c8d9bca2dae": {
+      "name": "Repolper duplo"
+    },
+    "670ae6f0c617cca4": {
+      "name": "Blaster"
+    },
+    "9e45d86ccd5fea1e": {
+      "name": "Tetrapenna"
+    },
+    "e2b5e6b340555596": {
+      "name": "Tintubator"
+    },
+    "59d665d32bb4122a": {
+      "name": "Marker d'assalto"
+    },
+    "77e4f6414e5a257d": {
+      "name": "Tergilama"
+    },
+    "2c34cb021254c8f8": {
+      "name": "Splasher élite"
+    },
+    "f668bd94e7ebf62d": {
+      "name": "Blaster élite"
+    },
+    "d3d579406dbc0fc8": {
+      "name": "Aerografo"
+    },
+    "8c157e85b75798e7": {
+      "name": "Rullo di carbonio"
+    },
+    "6529a2c7f83ca858": {
+      "name": "Termosecchiostro"
+    },
+    "92f330252fdd9421": {
+      "name": "Sweeper"
+    },
+    "7d97fc215efe47fa": {
+      "name": "Secchiostro triplo"
+    },
+    "0637f4b4225f22b8": {
+      "name": "Rullo splat"
+    },
+    "13ef7ad9ba855fe1": {
+      "name": "Secchiostro vasca"
+    },
+    "7ed9dd50b97d24f3": {
+      "name": "Tri-calamarco"
+    },
+    "8e59d00fc471083a": {
+      "name": "Moscarpino duplo nero"
+    },
+    "f09bb1bb306659dd": {
+      "name": "Strizzer"
+    },
+    "af505e7c4bdb7888": {
+      "name": "Nautilus 47"
+    },
+    "2d3900d357e005e9": {
+      "name": "Blaster rapido"
+    },
+    "582d03e42a63596a": {
+      "name": "Repolper duplo"
+    },
+    "9208eee9ecd2026e": {
+      "name": "Blaster"
+    },
+    "cb9126ea2928b619": {
+      "name": "Tetrapenna"
+    },
+    "70aa6b216ca8f01c": {
+      "name": "Tintubator"
+    },
+    "41492e011c163cc1": {
+      "name": "Marker d'assalto"
+    },
+    "df5b39ea3d32b25b": {
+      "name": "Tergilama"
+    },
+    "617dedf1c26235dc": {
+      "name": "Splasher élite"
+    },
+    "83275e416e7c1bc2": {
+      "name": "Blaster élite"
+    },
+    "1f6ce9f852641707": {
+      "name": "Casuale"
+    },
+    "d9bbd083353c118d": {
+      "name": "Calibro 2000"
+    },
+    "9a9dcaa55c2f6545": {
+      "name": "Splasher"
+    },
+    "8c0617eafedab081": {
+      "name": "Bimbamboom 14-I"
+    },
+    "0037f260dd45e397": {
+      "name": "Sparatenda"
+    },
+    "cf6021b669c84379": {
+      "name": "N-ZAP85"
+    },
+    "b5c29680486b0d1c": {
+      "name": "Calamaravaggio"
+    },
+    "a99a6dd8efd4d5bb": {
+      "name": "Triplete"
+    },
+    "50563f3849b68e0a": {
+      "name": "Idrante"
+    },
+    "1e344559d62809b2": {
+      "name": "Ripolpella duplo"
+    },
+    "e594a5f9535eaf40": {
+      "name": "Tinturicchio"
+    },
+    "7a2dd4e35809d537": {
+      "name": "Rullo dinamo"
+    },
+    "1e9e39f56c9f6d1a": {
+      "name": "Kalamarapid α"
+    },
+    "5903a8cef02e4298": {
+      "name": "Kelvin duplo 525"
+    },
+    "1208a614c4bb22cf": {
+      "name": "Blaster da mischia"
+    },
+    "cb1243d9c1908a38": {
+      "name": "Mini splatling"
+    },
+    "57717b83b81f474f": {
+      "name": "Tinter a carica 4K"
+    },
+    "e70b1ea70b5916be": {
+      "name": "Marker"
+    },
+    "4b6949b9e979636c": {
+      "name": "Blaster lunar"
+    },
+    "53cefbb18bb74cb3": {
+      "name": "Bombrello"
+    },
+    "1d1dd4a9165c4a0c": {
+      "name": "Splatter a carica"
+    },
+    "97745a7307013de3": {
+      "name": "Sweeper duplo"
+    },
+    "11ba9e5928b14318": {
+      "name": "Splatling a tanica"
+    },
+    "5615e681937a3f12": {
+      "name": "Triplete compatto"
+    },
+    "24cab1bbfb443770": {
+      "name": "Sparasole"
+    },
+    "ab50e9ae40810698": {
+      "name": "Calibro 3000"
+    },
+    "319a3174ebcb8224": {
+      "name": "Sparacolore recluta"
+    },
+    "a31def86914d98ae": {
+      "name": "Secchiostro centrifuga"
+    },
+    "afc40370eb8a1aa5": {
+      "name": "Blaster a distanza"
+    },
+    "daa5ab5b571faec5": {
+      "name": "Flexi-rullo"
+    },
+    "8f8bfbac8a43c2c7": {
+      "name": "Splattalama"
+    },
+    "70e60082b7f73c24": {
+      "name": "ARCO-RAL 450"
+    },
+    "13d0d18880c2f4e4": {
+      "name": "Secchiostro"
+    },
+    "66e9cd75721a942f": {
+      "name": "Splasher Nova"
+    },
+    "7f8967b3ae112ffc": {
+      "name": "Ampiorullo"
+    },
+    "a1ea7028b1bcdd28": {
+      "name": "Lapis cecchino 5H"
+    },
+    "edcfecb7e8acd1a7": {
+      "name": "Casuale"
+    },
+    "fdf543c48448da4e": {
+      "name": "Marker"
+    },
+    "20efbeb85f11abdb": {
+      "name": "Strizzer"
+    },
+    "b4417b7d33c4ab76": {
+      "name": "Secchiostro vasca"
+    },
+    "a7d8fc7be0a046c5": {
+      "name": "Tri-calamarco"
+    },
+    "b88acfa356b2b714": {
+      "name": "Bombrello"
+    },
+    "f17da8de892bcdfe": {
+      "name": "N-ZAP85"
+    },
+    "e11e5913db5eb0c2": {
+      "name": "Rullo splat"
+    },
+    "b481841e5def66d6": {
+      "name": "Kalamarapid α"
+    },
+    "6834571f25b34c9b": {
+      "name": "Calamaravaggio"
+    },
+    "f6c61a0f1a701928": {
+      "name": "Calibro 2000"
+    },
+    "78795dccc3ffeef2": {
+      "name": "Termosecchiostro"
+    },
+    "585c7915a3dc5f28": {
+      "name": "Splatter a carica"
+    },
+    "2fc3e19d592734ea": {
+      "name": "Casuale"
+    },
+    "32982b9043dd8d1e": {
+      "name": "ARCO-RAL 450"
+    },
+    "09465cbd66e15c68": {
+      "name": "Repolper duplo"
+    },
+    "23c3b20f6e9ed6ec": {
+      "name": "Secchiostro centrifuga"
+    },
+    "cacef7e261a01e16": {
+      "name": "Blaster rapido"
+    },
+    "7df085c7508e8535": {
+      "name": "Secchiostro triplo"
+    },
+    "61a156e5e66059eb": {
+      "name": "Splasher Nova"
+    },
+    "4d532284b062ba27": {
+      "name": "Rullo dinamo"
+    },
+    "1f7f2880bcca7894": {
+      "name": "Calibro 3000"
+    },
+    "c8cdd727419d9309": {
+      "name": "Kelvin duplo 525"
+    },
+    "f695f95bfc09af76": {
+      "name": "Triplete compatto"
+    },
+    "c1a8381441bb38a7": {
+      "name": "Splattalama"
+    },
+    "91aa1bf7ac84f262": {
+      "name": "Lapis cecchino 5H"
+    },
+    "3a6b429b6f247c59": {
+      "name": "Tergilama"
+    },
+    "44b6f56d15a02529": {
+      "name": "Blaster"
+    },
+    "6f2cb494a35976ab": {
+      "name": "Flexi-rullo"
+    },
+    "70897086ac95fc07": {
+      "name": "Sparatenda"
+    },
+    "49171e6de78e50c7": {
+      "name": "Sparacolore recluta"
+    },
+    "5d214c667c007340": {
+      "name": "Splasher élite"
+    },
+    "d6c4482a8ef368b6": {
+      "name": "Blaster a distanza"
+    },
+    "dfa290ce0cdeae98": {
+      "name": "Tinter a carica 4K"
+    },
+    "53054d13f95bfdac": {
+      "name": "Aerografo"
+    },
+    "7529642b716dda2a": {
+      "name": "Mini splatling"
+    },
+    "6832e7cb1f31ec60": {
+      "name": "Ampiorullo"
+    },
+    "8823b314132f4724": {
+      "name": "Tintubator"
+    },
+    "974ad42eab86aa42": {
+      "name": "Marker d'assalto"
+    },
+    "98ce5f188f2896e8": {
+      "name": "Blaster da mischia"
+    },
+    "ec55cea9d34b4b87": {
+      "name": "Tetrapenna"
+    },
+    "b0343d4f4b600e95": {
+      "name": "Sweeper"
+    },
+    "6ca015df6356568c": {
+      "name": "Splasher"
+    },
+    "9e5ea39b1890ffe1": {
+      "name": "Secchiostro"
+    },
+    "efb18bcc3e8d0faa": {
+      "name": "Bimbamboom 14-I"
+    },
+    "8afbd08cdbde979e": {
+      "name": "Rullo di carbonio"
+    },
+    "a6524fda305001c3": {
+      "name": "Sweeper duplo"
+    },
+    "3870511200d2f54e": {
+      "name": "Blaster élite"
+    },
+    "7b1ca52db7863e83": {
+      "name": "Tinturicchio"
+    },
+    "488255e9a515eeb2": {
+      "name": "Triplete"
+    },
+    "de0a10dff827d3fd": {
+      "name": "Splatling a tanica"
+    },
+    "9ec907326e0a0fbb": {
+      "name": "Blaster lunar"
+    },
+    "970da796325a8adb": {
+      "name": "Sparasole"
+    },
+    "20ac9088101d14aa": {
+      "name": "Ripolpella duplo"
+    },
+    "aae42b6ef1b5090d": {
+      "name": "Idrante"
+    },
+    "3feb54ef838cb9e2": {
+      "name": "Moscarpino duplo nero"
+    },
+    "fec6f764a77ec60e": {
+      "name": "Nautilus 47"
+    },
+    "6e17fbe20efecca9": {
+      "name": "Casuale"
+    },
+    "d194e691a458ad5f": {
+      "name": "Sconosciuto"
+    },
+    "ae62156873b8c5e5": {
+      "name": "S-BLAST92"
+    },
+    "4ae1bd005e4c7d9c": {
+      "name": "Tonnoretto"
+    },
+    "4d4fe461ef7da22c": {
+      "name": "N-ZAP85"
+    },
+    "48500e4854b4d769": {
+      "name": "Secchiostro vasca"
+    },
+    "f07d321b3cd6f911": {
+      "name": "Blaster a distanza"
+    },
+    "e78ea63c50327ab0": {
+      "name": "Calibro 3000"
+    },
+    "c1ecd761954cda63": {
+      "name": "Calibro 2000"
+    },
+    "2542d849264ace37": {
+      "name": "Sconosciuto"
+    },
+    "52b07849caaff002": {
+      "name": "Tonnoretto"
+    },
+    "b81fe809fde4ef6e": {
+      "name": "Kalamarapid α"
+    },
+    "b00695d610c23c39": {
+      "name": "ARCO-RAL 450"
+    },
+    "1147e54cfc5e773c": {
+      "name": "Tergilama"
+    },
+    "3f1d1069bff0b101": {
+      "name": "Tintubator"
+    },
+    "a51a03de4aae0dfa": {
+      "name": "Repolper duplo"
+    },
+    "a36afedc0e51535e": {
+      "name": "Splattalama"
+    },
+    "19238861042970e3": {
+      "name": "Termosecchiostro"
+    },
+    "d1d178c4f8590045": {
+      "name": "Blaster élite"
+    },
+    "544a9b3e9bff7ecd": {
+      "name": "Secchiapavimenti"
+    },
+    "7b91a5e2edac50a9": {
+      "name": "Splatling a pennarelli"
+    },
+    "52e07029f01362a4": {
+      "name": "Casuale"
+    },
+    "82b29bd56c0d9c19": {
+      "name": "Sparacolore recluta"
+    },
+    "f722bde112a8fdae": {
+      "name": "Triplete compatto"
+    },
+    "310a426d80bfdfa2": {
+      "name": "Flexi-rullo"
+    },
+    "5ae1ff2b659034c5": {
+      "name": "Bimbamboom 14-I"
+    },
+    "ee63111a561f70a4": {
+      "name": "Rullo di carbonio"
+    },
+    "13451fa24f36cc4e": {
+      "name": "Strizzer"
+    },
+    "06b7fbbc77816153": {
+      "name": "S-BLAST92"
+    },
+    "d666414e2d626aa5": {
+      "name": "Lapis cecchino 5H"
+    },
+    "eb6231843a965f03": {
+      "name": "Ripolpella duplo"
+    },
+    "6113b4a2c34d5bff": {
+      "name": "Sparasole"
+    },
+    "b29b38c98d5d0048": {
+      "name": "Sweeper"
+    },
+    "ce24986e8f457ce0": {
+      "name": "Secchiostro triplo"
+    },
+    "8ee303742717ed13": {
+      "name": "Splasher Nova"
+    },
+    "0e7b0928658d7dd6": {
+      "name": "Tetrapenna"
+    },
+    "4131c07c5976c5ef": {
+      "name": "Splatter a carica"
+    },
+    "bc57d58a39020d81": {
+      "name": "Marker d'assalto"
+    },
+    "b4abca58bf916e93": {
+      "name": "Ampiorullo"
+    },
+    "f557d0c6ff897fc4": {
+      "name": "Nautilus 47"
+    },
+    "8e342dbd807d8d46": {
+      "name": "Tri-calamarco"
+    },
+    "429db9b9ae8ba39b": {
+      "name": "Mini splatling"
+    },
+    "d8b795e7c2821984": {
+      "name": "Triplete"
+    },
+    "5cb99591156af714": {
+      "name": "Calamaravaggio"
+    },
+    "88daf38799f67c1b": {
+      "name": "Marker"
+    },
+    "d4b87e1ce44d6598": {
+      "name": "Rullo dinamo"
+    },
+    "97976ade5f6d082d": {
+      "name": "Aerografo"
+    },
+    "0a115698cc8dc6ca": {
+      "name": "Secchiostro centrifuga"
+    },
+    "0811ac580dabb9bd": {
+      "name": "Blaster"
+    },
+    "dcc2f3eb27c24104": {
+      "name": "Splatling a tanica"
+    },
+    "d787b110879b0d56": {
+      "name": "Tinter a carica 4K"
+    },
+    "19c90a1562d9878f": {
+      "name": "Secchiostro"
+    },
+    "ffaf97c32fd844f1": {
+      "name": "Sparatenda"
+    },
+    "28ec68160548dcde": {
+      "name": "Blaster lunar"
+    },
+    "404be707119ba76e": {
+      "name": "Blaster da mischia"
+    },
+    "53f75e074a3437ea": {
+      "name": "Sweeper duplo"
+    },
+    "3fe96aff1432baba": {
+      "name": "Idrante"
+    },
+    "d24eaa4ebe408bfa": {
+      "name": "Moscarpino duplo nero"
+    },
+    "caa7a0e57efa2b9f": {
+      "name": "Blaster rapido"
+    },
+    "354c11e2554de95a": {
+      "name": "Splasher élite"
+    },
+    "5cf46dbf5920ce92": {
+      "name": "Tinturicchio"
+    },
+    "35cac2ee460ca333": {
+      "name": "Rullo splat"
+    },
+    "2ddc299399ca8cda": {
+      "name": "Splasher"
+    },
+    "09f425cd12f255dd": {
+      "name": "Kelvin duplo 525"
+    },
+    "38f96c2c8c6004be": {
+      "name": "Bombrello"
+    },
+    "9d04354f179ebf6f": {
+      "name": "Casuale"
+    },
+    "7fcad30c78a42543": {
+      "name": "Repolper estintori FF"
+    },
+    "67fb4f2b86efdc62": {
+      "name": "Sparasole riciclo 24-I"
+    },
+    "124ab41419b0fc67": {
+      "name": "Spazzolama menta"
+    },
+    "a2f19b4715667fcc": {
+      "name": "Fontanarco V"
+    },
+    "b3ab498b8a8a0667": {
+      "name": "N-ZAP85"
+    },
+    "5463ec85acff180c": {
+      "name": "Secchiostro centrifuga"
+    },
+    "b4ebb5629d8c3e5f": {
+      "name": "Bombrello"
+    },
+    "535d3c822bba0415": {
+      "name": "Kalamarapid α"
+    },
+    "e60629ecf35192a1": {
+      "name": "Splasher"
+    },
+    "67b2e7ac4bf64e71": {
+      "name": "Tergilama"
+    },
+    "6ede65010706778d": {
+      "name": "Nautilus 47"
+    },
+    "c100f88e8b925e1c": {
+      "name": "Idrante"
+    },
+    "935949ea2945806b": {
+      "name": "Aerografo"
+    },
+    "ed647072fa99c73e": {
+      "name": "Marker d'assalto"
+    },
+    "09284d9bd3b61ea1": {
+      "name": "Secchiapavimenti"
+    },
+    "dc9f150e86663adb": {
+      "name": "Tinter a carica 4K"
+    },
+    "5567ca94a5374d21": {
+      "name": "Marker"
+    },
+    "895eaa9e4e5b427b": {
+      "name": "Calamaravaggio"
+    },
+    "e78ca547494ad3c3": {
+      "name": "Rullo di carbonio"
+    },
+    "66cd48f017d3f078": {
+      "name": "Fontanarco V"
+    },
+    "513c64dd6cd5e723": {
+      "name": "Calibro 2000"
+    },
+    "280ed6683d3eb523": {
+      "name": "Strizzer"
+    },
+    "de8a2a542dbe6b99": {
+      "name": "S-BLAST92"
+    },
+    "3aac272457998973": {
+      "name": "Splatling a tanica"
+    },
+    "747937841598fff7": {
+      "name": "Casuale"
+    },
+    "5e5481f626f02cbf": {
+      "name": "Triplete"
+    },
+    "85c6eda8dffc77a0": {
+      "name": "Splasher Nova"
+    },
+    "03146bb3dc0defd4": {
+      "name": "Flexi-rullo"
+    },
+    "0578f3b3d9af08ed": {
+      "name": "Triplete compatto"
+    },
+    "b04c2fbbe1c98e63": {
+      "name": "Ampiorullo"
+    },
+    "05a0ddd5b919b698": {
+      "name": "Blaster lunar"
+    },
+    "cd34251e67bd3f3e": {
+      "name": "Mini splatling"
+    },
+    "5c8a27c6818f20e6": {
+      "name": "Bimbamboom 14-I"
+    },
+    "d39ba7409f6e1fbc": {
+      "name": "Sweeper duplo"
+    },
+    "23deec47199c37d1": {
+      "name": "Sparasole"
+    },
+    "c95b060287d757a2": {
+      "name": "Splattalama"
+    },
+    "830801a9f4555917": {
+      "name": "Blaster da mischia"
+    },
+    "342c1b18ce2732ea": {
+      "name": "Sparatenda"
+    },
+    "eb5098db38e209e1": {
+      "name": "Secchiostro vasca"
+    },
+    "3ed1b23808b91e54": {
+      "name": "Rullo dinamo"
+    },
+    "2136716c07457658": {
+      "name": "Tri-calamarco"
+    },
+    "c19e07d4db9a4075": {
+      "name": "Termosecchiostro"
+    },
+    "885c30f6102de958": {
+      "name": "Calibro 3000"
+    },
+    "83c543ed4ae19005": {
+      "name": "Repolper duplo"
+    },
+    "961a7063fc94f087": {
+      "name": "Splatter a carica"
+    },
+    "01b960996da8ed63": {
+      "name": "Casuale"
+    },
+    "914ca6f3cba7aa98": {
+      "name": "Sparasole riciclo 24-I"
+    },
+    "b5b716854159da15": {
+      "name": "Spazzolama menta"
+    },
+    "f74d638ac101904e": {
+      "name": "Splasher élite"
+    },
+    "884321fa6165eb37": {
+      "name": "Blaster rapido"
+    },
+    "523fca90c5771a63": {
+      "name": "Moscarpino duplo nero"
+    },
+    "79e6297eb501599f": {
+      "name": "Ripolpella duplo"
+    },
+    "d22945127fb7584f": {
+      "name": "Lapis cecchino 5H"
+    },
+    "1f7612f08f804c54": {
+      "name": "ARCO-RAL 450"
+    },
+    "de148ea51e7c28fa": {
+      "name": "Sparacolore recluta"
+    },
+    "9e45e49e1e9c4853": {
+      "name": "Sweeper"
+    },
+    "439343ee49a5126b": {
+      "name": "Tetrapenna"
+    },
+    "b4df43b5b0d90b7a": {
+      "name": "Secchiostro triplo"
+    },
+    "17b8d348d6380ae9": {
+      "name": "Tintubator"
+    },
+    "7065ab46c609e6d7": {
+      "name": "Repolper estintori FF"
+    },
+    "3ab1a91f59f81345": {
+      "name": "Tonnoretto"
+    },
+    "fe3b9b3b87ca491e": {
+      "name": "Secchiostro"
+    },
+    "e115c15c4a20d8ba": {
+      "name": "Rullo splat"
+    },
+    "d9a573867cb6ba9a": {
+      "name": "Splatling a pennarelli"
+    },
+    "183dfb6256c39892": {
+      "name": "Blaster élite"
+    },
+    "d9632c243eb36d73": {
+      "name": "Tinturicchio"
+    },
+    "dde2f92988536cd2": {
+      "name": "Blaster"
+    },
+    "3b31490a368e92e1": {
+      "name": "Kelvin duplo 525"
+    },
+    "30f4e84e186e226f": {
+      "name": "Blaster a distanza"
+    }
+  },
+  "brands": {
+    "QnJhbmQtOA==": {
+      "name": "Chimmon"
+    },
+    "QnJhbmQtMTk=": {
+      "name": "BaraS"
+    },
+    "QnJhbmQtMjA=": {
+      "name": "Car-bon"
+    },
+    "QnJhbmQtMA==": {
+      "name": "CalamaX"
+    },
+    "QnJhbmQtMw==": {
+      "name": "Rockenburg"
+    },
+    "QnJhbmQtNA==": {
+      "name": "Ezko"
+    },
+    "QnJhbmQtNQ==": {
+      "name": "Fortia"
+    },
+    "QnJhbmQtNg==": {
+      "name": "Torryd"
+    },
+    "QnJhbmQtMTE=": {
+      "name": "Sepia"
+    },
+    "QnJhbmQtMTA=": {
+      "name": "Arome"
+    },
+    "QnJhbmQtOQ==": {
+      "name": "Maremont"
+    },
+    "QnJhbmQtMg==": {
+      "name": "Cnidarya"
+    },
+    "QnJhbmQtNw==": {
+      "name": "Capasaint"
+    },
+    "QnJhbmQtMTc=": {
+      "name": "Nero Marlin"
+    },
+    "QnJhbmQtMQ==": {
+      "name": "Totanic"
+    },
+    "QnJhbmQtMTY=": {
+      "name": "Imperial"
+    },
+    "QnJhbmQtMTU=": {
+      "name": "Annak"
+    },
+    "QnJhbmQtOTg=": {
+      "name": "Krakensen"
+    }
+  },
+  "gear": {
+    "1f6189fcaf092a8f": {
+      "name": "Bombetta"
+    },
+    "81921ab4f3fc42fa": {
+      "name": "Camicia bianca"
+    },
+    "8af6d74efc8ee977": {
+      "name": "Ultrarosse a strappo"
+    },
+    "e0ef16dcbf779fd8": {
+      "name": "Scamosciate semplici"
+    },
+    "406929c86d7a258e": {
+      "name": "T-shirt SmileMob fucsia"
+    },
+    "3dc58146de458313": {
+      "name": "T-shirt bianca"
+    },
+    "c2bb9f1294c295da": {
+      "name": "Stivali da moto"
+    },
+    "43847b716e0167b8": {
+      "name": "Occhiali da sole ovali"
+    },
+    "71abfaf22d9b6bbe": {
+      "name": "Occhiali da motociclista"
+    },
+    "b53bdaf8c13d29f2": {
+      "name": "Visore cieco"
+    },
+    "174d4dbb6348257b": {
+      "name": "Bombetta"
+    },
+    "ad7271a600e96517": {
+      "name": "Camicia bianca"
+    },
+    "24232b34f82cb2d3": {
+      "name": "Ultrarosse a strappo"
+    },
+    "b8fd00bc6b0e03f8": {
+      "name": "Scamosciate semplici"
+    },
+    "aac289491487b78e": {
+      "name": "T-shirt SmileMob fucsia"
+    },
+    "42fd0a010e3834d6": {
+      "name": "T-shirt bianca"
+    },
+    "d6ae0f6877fbe8e7": {
+      "name": "Stivali da moto"
+    },
+    "2e502b645aa81e2c": {
+      "name": "Occhiali da sole ovali"
+    },
+    "66b70d0194f48051": {
+      "name": "Occhiali da motociclista"
+    },
+    "2b897acb8435752e": {
+      "name": "Visore cieco"
+    },
+    "11826a638e557c8c": {
+      "name": "T-shirt da marinaio"
+    },
+    "eeea995329a3b65a": {
+      "name": "Maschera da sub"
+    },
+    "8c2f59eb75da5ece": {
+      "name": "Bandana cool"
+    },
+    "5f1f38129dc8708e": {
+      "name": "Stivali Reboot"
+    },
+    "b4efce44ed819f22": {
+      "name": "T-shirt cachi rétro"
+    },
+    "a8037dfb0ea3cfc9": {
+      "name": "Occhiali discreti"
+    },
+    "c9b62256129de184": {
+      "name": "T-shirt cime avorio"
+    },
+    "4402242820b66e9b": {
+      "name": "Sandali a strappo neve"
+    },
+    "9dda2a64daaa651f": {
+      "name": "Camicia ricamata"
+    },
+    "d4c2c203e5ef0568": {
+      "name": "T-shirt crepuscolare"
+    },
+    "947dcdc899197eb1": {
+      "name": "Cefalocuffie in-ear"
+    },
+    "1bd94af735c58372": {
+      "name": "Cappellino a righe"
+    },
+    "643a053973902353": {
+      "name": "Cuffie vintage"
+    },
+    "677b0d3b7d27ad00": {
+      "name": "OSTR1K color perla"
+    },
+    "5268305e6503989f": {
+      "name": "Mascherina SmileMob"
+    },
+    "23dfd1075a93a33d": {
+      "name": "Camicia da clown"
+    },
+    "324df9a75e061379": {
+      "name": "Ciabatte SmileMob"
+    },
+    "127b76d4323e74bb": {
+      "name": "A strati bianca"
+    },
+    "b4b3212cb5cd7bae": {
+      "name": "Maglia Umibozu"
+    },
+    "784d73e378d54a65": {
+      "name": "Alte biancorosse"
+    },
+    "5a2640a1b24f4104": {
+      "name": "Cappello di paglia classico"
+    },
+    "913c8abcf3b7f553": {
+      "name": "Espadrillas hip-hop"
+    },
+    "2724594845943e60": {
+      "name": "Maglione CalamaX"
+    },
+    "70e9d5e472ac488e": {
+      "name": "Camicia ippocampi"
+    },
+    "1e8eb9a8cf359ddb": {
+      "name": "Zoccoli marroni"
+    },
+    "0f9024a487709d60": {
+      "name": "Mitilik rosse e nere"
+    },
+    "d8dc38f9cff8a7c0": {
+      "name": "Occhiali a mezza montatura"
+    },
+    "536ee3c575414b1c": {
+      "name": "Anfibi artici"
+    },
+    "aa6d34604fc32094": {
+      "name": "Cala-shirt"
+    },
+    "93a1f4889a507aca": {
+      "name": "Alte zombie"
+    },
+    "74557810f479b67d": {
+      "name": "Arrow arancioblu"
+    },
+    "956b07f16e9239e5": {
+      "name": "Paramento rosso"
+    },
+    "917b0ff5e7deb49d": {
+      "name": "Giacca Nero Marlin"
+    },
+    "8cb74f9b9027d2e1": {
+      "name": "A strati gialla"
+    },
+    "633c2879fd8e03e7": {
+      "name": "Giubbino furia"
+    },
+    "1612c8b009f235b2": {
+      "name": "Berretto da portuale"
+    },
+    "eb43f28ba5c38ec6": {
+      "name": "T-shirt bianca ciclista"
+    },
+    "61e8f58a1c752d85": {
+      "name": "T-shirt tè BaraS"
+    },
+    "81e8fd0b464e2414": {
+      "name": "Scamosciate boss"
+    },
+    "fa6f79b5f26ce405": {
+      "name": "Flanella Annak"
+    },
+    "a50223bf951b4680": {
+      "name": "Camicia da turista"
+    },
+    "f7c12d451f1fcd8f": {
+      "name": "Sneaker predatrici"
+    },
+    "68b8d5cfeb33c744": {
+      "name": "Arrow eleganti"
+    },
+    "ae84b607bf8777f9": {
+      "name": "Ciabatte rosse"
+    },
+    "2e526124ce7e8f6f": {
+      "name": "Berretto Inkvaders"
+    },
+    "b8b4c69bd9db92ef": {
+      "name": "Granchiorazza rossa"
+    },
+    "a7919c8be2a28d62": {
+      "name": "Mitilik blu e nere"
+    },
+    "3675b37346898e14": {
+      "name": "Maglia rugby 8"
+    },
+    "cdf0aa473ac99c5c": {
+      "name": "Sneaker orca tramonto"
+    },
+    "d00e44e66d68e35b": {
+      "name": "Rockenburg nera"
+    },
+    "8edd77ea62ba9e9f": {
+      "name": "Maglia rugby 10"
+    },
+    "1fec43172d6fa45f": {
+      "name": "Maglia da ciclista"
+    },
+    "f90966ee929161d3": {
+      "name": "Scarpe da deserto"
+    },
+    "3156cd52b7438c4a": {
+      "name": "Occhiali da sole 18K"
+    },
+    "007b0011ba440126": {
+      "name": "Rockenburg bianca"
+    },
+    "5f0b0a4b682ede5a": {
+      "name": "Fluosandali rosa"
+    },
+    "ed2f366255fe2400": {
+      "name": "Sneaker verde scuro"
+    },
+    "1373e5fdef7d81d0": {
+      "name": "Cappello Riccidimare"
+    },
+    "65d7097e248028a8": {
+      "name": "Canotta (casa)"
+    },
+    "2f2c0867bcd60fa2": {
+      "name": "Occhiali colorati"
+    },
+    "dc2d135b5dedc8d0": {
+      "name": "Maglia Ezko"
+    },
+    "4318b892228fff97": {
+      "name": "Basse blu"
+    },
+    "b7c5f3453773550b": {
+      "name": "Sneaker senza lacci"
+    },
+    "d0aa19a37f3cd296": {
+      "name": "Runner verdeacqua"
+    },
+    "8a4df8e058429a82": {
+      "name": "A strati marrone"
+    },
+    "db62936fd681df2b": {
+      "name": "T-shirt nera"
+    },
+    "41bedd53522bb38d": {
+      "name": "Fascia classica"
+    },
+    "b815880233a35cd6": {
+      "name": "Alte gialloviola"
+    },
+    "cfecc281c452aa74": {
+      "name": "Elmo vichingo"
+    },
+    "e8ba8734c2ebfa80": {
+      "name": "Ciabatte da mare"
+    },
+    "f83218ce2928e443": {
+      "name": "Mascherina Torryd"
+    },
+    "d8398bdfdddfb898": {
+      "name": "T-shirt 8 bit nera"
+    },
+    "441c1f7903f5412d": {
+      "name": "Scarponi marroni"
+    },
+    "c0630f568ecb669c": {
+      "name": "Visiera fumé"
+    },
+    "bdbd666af9084dbe": {
+      "name": "Trekking colorate"
+    },
+    "fbc70cfb825986de": {
+      "name": "Eurekappello"
+    },
+    "81be854769c15200": {
+      "name": "Giubbino pesciscossa"
+    },
+    "baa3c99301fbf998": {
+      "name": "Fascia da tennis"
+    },
+    "4261e5c7df04b91a": {
+      "name": "Zoccoli grigi"
+    },
+    "f52b184f2b9aecb1": {
+      "name": "T-shirt grigia frecce"
+    },
+    "b2446e7ab074da26": {
+      "name": "T-shirt ciliegio BaraS"
+    },
+    "2be678af332735c1": {
+      "name": "Visiera Sepia"
+    },
+    "e1acfff65d803f23": {
+      "name": "Tuta acetata Sepia"
+    },
+    "1f28c536cbdc80c2": {
+      "name": "T-shirt 8 bit bianca"
+    },
+    "386fb7e34a2abc2a": {
+      "name": "Fascia bianca"
+    },
+    "f4d7dfa61cc72a67": {
+      "name": "Occhiali rotondi"
+    },
+    "4c02bd493cf9b01e": {
+      "name": "Sneaker rosse"
+    },
+    "7b854854cece266d": {
+      "name": "Cappello orientale"
+    },
+    "de236faed2faac4c": {
+      "name": "Giacca da sci verde"
+    },
+    "1dc35b1abeefcd35": {
+      "name": "Cappello da pesca denim"
+    },
+    "ad5679cf966d56d0": {
+      "name": "Ultrabianche a strappo"
+    },
+    "678373bb7134e71d": {
+      "name": "Runner rosa"
+    },
+    "3c5acd12e6e2d7de": {
+      "name": "Mascherina Annak"
+    },
+    "4fea8b21041700fd": {
+      "name": "Felpa grigia con cappuccio"
+    },
+    "2d60b55fc7167d95": {
+      "name": "Scarpe da vela marroni"
+    },
+    "e2d69f22cb5653f5": {
+      "name": "Berretto alla moda"
+    },
+    "110ff0c454074cfa": {
+      "name": "T-shirt riso BaraS"
+    },
+    "9fa5cc8851fcf88c": {
+      "name": "Berretto AS Riccidimare"
+    },
+    "0f00a6635aede845": {
+      "name": "Casco da hockey"
+    },
+    "f9ffbfce0e2875d0": {
+      "name": "Occhiali con lenti colorate"
+    },
+    "6f2d6bded7e3b5a3": {
+      "name": "Giubbotto patchwork"
+    },
+    "eaff9715e83e69d6": {
+      "name": "T-shirt similananas"
+    },
+    "703d46b112a2fb1e": {
+      "name": "Fluosandali celesti"
+    },
+    "4fbc8152a1d9b11c": {
+      "name": "Cala-shirt strappata"
+    },
+    "95a7d0caf568a88b": {
+      "name": "Carapasco"
+    },
+    "a64eaf2183a3df2a": {
+      "name": "Occhiali Annak"
+    },
+    "2134bc4107ef589f": {
+      "name": "Eleganti Annak"
+    },
+    "f8d476712897b5ea": {
+      "name": "Camicia hawaiana"
+    },
+    "bc5773c0d48ba324": {
+      "name": "Cappello da pescatore"
+    },
+    "4397b925c765efa4": {
+      "name": "Giacca paracadute cremisi"
+    },
+    "f7360a8678a652e1": {
+      "name": "Giacca maccha"
+    },
+    "e592552a3149cbc2": {
+      "name": "Camicia schizzata"
+    },
+    "896386102c8cc7c9": {
+      "name": "A strati Totanic"
+    },
+    "aa220e98e0b8ce4d": {
+      "name": "T-shirt verde"
+    },
+    "72d90ee8f6051b8e": {
+      "name": "Giacca refrigerante"
+    },
+    "eb19bc1bf079b53e": {
+      "name": "Cuffie pro"
+    },
+    "3a661f31ee2e6ae3": {
+      "name": "Felpa lamantino"
+    },
+    "215ca40180b6f437": {
+      "name": "Visiera cool"
+    },
+    "39bbd0d9f8a9be1e": {
+      "name": "Cappello a maglia"
+    },
+    "154047abb13f296a": {
+      "name": "AL-GA 30XX"
+    },
+    "3165dd0fe53699ed": {
+      "name": "T-shirt neroseppia"
+    },
+    "4333c406473ac20d": {
+      "name": "Stivali da caccia"
+    },
+    "5f3cbcd31423e391": {
+      "name": "Camicia scozzese"
+    },
+    "49df3a5d8d0a99ac": {
+      "name": "Ciabatte cool"
+    },
+    "fb978d294c4a18b9": {
+      "name": "Maglia con bolero nero"
+    },
+    "dd87314a71de50ff": {
+      "name": "Mascherina Fortia"
+    },
+    "926ada9976cdae43": {
+      "name": "Occhiali da pilota"
+    },
+    "97ed5418f991d678": {
+      "name": "Camicia animalesca"
+    },
+    "9c3d6d6c10d9d41f": {
+      "name": "Gilet militare cachi"
+    },
+    "c661525659d90ef4": {
+      "name": "Berretto Sepia"
+    },
+    "dfeb51ebc84513c4": {
+      "name": "Camicia piovre piccanti"
+    },
+    "67a744219d496350": {
+      "name": "Zeppe tangerine"
+    },
+    "8be6bc50a7bc8ab5": {
+      "name": "Parka mostro artico"
+    },
+    "1cf11459184751e4": {
+      "name": "Scarpe da trekking"
+    },
+    "df03a24d19aa6f8e": {
+      "name": "T-shirt azzurra rétro"
+    },
+    "8ed3f04671809fb9": {
+      "name": "Maglione squali"
+    },
+    "b192c92961b2adf6": {
+      "name": "Camicia urbana"
+    },
+    "809e99c2ffa7312a": {
+      "name": "T-shirt draganguilla"
+    },
+    "c97a0167cc492b36": {
+      "name": "Fluosandali arancioni"
+    },
+    "476e9139880248e4": {
+      "name": "T-shirt Annak (collare)"
+    },
+    "a4d6ce587f7547b4": {
+      "name": "Open toe blu"
+    },
+    "9aec8fb9cb1ba2b8": {
+      "name": "Chiodo nero"
+    },
+    "7df1610b801fb8e5": {
+      "name": "Occhialetti da nuoto"
+    },
+    "fb29dd121ab3b5f2": {
+      "name": "Giacca imbottita nera"
+    },
+    "3b84e904cd60534c": {
+      "name": "Maglia baja rossa"
+    },
+    "445ffa87c30bbac0": {
+      "name": "Octocuffie rosse"
+    },
+    "662beb4fb9ea74f9": {
+      "name": "Cappello paraorecchie nero"
+    },
+    "15d0c6619faead78": {
+      "name": "Maschera baseball (casa)"
+    },
+    "940500ce3bf4cc00": {
+      "name": "Sneaker turbo rosse"
+    },
+    "ff8cd1836a1d4fc2": {
+      "name": "Octosneaker rosse"
+    },
+    "878e926050e1816b": {
+      "name": "Octo-shirt"
+    },
+    "8bf529c3f3753265": {
+      "name": "Polo nera"
+    },
+    "e2a0872fdee7a498": {
+      "name": "Cuffie colorate"
+    },
+    "95b7d8bd81a014ae": {
+      "name": "Camicia floreale"
+    },
+    "f2184eafd208d20c": {
+      "name": "Camicia da octobowling"
+    },
+    "ed176e1f5f945985": {
+      "name": "Casco da pilota"
+    },
+    "4f4fc3a6e642be37": {
+      "name": "Camicia inchiostrata"
+    },
+    "77d5515a65d72500": {
+      "name": "T-shirt bivalve CalaOcto"
+    },
+    "14c7c198c5f1332c": {
+      "name": "T-shirt similmela"
+    },
+    "580b51c0cb8c045b": {
+      "name": "Zuccotto"
+    },
+    "eb6566409e55ddad": {
+      "name": "T-shirt cime blu"
+    },
+    "b4a91c3b5329437c": {
+      "name": "Bomber negativo"
+    },
+    "99108a6528e78424": {
+      "name": "Maglia azzurromare"
+    },
+    "94fa81f8a11b0a30": {
+      "name": "Anorak BaraS"
+    },
+    "6da49b6929c446ee": {
+      "name": "Berretto con spilla"
+    },
+    "a085384ce9c3e9ee": {
+      "name": "Rialzate Annak"
+    },
+    "bd7a4b5395750d95": {
+      "name": "Dakroniks choco"
+    },
+    "8540e611a17cd249": {
+      "name": "T-shirt rovente"
+    },
+    "2f2e954b23c261c7": {
+      "name": "Berretto da ciclista"
+    },
+    "4301fb8489341eef": {
+      "name": "Octocasco football"
+    },
+    "9b8a23e17b1b5ea3": {
+      "name": "Bandana paisley"
+    },
+    "d4d0bc79dce60c64": {
+      "name": "Da arrampicata fluo"
+    },
+    "591b7bcd94410bf0": {
+      "name": "Berretto leggero"
+    },
+    "a217ef7797136fcb": {
+      "name": "T-shirt recluta"
+    },
+    "29a7def9b876a301": {
+      "name": "Maschera da verniciatura"
+    },
+    "e1f937486dd6b7c9": {
+      "name": "Mascherina Octoking"
+    },
+    "ca976a3bc9cd78b2": {
+      "name": "Felpa sneaker"
+    },
+    "972b9fce355daced": {
+      "name": "Scarponi rossi"
+    },
+    "aa51588a1699ae25": {
+      "name": "T-shirt Pulpix galassia"
+    },
+    "38776da1845adf08": {
+      "name": "Cappello pesce palla"
+    },
+    "68a94c789b4c8b44": {
+      "name": "Anfibi melanzana"
+    },
+    "76f5e76c784b1c50": {
+      "name": "Occhialetti Nero Marlin"
+    },
+    "36e84fe6b7608c8c": {
+      "name": "Mitilik 5 rosse e bianche"
+    },
+    "405281a377614420": {
+      "name": "Casco da motocross"
+    },
+    "42ea283da9409cdb": {
+      "name": "T-shirt zebra"
+    },
+    "3c90c890a335af86": {
+      "name": "Scarpe aggressive"
+    },
+    "7262e999c5bad9da": {
+      "name": "Gilè calamaro"
+    },
+    "4faf2e67e092b400": {
+      "name": "Bandana teschio"
+    },
+    "c639924b729138ab": {
+      "name": "Octomaglia (trasferta)"
+    },
+    "c21aaf1b52292dc7": {
+      "name": "Parka Inkling Fortia"
+    },
+    "26136d489a89af87": {
+      "name": "Cappello parasole"
+    },
+    "5483b9aa63533859": {
+      "name": "Impermeabile cachi"
+    },
+    "dac35d4c46be1969": {
+      "name": "Stivali di gomma verdi"
+    },
+    "1c6debb9237e2890": {
+      "name": "Pile tundra crema"
+    },
+    "94c1e453748a9abe": {
+      "name": "Maglione polsino blu Annak"
+    },
+    "95fcba8b9a39cd62": {
+      "name": "Anfibi neri"
+    },
+    "1f6ddf2cf1d59bae": {
+      "name": "Sandali a strappo fluo"
+    },
+    "69be0ed9f464ea4a": {
+      "name": "Scarpe da calcio"
+    },
+    "c2281bc39bd310d0": {
+      "name": "Occhiali rétro"
+    },
+    "17667e85698763c8": {
+      "name": "Divisa AS Riccidimare"
+    },
+    "37b13a41409cd558": {
+      "name": "Cappello da cowboy"
+    },
+    "0316c51eca942a1c": {
+      "name": "Berretto Annak con occhiali"
+    },
+    "b443eba90e562d26": {
+      "name": "Scamosciate suola rossa"
+    },
+    "7866d2e458dcc9fa": {
+      "name": "Scialle BaraS"
+    },
+    "a80df2b5cf118944": {
+      "name": "T-shirt glaciale"
+    },
+    "94849c9f9b825920": {
+      "name": "Berretto hip-hop"
+    },
+    "417931be054a0f92": {
+      "name": "Mascherina CalamaX"
+    },
+    "b867088a8ddb9a80": {
+      "name": "Eleganti cammello"
+    },
+    "6586ab2c5d8cd989": {
+      "name": "Casco da pompiere"
+    },
+    "796fd2d7906261c9": {
+      "name": "Rialzate bianche"
+    },
+    "5de5a3a955b0f195": {
+      "name": "Giubbino da stadio"
+    },
+    "0bd7ec5e419c3452": {
+      "name": "Cappello di jeans"
+    },
+    "e3a023a3f503e0be": {
+      "name": "Swimmer verdi fluo"
+    },
+    "1d3e46a11ffbec9c": {
+      "name": "T-shirt da pirata"
+    },
+    "87aa11437da121f4": {
+      "name": "Sneaker medusa"
+    },
+    "ab11b6ea4ebdade0": {
+      "name": "Maglione largo negativo"
+    },
+    "99e79d22b382f957": {
+      "name": "T-shirt octo"
+    },
+    "f09f6db7abb23197": {
+      "name": "Occhiali rotondi SV925"
+    },
+    "5cf438885bf2554f": {
+      "name": "Casco da skate"
+    },
+    "9c4320cc4dfec243": {
+      "name": "Sandali a strappo neon"
+    },
+    "a3c11aa2e7cf664c": {
+      "name": "Eleganti nero di seppia"
+    },
+    "03ec7a070e37e788": {
+      "name": "T-shirt leopardata"
+    },
+    "367af2966d3db91b": {
+      "name": "Espadrillas blu"
+    },
+    "e8158157baabac9d": {
+      "name": "A strati frecce"
+    },
+    "2e8ef62f986efb1a": {
+      "name": "Anfibi bianchi"
+    },
+    "7e360df7a2031adb": {
+      "name": "Cardigan verde"
+    },
+    "1424ac52938446da": {
+      "name": "Camicia Tintacolante"
+    },
+    "86ed2bb62a052e30": {
+      "name": "T-shirt Pulpix arcobaleno"
+    },
+    "3875567d34d4b02e": {
+      "name": "Stivali da neve"
+    },
+    "0c80632bd1cd6e33": {
+      "name": "Multivisore 360°"
+    },
+    "77ec26940c8cb823": {
+      "name": "Canotta Annak stampa polpo"
+    },
+    "d53fb73cf3178709": {
+      "name": "Berretto medusiano"
+    },
+    "a4be5aeea14fb98e": {
+      "name": "T-shirt rossa frecce"
+    },
+    "18eb5bc19afe5630": {
+      "name": "Astrocompleto"
+    },
+    "2e477937b45b9bf1": {
+      "name": "Fascia da tennis"
+    },
+    "5d2dcaa61161c940": {
+      "name": "T-shirt azzurra rétro"
+    },
+    "386633c7575f5799": {
+      "name": "Sneaker senza lacci"
+    },
+    "140bb5be8a10e415": {
+      "name": "T-shirt rossa frecce"
+    },
+    "8a06264363dc442e": {
+      "name": "Paramento rosso"
+    },
+    "c6943b3c0624caa6": {
+      "name": "T-shirt cime blu"
+    },
+    "18ccd9c4c536cfcb": {
+      "name": "Stivali da caccia"
+    },
+    "a51018edf02ccd2b": {
+      "name": "Berretto con spilla"
+    },
+    "9dec389c738b37e0": {
+      "name": "Mascherina Octoking"
+    },
+    "8a54d8320180ed80": {
+      "name": "Astrocompleto"
+    },
+    "7c4e57ac7c8125ad": {
+      "name": "Elmo vichingo"
+    },
+    "27cde5ac6a27fc42": {
+      "name": "T-shirt glaciale"
+    },
+    "3ae0b8c5b6a9c7d1": {
+      "name": "Zeppe tangerine"
+    },
+    "205209ff92cf9649": {
+      "name": "Occhiali Annak"
+    },
+    "b1f0a05a6d48d75f": {
+      "name": "Visiera Sepia"
+    },
+    "0eae7f8f26b324a3": {
+      "name": "T-shirt Pulpix galassia"
+    },
+    "d40177e7c95129c4": {
+      "name": "Sneaker orca tramonto"
+    },
+    "1db8d62e28e3f777": {
+      "name": "Cuffie colorate"
+    },
+    "5e7cf04d1b4ebb65": {
+      "name": "Maglione CalamaX"
+    },
+    "c437adc806514b68": {
+      "name": "Occhialetti Nero Marlin"
+    },
+    "c7f4f236b1b1acaf": {
+      "name": "A strati bianca"
+    },
+    "ff07fc7fea090c5d": {
+      "name": "Berretto hip-hop"
+    },
+    "f76a40701374d87f": {
+      "name": "Camicia schizzata"
+    },
+    "d3aa78342476dabb": {
+      "name": "OSTR1K color perla"
+    },
+    "65f2389e2551aa9d": {
+      "name": "Camicia bianca"
+    },
+    "27e59065162c99fd": {
+      "name": "Pile tundra crema"
+    },
+    "0f0a9dc12a4785e3": {
+      "name": "Cappello da pesca denim"
+    },
+    "77a0a7e69e9cb3eb": {
+      "name": "Occhiali con lenti colorate"
+    },
+    "871a7c71df6c0c13": {
+      "name": "Giubbino pesciscossa"
+    },
+    "8b44b1dce41b50b6": {
+      "name": "Mascherina CalamaX"
+    },
+    "56268700452c1b25": {
+      "name": "T-shirt nera"
+    },
+    "80f6cfc13e62e6be": {
+      "name": "Fascia bianca"
+    },
+    "b7e40a7b549a79dd": {
+      "name": "Camicia animalesca"
+    },
+    "9cea6b281c46f02d": {
+      "name": "T-shirt da marinaio"
+    },
+    "ec672b8e3a24967a": {
+      "name": "Arrow arancioblu"
+    },
+    "7cf59e349730844e": {
+      "name": "Chiodo nero"
+    },
+    "d51664ffba14f9e2": {
+      "name": "T-shirt leopardata"
+    },
+    "4ccf03623757040e": {
+      "name": "Camicia piovre piccanti"
+    },
+    "043c63fb45d5e851": {
+      "name": "Occhiali da sole 18K"
+    },
+    "28ff27092935457f": {
+      "name": "Camicia scozzese"
+    },
+    "c77eecb20c1f5181": {
+      "name": "Stivali da moto"
+    },
+    "56fd188f51ae97fb": {
+      "name": "Scarpe da vela marroni"
+    },
+    "34b422786c86f418": {
+      "name": "Stivali di gomma verdi"
+    },
+    "cb0b7ab8e7295dbf": {
+      "name": "T-shirt 8 bit bianca"
+    },
+    "e0f4077174545fd4": {
+      "name": "T-shirt recluta"
+    },
+    "31cca66cb8302359": {
+      "name": "Cappello paraorecchie nero"
+    },
+    "c21d764e16dbfdec": {
+      "name": "Parka mostro artico"
+    },
+    "cbefacb0a5df777a": {
+      "name": "Scarpe da deserto"
+    },
+    "89a2a0db33110dd2": {
+      "name": "Sneaker verde scuro"
+    },
+    "e083c158245d4c48": {
+      "name": "Scarpe squalo"
+    },
+    "3270135c65096897": {
+      "name": "Scarpe aggressive"
+    },
+    "d230f1d9b960725d": {
+      "name": "Berretto alla moda"
+    },
+    "7e8413f7b3cf5ceb": {
+      "name": "Runner bianconere"
+    },
+    "616574265163e7e3": {
+      "name": "Maglia rugby 8"
+    },
+    "9346b1b98476bbc1": {
+      "name": "Mitilik 5 rosse e bianche"
+    },
+    "847c2657f38e53ef": {
+      "name": "Mimetica viola"
+    },
+    "7b028b5cc1b7867d": {
+      "name": "Camicia meduse"
+    },
+    "e23a3865c0477fe8": {
+      "name": "Berretto mimetico"
+    },
+    "45e49487d33db87f": {
+      "name": "Arrow arcobaleno"
+    },
+    "c4bba67c76b56fa1": {
+      "name": "Fascia classica"
+    },
+    "8a7b18e5ddaae50f": {
+      "name": "Maglia da ciclista"
+    },
+    "ae64690d1dab8d29": {
+      "name": "Alte gialloviola"
+    },
+    "4a6e438cb4859f08": {
+      "name": "Maglia da battaglia"
+    },
+    "698e6beea41bd7f2": {
+      "name": "Maglia Umibozu"
+    },
+    "e84215bb7666d575": {
+      "name": "Swimmer verdi fluo"
+    },
+    "c41670529c10fb74": {
+      "name": "Cappello Riccidimare"
+    },
+    "7b9a5f033307914c": {
+      "name": "Basse limited"
+    },
+    "52618e9157867562": {
+      "name": "Cappello di paglia"
+    },
+    "8ebfc778fd94f761": {
+      "name": "Felpa grigia con cappuccio"
+    },
+    "373e8fe2e4aaef53": {
+      "name": "Cappello da neve"
+    },
+    "e806e700efbcc80a": {
+      "name": "Ultrabianche a strappo"
+    },
+    "e9eabd141adca3c8": {
+      "name": "Maschera antigas"
+    },
+    "6c75edfc2aec9aff": {
+      "name": "Berretto da ciclista"
+    },
+    "2e5784eabfaf365a": {
+      "name": "T-shirt blupioggia"
+    },
+    "30b02d8f6e4ba5ce": {
+      "name": "Berretto girato"
+    },
+    "e8c17867f35e97ba": {
+      "name": "Polo nera"
+    },
+    "b8d03155b8359cd4": {
+      "name": "Stivali di gomma rossi"
+    },
+    "85113506dad12892": {
+      "name": "Runner rosa"
+    },
+    "8bb8e35a0861301b": {
+      "name": "Swimmer viola"
+    },
+    "1bc59e492b8e911b": {
+      "name": "T-shirt bianca"
+    },
+    "a21a2cbeefca9a17": {
+      "name": "Maschera baseball (casa)"
+    },
+    "21121bbf04be0ce6": {
+      "name": "Scamosciate suola rossa"
+    },
+    "32fb257fbc67458c": {
+      "name": "Octocchiali"
+    },
+    "9e941af8fd7f3a65": {
+      "name": "Ciabatte rosse"
+    },
+    "754cbff89db13c07": {
+      "name": "Felpa college grigia"
+    },
+    "3223d4cf801cf75e": {
+      "name": "Anfibi melanzana"
+    },
+    "15986ad4b8822172": {
+      "name": "Berretto jet"
+    },
+    "30b54946c324ee87": {
+      "name": "Cuffie pro"
+    },
+    "be93570b3dfcda47": {
+      "name": "Maglia da baseball"
+    },
+    "e6b1d38ede3aa7d6": {
+      "name": "Occhiali rétro"
+    },
+    "a92b28638f891fd9": {
+      "name": "T-shirt da pirata"
+    },
+    "a333316891127558": {
+      "name": "Ultrarosse a strappo"
+    },
+    "cbf435379fe95dff": {
+      "name": "Sneaker rosse"
+    },
+    "541a455fbe3a624a": {
+      "name": "Rockenburg nera"
+    },
+    "dcb9dbc4b13d272a": {
+      "name": "Felpa lamantino"
+    },
+    "cab0f186ad1322fa": {
+      "name": "Trekking colorate"
+    },
+    "7715c2bcc13a974e": {
+      "name": "Basse arancioni"
+    },
+    "b9cbb286c50180de": {
+      "name": "Zoccoli grigi"
+    },
+    "b9072da6fffeb4db": {
+      "name": "Occhiali discreti"
+    },
+    "49c4378193f79511": {
+      "name": "Impermeabile cachi"
+    },
+    "a01cfea15f866ef4": {
+      "name": "Open toe blu"
+    },
+    "4db166f77d487365": {
+      "name": "Cardigan verde"
+    },
+    "2667f143da0e2bd4": {
+      "name": "Chiodo bianco"
+    },
+    "ace43854cbc4c9f9": {
+      "name": "Sneaker medusa"
+    },
+    "d45bcfa397aec03c": {
+      "name": "Stivali da neve"
+    },
+    "804b511b4d2053d0": {
+      "name": "Maschera da sub"
+    },
+    "b6d4e4220aa18f5f": {
+      "name": "Felpa marinara bianca"
+    },
+    "9d3c5380b5ca659e": {
+      "name": "Cefalocuffie in-ear"
+    },
+    "d0b16b85d6dc11ca": {
+      "name": "AL-GA 30XX"
+    },
+    "bd7d231965eefb39": {
+      "name": "Giubbino da stadio"
+    },
+    "da568279ee87fafa": {
+      "name": "Cappello avventuriero"
+    },
+    "e8cbe3c7f691dadc": {
+      "name": "Clownfish classiche"
+    },
+    "c71f63b8ad569ac4": {
+      "name": "Cuffie vintage"
+    },
+    "be9ae82550da96a3": {
+      "name": "Berretto Annak con occhiali"
+    },
+    "3528e2b33fb9474a": {
+      "name": "Flanella Annak"
+    },
+    "e87cc4250b483a12": {
+      "name": "Eleganti Annak"
+    },
+    "c7cdb065c09f67a4": {
+      "name": "A strati frecce"
+    },
+    "4ed3a76fa6dfb413": {
+      "name": "Mascherina Torryd"
+    },
+    "5db0e9f8bd1dff6a": {
+      "name": "Anfibi gialli"
+    },
+    "9e41a2025ac3bccd": {
+      "name": "T-shirt neroseppia"
+    },
+    "cac6c7a04df6f1fa": {
+      "name": "Cappellino a righe"
+    },
+    "a78a614805f7a641": {
+      "name": "Gilè aquilamaro"
+    },
+    "5aa899466fa9ddc9": {
+      "name": "Octomaglia (trasferta)"
+    },
+    "84dc6deb53cc912d": {
+      "name": "T-shirt verde"
+    },
+    "8d93a94ab2bdb735": {
+      "name": "Fascia da squash"
+    },
+    "e7ebb9753dfbdcc8": {
+      "name": "Cappello re della bici"
+    },
+    "5633908a845e4e7c": {
+      "name": "Maglia azzurromare"
+    },
+    "c4093a765f80e764": {
+      "name": "Swimmer rosse"
+    },
+    "aa7ea4b2b45eae59": {
+      "name": "Cappello safari"
+    },
+    "dc2e86e88752af50": {
+      "name": "Maglione squali"
+    },
+    "4823fbbefd97ec52": {
+      "name": "Maglione largo negativo"
+    },
+    "26d9563c7966ad10": {
+      "name": "Berretto a righe"
+    },
+    "ab1ceac8d4b32ee8": {
+      "name": "Divisa AS Riccidimare"
+    },
+    "7725ed498aefb0e5": {
+      "name": "Giubbino furia"
+    },
+    "324a1892277505c4": {
+      "name": "Runner verdeoro"
+    },
+    "e9887854adfe42f4": {
+      "name": "Maglia con bolero nero"
+    },
+    "fa42c0f96a64140a": {
+      "name": "Arrow eleganti"
+    },
+    "b35955d7b890005d": {
+      "name": "Swimmer blu"
+    },
+    "23f2126b48533e18": {
+      "name": "Camicia da octobowling"
+    },
+    "151deacf70ff815c": {
+      "name": "Fluosandali rosa"
+    },
+    "7de63a6ea3188e45": {
+      "name": "Sneaker turbo rosse"
+    },
+    "f2a97473b7ff4994": {
+      "name": "Rockenburg bianca"
+    },
+    "eeb7f851d6d03a1c": {
+      "name": "AS Medusana"
+    },
+    "f49599b4fce20615": {
+      "name": "Stivali Reboot"
+    },
+    "dec2087ca8cb0bfc": {
+      "name": "Casco da bici"
+    },
+    "11b5ac727232c981": {
+      "name": "Eleganti cammello"
+    },
+    "aeaac39e2dc204f3": {
+      "name": "Camicia ricamata"
+    },
+    "0ec5cbbcd16bfe95": {
+      "name": "Alte biancorosse"
+    },
+    "43b1330110d98b43": {
+      "name": "Casco con visiera"
+    },
+    "0cb3ba242150ff62": {
+      "name": "Berretto Inkvaders"
+    },
+    "22b36194c34496c8": {
+      "name": "Cappello da pescatore"
+    },
+    "ef331a7388c97a29": {
+      "name": "Fascia da calcio"
+    },
+    "1a34c66ac04618f2": {
+      "name": "T-shirt reggae"
+    },
+    "5c6f69c9b678391a": {
+      "name": "Berretto Ezko"
+    },
+    "53342e08f018501c": {
+      "name": "Camicia a scacchi"
+    },
+    "22b42ad62ddcd07a": {
+      "name": "Maglia re della bici"
+    },
+    "b385c1e1cb26d5ed": {
+      "name": "T-shirt draganguilla"
+    },
+    "60ca4729e3f15d1e": {
+      "name": "Cappello a maglia"
+    },
+    "21f40c5b5e0944c9": {
+      "name": "Espadrillas blu"
+    },
+    "15cc79efd51771b5": {
+      "name": "Sandali a strappo neon"
+    },
+    "a37864e4d90d134b": {
+      "name": "Fascia da basket"
+    },
+    "010738818c392695": {
+      "name": "Felpa sneaker"
+    },
+    "4a2353a1575a8290": {
+      "name": "Berretto trote speciali"
+    },
+    "b2ad2d5ea085054d": {
+      "name": "T-shirt bivalve CalaOcto"
+    },
+    "e310c94042779445": {
+      "name": "Octosneaker rosse"
+    },
+    "52a43aa594631dac": {
+      "name": "Occhialetti da nuoto"
+    },
+    "5875ae7d9d7b9bc9": {
+      "name": "Camicia hipsterica"
+    },
+    "5ac23847a7403f5f": {
+      "name": "Occhiali bianchi"
+    },
+    "a8798b39bbe60dc9": {
+      "name": "Felpa Ezko"
+    },
+    "2f6897d5337ef3c7": {
+      "name": "Basse blu"
+    },
+    "670ca2ce87b93517": {
+      "name": "T-shirt rovente"
+    },
+    "014836c7ad07a8a0": {
+      "name": "SSC Trigliese"
+    },
+    "7977b53f60122aa5": {
+      "name": "Giacca refrigerante"
+    },
+    "b3b468c4167d50c9": {
+      "name": "Octo-shirt"
+    },
+    "c1fb87d0986b3110": {
+      "name": "Occhiali da motociclista"
+    },
+    "7deaf3ffc38d6e26": {
+      "name": "Scialle BaraS"
+    },
+    "c1e95c3e79957842": {
+      "name": "Scamosciate semplici"
+    },
+    "e0db7f21921c8896": {
+      "name": "Occhiali a mezza montatura"
+    },
+    "663d2d0d77d19f7a": {
+      "name": "Gilet militare cachi"
+    },
+    "5ef885ea53ba7623": {
+      "name": "Carapasco"
+    },
+    "feefadef9c6913ca": {
+      "name": "Maglia baja rossa"
+    },
+    "8704ea9cb1b02be6": {
+      "name": "Fluosandali celesti"
+    },
+    "481c98f17ad59d5a": {
+      "name": "Sneaker predatrici"
+    },
+    "a029e2ef214c22fe": {
+      "name": "Canotta (trasferta)"
+    },
+    "ad006f42035ebcb4": {
+      "name": "Berretto leggero"
+    },
+    "48e546f1426ac978": {
+      "name": "Giacca da sci viola"
+    },
+    "2282d3ec5c8051f0": {
+      "name": "Scarpe da trekking"
+    },
+    "071368490f760424": {
+      "name": "Giacca imbottita nera"
+    },
+    "412636790b35a65c": {
+      "name": "Scarpe da calcio"
+    },
+    "596fa31adf4aa87a": {
+      "name": "Felpa scolastica"
+    },
+    "82f87be2c3a9473c": {
+      "name": "Felpa marinara blu"
+    },
+    "2c518328e23b6c3b": {
+      "name": "T-shirt tè BaraS"
+    },
+    "e73c1d9a445cda99": {
+      "name": "Camicia di lino"
+    },
+    "10ab2df57e67ba18": {
+      "name": "Casco da palombaro"
+    },
+    "29f17fd823703a0f": {
+      "name": "Camicia ippocampi"
+    },
+    "35ffc82643c8e185": {
+      "name": "Camicia a maniche corte"
+    },
+    "f83c3e0b0e67da46": {
+      "name": "Ciabatte SmileMob"
+    },
+    "2b091623c0a70815": {
+      "name": "Giacca paracadute cremisi"
+    },
+    "2611e40d7416a442": {
+      "name": "T-shirt 8 bit nera"
+    },
+    "3e202b6ce2a582f1": {
+      "name": "Occhiali rotondi"
+    },
+    "330aacc363e5845e": {
+      "name": "Sneaker crema"
+    },
+    "9d9836d97fda8ac7": {
+      "name": "T-shirt octo"
+    },
+    "72a39ca7750ebc9a": {
+      "name": "Mascherina Annak"
+    },
+    "1653c4bd81c1fca0": {
+      "name": "Pon-pon di lana"
+    },
+    "8f2be32a75ddae98": {
+      "name": "T-shirt Annak (collare)"
+    },
+    "e6e15e567a79ecad": {
+      "name": "Camicia urbana"
+    },
+    "13247e74e366ad11": {
+      "name": "T-shirt Pulpix arcobaleno"
+    },
+    "7244bbb6fa6dd60c": {
+      "name": "Granchiorazza rossa"
+    },
+    "d3e8ec173f27043d": {
+      "name": "Maglia rugby tricolore"
+    },
+    "5be2787b792c09bb": {
+      "name": "Cappello da cowboy"
+    },
+    "87b6100f3777fe50": {
+      "name": "Maglia sport bianca"
+    },
+    "feb663db4af39d2d": {
+      "name": "Scarponi marroni"
+    },
+    "6531683ab4673e80": {
+      "name": "Dakroniks choco"
+    },
+    "b1602fce67fb450e": {
+      "name": "Camicia con cravatta"
+    },
+    "7121355fe5d80761": {
+      "name": "Maglia rugby 10"
+    },
+    "2ff1222353bca464": {
+      "name": "Mitilik blu e nere"
+    },
+    "f870b775538d7bda": {
+      "name": "Bombetta"
+    },
+    "9cf4622ca7ce7e55": {
+      "name": "T-shirt cime avorio"
+    },
+    "e2aff5329f12f6c0": {
+      "name": "Maschera con tubo"
+    },
+    "5ef6db896d91815e": {
+      "name": "Berretto Sepia"
+    },
+    "b230bdd781e25f18": {
+      "name": "A strati marrone"
+    },
+    "26bde4f6c5b85ed2": {
+      "name": "A strati gialla"
+    },
+    "8e1ef333aba79d20": {
+      "name": "Berretto medusiano"
+    },
+    "0b7dde5389d0ee8b": {
+      "name": "Camicia hawaiana"
+    },
+    "b9b4cb55323a7527": {
+      "name": "Ciabatte da mare"
+    },
+    "59522e8c6e0c07d6": {
+      "name": "Runner nere"
+    },
+    "f96b3d08eb0694a1": {
+      "name": "Canotta (casa)"
+    },
+    "058141cd5b316d2f": {
+      "name": "Fluosandali arancioni"
+    },
+    "d34760401e956f50": {
+      "name": "Berretto da portuale"
+    },
+    "f7eaa5e5ba5a13b7": {
+      "name": "T-shirt riso BaraS"
+    },
+    "0d687aec1c2a6479": {
+      "name": "Camicia a quadri"
+    },
+    "1436f36ed60576f8": {
+      "name": "Mitilik rosse e nere"
+    },
+    "1dcd176bcc8a9a81": {
+      "name": "Giacca maccha"
+    },
+    "e8114c9ecd6ac82a": {
+      "name": "Maglione vintage"
+    },
+    "6ee344613c5c028e": {
+      "name": "Maschera da verniciatura"
+    },
+    "52808e2a2d63e506": {
+      "name": "Mascherina Fortia"
+    },
+    "05f55d34f1214a58": {
+      "name": "Maglione ancora"
+    },
+    "d775d09a4140449f": {
+      "name": "Maglia rugby a righe"
+    },
+    "39bcec4d0355d54a": {
+      "name": "Anorak BaraS"
+    },
+    "7ed4455ab20f5eae": {
+      "name": "Maglione giravolta"
+    },
+    "0251669c9a2a4b5e": {
+      "name": "Giacca da sci verde"
+    },
+    "5c7a84791c254160": {
+      "name": "Maglia navy a righe"
+    },
+    "4b8cb6a0fe561b78": {
+      "name": "A strati ancora"
+    },
+    "e827b09ca8ef70b4": {
+      "name": "Ciabatte cool"
+    },
+    "55ccbc201e874773": {
+      "name": "Felpa zip verde"
+    },
+    "e989c1d6fbf8793d": {
+      "name": "Occhiali da pilota"
+    },
+    "96d5af4512d5ae03": {
+      "name": "T-shirt ancora nera"
+    },
+    "ad08c74748807719": {
+      "name": "Maglia nera"
+    },
+    "b460886d43061423": {
+      "name": "Anfibi bianchi"
+    },
+    "52c409d170293a57": {
+      "name": "Runner verdeacqua"
+    },
+    "63d8eaa93e3fc816": {
+      "name": "Maglia a righe"
+    },
+    "79cac08df90185e7": {
+      "name": "Visiera cool"
+    },
+    "7f2c6e310407338f": {
+      "name": "Mascherina SmileMob"
+    },
+    "2e7f830522350b1e": {
+      "name": "Octocuffie rosse"
+    },
+    "172290d83938d008": {
+      "name": "Cappello parasole"
+    },
+    "ad48083990ed95aa": {
+      "name": "Berretto AS Riccidimare"
+    },
+    "9157ea3a67f9fac5": {
+      "name": "Visiera fumé"
+    },
+    "bdd419c8c5293d6e": {
+      "name": "A strati Totanic"
+    },
+    "d4c18fe2dd802194": {
+      "name": "Maglia college"
+    },
+    "4acbce907f616512": {
+      "name": "Felpa college blu"
+    },
+    "d0b621ef1d45f241": {
+      "name": "Occhiali rotondi SV925"
+    },
+    "7e300376c8890289": {
+      "name": "Rialzate bianche"
+    },
+    "a055f015e95f240e": {
+      "name": "Camicia vintage"
+    },
+    "fbef99853ff68885": {
+      "name": "Visiera parasole"
+    },
+    "31ea6a3eea5e21f0": {
+      "name": "Giubbotto patchwork"
+    },
+    "9816563e1a920b12": {
+      "name": "Scarpe da calcio deluxe"
+    },
+    "d947da422eddbbef": {
+      "name": "Parka octariano Fortia"
+    },
+    "841935d5b21844f4": {
+      "name": "Maschera paintball"
+    },
+    "7f3e6124903c83f1": {
+      "name": "Casco da hockey"
+    },
+    "fac3e478c9f3f182": {
+      "name": "T-shirt crepuscolare"
+    },
+    "01b1662df8836f48": {
+      "name": "Maglia bianca"
+    },
+    "85e9989386171c1f": {
+      "name": "Scamosciate boss"
+    },
+    "2fbabdc653413803": {
+      "name": "T-shirt similananas"
+    },
+    "357263d4f91f363e": {
+      "name": "Casco da motocross"
+    },
+    "bb6d68f21888cbfa": {
+      "name": "Camicia Tintacolante"
+    },
+    "bd7c6a8f0191ed38": {
+      "name": "Casco da skate"
+    },
+    "52e9806c34abb0b0": {
+      "name": "Giubba da comandante"
+    },
+    "162f1b11ca51e2fd": {
+      "name": "Cappello orientale"
+    },
+    "36a5806084910ef4": {
+      "name": "Felpa Torryd"
+    },
+    "03d8d2955078ee57": {
+      "name": "T-shirt hip-hop"
+    },
+    "4eb117d3a5aa5455": {
+      "name": "Visiera da golf"
+    },
+    "e42387337f76faf6": {
+      "name": "Gilè urbano giallo"
+    },
+    "3125b00f7fd15cad": {
+      "name": "T-shirt solearancio"
+    },
+    "aa16c23045178494": {
+      "name": "Bomber negativo"
+    },
+    "fb19bfd12b79e32d": {
+      "name": "Da arrampicata fluo"
+    },
+    "c1cdbefa0d3d2f70": {
+      "name": "Cappello di jeans"
+    },
+    "834b9f01cf020eb7": {
+      "name": "Camicia grigia"
+    },
+    "cd97547e9c6a599a": {
+      "name": "Piumino montagna"
+    },
+    "caf2aa40d9aec693": {
+      "name": "Eleganti marroni"
+    },
+    "4a90769cb6dd4986": {
+      "name": "Maglia Annak classica"
+    },
+    "88416ed7bd575c5f": {
+      "name": "T-shirt bianca ciclista"
+    },
+    "b10618ef7470423a": {
+      "name": "Maglione polsino blu Annak"
+    },
+    "aced009ff69cddcb": {
+      "name": "Camicia da clown"
+    },
+    "e3253efb57c5b7b4": {
+      "name": "T-shirt vaporosa"
+    },
+    "f9fc2fd370f27f0f": {
+      "name": "T-shirt ciliegio BaraS"
+    },
+    "441fc9c609fb78db": {
+      "name": "Stivali da moto blu"
+    },
+    "72107d39c7bcdded": {
+      "name": "Espadrillas hip-hop"
+    },
+    "93707121f776c182": {
+      "name": "Espadrillas rosse"
+    },
+    "1989f89bb3683c76": {
+      "name": "Cappello giungla"
+    },
+    "0f6542c7bce6a1bc": {
+      "name": "Pon-pon sportivo"
+    },
+    "d76287251a1e80d6": {
+      "name": "Occhiali spessi"
+    },
+    "8213bcccf19e57af": {
+      "name": "Maglia nera logo"
+    },
+    "d9943c007083e6f7": {
+      "name": "Camicia a righe"
+    },
+    "221d0311cd12d185": {
+      "name": "Anfibi artici"
+    },
+    "f2575241e38df613": {
+      "name": "A strati nera"
+    },
+    "d945e6abb1a996a1": {
+      "name": "T-shirt verdeacqua"
+    },
+    "8031db4a158a3989": {
+      "name": "Bandana paisley"
+    },
+    "533d8059221cc2b4": {
+      "name": "T-shirt cachi rétro"
+    },
+    "dc83c3421324afe6": {
+      "name": "Zuccotto"
+    },
+    "ce0e032a9b4af85d": {
+      "name": "Maglia biancoverde"
+    },
+    "9dff73f3667fdcb6": {
+      "name": "Zuccotto a righe"
+    },
+    "42ab92eaf82e62c2": {
+      "name": "Runner bianche"
+    },
+    "5cda8399729f1da0": {
+      "name": "Anfibi neri"
+    },
+    "4da9a3e38eacbe7e": {
+      "name": "Camicia floreale"
+    },
+    "32cd97b7e0986fac": {
+      "name": "Canotta Annak stampa polpo"
+    },
+    "0d3ee1609e03de03": {
+      "name": "Rialzate Annak"
+    },
+    "27b32d23702d94c3": {
+      "name": "A strati pirata"
+    },
+    "a36e93fc754b5976": {
+      "name": "Alte zombie"
+    },
+    "c8666480bf24eb6d": {
+      "name": "Bandana cool"
+    },
+    "53af593f14387630": {
+      "name": "T-shirt zebra"
+    },
+    "0fb0286fad46c510": {
+      "name": "Cappello relax"
+    },
+    "441a9f62090040d4": {
+      "name": "Zoccoli marroni"
+    },
+    "2691ff00a9194f98": {
+      "name": "Rialzate turchesi"
+    },
+    "b4efe275a0125131": {
+      "name": "Maglia cime e righe"
+    },
+    "181f44dc42cbf585": {
+      "name": "Felpa rétro"
+    },
+    "59792e4065882111": {
+      "name": "Camicia inchiostrata"
+    },
+    "9054693c3406b3b6": {
+      "name": "Berretto da comandante"
+    },
+    "6edabb924ca30eba": {
+      "name": "T-shirt similmela"
+    },
+    "b0cdccea20fe9e90": {
+      "name": "Alte dorate"
+    },
+    "213291c16e6652c8": {
+      "name": "Lenti a contatto finte"
+    },
+    "935b340da97b0b66": {
+      "name": "T-shirt grigia frecce"
+    },
+    "1de5be8ab33dceac": {
+      "name": "Casco a infrarossi"
+    },
+    "937c341f17e5a9c1": {
+      "name": "Classiche banana"
+    },
+    "f2188922df753fe4": {
+      "name": "Polo verde chiaro"
+    },
+    "ff76780318953100": {
+      "name": "Fascia da jogging"
+    },
+    "6cdfd6177ee63ef1": {
+      "name": "Eleganti nero di seppia"
+    },
+    "cdcc3d261b2c1828": {
+      "name": "Rialzate rosa"
+    },
+    "5bf6555d90b4df74": {
+      "name": "Giacca Nero Marlin"
+    },
+    "46820b5e398d1e36": {
+      "name": "Camicia da turista"
+    },
+    "4d4bb2908b58e139": {
+      "name": "Sandali a strappo fluo"
+    },
+    "763d513ccca9bf8b": {
+      "name": "Cala-shirt"
+    },
+    "3979fa46ebaba2a7": {
+      "name": "Cappello a cono"
+    },
+    "b0870bfc3eb49fe3": {
+      "name": "Gilè urbano"
+    },
+    "6ec52267789770f5": {
+      "name": "Trekking pro"
+    },
+    "998629eaaa157867": {
+      "name": "Berretto multifase"
+    },
+    "b7f3e26f8a1544f7": {
+      "name": "Visore HUD"
+    },
+    "16741989f7bc5677": {
+      "name": "Cuffie antirumore"
+    },
+    "99d22d0532addd41": {
+      "name": "Occhiali colorati"
+    },
+    "99214ef4b56ffb20": {
+      "name": "Gilè calamaro"
+    },
+    "f672fb25d7248ff7": {
+      "name": "A strati mimetica"
+    },
+    "f5ca1c29b2047ef3": {
+      "name": "Comfort viola"
+    },
+    "8ab19ce5633846f9": {
+      "name": "Parka Inkling Fortia"
+    },
+    "5c0fc4542d1da5a4": {
+      "name": "Cappello, bandana e occhiali"
+    },
+    "c4dbb5fea439175e": {
+      "name": "Arrow bianche"
+    },
+    "cc775dc2ff3964f8": {
+      "name": "T-shirt perlata"
+    },
+    "cf955552672b674c": {
+      "name": "Stivali da ghiaccio"
+    },
+    "e61bde3181df8c7a": {
+      "name": "Felpa zip mimetica"
+    },
+    "d79e64ab5db14090": {
+      "name": "Sandali a strappo neve"
+    },
+    "af8660445814e2b3": {
+      "name": "Scarponi rossi"
+    },
+    "a7a660bef9c79e3b": {
+      "name": "Comfort blu"
+    },
+    "6eea9c713727092b": {
+      "name": "Cardigan arancione"
+    },
+    "b63342280edf91b5": {
+      "name": "Stivaletti da pioggia"
+    },
+    "acabf9ac54637182": {
+      "name": "Piumino trekking"
+    },
+    "de48557eac2da8a6": {
+      "name": "T-shirt fucsia"
+    },
+    "0f3ac8b716be26ab": {
+      "name": "Tuta retrofuturistica"
+    },
+    "301a85fdbe03289b": {
+      "name": "Cnidarya 528"
+    },
+    "5078ec81ed6efea7": {
+      "name": "Cappello di paglia classico"
+    },
+    "c2e392f6ed4cb720": {
+      "name": "Tuta acetata Sepia"
+    },
+    "d4e2330204850d48": {
+      "name": "Octocasco football"
+    },
+    "46f23bcca7707183": {
+      "name": "Maglia Ezko"
+    },
+    "e9859aa4fe3f0d1c": {
+      "name": "Polo rosa"
+    },
+    "41f0e7ec75716ddc": {
+      "name": "Visiera Sepia"
+    },
+    "5b0557344cd36425": {
+      "name": "AS Medusana"
+    },
+    "873bfeba1b933f45": {
+      "name": "Scarpe da calcio deluxe"
+    },
+    "32e5708015b6270b": {
+      "name": "Bomber negativo"
+    },
+    "022bf421f1783138": {
+      "name": "Zuccotto a righe"
+    },
+    "bcb5b728741af87b": {
+      "name": "Cappello da cowboy"
+    },
+    "54fafa40a7cd9067": {
+      "name": "Fluosandali celesti"
+    },
+    "165cd977ff77a706": {
+      "name": "Casco a infrarossi"
+    },
+    "b536f417bf39ed0a": {
+      "name": "T-shirt crepuscolare"
+    },
+    "e4c369d93032f229": {
+      "name": "Tuta retrofuturistica"
+    },
+    "14fb4312bf1faea2": {
+      "name": "Cappellino a righe"
+    },
+    "7f239deca08e5284": {
+      "name": "Flanella Annak"
+    },
+    "671364cfc53ad0f3": {
+      "name": "Visiera parasole"
+    },
+    "1dfe5eb961eb0076": {
+      "name": "Maglione CalamaX"
+    },
+    "2f6388b4c18402f3": {
+      "name": "Runner nere"
+    },
+    "f67cd7c6f0d19029": {
+      "name": "Maschera con tubo"
+    },
+    "9e15c0322eb85f1a": {
+      "name": "Felpa marinara bianca"
+    },
+    "f37c08c1d2550601": {
+      "name": "Octocasco football"
+    },
+    "107192b2e9272b68": {
+      "name": "Berretto medusiano"
+    },
+    "de43e2f6b530fd2d": {
+      "name": "Fascia da jogging"
+    },
+    "bea92dbf4d62aa90": {
+      "name": "Comfort viola"
+    },
+    "230cc3b55472beac": {
+      "name": "T-shirt ciliegio BaraS"
+    },
+    "639d7496f4b7af1d": {
+      "name": "A strati pirata"
+    },
+    "c36f631780c921cf": {
+      "name": "Eleganti nero di seppia"
+    },
+    "0f459e011b7bb002": {
+      "name": "Berretto mimetico"
+    },
+    "f21f24964aaa7066": {
+      "name": "Maglia da baseball"
+    },
+    "d86aad39599f4065": {
+      "name": "Ciabatte rosse"
+    },
+    "f48dd410da86210a": {
+      "name": "Octosneaker rosse"
+    },
+    "020cbdc9af5e3e45": {
+      "name": "Casco retrofuturistico"
+    },
+    "64aab49611fc93c4": {
+      "name": "Cappello pesce palla"
+    },
+    "b33d67ba5b4ab31a": {
+      "name": "Cappello Riccidimare"
+    },
+    "6a40a878005661b0": {
+      "name": "Alte biancorosse"
+    },
+    "b661146512d1322e": {
+      "name": "Basse arancioni"
+    },
+    "97c2fdf4bd9bb222": {
+      "name": "Mascherina Fortia"
+    },
+    "6de4a18c353d37a7": {
+      "name": "Occhiali da motociclista"
+    },
+    "5dd8bdfbbe7e54e2": {
+      "name": "T-shirt tè BaraS"
+    },
+    "b3df787b7d14accd": {
+      "name": "Scamosciate semplici"
+    },
+    "4f451de9164badf0": {
+      "name": "Scialle BaraS"
+    },
+    "f0e91a90325c86a2": {
+      "name": "Maglione giravolta"
+    },
+    "610a421d2a949858": {
+      "name": "Camicia con cravatta"
+    },
+    "34db0a16d0ceb43d": {
+      "name": "Mitilik blu e nere"
+    },
+    "a3eaa9fe5d855f41": {
+      "name": "T-shirt cachi rétro"
+    },
+    "ccd632c76a0dfcdc": {
+      "name": "Camicia hawaiana"
+    },
+    "644f56276a3130f2": {
+      "name": "Occhiali con lenti colorate"
+    },
+    "5b4fa9031de89d0c": {
+      "name": "T-shirt SmileMob fucsia"
+    },
+    "6f907830cc4a8d57": {
+      "name": "Sneaker predatrici"
+    },
+    "464b98ee7b3b1826": {
+      "name": "T-shirt verdeacqua"
+    },
+    "c5e7e526d4122983": {
+      "name": "Sneaker rosse"
+    },
+    "3500f899eb166d10": {
+      "name": "T-shirt 8 bit nera"
+    },
+    "b73fd0f89c6bd0b6": {
+      "name": "Maglione ancora"
+    },
+    "14d5b8fddc16926c": {
+      "name": "Fluosandali rosa"
+    },
+    "845b316cccec990e": {
+      "name": "Maglia baja rossa"
+    },
+    "22b8f34808bd3a1d": {
+      "name": "Visiera fumé"
+    },
+    "53815ad9370322db": {
+      "name": "Camicia schizzata"
+    },
+    "bb714e704b3d3ff3": {
+      "name": "OSTR1K color perla"
+    },
+    "39b74c520098b6c0": {
+      "name": "Eleganti marroni"
+    },
+    "166ae313ef584d58": {
+      "name": "Zoccoli marroni"
+    },
+    "4e58107a7e152733": {
+      "name": "Stivali di gomma verdi"
+    },
+    "58cf4382b2ccac9e": {
+      "name": "Cappello, bandana e occhiali"
+    },
+    "dd0651ac758f0e0c": {
+      "name": "Camicia da octobowling"
+    },
+    "032291744634a68e": {
+      "name": "Clownfish classiche"
+    },
+    "ff06f3e0350b7d42": {
+      "name": "Camicia ricamata"
+    },
+    "f05978d794e9dbed": {
+      "name": "Polo rosa"
+    },
+    "52a23a9e47969e4e": {
+      "name": "Sneaker medusa"
+    },
+    "2646b55fbb3eb64e": {
+      "name": "A strati bianca"
+    },
+    "6a8c440ac7e7fa06": {
+      "name": "Maglia da battaglia"
+    },
+    "0ed9446ae2a3a4f9": {
+      "name": "Camicia di lino"
+    },
+    "26e7a628ed34e552": {
+      "name": "Berretto con spilla"
+    },
+    "adbe82fa2da86d1e": {
+      "name": "Canotta Annak stampa polpo"
+    },
+    "f445f4e98b26be6f": {
+      "name": "Eleganti Annak"
+    },
+    "8d31d39aae6f1713": {
+      "name": "A strati frecce"
+    },
+    "ac95ab6feff12f2e": {
+      "name": "Swimmer rosse"
+    },
+    "077ab79c6af4a2ca": {
+      "name": "Anfibi artici"
+    },
+    "49229273190dec9c": {
+      "name": "Runner bianconere"
+    },
+    "6bb6aaa795b2e1d0": {
+      "name": "Camicia inchiostrata"
+    },
+    "25f8783c95f6df42": {
+      "name": "Casco da motocross"
+    },
+    "3ae4bf025cd10453": {
+      "name": "Basse limited"
+    },
+    "ef77d8d6c1b77631": {
+      "name": "Fascia da basket"
+    },
+    "0de76819ba6db45e": {
+      "name": "Trekking colorate"
+    },
+    "9df69f0ea25b6c07": {
+      "name": "Da arrampicata fluo"
+    },
+    "9f8f4c3d386715b2": {
+      "name": "Runner verdeoro"
+    },
+    "ab80ed25de6866d2": {
+      "name": "Sneaker crema"
+    },
+    "b611ac13be703e89": {
+      "name": "Mascherina Octoking"
+    },
+    "ff605fdcf2e810a4": {
+      "name": "Felpa sneaker"
+    },
+    "8d2399d7e4a8dc54": {
+      "name": "Polo nera"
+    },
+    "2c7cdb6a60f1956c": {
+      "name": "Berretto Sepia"
+    },
+    "81f6888c0af09c8a": {
+      "name": "T-shirt azzurra rétro"
+    },
+    "1e924094e8a7a9cf": {
+      "name": "Camicia Tintacolante"
+    },
+    "e1c5b55e8e289883": {
+      "name": "Occhialetti da nuoto"
+    },
+    "8809f0a06f39d9ce": {
+      "name": "Canotta (trasferta)"
+    },
+    "a907b1af05ca21dd": {
+      "name": "Arrow arancioblu"
+    },
+    "ec712f04e4e16ef7": {
+      "name": "Fascia da calcio"
+    },
+    "3de1617917f3891e": {
+      "name": "Camicia urbana"
+    },
+    "0fb378b360db0eda": {
+      "name": "Occhiali rotondi SV925"
+    },
+    "3e3584a685b92219": {
+      "name": "Camicia a maniche corte"
+    },
+    "ae6cebb2075d1bef": {
+      "name": "Rialzate rosa"
+    },
+    "edd86028e8a15697": {
+      "name": "A strati mimetica"
+    },
+    "fb7207c8ae2c68a5": {
+      "name": "Stivali da ghiaccio"
+    },
+    "520dd7b84f4b0d7a": {
+      "name": "Maschera da verniciatura"
+    },
+    "0647b7698074cf44": {
+      "name": "T-shirt nera"
+    },
+    "2d111c51efa16dcf": {
+      "name": "Cuffie colorate"
+    },
+    "771073efa12490ba": {
+      "name": "Sneaker turbo rosse"
+    },
+    "53b5aa53aa00b7b3": {
+      "name": "Rialzate turchesi"
+    },
+    "d1d32898239578d3": {
+      "name": "Elmo vichingo"
+    },
+    "2abc2617b7ca0f57": {
+      "name": "Sneaker orca tramonto"
+    },
+    "4143f36fe1e54ab7": {
+      "name": "Runner rosa"
+    },
+    "03d5f18baaea8fc0": {
+      "name": "Dakroniks choco"
+    },
+    "3563c735804a09e4": {
+      "name": "Casco con visiera"
+    },
+    "8357bf95b5912213": {
+      "name": "T-shirt reggae"
+    },
+    "13e5d86453c55a2b": {
+      "name": "Cappello di paglia"
+    },
+    "cb29cf507690d98a": {
+      "name": "Berretto girato"
+    },
+    "3640d5f81539f503": {
+      "name": "Runner bianche"
+    },
+    "47269fcfcabbc782": {
+      "name": "Occhiali rotondi"
+    },
+    "8f2be09f9abb7ccb": {
+      "name": "T-shirt glaciale"
+    },
+    "42589ff1d3d887b0": {
+      "name": "T-shirt bivalve CalaOcto"
+    },
+    "aca9811fae6ebd28": {
+      "name": "Cappello da pescatore"
+    },
+    "02eb3f1b43205e2f": {
+      "name": "Bandana cool"
+    },
+    "5856b235d7aba150": {
+      "name": "Camicia da clown"
+    },
+    "50e736bfac15d862": {
+      "name": "Gilet militare cachi"
+    },
+    "808646c4aa0f6457": {
+      "name": "Runner verdeacqua"
+    },
+    "fd887cccf2906c67": {
+      "name": "Pon-pon di lana"
+    },
+    "5f31e15c30e65e41": {
+      "name": "Maglione squali"
+    },
+    "5914364358380b1a": {
+      "name": "Camicia ippocampi"
+    },
+    "f21b90e17052b073": {
+      "name": "Camicia hipsterica"
+    },
+    "9de6a55d0e7d1532": {
+      "name": "Cappello paraorecchie nero"
+    },
+    "363315d23dffb972": {
+      "name": "Bombetta"
+    },
+    "bc8dda8de25c745c": {
+      "name": "Ultrabianche a strappo"
+    },
+    "c1a8c26856affc26": {
+      "name": "T-shirt ancora nera"
+    },
+    "ee94de5f1d4914d1": {
+      "name": "Lenti a contatto finte"
+    },
+    "8264e44e248fca1c": {
+      "name": "Felpa rétro"
+    },
+    "553fa256959ae19c": {
+      "name": "Mimetica viola"
+    },
+    "88d7384ac556ac71": {
+      "name": "Open toe blu"
+    },
+    "fb43159290f75d81": {
+      "name": "Maglia college"
+    },
+    "c6fbed6d02b1a4ab": {
+      "name": "Octocchiali"
+    },
+    "dcee539309bead7e": {
+      "name": "Zuccotto"
+    },
+    "eb4d4d676f24e2b9": {
+      "name": "Berretto trote speciali"
+    },
+    "6481cb10fec0fab3": {
+      "name": "Espadrillas blu"
+    },
+    "94328b49199304b5": {
+      "name": "Espadrillas hip-hop"
+    },
+    "cb2e1853fed5bb18": {
+      "name": "Maglia biancoverde"
+    },
+    "4fb2f0eccd0aefcf": {
+      "name": "T-shirt similmela"
+    },
+    "a9343a2231f67ad1": {
+      "name": "Giacca imbottita nera"
+    },
+    "68d1abdb0a14a38e": {
+      "name": "Swimmer blu"
+    },
+    "ad599305868bdb30": {
+      "name": "Felpa Torryd"
+    },
+    "309a29eea36abfb4": {
+      "name": "Divisa AS Riccidimare"
+    },
+    "edcf321b99f16053": {
+      "name": "Maglia Ezko"
+    },
+    "6020f88eda72ce9c": {
+      "name": "Mascherina SmileMob"
+    },
+    "46978f8e65a171d3": {
+      "name": "Rockenburg nera"
+    },
+    "dce5f5d22c745b4f": {
+      "name": "Scarponi rossi"
+    },
+    "ba0e6bd8b19c1589": {
+      "name": "Comfort blu"
+    },
+    "37a8947236c61232": {
+      "name": "Arrow eleganti"
+    },
+    "f0497f5430747e45": {
+      "name": "Cappello orientale"
+    },
+    "90ed2a3ed5963886": {
+      "name": "Sandali a strappo neon"
+    },
+    "b5fbab180c5dc3e7": {
+      "name": "Camicia a scacchi"
+    },
+    "9e4bf04f7bdd91a9": {
+      "name": "Swimmer viola"
+    },
+    "0d5ac21522734f30": {
+      "name": "Mascherina Annak"
+    },
+    "7e3c92428cec4715": {
+      "name": "T-shirt Annak (collare)"
+    },
+    "349fadecc62409e7": {
+      "name": "Rialzate Annak"
+    },
+    "3f05232d650c7467": {
+      "name": "Fascia da squash"
+    },
+    "c749455d979a467e": {
+      "name": "Cuffie vintage"
+    },
+    "c552777e3a31db60": {
+      "name": "Stivali di gomma rossi"
+    },
+    "d7fff7546134348a": {
+      "name": "Scamosciate boss"
+    },
+    "7122c82d094cbad8": {
+      "name": "T-shirt perlata"
+    },
+    "99962cbe8b9157c8": {
+      "name": "Alte zombie"
+    },
+    "c4967d483b4a7293": {
+      "name": "Occhiali da sole 18K"
+    },
+    "c3f4230208339596": {
+      "name": "Berretto leggero"
+    },
+    "ef44c8d54fbe03ba": {
+      "name": "Giubbino pesciscossa"
+    },
+    "f6ebc451ec2d29be": {
+      "name": "Ultrarosse a strappo"
+    },
+    "924dcaf66eb6d0f3": {
+      "name": "T-shirt rossa frecce"
+    },
+    "59815deb13d9d8ae": {
+      "name": "Cala-shirt"
+    },
+    "bc26fcccdec0a6da": {
+      "name": "Cappello a maglia"
+    },
+    "9764a1e9d9d51706": {
+      "name": "Occhiali rétro"
+    },
+    "bcff9a76de760cd3": {
+      "name": "Occhiali Annak"
+    },
+    "ab56fbfe1b844f9e": {
+      "name": "Octo-shirt"
+    },
+    "df50d7deaa59949e": {
+      "name": "Zoccoli grigi"
+    },
+    "a196ff26fb407f38": {
+      "name": "Mitilik 5 rosse e bianche"
+    },
+    "f359a2ee18129468": {
+      "name": "Giubbino furia"
+    },
+    "fdb92c8b3c05fc25": {
+      "name": "Chiodo nero"
+    },
+    "d24ec1ac4f32ab65": {
+      "name": "Sneaker senza lacci"
+    },
+    "b5618eeec40534ba": {
+      "name": "A strati nera"
+    },
+    "7a8f918bd5533667": {
+      "name": "Chiodo bianco"
+    },
+    "4a1abb8ec72bdb44": {
+      "name": "Anfibi gialli"
+    },
+    "407c06b41fc7fd8a": {
+      "name": "Cuffie pro"
+    },
+    "c4e6458376a142eb": {
+      "name": "Occhiali spessi"
+    },
+    "ea51dd77650a15bc": {
+      "name": "Stivali da moto"
+    },
+    "41c55c011078c88d": {
+      "name": "Scarpe da calcio"
+    },
+    "c093e05fd52e5e74": {
+      "name": "Berretto da portuale"
+    },
+    "7b5c70fb861231bb": {
+      "name": "Gilè urbano giallo"
+    },
+    "5534e82363e3828b": {
+      "name": "Maglia sport bianca"
+    },
+    "0d11119906fc8dfd": {
+      "name": "Occhialetti Nero Marlin"
+    },
+    "922ab622dd80308a": {
+      "name": "Cappello di jeans"
+    },
+    "2f8ca1ef4b452c83": {
+      "name": "Cappello parasole"
+    },
+    "a5ddb4bd0d128785": {
+      "name": "T-shirt cime avorio"
+    },
+    "2b4b7313b5c5b509": {
+      "name": "Maschera baseball (casa)"
+    },
+    "689839e7192a445d": {
+      "name": "Berretto multifase"
+    },
+    "ad580141546a45ad": {
+      "name": "T-shirt bianca ciclista"
+    },
+    "c73a0f101ac9bc77": {
+      "name": "Mascherina CalamaX"
+    },
+    "01d5c109bfdbefb6": {
+      "name": "T-shirt bianca"
+    },
+    "7d9eaf41429a15e0": {
+      "name": "Paramento rosso"
+    },
+    "8c04ff42acf817c1": {
+      "name": "Maglia re della bici"
+    },
+    "9e3706d8ad88af66": {
+      "name": "Giacca glam rock"
+    },
+    "fe67137750f84a90": {
+      "name": "Maglia rugby a righe"
+    },
+    "375899ec709e6752": {
+      "name": "T-shirt grigia frecce"
+    },
+    "f041a4d08be16423": {
+      "name": "Berretto jet"
+    },
+    "5720e976710c3988": {
+      "name": "Camicia bianca"
+    },
+    "fde83159c6a4dd52": {
+      "name": "Stivali da caccia"
+    },
+    "6d2061be537d3134": {
+      "name": "T-shirt pesce palla"
+    },
+    "a242908b34fc7696": {
+      "name": "Anfibi bianchi"
+    },
+    "687f422b32db5b3b": {
+      "name": "Occhiali a mezza montatura"
+    },
+    "929b44ba55cd192b": {
+      "name": "Maglia rugby 10"
+    },
+    "485fd707635e0b68": {
+      "name": "T-shirt solearancio"
+    },
+    "80c2339dc6b430b0": {
+      "name": "Scarpe da deserto"
+    },
+    "b69ddf6a87cbc725": {
+      "name": "AL-GA 30XX"
+    },
+    "6f21683f5f49f466": {
+      "name": "Anfibi melanzana"
+    },
+    "7202b06ebe99ae80": {
+      "name": "T-shirt verde"
+    },
+    "2e92df51b55f4ede": {
+      "name": "Cuffie antirumore"
+    },
+    "af71bf55a10c58fa": {
+      "name": "Camicia da turista"
+    },
+    "3baf3fe9f83cb7ab": {
+      "name": "Cefalocuffie in-ear"
+    },
+    "cd3962089969a1fb": {
+      "name": "Berretto a righe"
+    },
+    "3425e298dc3ae3a8": {
+      "name": "Felpa zip mimetica"
+    },
+    "6b9446521205bca4": {
+      "name": "Visiera da golf"
+    },
+    "40abebcc874bc498": {
+      "name": "Cappello di paglia classico"
+    },
+    "94919ff195bf7e57": {
+      "name": "Casco da skate"
+    },
+    "c8838d81157d8cfc": {
+      "name": "T-shirt octo"
+    },
+    "bda6efb218732916": {
+      "name": "Camicia a quadri"
+    },
+    "1ab1c420deae9d99": {
+      "name": "Maglia rugby 8"
+    },
+    "d02484a216f59d30": {
+      "name": "Fascia da tennis"
+    },
+    "1a9b9d4bc02192e9": {
+      "name": "Rockenburg bianca"
+    },
+    "a7debe539a584c52": {
+      "name": "Berretto Inkvaders"
+    },
+    "a4e997f449149409": {
+      "name": "Fascia classica"
+    },
+    "93ec4226623f88bd": {
+      "name": "A strati Totanic"
+    },
+    "f2c54f819291e8c0": {
+      "name": "Basse blu"
+    },
+    "ddd54257197eba57": {
+      "name": "Camicia vintage"
+    },
+    "877eb0c9258b904b": {
+      "name": "Occhiali da pilota"
+    },
+    "bbc5dcdb8c4ace85": {
+      "name": "Scarpe squalo"
+    },
+    "72d59274c3532410": {
+      "name": "Maglia rugby tricolore"
+    },
+    "fc930f680e403928": {
+      "name": "Giacca da sci verde"
+    },
+    "3ae4fd56bef51592": {
+      "name": "Visiera cool"
+    },
+    "35977e28181a0a29": {
+      "name": "Cappello safari"
+    },
+    "49549cdc599039f9": {
+      "name": "Stivali da neve"
+    },
+    "7da4267dbe72c548": {
+      "name": "T-shirt neroseppia"
+    },
+    "5cd5d860449e5dfe": {
+      "name": "Arrow bianche"
+    },
+    "af60e641db707a20": {
+      "name": "Felpa scolastica"
+    },
+    "fe8f675324b4d4dd": {
+      "name": "Casco da hockey"
+    },
+    "268eb9cc2f878021": {
+      "name": "Camicia a righe"
+    },
+    "d9f87ca945f48c33": {
+      "name": "Ciabatte SmileMob"
+    },
+    "21209b23c56be140": {
+      "name": "Cappello da pesca denim"
+    },
+    "e97e793e9abeb305": {
+      "name": "Scarpe aggressive"
+    },
+    "e5dd7cea0689d0e8": {
+      "name": "Stivaletti da pioggia"
+    },
+    "7135a4cfcc976f70": {
+      "name": "SSC Trigliese"
+    },
+    "f3f71bd9d8cc8670": {
+      "name": "A strati gialla"
+    },
+    "2322523514391611": {
+      "name": "Berretto alla moda"
+    },
+    "797d94c82a58a2dd": {
+      "name": "Cappello a cono"
+    },
+    "219e27353c8d8b8b": {
+      "name": "Bandana paisley"
+    },
+    "c1f0da9544b68681": {
+      "name": "Gilè aquilamaro"
+    },
+    "49b64342ad392190": {
+      "name": "Cappello relax"
+    },
+    "f89e6b05bd25b0cb": {
+      "name": "T-shirt recluta"
+    },
+    "a805c2a7f5be45e8": {
+      "name": "Camicia floreale"
+    },
+    "ec77f4ff49185d6c": {
+      "name": "Scarpe da vela marroni"
+    },
+    "5cfe62645d9c13e2": {
+      "name": "Maglia nera logo"
+    },
+    "9088bd2213ba7f6f": {
+      "name": "Fascia bianca"
+    },
+    "1095d26889f8d14a": {
+      "name": "Giubbotto patchwork"
+    },
+    "8bc72431627b3b8c": {
+      "name": "Espadrillas rosse"
+    },
+    "0758ad01236afdf7": {
+      "name": "T-shirt riso BaraS"
+    },
+    "d472410b5448cafc": {
+      "name": "Cappello da neve"
+    },
+    "0ada092cf002c607": {
+      "name": "Zeppe tangerine"
+    },
+    "f684f56be6a50d22": {
+      "name": "Camicia grigia"
+    },
+    "7ee0f9e2b3e8b734": {
+      "name": "Sandali a strappo neve"
+    },
+    "27326e0984c69d61": {
+      "name": "Berretto Annak con occhiali"
+    },
+    "ae28605434b4f96d": {
+      "name": "Berretto AS Riccidimare"
+    },
+    "279f03edfec347e6": {
+      "name": "Maglia a righe"
+    },
+    "03657609a5383fd8": {
+      "name": "Giubbino da stadio"
+    },
+    "043b5e53546d5989": {
+      "name": "T-shirt rovente"
+    },
+    "cb2b1657512a88a5": {
+      "name": "Bandana teschio"
+    },
+    "dabfba2134e9111d": {
+      "name": "Eleganti cammello"
+    },
+    "f127c8d7674c4620": {
+      "name": "T-shirt 8 bit bianca"
+    },
+    "16348f8c466079c4": {
+      "name": "Scarponi marroni"
+    },
+    "33778454d822eea6": {
+      "name": "Rialzate bianche"
+    },
+    "df2accb1fb986f19": {
+      "name": "Maglia azzurromare"
+    },
+    "9d4307c244d67a8a": {
+      "name": "Felpa Ezko"
+    },
+    "ca2b2fdd4dbff31d": {
+      "name": "Casco da bici"
+    },
+    "9ae6fdc4bfadb32f": {
+      "name": "Trekking pro"
+    },
+    "5780ff9f95bf952a": {
+      "name": "Felpa grigia con cappuccio"
+    },
+    "baecc21b3df75989": {
+      "name": "T-shirt similananas"
+    },
+    "a5b1931e7350ee7e": {
+      "name": "Stivali glam rock"
+    },
+    "6490c9b2d3e9e55c": {
+      "name": "T-shirt Pulpix arcobaleno"
+    },
+    "d9b6af6685f32635": {
+      "name": "T-shirt da pirata"
+    },
+    "6e470bc87582e65f": {
+      "name": "Carapasco"
+    },
+    "ca44e6f72d227bc7": {
+      "name": "Parka Inkling Fortia"
+    },
+    "e9a9583478105368": {
+      "name": "Maschera da sub"
+    },
+    "447e163eb5e91c11": {
+      "name": "Maglia bianca"
+    },
+    "6239fc0d6546d4ce": {
+      "name": "Maschera antigas"
+    },
+    "cef84ba92071d475": {
+      "name": "Ciabatte cool"
+    },
+    "9163083f8b43ee39": {
+      "name": "Camicia piovre piccanti"
+    },
+    "a3c8d0b074dfdc24": {
+      "name": "Cappello re della bici"
+    },
+    "81fb8c10755777c8": {
+      "name": "Cappello giungla"
+    },
+    "4e6a0c2993910076": {
+      "name": "Occhiali discreti"
+    },
+    "238aa5a08883c76e": {
+      "name": "Stivali da moto blu"
+    },
+    "f552243dffd76af2": {
+      "name": "Gilè calamaro"
+    },
+    "49c452781177d633": {
+      "name": "Occhiali bianchi"
+    },
+    "d212072056094742": {
+      "name": "Felpa zip verde"
+    },
+    "c40f8886f06a98c2": {
+      "name": "Berretto da ciclista"
+    },
+    "03b0da89cfcfe463": {
+      "name": "Giacca paracadute cremisi"
+    },
+    "e90d10cbc94a4305": {
+      "name": "Maschera paintball"
+    },
+    "fce054d3ceb37c00": {
+      "name": "T-shirt blupioggia"
+    },
+    "e97c7d2b14c2c7f3": {
+      "name": "T-shirt vaporosa"
+    },
+    "29060f4096d9748d": {
+      "name": "Maglia sport nera"
+    },
+    "0587111241fa2676": {
+      "name": "T-shirt fucsia"
+    },
+    "d19dd2ff9d46ed73": {
+      "name": "Anorak BaraS"
+    },
+    "bd0b6a5b9644670c": {
+      "name": "Maglia con bolero nero"
+    },
+    "7dc41ca5666da73d": {
+      "name": "Occhiali da sole ovali"
+    },
+    "1340619784620f8c": {
+      "name": "Scamosciate suola rossa"
+    },
+    "f48ca09d46db8416": {
+      "name": "Occhiali colorati"
+    },
+    "91cbaf4d221a868d": {
+      "name": "T-shirt ancora bianca"
+    },
+    "96c8d17e70de2eb5": {
+      "name": "Mascherina Torryd"
+    },
+    "9ebbd722f94f18c0": {
+      "name": "Classiche banana"
+    },
+    "822ecce491d7169d": {
+      "name": "Camicia meduse"
+    },
+    "8fb3c55fb9483589": {
+      "name": "Maglione largo negativo"
+    },
+    "c06825c4fa96529b": {
+      "name": "Felpa college grigia"
+    },
+    "ad92fbc1d2a018a6": {
+      "name": "Maglia navy a righe"
+    },
+    "fe89d6fe118a1082": {
+      "name": "Fluosandali arancioni"
+    },
+    "24076aa304814391": {
+      "name": "Ciabatte da mare"
+    },
+    "a43fb7d3698b62fa": {
+      "name": "Arrow arcobaleno"
+    },
+    "a3a474685c6dccc7": {
+      "name": "Stivali Reboot"
+    },
+    "78bed018d9c457b9": {
+      "name": "Camicia scozzese"
+    },
+    "c20f02fd42c83ed8": {
+      "name": "Piumino montagna"
+    },
+    "34ea327e3101a9d9": {
+      "name": "T-shirt zebra"
+    },
+    "4b6107b3fd6f9204": {
+      "name": "Maglia cime e righe"
+    },
+    "448f2ec0069b99b7": {
+      "name": "Swimmer verdi fluo"
+    },
+    "3079b092607313fd": {
+      "name": "Sandali a strappo fluo"
+    },
+    "56cb73e0e01cb36a": {
+      "name": "Giacca refrigerante"
+    },
+    "fa7e974e8af06a5d": {
+      "name": "Occhiali 3D"
+    },
+    "8ced9dc8330b5dc3": {
+      "name": "Pile tundra crema"
+    },
+    "866a08cf40deb604": {
+      "name": "Granchiorazza rossa"
+    },
+    "f61d8502d2864a59": {
+      "name": "Mitilik rosse e nere"
+    },
+    "68b07806f87b7fdc": {
+      "name": "Alte dorate"
+    },
+    "fd69616af9d65ea1": {
+      "name": "A strati ancora"
+    },
+    "4153cf3a13213beb": {
+      "name": "Scarpe da trekking"
+    },
+    "3ffc6dab701c8088": {
+      "name": "T-shirt leopardata"
+    },
+    "d477323916cd5c9d": {
+      "name": "Octocuffie rosse"
+    },
+    "cb394cc96c28628e": {
+      "name": "Cardigan verde"
+    },
+    "f295015cb0bdb14c": {
+      "name": "Maglia Annak classica"
+    },
+    "30d9d21a0c737542": {
+      "name": "Berretto Ezko"
+    },
+    "e8896a6fe1d958b0": {
+      "name": "Piumino trekking"
+    },
+    "53cf395da163419e": {
+      "name": "Giacca Nero Marlin"
+    },
+    "2a0dcc1ebb5d0aab": {
+      "name": "Felpa lamantino"
+    },
+    "a12c002b9fbdd89e": {
+      "name": "Maglione polsino blu Annak"
+    },
+    "2665aa6be3dd37dd": {
+      "name": "Giacca da sci viola"
+    },
+    "77eb1354aaaa1bd0": {
+      "name": "Giacca maccha"
+    },
+    "08a29f2c233a9830": {
+      "name": "Canotta (casa)"
+    },
+    "6fa1c75d84696301": {
+      "name": "T-shirt draganguilla"
+    },
+    "8b0acdb34251b7de": {
+      "name": "Giacca da hacker"
+    },
+    "7c6ace01914078ce": {
+      "name": "Maglia da ciclista"
+    },
+    "750183f042bd1db2": {
+      "name": "Camicia animalesca"
+    },
+    "2d26be71b5e05c99": {
+      "name": "Cappello avventuriero"
+    },
+    "4acc71634cf0c49d": {
+      "name": "Felpa marinara blu"
+    },
+    "961843e8ba4940f8": {
+      "name": "Maglia Umibozu"
+    },
+    "cd6fc0172053df61": {
+      "name": "Anfibi neri"
+    },
+    "ac60a10353017222": {
+      "name": "Maglione vintage"
+    },
+    "a4fa58043fb830ae": {
+      "name": "Gilè urbano"
+    },
+    "abf447be716c1706": {
+      "name": "Pon-pon sportivo"
+    },
+    "b85b682621cc7442": {
+      "name": "Cnidarya 528"
+    },
+    "80ec83b0038dd076": {
+      "name": "Parka octariano Fortia"
+    },
+    "fec27befca72c566": {
+      "name": "Berretto hip-hop"
+    },
+    "95beb8064d1e8b10": {
+      "name": "Octomaglia (trasferta)"
+    },
+    "c04f7023e2c335be": {
+      "name": "Tuta acetata Sepia"
+    },
+    "647839916e8213a5": {
+      "name": "Maglia nera"
+    },
+    "17c6bb9a8ee265d6": {
+      "name": "A strati marrone"
+    },
+    "65dfcf665903cfbd": {
+      "name": "Alte gialloviola"
+    },
+    "802a75b77d81cfee": {
+      "name": "Pattini carango"
+    },
+    "bd2ef5b10854405c": {
+      "name": "T-shirt Pulpix galassia"
+    },
+    "932601d19123295d": {
+      "name": "Polo verde chiaro"
+    },
+    "e5ad5ddbf4cb32ca": {
+      "name": "T-shirt hip-hop"
+    },
+    "8bb43bfd2d665e2e": {
+      "name": "Sneaker verde scuro"
+    },
+    "8ba8f7916fee909a": {
+      "name": "T-shirt da marinaio"
+    },
+    "7bc703d182d4e506": {
+      "name": "Splatgiacca 5000"
+    },
+    "e80f64d26b7adb9e": {
+      "name": "T-shirt di lega"
+    },
+    "c5755274c5a0c59f": {
+      "name": "Maglia Ottopolp rossa"
+    },
+    "8e0f4d608d3eacb1": {
+      "name": "Mitilik 5 gialloarancio"
+    },
+    "c87f70d6fa4a9a65": {
+      "name": "Impermeabile cachi"
+    },
+    "e197e4e23acc4182": {
+      "name": "Mascherina Fortia mimetica"
+    },
+    "7fdbb43946ec6297": {
+      "name": "Sneaker CaO"
+    },
+    "56d06c205b8a7ebc": {
+      "name": "Bomber aviatore a rovescio"
+    },
+    "8cebb0e49b4e3e2c": {
+      "name": "Maglia hockey Calamars"
+    },
+    "da632ce42f54490b": {
+      "name": "Classiche crema"
+    },
+    "535a8474b6f697ad": {
+      "name": "Cappellino Calamars"
+    },
+    "9c0aee99b016f5db": {
+      "name": "Scamosciate multicolore"
+    },
+    "55cdb4e56f49e558": {
+      "name": "Sneaker Au"
+    },
+    "547d8af04660898f": {
+      "name": "Slip-on blu"
+    },
+    "1cb376884d36078c": {
+      "name": "Runner viola"
+    },
+    "9ba4020f41929d25": {
+      "name": "Camicia a pixel-pois"
+    },
+    "e5eae9ab82cc9a16": {
+      "name": "T-shirt Mr. Spalluccio"
+    },
+    "427e38ef64ca14ba": {
+      "name": "Bandana cool nera"
+    },
+    "899420e993e16273": {
+      "name": "Maglia lime a righe"
+    },
+    "59cdb008bb9c547c": {
+      "name": "Parka mostro artico"
+    },
+    "332641fa838b2e5a": {
+      "name": "Scarpe da calcio Nero Marlin"
+    },
+    "b9c4100e8f08619c": {
+      "name": "Dakroniks senza lacci bianche"
+    },
+    "7573da037608e9ae": {
+      "name": "Maglia hockey Octokings"
+    },
+    "b2c983286319ca1c": {
+      "name": "Zuccotto zig-zag"
+    },
+    "7a18f1a6fb75e061": {
+      "name": "Basket rosse"
+    },
+    "f0d0456799e894a6": {
+      "name": "Cappello Conchifoglie"
+    },
+    "051b30eda8b58b9e": {
+      "name": "Anfibi da caccia"
+    },
+    "ad75f381c18583b7": {
+      "name": "T-shirt Mrs. Spalluccia"
+    },
+    "cad0556ac4e06714": {
+      "name": "Maglia sport Sepia"
+    },
+    "1a4fc14d2703585f": {
+      "name": "Maglia ravanello Ezko"
+    },
+    "ba9bcecbe0b37cdf": {
+      "name": "T-shirt Amicizia"
+    },
+    "c3a04785f4eca419": {
+      "name": "T-shirt blu Arome"
+    },
+    "cbfe2d21d8fe7a07": {
+      "name": "Maglione polsino rosso Annak"
+    },
+    "c4685d379082c2e2": {
+      "name": "Maglia rosa a righe"
+    },
+    "1fea522b14e27847": {
+      "name": "Scamosciate turchesi"
+    },
+    "daec38a5bc7c3e59": {
+      "name": "Gilè argento Arome"
+    },
+    "d9dc51dc43d33701": {
+      "name": "Scamosciate suola oro"
+    },
+    "74de3873017ce340": {
+      "name": "T-shirt Octokings nera"
+    },
+    "3713c999b29e8c01": {
+      "name": "Sneaker Ag"
+    },
+    "4f99e5c66aad12c1": {
+      "name": "Giacca verde chiaro Ezko"
+    },
+    "ec6590d0dd15a5a1": {
+      "name": "Arrow da ginnastica"
+    },
+    "a6952fb74167f392": {
+      "name": "T-shirt motto Arome"
+    },
+    "0755dfa2ac2318a7": {
+      "name": "Sneaker orca"
+    },
+    "73bade4d3649905c": {
+      "name": "Zuccotto con mascherina"
+    },
+    "7a88d5dfbe30774f": {
+      "name": "Giacca paracadute cobalto"
+    },
+    "c1ace23e1c06f1c4": {
+      "name": "Canotta bianca Calamars"
+    },
+    "4bc2097b3fac8300": {
+      "name": "Stivaletti Imperial nautici"
+    },
+    "e94c292e5fb008d0": {
+      "name": "El Rey Calamar"
+    },
+    "1ecc180b661f1244": {
+      "name": "Felpa college blu"
+    },
+    "e48d3e8064323c13": {
+      "name": "Scarpe piranha"
+    },
+    "9820df97f859a016": {
+      "name": "Giubbino piovrino"
+    },
+    "93fe84ba8a9abcce": {
+      "name": "Maglione largo positivo"
+    },
+    "c97ea2fd29776617": {
+      "name": "T-shirt bianca Totanic"
+    },
+    "30fe4268374ac134": {
+      "name": "Cuffie esca"
+    },
+    "66f9750b9bd86775": {
+      "name": "Giacca Kung-Fu"
+    },
+    "7a490814ed98d01d": {
+      "name": "Eleganti fumé"
+    },
+    "de41fbc457077ad0": {
+      "name": "Slip-on nere"
+    },
+    "f8333ab0e1d86794": {
+      "name": "Casco mountain bike"
+    },
+    "b06b8deef0b3e0a5": {
+      "name": "T-shirt Chirpy Chips"
+    },
+    "af346e548cb6b4d1": {
+      "name": "Da arrampicata pastello"
+    },
+    "54b65fd857f7aaee": {
+      "name": "Maglia 16 bit blu"
+    },
+    "4da9007a0ff47efd": {
+      "name": "Maglione polsino giallo Annak"
+    },
+    "dc7da58ba73a0a43": {
+      "name": "Basket blu"
+    },
+    "f219ad755cfbbfa6": {
+      "name": "Giaccone polare"
+    },
+    "946ec833149a3ca2": {
+      "name": "Slip-on rosse"
+    },
+    "b341ae28f69ee30c": {
+      "name": "T-shirt rossa Arome"
+    },
+    "4b7b3a4229e29dc5": {
+      "name": "Swimmer alte da trekking"
+    },
+    "618f64b8ea656029": {
+      "name": "Felpa a maniche corte"
+    },
+    "357a3c08594a278c": {
+      "name": "Maglia Sepia baseball"
+    },
+    "44f01da5afb25f4c": {
+      "name": "Verdi a stringhe"
+    },
+    "801beab26083fca8": {
+      "name": "Giaccone Ezko curcuma"
+    },
+    "6a2e837a682a2db9": {
+      "name": "T-shirt nera ciclista"
+    },
+    "92917595854b262e": {
+      "name": "Slip-on arancioni"
+    },
+    "eb112ff59e8a2c04": {
+      "name": "Bomber aviatore"
+    },
+    "040571f7835a7829": {
+      "name": "Cappello pesce palla plus"
+    },
+    "dfcd2c583e872ced": {
+      "name": "Sneaker orca passione"
+    },
+    "85fd53d1b0cfb9d2": {
+      "name": "Sportive arancioni"
+    },
+    "c5b83741b6cd41b1": {
+      "name": "F-3 edizione speciale"
+    },
+    "5814270de809fa99": {
+      "name": "Gilè con cerniera"
+    },
+    "d785e688317398ec": {
+      "name": "Basket nere"
+    },
+    "32a4e7bb135400ee": {
+      "name": "Maschera da motocross"
+    },
+    "0a11e649f99c5d3f": {
+      "name": "Maglia Ottopolp nera"
+    },
+    "b6f9a937ceadd04a": {
+      "name": "T-shirt Squid Squad"
+    },
+    "73cffaddc2124b2e": {
+      "name": "Berretto visiera lunga"
+    },
+    "dab9b9c2a1829473": {
+      "name": "Coppola pesce palla"
+    },
+    "29ab812cee5dae5f": {
+      "name": "Casco football con visiera"
+    },
+    "f1ddaf0b08059eee": {
+      "name": "Scarpe da pugile"
+    },
+    "785256dcaa77e9e4": {
+      "name": "Giacca con decorazioni"
+    },
+    "b91392fb40960610": {
+      "name": "T-shirt Octokings verde"
+    },
+    "c6c5bd47083d4497": {
+      "name": "Cardigan arancione"
+    },
+    "952245bb74d9875a": {
+      "name": "Espadrillas a pois"
+    },
+    "e1a9e0f133d5516b": {
+      "name": "Giacca da sci peperoncino"
+    },
+    "ff56d19eb5c55ead": {
+      "name": "Cappello con toppe"
+    },
+    "340ae557a37310d8": {
+      "name": "Maglia carota Ezko"
+    },
+    "51fb55a6432642a2": {
+      "name": "Ciabatte cirripedi"
+    },
+    "44661af07c20bd37": {
+      "name": "T-shirt Hightide Era"
+    },
+    "48ef706828d63d58": {
+      "name": "Eleganti lucide"
+    },
+    "d48d03756430c0f9": {
+      "name": "Dakroniks celesti"
+    },
+    "b0b92bf5b69d6053": {
+      "name": "Anfibi Annak 6 fori"
+    },
+    "7c0ca2caf1423dd5": {
+      "name": "Slip-on bianche"
+    },
+    "d8fd8460bcac1095": {
+      "name": "Swimmer Volt 95"
+    },
+    "a2cce99350090cd7": {
+      "name": "Mascherina Calamars"
+    },
+    "632fa9796cc55ed4": {
+      "name": "Slip-on viola"
+    },
+    "9e1afcf71588a40d": {
+      "name": "Cappello paraorecchie"
+    },
+    "9725c786d7dcefcd": {
+      "name": "Visore antitinta"
+    },
+    "58fb1fcdf52d6679": {
+      "name": "Cappotto pullover"
+    },
+    "ce00406f664f1852": {
+      "name": "T-shirt rock bianca"
+    },
+    "131a18be6b46c36c": {
+      "name": "Scamosciate grigie"
+    },
+    "9f10262c6f25ffc8": {
+      "name": "Giacca rossa Ezko"
+    },
+    "01c0f4d48724eec9": {
+      "name": "T-shirt indaco Totanic"
+    },
+    "074c079548490976": {
+      "name": "Dakroniks senza lacci blu"
+    },
+    "5cdec592846865ba": {
+      "name": "Camicia e maglioncino"
+    },
+    "4adc17515efcee7c": {
+      "name": "Giacca rinvigorente"
+    },
+    "cfc68b28e3ec53ee": {
+      "name": "Cappello da montanaro"
+    },
+    "ee56bac36d2a28ab": {
+      "name": "F-3 di cuoio bianco"
+    },
+    "cad907c4d7da7100": {
+      "name": "Cappotto Imperial nautico"
+    },
+    "9f93b86b9baad6cd": {
+      "name": "Mitilik 5 blu e nere"
+    },
+    "65c28a2a09cb1ebe": {
+      "name": "Swimmer alte grigie"
+    },
+    "4dd689531a8d5718": {
+      "name": "Felpa viola Calamars"
+    },
+    "f67587eadf5e5bf1": {
+      "name": "Maglione balene"
+    },
+    "05255ad76cd461c4": {
+      "name": "Felpa Ezko oliva"
+    },
+    "6b95a53fd109dc04": {
+      "name": "Sneaker orca urbane"
+    },
+    "844a38dac1bd108b": {
+      "name": "Maglia da baseball Nero M."
+    },
+    "c68cda5a2a65a13a": {
+      "name": "T-shirt oro Totanic"
+    },
+    "1fc53de66c1fa6d7": {
+      "name": "Slip-on verdi"
+    },
+    "bb4a4bdd917b17a4": {
+      "name": "Runner canarino"
+    },
+    "2168abb849180313": {
+      "name": "Bomber positivo"
+    },
+    "eeff374790526a71": {
+      "name": "Occhiali e cappello Ezko"
+    },
+    "8ef7d3b01a6b1f6b": {
+      "name": "T-shirt cime blu"
+    },
+    "6da65c2e69d1de5e": {
+      "name": "Camicia e cravatta punk"
+    },
+    "a70056294f2761a3": {
+      "name": "Felpa blu e camicia"
+    },
+    "e70595a9c88c8df4": {
+      "name": "Giaccone da montagna"
+    },
+    "ee9b0f2a6d25a0a3": {
+      "name": "Felpa Octarian rétro"
+    },
+    "62eef2cc4b2a87be": {
+      "name": "Giacca di pelle con spille"
+    },
+    "884aafcae5b40248": {
+      "name": "Casco di Octavius"
+    },
+    "1e49698cc6fc2a6c": {
+      "name": "Anfibi di pelle verde"
+    },
+    "60f430591e88e53b": {
+      "name": "Maglia 16 bit kaki"
+    },
+    "dac71120a0367e3c": {
+      "name": "Sportive giallo fluo"
+    },
+    "b34d5800a8b5d9f0": {
+      "name": "Maglia Annak evo"
+    },
+    "49e73227e92c4a1e": {
+      "name": "Canotta a strisce Calamars"
+    },
+    "085c747cca0912bd": {
+      "name": "T-shirt Wet Floor"
+    },
+    "400829748e391d8f": {
+      "name": "Slip-on sale e sesamo 270"
+    },
+    "f8e4d65b3f352189": {
+      "name": "Sneaker tartufo"
+    },
+    "cf0d9f0261dfb30a": {
+      "name": "Canotta blu Calamars"
+    },
+    "d1e56e8ae2c74c8f": {
+      "name": "Mitilik gialle e blu"
+    },
+    "64fb566f7ee6129d": {
+      "name": "Casco da lavoro replica"
+    },
+    "0e92be91a85a1f99": {
+      "name": "Anfibi mare"
+    },
+    "ed3ebcb67be5c59c": {
+      "name": "Gilè da pesca"
+    },
+    "647eaef7de61d58b": {
+      "name": "Camicia meduse con cravatta"
+    },
+    "89ef143c331e379a": {
+      "name": "Dakroniks nere"
+    },
+    "eaf740ce4651695b": {
+      "name": "A strati gialloseppia"
+    },
+    "2dbb457c2acd535c": {
+      "name": "Canotta Aragostars"
+    },
+    "7f074f182f66bb0f": {
+      "name": "Cala-shirt strappata"
+    },
+    "475754f1c3ebc738": {
+      "name": "Berretto AS Riccidimare"
+    },
+    "fd14ca8cb35c76c1": {
+      "name": "T-shirt hip-hop"
+    },
+    "f19dcafde4a9d74e": {
+      "name": "Cappello di paglia classico"
+    },
+    "54306bd8f71bb745": {
+      "name": "Cala-shirt strappata"
+    },
+    "d9fdb8074c2f0ec8": {
+      "name": "Occhiali rotondi SV925"
+    },
+    "2555a54f428af796": {
+      "name": "Scarpe da deserto"
+    },
+    "2fa83f60d8f22b0d": {
+      "name": "Arrow arancioblu"
+    },
+    "946d0a6e1191f142": {
+      "name": "Cappello pesce palla plus"
+    },
+    "1fb3ac8c185aa46d": {
+      "name": "Gilè aquilamaro"
+    },
+    "92dc509d51e9c1cd": {
+      "name": "Casco da lavoro replica"
+    },
+    "05f76b87a280a584": {
+      "name": "Cappellino a righe"
+    },
+    "6c980ddeb7175277": {
+      "name": "Octocasco football"
+    },
+    "b6b1c7798a550792": {
+      "name": "T-shirt crepuscolare"
+    },
+    "5444a1b5e3a8cdc6": {
+      "name": "Felpa rosa"
+    },
+    "24fecc01c498fe63": {
+      "name": "Cappello safari"
+    },
+    "cbdbce0206687c53": {
+      "name": "Visiera fumé"
+    },
+    "38db2d5e2baec937": {
+      "name": "Camicia inchiostrata"
+    },
+    "ed34871ab0a997d2": {
+      "name": "Scarpe da calcio Nero Marlin"
+    },
+    "d73ff773043f35a1": {
+      "name": "T-shirt Mr. Spalluccio"
+    },
+    "cd98b57718c53757": {
+      "name": "Occhiali da sole 18K"
+    },
+    "f038fe3a7d8c2f6e": {
+      "name": "Scamosciate boss"
+    },
+    "e1a0a98264c0d15d": {
+      "name": "Berretto trote speciali"
+    },
+    "d02f5fc500ba6b54": {
+      "name": "Flanella Annak"
+    },
+    "f6dc0e36ef83917a": {
+      "name": "Cala-shirt"
+    },
+    "017f4bb178ae2555": {
+      "name": "Occhiali da motociclista"
+    },
+    "2b99f9c3db9793de": {
+      "name": "Anorak BaraS"
+    },
+    "1c7ce2a39971d7a7": {
+      "name": "Anfibi artici"
+    },
+    "f5a3386de83657f5": {
+      "name": "Zoccoli grigi"
+    },
+    "b2d0d4cd3fcb5b7d": {
+      "name": "Bandana teschio"
+    },
+    "1f9d649297bea610": {
+      "name": "Scarpe da calcio deluxe"
+    },
+    "e8ab0e3e655b8391": {
+      "name": "Cappello pescoso"
+    },
+    "cc46e0b1647b6d4c": {
+      "name": "Gilè da pesca"
+    },
+    "bf5eac0a0e51a1a5": {
+      "name": "A strati Totanic"
+    },
+    "79e4ced3f9a8ce7b": {
+      "name": "T-shirt Amicizia"
+    },
+    "ba1d6adea1fb8693": {
+      "name": "Cappello paraorecchie"
+    },
+    "86196cf11c56cd37": {
+      "name": "Maglia a righe"
+    },
+    "e9b23fae2db070df": {
+      "name": "Ultrabianche a strappo"
+    },
+    "d995b74c6e31c321": {
+      "name": "Cappello da neve"
+    },
+    "ababea5943c18ea9": {
+      "name": "Scialle BaraS"
+    },
+    "d81b2ac527e806d9": {
+      "name": "Stivaletti Imperial nautici"
+    },
+    "f238e17aced17dcb": {
+      "name": "Berretto hip-hop"
+    },
+    "80998aee7ddcc6b2": {
+      "name": "Swimmer Volt 95"
+    },
+    "04e1732a004fc33e": {
+      "name": "Cappello orientale"
+    },
+    "8bd2358514cb89d2": {
+      "name": "T-shirt cime blu"
+    },
+    "3bae00fd5738d4a1": {
+      "name": "Sandali a strappo fluo"
+    },
+    "714d5944500fbc8e": {
+      "name": "Mascherina Octoking"
+    },
+    "e9bd96d35a062618": {
+      "name": "Visore cieco"
+    },
+    "d42a4135dc77a8a0": {
+      "name": "Cappello giungla"
+    },
+    "b6e4c48bd78463ef": {
+      "name": "Casco da bici"
+    },
+    "4765baeb4824bee4": {
+      "name": "T-shirt ω-3"
+    },
+    "3cd9aae585dfe373": {
+      "name": "Cappello Conchifoglie"
+    },
+    "72c8bf6ad74b12cd": {
+      "name": "Casco da motocross"
+    },
+    "73f36206e060c254": {
+      "name": "Giacca verde chiaro Ezko"
+    },
+    "7a897902d2c040b6": {
+      "name": "Scamosciate multicolore"
+    },
+    "d37d9ade15ae4da0": {
+      "name": "Stivali da neve"
+    },
+    "b6d814dee4763330": {
+      "name": "Stivali di gomma verdi"
+    },
+    "0816f54b999801aa": {
+      "name": "Berretto medusiano"
+    },
+    "d4f2b1c866322ba6": {
+      "name": "Cappello re della bici"
+    },
+    "9315d36102631844": {
+      "name": "Scarponi rossi"
+    },
+    "b6868f3461e513dd": {
+      "name": "Eurekappello"
+    },
+    "70b0d57f0d203fff": {
+      "name": "Bomber aviatore a rovescio"
+    },
+    "9430037390d32f5f": {
+      "name": "Visiera da golf"
+    },
+    "34edc9c65a0cbc8f": {
+      "name": "Canotta (trasferta)"
+    },
+    "fdb81880bfec0fe9": {
+      "name": "Dakroniks senza lacci blu"
+    },
+    "b576c3ea2b65179f": {
+      "name": "Camicia grigia"
+    },
+    "318589f647f8e971": {
+      "name": "Camicia da octobowling"
+    },
+    "06f518a80857a451": {
+      "name": "T-shirt rock bianca"
+    },
+    "1e13f651df5e62d1": {
+      "name": "T-shirt glaciale"
+    },
+    "92308328ca96ea04": {
+      "name": "Camicia ricamata"
+    },
+    "4a8e059dc7eb0372": {
+      "name": "Camicia scozzese"
+    },
+    "e96c1b6cacd445ee": {
+      "name": "Rialzate turchesi"
+    },
+    "2359ff6288a27d78": {
+      "name": "Slip-on arancioni"
+    },
+    "d9fa61c2e08b8edf": {
+      "name": "Dakroniks senza lacci bianche"
+    },
+    "c52c8de93993209d": {
+      "name": "T-shirt tè BaraS"
+    },
+    "7b9e84e66e0a554e": {
+      "name": "Anfibi bianchi"
+    },
+    "e990a916e127dbfb": {
+      "name": "SSC Trigliese"
+    },
+    "39c54805c7099592": {
+      "name": "Mitilik 5 rosse e bianche"
+    },
+    "22c1e6eaedbab424": {
+      "name": "Impermeabile cachi"
+    },
+    "3cc9c374e50d736d": {
+      "name": "Camicia e maglioncino"
+    },
+    "fbd88e96c0d03263": {
+      "name": "Anfibi mare"
+    },
+    "97c43b98b082324d": {
+      "name": "T-shirt rock nera"
+    },
+    "fe5b6419a8cdca16": {
+      "name": "Occhiali rétro"
+    },
+    "3f873e363f704cb1": {
+      "name": "Cappello Riccidimare"
+    },
+    "dcdcce44cc986830": {
+      "name": "Classiche crema"
+    },
+    "2fb39d1dadd7c944": {
+      "name": "Arrow arcobaleno"
+    },
+    "e8dba35f379071e9": {
+      "name": "Camicia hawaiana"
+    },
+    "7681064f94162dbc": {
+      "name": "Gilè argento Arome"
+    },
+    "0295f1fc011135dd": {
+      "name": "T-shirt Pulpix arcobaleno"
+    },
+    "f3cace8e957f4afd": {
+      "name": "Sandali a strappo neon"
+    },
+    "912f9e7163429951": {
+      "name": "Maglia carota Ezko"
+    },
+    "a54a86f593f07471": {
+      "name": "Mascherina SmileMob"
+    },
+    "2b969e7257d3ae82": {
+      "name": "Camicia da clown"
+    },
+    "58c453ebef2ec176": {
+      "name": "AL-GA 30XX"
+    },
+    "e661aec8cd01d146": {
+      "name": "T-shirt pesce palla"
+    },
+    "cf5c062f1e43b84c": {
+      "name": "Casco da pilota"
+    },
+    "1ceee981c71928c8": {
+      "name": "Fascia bianca"
+    },
+    "155b6953f80040cc": {
+      "name": "Casco mountain bike"
+    },
+    "3f7b8fff000e304d": {
+      "name": "Bandana cool"
+    },
+    "aa71e1548a9e8522": {
+      "name": "Felpa Torryd"
+    },
+    "2d07b8dad42f4fbc": {
+      "name": "Ciabatte cool"
+    },
+    "c4d02236f582d0a7": {
+      "name": "Ultrarosse a strappo"
+    },
+    "1825c769977fdd6e": {
+      "name": "Visiera cool"
+    },
+    "82f1f448a4f0fe54": {
+      "name": "Zuccotto zig-zag"
+    },
+    "4a7fcf9c1f8c4dfc": {
+      "name": "Casco da pompiere"
+    },
+    "3dfb98fbdf638609": {
+      "name": "Maglione balene"
+    },
+    "3b1d28cec3eabf6e": {
+      "name": "T-shirt neroseppia"
+    },
+    "7c8ad6e187f38815": {
+      "name": "Runner rosa"
+    },
+    "600b6773ead26809": {
+      "name": "Cappello, bandana e occhiali"
+    },
+    "4667d60c68450557": {
+      "name": "Berretto da ciclista"
+    },
+    "c346697fc3b20f47": {
+      "name": "T-shirt Octokings verde"
+    },
+    "2f4a097a5033d97f": {
+      "name": "Berretto con spilla"
+    },
+    "e0bdc2aa6cbf28c3": {
+      "name": "Felpa college grigia"
+    },
+    "87d83548f67baeb3": {
+      "name": "Mascherina CalamaX"
+    },
+    "862a010c5177a0b4": {
+      "name": "T-shirt bianca ciclista"
+    },
+    "2fe326f7560d8a83": {
+      "name": "Gilè con cerniera"
+    },
+    "4058d3abb1e4e352": {
+      "name": "Octosneaker rosse"
+    },
+    "dfa51097b684078e": {
+      "name": "Camicia a righe"
+    },
+    "7a6462687e63cfe7": {
+      "name": "Multivisore 360°"
+    },
+    "fdbf97ede04f7a65": {
+      "name": "Anfibi di pelle verde"
+    },
+    "834c7c26012d118c": {
+      "name": "Occhiali a mezza montatura"
+    },
+    "04a394c879266415": {
+      "name": "Casco da skate"
+    },
+    "e6dd154d985fa3d0": {
+      "name": "T-shirt perlata"
+    },
+    "dc9a9d6bcbbb840b": {
+      "name": "Berretto Inkvaders"
+    },
+    "57e9324c62107383": {
+      "name": "Pon-pon sportivo"
+    },
+    "3f3cfe05a3715159": {
+      "name": "Swimmer blu"
+    },
+    "b73ff4a38bcf855a": {
+      "name": "Maglia da ciclista"
+    },
+    "a227780efff6806b": {
+      "name": "Bombetta"
+    },
+    "6cc693bf2514fb9e": {
+      "name": "Berretto Sepia"
+    },
+    "ded2baae55f2c88d": {
+      "name": "Tuta acetata Sepia"
+    },
+    "07f932e3030844f9": {
+      "name": "Open toe blu"
+    },
+    "7a1755df7ff2c291": {
+      "name": "Astrocompleto"
+    },
+    "f7e0b2ddf93d8d6c": {
+      "name": "Scamosciate suola oro"
+    },
+    "2df705182a19c965": {
+      "name": "Zoccoli marroni"
+    },
+    "05a55e56f538f82d": {
+      "name": "T-shirt Pulpix galassia"
+    },
+    "91bd0e01207ec3a5": {
+      "name": "Eleganti fumé"
+    },
+    "3ee3b47f0bb29a1c": {
+      "name": "Piumino montagna"
+    },
+    "63ad32c0c0ae9e48": {
+      "name": "Zuccotto a righe"
+    },
+    "0bc0dd62a917ee69": {
+      "name": "Cardigan verde"
+    },
+    "76a01e9488af4599": {
+      "name": "Scarpe piranha"
+    },
+    "c2f605fb93b0eed8": {
+      "name": "Mascherina Torryd"
+    },
+    "0252cb58e13e9234": {
+      "name": "Giubbino da stadio"
+    },
+    "e90de38c33172401": {
+      "name": "A strati nera"
+    },
+    "be10ceef113e4e3a": {
+      "name": "Camicia da turista"
+    },
+    "06b390f07db3377f": {
+      "name": "Casco da palombaro"
+    },
+    "fdad1947cfa0ff25": {
+      "name": "T-shirt reggae"
+    },
+    "f44f52ed02948c5f": {
+      "name": "Mascherina Annak"
+    },
+    "8031c9bc0bc5729f": {
+      "name": "Camicia e cravatta punk"
+    },
+    "5df05f57955e0148": {
+      "name": "Eleganti Annak"
+    },
+    "6ad37669627efb77": {
+      "name": "Mascherina Fortia"
+    },
+    "2be6447881c7b9b4": {
+      "name": "Felpa Ezko"
+    },
+    "1cb182b28706dc7a": {
+      "name": "Maglia 16 bit kaki"
+    },
+    "1bb6d34f9f76dff9": {
+      "name": "Zuccotto"
+    },
+    "c26a82350267c668": {
+      "name": "Octocuffie rosse"
+    },
+    "77b90ea18d788e94": {
+      "name": "Occhiali Annak"
+    },
+    "540f9752a3d30e48": {
+      "name": "Giubba da comandante"
+    },
+    "1e2a7de223596dc4": {
+      "name": "Chiodo bianco"
+    },
+    "4f70200654fbe026": {
+      "name": "Scarpe da calcio"
+    },
+    "52469e6a40ca387e": {
+      "name": "Maschera paintball"
+    },
+    "3c06458bec5647de": {
+      "name": "Felpa marinara bianca"
+    },
+    "c635489c278a591d": {
+      "name": "Cappello avventuriero"
+    },
+    "b84d8c828976da4d": {
+      "name": "Berretto leggero"
+    },
+    "28f201c6c29913cd": {
+      "name": "Maglione vintage"
+    },
+    "1f7bc4016aa78813": {
+      "name": "Felpa lamantino"
+    },
+    "725408ce3ea63916": {
+      "name": "Felpa scolastica"
+    },
+    "0027dbe5263d0a98": {
+      "name": "Sneaker verde scuro"
+    },
+    "8bfe4f8ea3cb903c": {
+      "name": "Mitilik gialle e blu"
+    },
+    "dfc27f7c2061cfae": {
+      "name": "Fascia classica"
+    },
+    "bce1966d8aa5d9fc": {
+      "name": "T-shirt indaco Totanic"
+    },
+    "1310e7c50402119e": {
+      "name": "Dakroniks celesti"
+    },
+    "0f6d8d23897cd952": {
+      "name": "Berretto da comandante"
+    },
+    "b2ae6a4fffa46ba5": {
+      "name": "Runner verdeoro"
+    },
+    "0b86a012394472f8": {
+      "name": "Occhiali bianchi"
+    },
+    "214d4e491366d30d": {
+      "name": "Octocchiali"
+    },
+    "a871be865230f417": {
+      "name": "T-shirt 8 bit nera"
+    },
+    "e4c46623fc89ebbb": {
+      "name": "Runner nere"
+    },
+    "a1b3d54b2903008f": {
+      "name": "Maglia Coloropoli Tonnos"
+    },
+    "d5ab820f303fa0be": {
+      "name": "Berretto da portuale"
+    },
+    "846a98a5b4d88670": {
+      "name": "Giacca Kung-Fu"
+    },
+    "0527171ee847d92f": {
+      "name": "Visore HUD"
+    },
+    "64fd436581a6370b": {
+      "name": "Occhiali colorati"
+    },
+    "3e542c698f06dcc5": {
+      "name": "Cappello paraorecchie nero"
+    },
+    "1cee77c2490c09af": {
+      "name": "T-shirt ciliegio BaraS"
+    },
+    "b9a3223d252b2822": {
+      "name": "Cappellino Calamars"
+    },
+    "8b2d94a9c615dd15": {
+      "name": "Scarpe da trekking"
+    },
+    "bc8f60c1cd372c25": {
+      "name": "Felpa grigia con cappuccio"
+    },
+    "b2b55186b82c26c4": {
+      "name": "Dakroniks nere"
+    },
+    "80fb0eda51ba01c9": {
+      "name": "Pandagiacca Kung-Fu"
+    },
+    "1bb16ccccd8ab5be": {
+      "name": "OSTR1K color perla"
+    },
+    "fe2f80cba9d4761f": {
+      "name": "Anfibi Annak 6 fori"
+    },
+    "18c479f527c4b352": {
+      "name": "Slip-on viola"
+    },
+    "5c3987aa4bbca169": {
+      "name": "T-shirt vaporosa"
+    },
+    "27ef20ef1418f1e3": {
+      "name": "Tuta retrofuturistica"
+    },
+    "27d171e5ddd674ba": {
+      "name": "Occhialetti da nuoto"
+    },
+    "2ff6f13540a0ec13": {
+      "name": "Berretto Ezko"
+    },
+    "1ea2b1826bfe9dcc": {
+      "name": "Polo nera"
+    },
+    "ed5e8fd9b5adac7b": {
+      "name": "Basse arancioni"
+    },
+    "7fc1a5536febbc0e": {
+      "name": "Occhialetti Nero Marlin"
+    },
+    "a408fcb87e3e02f0": {
+      "name": "Sneaker predatrici"
+    },
+    "2c9ead76e9c61617": {
+      "name": "Maglia rugby tricolore"
+    },
+    "02c8eed846264962": {
+      "name": "Sneaker orca"
+    },
+    "f1948086b33446c9": {
+      "name": "Maglia baja rossa"
+    },
+    "5127c0c8183f29b2": {
+      "name": "Casco retrofuturistico"
+    },
+    "f7dcc7ae0546ef44": {
+      "name": "Sneaker Ag"
+    },
+    "c843942decb0f961": {
+      "name": "Sneaker orca urbane"
+    },
+    "9bd38df5a3309513": {
+      "name": "Cuffie colorate"
+    },
+    "94e95bc919483853": {
+      "name": "Gilè urbano giallo"
+    },
+    "f4bb5340ac46da94": {
+      "name": "Giubbino furia"
+    },
+    "7ae7524ec9a91481": {
+      "name": "Anfibi neri"
+    },
+    "fa053d90af54d4ef": {
+      "name": "Occhiali con lenti colorate"
+    },
+    "edf1dea3e7835924": {
+      "name": "Bomber positivo"
+    },
+    "1edd243cc32bb86a": {
+      "name": "Giacca glam rock"
+    },
+    "1f7bdf4cc8896df5": {
+      "name": "Mascherina Calamars"
+    },
+    "0af9763735c58ea7": {
+      "name": "Giacca da sci peperoncino"
+    },
+    "2589ba77b0a02527": {
+      "name": "Slip-on rosse"
+    },
+    "f9d9b9e159237f70": {
+      "name": "Visiera Sepia"
+    },
+    "1631bf7a3f6f38cc": {
+      "name": "Maglia Sepia baseball"
+    },
+    "b0ca2b7c1afe237f": {
+      "name": "Arrow da ginnastica"
+    },
+    "13fe3940b4d7a989": {
+      "name": "Giacca con decorazioni"
+    },
+    "2c822f1b9419edc8": {
+      "name": "Occhiali spessi"
+    },
+    "724616560d3ed93c": {
+      "name": "Stivali glam rock"
+    },
+    "5fc65fb55c534eb4": {
+      "name": "Basse blu"
+    },
+    "655f570aed6c9f1e": {
+      "name": "Maglia Annak evo"
+    },
+    "8e552be8f6c72a9e": {
+      "name": "Giacca paracadute cobalto"
+    },
+    "30e29e191ae487ff": {
+      "name": "Stivali da moto"
+    },
+    "6f78aaabd4eaca78": {
+      "name": "Sneaker rosse"
+    },
+    "98a96c07973e423f": {
+      "name": "Espadrillas hip-hop"
+    },
+    "e15fbebc0370e1e1": {
+      "name": "Stivaletti da pioggia"
+    },
+    "11c3cd9aea59ffdf": {
+      "name": "Espadrillas blu"
+    },
+    "9089992996ad5abf": {
+      "name": "Cappello da pescatore"
+    },
+    "ef86ba769a8d0073": {
+      "name": "T-shirt ancora nera"
+    },
+    "cf7abf3339465232": {
+      "name": "Slip-on blu"
+    },
+    "a3c0aaa52ff9edf5": {
+      "name": "Occhiali 3D"
+    },
+    "c414d439919e17ea": {
+      "name": "Camicia urbana"
+    },
+    "dfcba964fd347b5f": {
+      "name": "Ciabatte SmileMob"
+    },
+    "fd4b717166d199f0": {
+      "name": "Paramento rosso"
+    },
+    "7001e372753eddb0": {
+      "name": "Giacca da hacker"
+    },
+    "d1269481accd1b9d": {
+      "name": "Sneaker orca tramonto"
+    },
+    "464a6619f85c3fd6": {
+      "name": "Felpa nera"
+    },
+    "b67967731fad7ccb": {
+      "name": "Carapasco"
+    },
+    "fa36a523e2b54888": {
+      "name": "Casco a infrarossi"
+    },
+    "e9f987a770e84550": {
+      "name": "Pon-pon di lana"
+    },
+    "ec52a840e63fb709": {
+      "name": "Maglia biancoverde"
+    },
+    "897e3e33543aa8b3": {
+      "name": "T-shirt Chirpy Chips"
+    },
+    "a25f5df4d4740c9d": {
+      "name": "Anfibi gialli"
+    },
+    "67dba8c242796b8a": {
+      "name": "Sportive giallo fluo"
+    },
+    "afbc3f87a7318524": {
+      "name": "Pattini carango"
+    },
+    "47ab9705df2564a5": {
+      "name": "T-shirt leopardata"
+    },
+    "e8f74588deabb91f": {
+      "name": "Fluosandali celesti"
+    },
+    "56773ddb229a6d31": {
+      "name": "Polo rosa"
+    },
+    "6a8cd7c7c28ce3b7": {
+      "name": "Sneaker medusa"
+    },
+    "779752e0250dfac3": {
+      "name": "Mascherina Fortia mimetica"
+    },
+    "ecc5689c8b41d7f4": {
+      "name": "Swimmer alte da trekking"
+    },
+    "4cca02d88c65ca82": {
+      "name": "Cuffie pro"
+    },
+    "117545568f0044bb": {
+      "name": "T-shirt verde"
+    },
+    "c74fe5477ab02f2b": {
+      "name": "Visore antitinta"
+    },
+    "3e4d3fcbd77372a8": {
+      "name": "Splatgiacca 5000"
+    },
+    "740d7f06529e32df": {
+      "name": "Giacca di pelle con spille"
+    },
+    "e3212426964499e5": {
+      "name": "Cappotto pullover"
+    },
+    "1b9f5bc1f3c1668d": {
+      "name": "Runner viola"
+    },
+    "2c659e423ed057e6": {
+      "name": "Lenti a contatto finte"
+    },
+    "a3af22e465c67d1e": {
+      "name": "A strati pirata"
+    },
+    "6ca4c132c95f9752": {
+      "name": "T-shirt rossa Arome"
+    },
+    "717fbb2c21bd4d5a": {
+      "name": "Cappello di paglia"
+    },
+    "2861118daf0a6249": {
+      "name": "El Rey Calamar"
+    },
+    "65e73e9933b18441": {
+      "name": "Camicia a scacchi"
+    },
+    "a901c49ae3f31cb1": {
+      "name": "Canotta blu Calamars"
+    },
+    "b6e69d69ac2344ca": {
+      "name": "Berretto visiera lunga"
+    },
+    "1ca9c9434d3f3c41": {
+      "name": "Giaccone Ezko curcuma"
+    },
+    "da541f46db31f714": {
+      "name": "Scarpe da pugile"
+    },
+    "df7d0d498a52ac44": {
+      "name": "Sneaker orca passione"
+    },
+    "30bcefc0e5206648": {
+      "name": "Giubbino pesciscossa"
+    },
+    "2cc0fa9e18daa012": {
+      "name": "Rockenburg bianca"
+    },
+    "078007235244a529": {
+      "name": "Basket rosse"
+    },
+    "78b48dab45f802b7": {
+      "name": "Stivali da ghiaccio"
+    },
+    "39b603cc8ff686a1": {
+      "name": "Camicia animalesca"
+    },
+    "942bfc9013d17a23": {
+      "name": "Giacca rinvigorente"
+    },
+    "0db3b2e4f86aac92": {
+      "name": "Maglione largo positivo"
+    },
+    "54d9c61ae642db21": {
+      "name": "T-shirt similananas"
+    },
+    "686e6d924bceaa29": {
+      "name": "Occhiali rotondi"
+    },
+    "4a5ed56bd3248aa3": {
+      "name": "Felpa a maniche corte"
+    },
+    "b6ccc8ec8b1ccd66": {
+      "name": "Cuffie esca"
+    },
+    "770a14b00c42b23e": {
+      "name": "T-shirt blupioggia"
+    },
+    "70985cc8ba0a905e": {
+      "name": "Casco di Octavius"
+    },
+    "96ba51e5d6e29bdd": {
+      "name": "Felpa marinara blu"
+    },
+    "1bc642ca33260c9c": {
+      "name": "T-shirt Octokings nera"
+    },
+    "d796324f1b393800": {
+      "name": "Scarpe da vela marroni"
+    },
+    "39d667e7b1fae70a": {
+      "name": "Cappello a maglia"
+    },
+    "f990ae778fb58518": {
+      "name": "Gilè urbano"
+    },
+    "4a6425e4a5cbc56d": {
+      "name": "Ciabatte rosse"
+    },
+    "2fb640094d3a6c34": {
+      "name": "Swimmer viola"
+    },
+    "e017349bb9753a06": {
+      "name": "Piumino trekking"
+    },
+    "4298ea7016d68d7f": {
+      "name": "T-shirt verdeacqua"
+    },
+    "1f976b82a5d4d4d2": {
+      "name": "T-shirt bivalve CalaOcto"
+    },
+    "c5f63a7dd65a0fbb": {
+      "name": "Mimetica viola"
+    },
+    "a71146cfd9b53b1d": {
+      "name": "Coppola pesce palla"
+    },
+    "7f4e56e3170981d7": {
+      "name": "Sneaker crema"
+    },
+    "24168d03237b4558": {
+      "name": "Runner verdeacqua"
+    },
+    "21101f0d5bf0921d": {
+      "name": "Scamosciate grigie"
+    },
+    "aa58c763cf07cea0": {
+      "name": "Bandana cool nera"
+    },
+    "0c753da3c6c590cf": {
+      "name": "T-shirt bianca"
+    },
+    "6e80a02afaee906a": {
+      "name": "Berretto alla moda"
+    },
+    "4dddf1b2dacb4424": {
+      "name": "Fascia da basket"
+    },
+    "869d6602bfb2f65f": {
+      "name": "A strati frecce"
+    },
+    "38f2ab404277f174": {
+      "name": "Canotta Annak stampa polpo"
+    },
+    "1f481bd6fbe94a6d": {
+      "name": "T-shirt recluta octo"
+    },
+    "b17553b34aa1cbad": {
+      "name": "Zuccotto con mascherina"
+    },
+    "47c439e64b588715": {
+      "name": "Scamosciate turchesi"
+    },
+    "59fe2b198bc53392": {
+      "name": "Polo verde chiaro"
+    },
+    "25d4c06caa7e3d92": {
+      "name": "Scarpe aggressive"
+    },
+    "8decd5a8eb7a14e6": {
+      "name": "T-shirt gialla Totanic"
+    },
+    "f091d084f1d5cf34": {
+      "name": "Camicia meduse"
+    },
+    "d4245c778feaf1c1": {
+      "name": "Camicia a maniche corte"
+    },
+    "ceac8b8a4aa32494": {
+      "name": "T-shirt azzurra rétro"
+    },
+    "181e90d1f357ed37": {
+      "name": "Eleganti marroni"
+    },
+    "d10e72d4801b381a": {
+      "name": "Maglia re della bici"
+    },
+    "5ac5e0b7f775993e": {
+      "name": "Da arrampicata pastello"
+    },
+    "82bd94ed894a16dc": {
+      "name": "Maglia rugby 8"
+    },
+    "a58903f46daad145": {
+      "name": "Runner bianche"
+    },
+    "e76101f0587cdb9f": {
+      "name": "Parka mostro artico"
+    },
+    "52a5f2aa1751da27": {
+      "name": "Maglia da baseball Nero M."
+    },
+    "7b70812eb0a76cb5": {
+      "name": "T-shirt cime avorio"
+    },
+    "7a2ad2199089c4ae": {
+      "name": "Maglia Annak classica"
+    },
+    "485f3a4b50643a31": {
+      "name": "Berretto jet"
+    },
+    "db926cd04a5b01fc": {
+      "name": "Berretto mimetico"
+    },
+    "a4adb096a8093e9f": {
+      "name": "Camicia schizzata"
+    },
+    "d5f196b8363c0ae7": {
+      "name": "Classiche banana"
+    },
+    "560a8c075c90b9d2": {
+      "name": "Visiera parasole"
+    },
+    "c7d0a936a7586b25": {
+      "name": "Sandali a strappo neve"
+    },
+    "836c409c224327da": {
+      "name": "Casco football con visiera"
+    },
+    "5ca83e32e9497c1b": {
+      "name": "Maglia navy a righe"
+    },
+    "f78714f08fa31b1f": {
+      "name": "Stivali da moto blu"
+    },
+    "79e4d4f396b69ce3": {
+      "name": "Occhiali e cappello Ezko"
+    },
+    "dc8774834a34a71b": {
+      "name": "Camicia a quadri"
+    },
+    "7465dafe561618e5": {
+      "name": "Alte gialloviola"
+    },
+    "8f624df76895e669": {
+      "name": "Camicia meduse con cravatta"
+    },
+    "fab4005bf9bda9c9": {
+      "name": "Alte biancorosse"
+    },
+    "703305c6c0eedf0b": {
+      "name": "Maschera da motocross"
+    },
+    "cf304a572eaaea9f": {
+      "name": "Parka Inkling Fortia"
+    },
+    "60d3f51d54b887f4": {
+      "name": "Maglia rugby a righe"
+    },
+    "13acfddef4b45a90": {
+      "name": "Casco con visiera"
+    },
+    "6375b52a355cc737": {
+      "name": "Mitilik 5 gialloarancio"
+    },
+    "c106a08662150465": {
+      "name": "Canotta Aragostars"
+    },
+    "ed5e54b43414f51f": {
+      "name": "T-shirt Squid Squad"
+    },
+    "7a13112bd1a0c47d": {
+      "name": "Maglione ancora"
+    },
+    "5fdaa7d21b661331": {
+      "name": "Maglione polsino blu Annak"
+    },
+    "2176fd45cb9c3edb": {
+      "name": "Camicia ippocampi"
+    },
+    "d3694d8bbc94fc3f": {
+      "name": "Giacca paracadute cremisi"
+    },
+    "85cd9f1ce488ef28": {
+      "name": "Occhiali da pilota"
+    },
+    "0b5863953939a70d": {
+      "name": "Felpa zip mimetica"
+    },
+    "bca8d8cd3914c33d": {
+      "name": "Cappello relax"
+    },
+    "3e2118823fe00aab": {
+      "name": "A strati mimetica"
+    },
+    "1be0651a23a1b2a3": {
+      "name": "Berretto Annak con occhiali"
+    },
+    "5c2ec2598836a14a": {
+      "name": "T-shirt SmileMob fucsia"
+    },
+    "f5d27c917569dd63": {
+      "name": "Felpa rétro"
+    },
+    "4fa3680c71e09bc5": {
+      "name": "Camicia Tintacolante"
+    },
+    "2ad2124dfca512b4": {
+      "name": "Runner canarino"
+    },
+    "ed9d4af7a3f2f522": {
+      "name": "Maglia hockey Octokings"
+    },
+    "8982ccbce58f2648": {
+      "name": "Maglia hockey Calamars"
+    },
+    "938ac2d7c31d8341": {
+      "name": "Cappello di jeans"
+    },
+    "511e4ea2d524ae08": {
+      "name": "Gilet militare cachi"
+    },
+    "8389cd5d7f55b970": {
+      "name": "Maglione squali"
+    },
+    "1096291eb0c76e82": {
+      "name": "Camicia hipsterica"
+    },
+    "5eca902a06dba6e9": {
+      "name": "Stivali Reboot"
+    },
+    "ca15723961648c14": {
+      "name": "Giubbino piovrino"
+    },
+    "bba99111b562edae": {
+      "name": "Octomaglia (trasferta)"
+    },
+    "50dee75a7a249665": {
+      "name": "Granchiorazza rossa"
+    },
+    "bf788cd30ce7483f": {
+      "name": "T-shirt recluta"
+    },
+    "6205386c349c6378": {
+      "name": "Octo-shirt"
+    },
+    "fe399237cbf576e4": {
+      "name": "Sneaker turbo rosse"
+    },
+    "c3bde248ba3d37c2": {
+      "name": "Elmo vichingo"
+    },
+    "0e9a7c1cbf2a1562": {
+      "name": "Maglia Umibozu"
+    },
+    "8fa248d2c2f6dbb5": {
+      "name": "Giacca rossa Ezko"
+    },
+    "8721ccd8a97ca6d9": {
+      "name": "Scarponi marroni"
+    },
+    "bc4b2d948ec1a680": {
+      "name": "Maglia con bolero nero"
+    },
+    "35324a023fbc73b4": {
+      "name": "Fascia da squash"
+    },
+    "736e591555dd7fc2": {
+      "name": "T-shirt 8 bit bianca"
+    },
+    "fe88471fdaa4835b": {
+      "name": "Fascia da tennis"
+    },
+    "6aa82c7f381ed1c7": {
+      "name": "Maglia azzurromare"
+    },
+    "55f313d77f02df5d": {
+      "name": "Mitilik 5 blu e nere"
+    },
+    "3583daf7ca4ab304": {
+      "name": "Camicia a pixel-pois"
+    },
+    "486ad6046068e579": {
+      "name": "Swimmer alte grigie"
+    },
+    "798039fff916ccab": {
+      "name": "Mitilik rosse e nere"
+    },
+    "186b8207f53c589c": {
+      "name": "Maschera da verniciatura"
+    },
+    "61bf38eee6c6572c": {
+      "name": "T-shirt cachi rétro"
+    },
+    "445447f824e8029a": {
+      "name": "Giubbotto patchwork"
+    },
+    "71c037bdda583422": {
+      "name": "T-shirt zebra"
+    },
+    "e3de2716bb4dd373": {
+      "name": "T-shirt octo"
+    },
+    "b3316e0644d12c28": {
+      "name": "Zeppe tangerine"
+    },
+    "ad1453c835f0dd18": {
+      "name": "Arrow bianche"
+    },
+    "ec6c894d7932e077": {
+      "name": "Stivali di gomma rossi"
+    },
+    "5b2b3d4a7850f32a": {
+      "name": "Camicia con cravatta"
+    },
+    "5de86f8b5e2cf16e": {
+      "name": "Verdi a stringhe"
+    },
+    "136a65f45a9021f3": {
+      "name": "Cuffie vintage"
+    },
+    "b1fad79c10f879c9": {
+      "name": "Canotta bianca Calamars"
+    },
+    "6a69aeb21b9ba9a1": {
+      "name": "Slip-on bianche"
+    },
+    "da4b679ea7dc0d42": {
+      "name": "Fascia da jogging"
+    },
+    "3127d54717172294": {
+      "name": "Giacca refrigerante"
+    },
+    "258ad6bf82aefb7e": {
+      "name": "T-shirt similmela"
+    },
+    "e965474df895c0b1": {
+      "name": "Maglia Ezko"
+    },
+    "e51c45457e2f73f7": {
+      "name": "Berretto multifase"
+    },
+    "b91eb6d04f17ee7f": {
+      "name": "Cuffie antirumore"
+    },
+    "265fc965fe5c5cde": {
+      "name": "T-shirt fucsia"
+    },
+    "d1ddf6a044e31f77": {
+      "name": "Scamosciate semplici"
+    },
+    "59705e7558d8dddd": {
+      "name": "Maglia Ottopolp rossa"
+    },
+    "aae831af78d23c56": {
+      "name": "Camicia vintage"
+    },
+    "6e38644c66a730fe": {
+      "name": "Eleganti nero di seppia"
+    },
+    "2cabdbbaf8250933": {
+      "name": "T-shirt motto Arome"
+    },
+    "68b8af2a12635dec": {
+      "name": "Arrow eleganti"
+    },
+    "e0ed31a22488ba2a": {
+      "name": "T-shirt blu Arome"
+    },
+    "c9a7bef53f71de4d": {
+      "name": "Giacca imbottita nera"
+    },
+    "14148115c21252c9": {
+      "name": "Maschera da sub"
+    },
+    "b4d2003229cc69cd": {
+      "name": "Mitilik blu e nere"
+    },
+    "bfa9f1b99a67f0fd": {
+      "name": "Eleganti lucide"
+    },
+    "4b2937e5f71b6bb4": {
+      "name": "Felpa sneaker"
+    },
+    "c180b715b8e53b1d": {
+      "name": "Cappello parasole"
+    },
+    "4629b1994d6b27cb": {
+      "name": "Felpa Octarian rétro"
+    },
+    "d4c85d2d735e464d": {
+      "name": "Sneaker CaO"
+    },
+    "5eafa1e64cfbbd52": {
+      "name": "Gilè calamaro"
+    },
+    "acf5348674a9524b": {
+      "name": "Casco da hockey"
+    },
+    "a9fb5bbd38e00533": {
+      "name": "Felpa zip verde"
+    },
+    "53c3f7c4ef8eb14a": {
+      "name": "F-3 di cuoio bianco"
+    },
+    "a19dcb9db1b6a870": {
+      "name": "Trekking colorate"
+    },
+    "164e70329fff7e10": {
+      "name": "T-shirt grigia frecce"
+    },
+    "a0f68c9f0489a1ee": {
+      "name": "Rialzate bianche"
+    },
+    "0fd13c0fc8750e82": {
+      "name": "T-shirt Wet Floor"
+    },
+    "c41abf60a87ece6a": {
+      "name": "Maglia bianca"
+    },
+    "56499d773cc89216": {
+      "name": "Tuta vintage Sepia"
+    },
+    "f4d9cf36f44d5d2f": {
+      "name": "Maglione giravolta"
+    },
+    "6a4233aab2a89c2e": {
+      "name": "Maglia da battaglia"
+    },
+    "894701a3ffb7639d": {
+      "name": "Giacca da sci viola"
+    },
+    "e095352827007788": {
+      "name": "Chiodo nero"
+    },
+    "c7046c5675149293": {
+      "name": "Divisa AS Riccidimare"
+    },
+    "25dc67a105f26543": {
+      "name": "Stivali da caccia"
+    },
+    "7bb94b71fd60d36d": {
+      "name": "Swimmer verdi fluo"
+    },
+    "7df3f12f9059a3f4": {
+      "name": "T-shirt bianca Totanic"
+    },
+    "07f0b1a126042377": {
+      "name": "Maglia college"
+    },
+    "80c5b5ad61078a69": {
+      "name": "Occhiali discreti"
+    },
+    "47337f863e270138": {
+      "name": "Camicia floreale"
+    },
+    "fa441bde1e48c941": {
+      "name": "Maschera baseball (casa)"
+    },
+    "8ac15fbadd7c5921": {
+      "name": "Cappello con toppe"
+    },
+    "fbb643bceee306f4": {
+      "name": "Da arrampicata fluo"
+    },
+    "c660b59aec2bee52": {
+      "name": "Maschera con tubo"
+    },
+    "5f3d30b4208dc045": {
+      "name": "T-shirt oro Totanic"
+    },
+    "e8816dc35ffe0f3f": {
+      "name": "A strati bianca"
+    },
+    "d8ab4619e04183ac": {
+      "name": "Bandana paisley"
+    },
+    "ac2d0e974ab4a45d": {
+      "name": "Comfort viola"
+    },
+    "4a64ff9da8eedc99": {
+      "name": "AS Medusana"
+    },
+    "a63033c3b7a63dfa": {
+      "name": "Sportive arancioni"
+    },
+    "2955f82ca50e5b91": {
+      "name": "A strati marrone"
+    },
+    "aa77710e35ac07bb": {
+      "name": "Slip-on verdi"
+    },
+    "c53e7522d9b61206": {
+      "name": "A strati ancora"
+    },
+    "b7c3f1f0fd72870a": {
+      "name": "Maglione largo negativo"
+    },
+    "35a13bf492b1cdca": {
+      "name": "Basket nere"
+    },
+    "9e34382421cb08fa": {
+      "name": "Felpa Ezko oliva"
+    },
+    "f992fb41a27a9bcc": {
+      "name": "Runner bianconere"
+    },
+    "7581836257a42a71": {
+      "name": "Maglia lime a righe"
+    },
+    "d6332fcfb6eb65e9": {
+      "name": "Slip-on sale e sesamo 270"
+    },
+    "9048ca4ab3f36892": {
+      "name": "Anfibi melanzana"
+    },
+    "3c650363f66ad2c0": {
+      "name": "Cappello da cowboy"
+    },
+    "126fa11f05f485a1": {
+      "name": "Giacca maccha"
+    },
+    "fb1f5c374902e6ce": {
+      "name": "Fluosandali rosa"
+    },
+    "5f76f2b1505537dc": {
+      "name": "Cappello pesce palla"
+    },
+    "d121326530879316": {
+      "name": "Dakroniks choco"
+    },
+    "4af3f9ca3bc0153f": {
+      "name": "Espadrillas rosse"
+    },
+    "52f6ded7fa0502c2": {
+      "name": "Basse limited"
+    },
+    "40c238f5bb55f658": {
+      "name": "Maglia cime e righe"
+    },
+    "876024e49bf245f6": {
+      "name": "Berretto girato"
+    },
+    "8b237659c0671b55": {
+      "name": "Comfort blu"
+    },
+    "a0abca747544faed": {
+      "name": "T-shirt nera"
+    },
+    "d8658688d12980e4": {
+      "name": "F-3 edizione speciale"
+    },
+    "def63dfb2de0a349": {
+      "name": "Fluosandali arancioni"
+    },
+    "ec0c785a1a9caf90": {
+      "name": "T-shirt Annak (collare)"
+    },
+    "14775ed65b5bedb8": {
+      "name": "Rialzate Annak"
+    },
+    "2d08e8989db642d7": {
+      "name": "T-shirt da pirata"
+    },
+    "d4e783da0e6e162c": {
+      "name": "Cappello da montanaro"
+    },
+    "42df0b2cf7471ddc": {
+      "name": "Alte zombie"
+    },
+    "42b5402e9eb64e49": {
+      "name": "Berretto a righe"
+    },
+    "8e474adbf0b1de1b": {
+      "name": "Ciabatte da mare"
+    },
+    "ae595eff83b88b5b": {
+      "name": "Trekking pro"
+    },
+    "452d724de6df3056": {
+      "name": "Anfibi da caccia"
+    },
+    "11c60e7c644758c3": {
+      "name": "Cefalocuffie in-ear"
+    },
+    "3434c77d55faa725": {
+      "name": "Parka octariano Fortia"
+    },
+    "ef4a34530ef5783b": {
+      "name": "Giaccone polare"
+    },
+    "d22ab67b6963492d": {
+      "name": "Maglia da baseball"
+    },
+    "3ec43b15e540fca6": {
+      "name": "T-shirt rovente"
+    },
+    "2122b1e6bf54cef3": {
+      "name": "Ciabatte cirripedi"
+    },
+    "ce56023598fa2be7": {
+      "name": "T-shirt da marinaio"
+    },
+    "a75e7ce05c103f50": {
+      "name": "Maglia sport Sepia"
+    },
+    "d74020abaeb90118": {
+      "name": "Bomber negativo"
+    },
+    "11c0bdc9f869694b": {
+      "name": "T-shirt Mrs. Spalluccia"
+    },
+    "8e280599b2678219": {
+      "name": "Espadrillas a pois"
+    },
+    "090050f61f468d22": {
+      "name": "Felpa Conchifoglie"
+    },
+    "552a8ee1ea64d236": {
+      "name": "T-shirt rossa frecce"
+    },
+    "ef82c7026049a3ac": {
+      "name": "Sneaker Au"
+    },
+    "5882ffd030005203": {
+      "name": "Pile tundra crema"
+    },
+    "49cf4db6f834714d": {
+      "name": "Maglia sport bianca"
+    },
+    "d8a06f7070e1db3c": {
+      "name": "Slip-on gialle"
+    },
+    "ff5f2a9a0718704b": {
+      "name": "Maglia nera logo"
+    },
+    "13e5e6e89ff2bf76": {
+      "name": "Maglia 16 bit blu"
+    },
+    "f99d83847b5d7f5d": {
+      "name": "Clownfish classiche"
+    },
+    "23bba62ce2a06226": {
+      "name": "Swimmer rosse"
+    },
+    "85acbc1607f78ad7": {
+      "name": "Maglione polsino giallo Annak"
+    },
+    "8b2135f32fdb1a21": {
+      "name": "T-shirt draganguilla"
+    },
+    "ff0bfb7aeac4aa6d": {
+      "name": "Cappello a cono"
+    },
+    "3ae1c8a4eecf91e3": {
+      "name": "Rockenburg nera"
+    },
+    "a7774baa69c08989": {
+      "name": "Sneaker senza lacci"
+    },
+    "229d49cb636089c0": {
+      "name": "Cappello da pesca denim"
+    },
+    "a12167e8d2f28bc4": {
+      "name": "Maglia rosa a righe"
+    },
+    "d00c5befc82384e4": {
+      "name": "Basket blu"
+    },
+    "92fd25365b270e34": {
+      "name": "Felpa college blu"
+    },
+    "2bbb730975a3d2e4": {
+      "name": "Alte dorate"
+    },
+    "ce512460e6ed3d20": {
+      "name": "T-shirt Hightide Era"
+    },
+    "a2a53544339fc704": {
+      "name": "Canotta a strisce Calamars"
+    },
+    "cabb500a341a7297": {
+      "name": "Scarpe squalo"
+    },
+    "76c98dcadfa3254e": {
+      "name": "Maglia sport nera"
+    },
+    "45e78598c560379c": {
+      "name": "Maglione CalamaX"
+    },
+    "3c85da60025f9def": {
+      "name": "Bomber aviatore"
+    },
+    "7d5e52e2c5bb83f5": {
+      "name": "Maschera antigas"
+    },
+    "da94f64e21dea66e": {
+      "name": "Slip-on nere"
+    },
+    "c1e0f231ee4d92b1": {
+      "name": "Cappotto Imperial nautico"
+    },
+    "66b67f985e1298a7": {
+      "name": "Fascia da calcio"
+    },
+    "fe17ac29feb37984": {
+      "name": "Maglione polsino rosso Annak"
+    },
+    "f1828d6cf750b256": {
+      "name": "Rialzate rosa"
+    },
+    "8b7c930b2cc0e498": {
+      "name": "Cnidarya 528"
+    },
+    "2b9bb9aa6b80f37e": {
+      "name": "Occhiali da sole ovali"
+    },
+    "e35713e444afb4eb": {
+      "name": "T-shirt riso BaraS"
+    },
+    "b63cbc8e8458640d": {
+      "name": "Maglia rugby 10"
+    },
+    "2b91bcfea4de8809": {
+      "name": "Maglia nera"
+    },
+    "8fd5ab805c9687e2": {
+      "name": "Felpa viola Calamars"
+    },
+    "f121f611a8379f3f": {
+      "name": "T-shirt nera ciclista"
+    },
+    "460574ad6d73934b": {
+      "name": "Giaccone da montagna"
+    },
+    "7c409e0ca76b942b": {
+      "name": "T-shirt ancora bianca"
+    },
+    "22b856345ca7de8e": {
+      "name": "Sneaker tartufo"
+    },
+    "759f10e900939f5c": {
+      "name": "Camicia di lino"
+    },
+    "f566a101b0f5b132": {
+      "name": "A strati gialloseppia"
+    },
+    "e328bb1204b9fab3": {
+      "name": "Scamosciate suola rossa"
+    },
+    "ea7403918192ffc4": {
+      "name": "Camicia piovre piccanti"
+    },
+    "85c6fc1e82e176a5": {
+      "name": "T-shirt solearancio"
+    },
+    "fc4daf64413e0935": {
+      "name": "Giacca da sci verde"
+    },
+    "82e84adc3d2d435b": {
+      "name": "Giacca Nero Marlin"
+    },
+    "051dbc8aeb5ddf6d": {
+      "name": "T-shirt di lega"
+    },
+    "c03f0c705e5a2ad3": {
+      "name": "Eleganti cammello"
+    },
+    "2672cbe3aa792e52": {
+      "name": "T-shirt 8 bit grigia"
+    },
+    "32c45f03137ffd14": {
+      "name": "Cardigan arancione"
+    },
+    "527b06f73d3b7018": {
+      "name": "Maglia ravanello Ezko"
+    },
+    "28d6795565c997b8": {
+      "name": "Camicia bianca"
+    },
+    "7b9c71c2c795b6a6": {
+      "name": "Canotta (casa)"
+    },
+    "e8285de857d1444c": {
+      "name": "Felpa blu e camicia"
+    }
+  },
+  "powers": {
+    "032c2b30027d6a23": {
+      "name": "Eco-colore princ."
+    },
+    "294d158b20a03702": {
+      "name": "Gran ritorno"
+    },
+    "8eff7c5906b17202": {
+      "name": "Calamaro ninja"
+    },
+    "a6ee72ab2e279e1d": {
+      "name": "Velocità nuoto +"
+    },
+    "793e8f393b093b33": {
+      "name": "Salto al buio"
+    },
+    "7491b2168b321d3e": {
+      "name": "Salti super e veloci"
+    },
+    "9a736dd26cc6d3c5": {
+      "name": "Velocità +"
+    },
+    "ea552d4a7c94a0eb": {
+      "name": "Atterraggio stiloso"
+    },
+    "1a994b9f1d422b23": {
+      "name": "Arma speciale +"
+    },
+    "4b8e1b77f6b1ef60": {
+      "name": "Sconosciuto"
+    },
+    "1406c4da9fe690c9": {
+      "name": "Eco-colore princ."
+    },
+    "c8179c066b561cd5": {
+      "name": "Gran ritorno"
+    },
+    "0e71bff24c3f37ad": {
+      "name": "Calamaro ninja"
+    },
+    "03c7b7bc6cb68512": {
+      "name": "Velocità nuoto +"
+    },
+    "b4e72a2b9c9f3d53": {
+      "name": "Salto al buio"
+    },
+    "1f86150af97debf6": {
+      "name": "Salti super e veloci"
+    },
+    "16cbf780227d6f6d": {
+      "name": "Velocità +"
+    },
+    "c54714a0c4aa3e11": {
+      "name": "Atterraggio stiloso"
+    },
+    "e2c02f122de2c567": {
+      "name": "Arma speciale +"
+    },
+    "264ff06a6e99b11a": {
+      "name": "Sconosciuto"
+    },
+    "1d202ffb6e81bce5": {
+      "name": "Castigo"
+    },
+    "815a9a65c869e5d9": {
+      "name": "Arma sec. impermeabile"
+    },
+    "d419d93c9ca266f2": {
+      "name": "Scarpe impermeabili"
+    },
+    "0e164aae93afae43": {
+      "name": "Riduzione speciale -"
+    },
+    "28c5ec4430082450": {
+      "name": "Il tempo è colore"
+    },
+    "aedd94fe223261d5": {
+      "name": "Intensificazione"
+    },
+    "c43ab03140bb13f2": {
+      "name": "Recupero colore +"
+    },
+    "6dcecca7e07e73c4": {
+      "name": "Ricarica speciale +"
+    },
+    "8afb83ffeb289865": {
+      "name": "Rappresaglia"
+    },
+    "9d5a18e4c5e5645e": {
+      "name": "Partenza a razzo"
+    },
+    "0e2ac5e15d77b2cb": {
+      "name": "Arma secondaria +"
+    },
+    "3820d64c12f27290": {
+      "name": "Demolitore"
+    },
+    "8340c4eed8943fc7": {
+      "name": "Eco-colore second."
+    },
+    "5602e981c1c00258": {
+      "name": "Inchiostro termico"
+    },
+    "44d2c5620c1d3c73": {
+      "name": "Tenacia"
+    },
+    "51f03088c1111fd7": {
+      "name": "Splash finale"
+    },
+    "d00bc8d303659ec6": {
+      "name": "Recupero colore +"
+    },
+    "41a16a26faa38d13": {
+      "name": "Il tempo è colore"
+    },
+    "bde0eb22530d4466": {
+      "name": "Ricarica speciale +"
+    },
+    "86cdcc0fd608423a": {
+      "name": "Atterraggio stiloso"
+    },
+    "276cddac2f57fa12": {
+      "name": "Castigo"
+    },
+    "cd3ddfd6e986e696": {
+      "name": "Arma speciale +"
+    },
+    "92122d477e563d7b": {
+      "name": "Scarpe impermeabili"
+    },
+    "cef7771e1562e6f9": {
+      "name": "Sconosciuto"
+    },
+    "1d855c39cfd4d1ad": {
+      "name": "Arma sec. impermeabile"
+    },
+    "4eb2633ea2cc53c5": {
+      "name": "Arma secondaria +"
+    },
+    "65995d04d06440c3": {
+      "name": "Intensificazione"
+    },
+    "57aceb0bcb925e93": {
+      "name": "Eco-colore second."
+    },
+    "73e2e892e74ab1b9": {
+      "name": "Splash finale"
+    },
+    "0c8e815c244cde48": {
+      "name": "Tenacia"
+    },
+    "620af3d72bd265ea": {
+      "name": "Velocità nuoto +"
+    },
+    "870b81ce67189ad3": {
+      "name": "Rappresaglia"
+    },
+    "8182fe5e6b07ef53": {
+      "name": "Eco-colore princ."
+    },
+    "3d1ad74f74989f8d": {
+      "name": "Salti super e veloci"
+    },
+    "fad0ac5cace2e2a4": {
+      "name": "Velocità +"
+    },
+    "cf48bc70458f9b0b": {
+      "name": "Inchiostro termico"
+    },
+    "98f9e51856a7a8fb": {
+      "name": "Calamaro ninja"
+    },
+    "e6087224d046f0dc": {
+      "name": "Riduzione speciale -"
+    },
+    "009a41cd1f5702c0": {
+      "name": "Salto al buio"
+    },
+    "23fa65038ff7b3be": {
+      "name": "Gran ritorno"
+    },
+    "f60a2e453b279d3c": {
+      "name": "Demolitore"
+    },
+    "3d4c8db9a6144122": {
+      "name": "Partenza a razzo"
+    },
+    "bb95857faf2ee2ce": {
+      "name": "Ricarica speciale +"
+    },
+    "7fda9e58be0148ba": {
+      "name": "Velocità +"
+    },
+    "4b93ede887594882": {
+      "name": "Intensificazione"
+    },
+    "eb113dfd628fe97d": {
+      "name": "Eco-colore princ."
+    },
+    "481e489df1599c5e": {
+      "name": "Arma secondaria +"
+    },
+    "50cbb1f4d01ed04f": {
+      "name": "Splash finale"
+    },
+    "b6c2fce7a284b8cf": {
+      "name": "Recupero colore +"
+    },
+    "189689c8bda666d7": {
+      "name": "Scarpe impermeabili"
+    },
+    "5b196254c80fd4b5": {
+      "name": "Sconosciuto"
+    },
+    "9a60bd30bf6280cb": {
+      "name": "Rappresaglia"
+    },
+    "9db907b90b370d4f": {
+      "name": "Eco-colore second."
+    },
+    "96f1a2dd35702375": {
+      "name": "Arma speciale +"
+    },
+    "68c079f60fbccc99": {
+      "name": "Arma sec. impermeabile"
+    },
+    "df5bce5ddddb57e0": {
+      "name": "Riduzione speciale -"
+    },
+    "add7e9d4bf832d64": {
+      "name": "Tenacia"
+    },
+    "b6d2e0293e72924e": {
+      "name": "Velocità nuoto +"
+    },
+    "806fd26d33ffcdd6": {
+      "name": "Il tempo è colore"
+    },
+    "fbdf26d37a2c74be": {
+      "name": "Salti super e veloci"
+    },
+    "df2ac662442781ce": {
+      "name": "Castigo"
+    },
+    "514d40657c1ab7ed": {
+      "name": "Salto al buio"
+    },
+    "4aca3727ab8e8509": {
+      "name": "Inchiostro termico"
+    },
+    "b441c990d3de0d1a": {
+      "name": "Atterraggio stiloso"
+    },
+    "88338f2180bbb23d": {
+      "name": "Partenza a razzo"
+    },
+    "cc519de29fe8f2e5": {
+      "name": "Gran ritorno"
+    },
+    "d939d4401935ee27": {
+      "name": "Demolitore"
+    },
+    "3ea0270d5dbdd966": {
+      "name": "Calamaro ninja"
+    },
+    "7f6d89f40eabc41d": {
+      "name": "Il tempo è colore"
+    },
+    "7a177ddb3aeaed0b": {
+      "name": "Scarpe impermeabili"
+    },
+    "9da8a55c915271b6": {
+      "name": "Velocità +"
+    },
+    "1f746cec210906af": {
+      "name": "Intensificazione"
+    },
+    "bf7742050e8638f9": {
+      "name": "Ricarica speciale +"
+    },
+    "2497992da827dbbf": {
+      "name": "Eco-colore second."
+    },
+    "1e735ea69cb58677": {
+      "name": "Velocità nuoto +"
+    },
+    "ef78dc3c91f93dbd": {
+      "name": "Salti super e veloci"
+    },
+    "c3692f89900a0839": {
+      "name": "Rappresaglia"
+    },
+    "4352d3f254655a4f": {
+      "name": "Recupero colore +"
+    },
+    "f09d91b4cb53fbe1": {
+      "name": "Riduzione speciale -"
+    },
+    "351dbd2ad833da59": {
+      "name": "Eco-colore princ."
+    },
+    "668f5cf3759aa059": {
+      "name": "Sconosciuto"
+    },
+    "75bb4b4b145f5f22": {
+      "name": "Arma speciale +"
+    },
+    "e6cf18b7c3d7777a": {
+      "name": "Arma sec. impermeabile"
+    },
+    "79a401dc1b5a80b1": {
+      "name": "Splash finale"
+    },
+    "a3d44c0645fcc37a": {
+      "name": "Arma secondaria +"
+    },
+    "31d03e5fdf33d308": {
+      "name": "Atterraggio stiloso"
+    },
+    "7f398a113a8542f9": {
+      "name": "Tenacia"
+    },
+    "a94450681ff5481a": {
+      "name": "Castigo"
+    },
+    "ad9a06bbb1123add": {
+      "name": "Inchiostro termico"
+    },
+    "fc0d34e5084cfa0c": {
+      "name": "Salto al buio"
+    },
+    "719305cabfd863f9": {
+      "name": "Gran ritorno"
+    },
+    "24f62ff0fc66449b": {
+      "name": "Demolitore"
+    },
+    "2aa79bd15fcdafe7": {
+      "name": "Partenza a razzo"
+    },
+    "5739c59fcddc57ca": {
+      "name": "Calamaro ninja"
+    }
+  },
+  "festivals": {
+    "JUEA-00004": {
+      "title": "Qual è il tuo cioccolato preferito?",
+      "teams": [
+        {
+          "teamName": "Fondente"
+        },
+        {
+          "teamName": "Al latte"
+        },
+        {
+          "teamName": "Bianco"
+        }
+      ]
+    },
+    "JUEA-00003": {
+      "title": "Qual è il tuo sapore preferito?",
+      "teams": [
+        {
+          "teamName": "Piccante"
+        },
+        {
+          "teamName": "Dolce"
+        },
+        {
+          "teamName": "Aspro"
+        }
+      ]
+    },
+    "JUEA-00002": {
+      "title": "Di che tipo è il tuo Pokémon compagno?",
+      "teams": [
+        {
+          "teamName": "Erba"
+        },
+        {
+          "teamName": "Fuoco"
+        },
+        {
+          "teamName": "Acqua"
+        }
+      ]
+    },
+    "JUEA-00001": {
+      "title": "Cosa porteresti su un'isola deserta?",
+      "teams": [
+        {
+          "teamName": "Utensili"
+        },
+        {
+          "teamName": "Spuntini"
+        },
+        {
+          "teamName": "Passatempi"
+        }
+      ]
+    },
+    "JUEA-00005": {
+      "title": "Chi esiste davvero?",
+      "teams": [
+        {
+          "teamName": "Nessie"
+        },
+        {
+          "teamName": "Alieni"
+        },
+        {
+          "teamName": "Bigfoot"
+        }
+      ]
+    },
+    "JUEA-00006": {
+      "title": "Cosa brami?",
+      "teams": [
+        {
+          "teamName": "Forza"
+        },
+        {
+          "teamName": "Saggezza"
+        },
+        {
+          "teamName": "Coraggio"
+        }
+      ]
+    },
+    "JUEA-00007": {
+      "title": "Qual è il gelato più buono?",
+      "teams": [
+        {
+          "teamName": "Vaniglia"
+        },
+        {
+          "teamName": "Fragola"
+        },
+        {
+          "teamName": "Cioccolato e menta"
+        }
+      ]
+    },
+    "JUEA-00008": {
+      "title": "Cos'è più importante nella vita?",
+      "teams": [
+        {
+          "teamName": "Denaro"
+        },
+        {
+          "teamName": "Fama"
+        },
+        {
+          "teamName": "Amore"
+        }
+      ]
+    },
+    "JUEA-00009": {
+      "title": "Chi sarebbe il miglior leader?",
+      "teams": [
+        {
+          "teamName": "Pinnuccia"
+        },
+        {
+          "teamName": "Morena"
+        },
+        {
+          "teamName": "Mantaleo"
+        }
+      ]
+    },
+    "JUEA-00010": {
+      "title": "Chi sarebbe l'amico migliore?",
+      "teams": [
+        {
+          "teamName": "Uno zombi"
+        },
+        {
+          "teamName": "Uno scheletro"
+        },
+        {
+          "teamName": "Un fantasma"
+        }
+      ]
+    },
+    "UEA-90011": {
+      "title": "Qual è il tuo saluto preferito?",
+      "teams": [
+        {
+          "teamName": "Stretta di mano"
+        },
+        {
+          "teamName": "Pugno contro pugno"
+        },
+        {
+          "teamName": "Abbraccio"
+        }
+      ]
+    },
+    "JUEA-00012": {
+      "title": "Con chi ti piace passare le vacanze?",
+      "teams": [
+        {
+          "teamName": "Amici"
+        },
+        {
+          "teamName": "Famiglia"
+        },
+        {
+          "teamName": "In solitaria"
+        }
+      ]
+    },
+    "UEA-00013": {
+      "title": "Qual è il giorno migliore del weekend?",
+      "teams": [
+        {
+          "teamName": "Venerdì"
+        },
+        {
+          "teamName": "Sabato"
+        },
+        {
+          "teamName": "Domenica"
+        }
+      ]
+    },
+    "UEA-00014": {
+      "title": "Quale strumento vorresti suonare?",
+      "teams": [
+        {
+          "teamName": "Batteria"
+        },
+        {
+          "teamName": "Chitarra"
+        },
+        {
+          "teamName": "Tastiera"
+        }
+      ]
+    },
+    "JUEA-00015": {
+      "title": "È primavera! Tempo di tenerezza!",
+      "teams": [
+        {
+          "teamName": "Pulcini"
+        },
+        {
+          "teamName": "Coniglietti"
+        },
+        {
+          "teamName": "Orsacchiotti"
+        }
+      ]
+    },
+    "JUEA-00016": {
+      "title": "Cosa faresti se finisse il mondo?",
+      "teams": [
+        {
+          "teamName": "Le solite cose"
+        },
+        {
+          "teamName": "Lista dei desideri"
+        },
+        {
+          "teamName": "Salvare tutti"
+        }
+      ]
+    },
+    "JUEA-00017": {
+      "title": "Cosa affitteresti per un giorno?",
+      "teams": [
+        {
+          "teamName": "Castello"
+        },
+        {
+          "teamName": "Parco a tema"
+        },
+        {
+          "teamName": "Spiaggia"
+        }
+      ]
+    },
+    "JUEA-00018": {
+      "title": "Cosa mangeresti tutti i giorni?",
+      "teams": [
+        {
+          "teamName": "Pane"
+        },
+        {
+          "teamName": "Riso"
+        },
+        {
+          "teamName": "Pasta"
+        }
+      ]
+    },
+    "JUEA-00019": {
+      "title": "Cos'è più importante per te?",
+      "teams": [
+        {
+          "teamName": "Passato"
+        },
+        {
+          "teamName": "Presente"
+        },
+        {
+          "teamName": "Futuro"
+        }
+      ]
+    },
+    "JUEA-00100": {
+      "title": "Cosa faresti in un mondo di fantasia?",
+      "teams": [
+        {
+          "teamName": "Magia"
+        },
+        {
+          "teamName": "Cavalleria"
+        },
+        {
+          "teamName": "Ninja"
+        }
+      ]
+    },
+    "JUEA-00105": {
+      "title": "Con chi ti piace passare le vacanze?",
+      "teams": [
+        {
+          "teamName": "Amici"
+        },
+        {
+          "teamName": "Famiglia"
+        },
+        {
+          "teamName": "In solitaria"
+        }
+      ]
+    },
+    "JUEA-00104": {
+      "title": "Chi sarebbe l'amico migliore?",
+      "teams": [
+        {
+          "teamName": "Uno zombi"
+        },
+        {
+          "teamName": "Uno scheletro"
+        },
+        {
+          "teamName": "Un fantasma"
+        }
+      ]
+    },
+    "JUEA-00103": {
+      "title": "Come preferisci viaggiare?",
+      "teams": [
+        {
+          "teamName": "Via terra"
+        },
+        {
+          "teamName": "Via mare"
+        },
+        {
+          "teamName": "Via aerea"
+        }
+      ]
+    },
+    "JUEA-00102": {
+      "title": "Quando ti impegni a fare le cose?",
+      "teams": [
+        {
+          "teamName": "Mattino"
+        },
+        {
+          "teamName": "Pomeriggio"
+        },
+        {
+          "teamName": "Notte"
+        }
+      ]
+    },
+    "JUEA-00200": {
+      "title": "Qual è il tuo cioccolato preferito?",
+      "teams": [
+        {
+          "teamName": "Fondente"
+        },
+        {
+          "teamName": "Al latte"
+        },
+        {
+          "teamName": "Bianco"
+        }
+      ]
+    },
+    "JUEA-00101": {
+      "title": "Cosa ti renderebbe più felice?",
+      "teams": [
+        {
+          "teamName": "Denaro"
+        },
+        {
+          "teamName": "Esperienze"
+        },
+        {
+          "teamName": "Regali"
+        }
+      ]
+    },
+    "JUEA-00106": {
+      "title": "È primavera! Tempo di tenerezza!",
+      "teams": [
+        {
+          "teamName": "Pulcini"
+        },
+        {
+          "teamName": "Coniglietti"
+        },
+        {
+          "teamName": "Orsacchiotti"
+        }
+      ]
+    },
+    "JUEA-00201": {
+      "title": "Cosa prediligi in battaglia?",
+      "teams": [
+        {
+          "teamName": "Rapidità"
+        },
+        {
+          "teamName": "Potenza"
+        },
+        {
+          "teamName": "Tattica"
+        }
+      ]
+    }
+  },
+  "events": {
+    "TGVhZ3VlTWF0Y2hFdmVudC1OZXdTZWFzb25DdXA=": {
+      "name": "Primo evento della nuova stagione",
+      "desc": "Un nuovo scenario per una nuova stagione!",
+      "regulation": "Competi in una situazione di assoluta imparzialità: tutti proveranno un nuovo scenario insieme!<br /><br />・ Sviluppa strategie e tattiche specifiche dello scenario in tempo reale.<br />・ Nelle mischie mollusche saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto!<br />・ Nelle modalità Partita anarchica non ci sarà alcun limite sulle abilità dell'equipaggiamento!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVNob3Q=": {
+      "name": "Troppi ultraturbinator!",
+      "desc": "Una lotta all'ultimo ultraturbinator!",
+      "regulation": "Occhio per occhio, ultraturbinator per ultraturbinator! Sarai all'altezza della sfida?<br /><br />・ Puoi usare solo set che includono l'arma speciale ultraturbinator.<br />・ L'indicatore dell'arma speciale si riempirà rapidamente in modo autonomo!<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb24=": {
+      "name": "Assaggio d'armi",
+      "desc": "Sfrutta al massimo le armi casuali!",
+      "regulation": "\"Sono lieto di mettere a disposizione il mio intero inventario per questo evento. Prova qualcosa di diverso e magari troverai una nuova arma preferita!\"<br /> - Armand<br /><br />・ Prima di ogni battaglia, le armi verranno assegnate in modo casuale.<br />・ Le armi saranno gentilmente fornite da Armand, quindi non preoccuparti se non ne possiedi alcune.<br />・ Saranno attivate sia le abilità originali che quelle extra!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb250aGx5TGVhZ3VlTWF0Y2hSZWFs": {
+      "name": "Partita evento mensile",
+      "desc": "Mira al record di energia evento!",
+      "regulation": "Quale record di energia evento stabilirai questo mese?<br /><br />・ Nelle mischie mollusche saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto!<br />・ Nelle modalità Partita anarchica non ci sarà alcun limite sulle abilità dell'equipaggiamento!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1EZWVwRm9n": {
+      "name": "Nebbia a volontà",
+      "desc": "Posta alta, visibilità bassa!",
+      "regulation": "Riuscirai a usare la nebbia a tuo vantaggio?<br /><br />・ Lo scenario sarà avvolto nella nebbia durante tutta la battaglia.<br />・ Tuttavia, la densità della nebbia cambierà nel corso dello scontro!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1QYWlyQ3Vw": {
+      "name": "Coppie a duello",
+      "desc": "Scopri di cosa sei capace in coppia!",
+      "regulation": "L'affiatamento è fondamentale in queste rapide battaglie 2 vs 2!<br /><br />・ Testa nuove strategie e porta la tua squadra a dominare la mappa!<br />・ L'attesa per tornare in battaglia è ridotta!<br />・ Puoi partecipare in una squadra da 2 o in solitaria.<br />・ Saranno attivate sia le abilità originali che quelle extra!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1JvbGxlckJydXNo": {
+      "name": "La battaglia artistica del secolo",
+      "desc": "Rulli vs pennelli: chi la pittura la vince!",
+      "regulation": "In questo evento dovrai tirare fuori la tua vena artistica!<br /><br />・ Le uniche armi che puoi usare sono rulli o pennelli!<br />・ Saranno attivate sia le abilità originali che quelle extra!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1IaWdoSnVtcA==": {
+      "name": "Salto estremo",
+      "desc": "Dove arriverai con i salti potenziati?",
+      "regulation": "Grazie all'abilità di saltare più in alto che mai, puoi esplorare nuove strategie e linee di attacco sulla mappa!<br /><br />・ La capacità di salto è notevolmente aumentata per tutti i giocatori.<br />・ La resistenza dell'equipaggiamento aumenta dopo il calammaraggio.<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9aaXBDYXN0ZXI=": {
+      "name": "Scatta col molluscatto",
+      "desc": "Vola a... volontà con il molluscatto infinito!",
+      "regulation": "Dove andresti e come combatteresti se potessi usare il molluscatto quanto ti pare? Quest'evento ti fornirà le risposte che cerchi.<br /><br />・ Puoi usare solo set che includono l'arma speciale molluscatto.<br />・ L'indicatore dell'arma speciale si riempirà rapidamente in modo autonomo!<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Ob3RGb3VuZA==": {
+      "name": "？？？？？",
+      "desc": "？？？？？",
+      "regulation": ""
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9MaW5lTWFya2Vy": {
+      "name": "In prima linea",
+      "desc": "Chi è più abile con lo sparalinee?",
+      "regulation": "La mira è tutto in questa partita evento! Prepara il tuo sparalinee in questa battaglia al miglior rimbalzo.<br /><br />・ Puoi usare solo set che includono l'arma speciale sparalinee.<br />・ Il danno dello sparalinee sarà notevolmente aumentato per tutti i giocatori.<br />・ Anche il consumo di inchiostro sarà notevolmente aumentato per tutti i giocatori.<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db21wZXRpdGlvblJlaGVhcnNhbHNKUA==": {
+      "name": "Prova torneo (Giappone)",
+      "desc": "Affina le tue abilità in vista di un torneo!",
+      "regulation": "Questa partita evento rappresenta una prova in vista di tornei futuri. Tuttavia, possono affrontare la partita evento anche i giocatori che non intendono partecipare a un torneo.<br /><br />Per partecipare ai tornei potrebbe essere necessaria una richiesta separata, anche se il giocatore si è qualificato. Inoltre, la partecipazione potrebbe essere limitata in base al paese di residenza del giocatore o ad altri fattori."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1GYXN0TW92ZQ==": {
+      "name": "Nuoto accelerato",
+      "desc": "Velocità di nuoto aumentata per tutti!",
+      "regulation": "Nuota nell'inchiostro della tua squadra più veloce che mai in forma di mollusco. Ah, e cerca anche di vincere la partita, ovviamente!<br /><br />・ La mobilità in forma di mollusco è molto aumentata per tutti i giocatori.<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto.<br />・ L'abilità Velocità nuoto + non avrà alcun effetto."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db21wZXRpdGlvbnNKUA==": {
+      "name": "Qualificazione ai tornei (Giappone)",
+      "desc": "Guadagnati l'accesso a un torneo!",
+      "regulation": "Questo tipo di partita evento consente di qualificarsi a un torneo in Giappone. Tuttavia, possono affrontare la partita evento anche i giocatori che non intendono partecipare al torneo.<br /><br />Per partecipare ai tornei potrebbe essere necessaria una richiesta separata, anche se il giocatore si è qualificato. Inoltre, la partecipazione potrebbe essere limitata in base al paese di residenza del giocatore o ad altri fattori."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9KZXRQYWNr": {
+      "name": "Jet splat per tutti!",
+      "desc": "Una battaglia volante a suon di jet splat!",
+      "regulation": "Decolla con il tuo jet splat e combatti in volo!<br /><br />・ Puoi usare solo set che includono l'arma speciale jet splat.<br />・ L'indicatore dell'arma speciale si riempirà rapidamente in modo autonomo!<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9SYWlubWFrZXI=": {
+      "name": "Bazookarp modificato",
+      "desc": "Testa il bazookarp per conto di Armand!",
+      "regulation": "Aiuta Armand a testare le ultime modifiche al bazookarp e goditi una bella battaglia, già che ci sei!<br /><br />・ Tutte le partite si svolgono in modalità Bazookarp.<br />・ Il bazookarp completamente carico ora spara in tre direzioni!<br />・ Le abilità del giocatore che ha il bazookarp saranno potenziate!<br />・ Attenzione: il bazookarp esploderà 30 secondi dopo essere stato raccolto!<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db3N0dW1lUGFydHk=": {
+      "name": "Sfilata in salsa Armand",
+      "desc": "Armand presta armi ed equipaggiamento casuali!",
+      "regulation": "In questa partita evento senza dress code dovrai cavartela con un assortimento casuale delle armi e dell'equipaggiamento di Armand!<br /><br />・ All'inizio della partita ti verrà assegnato un set composto da arma ed equipaggiamento.<br />・ Il set cambierà completamente a ogni successiva partita!<br />・ Il tutto sarà gentilmente fornito da Armand, quindi non preoccuparti se non possiedi alcuni oggetti. E ricorda che dovrai restituirli."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NwaW5uZXI=": {
+      "name": "Splatta con lo splatling",
+      "desc": "Battaglia all'ultimo splatling!",
+      "regulation": "Gettati nella mischia con il tuo miglior set che include lo splatling e scopri chi sarà l'ultimo a rimanere in piedi!<br /><br />・ I giocatori possono scegliere solo tra diversi tipi di splatling.<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9Ta2V3ZXI=": {
+      "name": "Gran premio del motosqualo",
+      "desc": "Sfreccia nella mischia con il tuo motosqualo!",
+      "regulation": "Chi è pronto a cavalcare uno squalo? Beh, tutti i partecipanti a questa partita evento!<br /><br />・ Puoi usare solo set che includono l'arma speciale motosqualo.<br />・ L'indicatore dell'arma speciale si riempirà rapidamente in modo autonomo!<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1HZXlzZXI=": {
+      "name": "All'ultimo geyser",
+      "desc": "I tuoi amati scenari ora sono pieni di geyser!",
+      "regulation": "Da dove arrivano tutti questi geyser? Visto che ormai ci sono, conviene farne buon uso!<br /><br />・ Dei geyser sono apparsi nello scenario!<br />・ Attacca un geyser per fargli eruttare inchiostro del tuo colore.<br />・ Puoi usarli per nasconderti o salire in alto.<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0JsYXN0ZXI=": {
+      "name": "Blaster e basta",
+      "desc": "Porta i tuoi blaster e blasta alla grande!",
+      "regulation": "Sai davvero usare i blaster? Allora dimostralo!<br /><br />・ I giocatori possono scegliere solo tra i diversi tipi di blaster!<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9Ub3dlckNvbnRyb2w=": {
+      "name": "Torrone mobile",
+      "desc": "La torre è più grande che mai! Tutti a bordo!",
+      "regulation": "Riuscirai a controllare la torre più grande che ci sia?<br /><br />・ Tutte le partite si svolgono in modalità Torre mobile.<br />・ La torre è enorme: ci può salire tutta la tua squadra!<br />・ Coordinati con i tuoi compagni di squadra per attaccare la base nemica.<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYWlubWFrZXJEcm9w": {
+      "name": "Un bazookarp... qui?!",
+      "desc": "Prova il bazookarp nei luoghi più inaspettati!",
+      "regulation": "Scopri che cosa puoi fare con un bazookarp in una partita amichevole!<br /><br />・ La modalità non è Bazookarp.<br />・ Il bazookarp appare al centro dello scenario.<br />・ Chiunque ottenga il bazookarp potrà usarlo a proprio vantaggio!<br />・ Se il giocatore che ha il bazookarp viene sconfitto, il bazookarp torna al centro dello scenario.<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0NoYXJnZXI=": {
+      "name": "Alla carica",
+      "desc": "Scarica la tensione con le armi a carica!",
+      "regulation": "Tira fuori la tua arma a carica preferita e fai vedere cosa sai fare!<br /><br />・ I giocatori possono scegliere solo tra i diversi tipi di armi a carica!<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX01hbmV1dmVy": {
+      "name": "Passione repolper",
+      "desc": "Partecipa a una guerra di repolper,<br />il campo di battaglia è pronto!",
+      "regulation": "Una sfida a colpi di repolper, chi vincerà?<br /><br />・ I giocatori possono scegliere solo tra i diversi tipi di repolper.<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Sb2xsZXJCcnVzaFNwZWVkVXA=": {
+      "name": "Pittura sprint",
+      "desc": "Surclassa i tuoi avversari con pennelli<br />e rulli che ti rendono ancora più veloce!",
+      "regulation": "I rulli e i pennelli aumentano la tua velocità di movimento mentre inchiostri!<br /><br />・ I giocatori possono scegliere solo tra i diversi tipi di rulli e di pennelli.<br />・ Tutti i giocatori si muovono più velocemente mentre inchiostrano.<br />・ L'inchiostro si consuma molto più rapidamente del normale.<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9DdXJsaW5nQm9tYg==": {
+      "name": "Cura curling",
+      "desc": "Lancia delle gigantesche bombe curling<br />in questo evento forsennato!",
+      "regulation": "Largo alle gigantesche bombe curling che stanno per invadere il campo di battaglia!<br /><br />・ Puoi scegliere solo armi che hanno le bombe curling come arma secondaria.<br />・ Le bombe curling sono più grandi!<br />・ Il danno da impatto delle bombe curling è molto superiore al normale.<br />・ Anche la portata dell'esplosione delle bombe è stata ampliata!<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NoZWx0ZXI=": {
+      "name": "Assolo di sparasole",
+      "desc": "All'assalto con lo sparasole!",
+      "regulation": "È tempo per una spara-insolazione!<br /><br />・ I giocatori possono scegliere solo tra i diversi tipi di sparasole.<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVN0YW1w": {
+      "name": "Mega timbro alla riscossa",
+      "desc": "Timbra tutti col mega timbro!",
+      "regulation": "Colpisci a destra e a sinistra in questa partita evento a tema mega timbro!<br /><br />・ Puoi usare solo set che includono l'arma speciale mega timbro.<br />・ L'indicatore dell'arma speciale si riempirà rapidamente in modo autonomo.<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9TcGxhc2hCb21i": {
+      "name": "Bombe splash a non finire",
+      "desc": "Le bombe fanno splash in questa lotta<br />senza quartiere!",
+      "regulation": "In questa partita evento le bombe splash la fanno da padrone!<br /><br />・ Puoi usare solo set che includono l'arma secondaria bomba splash.<br />・ Il consumo di inchiostro delle bombe splash sarà dimezzato.<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlckJlYWNvbg==": {
+      "name": "Maratona di super salti",
+      "desc": "Super salta di qua e di là! Resta accanto<br />ai tuoi compagni con il trasferitore!",
+      "regulation": "Resta sempre in compagnia con questi super salti a tutta velocità verso i trasferitori dei tuoi alleati!<br /><br />・ Puoi usare solo set che includono l'arma secondaria trasferitore.<br />・ I super salti sono molto più veloci.<br />・ Saranno attivate solo le abilità originali, ad eccezione di Salti super e veloci e Arma secondaria +. Le abilità extra non avranno alcun effetto."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclNwZWNpYWxXZWFwb25fQ2hhcmlvdA==": {
+      "name": "Granchi armati scatenati",
+      "desc": "Granchi armati a piede libero!<br />Quale crostaceo trionferà?",
+      "regulation": "I granchi armati più veloci sono il tuo sogno o il tuo incubo? Beh, ora sono una realtà!<br /><br />・ Puoi usare solo set che includono l'arma speciale granchio armato.<br />・ La velocità di spostamento laterale del granchio armato sarà molto più elevata!<br />・ La tua velocità quando rotoli (pulsante ZL) resterà invariata.<br />・ Saranno attivate solo le abilità originali. Le abilità extra non avranno alcun effetto."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1Nsb3NoZXI=": {
+      "name": "Secchiostri supremi",
+      "desc": "Secchiostra gli avversari!",
+      "regulation": "Sai usare i secchiostri come si deve? Scopriamolo!<br /><br />・ I giocatori possono scegliere solo tra diversi tipi di secchiostri.<br />・ Saranno attivate sia le abilità originali che quelle extra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb25BbmRHZWFyUG93ZXI=": {
+      "name": "Tutto in mano ad Armand",
+      "desc": "Armand comporrà per te un set di<br />armi e abilità casuali!",
+      "regulation": "In questo test di adattabilità dovrai cavartela con un assortimento casuale delle armi e delle abilità di Armand!<br /><br />・ All'inizio della partita ti verrà assegnato un set composto da arma e abilità.<br />・ Una delle abilità che riceverai sarà alla massima potenza.<br />・ Ti saranno assegnate anche tre abilità extra, indipendentemente dagli slot disponibili per il tuo equipaggiamento.<br />・ Una volta conclusa la partita, il tuo equipaggiamento tornerà ad avere le abilità precedenti."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwUGFjaWZpYw==": {
+      "name": "Partita evento speciale (Sepia)",
+      "desc": "Una partita evento esclusiva,<br />aperta solo ai molluschi prescelti!",
+      "regulation": "Questa partita evento è destinata ai giocatori del gruppo Sepia delle partite X. Possono partecipare solo i giocatori entro le prime 1000 posizioni della classifica X della stagione precedente per la modalità specificata da questa partita evento.<br /><br />Non è possibile partecipare a coppie o in squadra."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwQXRsYW50aWM=": {
+      "name": "Partita evento speciale (Arome)",
+      "desc": "Una partita evento esclusiva,<br />aperta solo ai molluschi prescelti!",
+      "regulation": "Questa partita evento è destinata ai giocatori del gruppo Arome delle partite X. Possono partecipare solo i giocatori entro le prime 1000 posizioni della classifica X della stagione precedente per la modalità specificata da questa partita evento.<br /><br />Non è possibile partecipare a coppie o in squadra."
+    }
+  },
+  "bosses": {
+    "Q29vcEVuZW15LTI0": {
+      "name": "Orroboros"
+    },
+    "Q29vcEVuZW15LTIz": {
+      "name": "Colossalmonoide"
+    },
+    "Q29vcEVuZW15LTI1": {
+      "name": "Mascello"
+    },
+    "Q29vcEVuZW15LTMx": {
+      "name": "Casuale"
+    },
+    "Q29vcEVuZW15LTMw": {
+      "name": "Triumvirato"
+    }
+  }
+}

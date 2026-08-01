@@ -192,7 +192,7 @@ function createFlexMessage(notification, imageUrl) {
 }
 
 export async function deliverLine(notification, target, options = {}) {
-  const imageUrl = requireHttpsUrl(notification.image.url, 2_000, 'image URL')
+  const imageUrl = requireHttpsUrl(notification.image.compact.url, 2_000, 'image URL')
   const imageMetadata = await (options.inspectImage || inspectRemoteImage)(imageUrl, {
     fetchImpl: options.fetchImpl,
     maximumBytes: maximumImageBytes,

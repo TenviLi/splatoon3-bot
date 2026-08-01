@@ -43,6 +43,7 @@ async function inspectRenderState(page) {
     const footerRect = footer?.getBoundingClientRect()
     const footerText = footer?.textContent?.trim() || ''
     const images = [...document.images]
+    const fittedTextElements = [...document.querySelectorAll('[data-screenshot-fit]')]
     const externalImageUrls = images
       .map((image) => image.currentSrc || image.src)
       .filter(Boolean)
@@ -80,6 +81,11 @@ async function inspectRenderState(page) {
     if (document.documentElement.scrollHeight !== window.innerHeight) {
       issues.push(`document height ${document.documentElement.scrollHeight} overflows viewport ${window.innerHeight}`)
     }
+    for (const element of fittedTextElements) {
+      if (element.scrollWidth > element.clientWidth + 1.5) {
+        issues.push(`fitted text is clipped: ${element.textContent?.trim() || '(empty)'}`)
+      }
+    }
     if (!footerRect) {
       issues.push('screenshot footer is missing')
     } else if (Math.abs(window.innerHeight - footerRect.bottom - 16) > 0.5) {
@@ -104,6 +110,7 @@ async function inspectRenderState(page) {
       footerText,
       attribution: attribution?.textContent?.trim() || '',
       imageCount: images.length,
+      fittedTextCount: fittedTextElements.length,
       externalImageUrls,
     }
   })

@@ -1,0 +1,69 @@
+{
+  "times": {
+    "now": "開放！",
+    "next": "下次",
+    "future": "下下次"
+  },
+  "time": {
+    "in": "{time}內",
+    "remaining": "還剩{time}",
+    "until": "到{time}為止",
+    "left": "還剩{time}",
+    "d": "{n}天 | {n}天",
+    "h": "{n}小時 | {n}小時",
+    "m": "{n}分鐘 | {n}分鐘",
+    "s": "{n}秒 | {n}秒",
+    "days": "{n}天 | {n}天",
+    "hours": "{n}小時 | {n}小時",
+    "minutes": "{n}分鐘 | {n}分鐘",
+    "seconds": "{n}秒 | {n}秒"
+  },
+  "schedule": {
+    "title": "時間表",
+    "types": {
+      "series": "挑戰",
+      "open": "開放",
+      "pro": "挑戰",
+      "tricolor": "三色奪寶",
+      "regular": "一般比賽",
+      "anarchy": "蠻頹比賽",
+      "splatfest": "祭典比賽",
+      "xmatch": "X比賽",
+      "league": "聯盟比賽"
+    }
+  },
+  "salmonrun": {
+    "title": "SALMON RUN",
+    "weapons": "派發武器",
+    "bigrun": "大型跑",
+    "eggstrawork": "團隊打工競賽"
+  },
+  "festival": {
+    "title": "祭典",
+    "upcoming": "祭典",
+    "active": "祭典",
+    "past": "祭典",
+    "results": {
+      "title": "結算",
+      "conchshells": "法螺獲得率",
+      "votes": "得票率",
+      "open": "開放",
+      "pro": "挑戰",
+      "tricolor": "三色奪寶攻擊",
+      "won": "{team}獲勝！"
+    }
+  },
+  "gear": {
+    "title": "裝備",
+    "sale": "目前販售的裝備",
+    "dailydrop": "本日精選",
+    "order": "預訂"
+  },
+  "events": {
+    "title": "活動比賽",
+    "available": "下一場",
+    "not_available": "時間表未定",
+    "now": "現在",
+    "now_open": "舉行中！！"
+  }
+}

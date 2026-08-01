@@ -19,17 +19,61 @@
       "sha256": "f094c0e5d9516a4e9af81a7548aee3a3c223e392e7ef453fda13e6cb5b802a8b",
       "bytes": 983
     },
-    "locale/zh-CN.json": {
-      "sha256": "ed55cdc4be26bd49bf94221be432773568c289bfbb04ab19ceabbf2004ce803e",
-      "bytes": 171430
+    "locale/de-DE.json": {
+      "sha256": "b894eead50e0694227ed6c2610866c19ba329a2dfb84a15731fd2f3a041107fc",
+      "bytes": 167427
+    },
+    "locale/en-GB.json": {
+      "sha256": "f729835d2e4f8dbc1a56e9f8ff3d57f66a3cd929aac8fd761ea5ab52a76b7de1",
+      "bytes": 69172
     },
     "locale/en-US.json": {
       "sha256": "282230dc31ebcd70f2666506b28e4ec3d1e2b4337d5aa8b4744852d4b1febeac",
       "bytes": 69419
     },
+    "locale/es-ES.json": {
+      "sha256": "7b1cac2a3a93b35a1eb48eabd002adbbc32618adf768929569afbc928ee097f0",
+      "bytes": 170057
+    },
+    "locale/es-MX.json": {
+      "sha256": "107b204629bd6b6e37493c4bd663a5e4653fe78b2a6000b09653afb92ba4fe6c",
+      "bytes": 170571
+    },
+    "locale/fr-CA.json": {
+      "sha256": "ec4cab01397c2d7017ca483cc4754f8e6aa1b0917bdaec6e9e4dfb433518b4ee",
+      "bytes": 174482
+    },
+    "locale/fr-FR.json": {
+      "sha256": "10d6596ef1c5362c140c85f73f792c8ce1045bb888e3f6c8157e1288948ad16a",
+      "bytes": 173731
+    },
+    "locale/it-IT.json": {
+      "sha256": "35889b1d00d73c2f2953e9c0fbe10ce241b0d76c50eeed144181dbeaf808c2b1",
+      "bytes": 169590
+    },
     "locale/ja-JP.json": {
       "sha256": "bb172649f7e5261b5a82e8040f4f67a25178b1cb87028559c072211bcd7d75fe",
       "bytes": 78496
+    },
+    "locale/ko-KR.json": {
+      "sha256": "6d0905d8cb8d534f30d49b8b879a7491cec65c924088e11d962e3e65a5299676",
+      "bytes": 175806
+    },
+    "locale/nl-NL.json": {
+      "sha256": "cbabc5c432510f4f2f4d3a709ee3606f526a8838d4200432fe7f5b701b6cf8e6",
+      "bytes": 167545
+    },
+    "locale/ru-RU.json": {
+      "sha256": "c22df7e74ee53e16c224485604605be5ff9c78c2dba9eb6833de33bd99a75307",
+      "bytes": 162668
+    },
+    "locale/zh-CN.json": {
+      "sha256": "ed55cdc4be26bd49bf94221be432773568c289bfbb04ab19ceabbf2004ce803e",
+      "bytes": 171430
+    },
+    "locale/zh-TW.json": {
+      "sha256": "432596f86ff3c48856daca15726d9d92796827cd1eeed5733b7981f7fa2c2d0e",
+      "bytes": 125432
     }
   }
 }

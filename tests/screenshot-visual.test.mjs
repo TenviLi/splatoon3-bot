@@ -10,19 +10,21 @@ import {
   getScreenshotGoldenDirectory,
   listScreenshotGoldenEnvironments,
 } from './support/ScreenshotGoldenEnvironment.mjs'
+import { supportedBotLocales } from '../src/common/botLocale.mjs'
 import { defaultScreenshotAttribution } from '../src/common/screenshotAttribution.mjs'
 import {
   screenshotGoldenFilename,
   screenshotGoldenLocales,
 } from './support/ScreenshotGoldenLocale.mjs'
 
-test('screenshot artifacts match structural and visual contracts', { timeout: 120_000 }, async () => {
+test('screenshot artifacts match structural and visual contracts', { timeout: 180_000 }, async () => {
   process.env.SPLATOON_DATA_DIRECTORY = 'tests/fixtures/data'
   process.env.SPLATOON_PUBLIC_DIRECTORY = 'tests/fixtures/public'
   const { build } = await import('vite')
   const buildDirectory = path.join(process.cwd(), '.cache', 'visual-dist')
   const outputDirectory = path.join(process.cwd(), '.cache', 'visual-current')
   const productionOutputDirectory = path.join(process.cwd(), '.cache', 'production-media-current')
+  const localeOutputDirectory = path.join(process.cwd(), '.cache', 'locale-structural-current')
   const diffDirectory = path.join(process.cwd(), '.cache', 'visual-diff')
   const goldenDirectory = getScreenshotGoldenDirectory()
   const definitions = listScreenshotDefinitions()
@@ -75,6 +77,30 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 12
         await fs.writeFile(path.join(diffDirectory, screenshotGoldenFilename(artifact.name, locale)), PNG.sync.write(diff))
       }
       assert.ok(differenceRatio <= 0.001, `${label} visual difference is ${(differenceRatio * 100).toFixed(3)}%`)
+    }
+  }
+
+  const goldenLocales = new Set(screenshotGoldenLocales.map(({ locale }) => locale))
+  for (const locale of supportedBotLocales.filter((candidate) => !goldenLocales.has(candidate))) {
+    const artifacts = await renderScreenshotArtifacts(
+      definitions.map((definition) => definition.name),
+      {
+        buildDirectory,
+        outputDirectory: path.join(localeOutputDirectory, locale),
+        renderTime: Date.parse('2026-07-29T19:00:00Z'),
+        locale,
+        screenshotAttribution: defaultScreenshotAttribution,
+        screenshotResolution: '1200x675',
+      }
+    )
+    for (const artifact of artifacts) {
+      assert.equal(artifact.renderState.locale, locale)
+      assert.equal(artifact.renderState.attribution, defaultScreenshotAttribution)
+      if (['schedules', 'salmon-run'].includes(artifact.name)) {
+        assert.ok(artifact.renderState.fittedTextCount > 0, `${locale}/${artifact.name} did not inspect fitted text`)
+      }
+      assert.equal(artifact.width, 1_200)
+      assert.equal(artifact.height, 675)
     }
   }
 

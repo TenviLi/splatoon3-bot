@@ -1,0 +1,93 @@
+{
+  "times": {
+    "now": "Actuel",
+    "next": "Suivant",
+    "future": "Prochains",
+    "checkback": "Revenez voir plus tard !"
+  },
+  "time": {
+    "in": "dans {time}",
+    "remaining": "{time} restant",
+    "until": "Jusqu'au {time}",
+    "left": "{time} restantes",
+    "d": "{n}j | {n}j",
+    "h": "{n}h | {n}h",
+    "m": "{n}m | {n}m",
+    "s": "{n}s | {n}s",
+    "days": "{n} jour | {n} jours",
+    "hours": "{n} heure | {n} heures",
+    "minutes": "{n} minute | {n} minutes",
+    "seconds": "{n} seconde | {n} secondes"
+  },
+  "schedule": {
+    "title": "Planning",
+    "types": {
+      "series": "Série",
+      "open": "Ouvert",
+      "pro": "Défi",
+      "tricolor": "Tricolore",
+      "regular": "Match classique",
+      "anarchy": "Match anarchie",
+      "splatfest": "Festimatch",
+      "xmatch": "Match X",
+      "league": "Match de ligue"
+    },
+    "all-upcoming": "Les stages à venir"
+  },
+  "salmonrun": {
+    "title": "Salmon Run",
+    "weapons": "Armes fournies",
+    "bigrun": "Big Run",
+    "eggstrawork": "Défi œuf sup'"
+  },
+  "festival": {
+    "title": "Festivals",
+    "upcoming": "Festival",
+    "active": "Festival",
+    "past": "Festival",
+    "results": {
+      "title": "Résultats",
+      "conchshells": "Conques",
+      "votes": "Votes",
+      "open": "Ouvert",
+      "pro": "Défi",
+      "tricolor": "Match tricolore",
+      "won": "{team} l'emporte !"
+    }
+  },
+  "gear": {
+    "title": "Équipement",
+    "sale": "Équipement en solde",
+    "dailydrop": "Chouchou du jour",
+    "order": "Commander"
+  },
+  "about": {
+    "title": "À propos !",
+    "subtitle-1": "Qu'est-ce que c'est ?",
+    "text-1": "Ce site est une source d'informations non officielle, créée par un fan, sur le jeu Splatoon 3 de Nintendo. Vous vous souvenez peut-être de moi pour {0}!",
+    "subtitle-2": "Comment ce site a-t-il été créé ?",
+    "text-2": "Côté front, ce site a été conçu avec {0}, {1} et {2}. Les ressources statiques sont compilées en utilisant {3}.",
+    "text-3": "Côté back, les modules de mise à jour des données et le bot Twitter ont été développés à l'aide de {0}.",
+    "text-4": "Le bot {0} utilise {1} pour générer automatiquement des images pour chaque tweet.",
+    "text-5": "Ce site est entièrement open source. Vous pouvez consulter les sources ici sur {0}.",
+    "subtitle-3": "Puis-je utiliser les données de ce site dans mon propre projet ?",
+    "text-6": "Oui ! J'adore voir tous les projets créatifs que les gens imaginent en utilisant les données de ce site.",
+    "text-7": "Veuillez consulter la page {0} pour obtenir une liste de tous les endpoints.",
+    "subtitle-4": "Comment puis-je vous contacter ?",
+    "text-8": "N'hésitez pas à me contacter sur Twitter à {0} ou via {1} si vous avez d'autres questions !",
+    "email": "email",
+    "schedules": "Planning Splatoon 3"
+  },
+  "footer": {
+    "term": "Ce site internet n'est pas affilié à Nintendo. Tous les noms de produits, logos et marques sont la propriété de leurs détenteurs respectifs.",
+    "about": "À propos",
+    "data": "Données"
+  },
+  "events": {
+    "title": "Match Challenge",
+    "available": "Créneau suivant",
+    "not_available": "Aucun match Challenge prévu pour le moment.",
+    "now": "Actuellement",
+    "now_open": "En cours !"
+  }
+}

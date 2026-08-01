@@ -13,13 +13,13 @@
       left-1/2
       -translate-x-1/2
       translate-y-1/2
-      overflow-ellipsis
-      overflow-hidden
-      max-w-[85%]
-      whitespace-nowrap
+      w-max
+      max-w-[95%]
+      whitespace-normal
+      text-center
       font-splatoon2
       px-2
-    " :class="textSize" v-if="!hideLabel && stage">{{ $t(`splatnet.stages.${stage.id}.name`, stage.name) }}</div>
+    " :class="textSize" data-screenshot-fit v-if="!hideLabel && stage">{{ $t(`splatnet.stages.${stage.id}.name`, stage.name) }}</div>
 
     <StageDialog :stage="stage" :show="open" @close="open = false" />
   </button>

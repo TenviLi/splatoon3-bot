@@ -5,7 +5,7 @@
       "template_card": {
         "card_type": "news_notice",
         "source": {
-          "icon_url": "https://cdn.example.com/branding-icons/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/schedules.png",
+          "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png",
           "desc": "今天你喷喷了吗?",
           "desc_color": 0
         },
@@ -35,7 +35,7 @@
       "template_card": {
         "card_type": "news_notice",
         "source": {
-          "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/salmon-run.png",
+          "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/salmon-run.png",
           "desc": "打工的时间到啦!",
           "desc_color": 0
         },
@@ -81,7 +81,7 @@
       "template_card": {
         "card_type": "news_notice",
         "source": {
-          "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/gear.png",
+          "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png",
           "desc": "鱿鱼须商城·今日精选",
           "desc_color": 0
         },
@@ -119,8 +119,8 @@
       "template_card": {
         "card_type": "news_notice",
         "source": {
-          "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/gear.png",
-          "desc": "鱿鱼须商城·目前贩卖",
+          "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png",
+          "desc": "鱿鱼须商城·目前贩卖的装备",
           "desc_color": 0
         },
         "main_title": {
@@ -192,14 +192,14 @@
         {
           "author": {
             "name": "今天你喷喷了吗?",
-            "icon_url": "https://cdn.example.com/branding-icons/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/schedules.png"
+            "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png"
           },
           "title": "日程已更新",
           "description": "2:00 - 4:00",
           "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png",
           "color": 3786171,
           "thumbnail": {
-            "url": "https://cdn.example.com/branding-icons/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/schedules.png"
+            "url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png"
           },
           "image": {
             "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png"
@@ -225,14 +225,14 @@
         {
           "author": {
             "name": "打工的时间到啦!",
-            "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/salmon-run.png"
+            "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/salmon-run.png"
           },
           "title": "鲑鱼心脏斗技场",
           "description": "7/29周三 16:00 - 7/31 8:00",
           "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png",
           "color": 16347926,
           "thumbnail": {
-            "url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/salmon-run.png"
+            "url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/salmon-run.png"
           },
           "image": {
             "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png"
@@ -258,14 +258,14 @@
         {
           "author": {
             "name": "鱿鱼须商城·今日精选",
-            "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/gear.png"
+            "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png"
           },
           "title": "「七轮」",
           "description": "到7/30周四 8:00为止",
           "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png",
           "color": 16436245,
           "thumbnail": {
-            "url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/gear.png"
+            "url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png"
           },
           "image": {
             "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png"
@@ -300,14 +300,14 @@
       "embeds": [
         {
           "author": {
-            "name": "鱿鱼须商城·目前贩卖",
-            "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/gear.png"
+            "name": "鱿鱼须商城·目前贩卖的装备",
+            "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png"
           },
           "title": "鱿鱼须商城上新啦",
           "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png",
           "color": 16486972,
           "thumbnail": {
-            "url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/gear.png"
+            "url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png"
           },
           "image": {
             "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png"
@@ -320,7 +320,7 @@
             }
           ],
           "footer": {
-            "text": "🦑 鱿鱼须商城·目前贩卖"
+            "text": "🦑 鱿鱼须商城·目前贩卖的装备"
           }
         }
       ]
@@ -422,7 +422,7 @@
     "gear-regular": {
       "chat_id": "-10001",
       "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png",
-      "caption": "<b>鱿鱼须商城上新啦</b>\n\n<i>🦑 鱿鱼须商城·目前贩卖</i>\n\n• <b>👕</b>\n棒球运动服\n(缩短复活时间)",
+      "caption": "<b>鱿鱼须商城上新啦</b>\n\n<i>🦑 鱿鱼须商城·目前贩卖的装备</i>\n\n• <b>👕</b>\n棒球运动服\n(缩短复活时间)",
       "parse_mode": "HTML",
       "show_caption_above_media": true,
       "disable_notification": false,
@@ -491,7 +491,7 @@
             },
             {
               "tag": "markdown",
-              "content": "[🖼️ Splatoon 3 对战日程](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)"
+              "content": "[🖼️ 对战日程表](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)"
             },
             {
               "tag": "button",
@@ -546,7 +546,7 @@
             },
             {
               "tag": "markdown",
-              "content": "[🖼️ Splatoon 3 鲑鱼跑排班](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)"
+              "content": "[🖼️ 打工提醒小助手](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)"
             },
             {
               "tag": "button",
@@ -642,7 +642,7 @@
             },
             {
               "tag": "markdown",
-              "content": "[🖼️ 鱿鱼须商城今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)"
+              "content": "[🖼️ 鱿鱼须商城·今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)"
             },
             {
               "tag": "button",
@@ -683,7 +683,7 @@
           "elements": [
             {
               "tag": "markdown",
-              "content": "*🦑 鱿鱼须商城·目前贩卖*"
+              "content": "*🦑 鱿鱼须商城·目前贩卖的装备*"
             },
             {
               "tag": "hr"
@@ -710,7 +710,7 @@
             },
             {
               "tag": "markdown",
-              "content": "[🖼️ 鱿鱼须商城目前贩卖装备](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)"
+              "content": "[🖼️ 鱿鱼须商城·目前贩卖的装备](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)"
             },
             {
               "tag": "button",
@@ -812,7 +812,7 @@
       "msgtype": "actionCard",
       "actionCard": {
         "title": "日程已更新",
-        "text": "### 日程已更新\n\n> 2:00 \\- 4:00\n> 🦑 今天你喷喷了吗?\n\n![Splatoon 3 对战日程](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)\n\n#### 🔫  占地对战\n鬼头刀SPA度假区·海女美术大学",
+        "text": "### 日程已更新\n\n> 2:00 \\- 4:00\n> 🦑 今天你喷喷了吗?\n\n![对战日程表](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)\n\n#### 🔫  占地对战\n鬼头刀SPA度假区·海女美术大学",
         "hideAvatar": "0",
         "btnOrientation": "0",
         "singleTitle": "🖼️ 查看日程截图",
@@ -823,7 +823,7 @@
       "msgtype": "actionCard",
       "actionCard": {
         "title": "鲑鱼心脏斗技场",
-        "text": "### 鲑鱼心脏斗技场\n\n> 7/29周三 16:00 \\- 7/31 8:00\n> 🦑 打工的时间到啦\\!\n\n![Splatoon 3 鲑鱼跑排班](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)\n\n#### 🐻 发放武器:\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲",
+        "text": "### 鲑鱼心脏斗技场\n\n> 7/29周三 16:00 \\- 7/31 8:00\n> 🦑 打工的时间到啦\\!\n\n![打工提醒小助手](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)\n\n#### 🐻 发放武器:\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲",
         "hideAvatar": "0",
         "btnOrientation": "0",
         "singleTitle": "🖼️ 查看鲑鱼跑截图",
@@ -834,7 +834,7 @@
       "msgtype": "actionCard",
       "actionCard": {
         "title": "「七轮」",
-        "text": "### 「七轮」\n\n> 到7/30周四 8:00为止\n> 🦑 鱿鱼须商城·今日精选\n\n![鱿鱼须商城今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)",
+        "text": "### 「七轮」\n\n> 到7/30周四 8:00为止\n> 🦑 鱿鱼须商城·今日精选\n\n![鱿鱼须商城·今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)",
         "hideAvatar": "0",
         "btnOrientation": "0",
         "singleTitle": "🖼️ 查看今日精选",
@@ -845,7 +845,7 @@
       "msgtype": "actionCard",
       "actionCard": {
         "title": "鱿鱼须商城上新啦",
-        "text": "### 鱿鱼须商城上新啦\n\n> 🦑 鱿鱼须商城·目前贩卖\n\n![鱿鱼须商城目前贩卖装备](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)\n\n- **👕** 棒球运动服\n\\(缩短复活时间\\)",
+        "text": "### 鱿鱼须商城上新啦\n\n> 🦑 鱿鱼须商城·目前贩卖的装备\n\n![鱿鱼须商城·目前贩卖的装备](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)\n\n- **👕** 棒球运动服\n\\(缩短复活时间\\)",
         "hideAvatar": "0",
         "btnOrientation": "0",
         "singleTitle": "🖼️ 查看目前贩卖",
@@ -881,7 +881,7 @@
           "elements": [
             {
               "type": "image",
-              "image_url": "https://cdn.example.com/branding-icons/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/schedules.png",
+              "image_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png",
               "alt_text": "今天你喷喷了吗?"
             },
             {
@@ -894,10 +894,10 @@
         {
           "type": "image",
           "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png",
-          "alt_text": "Splatoon 3 对战日程",
+          "alt_text": "对战日程表",
           "title": {
             "type": "plain_text",
-            "text": "Splatoon 3 对战日程",
+            "text": "对战日程表",
             "emoji": true
           }
         },
@@ -943,7 +943,7 @@
           "elements": [
             {
               "type": "image",
-              "image_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/salmon-run.png",
+              "image_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/salmon-run.png",
               "alt_text": "打工的时间到啦!"
             },
             {
@@ -956,10 +956,10 @@
         {
           "type": "image",
           "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png",
-          "alt_text": "Splatoon 3 鲑鱼跑排班",
+          "alt_text": "打工提醒小助手",
           "title": {
             "type": "plain_text",
-            "text": "Splatoon 3 鲑鱼跑排班",
+            "text": "打工提醒小助手",
             "emoji": true
           }
         },
@@ -1005,7 +1005,7 @@
           "elements": [
             {
               "type": "image",
-              "image_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/gear.png",
+              "image_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png",
               "alt_text": "鱿鱼须商城·今日精选"
             },
             {
@@ -1018,10 +1018,10 @@
         {
           "type": "image",
           "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png",
-          "alt_text": "鱿鱼须商城今日精选",
+          "alt_text": "鱿鱼须商城·今日精选",
           "title": {
             "type": "plain_text",
-            "text": "鱿鱼须商城今日精选",
+            "text": "鱿鱼须商城·今日精选",
             "emoji": true
           }
         },
@@ -1079,12 +1079,12 @@
           "elements": [
             {
               "type": "image",
-              "image_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/gear.png",
-              "alt_text": "鱿鱼须商城·目前贩卖"
+              "image_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png",
+              "alt_text": "鱿鱼须商城·目前贩卖的装备"
             },
             {
               "type": "mrkdwn",
-              "text": "*鱿鱼须商城·目前贩卖*",
+              "text": "*鱿鱼须商城·目前贩卖的装备*",
               "verbatim": true
             }
           ]
@@ -1092,10 +1092,10 @@
         {
           "type": "image",
           "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png",
-          "alt_text": "鱿鱼须商城目前贩卖装备",
+          "alt_text": "鱿鱼须商城·目前贩卖的装备",
           "title": {
             "type": "plain_text",
-            "text": "鱿鱼须商城目前贩卖装备",
+            "text": "鱿鱼须商城·目前贩卖的装备",
             "emoji": true
           }
         },
@@ -1235,7 +1235,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png",
+              "url": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/schedules.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1342,7 +1342,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png",
+              "url": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/salmon-run.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1470,7 +1470,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png",
+              "url": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-dailydrop.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1598,7 +1598,7 @@
       "messages": [
         {
           "type": "flex",
-          "altText": "鱿鱼须商城上新啦 · 鱿鱼须商城·目前贩卖 · 查看目前贩卖",
+          "altText": "鱿鱼须商城上新啦 · 鱿鱼须商城·目前贩卖的装备 · 查看目前贩卖",
           "contents": {
             "type": "bubble",
             "header": {
@@ -1610,7 +1610,7 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "🦑 鱿鱼须商城·目前贩卖",
+                  "text": "🦑 鱿鱼须商城·目前贩卖的装备",
                   "size": "xs",
                   "color": "#FFFFFF",
                   "wrap": true
@@ -1627,7 +1627,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png",
+              "url": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-regular.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1725,7 +1725,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/escaping.png",
+              "url": "https://cdn.example.com/escaping-compact.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1848,7 +1848,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png"
+                  "link": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/schedules.png"
                 }
               }
             ]
@@ -1905,7 +1905,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png"
+                  "link": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/salmon-run.png"
                 }
               }
             ]
@@ -1962,7 +1962,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png"
+                  "link": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-dailydrop.png"
                 }
               }
             ]
@@ -2019,7 +2019,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png"
+                  "link": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-regular.png"
                 }
               }
             ]
@@ -2035,7 +2035,7 @@
               {
                 "type": "text",
                 "parameter_name": "context",
-                "text": "鱿鱼须商城·目前贩卖"
+                "text": "鱿鱼须商城·目前贩卖的装备"
               },
               {
                 "type": "text",
@@ -2076,7 +2076,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/escaping.png"
+                  "link": "https://cdn.example.com/escaping-compact.png"
                 }
               }
             ]
@@ -2121,117 +2121,31 @@
     "schedules": {
       "msg_type": 2,
       "markdown": {
-        "content": "# 日程已更新\n\n2:00 \\- 4:00\n\n![Splatoon 3 对战日程 #1024px #576px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)\n\n## 🔫  占地对战\n鬼头刀SPA度假区·海女美术大学\n\n[查看日程截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)"
+        "content": "# 日程已更新\n\n2:00 \\- 4:00\n\n![对战日程表 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)\n\n## 🔫  占地对战\n鬼头刀SPA度假区·海女美术大学\n\n[查看日程截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)"
       }
     },
     "salmon-run": {
       "msg_type": 2,
       "markdown": {
-        "content": "# 鲑鱼心脏斗技场\n\n7/29周三 16:00 \\- 7/31 8:00\n\n![Splatoon 3 鲑鱼跑排班 #1024px #576px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)\n\n## 🐻 发放武器:\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲\n\n[查看鲑鱼跑截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)"
+        "content": "# 鲑鱼心脏斗技场\n\n7/29周三 16:00 \\- 7/31 8:00\n\n![打工提醒小助手 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)\n\n## 🐻 发放武器:\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲\n\n[查看鲑鱼跑截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)"
       }
     },
     "gear-dailydrop": {
       "msg_type": 2,
       "markdown": {
-        "content": "# 「七轮」\n\n到7/30周四 8:00为止\n\n![鱿鱼须商城今日精选 #1024px #576px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)\n\n[查看今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)"
+        "content": "# 「七轮」\n\n到7/30周四 8:00为止\n\n![鱿鱼须商城·今日精选 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)\n\n[查看今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)"
       }
     },
     "gear-regular": {
       "msg_type": 2,
       "markdown": {
-        "content": "# 鱿鱼须商城上新啦\n\n![鱿鱼须商城目前贩卖装备 #1024px #576px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)\n\n- **👕** 棒球运动服\n\\(缩短复活时间\\)\n\n[查看目前贩卖](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)"
+        "content": "# 鱿鱼须商城上新啦\n\n![鱿鱼须商城·目前贩卖的装备 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)\n\n- **👕** 棒球运动服\n\\(缩短复活时间\\)\n\n[查看目前贩卖](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)"
       }
     },
     "escaping-contract": {
       "msg_type": 2,
       "markdown": {
-        "content": "# 特殊 <&\\> \\*标题\\* \\[链接\\]\n\n时间 <02:00\\> & \\_下划线\\_\n\n![截图 \\(特殊\\) <&\\> #1024px #576px](https://cdn.example.com/escaping.png)\n\n## 模式 \\*A\\* \\[测试\\]\n场地 <A\\> & B \\_下划线\\_\n- 武器 \\(测试\\)\n\n- **规则 \\[链接\\]** 值 \\*粗体\\* & <tag\\>\n\n[查看 \\[详情\\]](https://cdn.example.com/escaping.png)"
-      }
-    }
-  },
-  "qq-channel": {
-    "schedules": {
-      "content": "查看日程截图: https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png",
-      "embed": {
-        "title": "日程已更新",
-        "prompt": "2:00 - 4:00 · 今天你喷喷了吗?",
-        "thumbnail": {
-          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png"
-        },
-        "fields": [
-          {
-            "name": "🔫  占地对战\n鬼头刀SPA度假区·海女美术大学"
-          }
-        ]
-      }
-    },
-    "salmon-run": {
-      "content": "查看鲑鱼跑截图: https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png",
-      "embed": {
-        "title": "鲑鱼心脏斗技场",
-        "prompt": "7/29周三 16:00 - 7/31 8:00 · 打工的时间到啦!",
-        "thumbnail": {
-          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png"
-        },
-        "fields": [
-          {
-            "name": "🐻 发放武器:\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲"
-          }
-        ]
-      }
-    },
-    "gear-dailydrop": {
-      "content": "查看今日精选: https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png",
-      "embed": {
-        "title": "「七轮」",
-        "prompt": "到7/30周四 8:00为止 · 鱿鱼须商城·今日精选",
-        "thumbnail": {
-          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png"
-        },
-        "fields": [
-          {
-            "name": "🧢\n桶眼鱼护目镜\n(逆境强化)"
-          },
-          {
-            "name": "👕\n鱼片衬衫 城市\n(降低特殊武器减少量)"
-          },
-          {
-            "name": "👟\nBS拖鞋\n(提升墨汁回复力)"
-          }
-        ]
-      }
-    },
-    "gear-regular": {
-      "content": "查看目前贩卖: https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png",
-      "embed": {
-        "title": "鱿鱼须商城上新啦",
-        "prompt": "鱿鱼须商城·目前贩卖",
-        "thumbnail": {
-          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png"
-        },
-        "fields": [
-          {
-            "name": "👕\n棒球运动服\n(缩短复活时间)"
-          }
-        ]
-      }
-    },
-    "escaping-contract": {
-      "content": "查看 [详情]: https://cdn.example.com/escaping.png",
-      "embed": {
-        "title": "特殊 <&> *标题* [链接]",
-        "prompt": "时间 <02:00> & _下划线_ · 来源 <&> *喷喷*",
-        "thumbnail": {
-          "url": "https://cdn.example.com/escaping.png"
-        },
-        "fields": [
-          {
-            "name": "模式 *A* [测试]\n场地 <A> & B _下划线_\n• 武器 (测试)"
-          },
-          {
-            "name": "规则 [链接]\n值 *粗体* & <tag>"
-          }
-        ]
+        "content": "# 特殊 <&\\> \\*标题\\* \\[链接\\]\n\n时间 <02:00\\> & \\_下划线\\_\n\n![截图 \\(特殊\\) <&\\> #2400px #1350px](https://cdn.example.com/escaping.png)\n\n## 模式 \\*A\\* \\[测试\\]\n场地 <A\\> & B \\_下划线\\_\n- 武器 \\(测试\\)\n\n- **规则 \\[链接\\]** 值 \\*粗体\\* & <tag\\>\n\n[查看 \\[详情\\]](https://cdn.example.com/escaping.png)"
       }
     }
   }

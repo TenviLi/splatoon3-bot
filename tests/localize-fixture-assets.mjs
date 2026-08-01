@@ -6,6 +6,7 @@ import puppeteer from 'puppeteer-core'
 import sirv from 'sirv'
 import { listScreenshotDefinitions } from '../bot/run/RunPlan.mjs'
 import { resolveBrowserLaunchOptions } from '../bot/screenshot/BrowserRuntime.mjs'
+import { supportedBotLocales } from '../src/common/botLocale.mjs'
 
 const fixtureDirectory = path.join(process.cwd(), 'tests', 'fixtures')
 const dataDirectory = path.join(fixtureDirectory, 'data')
@@ -84,9 +85,7 @@ const dataFiles = [
   'gear.json',
   'festivals.json',
   'coop.json',
-  'locale/zh-CN.json',
-  'locale/en-US.json',
-  'locale/ja-JP.json',
+  ...supportedBotLocales.map((locale) => `locale/${locale}.json`),
 ]
 for (const relativeFilename of dataFiles) {
   const filename = path.join(dataDirectory, relativeFilename)

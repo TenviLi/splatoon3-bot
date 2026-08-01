@@ -1,0 +1,74 @@
+{
+  "times": {
+    "now": "Now",
+    "next": "Next",
+    "future": "Future"
+  },
+  "time": {
+    "in": "in {time}",
+    "remaining": "{time} remaining",
+    "until": "Until {time}",
+    "left": "{time} left",
+    "d": "{n}d | {n}d",
+    "h": "{n}h | {n}h",
+    "m": "{n}m | {n}m",
+    "s": "{n}s | {n}s",
+    "days": "{n} day | {n} days",
+    "hours": "{n} hour | {n} hours",
+    "minutes": "{n} minute | {n} minutes",
+    "seconds": "{n} second | {n} seconds"
+  },
+  "schedule": {
+    "title": "Schedule",
+    "types": {
+      "series": "Series",
+      "open": "Open",
+      "pro": "Pro",
+      "tricolor": "Tricolor",
+      "regular": "Regular Battle",
+      "anarchy": "Anarchy Battle",
+      "splatfest": "Splatfest Battle",
+      "xmatch": "X Battle",
+      "league": "League Battle"
+    },
+    "all-upcoming": "All Upcoming Stages"
+  },
+  "salmonrun": {
+    "title": "Salmon Run",
+    "weapons": "Supplied Weapons",
+    "bigrun": "Big Run",
+    "eggstrawork": "Eggstra Work",
+    "opens": "Shift opens"
+  },
+  "festival": {
+    "title": "Splatfests",
+    "upcoming": "Upcoming Splatfest",
+    "active": "Splatfest",
+    "past": "Recent Splatfest",
+    "results": {
+      "title": "Results!",
+      "conchshells": "Conch Shells",
+      "votes": "Votes",
+      "open": "Open",
+      "pro": "Pro",
+      "tricolor": "Tricolor Battle",
+      "won": "Team {team} wins!"
+    }
+  },
+  "events": {
+    "title": "Challenges",
+    "available": "Next",
+    "not_available": "No Challenges currently scheduled.",
+    "now": "Now",
+    "now_open": "Now Open!"
+  },
+  "gear": {
+    "title": "Gear",
+    "sale": "Gear on Sale Now",
+    "dailydrop": "The Daily Drop",
+    "order": "Order"
+  },
+  "social": {
+    "description": "Stay up to date with the latest news and updates from Splatoon3.ink on social media! Check the list below to find your favorite platform."
+  }
+}

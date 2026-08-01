@@ -24,9 +24,15 @@ const notification = createNotification({
   image: {
     url: 'https://example.com/schedules.png',
     alt: '对战日程',
-    width: 1024,
-    height: 576,
-    aspectRatio: 1024 / 576,
+    width: 2400,
+    height: 1350,
+    aspectRatio: 2400 / 1350,
+    compact: {
+      url: 'https://example.com/schedules-compact.png',
+      width: 1024,
+      height: 576,
+      aspectRatio: 1024 / 576,
+    },
   },
   sections: [{ title: '占地对战', text: '鱼肉碎金属·烟管鱼市场', listItems: ['斯普拉射击枪'] }],
   facts: [{ label: '规则', value: '占地' }],
@@ -41,9 +47,15 @@ const denseNotification = createNotification({
   image: {
     url: 'https://example.com/schedules.png',
     alt: '对战日程'.repeat(200),
-    width: 1024,
-    height: 576,
-    aspectRatio: 1024 / 576,
+    width: 2400,
+    height: 1350,
+    aspectRatio: 2400 / 1350,
+    compact: {
+      url: 'https://example.com/schedules-compact.png',
+      width: 1024,
+      height: 576,
+      aspectRatio: 1024 / 576,
+    },
   },
   sections: Array.from({ length: 30 }, (_, index) => ({
     title: `模式 ${index} `.repeat(80),
@@ -202,47 +214,29 @@ test('QQ uses official access tokens and native Markdown', async () => {
   assert.equal(requests[1].options.headers.Authorization, 'QQBot access-token')
   const messagePayload = JSON.parse(requests[1].options.body)
   assert.match(messagePayload.markdown.content, /schedules\.png/)
-  assert.match(messagePayload.markdown.content, /#1024px #576px/)
+  assert.match(messagePayload.markdown.content, /#2400px #1350px/)
   assert.match(messagePayload.markdown.content, /- 斯普拉射击枪/)
 })
 
-test('QQ defaults channel targets to an Embed and gates channel-only formatting', async () => {
-  const requests = []
-  await deliverQQ(
-    notification,
+test('QQ rejects channel targets that require an online Gateway session', () => {
+  for (const unsupportedTarget of [
     {
       name: 'channel',
-      appId: 'channel-app-id',
-      clientSecret: 'channel-client-secret',
+      appId: 'app-id',
+      clientSecret: 'secret',
       targetType: 'channel',
       targetId: 'channel-id',
     },
     {
-      fetchImpl: async (url, options) => {
-        requests.push({ url: String(url), options })
-        if (String(url).includes('getAppAccessToken')) {
-          return response({ access_token: 'channel-access-token', expires_in: '7200' })
-        }
-        return response({ id: 'message' })
-      },
-    }
-  )
-
-  const payload = JSON.parse(requests[1].options.body)
-  assert.match(requests[1].url, /\/channels\/channel-id\/messages$/)
-  assert.equal(payload.embed.thumbnail.url, notification.image.url)
-  assert.match(payload.content, /查看日程截图/)
-  assert.match(payload.embed.fields[1].name, /规则/)
-  assert.equal(payload.markdown, undefined)
-  for (const messageFormat of ['embed', 'markdown']) {
-    assert.equal(qqTargetSchema.safeParse({
       name: 'group',
       appId: 'app-id',
       clientSecret: 'secret',
       targetType: 'group',
       targetId: 'group-id',
-      messageFormat,
-    }).success, false)
+      messageFormat: 'markdown',
+    },
+  ]) {
+    assert.equal(qqTargetSchema.safeParse(unsupportedTarget).success, false)
   }
 })
 
@@ -273,8 +267,15 @@ test('QQ isolates cached tokens by credential boundaries and token endpoint', as
   for (const [index, target] of targets.entries()) {
     await deliverQQ(
       notification,
-      { ...target, targetType: 'group', targetId: `group-${index}` },
       {
+        name: target.name,
+        appId: target.appId,
+        clientSecret: target.clientSecret,
+        targetType: 'group',
+        targetId: `group-${index}`,
+      },
+      {
+        tokenUrl: target.tokenUrl,
         fetchImpl: async (url, options) => {
           if (String(url).startsWith('https://auth.example.com/')) {
             tokenRequests.push(String(url))
@@ -540,7 +541,7 @@ test('LINE uses an uncropped Flex bubble and a stable retry key', async () => {
   assert.equal(requestOptions.headers.Authorization, 'Bearer channel-access-token')
   assert.equal(requestOptions.headers['X-Line-Retry-Key'], expectedRetryUuid)
   assert.equal(bubble.header.backgroundColor, '#FF5A36')
-  assert.equal(bubble.hero.url, lineNotification.image.url)
+  assert.equal(bubble.hero.url, lineNotification.image.compact.url)
   assert.equal(bubble.hero.aspectMode, 'fit')
   assert.equal(bubble.hero.action.type, 'uri')
   assert.equal(bubble.footer.contents[0].action.uri, notification.action.url)
@@ -696,7 +697,7 @@ test('WhatsApp uses the approved media-template contract', async () => {
   assert.match(requestedUrl, /graph\.facebook\.com\/v25\.0\/123456789012345\/messages$/)
   assert.equal(requestOptions.headers.Authorization, 'Bearer EAA-token')
   assert.equal(payload.type, 'template')
-  assert.equal(payload.template.components[0].parameters[0].image.link, notification.image.url)
+  assert.equal(payload.template.components[0].parameters[0].image.link, notification.image.compact.url)
   assert.deepEqual(
     payload.template.components[1].parameters.map(({ parameter_name }) => parameter_name),
     ['title', 'context', 'details']

@@ -123,7 +123,7 @@ function createTemplatePayload(notification, target, assetBaseUrl, imageUrl) {
 }
 
 export async function deliverWhatsApp(notification, target, options = {}) {
-  const imageUrl = requireHttpsImageUrl(notification.image.url)
+  const imageUrl = requireHttpsImageUrl(notification.image.compact.url)
   const imageMetadata = await (options.inspectImage || inspectRemoteImage)(imageUrl, {
     fetchImpl: options.fetchImpl,
     maximumBytes: maximumImageBytes,

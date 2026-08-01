@@ -19,7 +19,7 @@ test('run profiles concentrate screenshot and notification selections', () => {
     'gear-regular',
   ])
   assert.equal(getScreenshotDefinition('gear-regular').outputFilename, 'gear-regular.png')
-  assert.deepEqual(getScreenshotDefinition('gear-regular').notificationImage, { width: 1024, height: 576 })
+  assert.deepEqual(getScreenshotDefinition('gear-regular').compactImage, { width: 1024, height: 576 })
 })
 
 test('unknown catalog entries fail before a Bot Run starts', () => {

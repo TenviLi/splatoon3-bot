@@ -14,13 +14,27 @@ function requireValue(value, label) {
   return value
 }
 
+function shortRuleName(context, ruleName) {
+  return ruleName.replace(
+    context.t('screenshot.rainmakerLong'),
+    context.t('screenshot.rainmakerShort')
+  )
+}
+
+function notificationImageVariant(image) {
+  return {
+    url: image.url,
+    width: image.width,
+    height: image.height,
+    aspectRatio: Number((image.width / image.height).toFixed(2)),
+  }
+}
+
 function notificationImage(artifact, alt) {
   return {
-    url: artifact.notificationImage.url,
+    ...notificationImageVariant(artifact.notificationImage),
     alt,
-    width: artifact.notificationImage.width,
-    height: artifact.notificationImage.height,
-    aspectRatio: Number((artifact.notificationImage.width / artifact.notificationImage.height).toFixed(2)),
+    compact: notificationImageVariant(artifact.compactImage),
   }
 }
 
@@ -38,23 +52,28 @@ function composeSchedules(context, publicationManifest) {
       return null
     }
 
-    const rule = context
-      .t(`splatnet.rules.${schedule.settings.vsRule.id}.name`, schedule.settings.vsRule.name)
-      .replace(context.t('notification.schedules.ruleSuffix'), '')
+    const rule = shortRuleName(
+      context,
+      context.t(`splatnet.rules.${schedule.settings.vsRule.id}.name`, schedule.settings.vsRule.name)
+    )
     return {
-      title: context.t('notification.schedules.rankedSection', { rule, mode: context.t(mode) }),
+      title: `🔰  ${rule}  (${context.t(mode)})`,
       text: stageNames(schedule),
     }
   }
+  const regularRule = shortRuleName(
+    context,
+    context.t(`splatnet.rules.${regular.settings.vsRule.id}.name`, regular.settings.vsRule.name)
+  )
 
   return createNotification({
     id: 'schedules',
     source: { name: context.t('notification.schedules.source'), iconUrl: publicationManifest.branding.icons.schedules.url },
     title: context.t('notification.schedules.title'),
     subtitle: `${context.d(regular.startTime, 'time')} - ${context.d(regular.endTime, 'time')}`,
-    image: notificationImage(artifact, context.t('notification.schedules.imageAlt')),
+    image: notificationImage(artifact, context.t('screenshot.headers.schedules')),
     sections: [
-      { title: context.t('notification.schedules.regularSection'), text: stageNames(regular) },
+      { title: `🔫  ${regularRule}`, text: stageNames(regular) },
       rankedSection(anarchySeries, 'schedule.types.series'),
       rankedSection(anarchyOpen, 'schedule.types.open'),
     ].filter(Boolean),
@@ -76,12 +95,12 @@ function composeSalmonRun(context, publicationManifest) {
     source: { name: context.t('notification.salmonRun.source'), iconUrl: publicationManifest.branding.icons.salmonRun.url },
     title: context.t(`splatnet.stages.${schedule.settings.coopStage.id}.name`, schedule.settings.coopStage.name),
     subtitle: `${context.d(schedule.startTime, 'dateTimeShortWeekday')} - ${context.d(schedule.endTime, 'dateTimeShort')}`,
-    image: notificationImage(artifact, context.t('notification.salmonRun.imageAlt')),
+    image: notificationImage(artifact, context.t('screenshot.headers.salmonRun')),
     sections: [
       {
         title: hasMysteryWeapon
           ? context.t('notification.salmonRun.randomWeapons')
-          : context.t('notification.salmonRun.suppliedWeapons'),
+          : `🐻 ${context.t('salmonrun.weapons')}:`,
         listItems: hasMysteryWeapon ? [] : weaponNames,
       },
     ],
@@ -97,12 +116,12 @@ function composeDailyDropGear(context, publicationManifest) {
 
   return createNotification({
     id: 'gear-dailydrop',
-    source: { name: context.t('notification.dailyDropGear.source'), iconUrl: publicationManifest.branding.icons.gear.url },
+    source: { name: context.t('screenshot.headers.dailyDropGear'), iconUrl: publicationManifest.branding.icons.gear.url },
     title: `「${context.t(`splatnet.brands.${brand.brand.id}.name`, brand.brand.name)}」`,
     subtitle: context.t('time.until', { time: context.d(brand.saleEndTime, 'dateTimeShortWeekday') }),
-    image: notificationImage(artifact, context.t('notification.dailyDropGear.imageAlt')),
+    image: notificationImage(artifact, context.t('screenshot.headers.dailyDropGear')),
     facts: gears.map((gear) => ({
-      label: getGearIcon(gear) || context.t('notification.common.gear'),
+      label: getGearIcon(gear) || context.t('gear.title'),
       value: `${context.t(`splatnet.gear.${gear.gear.__splatoon3ink_id}.name`, gear.gear.name)}\n(${context.t(
         `splatnet.powers.${gear.gear.primaryGearPower.__splatoon3ink_id}.name`,
         gear.gear.primaryGearPower.name
@@ -119,12 +138,12 @@ function composeRegularGear(context, publicationManifest) {
 
   return createNotification({
     id: 'gear-regular',
-    source: { name: context.t('notification.regularGear.source'), iconUrl: publicationManifest.branding.icons.gear.url },
+    source: { name: context.t('screenshot.headers.regularGear'), iconUrl: publicationManifest.branding.icons.gear.url },
     title: context.t('notification.regularGear.title'),
-    image: notificationImage(artifact, context.t('notification.regularGear.imageAlt')),
+    image: notificationImage(artifact, context.t('screenshot.headers.regularGear')),
     facts: [
       {
-        label: getGearIcon(gear) || context.t('notification.common.gear'),
+        label: getGearIcon(gear) || context.t('gear.title'),
         value: `${context.t(`splatnet.gear.${gear.gear.__splatoon3ink_id}.name`, gear.gear.name)}\n(${context.t(
           `splatnet.powers.${gear.gear.primaryGearPower.__splatoon3ink_id}.name`,
           gear.gear.primaryGearPower.name

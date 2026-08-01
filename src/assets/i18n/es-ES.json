@@ -1,0 +1,69 @@
+{
+  "times": {
+    "now": "Actual",
+    "next": "Próximo",
+    "future": "Posteriores"
+  },
+  "time": {
+    "in": "en {time}",
+    "remaining": "{time} restante",
+    "until": "Hasta {time}",
+    "left": "{time} restante",
+    "d": "{n}d | {n}d",
+    "h": "{n}h | {n}h",
+    "m": "{n}m | {n}m",
+    "s": "{n}s | {n}s",
+    "days": "{n} día | {n} días",
+    "hours": "{n} hora | {n} horas",
+    "minutes": "{n} minuto | {n} minutos",
+    "seconds": "{n} segundo | {n} segundos"
+  },
+  "schedule": {
+    "title": "Calendarios",
+    "types": {
+      "series": "Formal",
+      "open": "Informal",
+      "pro": "Formal",
+      "tricolor": "Tricolor",
+      "regular": "Combate amistoso",
+      "anarchy": "Combate caótico",
+      "splatfest": "Combate temático",
+      "xmatch": "Combate X",
+      "league": "Combate del torneo"
+    }
+  },
+  "salmonrun": {
+    "title": "Salmon Run",
+    "weapons": "Armas asignadas",
+    "bigrun": "Big Run",
+    "eggstrawork": "Alianza alevínica"
+  },
+  "festival": {
+    "title": "Festivales",
+    "upcoming": "Festival",
+    "active": "Festival",
+    "past": "Festival",
+    "results": {
+      "title": "Resultados",
+      "conchshells": "Tasa de caracolas",
+      "votes": "Votos",
+      "open": "Informal",
+      "pro": "Formal",
+      "tricolor": "Combate tricolor",
+      "won": "¡Victoria de {team}!"
+    }
+  },
+  "gear": {
+    "title": "Equipamiento",
+    "sale": "Equipamiento a la venta",
+    "dailydrop": "Sugerencia del día",
+    "order": "Encargar"
+  },
+  "events": {
+    "title": "Combate evento",
+    "available": "Próximamente",
+    "not_available": "Calendario sin determinar",
+    "now": "Actualmente",
+    "now_open": "¡En curso!"
+  }
+}

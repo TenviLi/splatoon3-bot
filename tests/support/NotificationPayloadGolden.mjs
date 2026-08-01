@@ -79,9 +79,15 @@ const escapingNotification = createNotification({
   image: {
     url: 'https://cdn.example.com/escaping.png',
     alt: '截图 (特殊) <&>',
-    width: 1024,
-    height: 576,
-    aspectRatio: 1024 / 576,
+    width: 2400,
+    height: 1350,
+    aspectRatio: 2400 / 1350,
+    compact: {
+      url: 'https://cdn.example.com/escaping-compact.png',
+      width: 1024,
+      height: 576,
+      aspectRatio: 1024 / 576,
+    },
   },
   sections: [
     {
@@ -142,7 +148,6 @@ export async function createNotificationPayloadGolden() {
   const payloads = Object.fromEntries([
     ...platformCases.map((platformCase) => [platformCase.name, {}]),
     ['qq-group', {}],
-    ['qq-channel', {}],
   ])
 
   for (const notification of notifications) {
@@ -159,13 +164,6 @@ export async function createNotificationPayloadGolden() {
       clientSecret: 'golden-group-secret',
       targetType: 'group',
       targetId: 'group-openid',
-    })
-    payloads['qq-channel'][notification.id] = await captureQQPayload(notification, {
-      name: 'golden-channel',
-      appId: 'golden-channel-app',
-      clientSecret: 'golden-channel-secret',
-      targetType: 'channel',
-      targetId: 'channel-id',
     })
   }
 

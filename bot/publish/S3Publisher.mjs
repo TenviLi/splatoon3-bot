@@ -14,7 +14,7 @@ import {
 } from './S3Configuration.mjs'
 import { publicationImageRelativeKey, writePublicationManifest } from './PublicationManifest.mjs'
 
-const notificationImageMaximumBytes = 5 * 1024 * 1024
+const compactImageMaximumBytes = 5 * 1024 * 1024
 const immutableAssetCacheControl = 'public, max-age=31536000, immutable'
 
 function sha256(buffer) {
@@ -58,17 +58,20 @@ async function verifyArtifactFile(artifact, screenshotDirectory) {
   return { artifact, buffer, definition, originalWidth: metadata.width, originalHeight: metadata.height }
 }
 
-async function createNotificationImage(buffer, dimensions) {
-  const image = sharp(buffer, { failOn: 'warning' }).resize({
-    width: dimensions.width,
-    height: dimensions.height,
-    fit: 'fill',
-    kernel: sharp.kernel.lanczos3,
-  })
-  const notificationBuffer = await image
+async function createImageVariant(buffer, { dimensions, label, resize = false, maximumBytes }) {
+  let image = sharp(buffer, { failOn: 'warning' })
+  if (resize) {
+    image = image.resize({
+      width: dimensions.width,
+      height: dimensions.height,
+      fit: 'fill',
+      kernel: sharp.kernel.lanczos3,
+    })
+  }
+  const imageBuffer = await image
     .png({ adaptiveFiltering: true, compressionLevel: 9, effort: 10 })
     .toBuffer()
-  const metadata = await sharp(notificationBuffer).metadata()
+  const metadata = await sharp(imageBuffer).metadata()
 
   if (
     metadata.format !== 'png' ||
@@ -76,14 +79,14 @@ async function createNotificationImage(buffer, dimensions) {
     metadata.height !== dimensions.height
   ) {
     throw new Error(
-      `Generated notification image is ${metadata.width || 0}x${metadata.height || 0} ${metadata.format || 'unknown'}, expected ${dimensions.width}x${dimensions.height} PNG`
+      `Generated ${label} is ${metadata.width || 0}x${metadata.height || 0} ${metadata.format || 'unknown'}, expected ${dimensions.width}x${dimensions.height} PNG`
     )
   }
-  if (notificationBuffer.byteLength > notificationImageMaximumBytes) {
-    throw new Error('Generated notification image exceeds the 5 MB cross-platform limit')
+  if (maximumBytes && imageBuffer.byteLength > maximumBytes) {
+    throw new Error(`Generated ${label} exceeds the ${maximumBytes / 1024 / 1024} MB limit`)
   }
 
-  return notificationBuffer
+  return imageBuffer
 }
 
 function createS3Client(configuration) {
@@ -171,11 +174,25 @@ export async function publishToS3({
   )
   const preparedArtifacts = await Promise.all(
     verifiedArtifacts.map(async ({ artifact, buffer, definition, originalWidth, originalHeight }) => {
-      const imageBuffer = await createNotificationImage(buffer, definition.notificationImage)
-      const imageSha256 = sha256(imageBuffer)
+      const notificationBuffer = await createImageVariant(buffer, {
+        dimensions: { width: originalWidth, height: originalHeight },
+        label: 'notification image',
+      })
+      const compactBuffer = await createImageVariant(buffer, {
+        dimensions: definition.compactImage,
+        label: 'compact image',
+        resize: true,
+        maximumBytes: compactImageMaximumBytes,
+      })
+      const notificationSha256 = sha256(notificationBuffer)
+      const compactSha256 = sha256(compactBuffer)
       const notificationImageKey = objectKey(
         configuration,
-        publicationImageRelativeKey('notificationImage', imageSha256, definition.outputFilename)
+        publicationImageRelativeKey('notificationImage', notificationSha256, definition.outputFilename)
+      )
+      const compactImageKey = objectKey(
+        configuration,
+        publicationImageRelativeKey('compactImage', compactSha256, definition.outputFilename)
       )
       const originalImageKey = objectKey(
         configuration,
@@ -184,13 +201,22 @@ export async function publishToS3({
       return {
         name: artifact.name,
         notificationImage: {
-          buffer: imageBuffer,
+          buffer: notificationBuffer,
           key: notificationImageKey,
           url: publicObjectUrl(configuration, notificationImageKey),
-          width: definition.notificationImage.width,
-          height: definition.notificationImage.height,
-          bytes: imageBuffer.byteLength,
-          sha256: imageSha256,
+          width: originalWidth,
+          height: originalHeight,
+          bytes: notificationBuffer.byteLength,
+          sha256: notificationSha256,
+        },
+        compactImage: {
+          buffer: compactBuffer,
+          key: compactImageKey,
+          url: publicObjectUrl(configuration, compactImageKey),
+          width: definition.compactImage.width,
+          height: definition.compactImage.height,
+          bytes: compactBuffer.byteLength,
+          sha256: compactSha256,
         },
         originalImage: {
           buffer,
@@ -220,7 +246,7 @@ export async function publishToS3({
   const s3Client = client || createS3Client(configuration)
   try {
     await Promise.all([
-      ...preparedArtifacts.flatMap(({ notificationImage, originalImage }) => [
+      ...preparedArtifacts.flatMap(({ notificationImage, compactImage, originalImage }) => [
         uploadObject(s3Client, configuration, {
           key: originalImage.key,
           buffer: originalImage.buffer,
@@ -228,6 +254,11 @@ export async function publishToS3({
         uploadObject(s3Client, configuration, {
           key: notificationImage.key,
           buffer: notificationImage.buffer,
+          sourceSha256: originalImage.sha256,
+        }),
+        uploadObject(s3Client, configuration, {
+          key: compactImage.key,
+          buffer: compactImage.buffer,
           sourceSha256: originalImage.sha256,
         }),
       ]),
@@ -241,7 +272,7 @@ export async function publishToS3({
 
   return writePublicationManifest(
     {
-      version: 3,
+      version: 4,
       runManifestVersion: runManifest.version,
       profile: plan.name,
       renderTime: runManifest.renderTime,
@@ -261,9 +292,10 @@ export async function publishToS3({
           )
         ),
       },
-      artifacts: preparedArtifacts.map(({ name, notificationImage, originalImage }) => ({
+      artifacts: preparedArtifacts.map(({ name, notificationImage, compactImage, originalImage }) => ({
         name,
         notificationImage: publishedImageManifest(notificationImage),
+        compactImage: publishedImageManifest(compactImage),
         originalImage: publishedImageManifest(originalImage),
       })),
     },

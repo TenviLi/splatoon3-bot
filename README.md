@@ -10,10 +10,11 @@
 
 <p align="center">
   Deterministic Splatoon 3 screenshots and native rich notifications.<br>
-  Fork once, configure GitHub, and let Actions operate the bot for you.
+  Create a private installation from the template, configure GitHub, and let Actions operate the bot for you.
 </p>
 
 <p align="center">
+  <a href="https://github.com/TenviLi/splatoon3-bot/generate"><img alt="Use this template" src="https://img.shields.io/badge/Use%20this%20template-Create%20private%20installation-2EA44F?logo=github&logoColor=white"></a>
   <a href="https://github.com/TenviLi/splatoon3-bot/actions/workflows/ci.yml"><img alt="Verify workflow" src="https://github.com/TenviLi/splatoon3-bot/actions/workflows/ci.yml/badge.svg"></a>
   <img alt="GitHub Actions hosted" src="https://img.shields.io/badge/operations-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white">
   <img alt="Nine notification adapters" src="https://img.shields.io/badge/notification%20adapters-9-6F42C1">
@@ -25,28 +26,38 @@
   <a href="#quick-start">Quick Start</a> ·
   <a href="#preview">Screenshots</a> ·
   <a href="#configuration">Configuration</a> ·
+  <a href="#automation">Automation</a> ·
   <a href="#notification-channels">Channels</a> ·
-  <a href="#reliability">Reliability</a>
+  <a href="#local-development">Development</a>
 </p>
 
-## Overview
+## What It Does
 
-`splatoon3-bot` turns one validated [Splatoon 3](https://splatoon3.ink/) Data Snapshot into reproducible Screenshot Artifacts, publishes optimized and original PNG files through any compatible S3 service, and delivers carefully designed messages to every configured destination.
+`splatoon3-bot` is a GitHub Actions-powered notification bot for [Splatoon 3](https://splatoon3.ink/). It fetches one consistent set of game data, renders four predictable screenshots, publishes them through an S3-compatible service, and sends a polished native message to every destination you configure.
 
 <table>
   <tr>
-    <td width="33%" align="center"><strong>Deterministic rendering</strong><br><sub>Fixed data, time, locale, viewport, fonts, image readiness, geometry, and visual goldens.</sub></td>
-    <td width="33%" align="center"><strong>Portable publication</strong><br><sub>AWS S3, Cloudflare R2, MinIO, Upyun S3, and other SigV4-compatible object stores.</sub></td>
-    <td width="33%" align="center"><strong>Native presentation</strong><br><sub>Template Cards, Embeds, Flex Messages, Block Kit, and approved media templates.</sub></td>
+    <td width="33%" align="center"><strong>Four stable screenshots</strong><br><sub>Battle schedules, Salmon Run, Daily Drop gear, and regular gear at an exact 16:9 size.</sub></td>
+    <td width="33%" align="center"><strong>Bring your own S3</strong><br><sub>AWS S3, Cloudflare R2, MinIO, Upyun S3, and other SigV4-compatible services.</sub></td>
+    <td width="33%" align="center"><strong>Native rich messages</strong><br><sub>Cards, Embeds, Flex Messages, Block Kit, and approved media templates—not plain-text dumps.</sub></td>
   </tr>
   <tr>
-    <td width="33%" align="center"><strong>Parallel delivery</strong><br><sub>Channels and Targets run concurrently while preserving notification order per destination.</sub></td>
-    <td width="33%" align="center"><strong>Manifest integrity</strong><br><sub>Hashes, URLs, dimensions, render options, and Data Snapshot identity stay bound end to end.</sub></td>
-    <td width="33%" align="center"><strong>CI-first operations</strong><br><sub>Immutable Actions, strict YAML, protected Environments, audits, and local Linux verification.</sub></td>
+    <td width="33%" align="center"><strong>Many destinations</strong><br><sub>One platform Secret can contain multiple rooms, users, groups, or webhooks.</sub></td>
+    <td width="33%" align="center"><strong>Partial success</strong><br><sub>Destinations run independently, so one failure does not discard messages already delivered elsewhere.</sub></td>
+    <td width="33%" align="center"><strong>Verified automation</strong><br><sub>Configuration checks, image validation, secret scanning, tests, and reproducible Linux workflows.</sub></td>
   </tr>
 </table>
 
 Nine adapters are included: **WeCom, Discord, Telegram, QQ, Feishu, DingTalk, WhatsApp, LINE, and Slack**. See [CONTEXT.md](./CONTEXT.md) for domain terminology and [notification platform capabilities](./docs/notification-platform-capabilities.md) for the native-message design audit.
+
+### Choose your path
+
+| I want to… | Start here |
+| --- | --- |
+| Run my own bot without installing a development environment | [Quick Start](#quick-start) |
+| Change language, time zone, image size, or delivery time | [Configuration](#configuration) and [Automation](#automation) |
+| Connect one or more messaging platforms | [Notification Channels](#notification-channels) |
+| Understand the safety model or contribute code | [Reliability](#reliability) and [Local Development](#local-development) |
 
 ## Preview
 
@@ -63,24 +74,23 @@ Nine adapters are included: **WeCom, Discord, Telegram, QQ, Feishu, DingTalk, Wh
   </tr>
 </table>
 
-The logical viewport stays `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects an exact 16:9 output preset, while publication always creates a platform-friendly `1024×576` notification image.
+These README previews use `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived screenshot and the primary notification image. LINE and WhatsApp alone receive an additional `1024×576` compatibility copy for their platform limits.
 
 ## Quick Start
 
-### Run in Your Own Private Repository
+### Create a Private Repository from the Template
 
-Each installation belongs in a Private repository under the operator's GitHub account. That repository is the deployment and trust boundary: it owns the code, schedules, Repository Secrets, Repository Variables, Environment rules, and delivery destinations.
+Use the template to create a separate Private repository under your own GitHub account. The generated repository is the deployment and trust boundary: it owns your schedules, credentials, settings, and delivery destinations, while this public source repository stays credential-free.
 
 <p align="center">
-  <a href="https://github.com/TenviLi/splatoon3-bot/fork"><strong>Fork or create your private installation →</strong></a>
+  <a href="https://github.com/TenviLi/splatoon3-bot/generate"><strong>Use this template →</strong></a>
 </p>
 
-> [!TIP]
-> Hosted operation needs only GitHub Actions, one S3-compatible bucket, and one messaging destination. **You do not need to install Node.js, pnpm, Chrome, Docker, or a server.**
+Before starting, prepare a GitHub account, one S3-compatible bucket with a public HTTPS read URL, and credentials for at least one supported messaging destination. GitHub Actions supplies the runtime. **You do not need to install Node.js, pnpm, Chrome, Docker, or a server.**
 
-1. Create the installation under your own GitHub account. Use **Fork** when the source visibility and organization policy allow a Private fork. Because [public repository forks are always public](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks#visibility-of-forks), use [GitHub Importer](https://github.com/new/import) or an independent Private mirror when a Private fork is unavailable.
-2. Create the `S3_CONFIG` Repository Secret from the [copy-ready example](#s3_config).
-3. Create at least one Channel Secret. The English quick start uses Discord:
+1. Select <kbd>Use this template</kbd> → <kbd>Create a new repository</kbd>, choose the owner and repository name, set visibility to **Private**, then create the repository. GitHub copies the project without linking the installation as a fork.
+2. Open <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd>. Create the `S3_CONFIG` Repository Secret from the [copy-ready example](#s3_config); this lets messaging platforms load the generated images over public HTTPS.
+3. Create at least one messaging-platform Secret. The following example connects a Discord webhook:
 
    ```yaml
    - name: splatoon-community
@@ -89,36 +99,47 @@ Each installation belongs in a Private repository under the operator's GitHub ac
    ```
 
    Save it as the Repository Secret `BOT_DISCORD_CONFIG`. Follow Discord's [webhook setup guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks), or choose another platform from [Notification Channels](#notification-channels).
-4. Create the Repository Variable `BOT_LOCALE` with value `en-US`. Set `BOT_TIME_ZONE` to your [IANA time zone](https://www.iana.org/time-zones), then add `BOT_SCREENSHOT_RESOLUTION` or another [Repository Variable](#repository-variables) only when its default is unsuitable.
-5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with profile `all`. It validates configuration without uploading or sending.
-6. Run **Notification Channel smoke test** for the configured Channel. This deliberate side-effecting check publishes current output and sends one real message before scheduled delivery is trusted.
+4. Because the project default is `zh-CN`, create `BOT_LOCALE=en-US`. Set `BOT_TIME_ZONE` to your [IANA time zone](https://www.iana.org/time-zones); add `BOT_SCREENSHOT_RESOLUTION` or another [Repository Variable](#repository-variables) only when its built-in default is unsuitable.
+5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with profile `all`. This checks every configured value without uploading an image or sending a message.
+6. Run **Notification Channel smoke test** for the configured platform. It performs one real upload and sends one real message, confirming the complete path before scheduled delivery begins.
 
 > [!IMPORTANT]
-> Configure credentials only in the operator's Private repository—never in this source repository, committed files, pull requests, or copied logs. Repository Secrets and Variables are intentionally installation-local.
+> Store credentials only as Repository Secrets in the Private installation—never in Variables, committed files, pull requests, or logs. Workflows on its default branch can use those credentials, so review changes to `.github/workflows/`, `bot/`, and `scripts/` before applying them. Repository Secrets and Variables are intentionally installation-local.
 
-> [!CAUTION]
-> Workflows on the installation's default branch can consume its credentials. Review incoming changes—especially `.github/workflows/`, `bot/`, and `scripts/`—before merging or synchronizing them. Rotate any credential that is ever committed.
+> [!NOTE]
+> A repository created from the template has independent Git history and does not receive upstream changes automatically. Review new releases and security fixes before applying them to the private installation.
 
 ## Automation
 
-<p align="center">
-  <strong>Data Snapshot</strong> → <strong>Build</strong> → <strong>Screenshots</strong> → <strong>Preflight</strong> → <strong>S3</strong> → <strong>Channels</strong>
-</p>
+```mermaid
+flowchart LR
+  snapshot["Data Snapshot"] --> build["Build"]
+  build --> screenshots["Screenshots"]
+  screenshots --> preflight["Configuration Preflight"]
+  preflight --> publish["S3 Publication"]
+  publish --> adapters["Platform Adapters"]
+```
 
-Scheduled and manual entry workflows call one reusable two-stage pipeline:
+Every scheduled or manual invocation uses the same two-stage Bot Run:
 
-1. **Prepare** downloads and validates one Data Snapshot, builds the screenshot frontend, renders the selected screenshots, and archives the complete Bot Run.
-2. **Publish and notify** downloads that archive once, validates all configuration before side effects, publishes images and built-in icons through S3, then fans out configured Channels and Targets in parallel from one Node.js process.
+1. **Prepare** fetches and validates one consistent data snapshot, builds the screenshot pages, captures the selected images, and archives the complete run.
+2. **Publish and notify** checks all configuration before the first upload, publishes images and built-in icons through S3, then sends to every configured destination in parallel.
 
-| Workflow | Trigger | Run Profile |
+| Workflow | When it runs | What it sends |
 | --- | --- | --- |
-| `bot-schedules.yml` | Remaining even UTC hours | `schedules` |
-| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | `all` |
-| `bot-manual.yml` | Manual selection | Any profile |
-| `configuration-check.yml` | Manual selection | Preflight only; no upload or message |
-| `notification-smoke.yml` | Manual profile and Channel | Complete side-effecting smoke run |
+| `bot-schedules.yml` | Every even UTC hour except `02:00` and `10:00` | `schedules` profile |
+| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | `all` profile |
+| `bot-manual.yml` | On demand | Any selected profile |
+| `configuration-check.yml` | On demand | Checks configuration only; never uploads or sends |
+| `notification-smoke.yml` | On demand | Publishes current output and sends one real platform test |
 
 Together, scheduled workflows deliver schedules exactly once every two hours. Official Actions are pinned to immutable commit SHAs. GitHub Actions is the only supported hosted automation surface.
+
+### Customize delivery times
+
+Edit the `on.schedule` cron entries in `.github/workflows/bot-schedules.yml` and `.github/workflows/bot-salmon-run.yml` on your installation's default branch. GitHub evaluates these expressions in UTC. `BOT_TIME_ZONE` changes the time shown in screenshots and messages; it does not change when Actions starts.
+
+GitHub does not allow Repository Variables or Secrets inside `on.schedule.cron`, so there is no scheduling Variable. Use GitHub's official [`on.schedule` syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule) and [crontab.guru](https://crontab.guru/) to prepare an expression. The `all` profile includes schedules; do not run it at the same time as `schedules` unless duplicate schedule messages are intentional.
 
 <details>
 <summary><strong>Run Profiles</strong></summary>
@@ -135,7 +156,7 @@ Together, scheduled workflows deliver schedules exactly once every two hours. Of
 
 ## Configuration
 
-Configure values under <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> in the installation repository.
+Configure the Private installation under <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd>. **Secrets hold credentials; Variables change optional behavior. Never place a credential in a Variable.**
 
 | Layer | GitHub setting | Required |
 | --- | --- | :---: |
@@ -143,20 +164,43 @@ Configure values under <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> 
 | Image publication | Repository Secret `S3_CONFIG` | Yes |
 | Message destinations | Any `BOT_*_CONFIG` Repository Secret | No; add at least one to deliver messages |
 
-The `publish` Job uses the `production` GitHub Environment by default. Use its deployment-branch policy or required reviewers to gate credential use, or change the Environment with `BOT_ENVIRONMENT`.
-
 ### Repository Variables
 
-| Repository Variable | Allowed values / default | Purpose |
+Every Repository Variable is optional because the workflows provide a stable default. Only add one when you want to override that default. The built-in locale and time zone are `zh-CN` and `Asia/Shanghai`, so most installations outside China will override those two.
+
+| Repository Variable | Required | Allowed values / default | Purpose |
+| --- | :---: | --- | --- |
+| `BOT_LOCALE` | No | 14 supported values below; default `zh-CN` | Language shared by screenshots and notification copy. |
+| `BOT_SCREENSHOT_RESOLUTION` | No | `1200x675`, `1920x1080`, `2400x1350`, `3840x2160`; default `2400x1350` | Exact Screenshot Artifact and primary notification-image size. |
+| `BOT_TIME_ZONE` | No | IANA time zone; default `Asia/Shanghai` | Time zone shared by screenshots and notification formatting. |
+| `BOT_SCREENSHOT_ATTRIBUTION` | No | Up to 40 characters; default `splatoon3.ink` | Platform-neutral footer credit. |
+| `BOT_RUNNER` | No | Default `ubuntu-24.04` | Runner label for both Bot Run stages. |
+| `BOT_ARTIFACT_RETENTION_DAYS` | No | `1`–`90`; default `7` | Retention for archived Bot Runs. |
+
+#### `BOT_LOCALE`
+
+Choose one value for both Screenshot Artifact text and notification copy:
+
+| Value | Language | Regional variant |
 | --- | --- | --- |
-| `BOT_LOCALE` | `en-US`, `zh-CN`, `ja-JP`; default `zh-CN` | Language shared by screenshots and notification copy. |
-| `BOT_SCREENSHOT_RESOLUTION` | `1200x675`, `1920x1080`, `2400x1350`, `3840x2160`; default `2400x1350` | Exact original Screenshot Artifact size. |
-| `BOT_TIME_ZONE` | IANA time zone; default `Asia/Shanghai` | Time zone shared by screenshots and notification formatting. |
-| `BOT_SCREENSHOT_ATTRIBUTION` | Up to 40 characters; default `splatoon3.ink` | Platform-neutral footer credit. |
-| `BOT_RUNNER` | Default `ubuntu-24.04` | Runner label for both Bot Run stages. |
-| `BOT_ENVIRONMENT` | Default `production` | GitHub Environment that gates publication. |
-| `BOT_CONCURRENCY_GROUP` | Default `splatoon3-bot-production` | Serializes production Bot Runs. |
-| `BOT_ARTIFACT_RETENTION_DAYS` | `1`–`90`; default `7` | Retention for archived Bot Runs. |
+| `de-DE` | German | Germany |
+| `en-GB` | English | United Kingdom |
+| `en-US` | English | United States |
+| `es-ES` | Spanish | Spain |
+| `es-MX` | Spanish | Mexico |
+| `fr-CA` | French | Canada |
+| `fr-FR` | French | France |
+| `it-IT` | Italian | Italy |
+| `ja-JP` | Japanese | Japan |
+| `ko-KR` | Korean | South Korea |
+| `nl-NL` | Dutch | Netherlands |
+| `ru-RU` | Russian | Russia |
+| `zh-CN` | Chinese | Simplified |
+| `zh-TW` | Chinese | Traditional |
+
+Bot rendering and notification delivery support all 14 values. The operator documentation and checked-in screenshot previews intentionally remain focused on English, Simplified Chinese, and Japanese.
+
+#### `BOT_SCREENSHOT_RESOLUTION`
 
 Resolution presets retain the same CSS layout and use the corresponding device scale factor:
 
@@ -167,11 +211,26 @@ Resolution presets retain the same CSS layout and use the corresponding device s
 | `2400x1350` | 2× | Recommended balance of detail and size |
 | `3840x2160` | 3.2× | 4K originals; larger artifacts and uploads |
 
+The selected dimensions are preserved end to end for the Screenshot Artifact, `notification-images/` object, and primary message image. LINE and WhatsApp receive a derived `1024×576` compatibility image because of their provider limits; their action button still opens the selected-resolution primary image.
+
 Built-in schedules, Salmon Run, and gear icons are rendered from repository assets and published under content-addressed `branding-icons/` keys. No external icon provisioning is required.
 
 ### `S3_CONFIG`
 
-Create one Repository Secret named `S3_CONFIG` containing a strict YAML mapping:
+GitHub Actions renders each Screenshot Artifact inside the workflow, but GitHub Artifacts are authenticated downloads—not public image URLs that Discord, LINE, WeCom, or another messaging platform can embed. The publish stage therefore uses this flow:
+
+```mermaid
+flowchart LR
+  render["Render PNG"] --> upload["Upload to S3"]
+  upload --> publicUrl["Create Public HTTPS URL"]
+  publicUrl --> message["Send Native Message Card"]
+```
+
+Only the generated images are publicly readable. Keep the S3 write credentials exclusively in the private installation's Repository Secret.
+
+#### Configure the Secret
+
+Create one Repository Secret named `S3_CONFIG` containing a YAML mapping. Replace the placeholders with values issued by your provider. `publicBaseUrl` must be the public HTTPS root that messaging platforms can read without credentials:
 
 ```yaml
 bucket: splatoon-assets
@@ -184,79 +243,118 @@ forcePathStyle: true
 keyPrefix: splatoon3-bot
 ```
 
-**Required fields**
+| Field | Requirement | Default | Purpose / when to set |
+| --- | :---: | --- | --- |
+| `bucket` | Required | — | Destination bucket name. |
+| `publicBaseUrl` | Required | — | Credential-free public HTTPS bucket-root or CDN URL. Do not append `keyPrefix`. |
+| `accessKeyId` | Required | — | Dedicated S3-compatible access key with upload permission; object inspection avoids redundant icon uploads when allowed. |
+| `secretAccessKey` | Required | — | Secret key paired with `accessKeyId`. |
+| `region` | Optional | `us-east-1` | Use the provider's signing region; R2 uses `auto`. |
+| `endpoint` | Optional | AWS SDK default | Required by R2, MinIO, Upyun S3, and other compatible services. |
+| `forcePathStyle` | Optional | `false` | Commonly `true` for MinIO and Upyun S3. |
+| `keyPrefix` | Optional | Empty | Namespace all project objects, for example `splatoon3-bot`. |
+| `sessionToken` | Optional | Empty | Temporary session credentials only. |
 
-| Field | Purpose |
-| --- | --- |
-| `bucket` | Destination bucket name. |
-| `publicBaseUrl` | Credential-free public HTTPS bucket-root or CDN URL. Do not append `keyPrefix`. |
-| `accessKeyId` | Dedicated S3-compatible access key with upload permission; object inspection avoids redundant icon uploads when allowed. |
-| `secretAccessKey` | Secret key paired with `accessKeyId`. |
+`endpoint` is the authenticated upload API; `publicBaseUrl` is the credential-free HTTPS root fetched by messaging platforms. They are often different domains.
 
-**Optional fields**
+<details>
+<summary><strong>Choose a provider: official setup links</strong></summary>
 
-| Field | Default | When to set it |
+The publisher uses the standard S3 API and is not tied to one vendor. Choose a service you already trust or operate:
+
+| Provider | Typical deployment | Official setup |
 | --- | --- | --- |
-| `region` | `us-east-1` | Use the provider's signing region; R2 uses `auto`. |
-| `endpoint` | AWS SDK default | Required by R2, MinIO, Upyun S3, and other compatible services. |
-| `forcePathStyle` | `false` | Commonly `true` for MinIO and Upyun S3. |
-| `keyPrefix` | Empty | Namespace all project objects, for example `splatoon3-bot`. |
-| `sessionToken` | Empty | Temporary session credentials only. |
+| AWS S3 / CloudFront | AWS-managed storage and CDN | [Create a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket) · [Manage access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) · [CloudFront OAC](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) |
+| Cloudflare R2 | Cloudflare storage with a custom domain | [Get started](https://developers.cloudflare.com/r2/get-started/) · [API tokens](https://developers.cloudflare.com/r2/api/tokens/) · [Public buckets](https://developers.cloudflare.com/r2/buckets/public-buckets/) |
+| Backblaze B2 | Managed S3-compatible object storage | [S3-compatible API](https://www.backblaze.com/docs/cloud-storage-s3-compatible-api) · [Application keys](https://www.backblaze.com/docs/cloud-storage-create-and-manage-app-keys) |
+| DigitalOcean Spaces | Managed storage for DigitalOcean projects | [S3 compatibility](https://docs.digitalocean.com/products/spaces/reference/s3-compatibility/) · [Access keys](https://docs.digitalocean.com/products/spaces/how-to/manage-access/) |
+| Wasabi | Managed S3-compatible object storage | [Service URLs and regions](https://docs.wasabi.com/docs/service-urls-for-wasabis-storage-regions) · [Access keys](https://docs.wasabi.com/docs/creating-a-user-account-and-access-key) |
+| Scaleway Object Storage | S3-compatible storage in Scaleway regions | [AWS CLI / S3 setup](https://www.scaleway.com/en/docs/object-storage/api-cli/object-storage-aws-cli/) |
+| Tigris | Globally distributed S3-compatible storage | [S3 SDK setup](https://www.tigrisdata.com/docs/sdks/s3/) |
+| MinIO / AIStor | Self-hosted or private-cloud S3 | [Create a bucket](https://docs.min.io/aistor/reference/cli/mc-mb/) · [Create an access key](https://docs.min.io/aistor/reference/cli/admin/mc-admin-accesskey/mc-admin-accesskey-create/) |
+| Alibaba Cloud OSS | Alibaba Cloud object storage with S3 compatibility | [Amazon S3 compatibility](https://www.alibabacloud.com/help/en/oss/developer-reference/compatibility-with-amazon-s3) |
+| Tencent Cloud COS | Tencent Cloud object storage with the AWS S3 SDK | [AWS S3 SDK setup](https://www.tencentcloud.com/document/product/436/41284) |
+| Upyun S3 | Upyun storage through its S3-compatible API | [S3 compatibility](https://help.upyun.com/knowledge-base/aws-s3%E5%85%BC%E5%AE%B9/) · [S3 API](https://help.upyun.com/knowledge-base/s3-api/) |
 
-`endpoint` is the upload API; `publicBaseUrl` is the read URL fetched by messaging platforms. The publisher creates content-addressed notification images, originals, and built-in branding icons, verifies exact geometry and hashes, and never exposes credentials in its Publication Manifest.
+</details>
 
-| Provider | Official setup |
-| --- | --- |
-| AWS S3 / CloudFront | [Create a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket) · [Manage access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) · [CloudFront OAC](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) |
-| Cloudflare R2 | [Get started](https://developers.cloudflare.com/r2/get-started/) · [API tokens](https://developers.cloudflare.com/r2/api/tokens/) · [Public buckets](https://developers.cloudflare.com/r2/buckets/public-buckets/) |
-| MinIO / AIStor | [Create a bucket](https://docs.min.io/aistor/reference/cli/mc-mb/) · [Create an access key](https://docs.min.io/aistor/reference/cli/admin/mc-admin-accesskey/mc-admin-accesskey-create/) |
-| Upyun S3 | [S3 compatibility](https://help.upyun.com/knowledge-base/aws-s3%E5%85%BC%E5%AE%B9/) · [S3 API](https://help.upyun.com/knowledge-base/s3-api/) |
+#### What the bot uploads
+
+The optional `keyPrefix` comes before each path below:
+
+| Object prefix | Contents | Used for |
+| --- | --- | --- |
+| `notification-images/<sha256>/` | Optimized primary images at the exact `BOT_SCREENSHOT_RESOLUTION` dimensions | Embedded by WeCom, Discord, Telegram, QQ, Feishu, DingTalk, and Slack; also opened by notification action buttons. |
+| `compact-images/<sha256>/` | Derived `1024×576` compatibility images | Embedded only by LINE and WhatsApp so their stricter image limits do not reduce every other Channel's image quality. |
+| `originals/<sha256>/` | Unmodified Screenshot Artifact bytes at the selected resolution | High-resolution archives and Publication Manifest verification. These may use a shorter lifecycle when raw artifact history is unnecessary. |
+| `branding-icons/<sha256>/` | Small built-in schedules, Salmon Run, and gear icons | Native message-card headers and avatars. They are uploaded automatically and safely reused. |
+
+> [!NOTE]
+> `<sha256>` is a digest of the file contents. An unchanged artifact reuses the same object URL; changed content receives a new URL. This prevents an image in an old notification from silently changing when a later Bot Run publishes new output.
 
 See the [complete S3 operator guide](./docs/operator-setup-links.md#s3-compatible-publication) for provider prerequisites and least-privilege guidance.
 
 > [!TIP]
-> Content-addressed objects intentionally accumulate. Configure an S3 lifecycle policy for `notification-images/` and `originals/` that matches how long links in historical messages should remain available.
+> Each changed image creates a new version instead of overwriting an old URL. Configure lifecycle rules by prefix: retain `notification-images/` and `compact-images/` for the lifetime of historical messages, retain `originals/` only as long as raw archives are useful, and normally keep the small reused `branding-icons/` objects.
 
 ## Notification Channels
 
-Each configured Channel Secret automatically enables its adapter; an absent or empty Secret disables it. `BOT_NOTIFICATION_CHANNELS` and a combined `BOT_CHANNEL_CONFIG` are unnecessary.
+Add one Repository Secret for each platform you want to use. A present, non-empty Secret enables that adapter; an absent Secret leaves it disabled.
 
-Every Channel Secret must contain a direct, non-empty YAML sequence of Target mappings. Each Target needs a unique `name`; add `notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]` only to restrict routing. Channels and Targets execute concurrently, while notifications for one Target retain Run Profile order.
+Each platform Secret is a YAML list, so one platform can deliver to multiple rooms, users, groups, or webhooks. Every list item is one destination and needs a unique `name`. Add `notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]` only when that destination should receive a subset. Destinations run independently and in parallel, while messages for one destination keep their expected order.
 
 | Platform | Native presentation | Repository Secret | Official setup |
 | --- | --- | --- | --- |
 | WeCom | `news_notice` Template Card | `BOT_WECOM_CONFIG` | [Group robot](https://developer.work.weixin.qq.com/document/path/91770) |
 | Discord | Image-rich Embed | `BOT_DISCORD_CONFIG` | [Incoming Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) |
 | Telegram | Photo, safe HTML, URL button | `BOT_TELEGRAM_CONFIG` | [BotFather](https://core.telegram.org/bots/features#botfather) |
-| QQ | Embed or custom Markdown | `BOT_QQ_CONFIG` | [Official bot](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/getting-started.html) |
+| QQ groups / direct chats | Custom Markdown | `BOT_QQ_CONFIG` | [Official bot](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/getting-started.html) |
 | Feishu / Lark | Card Schema 2.0 | `BOT_FEISHU_CONFIG` | [Custom bot](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot) |
 | DingTalk | ActionCard | `BOT_DINGTALK_CONFIG` | [Custom robot](https://open.dingtalk.com/document/robots/custom-robot-access) |
 | WhatsApp | Approved media template | `BOT_WHATSAPP_CONFIG` | [Cloud API](https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started) |
 | LINE | Flex Message bubble | `BOT_LINE_CONFIG` | [Messaging API](https://developers.line.biz/en/docs/messaging-api/getting-started/) |
 | Slack | Block Kit | `BOT_SLACK_CONFIG` | [Incoming Webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/) |
 
-The [operator setup directory](./docs/operator-setup-links.md#notification-adapters) lists every required Target field, credential prerequisite, recipient rule, and first-party setup link. The [capability audit](./docs/notification-platform-capabilities.md) explains why each adapter uses its current native layout.
+#### Secret field reference
+
+Field names are case-sensitive. Every Target also accepts the optional `notifications` list described above.
+
+| Repository Secret | Required fields in each Target | Optional fields |
+| --- | --- | --- |
+| `BOT_WECOM_CONFIG` | `name`, `webhookUrl` | — |
+| `BOT_DISCORD_CONFIG` | `name`, `webhookUrl` | `username`, `avatarUrl` |
+| `BOT_TELEGRAM_CONFIG` | `name`, `botToken`, `chatId` | `messageThreadId`, `disableNotification` |
+| `BOT_QQ_CONFIG` | `name`, `appId`, `clientSecret`, `targetType` (`group` or `user`), `targetId` | — |
+| `BOT_FEISHU_CONFIG` | `name`, `webhookUrl` | `secret` |
+| `BOT_DINGTALK_CONFIG` | `name`, `webhookUrl` | `secret` |
+| `BOT_WHATSAPP_CONFIG` | `name`, `accessToken`, `phoneNumberId`, `recipientPhoneNumber`, `templateName`, `languageCode` | — |
+| `BOT_LINE_CONFIG` | `name`, `channelAccessToken`, `targetType` (`user`, `group`, or `room`), `targetId` | `notificationDisabled` |
+| `BOT_SLACK_CONFIG` | `name`, `webhookUrl` | — |
+
+The [platform setup guide](./docs/operator-setup-links.md#notification-adapters) explains credential prerequisites, recipient rules, and first-party setup links for every adapter. The [capability audit](./docs/notification-platform-capabilities.md) explains why each platform uses its current native layout.
 
 ## Reliability
 
-- Data Snapshot resources download concurrently with retries and timeouts, validate before publication, and replace the previous snapshot atomically.
-- Screenshot capture waits for application readiness, fonts, local images, exact geometry, footer position, locale, attribution, and zero overflow.
-- Run Manifest v4 records locale, resolution, time zone, Data Snapshot identity, dimensions, hashes, and stable filenames.
-- Publication Manifest v3 binds the exact Run Manifest to optimized images, originals, and built-in branding icons under one public asset namespace.
-- Configuration Preflight reports all independent errors before the first upload and never prints Secret values.
-- Channel and Target delivery preserves partial success and raises aggregated failures only after all applicable work settles.
+For operators evaluating whether the bot is safe to run unattended:
+
+- Data downloads use retries and timeouts, pass schema validation, and replace the previous snapshot only after the complete new snapshot is valid.
+- Screenshot capture waits for the app, fonts, and local images, then checks language, attribution, dimensions, footer position, and overflow.
+- Run Manifest v4 records exactly what was rendered: locale, resolution, time zone, data identity, filenames, dimensions, and SHA-256 hashes.
+- Publication Manifest v4 records exactly what was uploaded: primary images, compact compatibility images, originals, built-in icons, and public URLs.
+- Configuration preflight reports all independent errors before the first upload and never prints Secret values.
+- Destinations run independently; successful deliveries remain successful even when another destination fails, and failures are summarized at the end.
 - CI scans the complete Git history with a digest-pinned Gitleaks image, then runs syntax, unit, browser, visual, build, workflow-policy, and dependency-audit checks.
 
-Visual tests maintain all four screenshots in English, Simplified Chinese, and Japanese for macOS and Linux. Fixture network access is local-only, and pixel differences above `0.1%` fail validation.
+Structural screenshot validation renders all four artifacts in every supported Bot locale. English, Simplified Chinese, and Japanese also keep macOS and Linux pixel goldens; fixture network access is local-only, and pixel differences above `0.1%` fail validation.
 
 ## Local Development
 
-This section is for contributors and advanced operators; it is not required for hosted operation.
+This section is for contributors and advanced operators. Template users do not need it. Operators create a repository from the template; contributors should instead fork the public source repository so pull requests retain normal GitHub history.
 
 **Requirements:** Node.js 24 LTS and pnpm 11.18 or newer within major version 11.
 
 ```sh
-git clone git@github.com:YOUR_GITHUB_USERNAME/splatoon3-bot.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/splatoon3-bot.git
 cd splatoon3-bot
 git remote add upstream https://github.com/TenviLi/splatoon3-bot.git
 corepack enable

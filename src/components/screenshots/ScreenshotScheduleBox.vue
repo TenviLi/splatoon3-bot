@@ -18,7 +18,7 @@
                 $t(
                   `splatnet.rules.${store.activeSchedule.settings.vsRule.id}.name`,
                   store.activeSchedule.settings.vsRule.name
-                ).replace($t('schedule.rainmakerLong'), $t('schedule.rainmakerShort'))
+                ).replace($t('screenshot.rainmakerLong'), $t('screenshot.rainmakerShort'))
               }}
             </div>
           </div>

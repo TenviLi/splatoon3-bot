@@ -1,0 +1,7046 @@
+{
+  "stages": {
+    "VnNTdGFnZS0x": {
+      "name": "Sengkluft"
+    },
+    "VnNTdGFnZS0y": {
+      "name": "Streifenaal-Straße"
+    },
+    "VnNTdGFnZS0z": {
+      "name": "Schnapperchen-Basar"
+    },
+    "VnNTdGFnZS00": {
+      "name": "Schwertmuschel-Reservoir"
+    },
+    "VnNTdGFnZS02": {
+      "name": "Aalstahl-Metallwerk"
+    },
+    "VnNTdGFnZS0xMA==": {
+      "name": "Makrelenbrücke"
+    },
+    "VnNTdGFnZS0xMQ==": {
+      "name": "Pinakoithek"
+    },
+    "VnNTdGFnZS0xMg==": {
+      "name": "Mahi-Mahi-Resort"
+    },
+    "VnNTdGFnZS0xMw==": {
+      "name": "Perlmutt-Akademie"
+    },
+    "VnNTdGFnZS0xNA==": {
+      "name": "Störwerft"
+    },
+    "VnNTdGFnZS0xNQ==": {
+      "name": "Cetacea-Markt"
+    },
+    "VnNTdGFnZS0xNg==": {
+      "name": "Flunder-Funpark"
+    },
+    "Q29vcFN0YWdlLTc=": {
+      "name": "Wasserkraftwerk Stromschnell"
+    },
+    "Q29vcFN0YWdlLTE=": {
+      "name": "Salmoniden-Damm"
+    },
+    "Q29vcFN0YWdlLTI=": {
+      "name": "Fort Nautilax"
+    },
+    "Q29vcFN0YWdlLTY=": {
+      "name": "Schiffswrack-Insel"
+    },
+    "VnNTdGFnZS03": {
+      "name": "Kusaya-Quellen"
+    },
+    "VnNTdGFnZS05": {
+      "name": "Schollensiedlung"
+    },
+    "Q29vcFN0YWdlLTEwMA==": {
+      "name": "Flunder-Funpark"
+    },
+    "Q29vcFN0YWdlLS05OTk=": {
+      "name": ""
+    },
+    "VnNTdGFnZS01": {
+      "name": "Um'ami-Ruinen"
+    },
+    "VnNTdGFnZS0xOA==": {
+      "name": "Manta Maria"
+    },
+    "Q29vcFN0YWdlLTEwMg==": {
+      "name": "Perlmutt-Akademie"
+    },
+    "VnNTdGFnZS04": {
+      "name": "Talerfisch & Pock"
+    },
+    "VnNTdGFnZS0xNw==": {
+      "name": "Buckelwal-Piste"
+    },
+    "Q29vcFN0YWdlLTg=": {
+      "name": "Hakenzahn-Highway"
+    },
+    "Q29vcFN0YWdlLTEwMw==": {
+      "name": "Schwertmuschel-Reservoir"
+    },
+    "VnNTdGFnZS0xOQ==": {
+      "name": "Seespinnen-Skyline"
+    },
+    "VnNTdGFnZS0yMA==": {
+      "name": "Frachtschiff Schwerfisch"
+    },
+    "Q29vcFN0YWdlLTQ=": {
+      "name": "Räucherwerk"
+    },
+    "Q29vcFN0YWdlLTEwNA==": {
+      "name": "Um'ami-Ruinen"
+    },
+    "VnNTdGFnZS0yMQ==": {
+      "name": "ROM & RAMen"
+    },
+    "VnNTdGFnZS0yMg==": {
+      "name": "Blauflossen-Depot"
+    },
+    "Q29vcFN0YWdlLTEwNQ==": {
+      "name": "Talerfisch & Pock"
+    },
+    "VnNTdGFnZS0yMw==": {
+      "name": "La Ola Airport"
+    },
+    "Q29vcFN0YWdlLTk=": {
+      "name": "Krawallhalla"
+    },
+    "Q29vcFN0YWdlLTEwNg==": {
+      "name": "Streifenaal-Straße"
+    },
+    "VnNTdGFnZS0yNA==": {
+      "name": "Bahnhof Lemuria"
+    },
+    "Q29vcFN0YWdlLS0x": {
+      "name": "Mehrere Schauplätze"
+    },
+    "Q29vcFN0YWdlLTEwNw==": {
+      "name": "Splatsville Grand Arena"
+    },
+    "VnNTdGFnZS0yNg==": {
+      "name": "Dekabahnstation"
+    }
+  },
+  "rules": {
+    "VnNSdWxlLTA=": {
+      "name": "Revierkampf"
+    },
+    "VnNSdWxlLTI=": {
+      "name": "Turm-Kommando"
+    },
+    "VnNSdWxlLTM=": {
+      "name": "Operation Goldfisch"
+    },
+    "VnNSdWxlLTE=": {
+      "name": "Herrschaft"
+    },
+    "VnNSdWxlLTQ=": {
+      "name": "Muschelchaos"
+    },
+    "undefined": {}
+  },
+  "weapons": {
+    "48d6e062dd8b7efb": {
+      "name": "Airbrush MG"
+    },
+    "3adcc67d997a5aa8": {
+      "name": "Karbonroller"
+    },
+    "61d373353a48eb2e": {
+      "name": "Knall-Schwapper"
+    },
+    "cfcd1cb4b09dc134": {
+      "name": "Platscher"
+    },
+    "7813d8c4d9103b07": {
+      "name": "3R-Schwapper"
+    },
+    "57684fd4ee281e09": {
+      "name": "Klecksroller"
+    },
+    "7a4705bd110b0cee": {
+      "name": "Wannen-Schwapper"
+    },
+    "ba2b27f7c17b1632": {
+      "name": "Tri-Stringer"
+    },
+    "3939e000515fe04c": {
+      "name": "Quadhopper Noir"
+    },
+    "6c5bbce4a6c63d0c": {
+      "name": "Quetscher"
+    },
+    "39e383c2f6d1ca3e": {
+      "name": "Nautilus 47"
+    },
+    "627d43fa3ab06066": {
+      "name": "Turbo-Blaster"
+    },
+    "4dc28c8d9bca2dae": {
+      "name": "Klecks-Doppler"
+    },
+    "670ae6f0c617cca4": {
+      "name": "Blaster"
+    },
+    "9e45d86ccd5fea1e": {
+      "name": "Kuli-Splatling"
+    },
+    "e2b5e6b340555596": {
+      "name": "T-Tuber"
+    },
+    "59d665d32bb4122a": {
+      "name": "Fein-Disperser"
+    },
+    "77e4f6414e5a257d": {
+      "name": "Wischer-Splatana"
+    },
+    "2c34cb021254c8f8": {
+      "name": "Profi-Kleckser"
+    },
+    "f668bd94e7ebf62d": {
+      "name": "Turbo-Blaster Plus"
+    },
+    "d3d579406dbc0fc8": {
+      "name": "Airbrush MG"
+    },
+    "8c157e85b75798e7": {
+      "name": "Karbonroller"
+    },
+    "6529a2c7f83ca858": {
+      "name": "Knall-Schwapper"
+    },
+    "92f330252fdd9421": {
+      "name": "Platscher"
+    },
+    "7d97fc215efe47fa": {
+      "name": "3R-Schwapper"
+    },
+    "0637f4b4225f22b8": {
+      "name": "Klecksroller"
+    },
+    "13ef7ad9ba855fe1": {
+      "name": "Wannen-Schwapper"
+    },
+    "7ed9dd50b97d24f3": {
+      "name": "Tri-Stringer"
+    },
+    "8e59d00fc471083a": {
+      "name": "Quadhopper Noir"
+    },
+    "f09bb1bb306659dd": {
+      "name": "Quetscher"
+    },
+    "af505e7c4bdb7888": {
+      "name": "Nautilus 47"
+    },
+    "2d3900d357e005e9": {
+      "name": "Turbo-Blaster"
+    },
+    "582d03e42a63596a": {
+      "name": "Klecks-Doppler"
+    },
+    "9208eee9ecd2026e": {
+      "name": "Blaster"
+    },
+    "cb9126ea2928b619": {
+      "name": "Kuli-Splatling"
+    },
+    "70aa6b216ca8f01c": {
+      "name": "T-Tuber"
+    },
+    "41492e011c163cc1": {
+      "name": "Fein-Disperser"
+    },
+    "df5b39ea3d32b25b": {
+      "name": "Wischer-Splatana"
+    },
+    "617dedf1c26235dc": {
+      "name": "Profi-Kleckser"
+    },
+    "83275e416e7c1bc2": {
+      "name": "Turbo-Blaster Plus"
+    },
+    "1f6ce9f852641707": {
+      "name": "Zufall"
+    },
+    "d9bbd083353c118d": {
+      "name": ".52 Gallon"
+    },
+    "9a9dcaa55c2f6545": {
+      "name": "Kleckser"
+    },
+    "8c0617eafedab081": {
+      "name": "Klotzer 14-A"
+    },
+    "0037f260dd45e397": {
+      "name": "Camp-Pluviator"
+    },
+    "cf6021b669c84379": {
+      "name": "N-ZAP85"
+    },
+    "b5c29680486b0d1c": {
+      "name": "Quasto"
+    },
+    "a99a6dd8efd4d5bb": {
+      "name": "S3 Tintenwerfer"
+    },
+    "50563f3849b68e0a": {
+      "name": "Hydrant"
+    },
+    "1e344559d62809b2": {
+      "name": "Sprenkler"
+    },
+    "e594a5f9535eaf40": {
+      "name": "Kalligraf"
+    },
+    "7a2dd4e35809d537": {
+      "name": "Dynaroller"
+    },
+    "1e9e39f56c9f6d1a": {
+      "name": "Sepiator α"
+    },
+    "5903a8cef02e4298": {
+      "name": "Kelvin 525"
+    },
+    "1208a614c4bb22cf": {
+      "name": "Kontra-Blaster"
+    },
+    "cb1243d9c1908a38": {
+      "name": "Klecks-Splatling"
+    },
+    "57717b83b81f474f": {
+      "name": "E-liter 4K"
+    },
+    "e70b1ea70b5916be": {
+      "name": "Disperser"
+    },
+    "4b6949b9e979636c": {
+      "name": "Luna-Blaster"
+    },
+    "53cefbb18bb74cb3": {
+      "name": "UnderCover"
+    },
+    "1d1dd4a9165c4a0c": {
+      "name": "Klecks-Konzentrator"
+    },
+    "97745a7307013de3": {
+      "name": "Dual-Platscher"
+    },
+    "11ba9e5928b14318": {
+      "name": "Splatling"
+    },
+    "5615e681937a3f12": {
+      "name": "L3 Tintenwerfer"
+    },
+    "24cab1bbfb443770": {
+      "name": "Parapluviator"
+    },
+    "ab50e9ae40810698": {
+      "name": ".96 Gallon"
+    },
+    "319a3174ebcb8224": {
+      "name": "Junior-Kleckser"
+    },
+    "a31def86914d98ae": {
+      "name": "Trommel-Schwapper"
+    },
+    "afc40370eb8a1aa5": {
+      "name": "Fern-Blaster"
+    },
+    "daa5ab5b571faec5": {
+      "name": "Flex-Roller"
+    },
+    "8f8bfbac8a43c2c7": {
+      "name": "Stempel-Splatana"
+    },
+    "70e60082b7f73c24": {
+      "name": "LACT-450"
+    },
+    "13d0d18880c2f4e4": {
+      "name": "Schwapper"
+    },
+    "66e9cd75721a942f": {
+      "name": "Kosmo-Kleckser"
+    },
+    "7f8967b3ae112ffc": {
+      "name": "Breitroller"
+    },
+    "a1ea7028b1bcdd28": {
+      "name": "R-BLR/5H"
+    },
+    "edcfecb7e8acd1a7": {
+      "name": "Zufall"
+    },
+    "fdf543c48448da4e": {
+      "name": "Disperser"
+    },
+    "20efbeb85f11abdb": {
+      "name": "Quetscher"
+    },
+    "b4417b7d33c4ab76": {
+      "name": "Wannen-Schwapper"
+    },
+    "a7d8fc7be0a046c5": {
+      "name": "Tri-Stringer"
+    },
+    "b88acfa356b2b714": {
+      "name": "UnderCover"
+    },
+    "f17da8de892bcdfe": {
+      "name": "N-ZAP85"
+    },
+    "e11e5913db5eb0c2": {
+      "name": "Klecksroller"
+    },
+    "b481841e5def66d6": {
+      "name": "Sepiator α"
+    },
+    "6834571f25b34c9b": {
+      "name": "Quasto"
+    },
+    "f6c61a0f1a701928": {
+      "name": ".52 Gallon"
+    },
+    "78795dccc3ffeef2": {
+      "name": "Knall-Schwapper"
+    },
+    "585c7915a3dc5f28": {
+      "name": "Klecks-Konzentrator"
+    },
+    "2fc3e19d592734ea": {
+      "name": "Zufall"
+    },
+    "32982b9043dd8d1e": {
+      "name": "LACT-450"
+    },
+    "09465cbd66e15c68": {
+      "name": "Klecks-Doppler"
+    },
+    "23c3b20f6e9ed6ec": {
+      "name": "Trommel-Schwapper"
+    },
+    "cacef7e261a01e16": {
+      "name": "Turbo-Blaster"
+    },
+    "7df085c7508e8535": {
+      "name": "3R-Schwapper"
+    },
+    "61a156e5e66059eb": {
+      "name": "Kosmo-Kleckser"
+    },
+    "4d532284b062ba27": {
+      "name": "Dynaroller"
+    },
+    "1f7f2880bcca7894": {
+      "name": ".96 Gallon"
+    },
+    "c8cdd727419d9309": {
+      "name": "Kelvin 525"
+    },
+    "f695f95bfc09af76": {
+      "name": "L3 Tintenwerfer"
+    },
+    "c1a8381441bb38a7": {
+      "name": "Stempel-Splatana"
+    },
+    "91aa1bf7ac84f262": {
+      "name": "R-BLR/5H"
+    },
+    "3a6b429b6f247c59": {
+      "name": "Wischer-Splatana"
+    },
+    "44b6f56d15a02529": {
+      "name": "Blaster"
+    },
+    "6f2cb494a35976ab": {
+      "name": "Flex-Roller"
+    },
+    "70897086ac95fc07": {
+      "name": "Camp-Pluviator"
+    },
+    "49171e6de78e50c7": {
+      "name": "Junior-Kleckser"
+    },
+    "5d214c667c007340": {
+      "name": "Profi-Kleckser"
+    },
+    "d6c4482a8ef368b6": {
+      "name": "Fern-Blaster"
+    },
+    "dfa290ce0cdeae98": {
+      "name": "E-liter 4K"
+    },
+    "53054d13f95bfdac": {
+      "name": "Airbrush MG"
+    },
+    "7529642b716dda2a": {
+      "name": "Klecks-Splatling"
+    },
+    "6832e7cb1f31ec60": {
+      "name": "Breitroller"
+    },
+    "8823b314132f4724": {
+      "name": "T-Tuber"
+    },
+    "974ad42eab86aa42": {
+      "name": "Fein-Disperser"
+    },
+    "98ce5f188f2896e8": {
+      "name": "Kontra-Blaster"
+    },
+    "ec55cea9d34b4b87": {
+      "name": "Kuli-Splatling"
+    },
+    "b0343d4f4b600e95": {
+      "name": "Platscher"
+    },
+    "6ca015df6356568c": {
+      "name": "Kleckser"
+    },
+    "9e5ea39b1890ffe1": {
+      "name": "Schwapper"
+    },
+    "efb18bcc3e8d0faa": {
+      "name": "Klotzer 14-A"
+    },
+    "8afbd08cdbde979e": {
+      "name": "Karbonroller"
+    },
+    "a6524fda305001c3": {
+      "name": "Dual-Platscher"
+    },
+    "3870511200d2f54e": {
+      "name": "Turbo-Blaster Plus"
+    },
+    "7b1ca52db7863e83": {
+      "name": "Kalligraf"
+    },
+    "488255e9a515eeb2": {
+      "name": "S3 Tintenwerfer"
+    },
+    "de0a10dff827d3fd": {
+      "name": "Splatling"
+    },
+    "9ec907326e0a0fbb": {
+      "name": "Luna-Blaster"
+    },
+    "970da796325a8adb": {
+      "name": "Parapluviator"
+    },
+    "20ac9088101d14aa": {
+      "name": "Sprenkler"
+    },
+    "aae42b6ef1b5090d": {
+      "name": "Hydrant"
+    },
+    "3feb54ef838cb9e2": {
+      "name": "Quadhopper Noir"
+    },
+    "fec6f764a77ec60e": {
+      "name": "Nautilus 47"
+    },
+    "6e17fbe20efecca9": {
+      "name": "Zufall"
+    },
+    "d194e691a458ad5f": {
+      "name": "Unbekannt"
+    },
+    "ae62156873b8c5e5": {
+      "name": "S-BLAST92"
+    },
+    "4ae1bd005e4c7d9c": {
+      "name": "Fächerfärber"
+    },
+    "4d4fe461ef7da22c": {
+      "name": "N-ZAP85"
+    },
+    "48500e4854b4d769": {
+      "name": "Wannen-Schwapper"
+    },
+    "f07d321b3cd6f911": {
+      "name": "Fern-Blaster"
+    },
+    "e78ea63c50327ab0": {
+      "name": ".96 Gallon"
+    },
+    "c1ecd761954cda63": {
+      "name": ".52 Gallon"
+    },
+    "2542d849264ace37": {
+      "name": "Unbekannt"
+    },
+    "52b07849caaff002": {
+      "name": "Fächerfärber"
+    },
+    "b81fe809fde4ef6e": {
+      "name": "Sepiator α"
+    },
+    "b00695d610c23c39": {
+      "name": "LACT-450"
+    },
+    "1147e54cfc5e773c": {
+      "name": "Wischer-Splatana"
+    },
+    "3f1d1069bff0b101": {
+      "name": "T-Tuber"
+    },
+    "a51a03de4aae0dfa": {
+      "name": "Klecks-Doppler"
+    },
+    "a36afedc0e51535e": {
+      "name": "Stempel-Splatana"
+    },
+    "19238861042970e3": {
+      "name": "Knall-Schwapper"
+    },
+    "d1d178c4f8590045": {
+      "name": "Turbo-Blaster Plus"
+    },
+    "544a9b3e9bff7ecd": {
+      "name": "Schwappwascher"
+    },
+    "7b91a5e2edac50a9": {
+      "name": "Kartuschierer"
+    },
+    "52e07029f01362a4": {
+      "name": "Zufall"
+    },
+    "82b29bd56c0d9c19": {
+      "name": "Junior-Kleckser"
+    },
+    "f722bde112a8fdae": {
+      "name": "L3 Tintenwerfer"
+    },
+    "310a426d80bfdfa2": {
+      "name": "Flex-Roller"
+    },
+    "5ae1ff2b659034c5": {
+      "name": "Klotzer 14-A"
+    },
+    "ee63111a561f70a4": {
+      "name": "Karbonroller"
+    },
+    "13451fa24f36cc4e": {
+      "name": "Quetscher"
+    },
+    "06b7fbbc77816153": {
+      "name": "S-BLAST92"
+    },
+    "d666414e2d626aa5": {
+      "name": "R-BLR/5H"
+    },
+    "eb6231843a965f03": {
+      "name": "Sprenkler"
+    },
+    "6113b4a2c34d5bff": {
+      "name": "Parapluviator"
+    },
+    "b29b38c98d5d0048": {
+      "name": "Platscher"
+    },
+    "ce24986e8f457ce0": {
+      "name": "3R-Schwapper"
+    },
+    "8ee303742717ed13": {
+      "name": "Kosmo-Kleckser"
+    },
+    "0e7b0928658d7dd6": {
+      "name": "Kuli-Splatling"
+    },
+    "4131c07c5976c5ef": {
+      "name": "Klecks-Konzentrator"
+    },
+    "bc57d58a39020d81": {
+      "name": "Fein-Disperser"
+    },
+    "b4abca58bf916e93": {
+      "name": "Breitroller"
+    },
+    "f557d0c6ff897fc4": {
+      "name": "Nautilus 47"
+    },
+    "8e342dbd807d8d46": {
+      "name": "Tri-Stringer"
+    },
+    "429db9b9ae8ba39b": {
+      "name": "Klecks-Splatling"
+    },
+    "d8b795e7c2821984": {
+      "name": "S3 Tintenwerfer"
+    },
+    "5cb99591156af714": {
+      "name": "Quasto"
+    },
+    "88daf38799f67c1b": {
+      "name": "Disperser"
+    },
+    "d4b87e1ce44d6598": {
+      "name": "Dynaroller"
+    },
+    "97976ade5f6d082d": {
+      "name": "Airbrush MG"
+    },
+    "0a115698cc8dc6ca": {
+      "name": "Trommel-Schwapper"
+    },
+    "0811ac580dabb9bd": {
+      "name": "Blaster"
+    },
+    "dcc2f3eb27c24104": {
+      "name": "Splatling"
+    },
+    "d787b110879b0d56": {
+      "name": "E-liter 4K"
+    },
+    "19c90a1562d9878f": {
+      "name": "Schwapper"
+    },
+    "ffaf97c32fd844f1": {
+      "name": "Camp-Pluviator"
+    },
+    "28ec68160548dcde": {
+      "name": "Luna-Blaster"
+    },
+    "404be707119ba76e": {
+      "name": "Kontra-Blaster"
+    },
+    "53f75e074a3437ea": {
+      "name": "Dual-Platscher"
+    },
+    "3fe96aff1432baba": {
+      "name": "Hydrant"
+    },
+    "d24eaa4ebe408bfa": {
+      "name": "Quadhopper Noir"
+    },
+    "caa7a0e57efa2b9f": {
+      "name": "Turbo-Blaster"
+    },
+    "354c11e2554de95a": {
+      "name": "Profi-Kleckser"
+    },
+    "5cf46dbf5920ce92": {
+      "name": "Kalligraf"
+    },
+    "35cac2ee460ca333": {
+      "name": "Klecksroller"
+    },
+    "2ddc299399ca8cda": {
+      "name": "Kleckser"
+    },
+    "09f425cd12f255dd": {
+      "name": "Kelvin 525"
+    },
+    "38f96c2c8c6004be": {
+      "name": "UnderCover"
+    },
+    "9d04354f179ebf6f": {
+      "name": "Zufall"
+    },
+    "7fcad30c78a42543": {
+      "name": "Lösch-Doppler FW"
+    },
+    "67fb4f2b86efdc62": {
+      "name": "Bast-Pluviator 24-A"
+    },
+    "124ab41419b0fc67": {
+      "name": "Minz-Prophylator"
+    },
+    "a2f19b4715667fcc": {
+      "name": "Penta-Pumper"
+    },
+    "b3ab498b8a8a0667": {
+      "name": "N-ZAP85"
+    },
+    "5463ec85acff180c": {
+      "name": "Trommel-Schwapper"
+    },
+    "b4ebb5629d8c3e5f": {
+      "name": "UnderCover"
+    },
+    "535d3c822bba0415": {
+      "name": "Sepiator α"
+    },
+    "e60629ecf35192a1": {
+      "name": "Kleckser"
+    },
+    "67b2e7ac4bf64e71": {
+      "name": "Wischer-Splatana"
+    },
+    "6ede65010706778d": {
+      "name": "Nautilus 47"
+    },
+    "c100f88e8b925e1c": {
+      "name": "Hydrant"
+    },
+    "935949ea2945806b": {
+      "name": "Airbrush MG"
+    },
+    "ed647072fa99c73e": {
+      "name": "Fein-Disperser"
+    },
+    "09284d9bd3b61ea1": {
+      "name": "Schwappwascher"
+    },
+    "dc9f150e86663adb": {
+      "name": "E-liter 4K"
+    },
+    "5567ca94a5374d21": {
+      "name": "Disperser"
+    },
+    "895eaa9e4e5b427b": {
+      "name": "Quasto"
+    },
+    "e78ca547494ad3c3": {
+      "name": "Karbonroller"
+    },
+    "66cd48f017d3f078": {
+      "name": "Penta-Pumper"
+    },
+    "513c64dd6cd5e723": {
+      "name": ".52 Gallon"
+    },
+    "280ed6683d3eb523": {
+      "name": "Quetscher"
+    },
+    "de8a2a542dbe6b99": {
+      "name": "S-BLAST92"
+    },
+    "3aac272457998973": {
+      "name": "Splatling"
+    },
+    "747937841598fff7": {
+      "name": "Zufall"
+    },
+    "5e5481f626f02cbf": {
+      "name": "S3 Tintenwerfer"
+    },
+    "85c6eda8dffc77a0": {
+      "name": "Kosmo-Kleckser"
+    },
+    "03146bb3dc0defd4": {
+      "name": "Flex-Roller"
+    },
+    "0578f3b3d9af08ed": {
+      "name": "L3 Tintenwerfer"
+    },
+    "b04c2fbbe1c98e63": {
+      "name": "Breitroller"
+    },
+    "05a0ddd5b919b698": {
+      "name": "Luna-Blaster"
+    },
+    "cd34251e67bd3f3e": {
+      "name": "Klecks-Splatling"
+    },
+    "5c8a27c6818f20e6": {
+      "name": "Klotzer 14-A"
+    },
+    "d39ba7409f6e1fbc": {
+      "name": "Dual-Platscher"
+    },
+    "23deec47199c37d1": {
+      "name": "Parapluviator"
+    },
+    "c95b060287d757a2": {
+      "name": "Stempel-Splatana"
+    },
+    "830801a9f4555917": {
+      "name": "Kontra-Blaster"
+    },
+    "342c1b18ce2732ea": {
+      "name": "Camp-Pluviator"
+    },
+    "eb5098db38e209e1": {
+      "name": "Wannen-Schwapper"
+    },
+    "3ed1b23808b91e54": {
+      "name": "Dynaroller"
+    },
+    "2136716c07457658": {
+      "name": "Tri-Stringer"
+    },
+    "c19e07d4db9a4075": {
+      "name": "Knall-Schwapper"
+    },
+    "885c30f6102de958": {
+      "name": ".96 Gallon"
+    },
+    "83c543ed4ae19005": {
+      "name": "Klecks-Doppler"
+    },
+    "961a7063fc94f087": {
+      "name": "Klecks-Konzentrator"
+    },
+    "01b960996da8ed63": {
+      "name": "Zufall"
+    },
+    "914ca6f3cba7aa98": {
+      "name": "Bast-Pluviator 24-A"
+    },
+    "b5b716854159da15": {
+      "name": "Minz-Prophylator"
+    },
+    "f74d638ac101904e": {
+      "name": "Profi-Kleckser"
+    },
+    "884321fa6165eb37": {
+      "name": "Turbo-Blaster"
+    },
+    "523fca90c5771a63": {
+      "name": "Quadhopper Noir"
+    },
+    "79e6297eb501599f": {
+      "name": "Sprenkler"
+    },
+    "d22945127fb7584f": {
+      "name": "R-BLR/5H"
+    },
+    "1f7612f08f804c54": {
+      "name": "LACT-450"
+    },
+    "de148ea51e7c28fa": {
+      "name": "Junior-Kleckser"
+    },
+    "9e45e49e1e9c4853": {
+      "name": "Platscher"
+    },
+    "439343ee49a5126b": {
+      "name": "Kuli-Splatling"
+    },
+    "b4df43b5b0d90b7a": {
+      "name": "3R-Schwapper"
+    },
+    "17b8d348d6380ae9": {
+      "name": "T-Tuber"
+    },
+    "7065ab46c609e6d7": {
+      "name": "Lösch-Doppler FW"
+    },
+    "3ab1a91f59f81345": {
+      "name": "Fächerfärber"
+    },
+    "fe3b9b3b87ca491e": {
+      "name": "Schwapper"
+    },
+    "e115c15c4a20d8ba": {
+      "name": "Klecksroller"
+    },
+    "d9a573867cb6ba9a": {
+      "name": "Kartuschierer"
+    },
+    "183dfb6256c39892": {
+      "name": "Turbo-Blaster Plus"
+    },
+    "d9632c243eb36d73": {
+      "name": "Kalligraf"
+    },
+    "dde2f92988536cd2": {
+      "name": "Blaster"
+    },
+    "3b31490a368e92e1": {
+      "name": "Kelvin 525"
+    },
+    "30f4e84e186e226f": {
+      "name": "Fern-Blaster"
+    }
+  },
+  "brands": {
+    "QnJhbmQtOA==": {
+      "name": "Gian"
+    },
+    "QnJhbmQtMTk=": {
+      "name": "Barazushi"
+    },
+    "QnJhbmQtMjA=": {
+      "name": "Shichiryn"
+    },
+    "QnJhbmQtMA==": {
+      "name": "TintactiX"
+    },
+    "QnJhbmQtMw==": {
+      "name": "Rockberg"
+    },
+    "QnJhbmQtNA==": {
+      "name": "Zekko"
+    },
+    "QnJhbmQtNQ==": {
+      "name": "Focus"
+    },
+    "QnJhbmQtNg==": {
+      "name": "Rilax"
+    },
+    "QnJhbmQtMTE=": {
+      "name": "Kalamati"
+    },
+    "QnJhbmQtMTA=": {
+      "name": "Tentatek"
+    },
+    "QnJhbmQtOQ==": {
+      "name": "Alpomar"
+    },
+    "QnJhbmQtMg==": {
+      "name": "Medusa"
+    },
+    "QnJhbmQtNw==": {
+      "name": "Jakomu"
+    },
+    "QnJhbmQtMTc=": {
+      "name": "Toni Kensa"
+    },
+    "QnJhbmQtMQ==": {
+      "name": "Sagitron"
+    },
+    "QnJhbmQtMTY=": {
+      "name": "Enperry"
+    },
+    "QnJhbmQtMTU=": {
+      "name": "Annaki"
+    },
+    "QnJhbmQtOTg=": {
+      "name": "Kuttel-Korps"
+    }
+  },
+  "gear": {
+    "1f6189fcaf092a8f": {
+      "name": "Melone"
+    },
+    "81921ab4f3fc42fa": {
+      "name": "Weißes Kurzarmhemd"
+    },
+    "8af6d74efc8ee977": {
+      "name": "Ultrarote Klettsneaker"
+    },
+    "e0ef16dcbf779fd8": {
+      "name": "Basic-Tennisschuhe"
+    },
+    "406929c86d7a258e": {
+      "name": "Beeren-BlobMob-Shirt"
+    },
+    "3dc58146de458313": {
+      "name": "Weißes Shirt"
+    },
+    "c2bb9f1294c295da": {
+      "name": "Biker-Stiefel"
+    },
+    "43847b716e0167b8": {
+      "name": "Oval-Sonnenbrille"
+    },
+    "71abfaf22d9b6bbe": {
+      "name": "Biker-Brille"
+    },
+    "b53bdaf8c13d29f2": {
+      "name": "Opak-Visor"
+    },
+    "174d4dbb6348257b": {
+      "name": "Melone"
+    },
+    "ad7271a600e96517": {
+      "name": "Weißes Kurzarmhemd"
+    },
+    "24232b34f82cb2d3": {
+      "name": "Ultrarote Klettsneaker"
+    },
+    "b8fd00bc6b0e03f8": {
+      "name": "Basic-Tennisschuhe"
+    },
+    "aac289491487b78e": {
+      "name": "Beeren-BlobMob-Shirt"
+    },
+    "42fd0a010e3834d6": {
+      "name": "Weißes Shirt"
+    },
+    "d6ae0f6877fbe8e7": {
+      "name": "Biker-Stiefel"
+    },
+    "2e502b645aa81e2c": {
+      "name": "Oval-Sonnenbrille"
+    },
+    "66b70d0194f48051": {
+      "name": "Biker-Brille"
+    },
+    "2b897acb8435752e": {
+      "name": "Opak-Visor"
+    },
+    "11826a638e557c8c": {
+      "name": "Marine-Shirt"
+    },
+    "eeea995329a3b65a": {
+      "name": "Taucherbrille"
+    },
+    "8c2f59eb75da5ece": {
+      "name": "Rilax-Bandana"
+    },
+    "5f1f38129dc8708e": {
+      "name": "Reboot-High-Tops"
+    },
+    "b4efce44ed819f22": {
+      "name": "Karamell-Re-Issue-Shirt"
+    },
+    "a8037dfb0ea3cfc9": {
+      "name": "Transparente Brille"
+    },
+    "c9b62256129de184": {
+      "name": "Schneegipfel-Shirt"
+    },
+    "4402242820b66e9b": {
+      "name": "Polarweiße Delta-Sandalen"
+    },
+    "9dda2a64daaa651f": {
+      "name": "Feschfisch-Hemd"
+    },
+    "d4c2c203e5ef0568": {
+      "name": "Dämmerwellen-Shirt"
+    },
+    "947dcdc899197eb1": {
+      "name": "Cephalo-Pods"
+    },
+    "1bd94af735c58372": {
+      "name": "Hickory-Arbeitsmütze"
+    },
+    "643a053973902353": {
+      "name": "Klassische Kopfhörer"
+    },
+    "677b0d3b7d27ad00": {
+      "name": "4USTERs Perle"
+    },
+    "5268305e6503989f": {
+      "name": "BlobMob-Mundschutz"
+    },
+    "23dfd1075a93a33d": {
+      "name": "Clownstyle-Hemd"
+    },
+    "324df9a75e061379": {
+      "name": "BlobMob-Strandsandalen"
+    },
+    "127b76d4323e74bb": {
+      "name": "Weißes Lagen-Shirt"
+    },
+    "b4b3212cb5cd7bae": {
+      "name": "Umibozu-Heimtrikot"
+    },
+    "784d73e378d54a65": {
+      "name": "Rote High-Top-Sneaker"
+    },
+    "5a2640a1b24f4104": {
+      "name": "Klassischer Boater"
+    },
+    "913c8abcf3b7f553": {
+      "name": "Pfeil-Slip-ons"
+    },
+    "2724594845943e60": {
+      "name": "Kalmar-Sweatshirt"
+    },
+    "70e9d5e472ac488e": {
+      "name": "Seepferd-Guayabera"
+    },
+    "1e8eb9a8cf359ddb": {
+      "name": "Schokobraune Clogs"
+    },
+    "0f9024a487709d60": {
+      "name": "Rot-schwarze Squidkids IV"
+    },
+    "d8dc38f9cff8a7c0": {
+      "name": "Halbrand-Brille"
+    },
+    "536ee3c575414b1c": {
+      "name": "Eis-Duck-Boots"
+    },
+    "aa6d34604fc32094": {
+      "name": "Tri-Kalmar-Shirt"
+    },
+    "93a1f4889a507aca": {
+      "name": "Zombie-High-Top-Sneaker"
+    },
+    "74557810f479b67d": {
+      "name": "Orange Pfeilschuhe"
+    },
+    "956b07f16e9239e5": {
+      "name": "Airflow-Schild R255"
+    },
+    "917b0ff5e7deb49d": {
+      "name": "Kensa-Trainerjacke"
+    },
+    "8cb74f9b9027d2e1": {
+      "name": "Gelbes Lagen-Shirt"
+    },
+    "633c2879fd8e03e7": {
+      "name": "Katzen-Baseballjacke"
+    },
+    "1612c8b009f235b2": {
+      "name": "Dockermütze"
+    },
+    "eb43f28ba5c38ec6": {
+      "name": "Weißes V-Shirt"
+    },
+    "61e8f58a1c752d85": {
+      "name": "Barazushi-Genmai-Shirt"
+    },
+    "81e8fd0b464e2414": {
+      "name": "Profi-Tennisschuhe"
+    },
+    "fa6f79b5f26ce405": {
+      "name": "Annaki-Flanell-Hoodie"
+    },
+    "a50223bf951b4680": {
+      "name": "Hula-Punk-Hemd"
+    },
+    "f7c12d451f1fcd8f": {
+      "name": "Mako-Sneaker"
+    },
+    "68b8d5cfeb33c744": {
+      "name": "Pfeil-Pull-ons"
+    },
+    "ae84b607bf8777f9": {
+      "name": "Rote Schlappen"
+    },
+    "2e526124ce7e8f6f": {
+      "name": "Inkvader-Kappe"
+    },
+    "b8b4c69bd9db92ef": {
+      "name": "Roter Krabbenschützer"
+    },
+    "a7919c8be2a28d62": {
+      "name": "Blau-schwarze Squidkids IV"
+    },
+    "3675b37346898e14": {
+      "name": "Vierfarb-King-Hemd 08"
+    },
+    "cdf0aa473ac99c5c": {
+      "name": "Sonnenorca-High-Tops"
+    },
+    "d00e44e66d68e35b": {
+      "name": "Schwarzes Rockberg-Shirt"
+    },
+    "8edd77ea62ba9e9f": {
+      "name": "Vierfarb-King-Hemd 10"
+    },
+    "1fec43172d6fa45f": {
+      "name": "Radlertrikot"
+    },
+    "f90966ee929161d3": {
+      "name": "Wüsten-Chukkas"
+    },
+    "3156cd52b7438c4a": {
+      "name": "Sonnenbrille 18K"
+    },
+    "007b0011ba440126": {
+      "name": "Weißes Rockberg-Shirt"
+    },
+    "5f0b0a4b682ede5a": {
+      "name": "Pinke Strumpflatschen"
+    },
+    "ed2f366255fe2400": {
+      "name": "Tannengrüne Leinen-High-Tops"
+    },
+    "1373e5fdef7d81d0": {
+      "name": "Urchins-Kappe Klassik"
+    },
+    "65d7097e248028a8": {
+      "name": "Basketball-Heimtrikot"
+    },
+    "2f2c0867bcd60fa2": {
+      "name": "Getönte Brille"
+    },
+    "dc2d135b5dedc8d0": {
+      "name": "Zekko-Baseball-Shirt"
+    },
+    "4318b892228fff97": {
+      "name": "Blaue Low-Tops"
+    },
+    "b7c5f3453773550b": {
+      "name": "Wasabi-Tabi"
+    },
+    "d0aa19a37f3cd296": {
+      "name": "Türkise Turnschuhe"
+    },
+    "8a4df8e058429a82": {
+      "name": "Schoko-Lagen-Shirt"
+    },
+    "db62936fd681df2b": {
+      "name": "Schwarzes Shirt"
+    },
+    "41bedd53522bb38d": {
+      "name": "TT-Stirnband"
+    },
+    "b815880233a35cd6": {
+      "name": "Lila High-Top-Sneaker"
+    },
+    "cfecc281c452aa74": {
+      "name": "Hørnhelmer"
+    },
+    "e8ba8734c2ebfa80": {
+      "name": "Schwarze Strandsandalen"
+    },
+    "f83218ce2928e443": {
+      "name": "Rilax-Mundschutz"
+    },
+    "d8398bdfdddfb898": {
+      "name": "Schwarzes Rilax-Pixel-Shirt"
+    },
+    "441c1f7903f5412d": {
+      "name": "Arbeitsstiefel"
+    },
+    "c0630f568ecb669c": {
+      "name": "Gesichtsschutz"
+    },
+    "bdbd666af9084dbe": {
+      "name": "Spezial-Wanderstiefel"
+    },
+    "fbc70cfb825986de": {
+      "name": "Genialotron"
+    },
+    "81be854769c15200": {
+      "name": "Elektrowels-Baseballjacke"
+    },
+    "baa3c99301fbf998": {
+      "name": "Tennisstirnband"
+    },
+    "4261e5c7df04b91a": {
+      "name": "Austerngraue Clogs"
+    },
+    "f52b184f2b9aecb1": {
+      "name": "Graues Profil-Shirt"
+    },
+    "b2446e7ab074da26": {
+      "name": "Barazushi-Sakura-Shirt"
+    },
+    "2be678af332735c1": {
+      "name": "Kalamati-Schirmband"
+    },
+    "e1acfff65d803f23": {
+      "name": "Kalamati-Retropulli"
+    },
+    "1f28c536cbdc80c2": {
+      "name": "Weißes Rilax-Pixel-Shirt"
+    },
+    "386fb7e34a2abc2a": {
+      "name": "Weißes Stirnband"
+    },
+    "f4d7dfa61cc72a67": {
+      "name": "Rund-Hornbrille"
+    },
+    "4c02bd493cf9b01e": {
+      "name": "Rote Leinen-High-Tops"
+    },
+    "7b854854cece266d": {
+      "name": "Bambushut"
+    },
+    "de236faed2faac4c": {
+      "name": "Grüner Anorak"
+    },
+    "1dc35b1abeefcd35": {
+      "name": "Jeans-Hut"
+    },
+    "ad5679cf966d56d0": {
+      "name": "Ultraweiße Klettsneaker"
+    },
+    "678373bb7134e71d": {
+      "name": "Pinke Turnschuhe"
+    },
+    "3c5acd12e6e2d7de": {
+      "name": "Annaki-Mundschutz"
+    },
+    "4fea8b21041700fd": {
+      "name": "Grauer Hoodie"
+    },
+    "2d60b55fc7167d95": {
+      "name": "Dunkelbraune Boaties"
+    },
+    "e2d69f22cb5653f5": {
+      "name": "Style-Kappe"
+    },
+    "110ff0c454074cfa": {
+      "name": "Barazushi-Reis-Shirt"
+    },
+    "9fa5cc8851fcf88c": {
+      "name": "Urchins-Kappe"
+    },
+    "0f00a6635aede845": {
+      "name": "Hockey-Helm"
+    },
+    "f9ffbfce0e2875d0": {
+      "name": "Macropinna-Brille"
+    },
+    "6f2d6bded7e3b5a3": {
+      "name": "Patchwork-Bomberjacke"
+    },
+    "eaff9715e83e69d6": {
+      "name": "Ananas-Ringer-Shirt"
+    },
+    "703d46b112a2fb1e": {
+      "name": "Türkise Strumpflatschen"
+    },
+    "4fbc8152a1d9b11c": {
+      "name": "Terpentakel-Shirt"
+    },
+    "95a7d0caf568a88b": {
+      "name": "Muschelhelm"
+    },
+    "a64eaf2183a3df2a": {
+      "name": "Eckige Annaki-Brille"
+    },
+    "2134bc4107ef589f": {
+      "name": "Habanero-Annaki-Schuhe"
+    },
+    "f8d476712897b5ea": {
+      "name": "Logo-Hawaiihemd"
+    },
+    "bc5773c0d48ba324": {
+      "name": "Fischerhut"
+    },
+    "4397b925c765efa4": {
+      "name": "Rote Fallschirmjacke"
+    },
+    "f7360a8678a652e1": {
+      "name": "Matcha-Daunenjacke"
+    },
+    "e592552a3149cbc2": {
+      "name": "Klecks-Shirt"
+    },
+    "896386102c8cc7c9": {
+      "name": "Sagitron-Lagen-Shirt"
+    },
+    "aa220e98e0b8ce4d": {
+      "name": "Grünes Lagen-Shirt"
+    },
+    "72d90ee8f6051b8e": {
+      "name": "Luftige Jacke"
+    },
+    "eb19bc1bf079b53e": {
+      "name": "Studio-Kopfhörer"
+    },
+    "3a661f31ee2e6ae3": {
+      "name": "Manati-Swag-Pulli"
+    },
+    "215ca40180b6f437": {
+      "name": "Rilax-Schirmband"
+    },
+    "39bbd0d9f8a9be1e": {
+      "name": "Strickmütze"
+    },
+    "154047abb13f296a": {
+      "name": "AL-G 9"
+    },
+    "3165dd0fe53699ed": {
+      "name": "Schwarzes Krakenaugen-Shirt"
+    },
+    "4333c406473ac20d": {
+      "name": "Jagdstiefel"
+    },
+    "5f3cbcd31423e391": {
+      "name": "Holzfäller-Hemd"
+    },
+    "49df3a5d8d0a99ac": {
+      "name": "Gelbe Schlappen"
+    },
+    "fb978d294c4a18b9": {
+      "name": "Bolero-Jacke Minus"
+    },
+    "dd87314a71de50ff": {
+      "name": "Focus-Mundschutz"
+    },
+    "926ada9976cdae43": {
+      "name": "Fliegerbrille"
+    },
+    "97ed5418f991d678": {
+      "name": "Arbeitstier-Hemd"
+    },
+    "9c3d6d6c10d9d41f": {
+      "name": "Kaki-Ranger-Kombo"
+    },
+    "c661525659d90ef4": {
+      "name": "Kalamati-Netzkappe"
+    },
+    "dfeb51ebc84513c4": {
+      "name": "Chili-Okto-Alohahemd"
+    },
+    "67a744219d496350": {
+      "name": "Orange X-Sneaker"
+    },
+    "8be6bc50a7bc8ab5": {
+      "name": "Arktis-Monster-Parka"
+    },
+    "1cf11459184751e4": {
+      "name": "Wanderstiefel"
+    },
+    "df03a24d19aa6f8e": {
+      "name": "Schiefer-Re-Issue-Shirt"
+    },
+    "8ed3f04671809fb9": {
+      "name": "Hai-Strickpulli"
+    },
+    "b192c92961b2adf6": {
+      "name": "Upcycle-Hemd Metro"
+    },
+    "809e99c2ffa7312a": {
+      "name": "Aalzazel-Shirt"
+    },
+    "c97a0167cc492b36": {
+      "name": "Orange Strumpflatschen"
+    },
+    "476e9139880248e4": {
+      "name": "Annaki-Shirt mit Choker"
+    },
+    "a4d6ce587f7547b4": {
+      "name": "Blaue Pfeilsandalen"
+    },
+    "9aec8fb9cb1ba2b8": {
+      "name": "Schwarze Bikerjacke"
+    },
+    "7df1610b801fb8e5": {
+      "name": "Schwimmbrille"
+    },
+    "fb29dd121ab3b5f2": {
+      "name": "Paddling-Jacke Minus"
+    },
+    "3b84e904cd60534c": {
+      "name": "Sudadera Roja"
+    },
+    "445ffa87c30bbac0": {
+      "name": "8X-Kopfhörer"
+    },
+    "662beb4fb9ea74f9": {
+      "name": "Klappenkappe Dark"
+    },
+    "15d0c6619faead78": {
+      "name": "Heim-Catcherhelm"
+    },
+    "940500ce3bf4cc00": {
+      "name": "Lachs-Turbo-Tabi"
+    },
+    "ff8cd1836a1d4fc2": {
+      "name": "Rote Tenya8"
+    },
+    "878e926050e1816b": {
+      "name": "Tri-Okto-Shirt"
+    },
+    "8bf529c3f3753265": {
+      "name": "Schwarzes Polohemd"
+    },
+    "e2a0872fdee7a498": {
+      "name": "Kolor-Kopfhörer"
+    },
+    "95b7d8bd81a014ae": {
+      "name": "Hawaiihemd"
+    },
+    "f2184eafd208d20c": {
+      "name": "Oktobowler-Hemd"
+    },
+    "ed176e1f5f945985": {
+      "name": "Space-Pilotenhelm"
+    },
+    "4f4fc3a6e642be37": {
+      "name": "Ink Blocking-Hemd"
+    },
+    "77d5515a65d72500": {
+      "name": "OktoKalm-Duo-Shirt"
+    },
+    "14c7c198c5f1332c": {
+      "name": "Apfel-Ringer-Shirt"
+    },
+    "580b51c0cb8c045b": {
+      "name": "Beanie"
+    },
+    "eb6566409e55ddad": {
+      "name": "Eisgipfel-Shirt"
+    },
+    "b4a91c3b5329437c": {
+      "name": "Bomberjacke Minus"
+    },
+    "99108a6528e78424": {
+      "name": "Hellblaues Krakenaugen-Shirt"
+    },
+    "94fa81f8a11b0a30": {
+      "name": "Barazushi-Anorak"
+    },
+    "6da49b6929c446ee": {
+      "name": "Annaki-Barett"
+    },
+    "a085384ce9c3e9ee": {
+      "name": "Annaki-Tiger-Loafer"
+    },
+    "bd7a4b5395750d95": {
+      "name": "Schoko-Dakroniks"
+    },
+    "8540e611a17cd249": {
+      "name": "Hitzewellen-Shirt"
+    },
+    "2f2e954b23c261c7": {
+      "name": "Radlermütze"
+    },
+    "4301fb8489341eef": {
+      "name": "Okto-Helm Deko"
+    },
+    "9b8a23e17b1b5ea3": {
+      "name": "Klassisches Bandana"
+    },
+    "d4d0bc79dce60c64": {
+      "name": "Sonnen-Kletterschuhe"
+    },
+    "591b7bcd94410bf0": {
+      "name": "Camper-Kappe"
+    },
+    "a217ef7797136fcb": {
+      "name": "Alltagsshirt"
+    },
+    "29a7def9b876a301": {
+      "name": "Malermaske"
+    },
+    "e1f937486dd6b7c9": {
+      "name": "Oktoking-Mundschutz"
+    },
+    "ca976a3bc9cd78b2": {
+      "name": "N-Pacer-Trainingsjacke"
+    },
+    "972b9fce355daced": {
+      "name": "Rote Arbeitsstiefel"
+    },
+    "aa51588a1699ae25": {
+      "name": "Galaxie-Batikshirt"
+    },
+    "38776da1845adf08": {
+      "name": "Kugelfisch-Glockenhut"
+    },
+    "68a94c789b4c8b44": {
+      "name": "Rotbraune Punkstiefel"
+    },
+    "76f5e76c784b1c50": {
+      "name": "Kensa-Schwimmbrille"
+    },
+    "36e84fe6b7608c8c": {
+      "name": "Rot-weiße Squidkids V"
+    },
+    "405281a377614420": {
+      "name": "Mountainbike-Helm"
+    },
+    "42ea283da9409cdb": {
+      "name": "Zebra-Shirt"
+    },
+    "3c90c890a335af86": {
+      "name": "Hai-Schnürer"
+    },
+    "7262e999c5bad9da": {
+      "name": "Karohemd mit Weste"
+    },
+    "4faf2e67e092b400": {
+      "name": "Totenkopf-Bandana"
+    },
+    "c639924b729138ab": {
+      "name": "Blaues Okto-Trikot"
+    },
+    "c21aaf1b52292dc7": {
+      "name": "Focus-Inkling-Parka"
+    },
+    "26136d489a89af87": {
+      "name": "Tulpenhut"
+    },
+    "5483b9aa63533859": {
+      "name": "Wüstenstaub-Feldjacke"
+    },
+    "dac35d4c46be1969": {
+      "name": "Moosgrüne Gummistiefel"
+    },
+    "1c6debb9237e2890": {
+      "name": "Beige Tundra-Fleecejacke"
+    },
+    "94c1e453748a9abe": {
+      "name": "Annaki-Blauärmel-Pulli"
+    },
+    "95fcba8b9a39cd62": {
+      "name": "Schwarze Punkstiefel"
+    },
+    "1f6ddf2cf1d59bae": {
+      "name": "Signal-Delta-Sandalen"
+    },
+    "69be0ed9f464ea4a": {
+      "name": "Stollenschuhe"
+    },
+    "c2281bc39bd310d0": {
+      "name": "Retrobrille"
+    },
+    "17667e85698763c8": {
+      "name": "Urchins-Baseball-Trikot"
+    },
+    "37b13a41409cd558": {
+      "name": "Türkise-Cowboyhut"
+    },
+    "0316c51eca942a1c": {
+      "name": "Annaki-Barett mit Brille"
+    },
+    "b443eba90e562d26": {
+      "name": "Rotsohlen-Brogues"
+    },
+    "7866d2e458dcc9fa": {
+      "name": "Barazushi-Tuch"
+    },
+    "a80df2b5cf118944": {
+      "name": "Frostwellen-Shirt"
+    },
+    "94849c9f9b825920": {
+      "name": "Pfeilmuster-Kappe"
+    },
+    "417931be054a0f92": {
+      "name": "Kalmar-Mundschutz"
+    },
+    "b867088a8ddb9a80": {
+      "name": "Doppelschnallen-Schuhe"
+    },
+    "6586ab2c5d8cd989": {
+      "name": "Feuerwehrhelm"
+    },
+    "796fd2d7906261c9": {
+      "name": "Weiße Plateau-Sneaker"
+    },
+    "5de5a3a955b0f195": {
+      "name": "Rot-weiße Collegejacke"
+    },
+    "0bd7ec5e419c3452": {
+      "name": "Jeanskappe mit Schild"
+    },
+    "e3a023a3f503e0be": {
+      "name": "Neongrüne Laufschuhe"
+    },
+    "1d3e46a11ffbec9c": {
+      "name": "Piraten-Shirt"
+    },
+    "87aa11437da121f4": {
+      "name": "Sneaker Translux"
+    },
+    "ab11b6ea4ebdade0": {
+      "name": "Bündchen-Pulli Minus"
+    },
+    "99e79d22b382f957": {
+      "name": "Okto-Shirt"
+    },
+    "f09f6db7abb23197": {
+      "name": "SV925-Rundbrille"
+    },
+    "5cf438885bf2554f": {
+      "name": "Skateboardhelm"
+    },
+    "9c4320cc4dfec243": {
+      "name": "Neon-Delta-Sandalen"
+    },
+    "a3c11aa2e7cf664c": {
+      "name": "Sepibrogues"
+    },
+    "03ec7a070e37e788": {
+      "name": "Leo-Print-Shirt"
+    },
+    "367af2966d3db91b": {
+      "name": "Blaue Slip-ons"
+    },
+    "e8158157baabac9d": {
+      "name": "Lagen-Profil-Shirt"
+    },
+    "2e8ef62f986efb1a": {
+      "name": "Weiße Punkstiefel"
+    },
+    "7e360df7a2031adb": {
+      "name": "Grüner Cardigan"
+    },
+    "1424ac52938446da": {
+      "name": "Ink Blocking-Hemd Flip"
+    },
+    "86ed2bb62a052e30": {
+      "name": "Regenbogen-Batikshirt"
+    },
+    "3875567d34d4b02e": {
+      "name": "Weiße Daunenstiefel"
+    },
+    "0c80632bd1cd6e33": {
+      "name": "Omnimultivisor"
+    },
+    "77ec26940c8cb823": {
+      "name": "Annaki-Oktoprint-Shirt"
+    },
+    "d53fb73cf3178709": {
+      "name": "Jellyvader-Kappe"
+    },
+    "a4be5aeea14fb98e": {
+      "name": "Rotes Profil-Shirt"
+    },
+    "18eb5bc19afe5630": {
+      "name": "Astro-Panzer"
+    },
+    "2e477937b45b9bf1": {
+      "name": "Tennisstirnband"
+    },
+    "5d2dcaa61161c940": {
+      "name": "Schiefer-Re-Issue-Shirt"
+    },
+    "386633c7575f5799": {
+      "name": "Wasabi-Tabi"
+    },
+    "140bb5be8a10e415": {
+      "name": "Rotes Profil-Shirt"
+    },
+    "8a06264363dc442e": {
+      "name": "Airflow-Schild R255"
+    },
+    "c6943b3c0624caa6": {
+      "name": "Eisgipfel-Shirt"
+    },
+    "18ccd9c4c536cfcb": {
+      "name": "Jagdstiefel"
+    },
+    "a51018edf02ccd2b": {
+      "name": "Annaki-Barett"
+    },
+    "9dec389c738b37e0": {
+      "name": "Oktoking-Mundschutz"
+    },
+    "8a54d8320180ed80": {
+      "name": "Astro-Panzer"
+    },
+    "7c4e57ac7c8125ad": {
+      "name": "Hørnhelmer"
+    },
+    "27cde5ac6a27fc42": {
+      "name": "Frostwellen-Shirt"
+    },
+    "3ae0b8c5b6a9c7d1": {
+      "name": "Orange X-Sneaker"
+    },
+    "205209ff92cf9649": {
+      "name": "Eckige Annaki-Brille"
+    },
+    "b1f0a05a6d48d75f": {
+      "name": "Kalamati-Schirmband"
+    },
+    "0eae7f8f26b324a3": {
+      "name": "Galaxie-Batikshirt"
+    },
+    "d40177e7c95129c4": {
+      "name": "Sonnenorca-High-Tops"
+    },
+    "1db8d62e28e3f777": {
+      "name": "Kolor-Kopfhörer"
+    },
+    "5e7cf04d1b4ebb65": {
+      "name": "Kalmar-Sweatshirt"
+    },
+    "c437adc806514b68": {
+      "name": "Kensa-Schwimmbrille"
+    },
+    "c7f4f236b1b1acaf": {
+      "name": "Weißes Lagen-Shirt"
+    },
+    "ff07fc7fea090c5d": {
+      "name": "Pfeilmuster-Kappe"
+    },
+    "f76a40701374d87f": {
+      "name": "Klecks-Shirt"
+    },
+    "d3aa78342476dabb": {
+      "name": "4USTERs Perle"
+    },
+    "65f2389e2551aa9d": {
+      "name": "Weißes Kurzarmhemd"
+    },
+    "27e59065162c99fd": {
+      "name": "Beige Tundra-Fleecejacke"
+    },
+    "0f0a9dc12a4785e3": {
+      "name": "Jeans-Hut"
+    },
+    "77a0a7e69e9cb3eb": {
+      "name": "Macropinna-Brille"
+    },
+    "871a7c71df6c0c13": {
+      "name": "Elektrowels-Baseballjacke"
+    },
+    "8b44b1dce41b50b6": {
+      "name": "Kalmar-Mundschutz"
+    },
+    "56268700452c1b25": {
+      "name": "Schwarzes Shirt"
+    },
+    "80f6cfc13e62e6be": {
+      "name": "Weißes Stirnband"
+    },
+    "b7e40a7b549a79dd": {
+      "name": "Arbeitstier-Hemd"
+    },
+    "9cea6b281c46f02d": {
+      "name": "Marine-Shirt"
+    },
+    "ec672b8e3a24967a": {
+      "name": "Orange Pfeilschuhe"
+    },
+    "7cf59e349730844e": {
+      "name": "Schwarze Bikerjacke"
+    },
+    "d51664ffba14f9e2": {
+      "name": "Leo-Print-Shirt"
+    },
+    "4ccf03623757040e": {
+      "name": "Chili-Okto-Alohahemd"
+    },
+    "043c63fb45d5e851": {
+      "name": "Sonnenbrille 18K"
+    },
+    "28ff27092935457f": {
+      "name": "Holzfäller-Hemd"
+    },
+    "c77eecb20c1f5181": {
+      "name": "Biker-Stiefel"
+    },
+    "56fd188f51ae97fb": {
+      "name": "Dunkelbraune Boaties"
+    },
+    "34b422786c86f418": {
+      "name": "Moosgrüne Gummistiefel"
+    },
+    "cb0b7ab8e7295dbf": {
+      "name": "Weißes Rilax-Pixel-Shirt"
+    },
+    "e0f4077174545fd4": {
+      "name": "Alltagsshirt"
+    },
+    "31cca66cb8302359": {
+      "name": "Klappenkappe Dark"
+    },
+    "c21d764e16dbfdec": {
+      "name": "Arktis-Monster-Parka"
+    },
+    "cbefacb0a5df777a": {
+      "name": "Wüsten-Chukkas"
+    },
+    "89a2a0db33110dd2": {
+      "name": "Tannengrüne Leinen-High-Tops"
+    },
+    "e083c158245d4c48": {
+      "name": "Karnivor-Schnürer"
+    },
+    "3270135c65096897": {
+      "name": "Hai-Schnürer"
+    },
+    "d230f1d9b960725d": {
+      "name": "Style-Kappe"
+    },
+    "7e8413f7b3cf5ceb": {
+      "name": "Schwarze Low-Top-Sneaker"
+    },
+    "616574265163e7e3": {
+      "name": "Vierfarb-King-Hemd 08"
+    },
+    "9346b1b98476bbc1": {
+      "name": "Rot-weiße Squidkids V"
+    },
+    "847c2657f38e53ef": {
+      "name": "Lila Tarn-Longsleeve"
+    },
+    "7b028b5cc1b7867d": {
+      "name": "Quallen-Hemd"
+    },
+    "e23a3865c0477fe8": {
+      "name": "Tarn-Netzkappe"
+    },
+    "45e49487d33db87f": {
+      "name": "Bunte Pfeilschuhe"
+    },
+    "c4bba67c76b56fa1": {
+      "name": "TT-Stirnband"
+    },
+    "8a7b18e5ddaae50f": {
+      "name": "Radlertrikot"
+    },
+    "ae64690d1dab8d29": {
+      "name": "Lila High-Top-Sneaker"
+    },
+    "4a6e438cb4859f08": {
+      "name": "Kalmar-Longsleeve"
+    },
+    "698e6beea41bd7f2": {
+      "name": "Umibozu-Heimtrikot"
+    },
+    "e84215bb7666d575": {
+      "name": "Neongrüne Laufschuhe"
+    },
+    "c41670529c10fb74": {
+      "name": "Urchins-Kappe Klassik"
+    },
+    "7b9a5f033307914c": {
+      "name": "Limitierte Low-Tops"
+    },
+    "52618e9157867562": {
+      "name": "Boater"
+    },
+    "8ebfc778fd94f761": {
+      "name": "Grauer Hoodie"
+    },
+    "373e8fe2e4aaef53": {
+      "name": "Wintersportmütze"
+    },
+    "e806e700efbcc80a": {
+      "name": "Ultraweiße Klettsneaker"
+    },
+    "e9eabd141adca3c8": {
+      "name": "Gasmaske"
+    },
+    "6c75edfc2aec9aff": {
+      "name": "Radlermütze"
+    },
+    "2e5784eabfaf365a": {
+      "name": "Regenblaues Shirt"
+    },
+    "30b02d8f6e4ba5ce": {
+      "name": "Umgedrehte Kappe"
+    },
+    "e8c17867f35e97ba": {
+      "name": "Schwarzes Polohemd"
+    },
+    "b8d03155b8359cd4": {
+      "name": "Kirschrote Gummistiefel"
+    },
+    "85113506dad12892": {
+      "name": "Pinke Turnschuhe"
+    },
+    "8bb8e35a0861301b": {
+      "name": "Lila Laufschuhe"
+    },
+    "1bc59e492b8e911b": {
+      "name": "Weißes Shirt"
+    },
+    "a21a2cbeefca9a17": {
+      "name": "Heim-Catcherhelm"
+    },
+    "21121bbf04be0ce6": {
+      "name": "Rotsohlen-Brogues"
+    },
+    "32fb257fbc67458c": {
+      "name": "Oktobrille"
+    },
+    "9e941af8fd7f3a65": {
+      "name": "Rote Schlappen"
+    },
+    "754cbff89db13c07": {
+      "name": "Graues Sweatshirt"
+    },
+    "3223d4cf801cf75e": {
+      "name": "Rotbraune Punkstiefel"
+    },
+    "15986ad4b8822172": {
+      "name": "Jet-Kappe"
+    },
+    "30b54946c324ee87": {
+      "name": "Studio-Kopfhörer"
+    },
+    "be93570b3dfcda47": {
+      "name": "Baseball-Lagen-Hoodie"
+    },
+    "e6b1d38ede3aa7d6": {
+      "name": "Retrobrille"
+    },
+    "a92b28638f891fd9": {
+      "name": "Piraten-Shirt"
+    },
+    "a333316891127558": {
+      "name": "Ultrarote Klettsneaker"
+    },
+    "cbf435379fe95dff": {
+      "name": "Rote Leinen-High-Tops"
+    },
+    "541a455fbe3a624a": {
+      "name": "Schwarzes Rockberg-Shirt"
+    },
+    "dcb9dbc4b13d272a": {
+      "name": "Manati-Swag-Pulli"
+    },
+    "cab0f186ad1322fa": {
+      "name": "Spezial-Wanderstiefel"
+    },
+    "7715c2bcc13a974e": {
+      "name": "Orange Low-Tops"
+    },
+    "b9cbb286c50180de": {
+      "name": "Austerngraue Clogs"
+    },
+    "b9072da6fffeb4db": {
+      "name": "Transparente Brille"
+    },
+    "49c4378193f79511": {
+      "name": "Wüstenstaub-Feldjacke"
+    },
+    "a01cfea15f866ef4": {
+      "name": "Blaue Pfeilsandalen"
+    },
+    "4db166f77d487365": {
+      "name": "Grüner Cardigan"
+    },
+    "2667f143da0e2bd4": {
+      "name": "Weiße Bikerjacke"
+    },
+    "ace43854cbc4c9f9": {
+      "name": "Sneaker Translux"
+    },
+    "d45bcfa397aec03c": {
+      "name": "Weiße Daunenstiefel"
+    },
+    "804b511b4d2053d0": {
+      "name": "Taucherbrille"
+    },
+    "b6d4e4220aa18f5f": {
+      "name": "Weißes Matrosen-Shirt"
+    },
+    "9d3c5380b5ca659e": {
+      "name": "Cephalo-Pods"
+    },
+    "d0b16b85d6dc11ca": {
+      "name": "AL-G 9"
+    },
+    "bd7d231965eefb39": {
+      "name": "Rot-weiße Collegejacke"
+    },
+    "da568279ee87fafa": {
+      "name": "Expeditionshelm"
+    },
+    "e8cbe3c7f691dadc": {
+      "name": "Clownfisch-Leinenschuhe"
+    },
+    "c71f63b8ad569ac4": {
+      "name": "Klassische Kopfhörer"
+    },
+    "be9ae82550da96a3": {
+      "name": "Annaki-Barett mit Brille"
+    },
+    "3528e2b33fb9474a": {
+      "name": "Annaki-Flanell-Hoodie"
+    },
+    "e87cc4250b483a12": {
+      "name": "Habanero-Annaki-Schuhe"
+    },
+    "c7cdb065c09f67a4": {
+      "name": "Lagen-Profil-Shirt"
+    },
+    "4ed3a76fa6dfb413": {
+      "name": "Rilax-Mundschutz"
+    },
+    "5db0e9f8bd1dff6a": {
+      "name": "Gelbe Punkstiefel"
+    },
+    "9e41a2025ac3bccd": {
+      "name": "Schwarzes Krakenaugen-Shirt"
+    },
+    "cac6c7a04df6f1fa": {
+      "name": "Hickory-Arbeitsmütze"
+    },
+    "a78a614805f7a641": {
+      "name": "Kalmarstern-Weste"
+    },
+    "5aa899466fa9ddc9": {
+      "name": "Blaues Okto-Trikot"
+    },
+    "84dc6deb53cc912d": {
+      "name": "Grünes Lagen-Shirt"
+    },
+    "8d93a94ab2bdb735": {
+      "name": "Squashstirnband"
+    },
+    "e7ebb9753dfbdcc8": {
+      "name": "Champion-Radlermütze"
+    },
+    "5633908a845e4e7c": {
+      "name": "Hellblaues Krakenaugen-Shirt"
+    },
+    "c4093a765f80e764": {
+      "name": "Rote Laufschuhe"
+    },
+    "aa7ea4b2b45eae59": {
+      "name": "Tarnhut"
+    },
+    "dc2e86e88752af50": {
+      "name": "Hai-Strickpulli"
+    },
+    "4823fbbefd97ec52": {
+      "name": "Bündchen-Pulli Minus"
+    },
+    "26d9563c7966ad10": {
+      "name": "Zweistreifen-Netzkappe"
+    },
+    "ab1ceac8d4b32ee8": {
+      "name": "Urchins-Baseball-Trikot"
+    },
+    "7725ed498aefb0e5": {
+      "name": "Katzen-Baseballjacke"
+    },
+    "324a1892277505c4": {
+      "name": "Gelbe Low-Top-Sneaker"
+    },
+    "e9887854adfe42f4": {
+      "name": "Bolero-Jacke Minus"
+    },
+    "fa42c0f96a64140a": {
+      "name": "Pfeil-Pull-ons"
+    },
+    "b35955d7b890005d": {
+      "name": "Blaue Laufschuhe"
+    },
+    "23f2126b48533e18": {
+      "name": "Oktobowler-Hemd"
+    },
+    "151deacf70ff815c": {
+      "name": "Pinke Strumpflatschen"
+    },
+    "7de63a6ea3188e45": {
+      "name": "Lachs-Turbo-Tabi"
+    },
+    "f2a97473b7ff4994": {
+      "name": "Weißes Rockberg-Shirt"
+    },
+    "eeb7f851d6d03a1c": {
+      "name": "FC-Barrakuda-Trikot"
+    },
+    "f49599b4fce20615": {
+      "name": "Reboot-High-Tops"
+    },
+    "dec2087ca8cb0bfc": {
+      "name": "Fahrradhelm"
+    },
+    "11b5ac727232c981": {
+      "name": "Doppelschnallen-Schuhe"
+    },
+    "aeaac39e2dc204f3": {
+      "name": "Feschfisch-Hemd"
+    },
+    "0ec5cbbcd16bfe95": {
+      "name": "Rote High-Top-Sneaker"
+    },
+    "43b1330110d98b43": {
+      "name": "Schirmhelm"
+    },
+    "0cb3ba242150ff62": {
+      "name": "Inkvader-Kappe"
+    },
+    "22b36194c34496c8": {
+      "name": "Fischerhut"
+    },
+    "ef331a7388c97a29": {
+      "name": "Fußballstirnband"
+    },
+    "1a34c66ac04618f2": {
+      "name": "Reggae-Shirt"
+    },
+    "5c6f69c9b678391a": {
+      "name": "Zekko-Netzkappe"
+    },
+    "53342e08f018501c": {
+      "name": "Rotes Karohemd"
+    },
+    "22b42ad62ddcd07a": {
+      "name": "Champion-Radlertrikot"
+    },
+    "b385c1e1cb26d5ed": {
+      "name": "Aalzazel-Shirt"
+    },
+    "60ca4729e3f15d1e": {
+      "name": "Strickmütze"
+    },
+    "21f40c5b5e0944c9": {
+      "name": "Blaue Slip-ons"
+    },
+    "15cc79efd51771b5": {
+      "name": "Neon-Delta-Sandalen"
+    },
+    "a37864e4d90d134b": {
+      "name": "Basketballstirnband"
+    },
+    "010738818c392695": {
+      "name": "N-Pacer-Trainingsjacke"
+    },
+    "4a2353a1575a8290": {
+      "name": "Barett"
+    },
+    "b2ad2d5ea085054d": {
+      "name": "OktoKalm-Duo-Shirt"
+    },
+    "e310c94042779445": {
+      "name": "Rote Tenya8"
+    },
+    "52a43aa594631dac": {
+      "name": "Schwimmbrille"
+    },
+    "5875ae7d9d7b9bc9": {
+      "name": "Rodeo-Hemd"
+    },
+    "5ac23847a7403f5f": {
+      "name": "Weiße Sportbandbrille"
+    },
+    "a8798b39bbe60dc9": {
+      "name": "Zekko-Hoodie"
+    },
+    "2f6897d5337ef3c7": {
+      "name": "Blaue Low-Tops"
+    },
+    "670ca2ce87b93517": {
+      "name": "Hitzewellen-Shirt"
+    },
+    "014836c7ad07a8a0": {
+      "name": "FC-Bonito-Trikot"
+    },
+    "7977b53f60122aa5": {
+      "name": "Luftige Jacke"
+    },
+    "b3b468c4167d50c9": {
+      "name": "Tri-Okto-Shirt"
+    },
+    "c1fb87d0986b3110": {
+      "name": "Biker-Brille"
+    },
+    "7deaf3ffc38d6e26": {
+      "name": "Barazushi-Tuch"
+    },
+    "c1e95c3e79957842": {
+      "name": "Basic-Tennisschuhe"
+    },
+    "e0db7f21921c8896": {
+      "name": "Halbrand-Brille"
+    },
+    "663d2d0d77d19f7a": {
+      "name": "Kaki-Ranger-Kombo"
+    },
+    "5ef885ea53ba7623": {
+      "name": "Muschelhelm"
+    },
+    "feefadef9c6913ca": {
+      "name": "Sudadera Roja"
+    },
+    "8704ea9cb1b02be6": {
+      "name": "Türkise Strumpflatschen"
+    },
+    "481c98f17ad59d5a": {
+      "name": "Mako-Sneaker"
+    },
+    "a029e2ef214c22fe": {
+      "name": "Basketball-Auswärtstrikot"
+    },
+    "ad006f42035ebcb4": {
+      "name": "Camper-Kappe"
+    },
+    "48e546f1426ac978": {
+      "name": "Lila Anorak"
+    },
+    "2282d3ec5c8051f0": {
+      "name": "Wanderstiefel"
+    },
+    "071368490f760424": {
+      "name": "Paddling-Jacke Minus"
+    },
+    "412636790b35a65c": {
+      "name": "Stollenschuhe"
+    },
+    "596fa31adf4aa87a": {
+      "name": "Sportjacke"
+    },
+    "82f87be2c3a9473c": {
+      "name": "Blaues Matrosen-Shirt"
+    },
+    "2c518328e23b6c3b": {
+      "name": "Barazushi-Genmai-Shirt"
+    },
+    "e73c1d9a445cda99": {
+      "name": "Leinenhemd"
+    },
+    "10ab2df57e67ba18": {
+      "name": "Tiefseetaucherhelm"
+    },
+    "29f17fd823703a0f": {
+      "name": "Seepferd-Guayabera"
+    },
+    "35ffc82643c8e185": {
+      "name": "Bubikragen-Hemd"
+    },
+    "f83c3e0b0e67da46": {
+      "name": "BlobMob-Strandsandalen"
+    },
+    "2b091623c0a70815": {
+      "name": "Rote Fallschirmjacke"
+    },
+    "2611e40d7416a442": {
+      "name": "Schwarzes Rilax-Pixel-Shirt"
+    },
+    "3e202b6ce2a582f1": {
+      "name": "Rund-Hornbrille"
+    },
+    "330aacc363e5845e": {
+      "name": "Leinen-High-Tops"
+    },
+    "9d9836d97fda8ac7": {
+      "name": "Okto-Shirt"
+    },
+    "72a39ca7750ebc9a": {
+      "name": "Annaki-Mundschutz"
+    },
+    "1653c4bd81c1fca0": {
+      "name": "Pudelmütze"
+    },
+    "8f2be32a75ddae98": {
+      "name": "Annaki-Shirt mit Choker"
+    },
+    "e6e15e567a79ecad": {
+      "name": "Upcycle-Hemd Metro"
+    },
+    "13247e74e366ad11": {
+      "name": "Regenbogen-Batikshirt"
+    },
+    "7244bbb6fa6dd60c": {
+      "name": "Roter Krabbenschützer"
+    },
+    "d3e8ec173f27043d": {
+      "name": "Trikolor-Lang-Polohemd"
+    },
+    "5be2787b792c09bb": {
+      "name": "Türkise-Cowboyhut"
+    },
+    "87b6100f3777fe50": {
+      "name": "Weißes Baseball-Shirt"
+    },
+    "feb663db4af39d2d": {
+      "name": "Arbeitsstiefel"
+    },
+    "6531683ab4673e80": {
+      "name": "Schoko-Dakroniks"
+    },
+    "b1602fce67fb450e": {
+      "name": "Hemd mit Krawatte"
+    },
+    "7121355fe5d80761": {
+      "name": "Vierfarb-King-Hemd 10"
+    },
+    "2ff1222353bca464": {
+      "name": "Blau-schwarze Squidkids IV"
+    },
+    "f870b775538d7bda": {
+      "name": "Melone"
+    },
+    "9cf4622ca7ce7e55": {
+      "name": "Schneegipfel-Shirt"
+    },
+    "e2aff5329f12f6c0": {
+      "name": "Schnorchel"
+    },
+    "5ef6db896d91815e": {
+      "name": "Kalamati-Netzkappe"
+    },
+    "b230bdd781e25f18": {
+      "name": "Schoko-Lagen-Shirt"
+    },
+    "26bde4f6c5b85ed2": {
+      "name": "Gelbes Lagen-Shirt"
+    },
+    "8e1ef333aba79d20": {
+      "name": "Jellyvader-Kappe"
+    },
+    "0b7dde5389d0ee8b": {
+      "name": "Logo-Hawaiihemd"
+    },
+    "b9b4cb55323a7527": {
+      "name": "Schwarze Strandsandalen"
+    },
+    "59522e8c6e0c07d6": {
+      "name": "Schwarze Turnschuhe"
+    },
+    "f96b3d08eb0694a1": {
+      "name": "Basketball-Heimtrikot"
+    },
+    "058141cd5b316d2f": {
+      "name": "Orange Strumpflatschen"
+    },
+    "d34760401e956f50": {
+      "name": "Dockermütze"
+    },
+    "f7eaa5e5ba5a13b7": {
+      "name": "Barazushi-Reis-Shirt"
+    },
+    "0d687aec1c2a6479": {
+      "name": "Grünes Karohemd"
+    },
+    "1436f36ed60576f8": {
+      "name": "Rot-schwarze Squidkids IV"
+    },
+    "1dcd176bcc8a9a81": {
+      "name": "Matcha-Daunenjacke"
+    },
+    "e8114c9ecd6ac82a": {
+      "name": "Retro-Sweatshirt"
+    },
+    "6ee344613c5c028e": {
+      "name": "Malermaske"
+    },
+    "52808e2a2d63e506": {
+      "name": "Focus-Mundschutz"
+    },
+    "05f55d34f1214a58": {
+      "name": "Anker-Sweatshirt"
+    },
+    "d775d09a4140449f": {
+      "name": "Gestreiftes Lang-Polohemd"
+    },
+    "39bcec4d0355d54a": {
+      "name": "Barazushi-Anorak"
+    },
+    "7ed4455ab20f5eae": {
+      "name": "Pfeillogo-Sweatshirt"
+    },
+    "0251669c9a2a4b5e": {
+      "name": "Grüner Anorak"
+    },
+    "5c7a84791c254160": {
+      "name": "Blaues Streifen-Longsleeve"
+    },
+    "4b8cb6a0fe561b78": {
+      "name": "Anker-Lagen-Shirt"
+    },
+    "e827b09ca8ef70b4": {
+      "name": "Gelbe Schlappen"
+    },
+    "55ccbc201e874773": {
+      "name": "Tannengrüner Hoodie"
+    },
+    "e989c1d6fbf8793d": {
+      "name": "Fliegerbrille"
+    },
+    "96d5af4512d5ae03": {
+      "name": "Schwarzes Anker-Shirt"
+    },
+    "ad08c74748807719": {
+      "name": "Schwarzes Longsleeve"
+    },
+    "b460886d43061423": {
+      "name": "Weiße Punkstiefel"
+    },
+    "52c409d170293a57": {
+      "name": "Türkise Turnschuhe"
+    },
+    "63d8eaa93e3fc816": {
+      "name": "Weißes Streifen-Longsleeve"
+    },
+    "79cac08df90185e7": {
+      "name": "Rilax-Schirmband"
+    },
+    "7f2c6e310407338f": {
+      "name": "BlobMob-Mundschutz"
+    },
+    "2e7f830522350b1e": {
+      "name": "8X-Kopfhörer"
+    },
+    "172290d83938d008": {
+      "name": "Tulpenhut"
+    },
+    "ad48083990ed95aa": {
+      "name": "Urchins-Kappe"
+    },
+    "9157ea3a67f9fac5": {
+      "name": "Gesichtsschutz"
+    },
+    "bdd419c8c5293d6e": {
+      "name": "Sagitron-Lagen-Shirt"
+    },
+    "d4c18fe2dd802194": {
+      "name": "Grau-blaues Baseball-Shirt"
+    },
+    "4acbce907f616512": {
+      "name": "Marineblaues Sweatshirt"
+    },
+    "d0b621ef1d45f241": {
+      "name": "SV925-Rundbrille"
+    },
+    "7e300376c8890289": {
+      "name": "Weiße Plateau-Sneaker"
+    },
+    "a055f015e95f240e": {
+      "name": "Retro-Karohemd"
+    },
+    "fbef99853ff68885": {
+      "name": "Sonnen-Schirmband"
+    },
+    "31ea6a3eea5e21f0": {
+      "name": "Patchwork-Bomberjacke"
+    },
+    "9816563e1a920b12": {
+      "name": "Deluxe-Stollenschuhe"
+    },
+    "d947da422eddbbef": {
+      "name": "Focus-Oktarianer-Parka"
+    },
+    "841935d5b21844f4": {
+      "name": "Paintballhelm"
+    },
+    "7f3e6124903c83f1": {
+      "name": "Hockey-Helm"
+    },
+    "fac3e478c9f3f182": {
+      "name": "Dämmerwellen-Shirt"
+    },
+    "01b1662df8836f48": {
+      "name": "Weißes Longsleeve"
+    },
+    "85e9989386171c1f": {
+      "name": "Profi-Tennisschuhe"
+    },
+    "2fbabdc653413803": {
+      "name": "Ananas-Ringer-Shirt"
+    },
+    "357263d4f91f363e": {
+      "name": "Mountainbike-Helm"
+    },
+    "bb6d68f21888cbfa": {
+      "name": "Ink Blocking-Hemd Flip"
+    },
+    "bd7c6a8f0191ed38": {
+      "name": "Skateboardhelm"
+    },
+    "52e9806c34abb0b0": {
+      "name": "Aquanaut-Rock"
+    },
+    "162f1b11ca51e2fd": {
+      "name": "Bambushut"
+    },
+    "36a5806084910ef4": {
+      "name": "Blaues Rilax-Sweatshirt"
+    },
+    "03d8d2955078ee57": {
+      "name": "Pfeilmuster-Shirt"
+    },
+    "4eb117d3a5aa5455": {
+      "name": "Schirmband"
+    },
+    "e42387337f76faf6": {
+      "name": "Gelbe Steppweste"
+    },
+    "3125b00f7fd15cad": {
+      "name": "Sonnenoranges Shirt"
+    },
+    "aa16c23045178494": {
+      "name": "Bomberjacke Minus"
+    },
+    "fb19bfd12b79e32d": {
+      "name": "Sonnen-Kletterschuhe"
+    },
+    "c1cdbefa0d3d2f70": {
+      "name": "Jeanskappe mit Schild"
+    },
+    "834b9f01cf020eb7": {
+      "name": "Graues Karodetail-Hemd"
+    },
+    "cd97547e9c6a599a": {
+      "name": "Kletter-Steppweste"
+    },
+    "caf2aa40d9aec693": {
+      "name": "Unibrogues"
+    },
+    "4a90769cb6dd4986": {
+      "name": "Annaki-Lagen-Shirt"
+    },
+    "88416ed7bd575c5f": {
+      "name": "Weißes V-Shirt"
+    },
+    "b10618ef7470423a": {
+      "name": "Annaki-Blauärmel-Pulli"
+    },
+    "aced009ff69cddcb": {
+      "name": "Clownstyle-Hemd"
+    },
+    "e3253efb57c5b7b4": {
+      "name": "Zwielichtwellen-Shirt"
+    },
+    "f9fc2fd370f27f0f": {
+      "name": "Barazushi-Sakura-Shirt"
+    },
+    "441fc9c609fb78db": {
+      "name": "Blaue Biker-Stiefel"
+    },
+    "72107d39c7bcdded": {
+      "name": "Pfeil-Slip-ons"
+    },
+    "93707121f776c182": {
+      "name": "Rote Slip-ons"
+    },
+    "1989f89bb3683c76": {
+      "name": "Hummer-Tropenhut"
+    },
+    "0f6542c7bce6a1bc": {
+      "name": "Winter-Pudelmütze"
+    },
+    "d76287251a1e80d6": {
+      "name": "Schwarze Sportbandbrille"
+    },
+    "8213bcccf19e57af": {
+      "name": "Sagitron-Longsleeve"
+    },
+    "d9943c007083e6f7": {
+      "name": "Streifenhemd"
+    },
+    "221d0311cd12d185": {
+      "name": "Eis-Duck-Boots"
+    },
+    "f2575241e38df613": {
+      "name": "Schwarzes Lagen-Shirt"
+    },
+    "d945e6abb1a996a1": {
+      "name": "Minzgrünes Shirt"
+    },
+    "8031db4a158a3989": {
+      "name": "Klassisches Bandana"
+    },
+    "533d8059221cc2b4": {
+      "name": "Karamell-Re-Issue-Shirt"
+    },
+    "dc83c3421324afe6": {
+      "name": "Beanie"
+    },
+    "ce0e032a9b4af85d": {
+      "name": "Grünes Streifen-Longsleeve"
+    },
+    "9dff73f3667fdcb6": {
+      "name": "Streifen-Beanie"
+    },
+    "42ab92eaf82e62c2": {
+      "name": "Weiße Low-Top-Sneaker"
+    },
+    "5cda8399729f1da0": {
+      "name": "Schwarze Punkstiefel"
+    },
+    "4da9a3e38eacbe7e": {
+      "name": "Hawaiihemd"
+    },
+    "32cd97b7e0986fac": {
+      "name": "Annaki-Oktoprint-Shirt"
+    },
+    "0d3ee1609e03de03": {
+      "name": "Annaki-Tiger-Loafer"
+    },
+    "27b32d23702d94c3": {
+      "name": "Piraten-Lagen-Shirt"
+    },
+    "a36e93fc754b5976": {
+      "name": "Zombie-High-Top-Sneaker"
+    },
+    "c8666480bf24eb6d": {
+      "name": "Rilax-Bandana"
+    },
+    "53af593f14387630": {
+      "name": "Zebra-Shirt"
+    },
+    "0fb0286fad46c510": {
+      "name": "Anglerhut"
+    },
+    "441a9f62090040d4": {
+      "name": "Schokobraune Clogs"
+    },
+    "2691ff00a9194f98": {
+      "name": "Türkise Plateau-Sneaker"
+    },
+    "b4efe275a0125131": {
+      "name": "Streifengipfel-Longsleeve"
+    },
+    "181f44dc42cbf585": {
+      "name": "Retro-Gamer-Jacke"
+    },
+    "59792e4065882111": {
+      "name": "Ink Blocking-Hemd"
+    },
+    "9054693c3406b3b6": {
+      "name": "Aquanaut-Schiffchen"
+    },
+    "6edabb924ca30eba": {
+      "name": "Apfel-Ringer-Shirt"
+    },
+    "b0cdccea20fe9e90": {
+      "name": "Goldene High-Top-Sneaker"
+    },
+    "213291c16e6652c8": {
+      "name": "Getönte Kontaktlinsen"
+    },
+    "935b340da97b0b66": {
+      "name": "Graues Profil-Shirt"
+    },
+    "1de5be8ab33dceac": {
+      "name": "Nachtsichtgerät"
+    },
+    "937c341f17e5a9c1": {
+      "name": "Bananen-Leinenschuhe"
+    },
+    "f2188922df753fe4": {
+      "name": "Hellgrünes Polohemd"
+    },
+    "ff76780318953100": {
+      "name": "Laufstirnband"
+    },
+    "6cdfd6177ee63ef1": {
+      "name": "Sepibrogues"
+    },
+    "cdcc3d261b2c1828": {
+      "name": "Kirsch-Plateau-Sneaker"
+    },
+    "5bf6555d90b4df74": {
+      "name": "Kensa-Trainerjacke"
+    },
+    "46820b5e398d1e36": {
+      "name": "Hula-Punk-Hemd"
+    },
+    "4d4bb2908b58e139": {
+      "name": "Signal-Delta-Sandalen"
+    },
+    "763d513ccca9bf8b": {
+      "name": "Tri-Kalmar-Shirt"
+    },
+    "3979fa46ebaba2a7": {
+      "name": "Muschel-Bambushut"
+    },
+    "b0870bfc3eb49fe3": {
+      "name": "Nachtblaue Steppweste"
+    },
+    "6ec52267789770f5": {
+      "name": "Profi-Wanderstiefel"
+    },
+    "998629eaaa157867": {
+      "name": "5-Panel-Kappe"
+    },
+    "b7f3e26f8a1544f7": {
+      "name": "Monovisor"
+    },
+    "16741989f7bc5677": {
+      "name": "Gehörschutz"
+    },
+    "99d22d0532addd41": {
+      "name": "Getönte Brille"
+    },
+    "99214ef4b56ffb20": {
+      "name": "Karohemd mit Weste"
+    },
+    "f672fb25d7248ff7": {
+      "name": "Tarn-Lagen-Shirt"
+    },
+    "f5ca1c29b2047ef3": {
+      "name": "Lila Halbschuhe"
+    },
+    "8ab19ce5633846f9": {
+      "name": "Focus-Inkling-Parka"
+    },
+    "5c0fc4542d1da5a4": {
+      "name": "Durag-Kappe und Brille"
+    },
+    "c4dbb5fea439175e": {
+      "name": "Weiße Pfeilschuhe"
+    },
+    "cc775dc2ff3964f8": {
+      "name": "Perlen-Shirt"
+    },
+    "cf955552672b674c": {
+      "name": "Blaue Tarn-Daunenstiefel"
+    },
+    "e61bde3181df8c7a": {
+      "name": "Tarn-Hoodie"
+    },
+    "d79e64ab5db14090": {
+      "name": "Polarweiße Delta-Sandalen"
+    },
+    "af8660445814e2b3": {
+      "name": "Rote Arbeitsstiefel"
+    },
+    "a7a660bef9c79e3b": {
+      "name": "Blaue Halbschuhe"
+    },
+    "6eea9c713727092b": {
+      "name": "Oranger Cardigan"
+    },
+    "b63342280edf91b5": {
+      "name": "Gummistiefeletten"
+    },
+    "acabf9ac54637182": {
+      "name": "Outdoor-Steppweste"
+    },
+    "de48557eac2da8a6": {
+      "name": "Lila Shirt"
+    },
+    "0f3ac8b716be26ab": {
+      "name": "Retrofutur-Anzug"
+    },
+    "301a85fdbe03289b": {
+      "name": "Medusa 528"
+    },
+    "5078ec81ed6efea7": {
+      "name": "Klassischer Boater"
+    },
+    "c2e392f6ed4cb720": {
+      "name": "Kalamati-Retropulli"
+    },
+    "d4e2330204850d48": {
+      "name": "Okto-Helm Deko"
+    },
+    "46f23bcca7707183": {
+      "name": "Zekko-Baseball-Shirt"
+    },
+    "e9859aa4fe3f0d1c": {
+      "name": "Krabbencocktail-Polohemd"
+    },
+    "41f0e7ec75716ddc": {
+      "name": "Kalamati-Schirmband"
+    },
+    "5b0557344cd36425": {
+      "name": "FC-Barrakuda-Trikot"
+    },
+    "873bfeba1b933f45": {
+      "name": "Deluxe-Stollenschuhe"
+    },
+    "32e5708015b6270b": {
+      "name": "Bomberjacke Minus"
+    },
+    "022bf421f1783138": {
+      "name": "Streifen-Beanie"
+    },
+    "bcb5b728741af87b": {
+      "name": "Türkise-Cowboyhut"
+    },
+    "54fafa40a7cd9067": {
+      "name": "Türkise Strumpflatschen"
+    },
+    "165cd977ff77a706": {
+      "name": "Nachtsichtgerät"
+    },
+    "b536f417bf39ed0a": {
+      "name": "Dämmerwellen-Shirt"
+    },
+    "e4c369d93032f229": {
+      "name": "Retrofutur-Anzug"
+    },
+    "14fb4312bf1faea2": {
+      "name": "Hickory-Arbeitsmütze"
+    },
+    "7f239deca08e5284": {
+      "name": "Annaki-Flanell-Hoodie"
+    },
+    "671364cfc53ad0f3": {
+      "name": "Sonnen-Schirmband"
+    },
+    "1dfe5eb961eb0076": {
+      "name": "Kalmar-Sweatshirt"
+    },
+    "2f6388b4c18402f3": {
+      "name": "Schwarze Turnschuhe"
+    },
+    "f67cd7c6f0d19029": {
+      "name": "Schnorchel"
+    },
+    "9e15c0322eb85f1a": {
+      "name": "Weißes Matrosen-Shirt"
+    },
+    "f37c08c1d2550601": {
+      "name": "Okto-Helm Deko"
+    },
+    "107192b2e9272b68": {
+      "name": "Jellyvader-Kappe"
+    },
+    "de43e2f6b530fd2d": {
+      "name": "Laufstirnband"
+    },
+    "bea92dbf4d62aa90": {
+      "name": "Lila Halbschuhe"
+    },
+    "230cc3b55472beac": {
+      "name": "Barazushi-Sakura-Shirt"
+    },
+    "639d7496f4b7af1d": {
+      "name": "Piraten-Lagen-Shirt"
+    },
+    "c36f631780c921cf": {
+      "name": "Sepibrogues"
+    },
+    "0f459e011b7bb002": {
+      "name": "Tarn-Netzkappe"
+    },
+    "f21f24964aaa7066": {
+      "name": "Baseball-Lagen-Hoodie"
+    },
+    "d86aad39599f4065": {
+      "name": "Rote Schlappen"
+    },
+    "f48dd410da86210a": {
+      "name": "Rote Tenya8"
+    },
+    "020cbdc9af5e3e45": {
+      "name": "Retrofutur-Helm"
+    },
+    "64aab49611fc93c4": {
+      "name": "Kugelfisch-Glockenhut"
+    },
+    "b33d67ba5b4ab31a": {
+      "name": "Urchins-Kappe Klassik"
+    },
+    "6a40a878005661b0": {
+      "name": "Rote High-Top-Sneaker"
+    },
+    "b661146512d1322e": {
+      "name": "Orange Low-Tops"
+    },
+    "97c2fdf4bd9bb222": {
+      "name": "Focus-Mundschutz"
+    },
+    "6de4a18c353d37a7": {
+      "name": "Biker-Brille"
+    },
+    "5dd8bdfbbe7e54e2": {
+      "name": "Barazushi-Genmai-Shirt"
+    },
+    "b3df787b7d14accd": {
+      "name": "Basic-Tennisschuhe"
+    },
+    "4f451de9164badf0": {
+      "name": "Barazushi-Tuch"
+    },
+    "f0e91a90325c86a2": {
+      "name": "Pfeillogo-Sweatshirt"
+    },
+    "610a421d2a949858": {
+      "name": "Hemd mit Krawatte"
+    },
+    "34db0a16d0ceb43d": {
+      "name": "Blau-schwarze Squidkids IV"
+    },
+    "a3eaa9fe5d855f41": {
+      "name": "Karamell-Re-Issue-Shirt"
+    },
+    "ccd632c76a0dfcdc": {
+      "name": "Logo-Hawaiihemd"
+    },
+    "644f56276a3130f2": {
+      "name": "Macropinna-Brille"
+    },
+    "5b4fa9031de89d0c": {
+      "name": "Beeren-BlobMob-Shirt"
+    },
+    "6f907830cc4a8d57": {
+      "name": "Mako-Sneaker"
+    },
+    "464b98ee7b3b1826": {
+      "name": "Minzgrünes Shirt"
+    },
+    "c5e7e526d4122983": {
+      "name": "Rote Leinen-High-Tops"
+    },
+    "3500f899eb166d10": {
+      "name": "Schwarzes Rilax-Pixel-Shirt"
+    },
+    "b73fd0f89c6bd0b6": {
+      "name": "Anker-Sweatshirt"
+    },
+    "14d5b8fddc16926c": {
+      "name": "Pinke Strumpflatschen"
+    },
+    "845b316cccec990e": {
+      "name": "Sudadera Roja"
+    },
+    "22b8f34808bd3a1d": {
+      "name": "Gesichtsschutz"
+    },
+    "53815ad9370322db": {
+      "name": "Klecks-Shirt"
+    },
+    "bb714e704b3d3ff3": {
+      "name": "4USTERs Perle"
+    },
+    "39b74c520098b6c0": {
+      "name": "Unibrogues"
+    },
+    "166ae313ef584d58": {
+      "name": "Schokobraune Clogs"
+    },
+    "4e58107a7e152733": {
+      "name": "Moosgrüne Gummistiefel"
+    },
+    "58cf4382b2ccac9e": {
+      "name": "Durag-Kappe und Brille"
+    },
+    "dd0651ac758f0e0c": {
+      "name": "Oktobowler-Hemd"
+    },
+    "032291744634a68e": {
+      "name": "Clownfisch-Leinenschuhe"
+    },
+    "ff06f3e0350b7d42": {
+      "name": "Feschfisch-Hemd"
+    },
+    "f05978d794e9dbed": {
+      "name": "Krabbencocktail-Polohemd"
+    },
+    "52a23a9e47969e4e": {
+      "name": "Sneaker Translux"
+    },
+    "2646b55fbb3eb64e": {
+      "name": "Weißes Lagen-Shirt"
+    },
+    "6a8c440ac7e7fa06": {
+      "name": "Kalmar-Longsleeve"
+    },
+    "0ed9446ae2a3a4f9": {
+      "name": "Leinenhemd"
+    },
+    "26e7a628ed34e552": {
+      "name": "Annaki-Barett"
+    },
+    "adbe82fa2da86d1e": {
+      "name": "Annaki-Oktoprint-Shirt"
+    },
+    "f445f4e98b26be6f": {
+      "name": "Habanero-Annaki-Schuhe"
+    },
+    "8d31d39aae6f1713": {
+      "name": "Lagen-Profil-Shirt"
+    },
+    "ac95ab6feff12f2e": {
+      "name": "Rote Laufschuhe"
+    },
+    "077ab79c6af4a2ca": {
+      "name": "Eis-Duck-Boots"
+    },
+    "49229273190dec9c": {
+      "name": "Schwarze Low-Top-Sneaker"
+    },
+    "6bb6aaa795b2e1d0": {
+      "name": "Ink Blocking-Hemd"
+    },
+    "25f8783c95f6df42": {
+      "name": "Mountainbike-Helm"
+    },
+    "3ae4bf025cd10453": {
+      "name": "Limitierte Low-Tops"
+    },
+    "ef77d8d6c1b77631": {
+      "name": "Basketballstirnband"
+    },
+    "0de76819ba6db45e": {
+      "name": "Spezial-Wanderstiefel"
+    },
+    "9df69f0ea25b6c07": {
+      "name": "Sonnen-Kletterschuhe"
+    },
+    "9f8f4c3d386715b2": {
+      "name": "Gelbe Low-Top-Sneaker"
+    },
+    "ab80ed25de6866d2": {
+      "name": "Leinen-High-Tops"
+    },
+    "b611ac13be703e89": {
+      "name": "Oktoking-Mundschutz"
+    },
+    "ff605fdcf2e810a4": {
+      "name": "N-Pacer-Trainingsjacke"
+    },
+    "8d2399d7e4a8dc54": {
+      "name": "Schwarzes Polohemd"
+    },
+    "2c7cdb6a60f1956c": {
+      "name": "Kalamati-Netzkappe"
+    },
+    "81f6888c0af09c8a": {
+      "name": "Schiefer-Re-Issue-Shirt"
+    },
+    "1e924094e8a7a9cf": {
+      "name": "Ink Blocking-Hemd Flip"
+    },
+    "e1c5b55e8e289883": {
+      "name": "Schwimmbrille"
+    },
+    "8809f0a06f39d9ce": {
+      "name": "Basketball-Auswärtstrikot"
+    },
+    "a907b1af05ca21dd": {
+      "name": "Orange Pfeilschuhe"
+    },
+    "ec712f04e4e16ef7": {
+      "name": "Fußballstirnband"
+    },
+    "3de1617917f3891e": {
+      "name": "Upcycle-Hemd Metro"
+    },
+    "0fb378b360db0eda": {
+      "name": "SV925-Rundbrille"
+    },
+    "3e3584a685b92219": {
+      "name": "Bubikragen-Hemd"
+    },
+    "ae6cebb2075d1bef": {
+      "name": "Kirsch-Plateau-Sneaker"
+    },
+    "edd86028e8a15697": {
+      "name": "Tarn-Lagen-Shirt"
+    },
+    "fb7207c8ae2c68a5": {
+      "name": "Blaue Tarn-Daunenstiefel"
+    },
+    "520dd7b84f4b0d7a": {
+      "name": "Malermaske"
+    },
+    "0647b7698074cf44": {
+      "name": "Schwarzes Shirt"
+    },
+    "2d111c51efa16dcf": {
+      "name": "Kolor-Kopfhörer"
+    },
+    "771073efa12490ba": {
+      "name": "Lachs-Turbo-Tabi"
+    },
+    "53b5aa53aa00b7b3": {
+      "name": "Türkise Plateau-Sneaker"
+    },
+    "d1d32898239578d3": {
+      "name": "Hørnhelmer"
+    },
+    "2abc2617b7ca0f57": {
+      "name": "Sonnenorca-High-Tops"
+    },
+    "4143f36fe1e54ab7": {
+      "name": "Pinke Turnschuhe"
+    },
+    "03d5f18baaea8fc0": {
+      "name": "Schoko-Dakroniks"
+    },
+    "3563c735804a09e4": {
+      "name": "Schirmhelm"
+    },
+    "8357bf95b5912213": {
+      "name": "Reggae-Shirt"
+    },
+    "13e5d86453c55a2b": {
+      "name": "Boater"
+    },
+    "cb29cf507690d98a": {
+      "name": "Umgedrehte Kappe"
+    },
+    "3640d5f81539f503": {
+      "name": "Weiße Low-Top-Sneaker"
+    },
+    "47269fcfcabbc782": {
+      "name": "Rund-Hornbrille"
+    },
+    "8f2be09f9abb7ccb": {
+      "name": "Frostwellen-Shirt"
+    },
+    "42589ff1d3d887b0": {
+      "name": "OktoKalm-Duo-Shirt"
+    },
+    "aca9811fae6ebd28": {
+      "name": "Fischerhut"
+    },
+    "02eb3f1b43205e2f": {
+      "name": "Rilax-Bandana"
+    },
+    "5856b235d7aba150": {
+      "name": "Clownstyle-Hemd"
+    },
+    "50e736bfac15d862": {
+      "name": "Kaki-Ranger-Kombo"
+    },
+    "808646c4aa0f6457": {
+      "name": "Türkise Turnschuhe"
+    },
+    "fd887cccf2906c67": {
+      "name": "Pudelmütze"
+    },
+    "5f31e15c30e65e41": {
+      "name": "Hai-Strickpulli"
+    },
+    "5914364358380b1a": {
+      "name": "Seepferd-Guayabera"
+    },
+    "f21b90e17052b073": {
+      "name": "Rodeo-Hemd"
+    },
+    "9de6a55d0e7d1532": {
+      "name": "Klappenkappe Dark"
+    },
+    "363315d23dffb972": {
+      "name": "Melone"
+    },
+    "bc8dda8de25c745c": {
+      "name": "Ultraweiße Klettsneaker"
+    },
+    "c1a8c26856affc26": {
+      "name": "Schwarzes Anker-Shirt"
+    },
+    "ee94de5f1d4914d1": {
+      "name": "Getönte Kontaktlinsen"
+    },
+    "8264e44e248fca1c": {
+      "name": "Retro-Gamer-Jacke"
+    },
+    "553fa256959ae19c": {
+      "name": "Lila Tarn-Longsleeve"
+    },
+    "88d7384ac556ac71": {
+      "name": "Blaue Pfeilsandalen"
+    },
+    "fb43159290f75d81": {
+      "name": "Grau-blaues Baseball-Shirt"
+    },
+    "c6fbed6d02b1a4ab": {
+      "name": "Oktobrille"
+    },
+    "dcee539309bead7e": {
+      "name": "Beanie"
+    },
+    "eb4d4d676f24e2b9": {
+      "name": "Barett"
+    },
+    "6481cb10fec0fab3": {
+      "name": "Blaue Slip-ons"
+    },
+    "94328b49199304b5": {
+      "name": "Pfeil-Slip-ons"
+    },
+    "cb2e1853fed5bb18": {
+      "name": "Grünes Streifen-Longsleeve"
+    },
+    "4fb2f0eccd0aefcf": {
+      "name": "Apfel-Ringer-Shirt"
+    },
+    "a9343a2231f67ad1": {
+      "name": "Paddling-Jacke Minus"
+    },
+    "68d1abdb0a14a38e": {
+      "name": "Blaue Laufschuhe"
+    },
+    "ad599305868bdb30": {
+      "name": "Blaues Rilax-Sweatshirt"
+    },
+    "309a29eea36abfb4": {
+      "name": "Urchins-Baseball-Trikot"
+    },
+    "edcf321b99f16053": {
+      "name": "Zekko-Baseball-Shirt"
+    },
+    "6020f88eda72ce9c": {
+      "name": "BlobMob-Mundschutz"
+    },
+    "46978f8e65a171d3": {
+      "name": "Schwarzes Rockberg-Shirt"
+    },
+    "dce5f5d22c745b4f": {
+      "name": "Rote Arbeitsstiefel"
+    },
+    "ba0e6bd8b19c1589": {
+      "name": "Blaue Halbschuhe"
+    },
+    "37a8947236c61232": {
+      "name": "Pfeil-Pull-ons"
+    },
+    "f0497f5430747e45": {
+      "name": "Bambushut"
+    },
+    "90ed2a3ed5963886": {
+      "name": "Neon-Delta-Sandalen"
+    },
+    "b5fbab180c5dc3e7": {
+      "name": "Rotes Karohemd"
+    },
+    "9e4bf04f7bdd91a9": {
+      "name": "Lila Laufschuhe"
+    },
+    "0d5ac21522734f30": {
+      "name": "Annaki-Mundschutz"
+    },
+    "7e3c92428cec4715": {
+      "name": "Annaki-Shirt mit Choker"
+    },
+    "349fadecc62409e7": {
+      "name": "Annaki-Tiger-Loafer"
+    },
+    "3f05232d650c7467": {
+      "name": "Squashstirnband"
+    },
+    "c749455d979a467e": {
+      "name": "Klassische Kopfhörer"
+    },
+    "c552777e3a31db60": {
+      "name": "Kirschrote Gummistiefel"
+    },
+    "d7fff7546134348a": {
+      "name": "Profi-Tennisschuhe"
+    },
+    "7122c82d094cbad8": {
+      "name": "Perlen-Shirt"
+    },
+    "99962cbe8b9157c8": {
+      "name": "Zombie-High-Top-Sneaker"
+    },
+    "c4967d483b4a7293": {
+      "name": "Sonnenbrille 18K"
+    },
+    "c3f4230208339596": {
+      "name": "Camper-Kappe"
+    },
+    "ef44c8d54fbe03ba": {
+      "name": "Elektrowels-Baseballjacke"
+    },
+    "f6ebc451ec2d29be": {
+      "name": "Ultrarote Klettsneaker"
+    },
+    "924dcaf66eb6d0f3": {
+      "name": "Rotes Profil-Shirt"
+    },
+    "59815deb13d9d8ae": {
+      "name": "Tri-Kalmar-Shirt"
+    },
+    "bc26fcccdec0a6da": {
+      "name": "Strickmütze"
+    },
+    "9764a1e9d9d51706": {
+      "name": "Retrobrille"
+    },
+    "bcff9a76de760cd3": {
+      "name": "Eckige Annaki-Brille"
+    },
+    "ab56fbfe1b844f9e": {
+      "name": "Tri-Okto-Shirt"
+    },
+    "df50d7deaa59949e": {
+      "name": "Austerngraue Clogs"
+    },
+    "a196ff26fb407f38": {
+      "name": "Rot-weiße Squidkids V"
+    },
+    "f359a2ee18129468": {
+      "name": "Katzen-Baseballjacke"
+    },
+    "fdb92c8b3c05fc25": {
+      "name": "Schwarze Bikerjacke"
+    },
+    "d24ec1ac4f32ab65": {
+      "name": "Wasabi-Tabi"
+    },
+    "b5618eeec40534ba": {
+      "name": "Schwarzes Lagen-Shirt"
+    },
+    "7a8f918bd5533667": {
+      "name": "Weiße Bikerjacke"
+    },
+    "4a1abb8ec72bdb44": {
+      "name": "Gelbe Punkstiefel"
+    },
+    "407c06b41fc7fd8a": {
+      "name": "Studio-Kopfhörer"
+    },
+    "c4e6458376a142eb": {
+      "name": "Schwarze Sportbandbrille"
+    },
+    "ea51dd77650a15bc": {
+      "name": "Biker-Stiefel"
+    },
+    "41c55c011078c88d": {
+      "name": "Stollenschuhe"
+    },
+    "c093e05fd52e5e74": {
+      "name": "Dockermütze"
+    },
+    "7b5c70fb861231bb": {
+      "name": "Gelbe Steppweste"
+    },
+    "5534e82363e3828b": {
+      "name": "Weißes Baseball-Shirt"
+    },
+    "0d11119906fc8dfd": {
+      "name": "Kensa-Schwimmbrille"
+    },
+    "922ab622dd80308a": {
+      "name": "Jeanskappe mit Schild"
+    },
+    "2f8ca1ef4b452c83": {
+      "name": "Tulpenhut"
+    },
+    "a5ddb4bd0d128785": {
+      "name": "Schneegipfel-Shirt"
+    },
+    "2b4b7313b5c5b509": {
+      "name": "Heim-Catcherhelm"
+    },
+    "689839e7192a445d": {
+      "name": "5-Panel-Kappe"
+    },
+    "ad580141546a45ad": {
+      "name": "Weißes V-Shirt"
+    },
+    "c73a0f101ac9bc77": {
+      "name": "Kalmar-Mundschutz"
+    },
+    "01d5c109bfdbefb6": {
+      "name": "Weißes Shirt"
+    },
+    "7d9eaf41429a15e0": {
+      "name": "Airflow-Schild R255"
+    },
+    "8c04ff42acf817c1": {
+      "name": "Champion-Radlertrikot"
+    },
+    "9e3706d8ad88af66": {
+      "name": "Glamrock-Jacke"
+    },
+    "fe67137750f84a90": {
+      "name": "Gestreiftes Lang-Polohemd"
+    },
+    "375899ec709e6752": {
+      "name": "Graues Profil-Shirt"
+    },
+    "f041a4d08be16423": {
+      "name": "Jet-Kappe"
+    },
+    "5720e976710c3988": {
+      "name": "Weißes Kurzarmhemd"
+    },
+    "fde83159c6a4dd52": {
+      "name": "Jagdstiefel"
+    },
+    "6d2061be537d3134": {
+      "name": "Kugelfisch-Shirt"
+    },
+    "a242908b34fc7696": {
+      "name": "Weiße Punkstiefel"
+    },
+    "687f422b32db5b3b": {
+      "name": "Halbrand-Brille"
+    },
+    "929b44ba55cd192b": {
+      "name": "Vierfarb-King-Hemd 10"
+    },
+    "485fd707635e0b68": {
+      "name": "Sonnenoranges Shirt"
+    },
+    "80c2339dc6b430b0": {
+      "name": "Wüsten-Chukkas"
+    },
+    "b69ddf6a87cbc725": {
+      "name": "AL-G 9"
+    },
+    "6f21683f5f49f466": {
+      "name": "Rotbraune Punkstiefel"
+    },
+    "7202b06ebe99ae80": {
+      "name": "Grünes Lagen-Shirt"
+    },
+    "2e92df51b55f4ede": {
+      "name": "Gehörschutz"
+    },
+    "af71bf55a10c58fa": {
+      "name": "Hula-Punk-Hemd"
+    },
+    "3baf3fe9f83cb7ab": {
+      "name": "Cephalo-Pods"
+    },
+    "cd3962089969a1fb": {
+      "name": "Zweistreifen-Netzkappe"
+    },
+    "3425e298dc3ae3a8": {
+      "name": "Tarn-Hoodie"
+    },
+    "6b9446521205bca4": {
+      "name": "Schirmband"
+    },
+    "40abebcc874bc498": {
+      "name": "Klassischer Boater"
+    },
+    "94919ff195bf7e57": {
+      "name": "Skateboardhelm"
+    },
+    "c8838d81157d8cfc": {
+      "name": "Okto-Shirt"
+    },
+    "bda6efb218732916": {
+      "name": "Grünes Karohemd"
+    },
+    "1ab1c420deae9d99": {
+      "name": "Vierfarb-King-Hemd 08"
+    },
+    "d02484a216f59d30": {
+      "name": "Tennisstirnband"
+    },
+    "1a9b9d4bc02192e9": {
+      "name": "Weißes Rockberg-Shirt"
+    },
+    "a7debe539a584c52": {
+      "name": "Inkvader-Kappe"
+    },
+    "a4e997f449149409": {
+      "name": "TT-Stirnband"
+    },
+    "93ec4226623f88bd": {
+      "name": "Sagitron-Lagen-Shirt"
+    },
+    "f2c54f819291e8c0": {
+      "name": "Blaue Low-Tops"
+    },
+    "ddd54257197eba57": {
+      "name": "Retro-Karohemd"
+    },
+    "877eb0c9258b904b": {
+      "name": "Fliegerbrille"
+    },
+    "bbc5dcdb8c4ace85": {
+      "name": "Karnivor-Schnürer"
+    },
+    "72d59274c3532410": {
+      "name": "Trikolor-Lang-Polohemd"
+    },
+    "fc930f680e403928": {
+      "name": "Grüner Anorak"
+    },
+    "3ae4fd56bef51592": {
+      "name": "Rilax-Schirmband"
+    },
+    "35977e28181a0a29": {
+      "name": "Tarnhut"
+    },
+    "49549cdc599039f9": {
+      "name": "Weiße Daunenstiefel"
+    },
+    "7da4267dbe72c548": {
+      "name": "Schwarzes Krakenaugen-Shirt"
+    },
+    "5cd5d860449e5dfe": {
+      "name": "Weiße Pfeilschuhe"
+    },
+    "af60e641db707a20": {
+      "name": "Sportjacke"
+    },
+    "fe8f675324b4d4dd": {
+      "name": "Hockey-Helm"
+    },
+    "268eb9cc2f878021": {
+      "name": "Streifenhemd"
+    },
+    "d9f87ca945f48c33": {
+      "name": "BlobMob-Strandsandalen"
+    },
+    "21209b23c56be140": {
+      "name": "Jeans-Hut"
+    },
+    "e97e793e9abeb305": {
+      "name": "Hai-Schnürer"
+    },
+    "e5dd7cea0689d0e8": {
+      "name": "Gummistiefeletten"
+    },
+    "7135a4cfcc976f70": {
+      "name": "FC-Bonito-Trikot"
+    },
+    "f3f71bd9d8cc8670": {
+      "name": "Gelbes Lagen-Shirt"
+    },
+    "2322523514391611": {
+      "name": "Style-Kappe"
+    },
+    "797d94c82a58a2dd": {
+      "name": "Muschel-Bambushut"
+    },
+    "219e27353c8d8b8b": {
+      "name": "Klassisches Bandana"
+    },
+    "c1f0da9544b68681": {
+      "name": "Kalmarstern-Weste"
+    },
+    "49b64342ad392190": {
+      "name": "Anglerhut"
+    },
+    "f89e6b05bd25b0cb": {
+      "name": "Alltagsshirt"
+    },
+    "a805c2a7f5be45e8": {
+      "name": "Hawaiihemd"
+    },
+    "ec77f4ff49185d6c": {
+      "name": "Dunkelbraune Boaties"
+    },
+    "5cfe62645d9c13e2": {
+      "name": "Sagitron-Longsleeve"
+    },
+    "9088bd2213ba7f6f": {
+      "name": "Weißes Stirnband"
+    },
+    "1095d26889f8d14a": {
+      "name": "Patchwork-Bomberjacke"
+    },
+    "8bc72431627b3b8c": {
+      "name": "Rote Slip-ons"
+    },
+    "0758ad01236afdf7": {
+      "name": "Barazushi-Reis-Shirt"
+    },
+    "d472410b5448cafc": {
+      "name": "Wintersportmütze"
+    },
+    "0ada092cf002c607": {
+      "name": "Orange X-Sneaker"
+    },
+    "f684f56be6a50d22": {
+      "name": "Graues Karodetail-Hemd"
+    },
+    "7ee0f9e2b3e8b734": {
+      "name": "Polarweiße Delta-Sandalen"
+    },
+    "27326e0984c69d61": {
+      "name": "Annaki-Barett mit Brille"
+    },
+    "ae28605434b4f96d": {
+      "name": "Urchins-Kappe"
+    },
+    "279f03edfec347e6": {
+      "name": "Weißes Streifen-Longsleeve"
+    },
+    "03657609a5383fd8": {
+      "name": "Rot-weiße Collegejacke"
+    },
+    "043b5e53546d5989": {
+      "name": "Hitzewellen-Shirt"
+    },
+    "cb2b1657512a88a5": {
+      "name": "Totenkopf-Bandana"
+    },
+    "dabfba2134e9111d": {
+      "name": "Doppelschnallen-Schuhe"
+    },
+    "f127c8d7674c4620": {
+      "name": "Weißes Rilax-Pixel-Shirt"
+    },
+    "16348f8c466079c4": {
+      "name": "Arbeitsstiefel"
+    },
+    "33778454d822eea6": {
+      "name": "Weiße Plateau-Sneaker"
+    },
+    "df2accb1fb986f19": {
+      "name": "Hellblaues Krakenaugen-Shirt"
+    },
+    "9d4307c244d67a8a": {
+      "name": "Zekko-Hoodie"
+    },
+    "ca2b2fdd4dbff31d": {
+      "name": "Fahrradhelm"
+    },
+    "9ae6fdc4bfadb32f": {
+      "name": "Profi-Wanderstiefel"
+    },
+    "5780ff9f95bf952a": {
+      "name": "Grauer Hoodie"
+    },
+    "baecc21b3df75989": {
+      "name": "Ananas-Ringer-Shirt"
+    },
+    "a5b1931e7350ee7e": {
+      "name": "Glamletten"
+    },
+    "6490c9b2d3e9e55c": {
+      "name": "Regenbogen-Batikshirt"
+    },
+    "d9b6af6685f32635": {
+      "name": "Piraten-Shirt"
+    },
+    "6e470bc87582e65f": {
+      "name": "Muschelhelm"
+    },
+    "ca44e6f72d227bc7": {
+      "name": "Focus-Inkling-Parka"
+    },
+    "e9a9583478105368": {
+      "name": "Taucherbrille"
+    },
+    "447e163eb5e91c11": {
+      "name": "Weißes Longsleeve"
+    },
+    "6239fc0d6546d4ce": {
+      "name": "Gasmaske"
+    },
+    "cef84ba92071d475": {
+      "name": "Gelbe Schlappen"
+    },
+    "9163083f8b43ee39": {
+      "name": "Chili-Okto-Alohahemd"
+    },
+    "a3c8d0b074dfdc24": {
+      "name": "Champion-Radlermütze"
+    },
+    "81fb8c10755777c8": {
+      "name": "Hummer-Tropenhut"
+    },
+    "4e6a0c2993910076": {
+      "name": "Transparente Brille"
+    },
+    "238aa5a08883c76e": {
+      "name": "Blaue Biker-Stiefel"
+    },
+    "f552243dffd76af2": {
+      "name": "Karohemd mit Weste"
+    },
+    "49c452781177d633": {
+      "name": "Weiße Sportbandbrille"
+    },
+    "d212072056094742": {
+      "name": "Tannengrüner Hoodie"
+    },
+    "c40f8886f06a98c2": {
+      "name": "Radlermütze"
+    },
+    "03b0da89cfcfe463": {
+      "name": "Rote Fallschirmjacke"
+    },
+    "e90d10cbc94a4305": {
+      "name": "Paintballhelm"
+    },
+    "fce054d3ceb37c00": {
+      "name": "Regenblaues Shirt"
+    },
+    "e97c7d2b14c2c7f3": {
+      "name": "Zwielichtwellen-Shirt"
+    },
+    "29060f4096d9748d": {
+      "name": "Schwarzes Baseball-Shirt"
+    },
+    "0587111241fa2676": {
+      "name": "Lila Shirt"
+    },
+    "d19dd2ff9d46ed73": {
+      "name": "Barazushi-Anorak"
+    },
+    "bd0b6a5b9644670c": {
+      "name": "Bolero-Jacke Minus"
+    },
+    "7dc41ca5666da73d": {
+      "name": "Oval-Sonnenbrille"
+    },
+    "1340619784620f8c": {
+      "name": "Rotsohlen-Brogues"
+    },
+    "f48ca09d46db8416": {
+      "name": "Getönte Brille"
+    },
+    "91cbaf4d221a868d": {
+      "name": "Weißes Anker-Shirt"
+    },
+    "96c8d17e70de2eb5": {
+      "name": "Rilax-Mundschutz"
+    },
+    "9ebbd722f94f18c0": {
+      "name": "Bananen-Leinenschuhe"
+    },
+    "822ecce491d7169d": {
+      "name": "Quallen-Hemd"
+    },
+    "8fb3c55fb9483589": {
+      "name": "Bündchen-Pulli Minus"
+    },
+    "c06825c4fa96529b": {
+      "name": "Graues Sweatshirt"
+    },
+    "ad92fbc1d2a018a6": {
+      "name": "Blaues Streifen-Longsleeve"
+    },
+    "fe89d6fe118a1082": {
+      "name": "Orange Strumpflatschen"
+    },
+    "24076aa304814391": {
+      "name": "Schwarze Strandsandalen"
+    },
+    "a43fb7d3698b62fa": {
+      "name": "Bunte Pfeilschuhe"
+    },
+    "a3a474685c6dccc7": {
+      "name": "Reboot-High-Tops"
+    },
+    "78bed018d9c457b9": {
+      "name": "Holzfäller-Hemd"
+    },
+    "c20f02fd42c83ed8": {
+      "name": "Kletter-Steppweste"
+    },
+    "34ea327e3101a9d9": {
+      "name": "Zebra-Shirt"
+    },
+    "4b6107b3fd6f9204": {
+      "name": "Streifengipfel-Longsleeve"
+    },
+    "448f2ec0069b99b7": {
+      "name": "Neongrüne Laufschuhe"
+    },
+    "3079b092607313fd": {
+      "name": "Signal-Delta-Sandalen"
+    },
+    "56cb73e0e01cb36a": {
+      "name": "Luftige Jacke"
+    },
+    "fa7e974e8af06a5d": {
+      "name": "3D-Durchblicker"
+    },
+    "8ced9dc8330b5dc3": {
+      "name": "Beige Tundra-Fleecejacke"
+    },
+    "866a08cf40deb604": {
+      "name": "Roter Krabbenschützer"
+    },
+    "f61d8502d2864a59": {
+      "name": "Rot-schwarze Squidkids IV"
+    },
+    "68b07806f87b7fdc": {
+      "name": "Goldene High-Top-Sneaker"
+    },
+    "fd69616af9d65ea1": {
+      "name": "Anker-Lagen-Shirt"
+    },
+    "4153cf3a13213beb": {
+      "name": "Wanderstiefel"
+    },
+    "3ffc6dab701c8088": {
+      "name": "Leo-Print-Shirt"
+    },
+    "d477323916cd5c9d": {
+      "name": "8X-Kopfhörer"
+    },
+    "cb394cc96c28628e": {
+      "name": "Grüner Cardigan"
+    },
+    "f295015cb0bdb14c": {
+      "name": "Annaki-Lagen-Shirt"
+    },
+    "30d9d21a0c737542": {
+      "name": "Zekko-Netzkappe"
+    },
+    "e8896a6fe1d958b0": {
+      "name": "Outdoor-Steppweste"
+    },
+    "53cf395da163419e": {
+      "name": "Kensa-Trainerjacke"
+    },
+    "2a0dcc1ebb5d0aab": {
+      "name": "Manati-Swag-Pulli"
+    },
+    "a12c002b9fbdd89e": {
+      "name": "Annaki-Blauärmel-Pulli"
+    },
+    "2665aa6be3dd37dd": {
+      "name": "Lila Anorak"
+    },
+    "77eb1354aaaa1bd0": {
+      "name": "Matcha-Daunenjacke"
+    },
+    "08a29f2c233a9830": {
+      "name": "Basketball-Heimtrikot"
+    },
+    "6fa1c75d84696301": {
+      "name": "Aalzazel-Shirt"
+    },
+    "8b0acdb34251b7de": {
+      "name": "Hackerfrack"
+    },
+    "7c6ace01914078ce": {
+      "name": "Radlertrikot"
+    },
+    "750183f042bd1db2": {
+      "name": "Arbeitstier-Hemd"
+    },
+    "2d26be71b5e05c99": {
+      "name": "Expeditionshelm"
+    },
+    "4acc71634cf0c49d": {
+      "name": "Blaues Matrosen-Shirt"
+    },
+    "961843e8ba4940f8": {
+      "name": "Umibozu-Heimtrikot"
+    },
+    "cd6fc0172053df61": {
+      "name": "Schwarze Punkstiefel"
+    },
+    "ac60a10353017222": {
+      "name": "Retro-Sweatshirt"
+    },
+    "a4fa58043fb830ae": {
+      "name": "Nachtblaue Steppweste"
+    },
+    "abf447be716c1706": {
+      "name": "Winter-Pudelmütze"
+    },
+    "b85b682621cc7442": {
+      "name": "Medusa 528"
+    },
+    "80ec83b0038dd076": {
+      "name": "Focus-Oktarianer-Parka"
+    },
+    "fec27befca72c566": {
+      "name": "Pfeilmuster-Kappe"
+    },
+    "95beb8064d1e8b10": {
+      "name": "Blaues Okto-Trikot"
+    },
+    "c04f7023e2c335be": {
+      "name": "Kalamati-Retropulli"
+    },
+    "647839916e8213a5": {
+      "name": "Schwarzes Longsleeve"
+    },
+    "17c6bb9a8ee265d6": {
+      "name": "Schoko-Lagen-Shirt"
+    },
+    "65dfcf665903cfbd": {
+      "name": "Lila High-Top-Sneaker"
+    },
+    "802a75b77d81cfee": {
+      "name": "Flitzpantoffeln DK"
+    },
+    "bd2ef5b10854405c": {
+      "name": "Galaxie-Batikshirt"
+    },
+    "932601d19123295d": {
+      "name": "Hellgrünes Polohemd"
+    },
+    "e5ad5ddbf4cb32ca": {
+      "name": "Pfeilmuster-Shirt"
+    },
+    "8bb43bfd2d665e2e": {
+      "name": "Tannengrüne Leinen-High-Tops"
+    },
+    "8ba8f7916fee909a": {
+      "name": "Marine-Shirt"
+    },
+    "7bc703d182d4e506": {
+      "name": "NyloNeon 5000"
+    },
+    "e80f64d26b7adb9e": {
+      "name": "Liga-Shirt"
+    },
+    "c5755274c5a0c59f": {
+      "name": "Rotes Kuttel-Korps-Shirt"
+    },
+    "8e0f4d608d3eacb1": {
+      "name": "Honig-orange Squidkids V"
+    },
+    "c87f70d6fa4a9a65": {
+      "name": "Wüstenstaub-Feldjacke"
+    },
+    "e197e4e23acc4182": {
+      "name": "Focus-Digicamo-Mundschutz"
+    },
+    "7fdbb43946ec6297": {
+      "name": "N-Pacer CaO"
+    },
+    "56d06c205b8a7ebc": {
+      "name": "FA-01-Wendejacke"
+    },
+    "8cebb0e49b4e3e2c": {
+      "name": "King-Trikot"
+    },
+    "da632ce42f54490b": {
+      "name": "Weiße Leinenschuhe"
+    },
+    "535a8474b6f697ad": {
+      "name": "King-Flexi-Netzkappe"
+    },
+    "9c0aee99b016f5db": {
+      "name": "Mehrfarb-Wildleder-Schnürer"
+    },
+    "55cdb4e56f49e558": {
+      "name": "N-Pacer Au"
+    },
+    "547d8af04660898f": {
+      "name": "Blaue Iromaki 750"
+    },
+    "1cb376884d36078c": {
+      "name": "Violette Turnschuhe"
+    },
+    "9ba4020f41929d25": {
+      "name": "Punktehemd"
+    },
+    "e5eae9ab82cc9a16": {
+      "name": "Mister-Shrug-Shirt"
+    },
+    "427e38ef64ca14ba": {
+      "name": "Schwarzes Rilax-Bandana"
+    },
+    "899420e993e16273": {
+      "name": "Grünes Blockstreifen-Shirt"
+    },
+    "59cdb008bb9c547c": {
+      "name": "Arktis-Monster-Parka"
+    },
+    "332641fa838b2e5a": {
+      "name": "Kensa-Stollenschuhe"
+    },
+    "b9c4100e8f08619c": {
+      "name": "Weiße Schnürlos-Dakroniks"
+    },
+    "7573da037608e9ae": {
+      "name": "Oktoking-Trikot"
+    },
+    "b2c983286319ca1c": {
+      "name": "Zickzack-Beanie"
+    },
+    "7a18f1a6fb75e061": {
+      "name": "Rote Power-Sci-Fis"
+    },
+    "f0d0456799e894a6": {
+      "name": "Tropenblätter-Hut"
+    },
+    "051b30eda8b58b9e": {
+      "name": "Teegrüne Jagdstiefel"
+    },
+    "ad75f381c18583b7": {
+      "name": "Ms-Shrug-Shirt"
+    },
+    "cad0556ac4e06714": {
+      "name": "Kalamati-Trikot"
+    },
+    "1a4fc14d2703585f": {
+      "name": "Rettich-Zekko-Shirt"
+    },
+    "ba9bcecbe0b37cdf": {
+      "name": "Freundesshirt"
+    },
+    "c3a04785f4eca419": {
+      "name": "Blaues Tentatek-Shirt"
+    },
+    "cbfe2d21d8fe7a07": {
+      "name": "Annaki-Rotärmel-Pulli"
+    },
+    "c4685d379082c2e2": {
+      "name": "Rosa Blockstreifen-Shirt"
+    },
+    "1fea522b14e27847": {
+      "name": "Türkise Wildleder-Schnürer"
+    },
+    "daec38a5bc7c3e59": {
+      "name": "Silberne Tentatek-Weste"
+    },
+    "d9dc51dc43d33701": {
+      "name": "Gelbsohlen-Brogues"
+    },
+    "74de3873017ce340": {
+      "name": "Schwarzes Oktoking-Shirt"
+    },
+    "3713c999b29e8c01": {
+      "name": "N-Pacer Ag"
+    },
+    "4f99e5c66aad12c1": {
+      "name": "Jade-Zekko-Trainerjacke"
+    },
+    "ec6590d0dd15a5a1": {
+      "name": "Sportive Pfeilschuhe"
+    },
+    "a6952fb74167f392": {
+      "name": "Tentatek-Mottoshirt"
+    },
+    "0755dfa2ac2318a7": {
+      "name": "Orca-High-Tops"
+    },
+    "73bade4d3649905c": {
+      "name": "Inkognito-Mütze"
+    },
+    "7a88d5dfbe30774f": {
+      "name": "Blaue Fallschirmjacke"
+    },
+    "c1ace23e1c06f1c4": {
+      "name": "Weißes King-Tanktop"
+    },
+    "4bc2097b3fac8300": {
+      "name": "Marine-Enperrial-Stiefel"
+    },
+    "e94c292e5fb008d0": {
+      "name": "El Rey Calamar"
+    },
+    "1ecc180b661f1244": {
+      "name": "Marineblaues Sweatshirt"
+    },
+    "e48d3e8064323c13": {
+      "name": "Piranha-Schnürer"
+    },
+    "9820df97f859a016": {
+      "name": "Okto-Baseballjacke"
+    },
+    "93fe84ba8a9abcce": {
+      "name": "Bündchen-Pulli Plus"
+    },
+    "c97ea2fd29776617": {
+      "name": "Weißes Deka-Shirt"
+    },
+    "30fe4268374ac134": {
+      "name": "Cephalo-Kopfhörer"
+    },
+    "66f9750b9bd86775": {
+      "name": "Kung-Fu-Jacke"
+    },
+    "7a490814ed98d01d": {
+      "name": "Smoky Brogues"
+    },
+    "de41fbc457077ad0": {
+      "name": "Schwarze Norimaki 750"
+    },
+    "f8333ab0e1d86794": {
+      "name": "Matter MTB-Helm"
+    },
+    "b06b8deef0b3e0a5": {
+      "name": "Chirpy-Chips-Shirt"
+    },
+    "af346e548cb6b4d1": {
+      "name": "Pfirsich-Kletterschuhe"
+    },
+    "54b65fd857f7aaee": {
+      "name": "Blaues Rilax-Pixel-Longsleeve"
+    },
+    "4da9007a0ff47efd": {
+      "name": "Annaki-Gelbärmel-Pulli"
+    },
+    "dc7da58ba73a0a43": {
+      "name": "Blaue Power-Sci-Fis"
+    },
+    "f219ad755cfbbfa6": {
+      "name": "Dotterblumen-Jacke"
+    },
+    "946ec833149a3ca2": {
+      "name": "Rote Iromaki 750"
+    },
+    "b341ae28f69ee30c": {
+      "name": "Rotes Tentatek-Shirt"
+    },
+    "4b7b3a4229e29dc5": {
+      "name": "Bernstein-High-Tops"
+    },
+    "618f64b8ea656029": {
+      "name": "Half-Sleeve"
+    },
+    "357a3c08594a278c": {
+      "name": "Kalamati-Baseball-Shirt"
+    },
+    "44f01da5afb25f4c": {
+      "name": "Grüne Schnürschuhe"
+    },
+    "801beab26083fca8": {
+      "name": "Senf-Zekko-Trainerjacke"
+    },
+    "6a2e837a682a2db9": {
+      "name": "Schwarzes V-Shirt"
+    },
+    "92917595854b262e": {
+      "name": "Orange Iromaki 750"
+    },
+    "eb112ff59e8a2c04": {
+      "name": "FA-01-Jacke"
+    },
+    "040571f7835a7829": {
+      "name": "Kugelfisch-Glockenhut Duo"
+    },
+    "dfcd2c583e872ced": {
+      "name": "Pitaya-Orca-High-Tops"
+    },
+    "85fd53d1b0cfb9d2": {
+      "name": "Orange Netzsneaker"
+    },
+    "c5b83741b6cd41b1": {
+      "name": "F3-Jacke Spezial"
+    },
+    "5814270de809fa99": {
+      "name": "Reißverschlussweste"
+    },
+    "d785e688317398ec": {
+      "name": "Kensa-Sci-Fis"
+    },
+    "32a4e7bb135400ee": {
+      "name": "Motocross-Nasenschutz"
+    },
+    "0a11e649f99c5d3f": {
+      "name": "Schwarzes Kuttel-Korps-Shirt"
+    },
+    "b6f9a937ceadd04a": {
+      "name": "Squid-Squad-Shirt"
+    },
+    "73cffaddc2124b2e": {
+      "name": "Langschirm-Mütze"
+    },
+    "dab9b9c2a1829473": {
+      "name": "Kugelfisch-Schiebermütze"
+    },
+    "29ab812cee5dae5f": {
+      "name": "Deka-Helm"
+    },
+    "f1ddaf0b08059eee": {
+      "name": "Boxstiefel"
+    },
+    "785256dcaa77e9e4": {
+      "name": "Piepmatz-Cordjacke"
+    },
+    "b91392fb40960610": {
+      "name": "Grünes Oktoking-Shirt"
+    },
+    "c6c5bd47083d4497": {
+      "name": "Oranger Cardigan"
+    },
+    "952245bb74d9875a": {
+      "name": "Punkt-Slip-ons"
+    },
+    "e1a9e0f133d5516b": {
+      "name": "Chilischoten-Skijacke"
+    },
+    "ff56d19eb5c55ead": {
+      "name": "Patchwork-Hut"
+    },
+    "340ae557a37310d8": {
+      "name": "Karotten-Zekko-Shirt"
+    },
+    "51fb55a6432642a2": {
+      "name": "Molluskelbude-Schlappen"
+    },
+    "44661af07c20bd37": {
+      "name": "Hightide-Era-Shirt"
+    },
+    "48ef706828d63d58": {
+      "name": "Schwarze Doppelschnaller"
+    },
+    "d48d03756430c0f9": {
+      "name": "Türkise Dakroniks"
+    },
+    "b0b92bf5b69d6053": {
+      "name": "Annaki-Arachno-Stiefel"
+    },
+    "7c0ca2caf1423dd5": {
+      "name": "Weiße Norimaki 750"
+    },
+    "d8fd8460bcac1095": {
+      "name": "Laufschuhe Volt 95"
+    },
+    "a2cce99350090cd7": {
+      "name": "King-Mundschutz"
+    },
+    "632fa9796cc55ed4": {
+      "name": "Lila Iromaki 750"
+    },
+    "9e1afcf71588a40d": {
+      "name": "Fliegermütze"
+    },
+    "9725c786d7dcefcd": {
+      "name": "Tintenschutzbrille"
+    },
+    "58fb1fcdf52d6679": {
+      "name": "Pullovermantel"
+    },
+    "ce00406f664f1852": {
+      "name": "Weißes Seeigel-Rock-Shirt"
+    },
+    "131a18be6b46c36c": {
+      "name": "Graue Wildleder-Schnürer"
+    },
+    "9f10262c6f25ffc8": {
+      "name": "Ahorn-Zekko-Trainerjacke"
+    },
+    "01c0f4d48724eec9": {
+      "name": "Dunkelblaues Deka-Shirt"
+    },
+    "074c079548490976": {
+      "name": "Blaue Schnürlos-Dakroniks"
+    },
+    "5cdec592846865ba": {
+      "name": "Pulli-Hemd-Kombi"
+    },
+    "4adc17515efcee7c": {
+      "name": "Tanker-Jacke"
+    },
+    "cfc68b28e3ec53ee": {
+      "name": "Mountie-Hut"
+    },
+    "ee56bac36d2a28ab": {
+      "name": "Weiße F3-Jacke"
+    },
+    "cad907c4d7da7100": {
+      "name": "Marine-King-Kurzmantel"
+    },
+    "9f93b86b9baad6cd": {
+      "name": "Schwarz-blaue Squidkids V"
+    },
+    "65c28a2a09cb1ebe": {
+      "name": "Graue High-Tops"
+    },
+    "4dd689531a8d5718": {
+      "name": "Traubenlila Hoodie"
+    },
+    "f67587eadf5e5bf1": {
+      "name": "Wal-Strickjacke"
+    },
+    "05255ad76cd461c4": {
+      "name": "Oliver Zekko-Hoodie"
+    },
+    "6b95a53fd109dc04": {
+      "name": "Webe-Orca-High-Tops"
+    },
+    "844a38dac1bd108b": {
+      "name": "Kensa-Baseball-Trikot"
+    },
+    "c68cda5a2a65a13a": {
+      "name": "Goldenes Dakro-Shirt"
+    },
+    "1fc53de66c1fa6d7": {
+      "name": "Grüne Iromaki 750"
+    },
+    "bb4a4bdd917b17a4": {
+      "name": "Kanarien-Turnschuhe"
+    },
+    "2168abb849180313": {
+      "name": "Bomberjacke Plus"
+    },
+    "eeff374790526a71": {
+      "name": "Zekko-Brille mit Kappe"
+    },
+    "8ef7d3b01a6b1f6b": {
+      "name": "Eisgipfel-Shirt"
+    },
+    "6da65c2e69d1de5e": {
+      "name": "Punk-Hemd mit Krawatte"
+    },
+    "a70056294f2761a3": {
+      "name": "Hemd mit blauem Hoodie"
+    },
+    "e70595a9c88c8df4": {
+      "name": "Eisberg-Jacke"
+    },
+    "ee9b0f2a6d25a0a3": {
+      "name": "Oktarianer-Retropulli"
+    },
+    "62eef2cc4b2a87be": {
+      "name": "Rock-Lederjacke"
+    },
+    "884aafcae5b40248": {
+      "name": "Oktario-Helm"
+    },
+    "1e49698cc6fc2a6c": {
+      "name": "Frühlingsblatt-Stiefel"
+    },
+    "60f430591e88e53b": {
+      "name": "Kaki Rilax-Pixel-Longsleeve"
+    },
+    "dac71120a0367e3c": {
+      "name": "Gelbe Netzsneaker"
+    },
+    "b34d5800a8b5d9f0": {
+      "name": "Annaki-Evolution-Shirt"
+    },
+    "49e73227e92c4a1e": {
+      "name": "Blockstreifen-King-Tanktop"
+    },
+    "085c747cca0912bd": {
+      "name": "Wet-Floor-Shirt"
+    },
+    "400829748e391d8f": {
+      "name": "Gomashio 270"
+    },
+    "f8e4d65b3f352189": {
+      "name": "Schwarze Leinen-High-Tops"
+    },
+    "cf0d9f0261dfb30a": {
+      "name": "Marineblaues King-Tanktop"
+    },
+    "d1e56e8ae2c74c8f": {
+      "name": "Gelb-blaue Squidkids IV"
+    },
+    "64fb566f7ee6129d": {
+      "name": "Arbeitshelm Replik"
+    },
+    "0e92be91a85a1f99": {
+      "name": "Tiefsee-Lederstiefel"
+    },
+    "ed3ebcb67be5c59c": {
+      "name": "Anglerweste"
+    },
+    "647eaef7de61d58b": {
+      "name": "Quallen-Hemd mit Krawatte"
+    },
+    "89ef143c331e379a": {
+      "name": "Schwarze Dakroniks"
+    },
+    "eaf740ce4651695b": {
+      "name": "Gelbes Kalmar-Lagen-Shirt"
+    },
+    "2dbb457c2acd535c": {
+      "name": "LobStars-Trikot"
+    },
+    "7f074f182f66bb0f": {
+      "name": "Terpentakel-Shirt"
+    },
+    "475754f1c3ebc738": {
+      "name": "Urchins-Kappe"
+    },
+    "fd14ca8cb35c76c1": {
+      "name": "Pfeilmuster-Shirt"
+    },
+    "f19dcafde4a9d74e": {
+      "name": "Klassischer Boater"
+    },
+    "54306bd8f71bb745": {
+      "name": "Terpentakel-Shirt"
+    },
+    "d9fdb8074c2f0ec8": {
+      "name": "SV925-Rundbrille"
+    },
+    "2555a54f428af796": {
+      "name": "Wüsten-Chukkas"
+    },
+    "2fa83f60d8f22b0d": {
+      "name": "Orange Pfeilschuhe"
+    },
+    "946d0a6e1191f142": {
+      "name": "Kugelfisch-Glockenhut Duo"
+    },
+    "1fb3ac8c185aa46d": {
+      "name": "Kalmarstern-Weste"
+    },
+    "92dc509d51e9c1cd": {
+      "name": "Arbeitshelm Replik"
+    },
+    "05f76b87a280a584": {
+      "name": "Hickory-Arbeitsmütze"
+    },
+    "6c980ddeb7175277": {
+      "name": "Okto-Helm Deko"
+    },
+    "b6b1c7798a550792": {
+      "name": "Dämmerwellen-Shirt"
+    },
+    "5444a1b5e3a8cdc6": {
+      "name": "Pinker Hoodie"
+    },
+    "24fecc01c498fe63": {
+      "name": "Tarnhut"
+    },
+    "cbdbce0206687c53": {
+      "name": "Gesichtsschutz"
+    },
+    "38db2d5e2baec937": {
+      "name": "Ink Blocking-Hemd"
+    },
+    "ed34871ab0a997d2": {
+      "name": "Kensa-Stollenschuhe"
+    },
+    "d73ff773043f35a1": {
+      "name": "Mister-Shrug-Shirt"
+    },
+    "cd98b57718c53757": {
+      "name": "Sonnenbrille 18K"
+    },
+    "f038fe3a7d8c2f6e": {
+      "name": "Profi-Tennisschuhe"
+    },
+    "e1a0a98264c0d15d": {
+      "name": "Barett"
+    },
+    "d02f5fc500ba6b54": {
+      "name": "Annaki-Flanell-Hoodie"
+    },
+    "f6dc0e36ef83917a": {
+      "name": "Tri-Kalmar-Shirt"
+    },
+    "017f4bb178ae2555": {
+      "name": "Biker-Brille"
+    },
+    "2b99f9c3db9793de": {
+      "name": "Barazushi-Anorak"
+    },
+    "1c7ce2a39971d7a7": {
+      "name": "Eis-Duck-Boots"
+    },
+    "f5a3386de83657f5": {
+      "name": "Austerngraue Clogs"
+    },
+    "b2d0d4cd3fcb5b7d": {
+      "name": "Totenkopf-Bandana"
+    },
+    "1f9d649297bea610": {
+      "name": "Deluxe-Stollenschuhe"
+    },
+    "e8ab0e3e655b8391": {
+      "name": "Schnapperkappe"
+    },
+    "cc46e0b1647b6d4c": {
+      "name": "Anglerweste"
+    },
+    "bf5eac0a0e51a1a5": {
+      "name": "Sagitron-Lagen-Shirt"
+    },
+    "79e4ced3f9a8ce7b": {
+      "name": "Freundesshirt"
+    },
+    "ba1d6adea1fb8693": {
+      "name": "Fliegermütze"
+    },
+    "86196cf11c56cd37": {
+      "name": "Weißes Streifen-Longsleeve"
+    },
+    "e9b23fae2db070df": {
+      "name": "Ultraweiße Klettsneaker"
+    },
+    "d995b74c6e31c321": {
+      "name": "Wintersportmütze"
+    },
+    "ababea5943c18ea9": {
+      "name": "Barazushi-Tuch"
+    },
+    "d81b2ac527e806d9": {
+      "name": "Marine-Enperrial-Stiefel"
+    },
+    "f238e17aced17dcb": {
+      "name": "Pfeilmuster-Kappe"
+    },
+    "80998aee7ddcc6b2": {
+      "name": "Laufschuhe Volt 95"
+    },
+    "04e1732a004fc33e": {
+      "name": "Bambushut"
+    },
+    "8bd2358514cb89d2": {
+      "name": "Eisgipfel-Shirt"
+    },
+    "3bae00fd5738d4a1": {
+      "name": "Signal-Delta-Sandalen"
+    },
+    "714d5944500fbc8e": {
+      "name": "Oktoking-Mundschutz"
+    },
+    "e9bd96d35a062618": {
+      "name": "Opak-Visor"
+    },
+    "d42a4135dc77a8a0": {
+      "name": "Hummer-Tropenhut"
+    },
+    "b6e4c48bd78463ef": {
+      "name": "Fahrradhelm"
+    },
+    "4765baeb4824bee4": {
+      "name": "ω-3-Shirt"
+    },
+    "3cd9aae585dfe373": {
+      "name": "Tropenblätter-Hut"
+    },
+    "72c8bf6ad74b12cd": {
+      "name": "Mountainbike-Helm"
+    },
+    "73f36206e060c254": {
+      "name": "Jade-Zekko-Trainerjacke"
+    },
+    "7a897902d2c040b6": {
+      "name": "Mehrfarb-Wildleder-Schnürer"
+    },
+    "d37d9ade15ae4da0": {
+      "name": "Weiße Daunenstiefel"
+    },
+    "b6d814dee4763330": {
+      "name": "Moosgrüne Gummistiefel"
+    },
+    "0816f54b999801aa": {
+      "name": "Jellyvader-Kappe"
+    },
+    "d4f2b1c866322ba6": {
+      "name": "Champion-Radlermütze"
+    },
+    "9315d36102631844": {
+      "name": "Rote Arbeitsstiefel"
+    },
+    "b6868f3461e513dd": {
+      "name": "Genialotron"
+    },
+    "70b0d57f0d203fff": {
+      "name": "FA-01-Wendejacke"
+    },
+    "9430037390d32f5f": {
+      "name": "Schirmband"
+    },
+    "34edc9c65a0cbc8f": {
+      "name": "Basketball-Auswärtstrikot"
+    },
+    "fdb81880bfec0fe9": {
+      "name": "Blaue Schnürlos-Dakroniks"
+    },
+    "b576c3ea2b65179f": {
+      "name": "Graues Karodetail-Hemd"
+    },
+    "318589f647f8e971": {
+      "name": "Oktobowler-Hemd"
+    },
+    "06f518a80857a451": {
+      "name": "Weißes Seeigel-Rock-Shirt"
+    },
+    "1e13f651df5e62d1": {
+      "name": "Frostwellen-Shirt"
+    },
+    "92308328ca96ea04": {
+      "name": "Feschfisch-Hemd"
+    },
+    "4a8e059dc7eb0372": {
+      "name": "Holzfäller-Hemd"
+    },
+    "e96c1b6cacd445ee": {
+      "name": "Türkise Plateau-Sneaker"
+    },
+    "2359ff6288a27d78": {
+      "name": "Orange Iromaki 750"
+    },
+    "d9fa61c2e08b8edf": {
+      "name": "Weiße Schnürlos-Dakroniks"
+    },
+    "c52c8de93993209d": {
+      "name": "Barazushi-Genmai-Shirt"
+    },
+    "7b9e84e66e0a554e": {
+      "name": "Weiße Punkstiefel"
+    },
+    "e990a916e127dbfb": {
+      "name": "FC-Bonito-Trikot"
+    },
+    "39c54805c7099592": {
+      "name": "Rot-weiße Squidkids V"
+    },
+    "22c1e6eaedbab424": {
+      "name": "Wüstenstaub-Feldjacke"
+    },
+    "3cc9c374e50d736d": {
+      "name": "Pulli-Hemd-Kombi"
+    },
+    "fbd88e96c0d03263": {
+      "name": "Tiefsee-Lederstiefel"
+    },
+    "97c43b98b082324d": {
+      "name": "Schwarzes Seeigel-Rock-Shirt"
+    },
+    "fe5b6419a8cdca16": {
+      "name": "Retrobrille"
+    },
+    "3f873e363f704cb1": {
+      "name": "Urchins-Kappe Klassik"
+    },
+    "dcdcce44cc986830": {
+      "name": "Weiße Leinenschuhe"
+    },
+    "2fb39d1dadd7c944": {
+      "name": "Bunte Pfeilschuhe"
+    },
+    "e8dba35f379071e9": {
+      "name": "Logo-Hawaiihemd"
+    },
+    "7681064f94162dbc": {
+      "name": "Silberne Tentatek-Weste"
+    },
+    "0295f1fc011135dd": {
+      "name": "Regenbogen-Batikshirt"
+    },
+    "f3cace8e957f4afd": {
+      "name": "Neon-Delta-Sandalen"
+    },
+    "912f9e7163429951": {
+      "name": "Karotten-Zekko-Shirt"
+    },
+    "a54a86f593f07471": {
+      "name": "BlobMob-Mundschutz"
+    },
+    "2b969e7257d3ae82": {
+      "name": "Clownstyle-Hemd"
+    },
+    "58c453ebef2ec176": {
+      "name": "AL-G 9"
+    },
+    "e661aec8cd01d146": {
+      "name": "Kugelfisch-Shirt"
+    },
+    "cf5c062f1e43b84c": {
+      "name": "Space-Pilotenhelm"
+    },
+    "1ceee981c71928c8": {
+      "name": "Weißes Stirnband"
+    },
+    "155b6953f80040cc": {
+      "name": "Matter MTB-Helm"
+    },
+    "3f7b8fff000e304d": {
+      "name": "Rilax-Bandana"
+    },
+    "aa71e1548a9e8522": {
+      "name": "Blaues Rilax-Sweatshirt"
+    },
+    "2d07b8dad42f4fbc": {
+      "name": "Gelbe Schlappen"
+    },
+    "c4d02236f582d0a7": {
+      "name": "Ultrarote Klettsneaker"
+    },
+    "1825c769977fdd6e": {
+      "name": "Rilax-Schirmband"
+    },
+    "82f1f448a4f0fe54": {
+      "name": "Zickzack-Beanie"
+    },
+    "4a7fcf9c1f8c4dfc": {
+      "name": "Feuerwehrhelm"
+    },
+    "3dfb98fbdf638609": {
+      "name": "Wal-Strickjacke"
+    },
+    "3b1d28cec3eabf6e": {
+      "name": "Schwarzes Krakenaugen-Shirt"
+    },
+    "7c8ad6e187f38815": {
+      "name": "Pinke Turnschuhe"
+    },
+    "600b6773ead26809": {
+      "name": "Durag-Kappe und Brille"
+    },
+    "4667d60c68450557": {
+      "name": "Radlermütze"
+    },
+    "c346697fc3b20f47": {
+      "name": "Grünes Oktoking-Shirt"
+    },
+    "2f4a097a5033d97f": {
+      "name": "Annaki-Barett"
+    },
+    "e0bdc2aa6cbf28c3": {
+      "name": "Graues Sweatshirt"
+    },
+    "87d83548f67baeb3": {
+      "name": "Kalmar-Mundschutz"
+    },
+    "862a010c5177a0b4": {
+      "name": "Weißes V-Shirt"
+    },
+    "2fe326f7560d8a83": {
+      "name": "Reißverschlussweste"
+    },
+    "4058d3abb1e4e352": {
+      "name": "Rote Tenya8"
+    },
+    "dfa51097b684078e": {
+      "name": "Streifenhemd"
+    },
+    "7a6462687e63cfe7": {
+      "name": "Omnimultivisor"
+    },
+    "fdbf97ede04f7a65": {
+      "name": "Frühlingsblatt-Stiefel"
+    },
+    "834c7c26012d118c": {
+      "name": "Halbrand-Brille"
+    },
+    "04a394c879266415": {
+      "name": "Skateboardhelm"
+    },
+    "e6dd154d985fa3d0": {
+      "name": "Perlen-Shirt"
+    },
+    "dc9a9d6bcbbb840b": {
+      "name": "Inkvader-Kappe"
+    },
+    "57e9324c62107383": {
+      "name": "Winter-Pudelmütze"
+    },
+    "3f3cfe05a3715159": {
+      "name": "Blaue Laufschuhe"
+    },
+    "b73ff4a38bcf855a": {
+      "name": "Radlertrikot"
+    },
+    "a227780efff6806b": {
+      "name": "Melone"
+    },
+    "6cc693bf2514fb9e": {
+      "name": "Kalamati-Netzkappe"
+    },
+    "ded2baae55f2c88d": {
+      "name": "Kalamati-Retropulli"
+    },
+    "07f932e3030844f9": {
+      "name": "Blaue Pfeilsandalen"
+    },
+    "7a1755df7ff2c291": {
+      "name": "Astro-Panzer"
+    },
+    "f7e0b2ddf93d8d6c": {
+      "name": "Gelbsohlen-Brogues"
+    },
+    "2df705182a19c965": {
+      "name": "Schokobraune Clogs"
+    },
+    "05a55e56f538f82d": {
+      "name": "Galaxie-Batikshirt"
+    },
+    "91bd0e01207ec3a5": {
+      "name": "Smoky Brogues"
+    },
+    "3ee3b47f0bb29a1c": {
+      "name": "Kletter-Steppweste"
+    },
+    "63ad32c0c0ae9e48": {
+      "name": "Streifen-Beanie"
+    },
+    "0bc0dd62a917ee69": {
+      "name": "Grüner Cardigan"
+    },
+    "76a01e9488af4599": {
+      "name": "Piranha-Schnürer"
+    },
+    "c2f605fb93b0eed8": {
+      "name": "Rilax-Mundschutz"
+    },
+    "0252cb58e13e9234": {
+      "name": "Rot-weiße Collegejacke"
+    },
+    "e90de38c33172401": {
+      "name": "Schwarzes Lagen-Shirt"
+    },
+    "be10ceef113e4e3a": {
+      "name": "Hula-Punk-Hemd"
+    },
+    "06b390f07db3377f": {
+      "name": "Tiefseetaucherhelm"
+    },
+    "fdad1947cfa0ff25": {
+      "name": "Reggae-Shirt"
+    },
+    "f44f52ed02948c5f": {
+      "name": "Annaki-Mundschutz"
+    },
+    "8031c9bc0bc5729f": {
+      "name": "Punk-Hemd mit Krawatte"
+    },
+    "5df05f57955e0148": {
+      "name": "Habanero-Annaki-Schuhe"
+    },
+    "6ad37669627efb77": {
+      "name": "Focus-Mundschutz"
+    },
+    "2be6447881c7b9b4": {
+      "name": "Zekko-Hoodie"
+    },
+    "1cb182b28706dc7a": {
+      "name": "Kaki Rilax-Pixel-Longsleeve"
+    },
+    "1bb6d34f9f76dff9": {
+      "name": "Beanie"
+    },
+    "c26a82350267c668": {
+      "name": "8X-Kopfhörer"
+    },
+    "77b90ea18d788e94": {
+      "name": "Eckige Annaki-Brille"
+    },
+    "540f9752a3d30e48": {
+      "name": "Aquanaut-Rock"
+    },
+    "1e2a7de223596dc4": {
+      "name": "Weiße Bikerjacke"
+    },
+    "4f70200654fbe026": {
+      "name": "Stollenschuhe"
+    },
+    "52469e6a40ca387e": {
+      "name": "Paintballhelm"
+    },
+    "3c06458bec5647de": {
+      "name": "Weißes Matrosen-Shirt"
+    },
+    "c635489c278a591d": {
+      "name": "Expeditionshelm"
+    },
+    "b84d8c828976da4d": {
+      "name": "Camper-Kappe"
+    },
+    "28f201c6c29913cd": {
+      "name": "Retro-Sweatshirt"
+    },
+    "1f7bc4016aa78813": {
+      "name": "Manati-Swag-Pulli"
+    },
+    "725408ce3ea63916": {
+      "name": "Sportjacke"
+    },
+    "0027dbe5263d0a98": {
+      "name": "Tannengrüne Leinen-High-Tops"
+    },
+    "8bfe4f8ea3cb903c": {
+      "name": "Gelb-blaue Squidkids IV"
+    },
+    "dfc27f7c2061cfae": {
+      "name": "TT-Stirnband"
+    },
+    "bce1966d8aa5d9fc": {
+      "name": "Dunkelblaues Deka-Shirt"
+    },
+    "1310e7c50402119e": {
+      "name": "Türkise Dakroniks"
+    },
+    "0f6d8d23897cd952": {
+      "name": "Aquanaut-Schiffchen"
+    },
+    "b2ae6a4fffa46ba5": {
+      "name": "Gelbe Low-Top-Sneaker"
+    },
+    "0b86a012394472f8": {
+      "name": "Weiße Sportbandbrille"
+    },
+    "214d4e491366d30d": {
+      "name": "Oktobrille"
+    },
+    "a871be865230f417": {
+      "name": "Schwarzes Rilax-Pixel-Shirt"
+    },
+    "e4c46623fc89ebbb": {
+      "name": "Schwarze Turnschuhe"
+    },
+    "a1b3d54b2903008f": {
+      "name": "Flying-Fish-Trikot"
+    },
+    "d5ab820f303fa0be": {
+      "name": "Dockermütze"
+    },
+    "846a98a5b4d88670": {
+      "name": "Kung-Fu-Jacke"
+    },
+    "0527171ee847d92f": {
+      "name": "Monovisor"
+    },
+    "64fd436581a6370b": {
+      "name": "Getönte Brille"
+    },
+    "3e542c698f06dcc5": {
+      "name": "Klappenkappe Dark"
+    },
+    "1cee77c2490c09af": {
+      "name": "Barazushi-Sakura-Shirt"
+    },
+    "b9a3223d252b2822": {
+      "name": "King-Flexi-Netzkappe"
+    },
+    "8b2d94a9c615dd15": {
+      "name": "Wanderstiefel"
+    },
+    "bc8f60c1cd372c25": {
+      "name": "Grauer Hoodie"
+    },
+    "b2b55186b82c26c4": {
+      "name": "Schwarze Dakroniks"
+    },
+    "80fb0eda51ba01c9": {
+      "name": "Panda-Kung-Fu-Jacke"
+    },
+    "1bb16ccccd8ab5be": {
+      "name": "4USTERs Perle"
+    },
+    "fe2f80cba9d4761f": {
+      "name": "Annaki-Arachno-Stiefel"
+    },
+    "18c479f527c4b352": {
+      "name": "Lila Iromaki 750"
+    },
+    "5c3987aa4bbca169": {
+      "name": "Zwielichtwellen-Shirt"
+    },
+    "27ef20ef1418f1e3": {
+      "name": "Retrofutur-Anzug"
+    },
+    "27d171e5ddd674ba": {
+      "name": "Schwimmbrille"
+    },
+    "2ff6f13540a0ec13": {
+      "name": "Zekko-Netzkappe"
+    },
+    "1ea2b1826bfe9dcc": {
+      "name": "Schwarzes Polohemd"
+    },
+    "ed5e8fd9b5adac7b": {
+      "name": "Orange Low-Tops"
+    },
+    "7fc1a5536febbc0e": {
+      "name": "Kensa-Schwimmbrille"
+    },
+    "a408fcb87e3e02f0": {
+      "name": "Mako-Sneaker"
+    },
+    "2c9ead76e9c61617": {
+      "name": "Trikolor-Lang-Polohemd"
+    },
+    "02c8eed846264962": {
+      "name": "Orca-High-Tops"
+    },
+    "f1948086b33446c9": {
+      "name": "Sudadera Roja"
+    },
+    "5127c0c8183f29b2": {
+      "name": "Retrofutur-Helm"
+    },
+    "f7dcc7ae0546ef44": {
+      "name": "N-Pacer Ag"
+    },
+    "c843942decb0f961": {
+      "name": "Webe-Orca-High-Tops"
+    },
+    "9bd38df5a3309513": {
+      "name": "Kolor-Kopfhörer"
+    },
+    "94e95bc919483853": {
+      "name": "Gelbe Steppweste"
+    },
+    "f4bb5340ac46da94": {
+      "name": "Katzen-Baseballjacke"
+    },
+    "7ae7524ec9a91481": {
+      "name": "Schwarze Punkstiefel"
+    },
+    "fa053d90af54d4ef": {
+      "name": "Macropinna-Brille"
+    },
+    "edf1dea3e7835924": {
+      "name": "Bomberjacke Plus"
+    },
+    "1edd243cc32bb86a": {
+      "name": "Glamrock-Jacke"
+    },
+    "1f7bdf4cc8896df5": {
+      "name": "King-Mundschutz"
+    },
+    "0af9763735c58ea7": {
+      "name": "Chilischoten-Skijacke"
+    },
+    "2589ba77b0a02527": {
+      "name": "Rote Iromaki 750"
+    },
+    "f9d9b9e159237f70": {
+      "name": "Kalamati-Schirmband"
+    },
+    "1631bf7a3f6f38cc": {
+      "name": "Kalamati-Baseball-Shirt"
+    },
+    "b0ca2b7c1afe237f": {
+      "name": "Sportive Pfeilschuhe"
+    },
+    "13fe3940b4d7a989": {
+      "name": "Piepmatz-Cordjacke"
+    },
+    "2c822f1b9419edc8": {
+      "name": "Schwarze Sportbandbrille"
+    },
+    "724616560d3ed93c": {
+      "name": "Glamletten"
+    },
+    "5fc65fb55c534eb4": {
+      "name": "Blaue Low-Tops"
+    },
+    "655f570aed6c9f1e": {
+      "name": "Annaki-Evolution-Shirt"
+    },
+    "8e552be8f6c72a9e": {
+      "name": "Blaue Fallschirmjacke"
+    },
+    "30e29e191ae487ff": {
+      "name": "Biker-Stiefel"
+    },
+    "6f78aaabd4eaca78": {
+      "name": "Rote Leinen-High-Tops"
+    },
+    "98a96c07973e423f": {
+      "name": "Pfeil-Slip-ons"
+    },
+    "e15fbebc0370e1e1": {
+      "name": "Gummistiefeletten"
+    },
+    "11c3cd9aea59ffdf": {
+      "name": "Blaue Slip-ons"
+    },
+    "9089992996ad5abf": {
+      "name": "Fischerhut"
+    },
+    "ef86ba769a8d0073": {
+      "name": "Schwarzes Anker-Shirt"
+    },
+    "cf7abf3339465232": {
+      "name": "Blaue Iromaki 750"
+    },
+    "a3c0aaa52ff9edf5": {
+      "name": "3D-Durchblicker"
+    },
+    "c414d439919e17ea": {
+      "name": "Upcycle-Hemd Metro"
+    },
+    "dfcba964fd347b5f": {
+      "name": "BlobMob-Strandsandalen"
+    },
+    "fd4b717166d199f0": {
+      "name": "Airflow-Schild R255"
+    },
+    "7001e372753eddb0": {
+      "name": "Hackerfrack"
+    },
+    "d1269481accd1b9d": {
+      "name": "Sonnenorca-High-Tops"
+    },
+    "464a6619f85c3fd6": {
+      "name": "Schwarzer Hoodie"
+    },
+    "b67967731fad7ccb": {
+      "name": "Muschelhelm"
+    },
+    "fa36a523e2b54888": {
+      "name": "Nachtsichtgerät"
+    },
+    "e9f987a770e84550": {
+      "name": "Pudelmütze"
+    },
+    "ec52a840e63fb709": {
+      "name": "Grünes Streifen-Longsleeve"
+    },
+    "897e3e33543aa8b3": {
+      "name": "Chirpy-Chips-Shirt"
+    },
+    "a25f5df4d4740c9d": {
+      "name": "Gelbe Punkstiefel"
+    },
+    "67dba8c242796b8a": {
+      "name": "Gelbe Netzsneaker"
+    },
+    "afbc3f87a7318524": {
+      "name": "Flitzpantoffeln DK"
+    },
+    "47ab9705df2564a5": {
+      "name": "Leo-Print-Shirt"
+    },
+    "e8f74588deabb91f": {
+      "name": "Türkise Strumpflatschen"
+    },
+    "56773ddb229a6d31": {
+      "name": "Krabbencocktail-Polohemd"
+    },
+    "6a8cd7c7c28ce3b7": {
+      "name": "Sneaker Translux"
+    },
+    "779752e0250dfac3": {
+      "name": "Focus-Digicamo-Mundschutz"
+    },
+    "ecc5689c8b41d7f4": {
+      "name": "Bernstein-High-Tops"
+    },
+    "4cca02d88c65ca82": {
+      "name": "Studio-Kopfhörer"
+    },
+    "117545568f0044bb": {
+      "name": "Grünes Lagen-Shirt"
+    },
+    "c74fe5477ab02f2b": {
+      "name": "Tintenschutzbrille"
+    },
+    "3e4d3fcbd77372a8": {
+      "name": "NyloNeon 5000"
+    },
+    "740d7f06529e32df": {
+      "name": "Rock-Lederjacke"
+    },
+    "e3212426964499e5": {
+      "name": "Pullovermantel"
+    },
+    "1b9f5bc1f3c1668d": {
+      "name": "Violette Turnschuhe"
+    },
+    "2c659e423ed057e6": {
+      "name": "Getönte Kontaktlinsen"
+    },
+    "a3af22e465c67d1e": {
+      "name": "Piraten-Lagen-Shirt"
+    },
+    "6ca4c132c95f9752": {
+      "name": "Rotes Tentatek-Shirt"
+    },
+    "717fbb2c21bd4d5a": {
+      "name": "Boater"
+    },
+    "2861118daf0a6249": {
+      "name": "El Rey Calamar"
+    },
+    "65e73e9933b18441": {
+      "name": "Rotes Karohemd"
+    },
+    "a901c49ae3f31cb1": {
+      "name": "Marineblaues King-Tanktop"
+    },
+    "b6e69d69ac2344ca": {
+      "name": "Langschirm-Mütze"
+    },
+    "1ca9c9434d3f3c41": {
+      "name": "Senf-Zekko-Trainerjacke"
+    },
+    "da541f46db31f714": {
+      "name": "Boxstiefel"
+    },
+    "df7d0d498a52ac44": {
+      "name": "Pitaya-Orca-High-Tops"
+    },
+    "30bcefc0e5206648": {
+      "name": "Elektrowels-Baseballjacke"
+    },
+    "2cc0fa9e18daa012": {
+      "name": "Weißes Rockberg-Shirt"
+    },
+    "078007235244a529": {
+      "name": "Rote Power-Sci-Fis"
+    },
+    "78b48dab45f802b7": {
+      "name": "Blaue Tarn-Daunenstiefel"
+    },
+    "39b603cc8ff686a1": {
+      "name": "Arbeitstier-Hemd"
+    },
+    "942bfc9013d17a23": {
+      "name": "Tanker-Jacke"
+    },
+    "0db3b2e4f86aac92": {
+      "name": "Bündchen-Pulli Plus"
+    },
+    "54d9c61ae642db21": {
+      "name": "Ananas-Ringer-Shirt"
+    },
+    "686e6d924bceaa29": {
+      "name": "Rund-Hornbrille"
+    },
+    "4a5ed56bd3248aa3": {
+      "name": "Half-Sleeve"
+    },
+    "b6ccc8ec8b1ccd66": {
+      "name": "Cephalo-Kopfhörer"
+    },
+    "770a14b00c42b23e": {
+      "name": "Regenblaues Shirt"
+    },
+    "70985cc8ba0a905e": {
+      "name": "Oktario-Helm"
+    },
+    "96ba51e5d6e29bdd": {
+      "name": "Blaues Matrosen-Shirt"
+    },
+    "1bc642ca33260c9c": {
+      "name": "Schwarzes Oktoking-Shirt"
+    },
+    "d796324f1b393800": {
+      "name": "Dunkelbraune Boaties"
+    },
+    "39d667e7b1fae70a": {
+      "name": "Strickmütze"
+    },
+    "f990ae778fb58518": {
+      "name": "Nachtblaue Steppweste"
+    },
+    "4a6425e4a5cbc56d": {
+      "name": "Rote Schlappen"
+    },
+    "2fb640094d3a6c34": {
+      "name": "Lila Laufschuhe"
+    },
+    "e017349bb9753a06": {
+      "name": "Outdoor-Steppweste"
+    },
+    "4298ea7016d68d7f": {
+      "name": "Minzgrünes Shirt"
+    },
+    "1f976b82a5d4d4d2": {
+      "name": "OktoKalm-Duo-Shirt"
+    },
+    "c5f63a7dd65a0fbb": {
+      "name": "Lila Tarn-Longsleeve"
+    },
+    "a71146cfd9b53b1d": {
+      "name": "Kugelfisch-Schiebermütze"
+    },
+    "7f4e56e3170981d7": {
+      "name": "Leinen-High-Tops"
+    },
+    "24168d03237b4558": {
+      "name": "Türkise Turnschuhe"
+    },
+    "21101f0d5bf0921d": {
+      "name": "Graue Wildleder-Schnürer"
+    },
+    "aa58c763cf07cea0": {
+      "name": "Schwarzes Rilax-Bandana"
+    },
+    "0c753da3c6c590cf": {
+      "name": "Weißes Shirt"
+    },
+    "6e80a02afaee906a": {
+      "name": "Style-Kappe"
+    },
+    "4dddf1b2dacb4424": {
+      "name": "Basketballstirnband"
+    },
+    "869d6602bfb2f65f": {
+      "name": "Lagen-Profil-Shirt"
+    },
+    "38f2ab404277f174": {
+      "name": "Annaki-Oktoprint-Shirt"
+    },
+    "1f481bd6fbe94a6d": {
+      "name": "Okto-Alltagsshirt"
+    },
+    "b17553b34aa1cbad": {
+      "name": "Inkognito-Mütze"
+    },
+    "47c439e64b588715": {
+      "name": "Türkise Wildleder-Schnürer"
+    },
+    "59fe2b198bc53392": {
+      "name": "Hellgrünes Polohemd"
+    },
+    "25d4c06caa7e3d92": {
+      "name": "Hai-Schnürer"
+    },
+    "8decd5a8eb7a14e6": {
+      "name": "Gelbkiwi-Dakro-Shirt"
+    },
+    "f091d084f1d5cf34": {
+      "name": "Quallen-Hemd"
+    },
+    "d4245c778feaf1c1": {
+      "name": "Bubikragen-Hemd"
+    },
+    "ceac8b8a4aa32494": {
+      "name": "Schiefer-Re-Issue-Shirt"
+    },
+    "181e90d1f357ed37": {
+      "name": "Unibrogues"
+    },
+    "d10e72d4801b381a": {
+      "name": "Champion-Radlertrikot"
+    },
+    "5ac5e0b7f775993e": {
+      "name": "Pfirsich-Kletterschuhe"
+    },
+    "82bd94ed894a16dc": {
+      "name": "Vierfarb-King-Hemd 08"
+    },
+    "a58903f46daad145": {
+      "name": "Weiße Low-Top-Sneaker"
+    },
+    "e76101f0587cdb9f": {
+      "name": "Arktis-Monster-Parka"
+    },
+    "52a5f2aa1751da27": {
+      "name": "Kensa-Baseball-Trikot"
+    },
+    "7b70812eb0a76cb5": {
+      "name": "Schneegipfel-Shirt"
+    },
+    "7a2ad2199089c4ae": {
+      "name": "Annaki-Lagen-Shirt"
+    },
+    "485f3a4b50643a31": {
+      "name": "Jet-Kappe"
+    },
+    "db926cd04a5b01fc": {
+      "name": "Tarn-Netzkappe"
+    },
+    "a4adb096a8093e9f": {
+      "name": "Klecks-Shirt"
+    },
+    "d5f196b8363c0ae7": {
+      "name": "Bananen-Leinenschuhe"
+    },
+    "560a8c075c90b9d2": {
+      "name": "Sonnen-Schirmband"
+    },
+    "c7d0a936a7586b25": {
+      "name": "Polarweiße Delta-Sandalen"
+    },
+    "836c409c224327da": {
+      "name": "Deka-Helm"
+    },
+    "5ca83e32e9497c1b": {
+      "name": "Blaues Streifen-Longsleeve"
+    },
+    "f78714f08fa31b1f": {
+      "name": "Blaue Biker-Stiefel"
+    },
+    "79e4d4f396b69ce3": {
+      "name": "Zekko-Brille mit Kappe"
+    },
+    "dc8774834a34a71b": {
+      "name": "Grünes Karohemd"
+    },
+    "7465dafe561618e5": {
+      "name": "Lila High-Top-Sneaker"
+    },
+    "8f624df76895e669": {
+      "name": "Quallen-Hemd mit Krawatte"
+    },
+    "fab4005bf9bda9c9": {
+      "name": "Rote High-Top-Sneaker"
+    },
+    "703305c6c0eedf0b": {
+      "name": "Motocross-Nasenschutz"
+    },
+    "cf304a572eaaea9f": {
+      "name": "Focus-Inkling-Parka"
+    },
+    "60d3f51d54b887f4": {
+      "name": "Gestreiftes Lang-Polohemd"
+    },
+    "13acfddef4b45a90": {
+      "name": "Schirmhelm"
+    },
+    "6375b52a355cc737": {
+      "name": "Honig-orange Squidkids V"
+    },
+    "c106a08662150465": {
+      "name": "LobStars-Trikot"
+    },
+    "ed5e54b43414f51f": {
+      "name": "Squid-Squad-Shirt"
+    },
+    "7a13112bd1a0c47d": {
+      "name": "Anker-Sweatshirt"
+    },
+    "5fdaa7d21b661331": {
+      "name": "Annaki-Blauärmel-Pulli"
+    },
+    "2176fd45cb9c3edb": {
+      "name": "Seepferd-Guayabera"
+    },
+    "d3694d8bbc94fc3f": {
+      "name": "Rote Fallschirmjacke"
+    },
+    "85cd9f1ce488ef28": {
+      "name": "Fliegerbrille"
+    },
+    "0b5863953939a70d": {
+      "name": "Tarn-Hoodie"
+    },
+    "bca8d8cd3914c33d": {
+      "name": "Anglerhut"
+    },
+    "3e2118823fe00aab": {
+      "name": "Tarn-Lagen-Shirt"
+    },
+    "1be0651a23a1b2a3": {
+      "name": "Annaki-Barett mit Brille"
+    },
+    "5c2ec2598836a14a": {
+      "name": "Beeren-BlobMob-Shirt"
+    },
+    "f5d27c917569dd63": {
+      "name": "Retro-Gamer-Jacke"
+    },
+    "4fa3680c71e09bc5": {
+      "name": "Ink Blocking-Hemd Flip"
+    },
+    "2ad2124dfca512b4": {
+      "name": "Kanarien-Turnschuhe"
+    },
+    "ed9d4af7a3f2f522": {
+      "name": "Oktoking-Trikot"
+    },
+    "8982ccbce58f2648": {
+      "name": "King-Trikot"
+    },
+    "938ac2d7c31d8341": {
+      "name": "Jeanskappe mit Schild"
+    },
+    "511e4ea2d524ae08": {
+      "name": "Kaki-Ranger-Kombo"
+    },
+    "8389cd5d7f55b970": {
+      "name": "Hai-Strickpulli"
+    },
+    "1096291eb0c76e82": {
+      "name": "Rodeo-Hemd"
+    },
+    "5eca902a06dba6e9": {
+      "name": "Reboot-High-Tops"
+    },
+    "ca15723961648c14": {
+      "name": "Okto-Baseballjacke"
+    },
+    "bba99111b562edae": {
+      "name": "Blaues Okto-Trikot"
+    },
+    "50dee75a7a249665": {
+      "name": "Roter Krabbenschützer"
+    },
+    "bf788cd30ce7483f": {
+      "name": "Alltagsshirt"
+    },
+    "6205386c349c6378": {
+      "name": "Tri-Okto-Shirt"
+    },
+    "fe399237cbf576e4": {
+      "name": "Lachs-Turbo-Tabi"
+    },
+    "c3bde248ba3d37c2": {
+      "name": "Hørnhelmer"
+    },
+    "0e9a7c1cbf2a1562": {
+      "name": "Umibozu-Heimtrikot"
+    },
+    "8fa248d2c2f6dbb5": {
+      "name": "Ahorn-Zekko-Trainerjacke"
+    },
+    "8721ccd8a97ca6d9": {
+      "name": "Arbeitsstiefel"
+    },
+    "bc4b2d948ec1a680": {
+      "name": "Bolero-Jacke Minus"
+    },
+    "35324a023fbc73b4": {
+      "name": "Squashstirnband"
+    },
+    "736e591555dd7fc2": {
+      "name": "Weißes Rilax-Pixel-Shirt"
+    },
+    "fe88471fdaa4835b": {
+      "name": "Tennisstirnband"
+    },
+    "6aa82c7f381ed1c7": {
+      "name": "Hellblaues Krakenaugen-Shirt"
+    },
+    "55f313d77f02df5d": {
+      "name": "Schwarz-blaue Squidkids V"
+    },
+    "3583daf7ca4ab304": {
+      "name": "Punktehemd"
+    },
+    "486ad6046068e579": {
+      "name": "Graue High-Tops"
+    },
+    "798039fff916ccab": {
+      "name": "Rot-schwarze Squidkids IV"
+    },
+    "186b8207f53c589c": {
+      "name": "Malermaske"
+    },
+    "61bf38eee6c6572c": {
+      "name": "Karamell-Re-Issue-Shirt"
+    },
+    "445447f824e8029a": {
+      "name": "Patchwork-Bomberjacke"
+    },
+    "71c037bdda583422": {
+      "name": "Zebra-Shirt"
+    },
+    "e3de2716bb4dd373": {
+      "name": "Okto-Shirt"
+    },
+    "b3316e0644d12c28": {
+      "name": "Orange X-Sneaker"
+    },
+    "ad1453c835f0dd18": {
+      "name": "Weiße Pfeilschuhe"
+    },
+    "ec6c894d7932e077": {
+      "name": "Kirschrote Gummistiefel"
+    },
+    "5b2b3d4a7850f32a": {
+      "name": "Hemd mit Krawatte"
+    },
+    "5de86f8b5e2cf16e": {
+      "name": "Grüne Schnürschuhe"
+    },
+    "136a65f45a9021f3": {
+      "name": "Klassische Kopfhörer"
+    },
+    "b1fad79c10f879c9": {
+      "name": "Weißes King-Tanktop"
+    },
+    "6a69aeb21b9ba9a1": {
+      "name": "Weiße Norimaki 750"
+    },
+    "da4b679ea7dc0d42": {
+      "name": "Laufstirnband"
+    },
+    "3127d54717172294": {
+      "name": "Luftige Jacke"
+    },
+    "258ad6bf82aefb7e": {
+      "name": "Apfel-Ringer-Shirt"
+    },
+    "e965474df895c0b1": {
+      "name": "Zekko-Baseball-Shirt"
+    },
+    "e51c45457e2f73f7": {
+      "name": "5-Panel-Kappe"
+    },
+    "b91eb6d04f17ee7f": {
+      "name": "Gehörschutz"
+    },
+    "265fc965fe5c5cde": {
+      "name": "Lila Shirt"
+    },
+    "d1ddf6a044e31f77": {
+      "name": "Basic-Tennisschuhe"
+    },
+    "59705e7558d8dddd": {
+      "name": "Rotes Kuttel-Korps-Shirt"
+    },
+    "aae831af78d23c56": {
+      "name": "Retro-Karohemd"
+    },
+    "6e38644c66a730fe": {
+      "name": "Sepibrogues"
+    },
+    "2cabdbbaf8250933": {
+      "name": "Tentatek-Mottoshirt"
+    },
+    "68b8af2a12635dec": {
+      "name": "Pfeil-Pull-ons"
+    },
+    "e0ed31a22488ba2a": {
+      "name": "Blaues Tentatek-Shirt"
+    },
+    "c9a7bef53f71de4d": {
+      "name": "Paddling-Jacke Minus"
+    },
+    "14148115c21252c9": {
+      "name": "Taucherbrille"
+    },
+    "b4d2003229cc69cd": {
+      "name": "Blau-schwarze Squidkids IV"
+    },
+    "bfa9f1b99a67f0fd": {
+      "name": "Schwarze Doppelschnaller"
+    },
+    "4b2937e5f71b6bb4": {
+      "name": "N-Pacer-Trainingsjacke"
+    },
+    "c180b715b8e53b1d": {
+      "name": "Tulpenhut"
+    },
+    "4629b1994d6b27cb": {
+      "name": "Oktarianer-Retropulli"
+    },
+    "d4c85d2d735e464d": {
+      "name": "N-Pacer CaO"
+    },
+    "5eafa1e64cfbbd52": {
+      "name": "Karohemd mit Weste"
+    },
+    "acf5348674a9524b": {
+      "name": "Hockey-Helm"
+    },
+    "a9fb5bbd38e00533": {
+      "name": "Tannengrüner Hoodie"
+    },
+    "53c3f7c4ef8eb14a": {
+      "name": "Weiße F3-Jacke"
+    },
+    "a19dcb9db1b6a870": {
+      "name": "Spezial-Wanderstiefel"
+    },
+    "164e70329fff7e10": {
+      "name": "Graues Profil-Shirt"
+    },
+    "a0f68c9f0489a1ee": {
+      "name": "Weiße Plateau-Sneaker"
+    },
+    "0fd13c0fc8750e82": {
+      "name": "Wet-Floor-Shirt"
+    },
+    "c41abf60a87ece6a": {
+      "name": "Weißes Longsleeve"
+    },
+    "56499d773cc89216": {
+      "name": "Kalamati-Windbreaker"
+    },
+    "f4d9cf36f44d5d2f": {
+      "name": "Pfeillogo-Sweatshirt"
+    },
+    "6a4233aab2a89c2e": {
+      "name": "Kalmar-Longsleeve"
+    },
+    "894701a3ffb7639d": {
+      "name": "Lila Anorak"
+    },
+    "e095352827007788": {
+      "name": "Schwarze Bikerjacke"
+    },
+    "c7046c5675149293": {
+      "name": "Urchins-Baseball-Trikot"
+    },
+    "25dc67a105f26543": {
+      "name": "Jagdstiefel"
+    },
+    "7bb94b71fd60d36d": {
+      "name": "Neongrüne Laufschuhe"
+    },
+    "7df3f12f9059a3f4": {
+      "name": "Weißes Deka-Shirt"
+    },
+    "07f0b1a126042377": {
+      "name": "Grau-blaues Baseball-Shirt"
+    },
+    "80c5b5ad61078a69": {
+      "name": "Transparente Brille"
+    },
+    "47337f863e270138": {
+      "name": "Hawaiihemd"
+    },
+    "fa441bde1e48c941": {
+      "name": "Heim-Catcherhelm"
+    },
+    "8ac15fbadd7c5921": {
+      "name": "Patchwork-Hut"
+    },
+    "fbb643bceee306f4": {
+      "name": "Sonnen-Kletterschuhe"
+    },
+    "c660b59aec2bee52": {
+      "name": "Schnorchel"
+    },
+    "5f3d30b4208dc045": {
+      "name": "Goldenes Dakro-Shirt"
+    },
+    "e8816dc35ffe0f3f": {
+      "name": "Weißes Lagen-Shirt"
+    },
+    "d8ab4619e04183ac": {
+      "name": "Klassisches Bandana"
+    },
+    "ac2d0e974ab4a45d": {
+      "name": "Lila Halbschuhe"
+    },
+    "4a64ff9da8eedc99": {
+      "name": "FC-Barrakuda-Trikot"
+    },
+    "a63033c3b7a63dfa": {
+      "name": "Orange Netzsneaker"
+    },
+    "2955f82ca50e5b91": {
+      "name": "Schoko-Lagen-Shirt"
+    },
+    "aa77710e35ac07bb": {
+      "name": "Grüne Iromaki 750"
+    },
+    "c53e7522d9b61206": {
+      "name": "Anker-Lagen-Shirt"
+    },
+    "b7c3f1f0fd72870a": {
+      "name": "Bündchen-Pulli Minus"
+    },
+    "35a13bf492b1cdca": {
+      "name": "Kensa-Sci-Fis"
+    },
+    "9e34382421cb08fa": {
+      "name": "Oliver Zekko-Hoodie"
+    },
+    "f992fb41a27a9bcc": {
+      "name": "Schwarze Low-Top-Sneaker"
+    },
+    "7581836257a42a71": {
+      "name": "Grünes Blockstreifen-Shirt"
+    },
+    "d6332fcfb6eb65e9": {
+      "name": "Gomashio 270"
+    },
+    "9048ca4ab3f36892": {
+      "name": "Rotbraune Punkstiefel"
+    },
+    "3c650363f66ad2c0": {
+      "name": "Türkise-Cowboyhut"
+    },
+    "126fa11f05f485a1": {
+      "name": "Matcha-Daunenjacke"
+    },
+    "fb1f5c374902e6ce": {
+      "name": "Pinke Strumpflatschen"
+    },
+    "5f76f2b1505537dc": {
+      "name": "Kugelfisch-Glockenhut"
+    },
+    "d121326530879316": {
+      "name": "Schoko-Dakroniks"
+    },
+    "4af3f9ca3bc0153f": {
+      "name": "Rote Slip-ons"
+    },
+    "52f6ded7fa0502c2": {
+      "name": "Limitierte Low-Tops"
+    },
+    "40c238f5bb55f658": {
+      "name": "Streifengipfel-Longsleeve"
+    },
+    "876024e49bf245f6": {
+      "name": "Umgedrehte Kappe"
+    },
+    "8b237659c0671b55": {
+      "name": "Blaue Halbschuhe"
+    },
+    "a0abca747544faed": {
+      "name": "Schwarzes Shirt"
+    },
+    "d8658688d12980e4": {
+      "name": "F3-Jacke Spezial"
+    },
+    "def63dfb2de0a349": {
+      "name": "Orange Strumpflatschen"
+    },
+    "ec0c785a1a9caf90": {
+      "name": "Annaki-Shirt mit Choker"
+    },
+    "14775ed65b5bedb8": {
+      "name": "Annaki-Tiger-Loafer"
+    },
+    "2d08e8989db642d7": {
+      "name": "Piraten-Shirt"
+    },
+    "d4e783da0e6e162c": {
+      "name": "Mountie-Hut"
+    },
+    "42df0b2cf7471ddc": {
+      "name": "Zombie-High-Top-Sneaker"
+    },
+    "42b5402e9eb64e49": {
+      "name": "Zweistreifen-Netzkappe"
+    },
+    "8e474adbf0b1de1b": {
+      "name": "Schwarze Strandsandalen"
+    },
+    "ae595eff83b88b5b": {
+      "name": "Profi-Wanderstiefel"
+    },
+    "452d724de6df3056": {
+      "name": "Teegrüne Jagdstiefel"
+    },
+    "11c60e7c644758c3": {
+      "name": "Cephalo-Pods"
+    },
+    "3434c77d55faa725": {
+      "name": "Focus-Oktarianer-Parka"
+    },
+    "ef4a34530ef5783b": {
+      "name": "Dotterblumen-Jacke"
+    },
+    "d22ab67b6963492d": {
+      "name": "Baseball-Lagen-Hoodie"
+    },
+    "3ec43b15e540fca6": {
+      "name": "Hitzewellen-Shirt"
+    },
+    "2122b1e6bf54cef3": {
+      "name": "Molluskelbude-Schlappen"
+    },
+    "ce56023598fa2be7": {
+      "name": "Marine-Shirt"
+    },
+    "a75e7ce05c103f50": {
+      "name": "Kalamati-Trikot"
+    },
+    "d74020abaeb90118": {
+      "name": "Bomberjacke Minus"
+    },
+    "11c0bdc9f869694b": {
+      "name": "Ms-Shrug-Shirt"
+    },
+    "8e280599b2678219": {
+      "name": "Punkt-Slip-ons"
+    },
+    "090050f61f468d22": {
+      "name": "Tropenblätter-Hoodie"
+    },
+    "552a8ee1ea64d236": {
+      "name": "Rotes Profil-Shirt"
+    },
+    "ef82c7026049a3ac": {
+      "name": "N-Pacer Au"
+    },
+    "5882ffd030005203": {
+      "name": "Beige Tundra-Fleecejacke"
+    },
+    "49cf4db6f834714d": {
+      "name": "Weißes Baseball-Shirt"
+    },
+    "d8a06f7070e1db3c": {
+      "name": "Gelbe Iromaki 750"
+    },
+    "ff5f2a9a0718704b": {
+      "name": "Sagitron-Longsleeve"
+    },
+    "13e5e6e89ff2bf76": {
+      "name": "Blaues Rilax-Pixel-Longsleeve"
+    },
+    "f99d83847b5d7f5d": {
+      "name": "Clownfisch-Leinenschuhe"
+    },
+    "23bba62ce2a06226": {
+      "name": "Rote Laufschuhe"
+    },
+    "85acbc1607f78ad7": {
+      "name": "Annaki-Gelbärmel-Pulli"
+    },
+    "8b2135f32fdb1a21": {
+      "name": "Aalzazel-Shirt"
+    },
+    "ff0bfb7aeac4aa6d": {
+      "name": "Muschel-Bambushut"
+    },
+    "3ae1c8a4eecf91e3": {
+      "name": "Schwarzes Rockberg-Shirt"
+    },
+    "a7774baa69c08989": {
+      "name": "Wasabi-Tabi"
+    },
+    "229d49cb636089c0": {
+      "name": "Jeans-Hut"
+    },
+    "a12167e8d2f28bc4": {
+      "name": "Rosa Blockstreifen-Shirt"
+    },
+    "d00c5befc82384e4": {
+      "name": "Blaue Power-Sci-Fis"
+    },
+    "92fd25365b270e34": {
+      "name": "Marineblaues Sweatshirt"
+    },
+    "2bbb730975a3d2e4": {
+      "name": "Goldene High-Top-Sneaker"
+    },
+    "ce512460e6ed3d20": {
+      "name": "Hightide-Era-Shirt"
+    },
+    "a2a53544339fc704": {
+      "name": "Blockstreifen-King-Tanktop"
+    },
+    "cabb500a341a7297": {
+      "name": "Karnivor-Schnürer"
+    },
+    "76c98dcadfa3254e": {
+      "name": "Schwarzes Baseball-Shirt"
+    },
+    "45e78598c560379c": {
+      "name": "Kalmar-Sweatshirt"
+    },
+    "3c85da60025f9def": {
+      "name": "FA-01-Jacke"
+    },
+    "7d5e52e2c5bb83f5": {
+      "name": "Gasmaske"
+    },
+    "da94f64e21dea66e": {
+      "name": "Schwarze Norimaki 750"
+    },
+    "c1e0f231ee4d92b1": {
+      "name": "Marine-King-Kurzmantel"
+    },
+    "66b67f985e1298a7": {
+      "name": "Fußballstirnband"
+    },
+    "fe17ac29feb37984": {
+      "name": "Annaki-Rotärmel-Pulli"
+    },
+    "f1828d6cf750b256": {
+      "name": "Kirsch-Plateau-Sneaker"
+    },
+    "8b7c930b2cc0e498": {
+      "name": "Medusa 528"
+    },
+    "2b9bb9aa6b80f37e": {
+      "name": "Oval-Sonnenbrille"
+    },
+    "e35713e444afb4eb": {
+      "name": "Barazushi-Reis-Shirt"
+    },
+    "b63cbc8e8458640d": {
+      "name": "Vierfarb-King-Hemd 10"
+    },
+    "2b91bcfea4de8809": {
+      "name": "Schwarzes Longsleeve"
+    },
+    "8fd5ab805c9687e2": {
+      "name": "Traubenlila Hoodie"
+    },
+    "f121f611a8379f3f": {
+      "name": "Schwarzes V-Shirt"
+    },
+    "460574ad6d73934b": {
+      "name": "Eisberg-Jacke"
+    },
+    "7c409e0ca76b942b": {
+      "name": "Weißes Anker-Shirt"
+    },
+    "22b856345ca7de8e": {
+      "name": "Schwarze Leinen-High-Tops"
+    },
+    "759f10e900939f5c": {
+      "name": "Leinenhemd"
+    },
+    "f566a101b0f5b132": {
+      "name": "Gelbes Kalmar-Lagen-Shirt"
+    },
+    "e328bb1204b9fab3": {
+      "name": "Rotsohlen-Brogues"
+    },
+    "ea7403918192ffc4": {
+      "name": "Chili-Okto-Alohahemd"
+    },
+    "85c6fc1e82e176a5": {
+      "name": "Sonnenoranges Shirt"
+    },
+    "fc4daf64413e0935": {
+      "name": "Grüner Anorak"
+    },
+    "82e84adc3d2d435b": {
+      "name": "Kensa-Trainerjacke"
+    },
+    "051dbc8aeb5ddf6d": {
+      "name": "Liga-Shirt"
+    },
+    "c03f0c705e5a2ad3": {
+      "name": "Doppelschnallen-Schuhe"
+    },
+    "2672cbe3aa792e52": {
+      "name": "Graues Rilax-Pixel-Shirt"
+    },
+    "32c45f03137ffd14": {
+      "name": "Oranger Cardigan"
+    },
+    "527b06f73d3b7018": {
+      "name": "Rettich-Zekko-Shirt"
+    },
+    "28d6795565c997b8": {
+      "name": "Weißes Kurzarmhemd"
+    },
+    "7b9c71c2c795b6a6": {
+      "name": "Basketball-Heimtrikot"
+    },
+    "e8285de857d1444c": {
+      "name": "Hemd mit blauem Hoodie"
+    }
+  },
+  "powers": {
+    "032c2b30027d6a23": {
+      "name": "Hauptverbrauch"
+    },
+    "294d158b20a03702": {
+      "name": "Rückkehr"
+    },
+    "8eff7c5906b17202": {
+      "name": "Tintenfisch-Ninja"
+    },
+    "a6ee72ab2e279e1d": {
+      "name": "Schwimmtempo +"
+    },
+    "793e8f393b093b33": {
+      "name": "Sprunginfiltration"
+    },
+    "7491b2168b321d3e": {
+      "name": "Supersprung +"
+    },
+    "9a736dd26cc6d3c5": {
+      "name": "Lauftempo +"
+    },
+    "ea552d4a7c94a0eb": {
+      "name": "Tricklandung"
+    },
+    "1a994b9f1d422b23": {
+      "name": "Spezialstärke +"
+    },
+    "4b8e1b77f6b1ef60": {
+      "name": "Unbekannt"
+    },
+    "1406c4da9fe690c9": {
+      "name": "Hauptverbrauch"
+    },
+    "c8179c066b561cd5": {
+      "name": "Rückkehr"
+    },
+    "0e71bff24c3f37ad": {
+      "name": "Tintenfisch-Ninja"
+    },
+    "03c7b7bc6cb68512": {
+      "name": "Schwimmtempo +"
+    },
+    "b4e72a2b9c9f3d53": {
+      "name": "Sprunginfiltration"
+    },
+    "1f86150af97debf6": {
+      "name": "Supersprung +"
+    },
+    "16cbf780227d6f6d": {
+      "name": "Lauftempo +"
+    },
+    "c54714a0c4aa3e11": {
+      "name": "Tricklandung"
+    },
+    "e2c02f122de2c567": {
+      "name": "Spezialstärke +"
+    },
+    "264ff06a6e99b11a": {
+      "name": "Unbekannt"
+    },
+    "1d202ffb6e81bce5": {
+      "name": "Heimsuchung"
+    },
+    "815a9a65c869e5d9": {
+      "name": "Sekundärschutz +"
+    },
+    "d419d93c9ca266f2": {
+      "name": "Tintentoleranz +"
+    },
+    "0e164aae93afae43": {
+      "name": "Spezialabzug -"
+    },
+    "28c5ec4430082450": {
+      "name": "Schnelle Rückkehr"
+    },
+    "aedd94fe223261d5": {
+      "name": "Action +"
+    },
+    "c43ab03140bb13f2": {
+      "name": "Regeneration +"
+    },
+    "6dcecca7e07e73c4": {
+      "name": "Spezialladezeit +"
+    },
+    "8afb83ffeb289865": {
+      "name": "Vergeltung"
+    },
+    "9d5a18e4c5e5645e": {
+      "name": "Startvorteil"
+    },
+    "0e2ac5e15d77b2cb": {
+      "name": "Sekundärstärke +"
+    },
+    "3820d64c12f27290": {
+      "name": "Zerstörer"
+    },
+    "8340c4eed8943fc7": {
+      "name": "Sekundärverbrauch"
+    },
+    "5602e981c1c00258": {
+      "name": "Markierfarbe"
+    },
+    "44d2c5620c1d3c73": {
+      "name": "Zähigkeit"
+    },
+    "51f03088c1111fd7": {
+      "name": "Endspurt"
+    },
+    "d00bc8d303659ec6": {
+      "name": "Regeneration +"
+    },
+    "41a16a26faa38d13": {
+      "name": "Schnelle Rückkehr"
+    },
+    "bde0eb22530d4466": {
+      "name": "Spezialladezeit +"
+    },
+    "86cdcc0fd608423a": {
+      "name": "Tricklandung"
+    },
+    "276cddac2f57fa12": {
+      "name": "Heimsuchung"
+    },
+    "cd3ddfd6e986e696": {
+      "name": "Spezialstärke +"
+    },
+    "92122d477e563d7b": {
+      "name": "Tintentoleranz +"
+    },
+    "cef7771e1562e6f9": {
+      "name": "Unbekannt"
+    },
+    "1d855c39cfd4d1ad": {
+      "name": "Sekundärschutz +"
+    },
+    "4eb2633ea2cc53c5": {
+      "name": "Sekundärstärke +"
+    },
+    "65995d04d06440c3": {
+      "name": "Action +"
+    },
+    "57aceb0bcb925e93": {
+      "name": "Sekundärverbrauch"
+    },
+    "73e2e892e74ab1b9": {
+      "name": "Endspurt"
+    },
+    "0c8e815c244cde48": {
+      "name": "Zähigkeit"
+    },
+    "620af3d72bd265ea": {
+      "name": "Schwimmtempo +"
+    },
+    "870b81ce67189ad3": {
+      "name": "Vergeltung"
+    },
+    "8182fe5e6b07ef53": {
+      "name": "Hauptverbrauch"
+    },
+    "3d1ad74f74989f8d": {
+      "name": "Supersprung +"
+    },
+    "fad0ac5cace2e2a4": {
+      "name": "Lauftempo +"
+    },
+    "cf48bc70458f9b0b": {
+      "name": "Markierfarbe"
+    },
+    "98f9e51856a7a8fb": {
+      "name": "Tintenfisch-Ninja"
+    },
+    "e6087224d046f0dc": {
+      "name": "Spezialabzug -"
+    },
+    "009a41cd1f5702c0": {
+      "name": "Sprunginfiltration"
+    },
+    "23fa65038ff7b3be": {
+      "name": "Rückkehr"
+    },
+    "f60a2e453b279d3c": {
+      "name": "Zerstörer"
+    },
+    "3d4c8db9a6144122": {
+      "name": "Startvorteil"
+    },
+    "bb95857faf2ee2ce": {
+      "name": "Spezialladezeit +"
+    },
+    "7fda9e58be0148ba": {
+      "name": "Lauftempo +"
+    },
+    "4b93ede887594882": {
+      "name": "Action +"
+    },
+    "eb113dfd628fe97d": {
+      "name": "Hauptverbrauch"
+    },
+    "481e489df1599c5e": {
+      "name": "Sekundärstärke +"
+    },
+    "50cbb1f4d01ed04f": {
+      "name": "Endspurt"
+    },
+    "b6c2fce7a284b8cf": {
+      "name": "Regeneration +"
+    },
+    "189689c8bda666d7": {
+      "name": "Tintentoleranz +"
+    },
+    "5b196254c80fd4b5": {
+      "name": "Unbekannt"
+    },
+    "9a60bd30bf6280cb": {
+      "name": "Vergeltung"
+    },
+    "9db907b90b370d4f": {
+      "name": "Sekundärverbrauch"
+    },
+    "96f1a2dd35702375": {
+      "name": "Spezialstärke +"
+    },
+    "68c079f60fbccc99": {
+      "name": "Sekundärschutz +"
+    },
+    "df5bce5ddddb57e0": {
+      "name": "Spezialabzug -"
+    },
+    "add7e9d4bf832d64": {
+      "name": "Zähigkeit"
+    },
+    "b6d2e0293e72924e": {
+      "name": "Schwimmtempo +"
+    },
+    "806fd26d33ffcdd6": {
+      "name": "Schnelle Rückkehr"
+    },
+    "fbdf26d37a2c74be": {
+      "name": "Supersprung +"
+    },
+    "df2ac662442781ce": {
+      "name": "Heimsuchung"
+    },
+    "514d40657c1ab7ed": {
+      "name": "Sprunginfiltration"
+    },
+    "4aca3727ab8e8509": {
+      "name": "Markierfarbe"
+    },
+    "b441c990d3de0d1a": {
+      "name": "Tricklandung"
+    },
+    "88338f2180bbb23d": {
+      "name": "Startvorteil"
+    },
+    "cc519de29fe8f2e5": {
+      "name": "Rückkehr"
+    },
+    "d939d4401935ee27": {
+      "name": "Zerstörer"
+    },
+    "3ea0270d5dbdd966": {
+      "name": "Tintenfisch-Ninja"
+    },
+    "7f6d89f40eabc41d": {
+      "name": "Schnelle Rückkehr"
+    },
+    "7a177ddb3aeaed0b": {
+      "name": "Tintentoleranz +"
+    },
+    "9da8a55c915271b6": {
+      "name": "Lauftempo +"
+    },
+    "1f746cec210906af": {
+      "name": "Action +"
+    },
+    "bf7742050e8638f9": {
+      "name": "Spezialladezeit +"
+    },
+    "2497992da827dbbf": {
+      "name": "Sekundärverbrauch"
+    },
+    "1e735ea69cb58677": {
+      "name": "Schwimmtempo +"
+    },
+    "ef78dc3c91f93dbd": {
+      "name": "Supersprung +"
+    },
+    "c3692f89900a0839": {
+      "name": "Vergeltung"
+    },
+    "4352d3f254655a4f": {
+      "name": "Regeneration +"
+    },
+    "f09d91b4cb53fbe1": {
+      "name": "Spezialabzug -"
+    },
+    "351dbd2ad833da59": {
+      "name": "Hauptverbrauch"
+    },
+    "668f5cf3759aa059": {
+      "name": "Unbekannt"
+    },
+    "75bb4b4b145f5f22": {
+      "name": "Spezialstärke +"
+    },
+    "e6cf18b7c3d7777a": {
+      "name": "Sekundärschutz +"
+    },
+    "79a401dc1b5a80b1": {
+      "name": "Endspurt"
+    },
+    "a3d44c0645fcc37a": {
+      "name": "Sekundärstärke +"
+    },
+    "31d03e5fdf33d308": {
+      "name": "Tricklandung"
+    },
+    "7f398a113a8542f9": {
+      "name": "Zähigkeit"
+    },
+    "a94450681ff5481a": {
+      "name": "Heimsuchung"
+    },
+    "ad9a06bbb1123add": {
+      "name": "Markierfarbe"
+    },
+    "fc0d34e5084cfa0c": {
+      "name": "Sprunginfiltration"
+    },
+    "719305cabfd863f9": {
+      "name": "Rückkehr"
+    },
+    "24f62ff0fc66449b": {
+      "name": "Zerstörer"
+    },
+    "2aa79bd15fcdafe7": {
+      "name": "Startvorteil"
+    },
+    "5739c59fcddc57ca": {
+      "name": "Tintenfisch-Ninja"
+    }
+  },
+  "festivals": {
+    "JUEA-00004": {
+      "title": "Welche Schoko ist die beste?",
+      "teams": [
+        {
+          "teamName": "Zartbitter"
+        },
+        {
+          "teamName": "Vollmilch"
+        },
+        {
+          "teamName": "Weiße Schoko"
+        }
+      ]
+    },
+    "JUEA-00003": {
+      "title": "Was ist dein Lieblingsgeschmack?",
+      "teams": [
+        {
+          "teamName": "Scharf"
+        },
+        {
+          "teamName": "Süß"
+        },
+        {
+          "teamName": "Sauer"
+        }
+      ]
+    },
+    "JUEA-00002": {
+      "title": "Welchen Typ hat dein Partner-Pokémon?",
+      "teams": [
+        {
+          "teamName": "Pflanze"
+        },
+        {
+          "teamName": "Feuer"
+        },
+        {
+          "teamName": "Wasser"
+        }
+      ]
+    },
+    "JUEA-00001": {
+      "title": "Was muss mit auf eine einsame Insel?",
+      "teams": [
+        {
+          "teamName": "Werkzeug"
+        },
+        {
+          "teamName": "Futter"
+        },
+        {
+          "teamName": "Spaß"
+        }
+      ]
+    },
+    "JUEA-00005": {
+      "title": "Wen gibt es wirklich?",
+      "teams": [
+        {
+          "teamName": "Nessie"
+        },
+        {
+          "teamName": "Aliens"
+        },
+        {
+          "teamName": "Bigfoot"
+        }
+      ]
+    },
+    "JUEA-00006": {
+      "title": "Was ist es, nach dem du strebst?",
+      "teams": [
+        {
+          "teamName": "Kraft"
+        },
+        {
+          "teamName": "Weisheit"
+        },
+        {
+          "teamName": "Mut"
+        }
+      ]
+    },
+    "JUEA-00007": {
+      "title": "Welche Eissorte ist am leckersten?",
+      "teams": [
+        {
+          "teamName": "Vanille"
+        },
+        {
+          "teamName": "Erdbeer"
+        },
+        {
+          "teamName": "Minz-Schoko"
+        }
+      ]
+    },
+    "JUEA-00008": {
+      "title": "Was ist das Wichtigste im Leben?",
+      "teams": [
+        {
+          "teamName": "Geld"
+        },
+        {
+          "teamName": "Ruhm"
+        },
+        {
+          "teamName": "Liebe"
+        }
+      ]
+    },
+    "JUEA-00009": {
+      "title": "Wer wäre als Boss am besten?",
+      "teams": [
+        {
+          "teamName": "Mako"
+        },
+        {
+          "teamName": "Muri"
+        },
+        {
+          "teamName": "Mantaro"
+        }
+      ]
+    },
+    "JUEA-00010": {
+      "title": "Mit wem wärst du gern befreundet?",
+      "teams": [
+        {
+          "teamName": "Zombie"
+        },
+        {
+          "teamName": "Skelett"
+        },
+        {
+          "teamName": "Gespenst"
+        }
+      ]
+    },
+    "UEA-90011": {
+      "title": "Was ist deine Lieblingsbegrüßung?",
+      "teams": [
+        {
+          "teamName": "Handschlag"
+        },
+        {
+          "teamName": "Faustcheck"
+        },
+        {
+          "teamName": "Knuddeln"
+        }
+      ]
+    },
+    "JUEA-00012": {
+      "title": "Mit wem verbringst du gerne deine Festtage?",
+      "teams": [
+        {
+          "teamName": "Freunde"
+        },
+        {
+          "teamName": "Familie"
+        },
+        {
+          "teamName": "Solo"
+        }
+      ]
+    },
+    "UEA-00013": {
+      "title": "Was ist der beste Wochenendtag?",
+      "teams": [
+        {
+          "teamName": "Freitag"
+        },
+        {
+          "teamName": "Samstag"
+        },
+        {
+          "teamName": "Sonntag"
+        }
+      ]
+    },
+    "UEA-00014": {
+      "title": "Welches Instrument würdest du spielen?",
+      "teams": [
+        {
+          "teamName": "Schlagzeug"
+        },
+        {
+          "teamName": "Gitarre"
+        },
+        {
+          "teamName": "Keyboard"
+        }
+      ]
+    },
+    "JUEA-00015": {
+      "title": "Frühlingszeit! Die knuffigste Zeit!",
+      "teams": [
+        {
+          "teamName": "Küken"
+        },
+        {
+          "teamName": "Kaninchen"
+        },
+        {
+          "teamName": "Bärchen"
+        }
+      ]
+    },
+    "JUEA-00016": {
+      "title": "Was tun, wenn die Welt untergeht?",
+      "teams": [
+        {
+          "teamName": "Alltagsleben"
+        },
+        {
+          "teamName": "Löffelliste"
+        },
+        {
+          "teamName": "Weltrettung"
+        }
+      ]
+    },
+    "JUEA-00017": {
+      "title": "Was würdest du für einen Tag mieten?",
+      "teams": [
+        {
+          "teamName": "Palast"
+        },
+        {
+          "teamName": "Vergnügungspark"
+        },
+        {
+          "teamName": "Strand"
+        }
+      ]
+    },
+    "JUEA-00018": {
+      "title": "Was könntest du jeden Tag essen?",
+      "teams": [
+        {
+          "teamName": "Brot"
+        },
+        {
+          "teamName": "Reis"
+        },
+        {
+          "teamName": "Pasta"
+        }
+      ]
+    },
+    "JUEA-00019": {
+      "title": "Welches ist dir am wichtigsten?",
+      "teams": [
+        {
+          "teamName": "Vergangenheit"
+        },
+        {
+          "teamName": "Gegenwart"
+        },
+        {
+          "teamName": "Zukunft"
+        }
+      ]
+    },
+    "JUEA-00100": {
+      "title": "Was wärst du in einer Fantasy-Welt?",
+      "teams": [
+        {
+          "teamName": "Zauberer"
+        },
+        {
+          "teamName": "Ritter"
+        },
+        {
+          "teamName": "Ninja"
+        }
+      ]
+    },
+    "JUEA-00105": {
+      "title": "Mit wem verbringst du gerne deine Festtage?",
+      "teams": [
+        {
+          "teamName": "Freunde"
+        },
+        {
+          "teamName": "Familie"
+        },
+        {
+          "teamName": "Solo"
+        }
+      ]
+    },
+    "JUEA-00104": {
+      "title": "Mit wem wärst du gern befreundet?",
+      "teams": [
+        {
+          "teamName": "Zombie"
+        },
+        {
+          "teamName": "Skelett"
+        },
+        {
+          "teamName": "Gespenst"
+        }
+      ]
+    },
+    "JUEA-00103": {
+      "title": "Wo reist du am liebsten?",
+      "teams": [
+        {
+          "teamName": "Land"
+        },
+        {
+          "teamName": "Meer"
+        },
+        {
+          "teamName": "Luft"
+        }
+      ]
+    },
+    "JUEA-00102": {
+      "title": "Wann erledigst du Sachen am liebsten?",
+      "teams": [
+        {
+          "teamName": "Morgens"
+        },
+        {
+          "teamName": "Tagsüber"
+        },
+        {
+          "teamName": "Nachts"
+        }
+      ]
+    },
+    "JUEA-00200": {
+      "title": "Welche Schoko ist die beste?",
+      "teams": [
+        {
+          "teamName": "Zartbitter"
+        },
+        {
+          "teamName": "Vollmilch"
+        },
+        {
+          "teamName": "Weiße Schoko"
+        }
+      ]
+    },
+    "JUEA-00101": {
+      "title": "Worüber freust du dich am meisten?",
+      "teams": [
+        {
+          "teamName": "Geld"
+        },
+        {
+          "teamName": "Erinnerungen"
+        },
+        {
+          "teamName": "Geschenke"
+        }
+      ]
+    },
+    "JUEA-00106": {
+      "title": "Frühlingszeit! Die knuffigste Zeit!",
+      "teams": [
+        {
+          "teamName": "Küken"
+        },
+        {
+          "teamName": "Kaninchen"
+        },
+        {
+          "teamName": "Bärchen"
+        }
+      ]
+    },
+    "JUEA-00201": {
+      "title": "Welcher Kämpfertyp bist du?",
+      "teams": [
+        {
+          "teamName": "Tempo"
+        },
+        {
+          "teamName": "Power"
+        },
+        {
+          "teamName": "Trickser"
+        }
+      ]
+    }
+  },
+  "events": {
+    "TGVhZ3VlTWF0Y2hFdmVudC1OZXdTZWFzb25DdXA=": {
+      "name": "Eröffnungs-Event der Saison",
+      "desc": "Die Saison geht los! Auf in die neue Arena!",
+      "regulation": "Gleiche Bedingungen für alle! Hier lernen alle gemeinsam zur selben Zeit die brandneue Arena kennen!<br /><br />・ Erforsche die Arena und tüftele an frischen Taktiken!<br />・ In Revierkämpfen gelten nur Haupteffekte! Zusatzeffekte sind inaktiv.<br />・ In allen Anarchie-Kämpfen sind sämtliche Effekte aktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVNob3Q=": {
+      "name": "Trizookaracho",
+      "desc": "Trizooka-Trommelfeuer ohne Ende!",
+      "regulation": "Das Treffen der Trizooka-Taktiker! Wer wischt mit seiner Wumme den Gegner weg?<br /><br />・ Nur Waffen-Sets mit der Trizooka als Spezialwaffe.<br />・ Die Spezialanzeige füllt sich rasch und ganz von selbst!<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb24=": {
+      "name": "Probeklecks auf Arty-Art",
+      "desc": "Spaß und Chaos mit Zufallswaffen!",
+      "regulation": "„Mein ganzes Sortiment steht zur Verfügung! Ich hoffe, jeder findet neue Favoriten!“<br /> - Euer Arty<br /><br />・ Alle Spieler erhalten ein zufälliges Waffen-Set.<br />・ Arty verleiht sein ganzes Sortiment. Welche Waffen du bereits von ihm erworben hast, spielt keine Rolle!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb250aGx5TGVhZ3VlTWF0Y2hSZWFs": {
+      "name": "Event-Kampf des Monats",
+      "desc": "Wer erreicht die höchste Event-Power?",
+      "regulation": "Hier dreht sich alles um Event-Power! Wie viel Power kannst du in diesem Monat erzielen?<br /><br />・ In Revierkämpfen gelten nur Haupteffekte! Zusatzeffekte sind inaktiv.<br />・ In allen Anarchie-Kämpfen sind sämtliche Effekte aktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1EZWVwRm9n": {
+      "name": "Trübe Sicht",
+      "desc": "Extra riskantes Manövrieren im Nebel!",
+      "regulation": "Dichte Schwaden verdecken die Sicht! Kannst du die Nebelwände für dich nutzen?<br /><br />・ Sichtweite ist stark durch Nebel eingeschränkt.<br />・ Die Nebeldichte ändert sich jedoch im Kampfverlauf!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1QYWlyQ3Vw": {
+      "name": "Duell der Duos",
+      "desc": "Weniger ist mehr: Welches Duo siegt?",
+      "regulation": "Zwei Zweierteams treten gegeneinander an! Wer hat die richtige Taktik, um auch im Doppel zu bestehen?<br /><br />・ Ganz neue Strategien sind gefordert!<br />・ Extra schnelle Wiederbelebung für gekleckste Spieler!<br />・ Teilnahme sowohl als Zweierteam als auch für Einzelspieler.<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1JvbGxlckJydXNo": {
+      "name": "Kunst mit Vollkontakt",
+      "desc": "Kreatives Klecksen mit Roller und Pinsel!",
+      "regulation": "Flink gegen flächig: Hier sind nur zwei Waffenkategorien erlaubt!<br /><br />・ Teilnahme nur mit einem Roller oder einem Pinsel!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1IaWdoSnVtcA==": {
+      "name": "Sprunglaubliche Sätze",
+      "desc": "Mehr Sprungkraft denn je! Ab in die Lüfte!",
+      "regulation": "Jeder Hüpfer wird zum Höhenflug. Viele neue Routen und Strategien winken!<br /><br />・ Alle Spieler sind extra sprungstark.<br />・ Verlängerte zeitweilige Widerstandskraft nach Absprung vom Starter.<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9aaXBDYXN0ZXI=": {
+      "name": "Haftig umkämpft",
+      "desc": "Haftsprünge total für alle Himmelsstürmer!",
+      "regulation": "Kein Event für Bewegungsmuffel! Hier wird gesprungen und gehaftet, was das Zeug hält!<br /><br />・ Nur Waffen-Sets mit dem Haftsprung als Spezialwaffe.<br />・ Die Spezialanzeige füllt sich rasch und ganz von selbst!<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Ob3RGb3VuZA==": {
+      "name": "？？？？？",
+      "desc": "？？？？？",
+      "regulation": ""
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9MaW5lTWFya2Vy": {
+      "name": "Weitklecks über Winkel",
+      "desc": "Wahre Winkelmarker-Champs ans Werk!",
+      "regulation": "Markante Persönlichkeiten aufgepasst! In diesem Event sind Winkelzug-Wunderkinder gefragt!<br /><br />・ Nur Waffen-Sets mit dem Winkelmarker als Sekundärwaffe.<br />・ Der Winkelmarker ist für alle Spieler viel durchschlagskräftiger.<br />・ Der Winkelmarker-Tintenverbrauch ist für alle Spieler weit höher.<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db21wZXRpdGlvblJlaGVhcnNhbHNKUA==": {
+      "name": "Turnier-Testlauf (Japan)",
+      "desc": "Die Trainingschance zum Turniererfolg!",
+      "regulation": "Dieser Event-Kampf ist eine Trainingsrunde für zukünftige Turniere in der Spielregion Japan. Jeder kann mitmachen! Auch Spieler, die später in keinem Turnier antreten wollen, sind herzlich willkommen! <br /><br />Zur endgültigen Turnierteilnahme ist neben der Qualifizierung möglicherweise eine separate Form der Anfrage nötig. Zusätzlich kann es weitere Auflagen und Beschränkungen geben, etwa auf Grundlage des Wohnsitzlands."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1GYXN0TW92ZQ==": {
+      "name": "Tauchen mit Turbo",
+      "desc": "Superschnelles Schwimmtempo für alle!",
+      "regulation": "Tauche schneller denn je durch deine Tinte! Hier sind alle im Schwimmform-Turbo unterwegs.<br /><br />・ Stark erhöhte Geschwindigkeit in Schwimmform für alle Spieler.<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv.<br />・ Alle „Schwimmtempo +“-Effekte sind wirkungslos."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db21wZXRpdGlvbnNKUA==": {
+      "name": "Turnierqualifikation (Japan)",
+      "desc": "Kämpf dich zur Turnierteilnahme!",
+      "regulation": "Bei dieser Art Event-Kampf handelt es sich um eine Qualifikation zur Teilnahme an einem Turnier in der Spielregion Japan. Mitmachen verpflichtet nicht zur Teilnahme – auch Spieler, die später nicht im Turnier antreten wollen, sind herzlich willkommen!<br /><br />Zur endgültigen Turnierteilnahme ist neben der Qualifizierung möglicherweise eine separate Form der Anfrage nötig. Zusätzlich kann es weitere Auflagen und Beschränkungen geben, etwa auf Grundlage des Wohnsitzlands."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9KZXRQYWNr": {
+      "name": "Tintendüser-Donnerei",
+      "desc": "Alles Bunte kommt von oben!",
+      "regulation": "Höhenflüge mit dem Tintendüser für alle Spieler! Luftikusse und fliegende Fische willkommen!<br /><br />・ Nur Waffen-Sets mit dem Tintendüser als Spezialwaffe.<br />・ Die Spezialanzeige füllt sich rasch und ganz von selbst!<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9SYWlubWFrZXI=": {
+      "name": "Giga-Goldfisch im Test",
+      "desc": "Testet Artys aufgemotzte Goldfischkanone!",
+      "regulation": "Arty hat spannende Modifikationen an der Goldfischkanone vorgenommen. Schnapp dir das gewichtige Goldstück und den Sieg gleich dazu!<br /><br />・ Der Modus Operation Goldfisch wird gespielt.<br />・ Die voll aufgeladene Goldfischkanone feuert in drei Richtungen auf einmal!<br />・ Der Träger der Goldfischkanone wird gestärkt!<br />・ Die Goldfischkanone explodiert 30 Sekunden nach dem Aufheben! Vorsicht!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db3N0dW1lUGFydHk=": {
+      "name": "Chaos-Klecks auf Arty-Art",
+      "desc": "Waffen und Klamotten per Zufallswahl!",
+      "regulation": "„Diesmal suche ICH alles für euch aus! Nicht nur Kleckszeug, sondern auch Kleidung! Wünsche verrückt-verwirrtes Vergnügen!“<br /> - Euer Arty<br /><br />・ Alle Spieler erhalten ein zufälliges Waffen-Set.<br />・ Alle Kleidungsartikel sind zufallsbestimmt.<br />・ Arty verleiht das komplette Sortiment. Welche Waffen oder Kleidungsstücke du bereits erworben hast, spielt keine Rolle!<br /> (Behalten darfst du sie natürlich nicht!)"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NwaW5uZXI=": {
+      "name": "Trommelfeuer-Feier",
+      "desc": "Hier glühen die Splatling-Läufe!",
+      "regulation": "Tritt mit deinem liebsten Splatling-Set an und bestehe im großen Aufeinandertreffen der Trommelfeuer-Titanen!<br /><br />・ Teilnahme nur mit einer Waffe der Splatling-Klasse!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9Ta2V3ZXI=": {
+      "name": "Haihammer-Hatz",
+      "desc": "Ein Fest für Haihammer-Rammer!",
+      "regulation": "Bissige Action auf hai-ßen Vehikeln! Alle rauf auf die Haihämmer und dann maximale Rammgeschwindigkeit!<br /><br />・ Nur Waffen-Sets mit dem Haihammer als Spezialwaffe.<br />・ Die Spezialanzeige füllt sich rasch und ganz von selbst!<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1HZXlzZXI=": {
+      "name": "Fest der Fontänen",
+      "desc": "Tintenfontänen überall! Auftrieb garantiert!",
+      "regulation": "Wow, alles voller Tintenfontänen! Gelingt es dir, die Ströme zu nutzen?<br /><br />・ Tintenfontänen in allen Arenen!<br />・ Angegriffene Tintenfontänen sprühen deine Tintenfarbe!<br />・ Nutze Fontänen als Verstecke oder zum Emporsteigen!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0JsYXN0ZXI=": {
+      "name": "Blaster-Remaster",
+      "desc": "Die knallige Blaster-Party wartet!",
+      "regulation": "Mut ist aller Blaster Anfang! Lass es krachen und zeig's der Konkurrenz!<br /><br />・ Teilnahme nur mit einer Waffe der Blaster-Klasse!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9Ub3dlckNvbnRyb2w=": {
+      "name": "Titan-Turmkommando",
+      "desc": "Es türmt so hoch wie nie! Alle an Bord!",
+      "regulation": "Der höchste Turm aller Zeiten! Bezwingst du diesen Boliden?<br /><br />・ Die Kampfart ist ausschließlich Turm-Kommando.<br />・ Der Turm ist gigantisch! Platz für das gesamte Team!<br />・ Koordinierte Angriffe Richtung Gegnerseite führen zum Sieg!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYWlubWFrZXJEcm9w": {
+      "name": "Nie ohne Kanone",
+      "desc": "Goldfischkanonen unverhofft und überall!",
+      "regulation": "Die Goldfischkanone in anderen Modi? Eine goldene Gelegenheit!<br /><br />・ Es werden andere Kampfarten als Operation Goldfisch gespielt.<br />・ Die Goldfischkanone erscheint in der Arena-Mitte.<br />・ Wer sich die Goldfischkanone schnappt, darf sie einsetzen!<br />・ Wird der Kanonenträger besiegt, kehrt die Kanone zur Arena-Mitte zurück.<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0NoYXJnZXI=": {
+      "name": "Konzentriert zum Sieg",
+      "desc": "Wer ist der beste Distanzkleckser?",
+      "regulation": "Schnapp dir deinen liebsten Konzentrator, leg an uuund... KLECKS!<br /><br />・ Teilnahme nur mit einer Waffe der Konzentrator-Klasse!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX01hbmV1dmVy": {
+      "name": "Dynamischer Dopplertreff",
+      "desc": "Zwei Läufe, reichlich Ausweich-Action!",
+      "regulation": "Die volle Doppler-Dosis für alle, die kaum auf der Stelle bleiben können! ・ Teilnahme nur mit einer Waffe der Doppler-Klasse! ・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Sb2xsZXJCcnVzaFNwZWVkVXA=": {
+      "name": "Volle Farbe voraus!",
+      "desc": "Rollen und Pinseln im Turbotempo!",
+      "regulation": "Roller und Pinsel gestatten schnelleres Bewegen denn je! Wer färbt am flottesten?<br /><br />・Teilnahme nur mit einer Waffe der Roller- oder Pinsel-Klasse!<br />・ Stark erhöhtes Färbelauf-Tempo für alle!<br />・ Wesentlich erhöhter Tintenverbrauch für alle!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9DdXJsaW5nQm9tYg==": {
+      "name": "Treff der harten Curle!",
+      "desc": "Lass die Curling-Bomben rasen!",
+      "regulation": "Massenweise Curling-Bomben gleiten durch die Arena. Kein Winkel ist sicher!<br /><br />・ Nur Waffen-Sets mit Curling-Bomben als Sekundärwaffe.<br />・ Alle Curling-Bomben sind wesentlich größer!<br />・ Der Curling-Bomben-Tintenverbrauch ist für alle Spieler weit höher.<br />・ Größere Curling-Bomben-Explosionen!<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NoZWx0ZXI=": {
+      "name": "Pluviator-Powerplay",
+      "desc": "Schießen, schützen, Schirme schicken!",
+      "regulation": "Aufgespannt und aufgepasst: Jetzt stürmen Schirme die Arena!<br /><br />・ Teilnahme nur mit einer Waffe der Pluviatoren-Klasse!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVN0YW1w": {
+      "name": "Ultra-Stempelrallye",
+      "desc": "Schnellstempler willkommen!",
+      "regulation": "Stempeln gehen war nie leichter! Das Ultra-Stempel-Event wartet!<br /><br />・ Nur Waffen-Sets mit dem Ultra-Stempel als Spezialwaffe.<br />・ Die Spezialanzeige füllt sich rasch und ganz von selbst!<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9TcGxhc2hCb21i": {
+      "name": "Klecks-Bomben? Klasse!",
+      "desc": "Die kleckstra knallige Kracherei!",
+      "regulation": "Klecks-Bomben fliegen hoch, tief und überall dazwischen!<br /><br />・ Nur Waffen-Sets mit Klecks-Bomben als Sekundärwaffe.<br />・ Der Klecks-Bomben-Tintenverbrauch ist für alle Spieler halbiert.<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlckJlYWNvbg==": {
+      "name": "Superspringer-Supermatch!",
+      "desc": "Sprungbojen ahoi! Spring Mitspielern zur Seite!",
+      "regulation": "Nie war die Sprungboje näher! Superschnelle Sprünge und garantierte Teamarbeit!<br /><br />・ Nur Waffen-Sets mit Sprungbojen als Sekundärwaffe.<br />・ Supersprünge sind extrem beschleunigt!<br />・ Nur Haupteffekte gelten – mit Ausnahme von Supersprung + und Sekundärstärke +! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclNwZWNpYWxXZWFwb25fQ2hhcmlvdA==": {
+      "name": "Krabbenpanzer, marsch!",
+      "desc": "Krabben krabbeln überall! Rasch in Deckung!",
+      "regulation": "Turboschnelle Krabbenpanzer! Ob Freund oder Feind, hier wird keinem Kleckser langweilig!<br /><br />・ Nur Waffen-Sets mit dem Krabbenpanzer als Spezialwaffe.<br />・ Seitliches Krabbeltempo stark erhöht!<br />・ Kullertempo (ZL-Taste halten) bleibt unverändert.<br />・ Nur Haupteffekte gelten! Zusatzeffekte sind inaktiv."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1Nsb3NoZXI=": {
+      "name": "Man schwärmt für Schwapper",
+      "desc": "Wer kübelt die meisten Kontrahenten weg?",
+      "regulation": "Eimer wie keiner: Hier stellen Meister der Schwapper-Klasse ihr Kübelkönnen unter Beweis!<br /><br />・ Teilnahme nur mit einer Waffe der Schwapper-Klasse!<br />・ Haupt- und Zusatzeffekte sind aktiv!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb25BbmRHZWFyUG93ZXI=": {
+      "name": "Effektvoll-Klecks auf Arty-Art",
+      "desc": "Zufällige Waffen und Effekte für alle!",
+      "regulation": "„Arty sagt an! Ich suche Kleckszeug UND Effekte aus! Wer das Beste draus macht, der gewinnt!“<br /> - Euer Arty<br /><br />・ Alle Spieler erhalten eine Zufallswaffe sowie Zufallseffekte.<br />・ Ein Effekt hat dabei maximale Wirkungskraft.<br />・ Drei Zusatzeffekte werden zugeteilt, unabhängig von den offenen Effektplätzen der Ausrüstungsteile.<br />・ Nach Kampfende werden deine Rüstungsteile auf ihre ursprünglichen Effekte zurückgesetzt."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwUGFjaWZpYw==": {
+      "name": "Elite-Event (Kalamati-Gruppe)",
+      "desc": "Ein besonderer Event-Kampf<br />exklusiv für Auserwählte!",
+      "regulation": "Ein Event-Kampf für X-Kampf-Spieler der Kalamati-Gruppe. Teilnahmeberechtigt sind ausschließlich Spieler, die es in der vergangenen Saison unter die Top 1000 der X-Rangliste für die hier festgelegte Kampfart geschafft haben.<br /><br />Die Teilnahme als Duo oder Team ist nicht möglich."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwQXRsYW50aWM=": {
+      "name": "Elite-Event (Tentatek-Gruppe)",
+      "desc": "Ein besonderer Event-Kampf<br />exklusiv für Auserwählte!",
+      "regulation": "Ein Event-Kampf für X-Kampf-Spieler der Tentatek-Gruppe. Teilnahmeberechtigt sind ausschließlich Spieler, die es in der vergangenen Saison unter die Top 1000 der X-Rangliste für die hier festgelegte Kampfart geschafft haben.<br /><br />Die Teilnahme als Duo oder Team ist nicht möglich."
+    }
+  },
+  "bosses": {
+    "Q29vcEVuZW15LTI0": {
+      "name": "Horroboros"
+    },
+    "Q29vcEVuZW15LTIz": {
+      "name": "Malmsalm"
+    },
+    "Q29vcEVuZW15LTI1": {
+      "name": "Kataklysmaul"
+    },
+    "Q29vcEVuZW15LTMx": {
+      "name": "Zufall"
+    },
+    "Q29vcEVuZW15LTMw": {
+      "name": "Trioffensive"
+    }
+  }
+}

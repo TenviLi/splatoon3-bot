@@ -2,6 +2,7 @@ import crypto from 'node:crypto'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { z } from 'zod'
+import { supportedBotLocales } from '../../src/common/botLocale.mjs'
 
 const connectionSchema = z.object({ nodes: z.array(z.unknown()) }).loose()
 const schedulesSchema = z.object({
@@ -36,9 +37,9 @@ const snapshotFiles = Object.freeze([
   Object.freeze({ name: 'gear', relativePath: 'gear.json', schema: gearSchema }),
   Object.freeze({ name: 'festivals', relativePath: 'festivals.json', schema: festivalsSchema }),
   Object.freeze({ name: 'coop', relativePath: 'coop.json', schema: coopSchema }),
-  Object.freeze({ name: 'locale/zh-CN', relativePath: 'locale/zh-CN.json', schema: localeSchema }),
-  Object.freeze({ name: 'locale/en-US', relativePath: 'locale/en-US.json', schema: localeSchema }),
-  Object.freeze({ name: 'locale/ja-JP', relativePath: 'locale/ja-JP.json', schema: localeSchema }),
+  ...supportedBotLocales.map((locale) =>
+    Object.freeze({ name: `locale/${locale}`, relativePath: `locale/${locale}.json`, schema: localeSchema })
+  ),
 ])
 const snapshotManifestSchema = z.object({
   version: z.literal(1),

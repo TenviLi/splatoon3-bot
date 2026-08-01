@@ -6,7 +6,7 @@ import { initializeI18n } from './common/i18n'
 import App from './App.vue'
 import router from './router'
 
-const i18n = initializeI18n()
+const i18n = await initializeI18n()
 
 const app = createApp(App)
 

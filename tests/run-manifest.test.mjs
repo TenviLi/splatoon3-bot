@@ -85,7 +85,8 @@ test('requires a valid screenshot attribution', () => {
 })
 
 test('requires supported locale, resolution, and artifact geometry', () => {
-  assert.throws(() => validateRunManifest(createManifest({ locale: 'fr-FR' })), /must be one of/)
+  assert.equal(validateRunManifest(createManifest({ locale: 'fr-FR' })).locale, 'fr-FR')
+  assert.throws(() => validateRunManifest(createManifest({ locale: 'pt-BR' })), /must be one of/)
   assert.throws(() => validateRunManifest(createManifest({ resolution: '2560x1440' })), /Invalid option/)
   assert.throws(
     () =>

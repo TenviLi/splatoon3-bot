@@ -1,5 +1,5 @@
 import { createI18n } from 'vue-i18n'
-import languages from '../../src/assets/i18n/index.mjs'
+import languages from '../../src/common/languages.mjs'
 import { resolveBotLocale } from '../config/BotLocale.mjs'
 import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { loadDataSnapshot } from '../data/DataSnapshot.mjs'

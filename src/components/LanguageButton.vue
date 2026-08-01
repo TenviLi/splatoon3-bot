@@ -15,6 +15,6 @@ const i18n = useI18n();
 
 const currentLanguage = computed({
   get() { return i18n.locale.value; },
-  set(value) { setPreferredLocale(value); },
+  set(value) { void setPreferredLocale(value); },
 });
 </script>

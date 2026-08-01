@@ -5,6 +5,16 @@ import os from 'node:os'
 import path from 'node:path'
 import test from 'node:test'
 import { downloadDataSnapshot, loadDataSnapshot } from '../bot/data/DataSnapshot.mjs'
+import { supportedBotLocales } from '../src/common/botLocale.mjs'
+
+const emptyLocaleSnapshot = Object.freeze({
+  stages: {},
+  rules: {},
+  weapons: {},
+  brands: {},
+  gear: {},
+  powers: {},
+})
 
 const validSnapshot = {
   schedules: {
@@ -18,9 +28,7 @@ const validSnapshot = {
   gear: { data: { gesotown: { pickupBrand: null, limitedGears: [] } } },
   festivals: {},
   coop: { data: {} },
-  'locale/zh-CN': { stages: {}, rules: {}, weapons: {}, brands: {}, gear: {}, powers: {} },
-  'locale/en-US': { stages: {}, rules: {}, weapons: {}, brands: {}, gear: {}, powers: {} },
-  'locale/ja-JP': { stages: {}, rules: {}, weapons: {}, brands: {}, gear: {}, powers: {} },
+  ...Object.fromEntries(supportedBotLocales.map((locale) => [`locale/${locale}`, emptyLocaleSnapshot])),
 }
 
 async function startSnapshotServer(values) {
@@ -42,8 +50,8 @@ test('ships the deterministic fixture with a verified Data Snapshot Manifest', a
   const snapshot = await loadDataSnapshot(path.join(import.meta.dirname, 'fixtures/data'))
 
   assert.equal(snapshot.manifest.createdAt, '2026-07-29T19:00:00.000Z')
-  assert.equal(snapshot.manifestSha256, '00809cd566248534814327ea99c831bcf3b0c8096537805181e234b0218c1e17')
-  assert.equal(Object.keys(snapshot.manifest.files).length, 7)
+  assert.equal(snapshot.manifestSha256, '7e86d01f7d7d1f4731720eded67e95d46a46b3031fadf023fa2347d702bfaf2c')
+  assert.equal(Object.keys(snapshot.manifest.files).length, 4 + supportedBotLocales.length)
 })
 
 test('publishes one validated Data Snapshot', async (context) => {
@@ -63,7 +71,7 @@ test('publishes one validated Data Snapshot', async (context) => {
   const snapshot = await loadDataSnapshot(destinationDirectory)
 
   assert.equal(manifest.createdAt, '2026-07-30T00:00:00.000Z')
-  assert.equal(Object.keys(manifest.files).length, 7)
+  assert.equal(Object.keys(manifest.files).length, 4 + supportedBotLocales.length)
   assert.deepEqual(snapshot.values.gear, validSnapshot.gear)
 })
 

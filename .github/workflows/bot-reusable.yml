@@ -38,7 +38,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ vars.BOT_CONCURRENCY_GROUP || 'splatoon3-bot-production' }}
+  group: splatoon3-bot-production
   cancel-in-progress: false
 
 jobs:
@@ -131,7 +131,7 @@ jobs:
     name: Publish and notify
     needs: prepare
     runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
-    environment: ${{ vars.BOT_ENVIRONMENT || 'production' }}
+    environment: production
     timeout-minutes: 20
     steps:
       - name: Check out repository

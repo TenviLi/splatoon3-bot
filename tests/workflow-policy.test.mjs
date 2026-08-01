@@ -4,8 +4,30 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { listChannelAdapters } from '../bot/notification/channels/index.mjs'
 import { getRunPlan, listRunProfiles } from '../bot/run/RunPlan.mjs'
+import { supportedBotLocales } from '../src/common/botLocale.mjs'
 
 const workflowDirectory = path.join(process.cwd(), '.github', 'workflows')
+const repositoryVariables = Object.freeze([
+  'BOT_TIME_ZONE',
+  'BOT_LOCALE',
+  'BOT_SCREENSHOT_RESOLUTION',
+  'BOT_SCREENSHOT_ATTRIBUTION',
+  'BOT_RUNNER',
+  'BOT_ARTIFACT_RETENTION_DAYS',
+])
+const s3ProviderDocumentationUrls = Object.freeze([
+  'https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket',
+  'https://developers.cloudflare.com/r2/get-started/',
+  'https://www.backblaze.com/docs/cloud-storage-s3-compatible-api',
+  'https://docs.digitalocean.com/products/spaces/reference/s3-compatibility/',
+  'https://docs.wasabi.com/docs/service-urls-for-wasabis-storage-regions',
+  'https://www.scaleway.com/en/docs/object-storage/api-cli/object-storage-aws-cli/',
+  'https://www.tigrisdata.com/docs/sdks/s3/',
+  'https://docs.min.io/aistor/reference/cli/mc-mb/',
+  'https://www.alibabacloud.com/help/en/oss/developer-reference/compatibility-with-amazon-s3',
+  'https://www.tencentcloud.com/document/product/436/41284',
+  'https://help.upyun.com/knowledge-base/aws-s3%E5%85%BC%E5%AE%B9/',
+])
 
 async function readWorkflows() {
   const filenames = (await fs.readdir(workflowDirectory))
@@ -87,6 +109,7 @@ test('README provides direct screenshots and three operator-first languages', as
   const english = await fs.readFile(path.join(process.cwd(), 'README.md'), 'utf8')
   const simplifiedChinese = await fs.readFile(path.join(process.cwd(), 'README.zh-CN.md'), 'utf8')
   const japanese = await fs.readFile(path.join(process.cwd(), 'README.ja.md'), 'utf8')
+  const operatorGuide = await fs.readFile(path.join(process.cwd(), 'docs/operator-setup-links.md'), 'utf8')
   const screenshotNames = ['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular']
 
   const preview = english.slice(english.indexOf('## Preview'), english.indexOf('## Quick Start'))
@@ -98,7 +121,18 @@ test('README provides direct screenshots and three operator-first languages', as
     ['README.zh-CN.md', simplifiedChinese, '.zh-CN', 'BOT_WECOM_CONFIG'],
     ['README.ja.md', japanese, '.ja', 'BOT_LINE_CONFIG'],
   ]) {
-    assert.match(source, /https:\/\/github\.com\/TenviLi\/splatoon3-bot\/fork/, `${filename}: private Fork entry`)
+    assert.match(
+      source,
+      /https:\/\/github\.com\/TenviLi\/splatoon3-bot\/generate/,
+      `${filename}: template repository entry`
+    )
+    assert.match(source, /Use this template/, `${filename}: GitHub template action`)
+    assert.match(source, /Create a new repository/, `${filename}: GitHub template creation flow`)
+    assert.doesNotMatch(
+      source,
+      /splatoon3-bot\/fork|GitHub Importer|private mirror|公开仓库的 Fork|Public repository の Fork/,
+      `${filename}: obsolete Fork installation flow`
+    )
     assert.doesNotMatch(source, /@锂碘|wxwork-icon/, filename)
     for (const screenshotName of screenshotNames) {
       const screenshotPath = `tests/golden/screenshots/linux-x64/${screenshotName}${suffix}.png`
@@ -110,21 +144,220 @@ test('README provides direct screenshots and three operator-first languages', as
     assert.doesNotMatch(source, /BOT_BRANDING_CONFIG|SPLATOON_(?:SCHEDULES|SALMON_RUN|GEAR)_BOT_URL/)
   }
 
+  for (const [filename, source, pathHeading, contributingHeading, providerSummary] of [
+    ['README.md', english, '### Choose your path', '## Contributing', 'Choose a provider: official setup links'],
+    [
+      'README.zh-CN.md',
+      simplifiedChinese,
+      '### 按你的目标开始',
+      '## 参与贡献',
+      '选择服务商：官方配置入口',
+    ],
+    ['README.ja.md', japanese, '### 目的別ガイド', '## コントリビューション', 'サービスを選ぶ：公式設定リンク'],
+  ]) {
+    assert.ok(source.includes(pathHeading), `${filename}: audience path guide`)
+    assert.ok(source.includes(contributingHeading), `${filename}: contributor path`)
+    assert.ok(source.includes(`<summary><strong>${providerSummary}</strong></summary>`), `${filename}: progressive S3 links`)
+    assert.ok(
+      source.indexOf('accessKeyId: your-s3-access-key') < source.indexOf(providerSummary),
+      `${filename}: copy-ready S3 configuration precedes provider directory`
+    )
+    assert.ok(
+      source.includes('git clone https://github.com/YOUR_GITHUB_USERNAME/splatoon3-bot.git'),
+      `${filename}: contributor-friendly HTTPS clone`
+    )
+    assert.doesNotMatch(source, /side-effecting|副作用|Hosted 運用/, `${filename}: avoid operator-facing jargon`)
+  }
+
   assert.match(english, /README\.zh-CN\.md/)
   assert.match(english, /README\.ja\.md/)
   assert.match(simplifiedChinese, /README\.md/)
   assert.match(simplifiedChinese, /README\.ja\.md/)
   assert.match(japanese, /README\.md/)
   assert.match(japanese, /README\.zh-CN\.md/)
+  const operatorReadmes = [
+    ['README.md', english, 'No'],
+    ['README.zh-CN.md', simplifiedChinese, '否'],
+    ['README.ja.md', japanese, 'いいえ'],
+  ]
+  for (const [filename, source] of operatorReadmes) {
+    assert.doesNotMatch(source, /\bpipeline\b|流水线|パイプライン/iu, `${filename}: use Bot Run terminology`)
+  }
+  for (const locale of supportedBotLocales) {
+    for (const [filename, source] of operatorReadmes) {
+      assert.ok(source.includes(`| \`${locale}\` |`), `${filename}: missing BOT_LOCALE value ${locale}`)
+    }
+  }
+  for (const { name } of listRunProfiles()) {
+    for (const [filename, source] of operatorReadmes) {
+      assert.ok(source.includes(`| \`${name}\` |`), `${filename}: missing Run Profile ${name}`)
+    }
+  }
+  for (const variableName of repositoryVariables) {
+    for (const [filename, source, optionalMarker] of operatorReadmes) {
+      assert.match(
+        source,
+        new RegExp('^\\| `' + variableName + '` \\| ' + optionalMarker + ' \\|', 'm'),
+        `${filename}: ${variableName} must be documented as optional`
+      )
+    }
+  }
+  for (const [filename, source] of operatorReadmes) {
+    assert.equal(
+      source.match(/^```mermaid$/gm)?.length,
+      2,
+      `${filename}: automation and S3 publication diagrams`
+    )
+    assert.equal(
+      source.match(/^flowchart LR$/gm)?.length,
+      2,
+      `${filename}: left-to-right Mermaid workflows`
+    )
+    assert.match(source, /^#### `BOT_LOCALE`$/m, `${filename}: dedicated BOT_LOCALE table`)
+    assert.match(source, /^#### `BOT_SCREENSHOT_RESOLUTION`$/m, `${filename}: dedicated resolution table`)
+    assert.match(source, /GitHub Artifact/, `${filename}: why public object storage is required`)
+    assert.match(source, /`notification-images\/<sha256>\/`/, `${filename}: primary image objects`)
+    assert.match(source, /`compact-images\/<sha256>\/`/, `${filename}: compatibility image objects`)
+    assert.match(source, /`originals\/<sha256>\/`/, `${filename}: original image objects`)
+    assert.match(source, /`branding-icons\/<sha256>\/`/, `${filename}: branding icon objects`)
+    assert.match(source, /`1024×576`/, `${filename}: compatibility image dimensions`)
+    for (const documentationUrl of s3ProviderDocumentationUrls) {
+      assert.ok(source.includes(documentationUrl), `${filename}: missing S3 provider ${documentationUrl}`)
+    }
+  }
+  const documentedTargetFields = Object.freeze({
+    BOT_WECOM_CONFIG: ['name', 'webhookUrl'],
+    BOT_DISCORD_CONFIG: ['name', 'webhookUrl', 'username', 'avatarUrl'],
+    BOT_TELEGRAM_CONFIG: ['name', 'botToken', 'chatId', 'messageThreadId', 'disableNotification'],
+    BOT_QQ_CONFIG: ['name', 'appId', 'clientSecret', 'targetType', 'group', 'user', 'targetId'],
+    BOT_FEISHU_CONFIG: ['name', 'webhookUrl', 'secret'],
+    BOT_DINGTALK_CONFIG: ['name', 'webhookUrl', 'secret'],
+    BOT_WHATSAPP_CONFIG: [
+      'name',
+      'accessToken',
+      'phoneNumberId',
+      'recipientPhoneNumber',
+      'templateName',
+      'languageCode',
+    ],
+    BOT_LINE_CONFIG: [
+      'name',
+      'channelAccessToken',
+      'targetType',
+      'user',
+      'group',
+      'room',
+      'targetId',
+      'notificationDisabled',
+    ],
+    BOT_SLACK_CONFIG: ['name', 'webhookUrl'],
+  })
+  for (const [filename, source, sectionStart, sectionEnd] of [
+    ['README.md', english, '## Notification Channels', '## Reliability'],
+    ['README.zh-CN.md', simplifiedChinese, '## 通知平台', '## 可靠性'],
+    ['README.ja.md', japanese, '## 通知プラットフォーム', '## 信頼性'],
+  ]) {
+    const notificationSection = source.slice(source.indexOf(sectionStart), source.indexOf(sectionEnd))
+    assert.match(notificationSection, /`notifications`/, `${filename}: common Notification selection field`)
+    for (const [secretName, fields] of Object.entries(documentedTargetFields)) {
+      const row = notificationSection
+        .split('\n')
+        .find((line) => line.startsWith(`| \`${secretName}\` |`))
+      assert.ok(row, `${filename}: missing ${secretName} field reference`)
+      for (const field of fields) {
+        assert.ok(row.includes(`\`${field}\``), `${filename}: ${secretName} missing ${field}`)
+      }
+    }
+  }
+  for (const [filename, source, concepts] of [
+    [
+      'README.md',
+      english,
+      ['Data Snapshot', 'Configuration Preflight', 'S3 Publication', 'Platform Adapters'],
+    ],
+    [
+      'README.zh-CN.md',
+      simplifiedChinese,
+      ['数据快照', '配置预检', 'S3 发布', '平台适配器'],
+    ],
+    [
+      'README.ja.md',
+      japanese,
+      ['データスナップショット', '構成の事前検証', 'S3 への公開', 'プラットフォームアダプター'],
+    ],
+  ]) {
+    for (const concept of concepts) {
+      assert.ok(source.includes(`["${concept}"]`), `${filename}: Mermaid concept ${concept}`)
+    }
+  }
+  for (const [filename, automation] of [
+    ['README.md', english.slice(english.indexOf('## Automation'), english.indexOf('## Configuration'))],
+    [
+      'README.zh-CN.md',
+      simplifiedChinese.slice(simplifiedChinese.indexOf('## 自动化'), simplifiedChinese.indexOf('## 配置')),
+    ],
+    ['README.ja.md', japanese.slice(japanese.indexOf('## 自動化'), japanese.indexOf('## 設定'))],
+  ]) {
+    assert.ok(
+      automation.includes('`.github/workflows/bot-schedules.yml`'),
+      `${filename}: schedules customization entry point`
+    )
+    assert.ok(
+      automation.includes('`.github/workflows/bot-salmon-run.yml`'),
+      `${filename}: all-profile customization entry point`
+    )
+    assert.ok(automation.includes('`BOT_TIME_ZONE`'), `${filename}: trigger time-zone distinction`)
+    assert.ok(automation.includes('`on.schedule.cron`'), `${filename}: static cron limitation`)
+    assert.ok(
+      automation.includes(
+        'https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule'
+      ),
+      `${filename}: official schedule documentation`
+    )
+  }
+  for (const [filename, source, requiredLabel, optionalLabel] of [
+    ['README.md', english, 'Required', 'Optional'],
+    ['README.zh-CN.md', simplifiedChinese, '必选', '可选'],
+    ['README.ja.md', japanese, '必須', '任意'],
+  ]) {
+    assert.doesNotMatch(
+      source,
+      /\*\*(?:Required fields|Optional fields|必选字段|可选字段|必須フィールド|任意フィールド)\*\*/,
+      `${filename}: split S3 field tables`
+    )
+    for (const field of ['bucket', 'publicBaseUrl', 'accessKeyId', 'secretAccessKey']) {
+      assert.match(
+        source,
+        new RegExp('^\\| `' + field + '` \\| ' + requiredLabel + ' \\| — \\|', 'm'),
+        `${filename}: required S3 field ${field}`
+      )
+    }
+    for (const field of ['region', 'endpoint', 'forcePathStyle', 'keyPrefix', 'sessionToken']) {
+      assert.match(
+        source,
+        new RegExp('^\\| `' + field + '` \\| ' + optionalLabel + ' \\|', 'm'),
+        `${filename}: optional S3 field ${field}`
+      )
+    }
+  }
+  for (const documentationUrl of s3ProviderDocumentationUrls) {
+    assert.ok(operatorGuide.includes(documentationUrl), `operator guide: missing S3 provider ${documentationUrl}`)
+  }
+  assert.match(english, /Every Repository Variable is optional/)
+  assert.match(simplifiedChinese, /Repository Variable.*全部可选/)
+  assert.match(japanese, /Repository Variable.*すべて任意/)
+  assert.doesNotMatch(english, /English quick start uses/)
+  assert.doesNotMatch(simplifiedChinese, /中文快速开始|默认使用企业微信/)
+  assert.doesNotMatch(japanese, /日本語版のクイックスタート/)
 
   const quickStart = english.slice(english.indexOf('## Quick Start'), english.indexOf('## Automation'))
   const japaneseQuickStart = japanese.slice(japanese.indexOf('## クイックスタート'), japanese.indexOf('## 自動化'))
   assert.match(quickStart, /You do not need to install Node\.js, pnpm, Chrome, Docker, or a server/)
-  assert.match(quickStart, /`BOT_LOCALE` with value `en-US`/)
-  assert.match(japaneseQuickStart, /`BOT_LOCALE` を `ja-JP`/)
-  assert.match(japaneseQuickStart, /`BOT_TIME_ZONE` を `Asia\/Tokyo`/)
+  assert.match(quickStart, /`BOT_LOCALE=en-US`/)
+  assert.match(japaneseQuickStart, /`BOT_LOCALE=ja-JP`/)
+  assert.match(japaneseQuickStart, /`BOT_TIME_ZONE=Asia\/Tokyo`/)
   assert.doesNotMatch(quickStart, /^### Local Development|Node\.js 24 LTS|pnpm 11\.18/m)
-  assert.doesNotMatch(english.slice(0, english.indexOf('## Overview')), /Node\.js-24|pnpm-11/)
+  assert.doesNotMatch(english.slice(0, english.indexOf('## What It Does')), /Node\.js-24|pnpm-11/)
 })
 
 test('workflows never compute secret names dynamically', async () => {
@@ -159,33 +392,31 @@ test('notification adapters share the publication stage and are enabled by confi
   assert.equal(reusableWorkflow.match(/BOT_LOCALE:/g)?.length, 2)
   assert.equal(reusableWorkflow.match(/BOT_SCREENSHOT_RESOLUTION:/g)?.length, 2)
   assert.match(reusableWorkflow, /runs-on: \$\{\{ vars\.BOT_RUNNER \|\| 'ubuntu-24\.04' \}\}/)
-  assert.match(reusableWorkflow, /environment: \$\{\{ vars\.BOT_ENVIRONMENT \|\| 'production' \}\}/)
-  assert.match(
-    reusableWorkflow,
-    /group: \$\{\{ vars\.BOT_CONCURRENCY_GROUP \|\| 'splatoon3-bot-production' \}\}/
-  )
+  assert.match(reusableWorkflow, /^  group: splatoon3-bot-production$/m)
+  assert.match(reusableWorkflow, /^    environment: production$/m)
+  assert.doesNotMatch(reusableWorkflow, /BOT_ENVIRONMENT|BOT_CONCURRENCY_GROUP/)
   assert.match(
     reusableWorkflow,
     /retention-days: \$\{\{ vars\.BOT_ARTIFACT_RETENTION_DAYS \|\| '7' \}\}/
   )
   assert.doesNotMatch(reusableWorkflow, /Install Upyun CLI|curl[\s\S]*upyun/i)
-  assert.match(readme, /Every Channel Secret must contain a direct, non-empty YAML sequence/)
-  assert.match(readme, /Run in Your Own Private Repository/)
+  assert.match(readme, /Each platform Secret is a YAML list/)
+  assert.match(readme, /Create a Private Repository from the Template/)
   assert.match(readme, /repository is the deployment and trust boundary/)
-  assert.match(readme, /public repository forks are always public/)
+  assert.match(readme, /repository created from the template has independent Git history/)
   assert.match(readme, /Repository Secrets and Variables are intentionally installation-local/)
   assert.doesNotMatch(readme, /github\.com\/TenviLi\/splatoon3-bot\/settings\//)
-  for (const variableName of [
-    'BOT_TIME_ZONE',
-    'BOT_LOCALE',
-    'BOT_SCREENSHOT_RESOLUTION',
-    'BOT_SCREENSHOT_ATTRIBUTION',
-    'BOT_RUNNER',
-    'BOT_ENVIRONMENT',
-    'BOT_CONCURRENCY_GROUP',
-    'BOT_ARTIFACT_RETENTION_DAYS',
-  ]) {
+  assert.deepEqual(
+    [...new Set([...allWorkflows.matchAll(/\bvars\.([A-Z0-9_]+)/g)].map((match) => match[1]))].sort(),
+    [...repositoryVariables].sort()
+  )
+  for (const variableName of repositoryVariables) {
     assert.ok(readme.includes(`| \`${variableName}\` |`), `${variableName} must be documented in README.md`)
+    assert.match(
+      readme,
+      new RegExp('^\\| `' + variableName + '` \\| No \\|', 'm'),
+      `${variableName} must be documented as optional`
+    )
   }
   assert.doesNotMatch(readme, /```json/)
   assert.equal(reusableWorkflow.match(/Install production dependencies/g)?.length, 1)
@@ -220,7 +451,9 @@ test('notification adapters share the publication stage and are enabled by confi
     'utf8'
   )
   assert.match(localActionsVerifier, /notification-smoke\.yml/)
-  assert.match(localActionsVerifier, /Expected five S3 uploads, three branding inspections, and one WeCom delivery/)
+  assert.match(localActionsVerifier, /Expected six S3 uploads, three branding inspections, and one WeCom delivery/)
+  assert.match(localActionsVerifier, /primary notification image instead of BOT_SCREENSHOT_RESOLUTION 2400x1350/)
+  assert.match(localActionsVerifier, /compatibility image instead of 1024x576/)
   assert.match(localActionsVerifier, /--container-options/)
   assert.match(localActionsVerifier, /ACT_BOT_RUN_DIRECTORY=/)
   assert.match(localActionsVerifier, /shouldRetry: isTransientActFailure/)

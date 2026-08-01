@@ -6,7 +6,11 @@ import {
   formatBotPreflightStepSummary,
   inspectBotConfiguration,
 } from '../bot/config/BotPreflight.mjs'
-import { defaultBotLocale, resolveBotLocale } from '../bot/config/BotLocale.mjs'
+import {
+  defaultBotLocale,
+  resolveBotLocale,
+  supportedBotLocales,
+} from '../bot/config/BotLocale.mjs'
 import { defaultBotTimeZone, resolveBotTimeZone } from '../bot/config/BotTimeZone.mjs'
 import {
   defaultScreenshotAttribution,
@@ -17,6 +21,12 @@ import {
   listScreenshotResolutions,
   resolveScreenshotResolution,
 } from '../bot/config/ScreenshotResolution.mjs'
+import languages from '../src/common/languages.mjs'
+import { defineBotLocaleMap } from '../src/common/botLocale.mjs'
+
+function messageAtPath(messages, messagePath) {
+  return messagePath.split('.').reduce((value, key) => value?.[key], messages)
+}
 
 function validEnvironment(overrides = {}) {
   return {
@@ -37,8 +47,26 @@ function validEnvironment(overrides = {}) {
 
 test('uses explicit locale and screenshot-resolution enumerations with stable defaults', () => {
   assert.equal(resolveBotLocale(), defaultBotLocale)
-  assert.equal(resolveBotLocale(' ja-JP '), 'ja-JP')
-  assert.throws(() => resolveBotLocale('fr-FR'), /must be one of: en-US, zh-CN, ja-JP/)
+  assert.deepEqual(supportedBotLocales, [
+    'de-DE',
+    'en-GB',
+    'en-US',
+    'es-ES',
+    'es-MX',
+    'fr-CA',
+    'fr-FR',
+    'it-IT',
+    'ja-JP',
+    'ko-KR',
+    'nl-NL',
+    'ru-RU',
+    'zh-CN',
+    'zh-TW',
+  ])
+  for (const locale of supportedBotLocales) {
+    assert.equal(resolveBotLocale(` ${locale} `), locale)
+  }
+  assert.throws(() => resolveBotLocale('pt-BR'), /must be one of/)
 
   assert.equal(resolveScreenshotResolution().name, defaultScreenshotResolution)
   assert.deepEqual(
@@ -51,6 +79,54 @@ test('uses explicit locale and screenshot-resolution enumerations with stable de
     ]
   )
   assert.throws(() => resolveScreenshotResolution('2560x1440'), /must be one of/)
+})
+
+test('ships complete screenshot and notification messages for every Bot locale', () => {
+  assert.deepEqual(Object.keys(languages), supportedBotLocales)
+  const requiredMessagePaths = [
+    'schedule.title',
+    'salmonrun.weapons',
+    'gear.title',
+    'screenshot.rainmakerLong',
+    'screenshot.rainmakerShort',
+    'screenshot.headers.schedules',
+    'screenshot.headers.salmonRun',
+    'screenshot.headers.dailyDropGear',
+    'screenshot.headers.regularGear',
+    'notification.schedules.source',
+    'notification.schedules.title',
+    'notification.schedules.action',
+    'notification.salmonRun.source',
+    'notification.salmonRun.randomWeapons',
+    'notification.salmonRun.action',
+    'notification.dailyDropGear.action',
+    'notification.regularGear.title',
+    'notification.regularGear.action',
+  ]
+
+  for (const locale of supportedBotLocales) {
+    for (const messagePath of requiredMessagePaths) {
+      assert.equal(
+        typeof messageAtPath(languages[locale], messagePath),
+        'string',
+        `${locale} is missing ${messagePath}`
+      )
+      assert.notEqual(messageAtPath(languages[locale], messagePath).trim(), '', `${locale} has empty ${messagePath}`)
+    }
+  }
+})
+
+test('requires every locale registry to match the canonical Bot locale list', () => {
+  const completeMap = Object.fromEntries(supportedBotLocales.map((locale) => [locale, locale]))
+  assert.deepEqual(Object.keys(defineBotLocaleMap(completeMap)), supportedBotLocales)
+  assert.throws(
+    () => defineBotLocaleMap(Object.fromEntries(Object.entries(completeMap).slice(1)), 'Review map'),
+    /Review map must match supported Bot locales: missing de-DE/
+  )
+  assert.throws(
+    () => defineBotLocaleMap({ ...completeMap, 'pt-BR': 'pt-BR' }, 'Review map'),
+    /Review map must match supported Bot locales: unsupported pt-BR/
+  )
 })
 
 test('uses an explicit validated IANA time zone with a stable default', () => {
@@ -145,7 +221,7 @@ test('reports every invalid required configuration before side effects', () => {
     profileName: 'schedules',
     environment: {
       BOT_TIME_ZONE: 'Mars/Inkling',
-      BOT_LOCALE: 'fr-FR',
+      BOT_LOCALE: 'pt-BR',
       BOT_SCREENSHOT_RESOLUTION: '2560x1440',
       BOT_SCREENSHOT_ATTRIBUTION: 'a'.repeat(41),
       S3_CONFIG: 'bucket: only',

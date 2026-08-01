@@ -4,6 +4,7 @@ import http from 'node:http'
 import os from 'node:os'
 import path from 'node:path'
 import { promisify } from 'node:util'
+import sharp from 'sharp'
 import { getPinnedBrowserVersion } from '../bot/screenshot/BrowserRuntime.mjs'
 
 const execFileAsync = promisify(execFile)
@@ -198,27 +199,43 @@ async function startBotRunMockServer() {
   }
 }
 
-function assertBotRunRequests(requests) {
+async function assertBotRunRequests(requests) {
   const uploads = requests.filter(({ method }) => method === 'PUT')
   const inspections = requests.filter(({ method }) => method === 'HEAD')
   const deliveries = requests.filter(({ method, url }) => method === 'POST' && url === '/wecom')
   const notificationUploads = uploads.filter(({ url }) => url.includes('/notification-images/'))
+  const compactUploads = uploads.filter(({ url }) => url.includes('/compact-images/'))
   const originalUploads = uploads.filter(({ url }) => url.includes('/originals/'))
   const brandingUploads = uploads.filter(({ url }) => url.includes('/branding-icons/'))
   if (
-    uploads.length !== 5 ||
+    uploads.length !== 6 ||
     inspections.length !== 3 ||
     notificationUploads.length !== 1 ||
+    compactUploads.length !== 1 ||
     originalUploads.length !== 1 ||
     brandingUploads.length !== 3 ||
     deliveries.length !== 1
   ) {
     throw new Error(
-      `Expected five S3 uploads, three branding inspections, and one WeCom delivery; received ${uploads.length}, ${inspections.length}, and ${deliveries.length}`
+      `Expected six S3 uploads, three branding inspections, and one WeCom delivery; received ${uploads.length}, ${inspections.length}, and ${deliveries.length}`
     )
   }
   if (uploads.some(({ headers }) => headers['cache-control'] !== 'public, max-age=31536000, immutable')) {
     throw new Error('Local Bot Run did not publish every S3 object with immutable caching')
+  }
+  const [notificationMetadata, compactMetadata] = await Promise.all([
+    sharp(notificationUploads[0].body).metadata(),
+    sharp(compactUploads[0].body).metadata(),
+  ])
+  if (notificationMetadata.width !== 2400 || notificationMetadata.height !== 1350) {
+    throw new Error(
+      `Local Bot Run published a ${notificationMetadata.width || 0}x${notificationMetadata.height || 0} primary notification image instead of BOT_SCREENSHOT_RESOLUTION 2400x1350`
+    )
+  }
+  if (compactMetadata.width !== 1024 || compactMetadata.height !== 576) {
+    throw new Error(
+      `Local Bot Run published a ${compactMetadata.width || 0}x${compactMetadata.height || 0} compatibility image instead of 1024x576`
+    )
   }
 
   const payload = JSON.parse(deliveries[0].body.toString('utf8'))
@@ -377,7 +394,7 @@ try {
       },
     }
   )
-  assertBotRunRequests(mockServer.requests)
+  await assertBotRunRequests(mockServer.requests)
 } finally {
   await mockServer.close()
   await fs.rm(botRunDirectory, { recursive: true, force: true })

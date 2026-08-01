@@ -1,4 +1,4 @@
-const notificationImage = Object.freeze({ width: 1024, height: 576 })
+const compactImage = Object.freeze({ width: 1024, height: 576 })
 
 const screenshotDefinitions = Object.freeze({
   schedules: Object.freeze({
@@ -6,28 +6,28 @@ const screenshotDefinitions = Object.freeze({
     route: 'schedules',
     outputFilename: 'schedules.png',
     viewport: Object.freeze({ width: 1200, height: 675 }),
-    notificationImage,
+    compactImage,
   }),
   'salmon-run': Object.freeze({
     name: 'salmon-run',
     route: 'salmon-run',
     outputFilename: 'salmon-run.png',
     viewport: Object.freeze({ width: 1200, height: 675 }),
-    notificationImage,
+    compactImage,
   }),
   'gear-dailydrop': Object.freeze({
     name: 'gear-dailydrop',
     route: 'gear-dailydrop',
     outputFilename: 'gear-dailydrop.png',
     viewport: Object.freeze({ width: 1200, height: 675 }),
-    notificationImage,
+    compactImage,
   }),
   'gear-regular': Object.freeze({
     name: 'gear-regular',
     route: 'gear-regular',
     outputFilename: 'gear-regular.png',
     viewport: Object.freeze({ width: 1200, height: 675 }),
-    notificationImage,
+    compactImage,
   }),
 })
 

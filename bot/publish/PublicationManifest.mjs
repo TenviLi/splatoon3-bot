@@ -30,6 +30,7 @@ const publishedArtifactSchema = z
   .object({
     name: z.string().min(1),
     notificationImage: publishedImageSchema,
+    compactImage: publishedImageSchema,
     originalImage: publishedImageSchema,
   })
   .strict()
@@ -46,7 +47,7 @@ const brandingManifestSchema = z
 
 const publicationManifestSchema = z
   .object({
-    version: z.literal(3),
+    version: z.literal(4),
     runManifestVersion: z.literal(4),
     profile: z.string().min(1),
     renderTime: z.number().int().nonnegative(),
@@ -63,6 +64,7 @@ const publicationManifestSchema = z
 
 const publicationDirectories = Object.freeze({
   notificationImage: 'notification-images',
+  compactImage: 'compact-images',
   originalImage: 'originals',
 })
 
@@ -162,7 +164,14 @@ export function validatePublicationManifest(value) {
       `notificationImage for ${artifact.name}`,
       artifact.notificationImage,
       publicationImageRelativeKey('notificationImage', artifact.notificationImage.sha256, definition.outputFilename),
-      definition.notificationImage
+      resolution
+    )
+    assertPublishedImage(
+      manifest,
+      `compactImage for ${artifact.name}`,
+      artifact.compactImage,
+      publicationImageRelativeKey('compactImage', artifact.compactImage.sha256, definition.outputFilename),
+      definition.compactImage
     )
     assertPublishedImage(
       manifest,

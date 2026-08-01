@@ -9,6 +9,12 @@ const factSchema = z.object({
   label: z.string().min(1),
   value: z.string().min(1),
 })
+const imageVariantSchema = z.object({
+  url: z.url(),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  aspectRatio: z.number().positive(),
+})
 
 export const notificationSchema = z.object({
   id: z.string().min(1),
@@ -18,12 +24,9 @@ export const notificationSchema = z.object({
   }),
   title: z.string().min(1),
   subtitle: z.string().optional(),
-  image: z.object({
-    url: z.url(),
+  image: imageVariantSchema.extend({
     alt: z.string().min(1),
-    width: z.number().int().positive(),
-    height: z.number().int().positive(),
-    aspectRatio: z.number().positive(),
+    compact: imageVariantSchema,
   }),
   sections: z.array(textBlockSchema).default([]),
   facts: z.array(factSchema).default([]),

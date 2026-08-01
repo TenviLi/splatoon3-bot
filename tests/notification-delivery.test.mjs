@@ -446,7 +446,7 @@ test('passes the normalized asset origin into WhatsApp template validation', asy
   assert.equal(results[0].status, 'fulfilled')
   assert.equal(
     payload.template.components[0].parameters[0].image.link,
-    publicationManifest.artifacts[0].notificationImage.url
+    publicationManifest.artifacts[0].compactImage.url
   )
   assert.equal(
     payload.template.components[2].parameters[0].text,

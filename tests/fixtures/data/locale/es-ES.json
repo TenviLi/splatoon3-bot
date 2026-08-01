@@ -1,0 +1,7046 @@
+{
+  "stages": {
+    "VnNTdGFnZS0x": {
+      "name": "Desfiladero Fumarola"
+    },
+    "VnNTdGFnZS0y": {
+      "name": "Callejones Crustáceo"
+    },
+    "VnNTdGFnZS0z": {
+      "name": "Mercado Lenguado"
+    },
+    "VnNTdGFnZS00": {
+      "name": "Cisterna Navajuela"
+    },
+    "VnNTdGFnZS02": {
+      "name": "Desguace Mero"
+    },
+    "VnNTdGFnZS0xMA==": {
+      "name": "Puente Salmón"
+    },
+    "VnNTdGFnZS0xMQ==": {
+      "name": "Museo del Pargo"
+    },
+    "VnNTdGFnZS0xMg==": {
+      "name": "Spa Cala Bacalao"
+    },
+    "VnNTdGFnZS0xMw==": {
+      "name": "Instituto Coralino"
+    },
+    "VnNTdGFnZS0xNA==": {
+      "name": "Astillero Beluga"
+    },
+    "VnNTdGFnZS0xNQ==": {
+      "name": "Ultramarinos Orca"
+    },
+    "VnNTdGFnZS0xNg==": {
+      "name": "Pirañalandia"
+    },
+    "Q29vcFN0YWdlLTc=": {
+      "name": "Hidrocentral Pilpil"
+    },
+    "Q29vcFN0YWdlLTE=": {
+      "name": "Presa salmónida"
+    },
+    "Q29vcFN0YWdlLTI=": {
+      "name": "Fuerte Espiral"
+    },
+    "Q29vcFN0YWdlLTY=": {
+      "name": "Bahía Deriva"
+    },
+    "VnNTdGFnZS03": {
+      "name": "Balneario Aguasal"
+    },
+    "VnNTdGFnZS05": {
+      "name": "Complejo Medusa"
+    },
+    "Q29vcFN0YWdlLTEwMA==": {
+      "name": "Pirañalandia"
+    },
+    "Q29vcFN0YWdlLS05OTk=": {
+      "name": ""
+    },
+    "VnNTdGFnZS01": {
+      "name": "Ruinas Ceviche"
+    },
+    "VnNTdGFnZS0xOA==": {
+      "name": "Corbeta Corvina"
+    },
+    "Q29vcFN0YWdlLTEwMg==": {
+      "name": "Instituto Coralino"
+    },
+    "VnNTdGFnZS04": {
+      "name": "Centro Comercial Fletán"
+    },
+    "VnNTdGFnZS0xNw==": {
+      "name": "Tiburódromo"
+    },
+    "Q29vcFN0YWdlLTg=": {
+      "name": "Salmopista"
+    },
+    "Q29vcFN0YWdlLTEwMw==": {
+      "name": "Cisterna Navajuela"
+    },
+    "VnNTdGFnZS0xOQ==": {
+      "name": "Distrito Rascalópodo"
+    },
+    "VnNTdGFnZS0yMA==": {
+      "name": "Carguero Platija"
+    },
+    "Q29vcFN0YWdlLTQ=": {
+      "name": "Ensenada Ahumada"
+    },
+    "Q29vcFN0YWdlLTEwNA==": {
+      "name": "Ruinas Ceviche"
+    },
+    "VnNTdGFnZS0yMQ==": {
+      "name": "Factoría RAMen"
+    },
+    "VnNTdGFnZS0yMg==": {
+      "name": "Mina costera"
+    },
+    "Q29vcFN0YWdlLTEwNQ==": {
+      "name": "Centro Comercial Fletán"
+    },
+    "VnNTdGFnZS0yMw==": {
+      "name": "Aeropuerto Marlín"
+    },
+    "Q29vcFN0YWdlLTk=": {
+      "name": "Coliseo Óseo"
+    },
+    "Q29vcFN0YWdlLTEwNg==": {
+      "name": "Callejones Crustáceo"
+    },
+    "VnNTdGFnZS0yNA==": {
+      "name": "Terminal Dragón"
+    },
+    "Q29vcFN0YWdlLS0x": {
+      "name": "Ubicaciones múltiples"
+    },
+    "Q29vcFN0YWdlLTEwNw==": {
+      "name": "Gran Escenario Tinteliano"
+    },
+    "VnNTdGFnZS0yNg==": {
+      "name": "Parque Viaducto"
+    }
+  },
+  "rules": {
+    "VnNSdWxlLTA=": {
+      "name": "Territorial"
+    },
+    "VnNSdWxlLTI=": {
+      "name": "Torre"
+    },
+    "VnNSdWxlLTM=": {
+      "name": "Pez dorado"
+    },
+    "VnNSdWxlLTE=": {
+      "name": "Pintazonas"
+    },
+    "VnNSdWxlLTQ=": {
+      "name": "Asalto almeja"
+    },
+    "undefined": {}
+  },
+  "weapons": {
+    "48d6e062dd8b7efb": {
+      "name": "Aerógrafo pro"
+    },
+    "3adcc67d997a5aa8": {
+      "name": "Rodillo de carbono"
+    },
+    "61d373353a48eb2e": {
+      "name": "Derramatic turbo"
+    },
+    "cfcd1cb4b09dc134": {
+      "name": "Megabarredora"
+    },
+    "7813d8c4d9103b07": {
+      "name": "Derramatic triple"
+    },
+    "57684fd4ee281e09": {
+      "name": "Rodillo básico"
+    },
+    "7a4705bd110b0cee": {
+      "name": "Derramatic baño"
+    },
+    "ba2b27f7c17b1632": {
+      "name": "Arcromatizador triple"
+    },
+    "3939e000515fe04c": {
+      "name": "Motatrónic dual negro"
+    },
+    "6c5bbce4a6c63d0c": {
+      "name": "Tintopresor"
+    },
+    "39e383c2f6d1ca3e": {
+      "name": "Subtralladora 47"
+    },
+    "627d43fa3ab06066": {
+      "name": "Devastador exprés"
+    },
+    "4dc28c8d9bca2dae": {
+      "name": "Difusor dual"
+    },
+    "670ae6f0c617cca4": {
+      "name": "Devastador"
+    },
+    "9e45d86ccd5fea1e": {
+      "name": "Ametrallógrafo"
+    },
+    "e2b5e6b340555596": {
+      "name": "Tubofusil"
+    },
+    "59d665d32bb4122a": {
+      "name": "Marcador fino"
+    },
+    "77e4f6414e5a257d": {
+      "name": "Azotintador brisa"
+    },
+    "2c34cb021254c8f8": {
+      "name": "Lanzatintas plus"
+    },
+    "f668bd94e7ebf62d": {
+      "name": "Superdevastador"
+    },
+    "d3d579406dbc0fc8": {
+      "name": "Aerógrafo pro"
+    },
+    "8c157e85b75798e7": {
+      "name": "Rodillo de carbono"
+    },
+    "6529a2c7f83ca858": {
+      "name": "Derramatic turbo"
+    },
+    "92f330252fdd9421": {
+      "name": "Megabarredora"
+    },
+    "7d97fc215efe47fa": {
+      "name": "Derramatic triple"
+    },
+    "0637f4b4225f22b8": {
+      "name": "Rodillo básico"
+    },
+    "13ef7ad9ba855fe1": {
+      "name": "Derramatic baño"
+    },
+    "7ed9dd50b97d24f3": {
+      "name": "Arcromatizador triple"
+    },
+    "8e59d00fc471083a": {
+      "name": "Motatrónic dual negro"
+    },
+    "f09bb1bb306659dd": {
+      "name": "Tintopresor"
+    },
+    "af505e7c4bdb7888": {
+      "name": "Subtralladora 47"
+    },
+    "2d3900d357e005e9": {
+      "name": "Devastador exprés"
+    },
+    "582d03e42a63596a": {
+      "name": "Difusor dual"
+    },
+    "9208eee9ecd2026e": {
+      "name": "Devastador"
+    },
+    "cb9126ea2928b619": {
+      "name": "Ametrallógrafo"
+    },
+    "70aa6b216ca8f01c": {
+      "name": "Tubofusil"
+    },
+    "41492e011c163cc1": {
+      "name": "Marcador fino"
+    },
+    "df5b39ea3d32b25b": {
+      "name": "Azotintador brisa"
+    },
+    "617dedf1c26235dc": {
+      "name": "Lanzatintas plus"
+    },
+    "83275e416e7c1bc2": {
+      "name": "Superdevastador"
+    },
+    "1f6ce9f852641707": {
+      "name": "Al azar"
+    },
+    "d9bbd083353c118d": {
+      "name": "Salpicadora 2000"
+    },
+    "9a9dcaa55c2f6545": {
+      "name": "Lanzatintas"
+    },
+    "8c0617eafedab081": {
+      "name": "Bambufusil 14-I"
+    },
+    "0037f260dd45e397": {
+      "name": "Paratintas maxi"
+    },
+    "cf6021b669c84379": {
+      "name": "N-ZAP 85"
+    },
+    "b5c29680486b0d1c": {
+      "name": "Pincel"
+    },
+    "a99a6dd8efd4d5bb": {
+      "name": "Tintambor pesado"
+    },
+    "50563f3849b68e0a": {
+      "name": "Extintador"
+    },
+    "1e344559d62809b2": {
+      "name": "Atomizador dual"
+    },
+    "e594a5f9535eaf40": {
+      "name": "Brocha"
+    },
+    "7a2dd4e35809d537": {
+      "name": "Dinamorrodillo"
+    },
+    "1e9e39f56c9f6d1a": {
+      "name": "Kalarrapid α"
+    },
+    "5903a8cef02e4298": {
+      "name": "Fundidora 525 dual"
+    },
+    "1208a614c4bb22cf": {
+      "name": "Turbodevastador"
+    },
+    "cb1243d9c1908a38": {
+      "name": "Tintralladora ligera"
+    },
+    "57717b83b81f474f": {
+      "name": "Entintador 4K"
+    },
+    "e70b1ea70b5916be": {
+      "name": "Marcador"
+    },
+    "4b6949b9e979636c": {
+      "name": "Ultradevastador"
+    },
+    "53cefbb18bb74cb3": {
+      "name": "Paratintas clásico"
+    },
+    "1d1dd4a9165c4a0c": {
+      "name": "Cargatintas"
+    },
+    "97745a7307013de3": {
+      "name": "Barredora dual"
+    },
+    "11ba9e5928b14318": {
+      "name": "Tintralladora"
+    },
+    "5615e681937a3f12": {
+      "name": "Tintambor ligero"
+    },
+    "24cab1bbfb443770": {
+      "name": "Paratintas"
+    },
+    "ab50e9ae40810698": {
+      "name": "Salpicadora 3000"
+    },
+    "319a3174ebcb8224": {
+      "name": "Lanzatintas novato"
+    },
+    "a31def86914d98ae": {
+      "name": "Derramatic centrífugo"
+    },
+    "afc40370eb8a1aa5": {
+      "name": "Teledevastador"
+    },
+    "daa5ab5b571faec5": {
+      "name": "Rodillo versátil"
+    },
+    "8f8bfbac8a43c2c7": {
+      "name": "Azotintador pro"
+    },
+    "70e60082b7f73c24": {
+      "name": "AR-CR0 450"
+    },
+    "13d0d18880c2f4e4": {
+      "name": "Derramatic"
+    },
+    "66e9cd75721a942f": {
+      "name": "Lanzatintas espacial"
+    },
+    "7f8967b3ae112ffc": {
+      "name": "Rodillo mágnum"
+    },
+    "a1ea7028b1bcdd28": {
+      "name": "Cargaminas 5H"
+    },
+    "edcfecb7e8acd1a7": {
+      "name": "Al azar"
+    },
+    "fdf543c48448da4e": {
+      "name": "Marcador"
+    },
+    "20efbeb85f11abdb": {
+      "name": "Tintopresor"
+    },
+    "b4417b7d33c4ab76": {
+      "name": "Derramatic baño"
+    },
+    "a7d8fc7be0a046c5": {
+      "name": "Arcromatizador triple"
+    },
+    "b88acfa356b2b714": {
+      "name": "Paratintas clásico"
+    },
+    "f17da8de892bcdfe": {
+      "name": "N-ZAP 85"
+    },
+    "e11e5913db5eb0c2": {
+      "name": "Rodillo básico"
+    },
+    "b481841e5def66d6": {
+      "name": "Kalarrapid α"
+    },
+    "6834571f25b34c9b": {
+      "name": "Pincel"
+    },
+    "f6c61a0f1a701928": {
+      "name": "Salpicadora 2000"
+    },
+    "78795dccc3ffeef2": {
+      "name": "Derramatic turbo"
+    },
+    "585c7915a3dc5f28": {
+      "name": "Cargatintas"
+    },
+    "2fc3e19d592734ea": {
+      "name": "Al azar"
+    },
+    "32982b9043dd8d1e": {
+      "name": "AR-CR0 450"
+    },
+    "09465cbd66e15c68": {
+      "name": "Difusor dual"
+    },
+    "23c3b20f6e9ed6ec": {
+      "name": "Derramatic centrífugo"
+    },
+    "cacef7e261a01e16": {
+      "name": "Devastador exprés"
+    },
+    "7df085c7508e8535": {
+      "name": "Derramatic triple"
+    },
+    "61a156e5e66059eb": {
+      "name": "Lanzatintas espacial"
+    },
+    "4d532284b062ba27": {
+      "name": "Dinamorrodillo"
+    },
+    "1f7f2880bcca7894": {
+      "name": "Salpicadora 3000"
+    },
+    "c8cdd727419d9309": {
+      "name": "Fundidora 525 dual"
+    },
+    "f695f95bfc09af76": {
+      "name": "Tintambor ligero"
+    },
+    "c1a8381441bb38a7": {
+      "name": "Azotintador pro"
+    },
+    "91aa1bf7ac84f262": {
+      "name": "Cargaminas 5H"
+    },
+    "3a6b429b6f247c59": {
+      "name": "Azotintador brisa"
+    },
+    "44b6f56d15a02529": {
+      "name": "Devastador"
+    },
+    "6f2cb494a35976ab": {
+      "name": "Rodillo versátil"
+    },
+    "70897086ac95fc07": {
+      "name": "Paratintas maxi"
+    },
+    "49171e6de78e50c7": {
+      "name": "Lanzatintas novato"
+    },
+    "5d214c667c007340": {
+      "name": "Lanzatintas plus"
+    },
+    "d6c4482a8ef368b6": {
+      "name": "Teledevastador"
+    },
+    "dfa290ce0cdeae98": {
+      "name": "Entintador 4K"
+    },
+    "53054d13f95bfdac": {
+      "name": "Aerógrafo pro"
+    },
+    "7529642b716dda2a": {
+      "name": "Tintralladora ligera"
+    },
+    "6832e7cb1f31ec60": {
+      "name": "Rodillo mágnum"
+    },
+    "8823b314132f4724": {
+      "name": "Tubofusil"
+    },
+    "974ad42eab86aa42": {
+      "name": "Marcador fino"
+    },
+    "98ce5f188f2896e8": {
+      "name": "Turbodevastador"
+    },
+    "ec55cea9d34b4b87": {
+      "name": "Ametrallógrafo"
+    },
+    "b0343d4f4b600e95": {
+      "name": "Megabarredora"
+    },
+    "6ca015df6356568c": {
+      "name": "Lanzatintas"
+    },
+    "9e5ea39b1890ffe1": {
+      "name": "Derramatic"
+    },
+    "efb18bcc3e8d0faa": {
+      "name": "Bambufusil 14-I"
+    },
+    "8afbd08cdbde979e": {
+      "name": "Rodillo de carbono"
+    },
+    "a6524fda305001c3": {
+      "name": "Barredora dual"
+    },
+    "3870511200d2f54e": {
+      "name": "Superdevastador"
+    },
+    "7b1ca52db7863e83": {
+      "name": "Brocha"
+    },
+    "488255e9a515eeb2": {
+      "name": "Tintambor pesado"
+    },
+    "de0a10dff827d3fd": {
+      "name": "Tintralladora"
+    },
+    "9ec907326e0a0fbb": {
+      "name": "Ultradevastador"
+    },
+    "970da796325a8adb": {
+      "name": "Paratintas"
+    },
+    "20ac9088101d14aa": {
+      "name": "Atomizador dual"
+    },
+    "aae42b6ef1b5090d": {
+      "name": "Extintador"
+    },
+    "3feb54ef838cb9e2": {
+      "name": "Motatrónic dual negro"
+    },
+    "fec6f764a77ec60e": {
+      "name": "Subtralladora 47"
+    },
+    "6e17fbe20efecca9": {
+      "name": "Al azar"
+    },
+    "d194e691a458ad5f": {
+      "name": "Desconocido"
+    },
+    "ae62156873b8c5e5": {
+      "name": "D-VAST 92"
+    },
+    "4ae1bd005e4c7d9c": {
+      "name": "Brocha abanico"
+    },
+    "4d4fe461ef7da22c": {
+      "name": "N-ZAP 85"
+    },
+    "48500e4854b4d769": {
+      "name": "Derramatic baño"
+    },
+    "f07d321b3cd6f911": {
+      "name": "Teledevastador"
+    },
+    "e78ea63c50327ab0": {
+      "name": "Salpicadora 3000"
+    },
+    "c1ecd761954cda63": {
+      "name": "Salpicadora 2000"
+    },
+    "2542d849264ace37": {
+      "name": "Desconocido"
+    },
+    "52b07849caaff002": {
+      "name": "Brocha abanico"
+    },
+    "b81fe809fde4ef6e": {
+      "name": "Kalarrapid α"
+    },
+    "b00695d610c23c39": {
+      "name": "AR-CR0 450"
+    },
+    "1147e54cfc5e773c": {
+      "name": "Azotintador brisa"
+    },
+    "3f1d1069bff0b101": {
+      "name": "Tubofusil"
+    },
+    "a51a03de4aae0dfa": {
+      "name": "Difusor dual"
+    },
+    "a36afedc0e51535e": {
+      "name": "Azotintador pro"
+    },
+    "19238861042970e3": {
+      "name": "Derramatic turbo"
+    },
+    "d1d178c4f8590045": {
+      "name": "Superdevastador"
+    },
+    "544a9b3e9bff7ecd": {
+      "name": "Friegamatic"
+    },
+    "7b91a5e2edac50a9": {
+      "name": "Corrigetintas"
+    },
+    "52e07029f01362a4": {
+      "name": "Al azar"
+    },
+    "82b29bd56c0d9c19": {
+      "name": "Lanzatintas novato"
+    },
+    "f722bde112a8fdae": {
+      "name": "Tintambor ligero"
+    },
+    "310a426d80bfdfa2": {
+      "name": "Rodillo versátil"
+    },
+    "5ae1ff2b659034c5": {
+      "name": "Bambufusil 14-I"
+    },
+    "ee63111a561f70a4": {
+      "name": "Rodillo de carbono"
+    },
+    "13451fa24f36cc4e": {
+      "name": "Tintopresor"
+    },
+    "06b7fbbc77816153": {
+      "name": "D-VAST 92"
+    },
+    "d666414e2d626aa5": {
+      "name": "Cargaminas 5H"
+    },
+    "eb6231843a965f03": {
+      "name": "Atomizador dual"
+    },
+    "6113b4a2c34d5bff": {
+      "name": "Paratintas"
+    },
+    "b29b38c98d5d0048": {
+      "name": "Megabarredora"
+    },
+    "ce24986e8f457ce0": {
+      "name": "Derramatic triple"
+    },
+    "8ee303742717ed13": {
+      "name": "Lanzatintas espacial"
+    },
+    "0e7b0928658d7dd6": {
+      "name": "Ametrallógrafo"
+    },
+    "4131c07c5976c5ef": {
+      "name": "Cargatintas"
+    },
+    "bc57d58a39020d81": {
+      "name": "Marcador fino"
+    },
+    "b4abca58bf916e93": {
+      "name": "Rodillo mágnum"
+    },
+    "f557d0c6ff897fc4": {
+      "name": "Subtralladora 47"
+    },
+    "8e342dbd807d8d46": {
+      "name": "Arcromatizador triple"
+    },
+    "429db9b9ae8ba39b": {
+      "name": "Tintralladora ligera"
+    },
+    "d8b795e7c2821984": {
+      "name": "Tintambor pesado"
+    },
+    "5cb99591156af714": {
+      "name": "Pincel"
+    },
+    "88daf38799f67c1b": {
+      "name": "Marcador"
+    },
+    "d4b87e1ce44d6598": {
+      "name": "Dinamorrodillo"
+    },
+    "97976ade5f6d082d": {
+      "name": "Aerógrafo pro"
+    },
+    "0a115698cc8dc6ca": {
+      "name": "Derramatic centrífugo"
+    },
+    "0811ac580dabb9bd": {
+      "name": "Devastador"
+    },
+    "dcc2f3eb27c24104": {
+      "name": "Tintralladora"
+    },
+    "d787b110879b0d56": {
+      "name": "Entintador 4K"
+    },
+    "19c90a1562d9878f": {
+      "name": "Derramatic"
+    },
+    "ffaf97c32fd844f1": {
+      "name": "Paratintas maxi"
+    },
+    "28ec68160548dcde": {
+      "name": "Ultradevastador"
+    },
+    "404be707119ba76e": {
+      "name": "Turbodevastador"
+    },
+    "53f75e074a3437ea": {
+      "name": "Barredora dual"
+    },
+    "3fe96aff1432baba": {
+      "name": "Extintador"
+    },
+    "d24eaa4ebe408bfa": {
+      "name": "Motatrónic dual negro"
+    },
+    "caa7a0e57efa2b9f": {
+      "name": "Devastador exprés"
+    },
+    "354c11e2554de95a": {
+      "name": "Lanzatintas plus"
+    },
+    "5cf46dbf5920ce92": {
+      "name": "Brocha"
+    },
+    "35cac2ee460ca333": {
+      "name": "Rodillo básico"
+    },
+    "2ddc299399ca8cda": {
+      "name": "Lanzatintas"
+    },
+    "09f425cd12f255dd": {
+      "name": "Fundidora 525 dual"
+    },
+    "38f96c2c8c6004be": {
+      "name": "Paratintas clásico"
+    },
+    "9d04354f179ebf6f": {
+      "name": "Al azar"
+    },
+    "7fcad30c78a42543": {
+      "name": "Extintor Dual FF"
+    },
+    "67fb4f2b86efdc62": {
+      "name": "Prototintas 24-I"
+    },
+    "124ab41419b0fc67": {
+      "name": "Odontintador menta"
+    },
+    "a2f19b4715667fcc": {
+      "name": "Arcrotensor V"
+    },
+    "b3ab498b8a8a0667": {
+      "name": "N-ZAP 85"
+    },
+    "5463ec85acff180c": {
+      "name": "Derramatic centrífugo"
+    },
+    "b4ebb5629d8c3e5f": {
+      "name": "Paratintas clásico"
+    },
+    "535d3c822bba0415": {
+      "name": "Kalarrapid α"
+    },
+    "e60629ecf35192a1": {
+      "name": "Lanzatintas"
+    },
+    "67b2e7ac4bf64e71": {
+      "name": "Azotintador brisa"
+    },
+    "6ede65010706778d": {
+      "name": "Subtralladora 47"
+    },
+    "c100f88e8b925e1c": {
+      "name": "Extintador"
+    },
+    "935949ea2945806b": {
+      "name": "Aerógrafo pro"
+    },
+    "ed647072fa99c73e": {
+      "name": "Marcador fino"
+    },
+    "09284d9bd3b61ea1": {
+      "name": "Friegamatic"
+    },
+    "dc9f150e86663adb": {
+      "name": "Entintador 4K"
+    },
+    "5567ca94a5374d21": {
+      "name": "Marcador"
+    },
+    "895eaa9e4e5b427b": {
+      "name": "Pincel"
+    },
+    "e78ca547494ad3c3": {
+      "name": "Rodillo de carbono"
+    },
+    "66cd48f017d3f078": {
+      "name": "Arcrotensor V"
+    },
+    "513c64dd6cd5e723": {
+      "name": "Salpicadora 2000"
+    },
+    "280ed6683d3eb523": {
+      "name": "Tintopresor"
+    },
+    "de8a2a542dbe6b99": {
+      "name": "D-VAST 92"
+    },
+    "3aac272457998973": {
+      "name": "Tintralladora"
+    },
+    "747937841598fff7": {
+      "name": "Al azar"
+    },
+    "5e5481f626f02cbf": {
+      "name": "Tintambor pesado"
+    },
+    "85c6eda8dffc77a0": {
+      "name": "Lanzatintas espacial"
+    },
+    "03146bb3dc0defd4": {
+      "name": "Rodillo versátil"
+    },
+    "0578f3b3d9af08ed": {
+      "name": "Tintambor ligero"
+    },
+    "b04c2fbbe1c98e63": {
+      "name": "Rodillo mágnum"
+    },
+    "05a0ddd5b919b698": {
+      "name": "Ultradevastador"
+    },
+    "cd34251e67bd3f3e": {
+      "name": "Tintralladora ligera"
+    },
+    "5c8a27c6818f20e6": {
+      "name": "Bambufusil 14-I"
+    },
+    "d39ba7409f6e1fbc": {
+      "name": "Barredora dual"
+    },
+    "23deec47199c37d1": {
+      "name": "Paratintas"
+    },
+    "c95b060287d757a2": {
+      "name": "Azotintador pro"
+    },
+    "830801a9f4555917": {
+      "name": "Turbodevastador"
+    },
+    "342c1b18ce2732ea": {
+      "name": "Paratintas maxi"
+    },
+    "eb5098db38e209e1": {
+      "name": "Derramatic baño"
+    },
+    "3ed1b23808b91e54": {
+      "name": "Dinamorrodillo"
+    },
+    "2136716c07457658": {
+      "name": "Arcromatizador triple"
+    },
+    "c19e07d4db9a4075": {
+      "name": "Derramatic turbo"
+    },
+    "885c30f6102de958": {
+      "name": "Salpicadora 3000"
+    },
+    "83c543ed4ae19005": {
+      "name": "Difusor dual"
+    },
+    "961a7063fc94f087": {
+      "name": "Cargatintas"
+    },
+    "01b960996da8ed63": {
+      "name": "Al azar"
+    },
+    "914ca6f3cba7aa98": {
+      "name": "Prototintas 24-I"
+    },
+    "b5b716854159da15": {
+      "name": "Odontintador menta"
+    },
+    "f74d638ac101904e": {
+      "name": "Lanzatintas plus"
+    },
+    "884321fa6165eb37": {
+      "name": "Devastador exprés"
+    },
+    "523fca90c5771a63": {
+      "name": "Motatrónic dual negro"
+    },
+    "79e6297eb501599f": {
+      "name": "Atomizador dual"
+    },
+    "d22945127fb7584f": {
+      "name": "Cargaminas 5H"
+    },
+    "1f7612f08f804c54": {
+      "name": "AR-CR0 450"
+    },
+    "de148ea51e7c28fa": {
+      "name": "Lanzatintas novato"
+    },
+    "9e45e49e1e9c4853": {
+      "name": "Megabarredora"
+    },
+    "439343ee49a5126b": {
+      "name": "Ametrallógrafo"
+    },
+    "b4df43b5b0d90b7a": {
+      "name": "Derramatic triple"
+    },
+    "17b8d348d6380ae9": {
+      "name": "Tubofusil"
+    },
+    "7065ab46c609e6d7": {
+      "name": "Extintor Dual FF"
+    },
+    "3ab1a91f59f81345": {
+      "name": "Brocha abanico"
+    },
+    "fe3b9b3b87ca491e": {
+      "name": "Derramatic"
+    },
+    "e115c15c4a20d8ba": {
+      "name": "Rodillo básico"
+    },
+    "d9a573867cb6ba9a": {
+      "name": "Corrigetintas"
+    },
+    "183dfb6256c39892": {
+      "name": "Superdevastador"
+    },
+    "d9632c243eb36d73": {
+      "name": "Brocha"
+    },
+    "dde2f92988536cd2": {
+      "name": "Devastador"
+    },
+    "3b31490a368e92e1": {
+      "name": "Fundidora 525 dual"
+    },
+    "30f4e84e186e226f": {
+      "name": "Teledevastador"
+    }
+  },
+  "brands": {
+    "QnJhbmQtOA==": {
+      "name": "Jimmon"
+    },
+    "QnJhbmQtMTk=": {
+      "name": "Barazushi"
+    },
+    "QnJhbmQtMjA=": {
+      "name": "Ascuax"
+    },
+    "QnJhbmQtMA==": {
+      "name": "Kalamas"
+    },
+    "QnJhbmQtMw==": {
+      "name": "Rockenberg"
+    },
+    "QnJhbmQtNA==": {
+      "name": "Ezko"
+    },
+    "QnJhbmQtNQ==": {
+      "name": "Forima"
+    },
+    "QnJhbmQtNg==": {
+      "name": "Chokkor"
+    },
+    "QnJhbmQtMTE=": {
+      "name": "Sepioca"
+    },
+    "QnJhbmQtMTA=": {
+      "name": "Arome"
+    },
+    "QnJhbmQtOQ==": {
+      "name": "Moluskia"
+    },
+    "QnJhbmQtMg==": {
+      "name": "Meddux"
+    },
+    "QnJhbmQtNw==": {
+      "name": "Skalop"
+    },
+    "QnJhbmQtMTc=": {
+      "name": "Tonken"
+    },
+    "QnJhbmQtMQ==": {
+      "name": "Tintaz"
+    },
+    "QnJhbmQtMTY=": {
+      "name": "Krakien"
+    },
+    "QnJhbmQtMTU=": {
+      "name": "Annak"
+    },
+    "QnJhbmQtOTg=": {
+      "name": "Obvius"
+    }
+  },
+  "gear": {
+    "1f6189fcaf092a8f": {
+      "name": "Bombín clásico"
+    },
+    "81921ab4f3fc42fa": {
+      "name": "Camisa blanca"
+    },
+    "8af6d74efc8ee977": {
+      "name": "Bamba ultrarroja"
+    },
+    "e0ef16dcbf779fd8": {
+      "name": "Tenis básica principiante"
+    },
+    "406929c86d7a258e": {
+      "name": "Camiseta glóbulos rosa"
+    },
+    "3dc58146de458313": {
+      "name": "Camiseta blanca"
+    },
+    "c2bb9f1294c295da": {
+      "name": "Bota motorista"
+    },
+    "43847b716e0167b8": {
+      "name": "Gafas ovaladas dobles"
+    },
+    "71abfaf22d9b6bbe": {
+      "name": "Gafas moteras"
+    },
+    "b53bdaf8c13d29f2": {
+      "name": "Visor opaco"
+    },
+    "174d4dbb6348257b": {
+      "name": "Bombín clásico"
+    },
+    "ad7271a600e96517": {
+      "name": "Camisa blanca"
+    },
+    "24232b34f82cb2d3": {
+      "name": "Bamba ultrarroja"
+    },
+    "b8fd00bc6b0e03f8": {
+      "name": "Tenis básica principiante"
+    },
+    "aac289491487b78e": {
+      "name": "Camiseta glóbulos rosa"
+    },
+    "42fd0a010e3834d6": {
+      "name": "Camiseta blanca"
+    },
+    "d6ae0f6877fbe8e7": {
+      "name": "Bota motorista"
+    },
+    "2e502b645aa81e2c": {
+      "name": "Gafas ovaladas dobles"
+    },
+    "66b70d0194f48051": {
+      "name": "Gafas moteras"
+    },
+    "2b897acb8435752e": {
+      "name": "Visor opaco"
+    },
+    "11826a638e557c8c": {
+      "name": "Camiseta marinera"
+    },
+    "eeea995329a3b65a": {
+      "name": "Gafas de buceo"
+    },
+    "8c2f59eb75da5ece": {
+      "name": "Pañuelo vuelto"
+    },
+    "5f1f38129dc8708e": {
+      "name": "Bota energética"
+    },
+    "b4efce44ed819f22": {
+      "name": "Camiseta reditada marrón"
+    },
+    "a8037dfb0ea3cfc9": {
+      "name": "Gafas transparentes"
+    },
+    "c9b62256129de184": {
+      "name": "Cumbres marfil"
+    },
+    "4402242820b66e9b": {
+      "name": "Sandalia delta nieve"
+    },
+    "9dda2a64daaa651f": {
+      "name": "Camisa bordada pez corneta"
+    },
+    "d4c2c203e5ef0568": {
+      "name": "Camiseta degradado atardecer"
+    },
+    "947dcdc899197eb1": {
+      "name": "Auriculares acorazados"
+    },
+    "1bd94af735c58372": {
+      "name": "Gorra de trabajo"
+    },
+    "643a053973902353": {
+      "name": "Auriculares estéreo"
+    },
+    "677b0d3b7d27ad00": {
+      "name": "Bota ostra blanca"
+    },
+    "5268305e6503989f": {
+      "name": "Mascarilla glóbulos"
+    },
+    "23dfd1075a93a33d": {
+      "name": "Camisa de payaso"
+    },
+    "324df9a75e061379": {
+      "name": "Chancla glóbulos"
+    },
+    "127b76d4323e74bb": {
+      "name": "Blanca doble"
+    },
+    "b4b3212cb5cd7bae": {
+      "name": "Umibozu local"
+    },
+    "784d73e378d54a65": {
+      "name": "Hipocampo-A roja"
+    },
+    "5a2640a1b24f4104": {
+      "name": "Sombrero de paja clásico"
+    },
+    "913c8abcf3b7f553": {
+      "name": "Playera bicolor"
+    },
+    "2724594845943e60": {
+      "name": "Sudadera mostaza"
+    },
+    "70e9d5e472ac488e": {
+      "name": "Camisa tropical hipocampos"
+    },
+    "1e8eb9a8cf359ddb": {
+      "name": "Zueco chocolate"
+    },
+    "0f9024a487709d60": {
+      "name": "Calamark roja y negra"
+    },
+    "d8dc38f9cff8a7c0": {
+      "name": "Gafas gruesas"
+    },
+    "536ee3c575414b1c": {
+      "name": "Bota de pato ártica"
+    },
+    "aa6d34604fc32094": {
+      "name": "Camiseta tricalamar"
+    },
+    "93a1f4889a507aca": {
+      "name": "Hipocampo-A zombi"
+    },
+    "74557810f479b67d": {
+      "name": "Velcro naranja"
+    },
+    "956b07f16e9239e5": {
+      "name": "Protector de mandíbula"
+    },
+    "917b0ff5e7deb49d": {
+      "name": "Abrigo Tonken"
+    },
+    "8cb74f9b9027d2e1": {
+      "name": "Mostaza doble"
+    },
+    "633c2879fd8e03e7": {
+      "name": "Chaqueta satinada calamar"
+    },
+    "1612c8b009f235b2": {
+      "name": "Gorro de alta mar"
+    },
+    "eb43f28ba5c38ec6": {
+      "name": "Camiseta blanca pro"
+    },
+    "61e8f58a1c752d85": {
+      "name": "Camiseta Barazushi naranja"
+    },
+    "81e8fd0b464e2414": {
+      "name": "Tenis básica profesional"
+    },
+    "fa6f79b5f26ce405": {
+      "name": "Camisa franela Annak"
+    },
+    "a50223bf951b4680": {
+      "name": "Camisa estampada"
+    },
+    "f7c12d451f1fcd8f": {
+      "name": "Deportiva aletas alta"
+    },
+    "68b8d5cfeb33c744": {
+      "name": "Velcro elegante"
+    },
+    "ae84b607bf8777f9": {
+      "name": "Chancla roja"
+    },
+    "2e526124ce7e8f6f": {
+      "name": "Gorra calamarciano"
+    },
+    "b8b4c69bd9db92ef": {
+      "name": "Coraza cangrejo roja"
+    },
+    "a7919c8be2a28d62": {
+      "name": "Calamark azul y negra"
+    },
+    "3675b37346898e14": {
+      "name": "Polo rugby extra 008"
+    },
+    "cdf0aa473ac99c5c": {
+      "name": "Deportiva orca soleada"
+    },
+    "d00e44e66d68e35b": {
+      "name": "Rockenberg negra"
+    },
+    "8edd77ea62ba9e9f": {
+      "name": "Polo rugby extra 010"
+    },
+    "1fec43172d6fa45f": {
+      "name": "Maillot ciclista"
+    },
+    "f90966ee929161d3": {
+      "name": "Bota ante desértica"
+    },
+    "3156cd52b7438c4a": {
+      "name": "Gafas aviador oro"
+    },
+    "007b0011ba440126": {
+      "name": "Rockenberg blanca"
+    },
+    "5f0b0a4b682ede5a": {
+      "name": "Sandalia ultrarrosa"
+    },
+    "ed2f366255fe2400": {
+      "name": "Bamba alta oliva"
+    },
+    "1373e5fdef7d81d0": {
+      "name": "Gorra béisbol franela"
+    },
+    "65d7097e248028a8": {
+      "name": "Baloncesto local"
+    },
+    "2f2c0867bcd60fa2": {
+      "name": "Gafas tintadas"
+    },
+    "dc2d135b5dedc8d0": {
+      "name": "Béisbol Ezko"
+    },
+    "4318b892228fff97": {
+      "name": "Tenis azul"
+    },
+    "b7c5f3453773550b": {
+      "name": "Deportiva wasabi"
+    },
+    "d0aa19a37f3cd296": {
+      "name": "Deportiva celeste"
+    },
+    "8a4df8e058429a82": {
+      "name": "Chocolate doble"
+    },
+    "db62936fd681df2b": {
+      "name": "Camiseta negra"
+    },
+    "41bedd53522bb38d": {
+      "name": "Cinta tenis de mesa"
+    },
+    "b815880233a35cd6": {
+      "name": "Hipocampo-A morada"
+    },
+    "cfecc281c452aa74": {
+      "name": "Casco astado"
+    },
+    "e8ba8734c2ebfa80": {
+      "name": "Chancla negra"
+    },
+    "f83218ce2928e443": {
+      "name": "Mascarilla Chokkor"
+    },
+    "d8398bdfdddfb898": {
+      "name": "Retrocamiseta negra"
+    },
+    "441c1f7903f5412d": {
+      "name": "Bota piel marrón"
+    },
+    "c0630f568ecb669c": {
+      "name": "Visera tintada"
+    },
+    "bdbd666af9084dbe": {
+      "name": "Bota montaña especial"
+    },
+    "fbc70cfb825986de": {
+      "name": "Casco psicotrónico"
+    },
+    "81be854769c15200": {
+      "name": "Chaqueta satinada siluro"
+    },
+    "baa3c99301fbf998": {
+      "name": "Cinta tenis"
+    },
+    "4261e5c7df04b91a": {
+      "name": "Zueco gris"
+    },
+    "f52b184f2b9aecb1": {
+      "name": "Vectores gris"
+    },
+    "b2446e7ab074da26": {
+      "name": "Camiseta Barazushi cerezo"
+    },
+    "2be678af332735c1": {
+      "name": "Visera Sepioca"
+    },
+    "e1acfff65d803f23": {
+      "name": "Chándal retro Sepioca"
+    },
+    "1f28c536cbdc80c2": {
+      "name": "Retrocamiseta blanca"
+    },
+    "386fb7e34a2abc2a": {
+      "name": "Cinta blanca"
+    },
+    "f4d7dfa61cc72a67": {
+      "name": "Gafas redondas"
+    },
+    "4c02bd493cf9b01e": {
+      "name": "Bamba alta roja"
+    },
+    "7b854854cece266d": {
+      "name": "Sombrero cónico"
+    },
+    "de236faed2faac4c": {
+      "name": "Chubasquero lima"
+    },
+    "1dc35b1abeefcd35": {
+      "name": "Sombrero de tela vaquera"
+    },
+    "ad5679cf966d56d0": {
+      "name": "Bamba ultrablanca"
+    },
+    "678373bb7134e71d": {
+      "name": "Deportiva rosa"
+    },
+    "3c5acd12e6e2d7de": {
+      "name": "Mascarilla Annak"
+    },
+    "4fea8b21041700fd": {
+      "name": "Sudadera gris con capucha"
+    },
+    "2d60b55fc7167d95": {
+      "name": "Náutico tostado"
+    },
+    "e2d69f22cb5653f5": {
+      "name": "Gorra de diseño"
+    },
+    "110ff0c454074cfa": {
+      "name": "Camiseta Barazushi arroz"
+    },
+    "9fa5cc8851fcf88c": {
+      "name": "Gorra béisbol"
+    },
+    "0f00a6635aede845": {
+      "name": "Casco hockey"
+    },
+    "f9ffbfce0e2875d0": {
+      "name": "Gafas tinte abisal"
+    },
+    "6f2d6bded7e3b5a3": {
+      "name": "Chaqueta retazos"
+    },
+    "eaff9715e83e69d6": {
+      "name": "Camiseta de timbre piña"
+    },
+    "703d46b112a2fb1e": {
+      "name": "Sandalia ultraceleste"
+    },
+    "4fbc8152a1d9b11c": {
+      "name": "Camiseta rasgada blanca"
+    },
+    "95a7d0caf568a88b": {
+      "name": "Casco caparazón"
+    },
+    "a64eaf2183a3df2a": {
+      "name": "Gafas Annak cuadradas"
+    },
+    "2134bc4107ef589f": {
+      "name": "Suela extra Annak"
+    },
+    "f8d476712897b5ea": {
+      "name": "Camisa marcas"
+    },
+    "bc5773c0d48ba324": {
+      "name": "Gorro de pesca"
+    },
+    "4397b925c765efa4": {
+      "name": "Paracaidista carmesí"
+    },
+    "f7360a8678a652e1": {
+      "name": "Plumífero lima"
+    },
+    "e592552a3149cbc2": {
+      "name": "Camisa salpicadura"
+    },
+    "896386102c8cc7c9": {
+      "name": "Tintaz doble"
+    },
+    "aa220e98e0b8ce4d": {
+      "name": "Camiseta verde"
+    },
+    "72d90ee8f6051b8e": {
+      "name": "Chaqueta con ventilación"
+    },
+    "eb19bc1bf079b53e": {
+      "name": "Auriculares pro"
+    },
+    "3a661f31ee2e6ae3": {
+      "name": "Sudadera manatí"
+    },
+    "215ca40180b6f437": {
+      "name": "Visera de marca"
+    },
+    "39bbd0d9f8a9be1e": {
+      "name": "Gorro tejido"
+    },
+    "154047abb13f296a": {
+      "name": "Deportiva AL-GA 30XX"
+    },
+    "3165dd0fe53699ed": {
+      "name": "Ojos calamar negra"
+    },
+    "4333c406473ac20d": {
+      "name": "Bota impermeable"
+    },
+    "5f3cbcd31423e391": {
+      "name": "Camisa cuadros ocres"
+    },
+    "49df3a5d8d0a99ac": {
+      "name": "Chancla amarilla"
+    },
+    "fb978d294c4a18b9": {
+      "name": "Chaqueta orca negativa"
+    },
+    "dd87314a71de50ff": {
+      "name": "Mascarilla Forima"
+    },
+    "926ada9976cdae43": {
+      "name": "Gafas de piloto"
+    },
+    "97ed5418f991d678": {
+      "name": "Camisa retazos safari"
+    },
+    "9c3d6d6c10d9d41f": {
+      "name": "Chaleco bolsillos caqui"
+    },
+    "c661525659d90ef4": {
+      "name": "Gorra malla Sepioca"
+    },
+    "dfeb51ebc84513c4": {
+      "name": "Camisa octropical"
+    },
+    "67a744219d496350": {
+      "name": "Deportiva megatensión"
+    },
+    "8be6bc50a7bc8ab5": {
+      "name": "Abrigo ártico"
+    },
+    "1cf11459184751e4": {
+      "name": "Bota montaña"
+    },
+    "df03a24d19aa6f8e": {
+      "name": "Camiseta reditada azul"
+    },
+    "8ed3f04671809fb9": {
+      "name": "Jersey de punto tiburones"
+    },
+    "b192c92961b2adf6": {
+      "name": "Camisa retazos urbana"
+    },
+    "809e99c2ffa7312a": {
+      "name": "Camiseta ofídica"
+    },
+    "c97a0167cc492b36": {
+      "name": "Sandalia ultranaranja"
+    },
+    "476e9139880248e4": {
+      "name": "Camiseta Annak collar"
+    },
+    "a4d6ce587f7547b4": {
+      "name": "Sandalia flechas azul"
+    },
+    "9aec8fb9cb1ba2b8": {
+      "name": "Chupa motera negra"
+    },
+    "7df1610b801fb8e5": {
+      "name": "Gafas de natación"
+    },
+    "fb29dd121ab3b5f2": {
+      "name": "Chaqueta de remo negativa"
+    },
+    "3b84e904cd60534c": {
+      "name": "Sudadera de jerga roja"
+    },
+    "445ffa87c30bbac0": {
+      "name": "Auriculares octoestéreo"
+    },
+    "662beb4fb9ea74f9": {
+      "name": "Gorra orejeras negra"
+    },
+    "15d0c6619faead78": {
+      "name": "Careta béisbol local"
+    },
+    "940500ce3bf4cc00": {
+      "name": "Zapato con dedos rojo"
+    },
+    "ff8cd1836a1d4fc2": {
+      "name": "Octodeportiva roja"
+    },
+    "878e926050e1816b": {
+      "name": "Camiseta tripulpo"
+    },
+    "8bf529c3f3753265": {
+      "name": "Polo negro"
+    },
+    "e2a0872fdee7a498": {
+      "name": "Auriculares multicolor"
+    },
+    "95b7d8bd81a014ae": {
+      "name": "Camisa tropical"
+    },
+    "f2184eafd208d20c": {
+      "name": "Camisa bolos"
+    },
+    "ed176e1f5f945985": {
+      "name": "Casco de piloto"
+    },
+    "4f4fc3a6e642be37": {
+      "name": "Camisa entintada"
+    },
+    "77d5515a65d72500": {
+      "name": "Camiseta pulpalamar tándem"
+    },
+    "14c7c198c5f1332c": {
+      "name": "Camiseta de timbre manzana"
+    },
+    "580b51c0cb8c045b": {
+      "name": "Gorro liso"
+    },
+    "eb6566409e55ddad": {
+      "name": "Cumbres azul"
+    },
+    "b4a91c3b5329437c": {
+      "name": "Chaqueta ajustable negativa"
+    },
+    "99108a6528e78424": {
+      "name": "Ojos calamar azul"
+    },
+    "94fa81f8a11b0a30": {
+      "name": "Anorak Barazushi"
+    },
+    "6da49b6929c446ee": {
+      "name": "Boina Annak"
+    },
+    "a085384ce9c3e9ee": {
+      "name": "Suela extra Annak tribal"
+    },
+    "bd7a4b5395750d95": {
+      "name": "Hipocampo-B chocolate"
+    },
+    "8540e611a17cd249": {
+      "name": "Camiseta degradado fuego"
+    },
+    "2f2e954b23c261c7": {
+      "name": "Gorra ciclista"
+    },
+    "4301fb8489341eef": {
+      "name": "Casco rugby decorado"
+    },
+    "9b8a23e17b1b5ea3": {
+      "name": "Pañuelo clásico"
+    },
+    "d4d0bc79dce60c64": {
+      "name": "Tenis escalada solar"
+    },
+    "591b7bcd94410bf0": {
+      "name": "Gorra futurista"
+    },
+    "a217ef7797136fcb": {
+      "name": "Camiseta básica"
+    },
+    "29a7def9b876a301": {
+      "name": "Máscara industrial"
+    },
+    "e1f937486dd6b7c9": {
+      "name": "Mascarilla octo Theutik"
+    },
+    "ca976a3bc9cd78b2": {
+      "name": "Sudadera zapakrakien"
+    },
+    "972b9fce355daced": {
+      "name": "Bota piel roja"
+    },
+    "aa51588a1699ae25": {
+      "name": "Camiseta Sepioca cosmos"
+    },
+    "38776da1845adf08": {
+      "name": "Sombrero de campana"
+    },
+    "68a94c789b4c8b44": {
+      "name": "Bota clásica roja"
+    },
+    "76f5e76c784b1c50": {
+      "name": "Gafas de natación elegantes"
+    },
+    "36e84fe6b7608c8c": {
+      "name": "Calamark+ roja y blanca"
+    },
+    "405281a377614420": {
+      "name": "Casco motocross"
+    },
+    "42ea283da9409cdb": {
+      "name": "Camiseta cebra"
+    },
+    "3c90c890a335af86": {
+      "name": "Mocasín caimán"
+    },
+    "7262e999c5bad9da": {
+      "name": "Chaleco con camisa"
+    },
+    "4faf2e67e092b400": {
+      "name": "Pañuelo calavera"
+    },
+    "c639924b729138ab": {
+      "name": "Octosudadera azul y negra"
+    },
+    "c21aaf1b52292dc7": {
+      "name": "Abrigo inkling Forima"
+    },
+    "26136d489a89af87": {
+      "name": "Sombrero parasol"
+    },
+    "5483b9aa63533859": {
+      "name": "Chaqueta impermeable caqui"
+    },
+    "dac35d4c46be1969": {
+      "name": "Bota de agua verde"
+    },
+    "1c6debb9237e2890": {
+      "name": "Abrigo de lana crema"
+    },
+    "94c1e453748a9abe": {
+      "name": "Jersey puño azul"
+    },
+    "95fcba8b9a39cd62": {
+      "name": "Bota clásica negra"
+    },
+    "1f6ddf2cf1d59bae": {
+      "name": "Sandalia delta luminosa"
+    },
+    "69be0ed9f464ea4a": {
+      "name": "Bota de tacos"
+    },
+    "c2281bc39bd310d0": {
+      "name": "Retrogafas"
+    },
+    "17667e85698763c8": {
+      "name": "Camisa béisbol"
+    },
+    "37b13a41409cd558": {
+      "name": "Sombrero vaquero gemas"
+    },
+    "0316c51eca942a1c": {
+      "name": "Boina Annak con gafas"
+    },
+    "b443eba90e562d26": {
+      "name": "Zapato rojo y azul"
+    },
+    "7866d2e458dcc9fa": {
+      "name": "Pañuelo Barazushi"
+    },
+    "a80df2b5cf118944": {
+      "name": "Camiseta degradado hielo"
+    },
+    "94849c9f9b825920": {
+      "name": "Gorra bicolor"
+    },
+    "417931be054a0f92": {
+      "name": "Mascarilla calamar"
+    },
+    "b867088a8ddb9a80": {
+      "name": "Zapato doble hebilla"
+    },
+    "6586ab2c5d8cd989": {
+      "name": "Casco antincendios"
+    },
+    "796fd2d7906261c9": {
+      "name": "Suela extra blanca"
+    },
+    "5de5a3a955b0f195": {
+      "name": "Cazadora estudiante"
+    },
+    "0bd7ec5e419c3452": {
+      "name": "Gorra vaquera"
+    },
+    "e3a023a3f503e0be": {
+      "name": "Zapatilla verde neón"
+    },
+    "1d3e46a11ffbec9c": {
+      "name": "Camiseta pirata"
+    },
+    "87aa11437da121f4": {
+      "name": "Zapatilla sashimi"
+    },
+    "ab11b6ea4ebdade0": {
+      "name": "Sudadera ancha negativa"
+    },
+    "99e79d22b382f957": {
+      "name": "Camiseta pulpo"
+    },
+    "f09f6db7abb23197": {
+      "name": "Gafas redondas plata"
+    },
+    "5cf438885bf2554f": {
+      "name": "Casco skate"
+    },
+    "9c4320cc4dfec243": {
+      "name": "Sandalia delta neón"
+    },
+    "a3c11aa2e7cf664c": {
+      "name": "Zapato clásico"
+    },
+    "03ec7a070e37e788": {
+      "name": "Camiseta leopardo"
+    },
+    "367af2966d3db91b": {
+      "name": "Playera azul"
+    },
+    "e8158157baabac9d": {
+      "name": "Vectores doble"
+    },
+    "2e8ef62f986efb1a": {
+      "name": "Bota clásica blanca"
+    },
+    "7e360df7a2031adb": {
+      "name": "Chaqueta de punto verde"
+    },
+    "1424ac52938446da": {
+      "name": "Camisa claroscuro"
+    },
+    "86ed2bb62a052e30": {
+      "name": "Camiseta Sepioca arcoíris"
+    },
+    "3875567d34d4b02e": {
+      "name": "Bota de nieve"
+    },
+    "0c80632bd1cd6e33": {
+      "name": "Visor cibernético"
+    },
+    "77ec26940c8cb823": {
+      "name": "Camiseta Annak sin mangas"
+    },
+    "d53fb73cf3178709": {
+      "name": "Gorra medusianos"
+    },
+    "a4be5aeea14fb98e": {
+      "name": "Vectores roja"
+    },
+    "18eb5bc19afe5630": {
+      "name": "Traje galáctico"
+    },
+    "2e477937b45b9bf1": {
+      "name": "Cinta tenis"
+    },
+    "5d2dcaa61161c940": {
+      "name": "Camiseta reditada azul"
+    },
+    "386633c7575f5799": {
+      "name": "Deportiva wasabi"
+    },
+    "140bb5be8a10e415": {
+      "name": "Vectores roja"
+    },
+    "8a06264363dc442e": {
+      "name": "Protector de mandíbula"
+    },
+    "c6943b3c0624caa6": {
+      "name": "Cumbres azul"
+    },
+    "18ccd9c4c536cfcb": {
+      "name": "Bota impermeable"
+    },
+    "a51018edf02ccd2b": {
+      "name": "Boina Annak"
+    },
+    "9dec389c738b37e0": {
+      "name": "Mascarilla octo Theutik"
+    },
+    "8a54d8320180ed80": {
+      "name": "Traje galáctico"
+    },
+    "7c4e57ac7c8125ad": {
+      "name": "Casco astado"
+    },
+    "27cde5ac6a27fc42": {
+      "name": "Camiseta degradado hielo"
+    },
+    "3ae0b8c5b6a9c7d1": {
+      "name": "Deportiva megatensión"
+    },
+    "205209ff92cf9649": {
+      "name": "Gafas Annak cuadradas"
+    },
+    "b1f0a05a6d48d75f": {
+      "name": "Visera Sepioca"
+    },
+    "0eae7f8f26b324a3": {
+      "name": "Camiseta Sepioca cosmos"
+    },
+    "d40177e7c95129c4": {
+      "name": "Deportiva orca soleada"
+    },
+    "1db8d62e28e3f777": {
+      "name": "Auriculares multicolor"
+    },
+    "5e7cf04d1b4ebb65": {
+      "name": "Sudadera mostaza"
+    },
+    "c437adc806514b68": {
+      "name": "Gafas de natación elegantes"
+    },
+    "c7f4f236b1b1acaf": {
+      "name": "Blanca doble"
+    },
+    "ff07fc7fea090c5d": {
+      "name": "Gorra bicolor"
+    },
+    "f76a40701374d87f": {
+      "name": "Camisa salpicadura"
+    },
+    "d3aa78342476dabb": {
+      "name": "Bota ostra blanca"
+    },
+    "65f2389e2551aa9d": {
+      "name": "Camisa blanca"
+    },
+    "27e59065162c99fd": {
+      "name": "Abrigo de lana crema"
+    },
+    "0f0a9dc12a4785e3": {
+      "name": "Sombrero de tela vaquera"
+    },
+    "77a0a7e69e9cb3eb": {
+      "name": "Gafas tinte abisal"
+    },
+    "871a7c71df6c0c13": {
+      "name": "Chaqueta satinada siluro"
+    },
+    "8b44b1dce41b50b6": {
+      "name": "Mascarilla calamar"
+    },
+    "56268700452c1b25": {
+      "name": "Camiseta negra"
+    },
+    "80f6cfc13e62e6be": {
+      "name": "Cinta blanca"
+    },
+    "b7e40a7b549a79dd": {
+      "name": "Camisa retazos safari"
+    },
+    "9cea6b281c46f02d": {
+      "name": "Camiseta marinera"
+    },
+    "ec672b8e3a24967a": {
+      "name": "Velcro naranja"
+    },
+    "7cf59e349730844e": {
+      "name": "Chupa motera negra"
+    },
+    "d51664ffba14f9e2": {
+      "name": "Camiseta leopardo"
+    },
+    "4ccf03623757040e": {
+      "name": "Camisa octropical"
+    },
+    "043c63fb45d5e851": {
+      "name": "Gafas aviador oro"
+    },
+    "28ff27092935457f": {
+      "name": "Camisa cuadros ocres"
+    },
+    "c77eecb20c1f5181": {
+      "name": "Bota motorista"
+    },
+    "56fd188f51ae97fb": {
+      "name": "Náutico tostado"
+    },
+    "34b422786c86f418": {
+      "name": "Bota de agua verde"
+    },
+    "cb0b7ab8e7295dbf": {
+      "name": "Retrocamiseta blanca"
+    },
+    "e0f4077174545fd4": {
+      "name": "Camiseta básica"
+    },
+    "31cca66cb8302359": {
+      "name": "Gorra orejeras negra"
+    },
+    "c21d764e16dbfdec": {
+      "name": "Abrigo ártico"
+    },
+    "cbefacb0a5df777a": {
+      "name": "Bota ante desértica"
+    },
+    "89a2a0db33110dd2": {
+      "name": "Bamba alta oliva"
+    },
+    "e083c158245d4c48": {
+      "name": "Mocasín escualo"
+    },
+    "3270135c65096897": {
+      "name": "Mocasín caimán"
+    },
+    "d230f1d9b960725d": {
+      "name": "Gorra de diseño"
+    },
+    "7e8413f7b3cf5ceb": {
+      "name": "Hipocampo negra"
+    },
+    "616574265163e7e3": {
+      "name": "Polo rugby extra 008"
+    },
+    "9346b1b98476bbc1": {
+      "name": "Calamark+ roja y blanca"
+    },
+    "847c2657f38e53ef": {
+      "name": "Camuflaje morada"
+    },
+    "7b028b5cc1b7867d": {
+      "name": "Camisa medusas"
+    },
+    "e23a3865c0477fe8": {
+      "name": "Gorra camuflaje"
+    },
+    "45e49487d33db87f": {
+      "name": "Velcro multicolor"
+    },
+    "c4bba67c76b56fa1": {
+      "name": "Cinta tenis de mesa"
+    },
+    "8a7b18e5ddaae50f": {
+      "name": "Maillot ciclista"
+    },
+    "ae64690d1dab8d29": {
+      "name": "Hipocampo-A morada"
+    },
+    "4a6e438cb4859f08": {
+      "name": "Calamar larga"
+    },
+    "698e6beea41bd7f2": {
+      "name": "Umibozu local"
+    },
+    "e84215bb7666d575": {
+      "name": "Zapatilla verde neón"
+    },
+    "c41670529c10fb74": {
+      "name": "Gorra béisbol franela"
+    },
+    "7b9a5f033307914c": {
+      "name": "Tenis especial"
+    },
+    "52618e9157867562": {
+      "name": "Sombrero de paja"
+    },
+    "8ebfc778fd94f761": {
+      "name": "Sudadera gris con capucha"
+    },
+    "373e8fe2e4aaef53": {
+      "name": "Gorro de punto"
+    },
+    "e806e700efbcc80a": {
+      "name": "Bamba ultrablanca"
+    },
+    "e9eabd141adca3c8": {
+      "name": "Máscara antigás"
+    },
+    "6c75edfc2aec9aff": {
+      "name": "Gorra ciclista"
+    },
+    "2e5784eabfaf365a": {
+      "name": "Camiseta lluvia"
+    },
+    "30b02d8f6e4ba5ce": {
+      "name": "Gorra vuelta"
+    },
+    "e8c17867f35e97ba": {
+      "name": "Polo negro"
+    },
+    "b8d03155b8359cd4": {
+      "name": "Bota de agua roja"
+    },
+    "85113506dad12892": {
+      "name": "Deportiva rosa"
+    },
+    "8bb8e35a0861301b": {
+      "name": "Zapatilla morada"
+    },
+    "1bc59e492b8e911b": {
+      "name": "Camiseta blanca"
+    },
+    "a21a2cbeefca9a17": {
+      "name": "Careta béisbol local"
+    },
+    "21121bbf04be0ce6": {
+      "name": "Zapato rojo y azul"
+    },
+    "32fb257fbc67458c": {
+      "name": "Octogafas"
+    },
+    "9e941af8fd7f3a65": {
+      "name": "Chancla roja"
+    },
+    "754cbff89db13c07": {
+      "name": "Sudadera gris"
+    },
+    "3223d4cf801cf75e": {
+      "name": "Bota clásica roja"
+    },
+    "15986ad4b8822172": {
+      "name": "Gorra moderna"
+    },
+    "30b54946c324ee87": {
+      "name": "Auriculares pro"
+    },
+    "be93570b3dfcda47": {
+      "name": "Uniforme béisbol"
+    },
+    "e6b1d38ede3aa7d6": {
+      "name": "Retrogafas"
+    },
+    "a92b28638f891fd9": {
+      "name": "Camiseta pirata"
+    },
+    "a333316891127558": {
+      "name": "Bamba ultrarroja"
+    },
+    "cbf435379fe95dff": {
+      "name": "Bamba alta roja"
+    },
+    "541a455fbe3a624a": {
+      "name": "Rockenberg negra"
+    },
+    "dcb9dbc4b13d272a": {
+      "name": "Sudadera manatí"
+    },
+    "cab0f186ad1322fa": {
+      "name": "Bota montaña especial"
+    },
+    "7715c2bcc13a974e": {
+      "name": "Tenis naranja"
+    },
+    "b9cbb286c50180de": {
+      "name": "Zueco gris"
+    },
+    "b9072da6fffeb4db": {
+      "name": "Gafas transparentes"
+    },
+    "49c4378193f79511": {
+      "name": "Chaqueta impermeable caqui"
+    },
+    "a01cfea15f866ef4": {
+      "name": "Sandalia flechas azul"
+    },
+    "4db166f77d487365": {
+      "name": "Chaqueta de punto verde"
+    },
+    "2667f143da0e2bd4": {
+      "name": "Chupa motera blanca"
+    },
+    "ace43854cbc4c9f9": {
+      "name": "Zapatilla sashimi"
+    },
+    "d45bcfa397aec03c": {
+      "name": "Bota de nieve"
+    },
+    "804b511b4d2053d0": {
+      "name": "Gafas de buceo"
+    },
+    "b6d4e4220aa18f5f": {
+      "name": "Uniforme marinero blanco"
+    },
+    "9d3c5380b5ca659e": {
+      "name": "Auriculares acorazados"
+    },
+    "d0b16b85d6dc11ca": {
+      "name": "Deportiva AL-GA 30XX"
+    },
+    "bd7d231965eefb39": {
+      "name": "Cazadora estudiante"
+    },
+    "da568279ee87fafa": {
+      "name": "Gorro buscatesoros"
+    },
+    "e8cbe3c7f691dadc": {
+      "name": "Bamba pez payaso"
+    },
+    "c71f63b8ad569ac4": {
+      "name": "Auriculares estéreo"
+    },
+    "be9ae82550da96a3": {
+      "name": "Boina Annak con gafas"
+    },
+    "3528e2b33fb9474a": {
+      "name": "Camisa franela Annak"
+    },
+    "e87cc4250b483a12": {
+      "name": "Suela extra Annak"
+    },
+    "c7cdb065c09f67a4": {
+      "name": "Vectores doble"
+    },
+    "4ed3a76fa6dfb413": {
+      "name": "Mascarilla Chokkor"
+    },
+    "5db0e9f8bd1dff6a": {
+      "name": "Bota clásica amarilla"
+    },
+    "9e41a2025ac3bccd": {
+      "name": "Ojos calamar negra"
+    },
+    "cac6c7a04df6f1fa": {
+      "name": "Gorra de trabajo"
+    },
+    "a78a614805f7a641": {
+      "name": "Chaleco con camisa lisa"
+    },
+    "5aa899466fa9ddc9": {
+      "name": "Octosudadera azul y negra"
+    },
+    "84dc6deb53cc912d": {
+      "name": "Camiseta verde"
+    },
+    "8d93a94ab2bdb735": {
+      "name": "Cinta squash"
+    },
+    "e7ebb9753dfbdcc8": {
+      "name": "Gorra rey de la montaña"
+    },
+    "5633908a845e4e7c": {
+      "name": "Ojos calamar azul"
+    },
+    "c4093a765f80e764": {
+      "name": "Zapatilla roja"
+    },
+    "aa7ea4b2b45eae59": {
+      "name": "Sombrero safari"
+    },
+    "dc2e86e88752af50": {
+      "name": "Jersey de punto tiburones"
+    },
+    "4823fbbefd97ec52": {
+      "name": "Sudadera ancha negativa"
+    },
+    "26d9563c7966ad10": {
+      "name": "Gorra con líneas"
+    },
+    "ab1ceac8d4b32ee8": {
+      "name": "Camisa béisbol"
+    },
+    "7725ed498aefb0e5": {
+      "name": "Chaqueta satinada calamar"
+    },
+    "324a1892277505c4": {
+      "name": "Hipocampo amarilla"
+    },
+    "e9887854adfe42f4": {
+      "name": "Chaqueta orca negativa"
+    },
+    "fa42c0f96a64140a": {
+      "name": "Velcro elegante"
+    },
+    "b35955d7b890005d": {
+      "name": "Zapatilla azul"
+    },
+    "23f2126b48533e18": {
+      "name": "Camisa bolos"
+    },
+    "151deacf70ff815c": {
+      "name": "Sandalia ultrarrosa"
+    },
+    "7de63a6ea3188e45": {
+      "name": "Zapato con dedos rojo"
+    },
+    "f2a97473b7ff4994": {
+      "name": "Rockenberg blanca"
+    },
+    "eeb7f851d6d03a1c": {
+      "name": "Camiseta Chipirona FC"
+    },
+    "f49599b4fce20615": {
+      "name": "Bota energética"
+    },
+    "dec2087ca8cb0bfc": {
+      "name": "Casco ciclista"
+    },
+    "11b5ac727232c981": {
+      "name": "Zapato doble hebilla"
+    },
+    "aeaac39e2dc204f3": {
+      "name": "Camisa bordada pez corneta"
+    },
+    "0ec5cbbcd16bfe95": {
+      "name": "Hipocampo-A roja"
+    },
+    "43b1330110d98b43": {
+      "name": "Casco skate con visera"
+    },
+    "0cb3ba242150ff62": {
+      "name": "Gorra calamarciano"
+    },
+    "22b36194c34496c8": {
+      "name": "Gorro de pesca"
+    },
+    "ef331a7388c97a29": {
+      "name": "Cinta fútbol"
+    },
+    "1a34c66ac04618f2": {
+      "name": "Charanga calamar"
+    },
+    "5c6f69c9b678391a": {
+      "name": "Gorra malla Ezko"
+    },
+    "53342e08f018501c": {
+      "name": "Camisa cuadros rojos"
+    },
+    "22b42ad62ddcd07a": {
+      "name": "Maillot rey de la montaña"
+    },
+    "b385c1e1cb26d5ed": {
+      "name": "Camiseta ofídica"
+    },
+    "60ca4729e3f15d1e": {
+      "name": "Gorro tejido"
+    },
+    "21f40c5b5e0944c9": {
+      "name": "Playera azul"
+    },
+    "15cc79efd51771b5": {
+      "name": "Sandalia delta neón"
+    },
+    "a37864e4d90d134b": {
+      "name": "Cinta baloncesto"
+    },
+    "010738818c392695": {
+      "name": "Sudadera zapakrakien"
+    },
+    "4a2353a1575a8290": {
+      "name": "Boina fuerzas especiales"
+    },
+    "b2ad2d5ea085054d": {
+      "name": "Camiseta pulpalamar tándem"
+    },
+    "e310c94042779445": {
+      "name": "Octodeportiva roja"
+    },
+    "52a43aa594631dac": {
+      "name": "Gafas de natación"
+    },
+    "5875ae7d9d7b9bc9": {
+      "name": "Camisa de época"
+    },
+    "5ac23847a7403f5f": {
+      "name": "Gafas ajustables blancas"
+    },
+    "a8798b39bbe60dc9": {
+      "name": "Sudadera Ezko"
+    },
+    "2f6897d5337ef3c7": {
+      "name": "Tenis azul"
+    },
+    "670ca2ce87b93517": {
+      "name": "Camiseta degradado fuego"
+    },
+    "014836c7ad07a8a0": {
+      "name": "Camiseta Rayo Rodaballo"
+    },
+    "7977b53f60122aa5": {
+      "name": "Chaqueta con ventilación"
+    },
+    "b3b468c4167d50c9": {
+      "name": "Camiseta tripulpo"
+    },
+    "c1fb87d0986b3110": {
+      "name": "Gafas moteras"
+    },
+    "7deaf3ffc38d6e26": {
+      "name": "Pañuelo Barazushi"
+    },
+    "c1e95c3e79957842": {
+      "name": "Tenis básica principiante"
+    },
+    "e0db7f21921c8896": {
+      "name": "Gafas gruesas"
+    },
+    "663d2d0d77d19f7a": {
+      "name": "Chaleco bolsillos caqui"
+    },
+    "5ef885ea53ba7623": {
+      "name": "Casco caparazón"
+    },
+    "feefadef9c6913ca": {
+      "name": "Sudadera de jerga roja"
+    },
+    "8704ea9cb1b02be6": {
+      "name": "Sandalia ultraceleste"
+    },
+    "481c98f17ad59d5a": {
+      "name": "Deportiva aletas alta"
+    },
+    "a029e2ef214c22fe": {
+      "name": "Baloncesto visitante"
+    },
+    "ad006f42035ebcb4": {
+      "name": "Gorra futurista"
+    },
+    "48e546f1426ac978": {
+      "name": "Chubasquero frambuesa"
+    },
+    "2282d3ec5c8051f0": {
+      "name": "Bota montaña"
+    },
+    "071368490f760424": {
+      "name": "Chaqueta de remo negativa"
+    },
+    "412636790b35a65c": {
+      "name": "Bota de tacos"
+    },
+    "596fa31adf4aa87a": {
+      "name": "Chaqueta de chándal"
+    },
+    "82f87be2c3a9473c": {
+      "name": "Uniforme marinero azul"
+    },
+    "2c518328e23b6c3b": {
+      "name": "Camiseta Barazushi naranja"
+    },
+    "e73c1d9a445cda99": {
+      "name": "Camisa lino"
+    },
+    "10ab2df57e67ba18": {
+      "name": "Escafandra de buceo"
+    },
+    "29f17fd823703a0f": {
+      "name": "Camisa tropical hipocampos"
+    },
+    "35ffc82643c8e185": {
+      "name": "Camisa cuello redondo"
+    },
+    "f83c3e0b0e67da46": {
+      "name": "Chancla glóbulos"
+    },
+    "2b091623c0a70815": {
+      "name": "Paracaidista carmesí"
+    },
+    "2611e40d7416a442": {
+      "name": "Retrocamiseta negra"
+    },
+    "3e202b6ce2a582f1": {
+      "name": "Gafas redondas"
+    },
+    "330aacc363e5845e": {
+      "name": "Bamba alta crema"
+    },
+    "9d9836d97fda8ac7": {
+      "name": "Camiseta pulpo"
+    },
+    "72a39ca7750ebc9a": {
+      "name": "Mascarilla Annak"
+    },
+    "1653c4bd81c1fca0": {
+      "name": "Gorro con borla"
+    },
+    "8f2be32a75ddae98": {
+      "name": "Camiseta Annak collar"
+    },
+    "e6e15e567a79ecad": {
+      "name": "Camisa retazos urbana"
+    },
+    "13247e74e366ad11": {
+      "name": "Camiseta Sepioca arcoíris"
+    },
+    "7244bbb6fa6dd60c": {
+      "name": "Coraza cangrejo roja"
+    },
+    "d3e8ec173f27043d": {
+      "name": "Rugby tricolor"
+    },
+    "5be2787b792c09bb": {
+      "name": "Sombrero vaquero gemas"
+    },
+    "87b6100f3777fe50": {
+      "name": "Béisbol blanca"
+    },
+    "feb663db4af39d2d": {
+      "name": "Bota piel marrón"
+    },
+    "6531683ab4673e80": {
+      "name": "Hipocampo-B chocolate"
+    },
+    "b1602fce67fb450e": {
+      "name": "Camisa con corbata"
+    },
+    "7121355fe5d80761": {
+      "name": "Polo rugby extra 010"
+    },
+    "2ff1222353bca464": {
+      "name": "Calamark azul y negra"
+    },
+    "f870b775538d7bda": {
+      "name": "Bombín clásico"
+    },
+    "9cf4622ca7ce7e55": {
+      "name": "Cumbres marfil"
+    },
+    "e2aff5329f12f6c0": {
+      "name": "Gafas con tubo"
+    },
+    "5ef6db896d91815e": {
+      "name": "Gorra malla Sepioca"
+    },
+    "b230bdd781e25f18": {
+      "name": "Chocolate doble"
+    },
+    "26bde4f6c5b85ed2": {
+      "name": "Mostaza doble"
+    },
+    "8e1ef333aba79d20": {
+      "name": "Gorra medusianos"
+    },
+    "0b7dde5389d0ee8b": {
+      "name": "Camisa marcas"
+    },
+    "b9b4cb55323a7527": {
+      "name": "Chancla negra"
+    },
+    "59522e8c6e0c07d6": {
+      "name": "Deportiva negra"
+    },
+    "f96b3d08eb0694a1": {
+      "name": "Baloncesto local"
+    },
+    "058141cd5b316d2f": {
+      "name": "Sandalia ultranaranja"
+    },
+    "d34760401e956f50": {
+      "name": "Gorro de alta mar"
+    },
+    "f7eaa5e5ba5a13b7": {
+      "name": "Camiseta Barazushi arroz"
+    },
+    "0d687aec1c2a6479": {
+      "name": "Camisa cuadros verdes"
+    },
+    "1436f36ed60576f8": {
+      "name": "Calamark roja y negra"
+    },
+    "1dcd176bcc8a9a81": {
+      "name": "Plumífero lima"
+    },
+    "e8114c9ecd6ac82a": {
+      "name": "Sudadera retro"
+    },
+    "6ee344613c5c028e": {
+      "name": "Máscara industrial"
+    },
+    "52808e2a2d63e506": {
+      "name": "Mascarilla Forima"
+    },
+    "05f55d34f1214a58": {
+      "name": "Sudadera ancla"
+    },
+    "d775d09a4140449f": {
+      "name": "Rugby rayas"
+    },
+    "39bcec4d0355d54a": {
+      "name": "Anorak Barazushi"
+    },
+    "7ed4455ab20f5eae": {
+      "name": "Sudadera flechas"
+    },
+    "0251669c9a2a4b5e": {
+      "name": "Chubasquero lima"
+    },
+    "5c7a84791c254160": {
+      "name": "Marinera larga"
+    },
+    "4b8cb6a0fe561b78": {
+      "name": "Ancla doble"
+    },
+    "e827b09ca8ef70b4": {
+      "name": "Chancla amarilla"
+    },
+    "55ccbc201e874773": {
+      "name": "Sudadera verde"
+    },
+    "e989c1d6fbf8793d": {
+      "name": "Gafas de piloto"
+    },
+    "96d5af4512d5ae03": {
+      "name": "Ancla negra"
+    },
+    "ad08c74748807719": {
+      "name": "Negra larga"
+    },
+    "b460886d43061423": {
+      "name": "Bota clásica blanca"
+    },
+    "52c409d170293a57": {
+      "name": "Deportiva celeste"
+    },
+    "63d8eaa93e3fc816": {
+      "name": "Blanca larga rayas"
+    },
+    "79cac08df90185e7": {
+      "name": "Visera de marca"
+    },
+    "7f2c6e310407338f": {
+      "name": "Mascarilla glóbulos"
+    },
+    "2e7f830522350b1e": {
+      "name": "Auriculares octoestéreo"
+    },
+    "172290d83938d008": {
+      "name": "Sombrero parasol"
+    },
+    "ad48083990ed95aa": {
+      "name": "Gorra béisbol"
+    },
+    "9157ea3a67f9fac5": {
+      "name": "Visera tintada"
+    },
+    "bdd419c8c5293d6e": {
+      "name": "Tintaz doble"
+    },
+    "d4c18fe2dd802194": {
+      "name": "Béisbol universitario"
+    },
+    "4acbce907f616512": {
+      "name": "Sudadera marinera"
+    },
+    "d0b621ef1d45f241": {
+      "name": "Gafas redondas plata"
+    },
+    "7e300376c8890289": {
+      "name": "Suela extra blanca"
+    },
+    "a055f015e95f240e": {
+      "name": "Camisa cuadros retro"
+    },
+    "fbef99853ff68885": {
+      "name": "Visera transparente"
+    },
+    "31ea6a3eea5e21f0": {
+      "name": "Chaqueta retazos"
+    },
+    "9816563e1a920b12": {
+      "name": "Bota de tacos extra"
+    },
+    "d947da422eddbbef": {
+      "name": "Abrigo octariano Forima"
+    },
+    "841935d5b21844f4": {
+      "name": "Máscara protectora"
+    },
+    "7f3e6124903c83f1": {
+      "name": "Casco hockey"
+    },
+    "fac3e478c9f3f182": {
+      "name": "Camiseta degradado atardecer"
+    },
+    "01b1662df8836f48": {
+      "name": "Kalamas blanca larga"
+    },
+    "85e9989386171c1f": {
+      "name": "Tenis básica profesional"
+    },
+    "2fbabdc653413803": {
+      "name": "Camiseta de timbre piña"
+    },
+    "357263d4f91f363e": {
+      "name": "Casco motocross"
+    },
+    "bb6d68f21888cbfa": {
+      "name": "Camisa claroscuro"
+    },
+    "bd7c6a8f0191ed38": {
+      "name": "Casco skate"
+    },
+    "52e9806c34abb0b0": {
+      "name": "Traje comandante"
+    },
+    "162f1b11ca51e2fd": {
+      "name": "Sombrero cónico"
+    },
+    "36a5806084910ef4": {
+      "name": "Sudadera Chokkor"
+    },
+    "03d8d2955078ee57": {
+      "name": "Camiseta bicolor"
+    },
+    "4eb117d3a5aa5455": {
+      "name": "Visera golf"
+    },
+    "e42387337f76faf6": {
+      "name": "Anorak urbano día"
+    },
+    "3125b00f7fd15cad": {
+      "name": "Camiseta sol"
+    },
+    "aa16c23045178494": {
+      "name": "Chaqueta ajustable negativa"
+    },
+    "fb19bfd12b79e32d": {
+      "name": "Tenis escalada solar"
+    },
+    "c1cdbefa0d3d2f70": {
+      "name": "Gorra vaquera"
+    },
+    "834b9f01cf020eb7": {
+      "name": "Camisa tonos grises"
+    },
+    "cd97547e9c6a599a": {
+      "name": "Anorak montaña"
+    },
+    "caf2aa40d9aec693": {
+      "name": "Zapato formal"
+    },
+    "4a90769cb6dd4986": {
+      "name": "Camiseta Annak clásica"
+    },
+    "88416ed7bd575c5f": {
+      "name": "Camiseta blanca pro"
+    },
+    "b10618ef7470423a": {
+      "name": "Jersey puño azul"
+    },
+    "aced009ff69cddcb": {
+      "name": "Camisa de payaso"
+    },
+    "e3253efb57c5b7b4": {
+      "name": "Camiseta degradado neón"
+    },
+    "f9fc2fd370f27f0f": {
+      "name": "Camiseta Barazushi cerezo"
+    },
+    "441fc9c609fb78db": {
+      "name": "Bota motorista azul"
+    },
+    "72107d39c7bcdded": {
+      "name": "Playera bicolor"
+    },
+    "93707121f776c182": {
+      "name": "Playera roja"
+    },
+    "1989f89bb3683c76": {
+      "name": "Sombrero camuflaje"
+    },
+    "0f6542c7bce6a1bc": {
+      "name": "Gorro con borla negro"
+    },
+    "d76287251a1e80d6": {
+      "name": "Gafas ajustables negras"
+    },
+    "8213bcccf19e57af": {
+      "name": "Tintaz larga"
+    },
+    "d9943c007083e6f7": {
+      "name": "Camisa rayas"
+    },
+    "221d0311cd12d185": {
+      "name": "Bota de pato ártica"
+    },
+    "f2575241e38df613": {
+      "name": "Negra doble"
+    },
+    "d945e6abb1a996a1": {
+      "name": "Camiseta turquesa"
+    },
+    "8031db4a158a3989": {
+      "name": "Pañuelo clásico"
+    },
+    "533d8059221cc2b4": {
+      "name": "Camiseta reditada marrón"
+    },
+    "dc83c3421324afe6": {
+      "name": "Gorro liso"
+    },
+    "ce0e032a9b4af85d": {
+      "name": "Verde larga rayas"
+    },
+    "9dff73f3667fdcb6": {
+      "name": "Gorro a rayas"
+    },
+    "42ab92eaf82e62c2": {
+      "name": "Hipocampo blanca"
+    },
+    "5cda8399729f1da0": {
+      "name": "Bota clásica negra"
+    },
+    "4da9a3e38eacbe7e": {
+      "name": "Camisa tropical"
+    },
+    "32cd97b7e0986fac": {
+      "name": "Camiseta Annak sin mangas"
+    },
+    "0d3ee1609e03de03": {
+      "name": "Suela extra Annak tribal"
+    },
+    "27b32d23702d94c3": {
+      "name": "Pirata doble"
+    },
+    "a36e93fc754b5976": {
+      "name": "Hipocampo-A zombi"
+    },
+    "c8666480bf24eb6d": {
+      "name": "Pañuelo vuelto"
+    },
+    "53af593f14387630": {
+      "name": "Camiseta cebra"
+    },
+    "0fb0286fad46c510": {
+      "name": "Sombrero acampada"
+    },
+    "441a9f62090040d4": {
+      "name": "Zueco chocolate"
+    },
+    "2691ff00a9194f98": {
+      "name": "Suela extra turquesa"
+    },
+    "b4efe275a0125131": {
+      "name": "Cumbres larga"
+    },
+    "181f44dc42cbf585": {
+      "name": "Chaqueta retro"
+    },
+    "59792e4065882111": {
+      "name": "Camisa entintada"
+    },
+    "9054693c3406b3b6": {
+      "name": "Gorro comandante"
+    },
+    "6edabb924ca30eba": {
+      "name": "Camiseta de timbre manzana"
+    },
+    "b0cdccea20fe9e90": {
+      "name": "Hipocampo-A oro"
+    },
+    "213291c16e6652c8": {
+      "name": "Lentillas sin graduación"
+    },
+    "935b340da97b0b66": {
+      "name": "Vectores gris"
+    },
+    "1de5be8ab33dceac": {
+      "name": "Visor nocturno"
+    },
+    "937c341f17e5a9c1": {
+      "name": "Bamba plátano"
+    },
+    "f2188922df753fe4": {
+      "name": "Polo lima"
+    },
+    "ff76780318953100": {
+      "name": "Cinta atletismo"
+    },
+    "6cdfd6177ee63ef1": {
+      "name": "Zapato clásico"
+    },
+    "cdcc3d261b2c1828": {
+      "name": "Suela extra rosa"
+    },
+    "5bf6555d90b4df74": {
+      "name": "Abrigo Tonken"
+    },
+    "46820b5e398d1e36": {
+      "name": "Camisa estampada"
+    },
+    "4d4bb2908b58e139": {
+      "name": "Sandalia delta luminosa"
+    },
+    "763d513ccca9bf8b": {
+      "name": "Camiseta tricalamar"
+    },
+    "3979fa46ebaba2a7": {
+      "name": "Sombrero cónico ostras"
+    },
+    "b0870bfc3eb49fe3": {
+      "name": "Anorak urbano noche"
+    },
+    "6ec52267789770f5": {
+      "name": "Bota montaña pro"
+    },
+    "998629eaaa157867": {
+      "name": "Gorra parches"
+    },
+    "b7f3e26f8a1544f7": {
+      "name": "Visor de rastreo"
+    },
+    "16741989f7bc5677": {
+      "name": "Cascos antirruido"
+    },
+    "99d22d0532addd41": {
+      "name": "Gafas tintadas"
+    },
+    "99214ef4b56ffb20": {
+      "name": "Chaleco con camisa"
+    },
+    "f672fb25d7248ff7": {
+      "name": "Camuflaje doble"
+    },
+    "f5ca1c29b2047ef3": {
+      "name": "Zapato morado"
+    },
+    "8ab19ce5633846f9": {
+      "name": "Abrigo inkling Forima"
+    },
+    "5c0fc4542d1da5a4": {
+      "name": "Gorra doble con gafas"
+    },
+    "c4dbb5fea439175e": {
+      "name": "Velcro blanca"
+    },
+    "cc775dc2ff3964f8": {
+      "name": "Camiseta perlas"
+    },
+    "cf955552672b674c": {
+      "name": "Bota de hielo"
+    },
+    "e61bde3181df8c7a": {
+      "name": "Sudadera camuflaje"
+    },
+    "d79e64ab5db14090": {
+      "name": "Sandalia delta nieve"
+    },
+    "af8660445814e2b3": {
+      "name": "Bota piel roja"
+    },
+    "a7a660bef9c79e3b": {
+      "name": "Zapato azul"
+    },
+    "6eea9c713727092b": {
+      "name": "Chaqueta de punto naranja"
+    },
+    "b63342280edf91b5": {
+      "name": "Bota de lluvia"
+    },
+    "acabf9ac54637182": {
+      "name": "Anorak jungla"
+    },
+    "de48557eac2da8a6": {
+      "name": "Camiseta morada"
+    },
+    "0f3ac8b716be26ab": {
+      "name": "Traje retrofuturista"
+    },
+    "301a85fdbe03289b": {
+      "name": "Chaqueta Meddux 528"
+    },
+    "5078ec81ed6efea7": {
+      "name": "Sombrero de paja clásico"
+    },
+    "c2e392f6ed4cb720": {
+      "name": "Chándal retro Sepioca"
+    },
+    "d4e2330204850d48": {
+      "name": "Casco rugby decorado"
+    },
+    "46f23bcca7707183": {
+      "name": "Béisbol Ezko"
+    },
+    "e9859aa4fe3f0d1c": {
+      "name": "Polo salmón"
+    },
+    "41f0e7ec75716ddc": {
+      "name": "Visera Sepioca"
+    },
+    "5b0557344cd36425": {
+      "name": "Camiseta Chipirona FC"
+    },
+    "873bfeba1b933f45": {
+      "name": "Bota de tacos extra"
+    },
+    "32e5708015b6270b": {
+      "name": "Chaqueta ajustable negativa"
+    },
+    "022bf421f1783138": {
+      "name": "Gorro a rayas"
+    },
+    "bcb5b728741af87b": {
+      "name": "Sombrero vaquero gemas"
+    },
+    "54fafa40a7cd9067": {
+      "name": "Sandalia ultraceleste"
+    },
+    "165cd977ff77a706": {
+      "name": "Visor nocturno"
+    },
+    "b536f417bf39ed0a": {
+      "name": "Camiseta degradado atardecer"
+    },
+    "e4c369d93032f229": {
+      "name": "Traje retrofuturista"
+    },
+    "14fb4312bf1faea2": {
+      "name": "Gorra de trabajo"
+    },
+    "7f239deca08e5284": {
+      "name": "Camisa franela Annak"
+    },
+    "671364cfc53ad0f3": {
+      "name": "Visera transparente"
+    },
+    "1dfe5eb961eb0076": {
+      "name": "Sudadera mostaza"
+    },
+    "2f6388b4c18402f3": {
+      "name": "Deportiva negra"
+    },
+    "f67cd7c6f0d19029": {
+      "name": "Gafas con tubo"
+    },
+    "9e15c0322eb85f1a": {
+      "name": "Uniforme marinero blanco"
+    },
+    "f37c08c1d2550601": {
+      "name": "Casco rugby decorado"
+    },
+    "107192b2e9272b68": {
+      "name": "Gorra medusianos"
+    },
+    "de43e2f6b530fd2d": {
+      "name": "Cinta atletismo"
+    },
+    "bea92dbf4d62aa90": {
+      "name": "Zapato morado"
+    },
+    "230cc3b55472beac": {
+      "name": "Camiseta Barazushi cerezo"
+    },
+    "639d7496f4b7af1d": {
+      "name": "Pirata doble"
+    },
+    "c36f631780c921cf": {
+      "name": "Zapato clásico"
+    },
+    "0f459e011b7bb002": {
+      "name": "Gorra camuflaje"
+    },
+    "f21f24964aaa7066": {
+      "name": "Uniforme béisbol"
+    },
+    "d86aad39599f4065": {
+      "name": "Chancla roja"
+    },
+    "f48dd410da86210a": {
+      "name": "Octodeportiva roja"
+    },
+    "020cbdc9af5e3e45": {
+      "name": "Casco retrofuturista"
+    },
+    "64aab49611fc93c4": {
+      "name": "Sombrero de campana"
+    },
+    "b33d67ba5b4ab31a": {
+      "name": "Gorra béisbol franela"
+    },
+    "6a40a878005661b0": {
+      "name": "Hipocampo-A roja"
+    },
+    "b661146512d1322e": {
+      "name": "Tenis naranja"
+    },
+    "97c2fdf4bd9bb222": {
+      "name": "Mascarilla Forima"
+    },
+    "6de4a18c353d37a7": {
+      "name": "Gafas moteras"
+    },
+    "5dd8bdfbbe7e54e2": {
+      "name": "Camiseta Barazushi naranja"
+    },
+    "b3df787b7d14accd": {
+      "name": "Tenis básica principiante"
+    },
+    "4f451de9164badf0": {
+      "name": "Pañuelo Barazushi"
+    },
+    "f0e91a90325c86a2": {
+      "name": "Sudadera flechas"
+    },
+    "610a421d2a949858": {
+      "name": "Camisa con corbata"
+    },
+    "34db0a16d0ceb43d": {
+      "name": "Calamark azul y negra"
+    },
+    "a3eaa9fe5d855f41": {
+      "name": "Camiseta reditada marrón"
+    },
+    "ccd632c76a0dfcdc": {
+      "name": "Camisa marcas"
+    },
+    "644f56276a3130f2": {
+      "name": "Gafas tinte abisal"
+    },
+    "5b4fa9031de89d0c": {
+      "name": "Camiseta glóbulos rosa"
+    },
+    "6f907830cc4a8d57": {
+      "name": "Deportiva aletas alta"
+    },
+    "464b98ee7b3b1826": {
+      "name": "Camiseta turquesa"
+    },
+    "c5e7e526d4122983": {
+      "name": "Bamba alta roja"
+    },
+    "3500f899eb166d10": {
+      "name": "Retrocamiseta negra"
+    },
+    "b73fd0f89c6bd0b6": {
+      "name": "Sudadera ancla"
+    },
+    "14d5b8fddc16926c": {
+      "name": "Sandalia ultrarrosa"
+    },
+    "845b316cccec990e": {
+      "name": "Sudadera de jerga roja"
+    },
+    "22b8f34808bd3a1d": {
+      "name": "Visera tintada"
+    },
+    "53815ad9370322db": {
+      "name": "Camisa salpicadura"
+    },
+    "bb714e704b3d3ff3": {
+      "name": "Bota ostra blanca"
+    },
+    "39b74c520098b6c0": {
+      "name": "Zapato formal"
+    },
+    "166ae313ef584d58": {
+      "name": "Zueco chocolate"
+    },
+    "4e58107a7e152733": {
+      "name": "Bota de agua verde"
+    },
+    "58cf4382b2ccac9e": {
+      "name": "Gorra doble con gafas"
+    },
+    "dd0651ac758f0e0c": {
+      "name": "Camisa bolos"
+    },
+    "032291744634a68e": {
+      "name": "Bamba pez payaso"
+    },
+    "ff06f3e0350b7d42": {
+      "name": "Camisa bordada pez corneta"
+    },
+    "f05978d794e9dbed": {
+      "name": "Polo salmón"
+    },
+    "52a23a9e47969e4e": {
+      "name": "Zapatilla sashimi"
+    },
+    "2646b55fbb3eb64e": {
+      "name": "Blanca doble"
+    },
+    "6a8c440ac7e7fa06": {
+      "name": "Calamar larga"
+    },
+    "0ed9446ae2a3a4f9": {
+      "name": "Camisa lino"
+    },
+    "26e7a628ed34e552": {
+      "name": "Boina Annak"
+    },
+    "adbe82fa2da86d1e": {
+      "name": "Camiseta Annak sin mangas"
+    },
+    "f445f4e98b26be6f": {
+      "name": "Suela extra Annak"
+    },
+    "8d31d39aae6f1713": {
+      "name": "Vectores doble"
+    },
+    "ac95ab6feff12f2e": {
+      "name": "Zapatilla roja"
+    },
+    "077ab79c6af4a2ca": {
+      "name": "Bota de pato ártica"
+    },
+    "49229273190dec9c": {
+      "name": "Hipocampo negra"
+    },
+    "6bb6aaa795b2e1d0": {
+      "name": "Camisa entintada"
+    },
+    "25f8783c95f6df42": {
+      "name": "Casco motocross"
+    },
+    "3ae4bf025cd10453": {
+      "name": "Tenis especial"
+    },
+    "ef77d8d6c1b77631": {
+      "name": "Cinta baloncesto"
+    },
+    "0de76819ba6db45e": {
+      "name": "Bota montaña especial"
+    },
+    "9df69f0ea25b6c07": {
+      "name": "Tenis escalada solar"
+    },
+    "9f8f4c3d386715b2": {
+      "name": "Hipocampo amarilla"
+    },
+    "ab80ed25de6866d2": {
+      "name": "Bamba alta crema"
+    },
+    "b611ac13be703e89": {
+      "name": "Mascarilla octo Theutik"
+    },
+    "ff605fdcf2e810a4": {
+      "name": "Sudadera zapakrakien"
+    },
+    "8d2399d7e4a8dc54": {
+      "name": "Polo negro"
+    },
+    "2c7cdb6a60f1956c": {
+      "name": "Gorra malla Sepioca"
+    },
+    "81f6888c0af09c8a": {
+      "name": "Camiseta reditada azul"
+    },
+    "1e924094e8a7a9cf": {
+      "name": "Camisa claroscuro"
+    },
+    "e1c5b55e8e289883": {
+      "name": "Gafas de natación"
+    },
+    "8809f0a06f39d9ce": {
+      "name": "Baloncesto visitante"
+    },
+    "a907b1af05ca21dd": {
+      "name": "Velcro naranja"
+    },
+    "ec712f04e4e16ef7": {
+      "name": "Cinta fútbol"
+    },
+    "3de1617917f3891e": {
+      "name": "Camisa retazos urbana"
+    },
+    "0fb378b360db0eda": {
+      "name": "Gafas redondas plata"
+    },
+    "3e3584a685b92219": {
+      "name": "Camisa cuello redondo"
+    },
+    "ae6cebb2075d1bef": {
+      "name": "Suela extra rosa"
+    },
+    "edd86028e8a15697": {
+      "name": "Camuflaje doble"
+    },
+    "fb7207c8ae2c68a5": {
+      "name": "Bota de hielo"
+    },
+    "520dd7b84f4b0d7a": {
+      "name": "Máscara industrial"
+    },
+    "0647b7698074cf44": {
+      "name": "Camiseta negra"
+    },
+    "2d111c51efa16dcf": {
+      "name": "Auriculares multicolor"
+    },
+    "771073efa12490ba": {
+      "name": "Zapato con dedos rojo"
+    },
+    "53b5aa53aa00b7b3": {
+      "name": "Suela extra turquesa"
+    },
+    "d1d32898239578d3": {
+      "name": "Casco astado"
+    },
+    "2abc2617b7ca0f57": {
+      "name": "Deportiva orca soleada"
+    },
+    "4143f36fe1e54ab7": {
+      "name": "Deportiva rosa"
+    },
+    "03d5f18baaea8fc0": {
+      "name": "Hipocampo-B chocolate"
+    },
+    "3563c735804a09e4": {
+      "name": "Casco skate con visera"
+    },
+    "8357bf95b5912213": {
+      "name": "Charanga calamar"
+    },
+    "13e5d86453c55a2b": {
+      "name": "Sombrero de paja"
+    },
+    "cb29cf507690d98a": {
+      "name": "Gorra vuelta"
+    },
+    "3640d5f81539f503": {
+      "name": "Hipocampo blanca"
+    },
+    "47269fcfcabbc782": {
+      "name": "Gafas redondas"
+    },
+    "8f2be09f9abb7ccb": {
+      "name": "Camiseta degradado hielo"
+    },
+    "42589ff1d3d887b0": {
+      "name": "Camiseta pulpalamar tándem"
+    },
+    "aca9811fae6ebd28": {
+      "name": "Gorro de pesca"
+    },
+    "02eb3f1b43205e2f": {
+      "name": "Pañuelo vuelto"
+    },
+    "5856b235d7aba150": {
+      "name": "Camisa de payaso"
+    },
+    "50e736bfac15d862": {
+      "name": "Chaleco bolsillos caqui"
+    },
+    "808646c4aa0f6457": {
+      "name": "Deportiva celeste"
+    },
+    "fd887cccf2906c67": {
+      "name": "Gorro con borla"
+    },
+    "5f31e15c30e65e41": {
+      "name": "Jersey de punto tiburones"
+    },
+    "5914364358380b1a": {
+      "name": "Camisa tropical hipocampos"
+    },
+    "f21b90e17052b073": {
+      "name": "Camisa de época"
+    },
+    "9de6a55d0e7d1532": {
+      "name": "Gorra orejeras negra"
+    },
+    "363315d23dffb972": {
+      "name": "Bombín clásico"
+    },
+    "bc8dda8de25c745c": {
+      "name": "Bamba ultrablanca"
+    },
+    "c1a8c26856affc26": {
+      "name": "Ancla negra"
+    },
+    "ee94de5f1d4914d1": {
+      "name": "Lentillas sin graduación"
+    },
+    "8264e44e248fca1c": {
+      "name": "Chaqueta retro"
+    },
+    "553fa256959ae19c": {
+      "name": "Camuflaje morada"
+    },
+    "88d7384ac556ac71": {
+      "name": "Sandalia flechas azul"
+    },
+    "fb43159290f75d81": {
+      "name": "Béisbol universitario"
+    },
+    "c6fbed6d02b1a4ab": {
+      "name": "Octogafas"
+    },
+    "dcee539309bead7e": {
+      "name": "Gorro liso"
+    },
+    "eb4d4d676f24e2b9": {
+      "name": "Boina fuerzas especiales"
+    },
+    "6481cb10fec0fab3": {
+      "name": "Playera azul"
+    },
+    "94328b49199304b5": {
+      "name": "Playera bicolor"
+    },
+    "cb2e1853fed5bb18": {
+      "name": "Verde larga rayas"
+    },
+    "4fb2f0eccd0aefcf": {
+      "name": "Camiseta de timbre manzana"
+    },
+    "a9343a2231f67ad1": {
+      "name": "Chaqueta de remo negativa"
+    },
+    "68d1abdb0a14a38e": {
+      "name": "Zapatilla azul"
+    },
+    "ad599305868bdb30": {
+      "name": "Sudadera Chokkor"
+    },
+    "309a29eea36abfb4": {
+      "name": "Camisa béisbol"
+    },
+    "edcf321b99f16053": {
+      "name": "Béisbol Ezko"
+    },
+    "6020f88eda72ce9c": {
+      "name": "Mascarilla glóbulos"
+    },
+    "46978f8e65a171d3": {
+      "name": "Rockenberg negra"
+    },
+    "dce5f5d22c745b4f": {
+      "name": "Bota piel roja"
+    },
+    "ba0e6bd8b19c1589": {
+      "name": "Zapato azul"
+    },
+    "37a8947236c61232": {
+      "name": "Velcro elegante"
+    },
+    "f0497f5430747e45": {
+      "name": "Sombrero cónico"
+    },
+    "90ed2a3ed5963886": {
+      "name": "Sandalia delta neón"
+    },
+    "b5fbab180c5dc3e7": {
+      "name": "Camisa cuadros rojos"
+    },
+    "9e4bf04f7bdd91a9": {
+      "name": "Zapatilla morada"
+    },
+    "0d5ac21522734f30": {
+      "name": "Mascarilla Annak"
+    },
+    "7e3c92428cec4715": {
+      "name": "Camiseta Annak collar"
+    },
+    "349fadecc62409e7": {
+      "name": "Suela extra Annak tribal"
+    },
+    "3f05232d650c7467": {
+      "name": "Cinta squash"
+    },
+    "c749455d979a467e": {
+      "name": "Auriculares estéreo"
+    },
+    "c552777e3a31db60": {
+      "name": "Bota de agua roja"
+    },
+    "d7fff7546134348a": {
+      "name": "Tenis básica profesional"
+    },
+    "7122c82d094cbad8": {
+      "name": "Camiseta perlas"
+    },
+    "99962cbe8b9157c8": {
+      "name": "Hipocampo-A zombi"
+    },
+    "c4967d483b4a7293": {
+      "name": "Gafas aviador oro"
+    },
+    "c3f4230208339596": {
+      "name": "Gorra futurista"
+    },
+    "ef44c8d54fbe03ba": {
+      "name": "Chaqueta satinada siluro"
+    },
+    "f6ebc451ec2d29be": {
+      "name": "Bamba ultrarroja"
+    },
+    "924dcaf66eb6d0f3": {
+      "name": "Vectores roja"
+    },
+    "59815deb13d9d8ae": {
+      "name": "Camiseta tricalamar"
+    },
+    "bc26fcccdec0a6da": {
+      "name": "Gorro tejido"
+    },
+    "9764a1e9d9d51706": {
+      "name": "Retrogafas"
+    },
+    "bcff9a76de760cd3": {
+      "name": "Gafas Annak cuadradas"
+    },
+    "ab56fbfe1b844f9e": {
+      "name": "Camiseta tripulpo"
+    },
+    "df50d7deaa59949e": {
+      "name": "Zueco gris"
+    },
+    "a196ff26fb407f38": {
+      "name": "Calamark+ roja y blanca"
+    },
+    "f359a2ee18129468": {
+      "name": "Chaqueta satinada calamar"
+    },
+    "fdb92c8b3c05fc25": {
+      "name": "Chupa motera negra"
+    },
+    "d24ec1ac4f32ab65": {
+      "name": "Deportiva wasabi"
+    },
+    "b5618eeec40534ba": {
+      "name": "Negra doble"
+    },
+    "7a8f918bd5533667": {
+      "name": "Chupa motera blanca"
+    },
+    "4a1abb8ec72bdb44": {
+      "name": "Bota clásica amarilla"
+    },
+    "407c06b41fc7fd8a": {
+      "name": "Auriculares pro"
+    },
+    "c4e6458376a142eb": {
+      "name": "Gafas ajustables negras"
+    },
+    "ea51dd77650a15bc": {
+      "name": "Bota motorista"
+    },
+    "41c55c011078c88d": {
+      "name": "Bota de tacos"
+    },
+    "c093e05fd52e5e74": {
+      "name": "Gorro de alta mar"
+    },
+    "7b5c70fb861231bb": {
+      "name": "Anorak urbano día"
+    },
+    "5534e82363e3828b": {
+      "name": "Béisbol blanca"
+    },
+    "0d11119906fc8dfd": {
+      "name": "Gafas de natación elegantes"
+    },
+    "922ab622dd80308a": {
+      "name": "Gorra vaquera"
+    },
+    "2f8ca1ef4b452c83": {
+      "name": "Sombrero parasol"
+    },
+    "a5ddb4bd0d128785": {
+      "name": "Cumbres marfil"
+    },
+    "2b4b7313b5c5b509": {
+      "name": "Careta béisbol local"
+    },
+    "689839e7192a445d": {
+      "name": "Gorra parches"
+    },
+    "ad580141546a45ad": {
+      "name": "Camiseta blanca pro"
+    },
+    "c73a0f101ac9bc77": {
+      "name": "Mascarilla calamar"
+    },
+    "01d5c109bfdbefb6": {
+      "name": "Camiseta blanca"
+    },
+    "7d9eaf41429a15e0": {
+      "name": "Protector de mandíbula"
+    },
+    "8c04ff42acf817c1": {
+      "name": "Maillot rey de la montaña"
+    },
+    "9e3706d8ad88af66": {
+      "name": "Chaqueta ídolo musical"
+    },
+    "fe67137750f84a90": {
+      "name": "Rugby rayas"
+    },
+    "375899ec709e6752": {
+      "name": "Vectores gris"
+    },
+    "f041a4d08be16423": {
+      "name": "Gorra moderna"
+    },
+    "5720e976710c3988": {
+      "name": "Camisa blanca"
+    },
+    "fde83159c6a4dd52": {
+      "name": "Bota impermeable"
+    },
+    "6d2061be537d3134": {
+      "name": "Camiseta pez globo"
+    },
+    "a242908b34fc7696": {
+      "name": "Bota clásica blanca"
+    },
+    "687f422b32db5b3b": {
+      "name": "Gafas gruesas"
+    },
+    "929b44ba55cd192b": {
+      "name": "Polo rugby extra 010"
+    },
+    "485fd707635e0b68": {
+      "name": "Camiseta sol"
+    },
+    "80c2339dc6b430b0": {
+      "name": "Bota ante desértica"
+    },
+    "b69ddf6a87cbc725": {
+      "name": "Deportiva AL-GA 30XX"
+    },
+    "6f21683f5f49f466": {
+      "name": "Bota clásica roja"
+    },
+    "7202b06ebe99ae80": {
+      "name": "Camiseta verde"
+    },
+    "2e92df51b55f4ede": {
+      "name": "Cascos antirruido"
+    },
+    "af71bf55a10c58fa": {
+      "name": "Camisa estampada"
+    },
+    "3baf3fe9f83cb7ab": {
+      "name": "Auriculares acorazados"
+    },
+    "cd3962089969a1fb": {
+      "name": "Gorra con líneas"
+    },
+    "3425e298dc3ae3a8": {
+      "name": "Sudadera camuflaje"
+    },
+    "6b9446521205bca4": {
+      "name": "Visera golf"
+    },
+    "40abebcc874bc498": {
+      "name": "Sombrero de paja clásico"
+    },
+    "94919ff195bf7e57": {
+      "name": "Casco skate"
+    },
+    "c8838d81157d8cfc": {
+      "name": "Camiseta pulpo"
+    },
+    "bda6efb218732916": {
+      "name": "Camisa cuadros verdes"
+    },
+    "1ab1c420deae9d99": {
+      "name": "Polo rugby extra 008"
+    },
+    "d02484a216f59d30": {
+      "name": "Cinta tenis"
+    },
+    "1a9b9d4bc02192e9": {
+      "name": "Rockenberg blanca"
+    },
+    "a7debe539a584c52": {
+      "name": "Gorra calamarciano"
+    },
+    "a4e997f449149409": {
+      "name": "Cinta tenis de mesa"
+    },
+    "93ec4226623f88bd": {
+      "name": "Tintaz doble"
+    },
+    "f2c54f819291e8c0": {
+      "name": "Tenis azul"
+    },
+    "ddd54257197eba57": {
+      "name": "Camisa cuadros retro"
+    },
+    "877eb0c9258b904b": {
+      "name": "Gafas de piloto"
+    },
+    "bbc5dcdb8c4ace85": {
+      "name": "Mocasín escualo"
+    },
+    "72d59274c3532410": {
+      "name": "Rugby tricolor"
+    },
+    "fc930f680e403928": {
+      "name": "Chubasquero lima"
+    },
+    "3ae4fd56bef51592": {
+      "name": "Visera de marca"
+    },
+    "35977e28181a0a29": {
+      "name": "Sombrero safari"
+    },
+    "49549cdc599039f9": {
+      "name": "Bota de nieve"
+    },
+    "7da4267dbe72c548": {
+      "name": "Ojos calamar negra"
+    },
+    "5cd5d860449e5dfe": {
+      "name": "Velcro blanca"
+    },
+    "af60e641db707a20": {
+      "name": "Chaqueta de chándal"
+    },
+    "fe8f675324b4d4dd": {
+      "name": "Casco hockey"
+    },
+    "268eb9cc2f878021": {
+      "name": "Camisa rayas"
+    },
+    "d9f87ca945f48c33": {
+      "name": "Chancla glóbulos"
+    },
+    "21209b23c56be140": {
+      "name": "Sombrero de tela vaquera"
+    },
+    "e97e793e9abeb305": {
+      "name": "Mocasín caimán"
+    },
+    "e5dd7cea0689d0e8": {
+      "name": "Bota de lluvia"
+    },
+    "7135a4cfcc976f70": {
+      "name": "Camiseta Rayo Rodaballo"
+    },
+    "f3f71bd9d8cc8670": {
+      "name": "Mostaza doble"
+    },
+    "2322523514391611": {
+      "name": "Gorra de diseño"
+    },
+    "797d94c82a58a2dd": {
+      "name": "Sombrero cónico ostras"
+    },
+    "219e27353c8d8b8b": {
+      "name": "Pañuelo clásico"
+    },
+    "c1f0da9544b68681": {
+      "name": "Chaleco con camisa lisa"
+    },
+    "49b64342ad392190": {
+      "name": "Sombrero acampada"
+    },
+    "f89e6b05bd25b0cb": {
+      "name": "Camiseta básica"
+    },
+    "a805c2a7f5be45e8": {
+      "name": "Camisa tropical"
+    },
+    "ec77f4ff49185d6c": {
+      "name": "Náutico tostado"
+    },
+    "5cfe62645d9c13e2": {
+      "name": "Tintaz larga"
+    },
+    "9088bd2213ba7f6f": {
+      "name": "Cinta blanca"
+    },
+    "1095d26889f8d14a": {
+      "name": "Chaqueta retazos"
+    },
+    "8bc72431627b3b8c": {
+      "name": "Playera roja"
+    },
+    "0758ad01236afdf7": {
+      "name": "Camiseta Barazushi arroz"
+    },
+    "d472410b5448cafc": {
+      "name": "Gorro de punto"
+    },
+    "0ada092cf002c607": {
+      "name": "Deportiva megatensión"
+    },
+    "f684f56be6a50d22": {
+      "name": "Camisa tonos grises"
+    },
+    "7ee0f9e2b3e8b734": {
+      "name": "Sandalia delta nieve"
+    },
+    "27326e0984c69d61": {
+      "name": "Boina Annak con gafas"
+    },
+    "ae28605434b4f96d": {
+      "name": "Gorra béisbol"
+    },
+    "279f03edfec347e6": {
+      "name": "Blanca larga rayas"
+    },
+    "03657609a5383fd8": {
+      "name": "Cazadora estudiante"
+    },
+    "043b5e53546d5989": {
+      "name": "Camiseta degradado fuego"
+    },
+    "cb2b1657512a88a5": {
+      "name": "Pañuelo calavera"
+    },
+    "dabfba2134e9111d": {
+      "name": "Zapato doble hebilla"
+    },
+    "f127c8d7674c4620": {
+      "name": "Retrocamiseta blanca"
+    },
+    "16348f8c466079c4": {
+      "name": "Bota piel marrón"
+    },
+    "33778454d822eea6": {
+      "name": "Suela extra blanca"
+    },
+    "df2accb1fb986f19": {
+      "name": "Ojos calamar azul"
+    },
+    "9d4307c244d67a8a": {
+      "name": "Sudadera Ezko"
+    },
+    "ca2b2fdd4dbff31d": {
+      "name": "Casco ciclista"
+    },
+    "9ae6fdc4bfadb32f": {
+      "name": "Bota montaña pro"
+    },
+    "5780ff9f95bf952a": {
+      "name": "Sudadera gris con capucha"
+    },
+    "baecc21b3df75989": {
+      "name": "Camiseta de timbre piña"
+    },
+    "a5b1931e7350ee7e": {
+      "name": "Bota ídolo musical"
+    },
+    "6490c9b2d3e9e55c": {
+      "name": "Camiseta Sepioca arcoíris"
+    },
+    "d9b6af6685f32635": {
+      "name": "Camiseta pirata"
+    },
+    "6e470bc87582e65f": {
+      "name": "Casco caparazón"
+    },
+    "ca44e6f72d227bc7": {
+      "name": "Abrigo inkling Forima"
+    },
+    "e9a9583478105368": {
+      "name": "Gafas de buceo"
+    },
+    "447e163eb5e91c11": {
+      "name": "Kalamas blanca larga"
+    },
+    "6239fc0d6546d4ce": {
+      "name": "Máscara antigás"
+    },
+    "cef84ba92071d475": {
+      "name": "Chancla amarilla"
+    },
+    "9163083f8b43ee39": {
+      "name": "Camisa octropical"
+    },
+    "a3c8d0b074dfdc24": {
+      "name": "Gorra rey de la montaña"
+    },
+    "81fb8c10755777c8": {
+      "name": "Sombrero camuflaje"
+    },
+    "4e6a0c2993910076": {
+      "name": "Gafas transparentes"
+    },
+    "238aa5a08883c76e": {
+      "name": "Bota motorista azul"
+    },
+    "f552243dffd76af2": {
+      "name": "Chaleco con camisa"
+    },
+    "49c452781177d633": {
+      "name": "Gafas ajustables blancas"
+    },
+    "d212072056094742": {
+      "name": "Sudadera verde"
+    },
+    "c40f8886f06a98c2": {
+      "name": "Gorra ciclista"
+    },
+    "03b0da89cfcfe463": {
+      "name": "Paracaidista carmesí"
+    },
+    "e90d10cbc94a4305": {
+      "name": "Máscara protectora"
+    },
+    "fce054d3ceb37c00": {
+      "name": "Camiseta lluvia"
+    },
+    "e97c7d2b14c2c7f3": {
+      "name": "Camiseta degradado neón"
+    },
+    "29060f4096d9748d": {
+      "name": "Béisbol negra"
+    },
+    "0587111241fa2676": {
+      "name": "Camiseta morada"
+    },
+    "d19dd2ff9d46ed73": {
+      "name": "Anorak Barazushi"
+    },
+    "bd0b6a5b9644670c": {
+      "name": "Chaqueta orca negativa"
+    },
+    "7dc41ca5666da73d": {
+      "name": "Gafas ovaladas dobles"
+    },
+    "1340619784620f8c": {
+      "name": "Zapato rojo y azul"
+    },
+    "f48ca09d46db8416": {
+      "name": "Gafas tintadas"
+    },
+    "91cbaf4d221a868d": {
+      "name": "Ancla blanca"
+    },
+    "96c8d17e70de2eb5": {
+      "name": "Mascarilla Chokkor"
+    },
+    "9ebbd722f94f18c0": {
+      "name": "Bamba plátano"
+    },
+    "822ecce491d7169d": {
+      "name": "Camisa medusas"
+    },
+    "8fb3c55fb9483589": {
+      "name": "Sudadera ancha negativa"
+    },
+    "c06825c4fa96529b": {
+      "name": "Sudadera gris"
+    },
+    "ad92fbc1d2a018a6": {
+      "name": "Marinera larga"
+    },
+    "fe89d6fe118a1082": {
+      "name": "Sandalia ultranaranja"
+    },
+    "24076aa304814391": {
+      "name": "Chancla negra"
+    },
+    "a43fb7d3698b62fa": {
+      "name": "Velcro multicolor"
+    },
+    "a3a474685c6dccc7": {
+      "name": "Bota energética"
+    },
+    "78bed018d9c457b9": {
+      "name": "Camisa cuadros ocres"
+    },
+    "c20f02fd42c83ed8": {
+      "name": "Anorak montaña"
+    },
+    "34ea327e3101a9d9": {
+      "name": "Camiseta cebra"
+    },
+    "4b6107b3fd6f9204": {
+      "name": "Cumbres larga"
+    },
+    "448f2ec0069b99b7": {
+      "name": "Zapatilla verde neón"
+    },
+    "3079b092607313fd": {
+      "name": "Sandalia delta luminosa"
+    },
+    "56cb73e0e01cb36a": {
+      "name": "Chaqueta con ventilación"
+    },
+    "fa7e974e8af06a5d": {
+      "name": "Gafas 3D"
+    },
+    "8ced9dc8330b5dc3": {
+      "name": "Abrigo de lana crema"
+    },
+    "866a08cf40deb604": {
+      "name": "Coraza cangrejo roja"
+    },
+    "f61d8502d2864a59": {
+      "name": "Calamark roja y negra"
+    },
+    "68b07806f87b7fdc": {
+      "name": "Hipocampo-A oro"
+    },
+    "fd69616af9d65ea1": {
+      "name": "Ancla doble"
+    },
+    "4153cf3a13213beb": {
+      "name": "Bota montaña"
+    },
+    "3ffc6dab701c8088": {
+      "name": "Camiseta leopardo"
+    },
+    "d477323916cd5c9d": {
+      "name": "Auriculares octoestéreo"
+    },
+    "cb394cc96c28628e": {
+      "name": "Chaqueta de punto verde"
+    },
+    "f295015cb0bdb14c": {
+      "name": "Camiseta Annak clásica"
+    },
+    "30d9d21a0c737542": {
+      "name": "Gorra malla Ezko"
+    },
+    "e8896a6fe1d958b0": {
+      "name": "Anorak jungla"
+    },
+    "53cf395da163419e": {
+      "name": "Abrigo Tonken"
+    },
+    "2a0dcc1ebb5d0aab": {
+      "name": "Sudadera manatí"
+    },
+    "a12c002b9fbdd89e": {
+      "name": "Jersey puño azul"
+    },
+    "2665aa6be3dd37dd": {
+      "name": "Chubasquero frambuesa"
+    },
+    "77eb1354aaaa1bd0": {
+      "name": "Plumífero lima"
+    },
+    "08a29f2c233a9830": {
+      "name": "Baloncesto local"
+    },
+    "6fa1c75d84696301": {
+      "name": "Camiseta ofídica"
+    },
+    "8b0acdb34251b7de": {
+      "name": "Gabardina de hacker"
+    },
+    "7c6ace01914078ce": {
+      "name": "Maillot ciclista"
+    },
+    "750183f042bd1db2": {
+      "name": "Camisa retazos safari"
+    },
+    "2d26be71b5e05c99": {
+      "name": "Gorro buscatesoros"
+    },
+    "4acc71634cf0c49d": {
+      "name": "Uniforme marinero azul"
+    },
+    "961843e8ba4940f8": {
+      "name": "Umibozu local"
+    },
+    "cd6fc0172053df61": {
+      "name": "Bota clásica negra"
+    },
+    "ac60a10353017222": {
+      "name": "Sudadera retro"
+    },
+    "a4fa58043fb830ae": {
+      "name": "Anorak urbano noche"
+    },
+    "abf447be716c1706": {
+      "name": "Gorro con borla negro"
+    },
+    "b85b682621cc7442": {
+      "name": "Chaqueta Meddux 528"
+    },
+    "80ec83b0038dd076": {
+      "name": "Abrigo octariano Forima"
+    },
+    "fec27befca72c566": {
+      "name": "Gorra bicolor"
+    },
+    "95beb8064d1e8b10": {
+      "name": "Octosudadera azul y negra"
+    },
+    "c04f7023e2c335be": {
+      "name": "Chándal retro Sepioca"
+    },
+    "647839916e8213a5": {
+      "name": "Negra larga"
+    },
+    "17c6bb9a8ee265d6": {
+      "name": "Chocolate doble"
+    },
+    "65dfcf665903cfbd": {
+      "name": "Hipocampo-A morada"
+    },
+    "802a75b77d81cfee": {
+      "name": "Patín jurel"
+    },
+    "bd2ef5b10854405c": {
+      "name": "Camiseta Sepioca cosmos"
+    },
+    "932601d19123295d": {
+      "name": "Polo lima"
+    },
+    "e5ad5ddbf4cb32ca": {
+      "name": "Camiseta bicolor"
+    },
+    "8bb43bfd2d665e2e": {
+      "name": "Bamba alta oliva"
+    },
+    "8ba8f7916fee909a": {
+      "name": "Camiseta marinera"
+    },
+    "7bc703d182d4e506": {
+      "name": "Chaqueta neotemporal"
+    },
+    "e80f64d26b7adb9e": {
+      "name": "Camiseta liguera"
+    },
+    "c5755274c5a0c59f": {
+      "name": "Sudadera octo roja"
+    },
+    "8e0f4d608d3eacb1": {
+      "name": "Calamark+ miel"
+    },
+    "c87f70d6fa4a9a65": {
+      "name": "Chaqueta impermeable caqui"
+    },
+    "e197e4e23acc4182": {
+      "name": "Mascarilla camuflaje Forima"
+    },
+    "7fdbb43946ec6297": {
+      "name": "Zapakrakien tiza"
+    },
+    "56d06c205b8a7ebc": {
+      "name": "Chaqueta aviador vuelta"
+    },
+    "8cebb0e49b4e3e2c": {
+      "name": "Camiseta hockey Theutik"
+    },
+    "da632ce42f54490b": {
+      "name": "Bamba crema"
+    },
+    "535a8474b6f697ad": {
+      "name": "Gorra doblada Theutik"
+    },
+    "9c0aee99b016f5db": {
+      "name": "Deportiva ante multicolor"
+    },
+    "55cdb4e56f49e558": {
+      "name": "Zapakrakien oro"
+    },
+    "547d8af04660898f": {
+      "name": "Deportiva futurista azul"
+    },
+    "1cb376884d36078c": {
+      "name": "Deportiva violeta"
+    },
+    "9ba4020f41929d25": {
+      "name": "Camisa de lunares"
+    },
+    "e5eae9ab82cc9a16": {
+      "name": "Camiseta Don Pulpón"
+    },
+    "427e38ef64ca14ba": {
+      "name": "Pañuelo vuelto negro"
+    },
+    "899420e993e16273": {
+      "name": "Camiseta holgada lima"
+    },
+    "59cdb008bb9c547c": {
+      "name": "Abrigo ártico"
+    },
+    "332641fa838b2e5a": {
+      "name": "Bota de tacos elegante"
+    },
+    "b9c4100e8f08619c": {
+      "name": "Hipocampo-B simple blanca"
+    },
+    "7573da037608e9ae": {
+      "name": "Octo hockey Theutik"
+    },
+    "b2c983286319ca1c": {
+      "name": "Gorro zigzag"
+    },
+    "7a18f1a6fb75e061": {
+      "name": "Megabota roja"
+    },
+    "f0d0456799e894a6": {
+      "name": "Sombrero plantas"
+    },
+    "051b30eda8b58b9e": {
+      "name": "Bota impermeable verde"
+    },
+    "ad75f381c18583b7": {
+      "name": "Camiseta Doña Pulpona"
+    },
+    "cad0556ac4e06714": {
+      "name": "Sudadera atlética Sepioca"
+    },
+    "1a4fc14d2703585f": {
+      "name": "Ezko rábano larga"
+    },
+    "ba9bcecbe0b37cdf": {
+      "name": "Camiseta amistosa"
+    },
+    "c3a04785f4eca419": {
+      "name": "Camiseta Arome azul"
+    },
+    "cbfe2d21d8fe7a07": {
+      "name": "Jersey puño rojo"
+    },
+    "c4685d379082c2e2": {
+      "name": "Camiseta holgada rosa"
+    },
+    "1fea522b14e27847": {
+      "name": "Deportiva ante turquesa"
+    },
+    "daec38a5bc7c3e59": {
+      "name": "Maillot velocista plata"
+    },
+    "d9dc51dc43d33701": {
+      "name": "Zapato gris y amarillo"
+    },
+    "74de3873017ce340": {
+      "name": "Camiseta octo negra Theutik"
+    },
+    "3713c999b29e8c01": {
+      "name": "Zapakrakien plata"
+    },
+    "4f99e5c66aad12c1": {
+      "name": "Gabardina Ezko turquesa"
+    },
+    "ec6590d0dd15a5a1": {
+      "name": "Velcro atlética"
+    },
+    "a6952fb74167f392": {
+      "name": "Camiseta Arome"
+    },
+    "0755dfa2ac2318a7": {
+      "name": "Deportiva orca"
+    },
+    "73bade4d3649905c": {
+      "name": "Gorro infiltración"
+    },
+    "7a88d5dfbe30774f": {
+      "name": "Paracaidista arándano"
+    },
+    "c1ace23e1c06f1c4": {
+      "name": "Tirantes blanca Theutik"
+    },
+    "4bc2097b3fac8300": {
+      "name": "Botín Krakien marino"
+    },
+    "e94c292e5fb008d0": {
+      "name": "Máscara Squid King"
+    },
+    "1ecc180b661f1244": {
+      "name": "Sudadera marinera"
+    },
+    "e48d3e8064323c13": {
+      "name": "Mocasín piraña"
+    },
+    "9820df97f859a016": {
+      "name": "Chaqueta satinada pulpo"
+    },
+    "93fe84ba8a9abcce": {
+      "name": "Sudadera ancha positiva"
+    },
+    "c97ea2fd29776617": {
+      "name": "Camiseta logo blanca"
+    },
+    "30fe4268374ac134": {
+      "name": "Auriculares deportivos"
+    },
+    "66f9750b9bd86775": {
+      "name": "Chaqueta kung-fu"
+    },
+    "7a490814ed98d01d": {
+      "name": "Zapato elegante"
+    },
+    "de41fbc457077ad0": {
+      "name": "Deportiva futurista negra"
+    },
+    "f8333ab0e1d86794": {
+      "name": "Casco motocross opaco"
+    },
+    "b06b8deef0b3e0a5": {
+      "name": "Camiseta Chirpy Chips"
+    },
+    "af346e548cb6b4d1": {
+      "name": "Tenis escalada natura"
+    },
+    "54b65fd857f7aaee": {
+      "name": "Retrocamiseta+ azul"
+    },
+    "4da9007a0ff47efd": {
+      "name": "Jersey puño amarillo"
+    },
+    "dc7da58ba73a0a43": {
+      "name": "Megabota azulada"
+    },
+    "f219ad755cfbbfa6": {
+      "name": "Chubasquero montañés"
+    },
+    "946ec833149a3ca2": {
+      "name": "Deportiva futurista roja"
+    },
+    "b341ae28f69ee30c": {
+      "name": "Camiseta Arome roja"
+    },
+    "4b7b3a4229e29dc5": {
+      "name": "Zapatilla alta ámbar"
+    },
+    "618f64b8ea656029": {
+      "name": "Sudadera media manga"
+    },
+    "357a3c08594a278c": {
+      "name": "Camiseta béisbol octo"
+    },
+    "44f01da5afb25f4c": {
+      "name": "Bamba encaje verde"
+    },
+    "801beab26083fca8": {
+      "name": "Gabardina Ezko limón"
+    },
+    "6a2e837a682a2db9": {
+      "name": "Camiseta negra pro"
+    },
+    "92917595854b262e": {
+      "name": "Deportiva futurista naranja"
+    },
+    "eb112ff59e8a2c04": {
+      "name": "Chaqueta aviador"
+    },
+    "040571f7835a7829": {
+      "name": "Sombrero pez globo"
+    },
+    "dfcd2c583e872ced": {
+      "name": "Deportiva orca vistosa"
+    },
+    "85fd53d1b0cfb9d2": {
+      "name": "Deportiva de malla naranja"
+    },
+    "c5b83741b6cd41b1": {
+      "name": "Chaqueta F-3 decorada"
+    },
+    "5814270de809fa99": {
+      "name": "Chaleco elegante"
+    },
+    "d785e688317398ec": {
+      "name": "Megabota elegante"
+    },
+    "32a4e7bb135400ee": {
+      "name": "Cubrenariz motocross"
+    },
+    "0a11e649f99c5d3f": {
+      "name": "Sudadera octo negra"
+    },
+    "b6f9a937ceadd04a": {
+      "name": "Camiseta Squid Squad"
+    },
+    "73cffaddc2124b2e": {
+      "name": "Gorra visera larga"
+    },
+    "dab9b9c2a1829473": {
+      "name": "Gorra pez globo"
+    },
+    "29ab812cee5dae5f": {
+      "name": "Casco rugby reforzado"
+    },
+    "f1ddaf0b08059eee": {
+      "name": "Bota de boxeo"
+    },
+    "785256dcaa77e9e4": {
+      "name": "Chaqueta de pana bordada"
+    },
+    "b91392fb40960610": {
+      "name": "Camiseta octo verde Theutik"
+    },
+    "c6c5bd47083d4497": {
+      "name": "Chaqueta de punto naranja"
+    },
+    "952245bb74d9875a": {
+      "name": "Playera lunares"
+    },
+    "e1a9e0f133d5516b": {
+      "name": "Chubasquero guindilla"
+    },
+    "ff56d19eb5c55ead": {
+      "name": "Gorro retales"
+    },
+    "340ae557a37310d8": {
+      "name": "Ezko calabaza larga"
+    },
+    "51fb55a6432642a2": {
+      "name": "Chancla conchas"
+    },
+    "44661af07c20bd37": {
+      "name": "Camiseta Hightide Era"
+    },
+    "48ef706828d63d58": {
+      "name": "Zapato doble hebilla negro"
+    },
+    "d48d03756430c0f9": {
+      "name": "Hipocampo-B celeste"
+    },
+    "b0b92bf5b69d6053": {
+      "name": "Bota telaraña Annak"
+    },
+    "7c0ca2caf1423dd5": {
+      "name": "Deportiva futurista blanca"
+    },
+    "d8fd8460bcac1095": {
+      "name": "Zapatilla Volt 95"
+    },
+    "a2cce99350090cd7": {
+      "name": "Mascarilla Theutik"
+    },
+    "632fa9796cc55ed4": {
+      "name": "Deportiva futurista lila"
+    },
+    "9e1afcf71588a40d": {
+      "name": "Gorro piloto"
+    },
+    "9725c786d7dcefcd": {
+      "name": "Gafas antitinta"
+    },
+    "58fb1fcdf52d6679": {
+      "name": "Cortavientos largo"
+    },
+    "ce00406f664f1852": {
+      "name": "Camiseta auditorio blanca"
+    },
+    "131a18be6b46c36c": {
+      "name": "Deportiva ante gris"
+    },
+    "9f10262c6f25ffc8": {
+      "name": "Gabardina Ezko arce"
+    },
+    "01c0f4d48724eec9": {
+      "name": "Camiseta logo añil"
+    },
+    "074c079548490976": {
+      "name": "Hipocampo-B simple azul"
+    },
+    "5cdec592846865ba": {
+      "name": "Jersey con camisa"
+    },
+    "4adc17515efcee7c": {
+      "name": "Chaqueta energética"
+    },
+    "cfc68b28e3ec53ee": {
+      "name": "Sombrero montañero"
+    },
+    "ee56bac36d2a28ab": {
+      "name": "Chaqueta F-3 blanca"
+    },
+    "cad907c4d7da7100": {
+      "name": "Abrigo Theutik marino"
+    },
+    "9f93b86b9baad6cd": {
+      "name": "Calamark+ negra y azul"
+    },
+    "65c28a2a09cb1ebe": {
+      "name": "Zapatilla alta gris"
+    },
+    "4dd689531a8d5718": {
+      "name": "Sudadera morada Theutik"
+    },
+    "f67587eadf5e5bf1": {
+      "name": "Chaqueta lana ballena"
+    },
+    "05255ad76cd461c4": {
+      "name": "Sudadera Ezko oliva"
+    },
+    "6b95a53fd109dc04": {
+      "name": "Deportiva orca zigzag"
+    },
+    "844a38dac1bd108b": {
+      "name": "Uniforme béisbol elegante"
+    },
+    "c68cda5a2a65a13a": {
+      "name": "Camiseta logo dorado"
+    },
+    "1fc53de66c1fa6d7": {
+      "name": "Deportiva futurista verde"
+    },
+    "bb4a4bdd917b17a4": {
+      "name": "Deportiva selva"
+    },
+    "2168abb849180313": {
+      "name": "Chaqueta ajustable positiva"
+    },
+    "eeff374790526a71": {
+      "name": "Gafas con gorra Ezko"
+    },
+    "8ef7d3b01a6b1f6b": {
+      "name": "Cumbres azul"
+    },
+    "6da65c2e69d1de5e": {
+      "name": "Camisa estampada corbata"
+    },
+    "a70056294f2761a3": {
+      "name": "Sudadera con camisa"
+    },
+    "e70595a9c88c8df4": {
+      "name": "Chubasquero glacial"
+    },
+    "ee9b0f2a6d25a0a3": {
+      "name": "Sudadera octorretro"
+    },
+    "62eef2cc4b2a87be": {
+      "name": "Chupa octorrebelde"
+    },
+    "884aafcae5b40248": {
+      "name": "Casco DJ Octovius"
+    },
+    "1e49698cc6fc2a6c": {
+      "name": "Bota alta forestal"
+    },
+    "60f430591e88e53b": {
+      "name": "Retrocamiseta+ caqui"
+    },
+    "dac71120a0367e3c": {
+      "name": "Deportiva de malla amarilla"
+    },
+    "b34d5800a8b5d9f0": {
+      "name": "Camiseta Annak moderna"
+    },
+    "49e73227e92c4a1e": {
+      "name": "Tirantes franja Theutik"
+    },
+    "085c747cca0912bd": {
+      "name": "Camiseta Wet Floor"
+    },
+    "400829748e391d8f": {
+      "name": "Deportiva sal y sésamo 270"
+    },
+    "f8e4d65b3f352189": {
+      "name": "Bamba alta trufa"
+    },
+    "cf0d9f0261dfb30a": {
+      "name": "Tirantes azul Theutik"
+    },
+    "d1e56e8ae2c74c8f": {
+      "name": "Calamark amarilla y azul"
+    },
+    "64fb566f7ee6129d": {
+      "name": "Casco de obra (réplica)"
+    },
+    "0e92be91a85a1f99": {
+      "name": "Bota alta marina"
+    },
+    "ed3ebcb67be5c59c": {
+      "name": "Chaleco pesca"
+    },
+    "647eaef7de61d58b": {
+      "name": "Camisa medusas con corbata"
+    },
+    "89ef143c331e379a": {
+      "name": "Hipocampo-B blanca y negra"
+    },
+    "eaf740ce4651695b": {
+      "name": "Calamar doble"
+    },
+    "2dbb457c2acd535c": {
+      "name": "Baloncesto Los Cigalas"
+    },
+    "7f074f182f66bb0f": {
+      "name": "Camiseta rasgada blanca"
+    },
+    "475754f1c3ebc738": {
+      "name": "Gorra béisbol"
+    },
+    "fd14ca8cb35c76c1": {
+      "name": "Camiseta bicolor"
+    },
+    "f19dcafde4a9d74e": {
+      "name": "Sombrero de paja clásico"
+    },
+    "54306bd8f71bb745": {
+      "name": "Camiseta rasgada blanca"
+    },
+    "d9fdb8074c2f0ec8": {
+      "name": "Gafas redondas plata"
+    },
+    "2555a54f428af796": {
+      "name": "Bota ante desértica"
+    },
+    "2fa83f60d8f22b0d": {
+      "name": "Velcro naranja"
+    },
+    "946d0a6e1191f142": {
+      "name": "Sombrero pez globo"
+    },
+    "1fb3ac8c185aa46d": {
+      "name": "Chaleco con camisa lisa"
+    },
+    "92dc509d51e9c1cd": {
+      "name": "Casco de obra (réplica)"
+    },
+    "05f76b87a280a584": {
+      "name": "Gorra de trabajo"
+    },
+    "6c980ddeb7175277": {
+      "name": "Casco rugby decorado"
+    },
+    "b6b1c7798a550792": {
+      "name": "Camiseta degradado atardecer"
+    },
+    "5444a1b5e3a8cdc6": {
+      "name": "Sudadera rosa con camisa"
+    },
+    "24fecc01c498fe63": {
+      "name": "Sombrero safari"
+    },
+    "cbdbce0206687c53": {
+      "name": "Visera tintada"
+    },
+    "38db2d5e2baec937": {
+      "name": "Camisa entintada"
+    },
+    "ed34871ab0a997d2": {
+      "name": "Bota de tacos elegante"
+    },
+    "d73ff773043f35a1": {
+      "name": "Camiseta Don Pulpón"
+    },
+    "cd98b57718c53757": {
+      "name": "Gafas aviador oro"
+    },
+    "f038fe3a7d8c2f6e": {
+      "name": "Tenis básica profesional"
+    },
+    "e1a0a98264c0d15d": {
+      "name": "Boina fuerzas especiales"
+    },
+    "d02f5fc500ba6b54": {
+      "name": "Camisa franela Annak"
+    },
+    "f6dc0e36ef83917a": {
+      "name": "Camiseta tricalamar"
+    },
+    "017f4bb178ae2555": {
+      "name": "Gafas moteras"
+    },
+    "2b99f9c3db9793de": {
+      "name": "Anorak Barazushi"
+    },
+    "1c7ce2a39971d7a7": {
+      "name": "Bota de pato ártica"
+    },
+    "f5a3386de83657f5": {
+      "name": "Zueco gris"
+    },
+    "b2d0d4cd3fcb5b7d": {
+      "name": "Pañuelo calavera"
+    },
+    "1f9d649297bea610": {
+      "name": "Bota de tacos extra"
+    },
+    "e8ab0e3e655b8391": {
+      "name": "Gorra besugo dorado"
+    },
+    "cc46e0b1647b6d4c": {
+      "name": "Chaleco pesca"
+    },
+    "bf5eac0a0e51a1a5": {
+      "name": "Tintaz doble"
+    },
+    "79e4ced3f9a8ce7b": {
+      "name": "Camiseta amistosa"
+    },
+    "ba1d6adea1fb8693": {
+      "name": "Gorro piloto"
+    },
+    "86196cf11c56cd37": {
+      "name": "Blanca larga rayas"
+    },
+    "e9b23fae2db070df": {
+      "name": "Bamba ultrablanca"
+    },
+    "d995b74c6e31c321": {
+      "name": "Gorro de punto"
+    },
+    "ababea5943c18ea9": {
+      "name": "Pañuelo Barazushi"
+    },
+    "d81b2ac527e806d9": {
+      "name": "Botín Krakien marino"
+    },
+    "f238e17aced17dcb": {
+      "name": "Gorra bicolor"
+    },
+    "80998aee7ddcc6b2": {
+      "name": "Zapatilla Volt 95"
+    },
+    "04e1732a004fc33e": {
+      "name": "Sombrero cónico"
+    },
+    "8bd2358514cb89d2": {
+      "name": "Cumbres azul"
+    },
+    "3bae00fd5738d4a1": {
+      "name": "Sandalia delta luminosa"
+    },
+    "714d5944500fbc8e": {
+      "name": "Mascarilla octo Theutik"
+    },
+    "e9bd96d35a062618": {
+      "name": "Visor opaco"
+    },
+    "d42a4135dc77a8a0": {
+      "name": "Sombrero camuflaje"
+    },
+    "b6e4c48bd78463ef": {
+      "name": "Casco ciclista"
+    },
+    "4765baeb4824bee4": {
+      "name": "Camiseta ω-3"
+    },
+    "3cd9aae585dfe373": {
+      "name": "Sombrero plantas"
+    },
+    "72c8bf6ad74b12cd": {
+      "name": "Casco motocross"
+    },
+    "73f36206e060c254": {
+      "name": "Gabardina Ezko turquesa"
+    },
+    "7a897902d2c040b6": {
+      "name": "Deportiva ante multicolor"
+    },
+    "d37d9ade15ae4da0": {
+      "name": "Bota de nieve"
+    },
+    "b6d814dee4763330": {
+      "name": "Bota de agua verde"
+    },
+    "0816f54b999801aa": {
+      "name": "Gorra medusianos"
+    },
+    "d4f2b1c866322ba6": {
+      "name": "Gorra rey de la montaña"
+    },
+    "9315d36102631844": {
+      "name": "Bota piel roja"
+    },
+    "b6868f3461e513dd": {
+      "name": "Casco psicotrónico"
+    },
+    "70b0d57f0d203fff": {
+      "name": "Chaqueta aviador vuelta"
+    },
+    "9430037390d32f5f": {
+      "name": "Visera golf"
+    },
+    "34edc9c65a0cbc8f": {
+      "name": "Baloncesto visitante"
+    },
+    "fdb81880bfec0fe9": {
+      "name": "Hipocampo-B simple azul"
+    },
+    "b576c3ea2b65179f": {
+      "name": "Camisa tonos grises"
+    },
+    "318589f647f8e971": {
+      "name": "Camisa bolos"
+    },
+    "06f518a80857a451": {
+      "name": "Camiseta auditorio blanca"
+    },
+    "1e13f651df5e62d1": {
+      "name": "Camiseta degradado hielo"
+    },
+    "92308328ca96ea04": {
+      "name": "Camisa bordada pez corneta"
+    },
+    "4a8e059dc7eb0372": {
+      "name": "Camisa cuadros ocres"
+    },
+    "e96c1b6cacd445ee": {
+      "name": "Suela extra turquesa"
+    },
+    "2359ff6288a27d78": {
+      "name": "Deportiva futurista naranja"
+    },
+    "d9fa61c2e08b8edf": {
+      "name": "Hipocampo-B simple blanca"
+    },
+    "c52c8de93993209d": {
+      "name": "Camiseta Barazushi naranja"
+    },
+    "7b9e84e66e0a554e": {
+      "name": "Bota clásica blanca"
+    },
+    "e990a916e127dbfb": {
+      "name": "Camiseta Rayo Rodaballo"
+    },
+    "39c54805c7099592": {
+      "name": "Calamark+ roja y blanca"
+    },
+    "22c1e6eaedbab424": {
+      "name": "Chaqueta impermeable caqui"
+    },
+    "3cc9c374e50d736d": {
+      "name": "Jersey con camisa"
+    },
+    "fbd88e96c0d03263": {
+      "name": "Bota alta marina"
+    },
+    "97c43b98b082324d": {
+      "name": "Camiseta auditorio negra"
+    },
+    "fe5b6419a8cdca16": {
+      "name": "Retrogafas"
+    },
+    "3f873e363f704cb1": {
+      "name": "Gorra béisbol franela"
+    },
+    "dcdcce44cc986830": {
+      "name": "Bamba crema"
+    },
+    "2fb39d1dadd7c944": {
+      "name": "Velcro multicolor"
+    },
+    "e8dba35f379071e9": {
+      "name": "Camisa marcas"
+    },
+    "7681064f94162dbc": {
+      "name": "Maillot velocista plata"
+    },
+    "0295f1fc011135dd": {
+      "name": "Camiseta Sepioca arcoíris"
+    },
+    "f3cace8e957f4afd": {
+      "name": "Sandalia delta neón"
+    },
+    "912f9e7163429951": {
+      "name": "Ezko calabaza larga"
+    },
+    "a54a86f593f07471": {
+      "name": "Mascarilla glóbulos"
+    },
+    "2b969e7257d3ae82": {
+      "name": "Camisa de payaso"
+    },
+    "58c453ebef2ec176": {
+      "name": "Deportiva AL-GA 30XX"
+    },
+    "e661aec8cd01d146": {
+      "name": "Camiseta pez globo"
+    },
+    "cf5c062f1e43b84c": {
+      "name": "Casco de piloto"
+    },
+    "1ceee981c71928c8": {
+      "name": "Cinta blanca"
+    },
+    "155b6953f80040cc": {
+      "name": "Casco motocross opaco"
+    },
+    "3f7b8fff000e304d": {
+      "name": "Pañuelo vuelto"
+    },
+    "aa71e1548a9e8522": {
+      "name": "Sudadera Chokkor"
+    },
+    "2d07b8dad42f4fbc": {
+      "name": "Chancla amarilla"
+    },
+    "c4d02236f582d0a7": {
+      "name": "Bamba ultrarroja"
+    },
+    "1825c769977fdd6e": {
+      "name": "Visera de marca"
+    },
+    "82f1f448a4f0fe54": {
+      "name": "Gorro zigzag"
+    },
+    "4a7fcf9c1f8c4dfc": {
+      "name": "Casco antincendios"
+    },
+    "3dfb98fbdf638609": {
+      "name": "Chaqueta lana ballena"
+    },
+    "3b1d28cec3eabf6e": {
+      "name": "Ojos calamar negra"
+    },
+    "7c8ad6e187f38815": {
+      "name": "Deportiva rosa"
+    },
+    "600b6773ead26809": {
+      "name": "Gorra doble con gafas"
+    },
+    "4667d60c68450557": {
+      "name": "Gorra ciclista"
+    },
+    "c346697fc3b20f47": {
+      "name": "Camiseta octo verde Theutik"
+    },
+    "2f4a097a5033d97f": {
+      "name": "Boina Annak"
+    },
+    "e0bdc2aa6cbf28c3": {
+      "name": "Sudadera gris"
+    },
+    "87d83548f67baeb3": {
+      "name": "Mascarilla calamar"
+    },
+    "862a010c5177a0b4": {
+      "name": "Camiseta blanca pro"
+    },
+    "2fe326f7560d8a83": {
+      "name": "Chaleco elegante"
+    },
+    "4058d3abb1e4e352": {
+      "name": "Octodeportiva roja"
+    },
+    "dfa51097b684078e": {
+      "name": "Camisa rayas"
+    },
+    "7a6462687e63cfe7": {
+      "name": "Visor cibernético"
+    },
+    "fdbf97ede04f7a65": {
+      "name": "Bota alta forestal"
+    },
+    "834c7c26012d118c": {
+      "name": "Gafas gruesas"
+    },
+    "04a394c879266415": {
+      "name": "Casco skate"
+    },
+    "e6dd154d985fa3d0": {
+      "name": "Camiseta perlas"
+    },
+    "dc9a9d6bcbbb840b": {
+      "name": "Gorra calamarciano"
+    },
+    "57e9324c62107383": {
+      "name": "Gorro con borla negro"
+    },
+    "3f3cfe05a3715159": {
+      "name": "Zapatilla azul"
+    },
+    "b73ff4a38bcf855a": {
+      "name": "Maillot ciclista"
+    },
+    "a227780efff6806b": {
+      "name": "Bombín clásico"
+    },
+    "6cc693bf2514fb9e": {
+      "name": "Gorra malla Sepioca"
+    },
+    "ded2baae55f2c88d": {
+      "name": "Chándal retro Sepioca"
+    },
+    "07f932e3030844f9": {
+      "name": "Sandalia flechas azul"
+    },
+    "7a1755df7ff2c291": {
+      "name": "Traje galáctico"
+    },
+    "f7e0b2ddf93d8d6c": {
+      "name": "Zapato gris y amarillo"
+    },
+    "2df705182a19c965": {
+      "name": "Zueco chocolate"
+    },
+    "05a55e56f538f82d": {
+      "name": "Camiseta Sepioca cosmos"
+    },
+    "91bd0e01207ec3a5": {
+      "name": "Zapato elegante"
+    },
+    "3ee3b47f0bb29a1c": {
+      "name": "Anorak montaña"
+    },
+    "63ad32c0c0ae9e48": {
+      "name": "Gorro a rayas"
+    },
+    "0bc0dd62a917ee69": {
+      "name": "Chaqueta de punto verde"
+    },
+    "76a01e9488af4599": {
+      "name": "Mocasín piraña"
+    },
+    "c2f605fb93b0eed8": {
+      "name": "Mascarilla Chokkor"
+    },
+    "0252cb58e13e9234": {
+      "name": "Cazadora estudiante"
+    },
+    "e90de38c33172401": {
+      "name": "Negra doble"
+    },
+    "be10ceef113e4e3a": {
+      "name": "Camisa estampada"
+    },
+    "06b390f07db3377f": {
+      "name": "Escafandra de buceo"
+    },
+    "fdad1947cfa0ff25": {
+      "name": "Charanga calamar"
+    },
+    "f44f52ed02948c5f": {
+      "name": "Mascarilla Annak"
+    },
+    "8031c9bc0bc5729f": {
+      "name": "Camisa estampada corbata"
+    },
+    "5df05f57955e0148": {
+      "name": "Suela extra Annak"
+    },
+    "6ad37669627efb77": {
+      "name": "Mascarilla Forima"
+    },
+    "2be6447881c7b9b4": {
+      "name": "Sudadera Ezko"
+    },
+    "1cb182b28706dc7a": {
+      "name": "Retrocamiseta+ caqui"
+    },
+    "1bb6d34f9f76dff9": {
+      "name": "Gorro liso"
+    },
+    "c26a82350267c668": {
+      "name": "Auriculares octoestéreo"
+    },
+    "77b90ea18d788e94": {
+      "name": "Gafas Annak cuadradas"
+    },
+    "540f9752a3d30e48": {
+      "name": "Traje comandante"
+    },
+    "1e2a7de223596dc4": {
+      "name": "Chupa motera blanca"
+    },
+    "4f70200654fbe026": {
+      "name": "Bota de tacos"
+    },
+    "52469e6a40ca387e": {
+      "name": "Máscara protectora"
+    },
+    "3c06458bec5647de": {
+      "name": "Uniforme marinero blanco"
+    },
+    "c635489c278a591d": {
+      "name": "Gorro buscatesoros"
+    },
+    "b84d8c828976da4d": {
+      "name": "Gorra futurista"
+    },
+    "28f201c6c29913cd": {
+      "name": "Sudadera retro"
+    },
+    "1f7bc4016aa78813": {
+      "name": "Sudadera manatí"
+    },
+    "725408ce3ea63916": {
+      "name": "Chaqueta de chándal"
+    },
+    "0027dbe5263d0a98": {
+      "name": "Bamba alta oliva"
+    },
+    "8bfe4f8ea3cb903c": {
+      "name": "Calamark amarilla y azul"
+    },
+    "dfc27f7c2061cfae": {
+      "name": "Cinta tenis de mesa"
+    },
+    "bce1966d8aa5d9fc": {
+      "name": "Camiseta logo añil"
+    },
+    "1310e7c50402119e": {
+      "name": "Hipocampo-B celeste"
+    },
+    "0f6d8d23897cd952": {
+      "name": "Gorro comandante"
+    },
+    "b2ae6a4fffa46ba5": {
+      "name": "Hipocampo amarilla"
+    },
+    "0b86a012394472f8": {
+      "name": "Gafas ajustables blancas"
+    },
+    "214d4e491366d30d": {
+      "name": "Octogafas"
+    },
+    "a871be865230f417": {
+      "name": "Retrocamiseta negra"
+    },
+    "e4c46623fc89ebbb": {
+      "name": "Deportiva negra"
+    },
+    "a1b3d54b2903008f": {
+      "name": "Hockey larga"
+    },
+    "d5ab820f303fa0be": {
+      "name": "Gorro de alta mar"
+    },
+    "846a98a5b4d88670": {
+      "name": "Chaqueta kung-fu"
+    },
+    "0527171ee847d92f": {
+      "name": "Visor de rastreo"
+    },
+    "64fd436581a6370b": {
+      "name": "Gafas tintadas"
+    },
+    "3e542c698f06dcc5": {
+      "name": "Gorra orejeras negra"
+    },
+    "1cee77c2490c09af": {
+      "name": "Camiseta Barazushi cerezo"
+    },
+    "b9a3223d252b2822": {
+      "name": "Gorra doblada Theutik"
+    },
+    "8b2d94a9c615dd15": {
+      "name": "Bota montaña"
+    },
+    "bc8f60c1cd372c25": {
+      "name": "Sudadera gris con capucha"
+    },
+    "b2b55186b82c26c4": {
+      "name": "Hipocampo-B blanca y negra"
+    },
+    "80fb0eda51ba01c9": {
+      "name": "Chaqueta kung-fu bitono"
+    },
+    "1bb16ccccd8ab5be": {
+      "name": "Bota ostra blanca"
+    },
+    "fe2f80cba9d4761f": {
+      "name": "Bota telaraña Annak"
+    },
+    "18c479f527c4b352": {
+      "name": "Deportiva futurista lila"
+    },
+    "5c3987aa4bbca169": {
+      "name": "Camiseta degradado neón"
+    },
+    "27ef20ef1418f1e3": {
+      "name": "Traje retrofuturista"
+    },
+    "27d171e5ddd674ba": {
+      "name": "Gafas de natación"
+    },
+    "2ff6f13540a0ec13": {
+      "name": "Gorra malla Ezko"
+    },
+    "1ea2b1826bfe9dcc": {
+      "name": "Polo negro"
+    },
+    "ed5e8fd9b5adac7b": {
+      "name": "Tenis naranja"
+    },
+    "7fc1a5536febbc0e": {
+      "name": "Gafas de natación elegantes"
+    },
+    "a408fcb87e3e02f0": {
+      "name": "Deportiva aletas alta"
+    },
+    "2c9ead76e9c61617": {
+      "name": "Rugby tricolor"
+    },
+    "02c8eed846264962": {
+      "name": "Deportiva orca"
+    },
+    "f1948086b33446c9": {
+      "name": "Sudadera de jerga roja"
+    },
+    "5127c0c8183f29b2": {
+      "name": "Casco retrofuturista"
+    },
+    "f7dcc7ae0546ef44": {
+      "name": "Zapakrakien plata"
+    },
+    "c843942decb0f961": {
+      "name": "Deportiva orca zigzag"
+    },
+    "9bd38df5a3309513": {
+      "name": "Auriculares multicolor"
+    },
+    "94e95bc919483853": {
+      "name": "Anorak urbano día"
+    },
+    "f4bb5340ac46da94": {
+      "name": "Chaqueta satinada calamar"
+    },
+    "7ae7524ec9a91481": {
+      "name": "Bota clásica negra"
+    },
+    "fa053d90af54d4ef": {
+      "name": "Gafas tinte abisal"
+    },
+    "edf1dea3e7835924": {
+      "name": "Chaqueta ajustable positiva"
+    },
+    "1edd243cc32bb86a": {
+      "name": "Chaqueta ídolo musical"
+    },
+    "1f7bdf4cc8896df5": {
+      "name": "Mascarilla Theutik"
+    },
+    "0af9763735c58ea7": {
+      "name": "Chubasquero guindilla"
+    },
+    "2589ba77b0a02527": {
+      "name": "Deportiva futurista roja"
+    },
+    "f9d9b9e159237f70": {
+      "name": "Visera Sepioca"
+    },
+    "1631bf7a3f6f38cc": {
+      "name": "Camiseta béisbol octo"
+    },
+    "b0ca2b7c1afe237f": {
+      "name": "Velcro atlética"
+    },
+    "13fe3940b4d7a989": {
+      "name": "Chaqueta de pana bordada"
+    },
+    "2c822f1b9419edc8": {
+      "name": "Gafas ajustables negras"
+    },
+    "724616560d3ed93c": {
+      "name": "Bota ídolo musical"
+    },
+    "5fc65fb55c534eb4": {
+      "name": "Tenis azul"
+    },
+    "655f570aed6c9f1e": {
+      "name": "Camiseta Annak moderna"
+    },
+    "8e552be8f6c72a9e": {
+      "name": "Paracaidista arándano"
+    },
+    "30e29e191ae487ff": {
+      "name": "Bota motorista"
+    },
+    "6f78aaabd4eaca78": {
+      "name": "Bamba alta roja"
+    },
+    "98a96c07973e423f": {
+      "name": "Playera bicolor"
+    },
+    "e15fbebc0370e1e1": {
+      "name": "Bota de lluvia"
+    },
+    "11c3cd9aea59ffdf": {
+      "name": "Playera azul"
+    },
+    "9089992996ad5abf": {
+      "name": "Gorro de pesca"
+    },
+    "ef86ba769a8d0073": {
+      "name": "Ancla negra"
+    },
+    "cf7abf3339465232": {
+      "name": "Deportiva futurista azul"
+    },
+    "a3c0aaa52ff9edf5": {
+      "name": "Gafas 3D"
+    },
+    "c414d439919e17ea": {
+      "name": "Camisa retazos urbana"
+    },
+    "dfcba964fd347b5f": {
+      "name": "Chancla glóbulos"
+    },
+    "fd4b717166d199f0": {
+      "name": "Protector de mandíbula"
+    },
+    "7001e372753eddb0": {
+      "name": "Gabardina de hacker"
+    },
+    "d1269481accd1b9d": {
+      "name": "Deportiva orca soleada"
+    },
+    "464a6619f85c3fd6": {
+      "name": "Sudadera negra con capucha"
+    },
+    "b67967731fad7ccb": {
+      "name": "Casco caparazón"
+    },
+    "fa36a523e2b54888": {
+      "name": "Visor nocturno"
+    },
+    "e9f987a770e84550": {
+      "name": "Gorro con borla"
+    },
+    "ec52a840e63fb709": {
+      "name": "Verde larga rayas"
+    },
+    "897e3e33543aa8b3": {
+      "name": "Camiseta Chirpy Chips"
+    },
+    "a25f5df4d4740c9d": {
+      "name": "Bota clásica amarilla"
+    },
+    "67dba8c242796b8a": {
+      "name": "Deportiva de malla amarilla"
+    },
+    "afbc3f87a7318524": {
+      "name": "Patín jurel"
+    },
+    "47ab9705df2564a5": {
+      "name": "Camiseta leopardo"
+    },
+    "e8f74588deabb91f": {
+      "name": "Sandalia ultraceleste"
+    },
+    "56773ddb229a6d31": {
+      "name": "Polo salmón"
+    },
+    "6a8cd7c7c28ce3b7": {
+      "name": "Zapatilla sashimi"
+    },
+    "779752e0250dfac3": {
+      "name": "Mascarilla camuflaje Forima"
+    },
+    "ecc5689c8b41d7f4": {
+      "name": "Zapatilla alta ámbar"
+    },
+    "4cca02d88c65ca82": {
+      "name": "Auriculares pro"
+    },
+    "117545568f0044bb": {
+      "name": "Camiseta verde"
+    },
+    "c74fe5477ab02f2b": {
+      "name": "Gafas antitinta"
+    },
+    "3e4d3fcbd77372a8": {
+      "name": "Chaqueta neotemporal"
+    },
+    "740d7f06529e32df": {
+      "name": "Chupa octorrebelde"
+    },
+    "e3212426964499e5": {
+      "name": "Cortavientos largo"
+    },
+    "1b9f5bc1f3c1668d": {
+      "name": "Deportiva violeta"
+    },
+    "2c659e423ed057e6": {
+      "name": "Lentillas sin graduación"
+    },
+    "a3af22e465c67d1e": {
+      "name": "Pirata doble"
+    },
+    "6ca4c132c95f9752": {
+      "name": "Camiseta Arome roja"
+    },
+    "717fbb2c21bd4d5a": {
+      "name": "Sombrero de paja"
+    },
+    "2861118daf0a6249": {
+      "name": "Máscara Squid King"
+    },
+    "65e73e9933b18441": {
+      "name": "Camisa cuadros rojos"
+    },
+    "a901c49ae3f31cb1": {
+      "name": "Tirantes azul Theutik"
+    },
+    "b6e69d69ac2344ca": {
+      "name": "Gorra visera larga"
+    },
+    "1ca9c9434d3f3c41": {
+      "name": "Gabardina Ezko limón"
+    },
+    "da541f46db31f714": {
+      "name": "Bota de boxeo"
+    },
+    "df7d0d498a52ac44": {
+      "name": "Deportiva orca vistosa"
+    },
+    "30bcefc0e5206648": {
+      "name": "Chaqueta satinada siluro"
+    },
+    "2cc0fa9e18daa012": {
+      "name": "Rockenberg blanca"
+    },
+    "078007235244a529": {
+      "name": "Megabota roja"
+    },
+    "78b48dab45f802b7": {
+      "name": "Bota de hielo"
+    },
+    "39b603cc8ff686a1": {
+      "name": "Camisa retazos safari"
+    },
+    "942bfc9013d17a23": {
+      "name": "Chaqueta energética"
+    },
+    "0db3b2e4f86aac92": {
+      "name": "Sudadera ancha positiva"
+    },
+    "54d9c61ae642db21": {
+      "name": "Camiseta de timbre piña"
+    },
+    "686e6d924bceaa29": {
+      "name": "Gafas redondas"
+    },
+    "4a5ed56bd3248aa3": {
+      "name": "Sudadera media manga"
+    },
+    "b6ccc8ec8b1ccd66": {
+      "name": "Auriculares deportivos"
+    },
+    "770a14b00c42b23e": {
+      "name": "Camiseta lluvia"
+    },
+    "70985cc8ba0a905e": {
+      "name": "Casco DJ Octovius"
+    },
+    "96ba51e5d6e29bdd": {
+      "name": "Uniforme marinero azul"
+    },
+    "1bc642ca33260c9c": {
+      "name": "Camiseta octo negra Theutik"
+    },
+    "d796324f1b393800": {
+      "name": "Náutico tostado"
+    },
+    "39d667e7b1fae70a": {
+      "name": "Gorro tejido"
+    },
+    "f990ae778fb58518": {
+      "name": "Anorak urbano noche"
+    },
+    "4a6425e4a5cbc56d": {
+      "name": "Chancla roja"
+    },
+    "2fb640094d3a6c34": {
+      "name": "Zapatilla morada"
+    },
+    "e017349bb9753a06": {
+      "name": "Anorak jungla"
+    },
+    "4298ea7016d68d7f": {
+      "name": "Camiseta turquesa"
+    },
+    "1f976b82a5d4d4d2": {
+      "name": "Camiseta pulpalamar tándem"
+    },
+    "c5f63a7dd65a0fbb": {
+      "name": "Camuflaje morada"
+    },
+    "a71146cfd9b53b1d": {
+      "name": "Gorra pez globo"
+    },
+    "7f4e56e3170981d7": {
+      "name": "Bamba alta crema"
+    },
+    "24168d03237b4558": {
+      "name": "Deportiva celeste"
+    },
+    "21101f0d5bf0921d": {
+      "name": "Deportiva ante gris"
+    },
+    "aa58c763cf07cea0": {
+      "name": "Pañuelo vuelto negro"
+    },
+    "0c753da3c6c590cf": {
+      "name": "Camiseta blanca"
+    },
+    "6e80a02afaee906a": {
+      "name": "Gorra de diseño"
+    },
+    "4dddf1b2dacb4424": {
+      "name": "Cinta baloncesto"
+    },
+    "869d6602bfb2f65f": {
+      "name": "Vectores doble"
+    },
+    "38f2ab404277f174": {
+      "name": "Camiseta Annak sin mangas"
+    },
+    "1f481bd6fbe94a6d": {
+      "name": "Camiseta básica octo"
+    },
+    "b17553b34aa1cbad": {
+      "name": "Gorro infiltración"
+    },
+    "47c439e64b588715": {
+      "name": "Deportiva ante turquesa"
+    },
+    "59fe2b198bc53392": {
+      "name": "Polo lima"
+    },
+    "25d4c06caa7e3d92": {
+      "name": "Mocasín caimán"
+    },
+    "8decd5a8eb7a14e6": {
+      "name": "Camiseta logo kiwi"
+    },
+    "f091d084f1d5cf34": {
+      "name": "Camisa medusas"
+    },
+    "d4245c778feaf1c1": {
+      "name": "Camisa cuello redondo"
+    },
+    "ceac8b8a4aa32494": {
+      "name": "Camiseta reditada azul"
+    },
+    "181e90d1f357ed37": {
+      "name": "Zapato formal"
+    },
+    "d10e72d4801b381a": {
+      "name": "Maillot rey de la montaña"
+    },
+    "5ac5e0b7f775993e": {
+      "name": "Tenis escalada natura"
+    },
+    "82bd94ed894a16dc": {
+      "name": "Polo rugby extra 008"
+    },
+    "a58903f46daad145": {
+      "name": "Hipocampo blanca"
+    },
+    "e76101f0587cdb9f": {
+      "name": "Abrigo ártico"
+    },
+    "52a5f2aa1751da27": {
+      "name": "Uniforme béisbol elegante"
+    },
+    "7b70812eb0a76cb5": {
+      "name": "Cumbres marfil"
+    },
+    "7a2ad2199089c4ae": {
+      "name": "Camiseta Annak clásica"
+    },
+    "485f3a4b50643a31": {
+      "name": "Gorra moderna"
+    },
+    "db926cd04a5b01fc": {
+      "name": "Gorra camuflaje"
+    },
+    "a4adb096a8093e9f": {
+      "name": "Camisa salpicadura"
+    },
+    "d5f196b8363c0ae7": {
+      "name": "Bamba plátano"
+    },
+    "560a8c075c90b9d2": {
+      "name": "Visera transparente"
+    },
+    "c7d0a936a7586b25": {
+      "name": "Sandalia delta nieve"
+    },
+    "836c409c224327da": {
+      "name": "Casco rugby reforzado"
+    },
+    "5ca83e32e9497c1b": {
+      "name": "Marinera larga"
+    },
+    "f78714f08fa31b1f": {
+      "name": "Bota motorista azul"
+    },
+    "79e4d4f396b69ce3": {
+      "name": "Gafas con gorra Ezko"
+    },
+    "dc8774834a34a71b": {
+      "name": "Camisa cuadros verdes"
+    },
+    "7465dafe561618e5": {
+      "name": "Hipocampo-A morada"
+    },
+    "8f624df76895e669": {
+      "name": "Camisa medusas con corbata"
+    },
+    "fab4005bf9bda9c9": {
+      "name": "Hipocampo-A roja"
+    },
+    "703305c6c0eedf0b": {
+      "name": "Cubrenariz motocross"
+    },
+    "cf304a572eaaea9f": {
+      "name": "Abrigo inkling Forima"
+    },
+    "60d3f51d54b887f4": {
+      "name": "Rugby rayas"
+    },
+    "13acfddef4b45a90": {
+      "name": "Casco skate con visera"
+    },
+    "6375b52a355cc737": {
+      "name": "Calamark+ miel"
+    },
+    "c106a08662150465": {
+      "name": "Baloncesto Los Cigalas"
+    },
+    "ed5e54b43414f51f": {
+      "name": "Camiseta Squid Squad"
+    },
+    "7a13112bd1a0c47d": {
+      "name": "Sudadera ancla"
+    },
+    "5fdaa7d21b661331": {
+      "name": "Jersey puño azul"
+    },
+    "2176fd45cb9c3edb": {
+      "name": "Camisa tropical hipocampos"
+    },
+    "d3694d8bbc94fc3f": {
+      "name": "Paracaidista carmesí"
+    },
+    "85cd9f1ce488ef28": {
+      "name": "Gafas de piloto"
+    },
+    "0b5863953939a70d": {
+      "name": "Sudadera camuflaje"
+    },
+    "bca8d8cd3914c33d": {
+      "name": "Sombrero acampada"
+    },
+    "3e2118823fe00aab": {
+      "name": "Camuflaje doble"
+    },
+    "1be0651a23a1b2a3": {
+      "name": "Boina Annak con gafas"
+    },
+    "5c2ec2598836a14a": {
+      "name": "Camiseta glóbulos rosa"
+    },
+    "f5d27c917569dd63": {
+      "name": "Chaqueta retro"
+    },
+    "4fa3680c71e09bc5": {
+      "name": "Camisa claroscuro"
+    },
+    "2ad2124dfca512b4": {
+      "name": "Deportiva selva"
+    },
+    "ed9d4af7a3f2f522": {
+      "name": "Octo hockey Theutik"
+    },
+    "8982ccbce58f2648": {
+      "name": "Camiseta hockey Theutik"
+    },
+    "938ac2d7c31d8341": {
+      "name": "Gorra vaquera"
+    },
+    "511e4ea2d524ae08": {
+      "name": "Chaleco bolsillos caqui"
+    },
+    "8389cd5d7f55b970": {
+      "name": "Jersey de punto tiburones"
+    },
+    "1096291eb0c76e82": {
+      "name": "Camisa de época"
+    },
+    "5eca902a06dba6e9": {
+      "name": "Bota energética"
+    },
+    "ca15723961648c14": {
+      "name": "Chaqueta satinada pulpo"
+    },
+    "bba99111b562edae": {
+      "name": "Octosudadera azul y negra"
+    },
+    "50dee75a7a249665": {
+      "name": "Coraza cangrejo roja"
+    },
+    "bf788cd30ce7483f": {
+      "name": "Camiseta básica"
+    },
+    "6205386c349c6378": {
+      "name": "Camiseta tripulpo"
+    },
+    "fe399237cbf576e4": {
+      "name": "Zapato con dedos rojo"
+    },
+    "c3bde248ba3d37c2": {
+      "name": "Casco astado"
+    },
+    "0e9a7c1cbf2a1562": {
+      "name": "Umibozu local"
+    },
+    "8fa248d2c2f6dbb5": {
+      "name": "Gabardina Ezko arce"
+    },
+    "8721ccd8a97ca6d9": {
+      "name": "Bota piel marrón"
+    },
+    "bc4b2d948ec1a680": {
+      "name": "Chaqueta orca negativa"
+    },
+    "35324a023fbc73b4": {
+      "name": "Cinta squash"
+    },
+    "736e591555dd7fc2": {
+      "name": "Retrocamiseta blanca"
+    },
+    "fe88471fdaa4835b": {
+      "name": "Cinta tenis"
+    },
+    "6aa82c7f381ed1c7": {
+      "name": "Ojos calamar azul"
+    },
+    "55f313d77f02df5d": {
+      "name": "Calamark+ negra y azul"
+    },
+    "3583daf7ca4ab304": {
+      "name": "Camisa de lunares"
+    },
+    "486ad6046068e579": {
+      "name": "Zapatilla alta gris"
+    },
+    "798039fff916ccab": {
+      "name": "Calamark roja y negra"
+    },
+    "186b8207f53c589c": {
+      "name": "Máscara industrial"
+    },
+    "61bf38eee6c6572c": {
+      "name": "Camiseta reditada marrón"
+    },
+    "445447f824e8029a": {
+      "name": "Chaqueta retazos"
+    },
+    "71c037bdda583422": {
+      "name": "Camiseta cebra"
+    },
+    "e3de2716bb4dd373": {
+      "name": "Camiseta pulpo"
+    },
+    "b3316e0644d12c28": {
+      "name": "Deportiva megatensión"
+    },
+    "ad1453c835f0dd18": {
+      "name": "Velcro blanca"
+    },
+    "ec6c894d7932e077": {
+      "name": "Bota de agua roja"
+    },
+    "5b2b3d4a7850f32a": {
+      "name": "Camisa con corbata"
+    },
+    "5de86f8b5e2cf16e": {
+      "name": "Bamba encaje verde"
+    },
+    "136a65f45a9021f3": {
+      "name": "Auriculares estéreo"
+    },
+    "b1fad79c10f879c9": {
+      "name": "Tirantes blanca Theutik"
+    },
+    "6a69aeb21b9ba9a1": {
+      "name": "Deportiva futurista blanca"
+    },
+    "da4b679ea7dc0d42": {
+      "name": "Cinta atletismo"
+    },
+    "3127d54717172294": {
+      "name": "Chaqueta con ventilación"
+    },
+    "258ad6bf82aefb7e": {
+      "name": "Camiseta de timbre manzana"
+    },
+    "e965474df895c0b1": {
+      "name": "Béisbol Ezko"
+    },
+    "e51c45457e2f73f7": {
+      "name": "Gorra parches"
+    },
+    "b91eb6d04f17ee7f": {
+      "name": "Cascos antirruido"
+    },
+    "265fc965fe5c5cde": {
+      "name": "Camiseta morada"
+    },
+    "d1ddf6a044e31f77": {
+      "name": "Tenis básica principiante"
+    },
+    "59705e7558d8dddd": {
+      "name": "Sudadera octo roja"
+    },
+    "aae831af78d23c56": {
+      "name": "Camisa cuadros retro"
+    },
+    "6e38644c66a730fe": {
+      "name": "Zapato clásico"
+    },
+    "2cabdbbaf8250933": {
+      "name": "Camiseta Arome"
+    },
+    "68b8af2a12635dec": {
+      "name": "Velcro elegante"
+    },
+    "e0ed31a22488ba2a": {
+      "name": "Camiseta Arome azul"
+    },
+    "c9a7bef53f71de4d": {
+      "name": "Chaqueta de remo negativa"
+    },
+    "14148115c21252c9": {
+      "name": "Gafas de buceo"
+    },
+    "b4d2003229cc69cd": {
+      "name": "Calamark azul y negra"
+    },
+    "bfa9f1b99a67f0fd": {
+      "name": "Zapato doble hebilla negro"
+    },
+    "4b2937e5f71b6bb4": {
+      "name": "Sudadera zapakrakien"
+    },
+    "c180b715b8e53b1d": {
+      "name": "Sombrero parasol"
+    },
+    "4629b1994d6b27cb": {
+      "name": "Sudadera octorretro"
+    },
+    "d4c85d2d735e464d": {
+      "name": "Zapakrakien tiza"
+    },
+    "5eafa1e64cfbbd52": {
+      "name": "Chaleco con camisa"
+    },
+    "acf5348674a9524b": {
+      "name": "Casco hockey"
+    },
+    "a9fb5bbd38e00533": {
+      "name": "Sudadera verde"
+    },
+    "53c3f7c4ef8eb14a": {
+      "name": "Chaqueta F-3 blanca"
+    },
+    "a19dcb9db1b6a870": {
+      "name": "Bota montaña especial"
+    },
+    "164e70329fff7e10": {
+      "name": "Vectores gris"
+    },
+    "a0f68c9f0489a1ee": {
+      "name": "Suela extra blanca"
+    },
+    "0fd13c0fc8750e82": {
+      "name": "Camiseta Wet Floor"
+    },
+    "c41abf60a87ece6a": {
+      "name": "Kalamas blanca larga"
+    },
+    "56499d773cc89216": {
+      "name": "Chándal Sepioca"
+    },
+    "f4d9cf36f44d5d2f": {
+      "name": "Sudadera flechas"
+    },
+    "6a4233aab2a89c2e": {
+      "name": "Calamar larga"
+    },
+    "894701a3ffb7639d": {
+      "name": "Chubasquero frambuesa"
+    },
+    "e095352827007788": {
+      "name": "Chupa motera negra"
+    },
+    "c7046c5675149293": {
+      "name": "Camisa béisbol"
+    },
+    "25dc67a105f26543": {
+      "name": "Bota impermeable"
+    },
+    "7bb94b71fd60d36d": {
+      "name": "Zapatilla verde neón"
+    },
+    "7df3f12f9059a3f4": {
+      "name": "Camiseta logo blanca"
+    },
+    "07f0b1a126042377": {
+      "name": "Béisbol universitario"
+    },
+    "80c5b5ad61078a69": {
+      "name": "Gafas transparentes"
+    },
+    "47337f863e270138": {
+      "name": "Camisa tropical"
+    },
+    "fa441bde1e48c941": {
+      "name": "Careta béisbol local"
+    },
+    "8ac15fbadd7c5921": {
+      "name": "Gorro retales"
+    },
+    "fbb643bceee306f4": {
+      "name": "Tenis escalada solar"
+    },
+    "c660b59aec2bee52": {
+      "name": "Gafas con tubo"
+    },
+    "5f3d30b4208dc045": {
+      "name": "Camiseta logo dorado"
+    },
+    "e8816dc35ffe0f3f": {
+      "name": "Blanca doble"
+    },
+    "d8ab4619e04183ac": {
+      "name": "Pañuelo clásico"
+    },
+    "ac2d0e974ab4a45d": {
+      "name": "Zapato morado"
+    },
+    "4a64ff9da8eedc99": {
+      "name": "Camiseta Chipirona FC"
+    },
+    "a63033c3b7a63dfa": {
+      "name": "Deportiva de malla naranja"
+    },
+    "2955f82ca50e5b91": {
+      "name": "Chocolate doble"
+    },
+    "aa77710e35ac07bb": {
+      "name": "Deportiva futurista verde"
+    },
+    "c53e7522d9b61206": {
+      "name": "Ancla doble"
+    },
+    "b7c3f1f0fd72870a": {
+      "name": "Sudadera ancha negativa"
+    },
+    "35a13bf492b1cdca": {
+      "name": "Megabota elegante"
+    },
+    "9e34382421cb08fa": {
+      "name": "Sudadera Ezko oliva"
+    },
+    "f992fb41a27a9bcc": {
+      "name": "Hipocampo negra"
+    },
+    "7581836257a42a71": {
+      "name": "Camiseta holgada lima"
+    },
+    "d6332fcfb6eb65e9": {
+      "name": "Deportiva sal y sésamo 270"
+    },
+    "9048ca4ab3f36892": {
+      "name": "Bota clásica roja"
+    },
+    "3c650363f66ad2c0": {
+      "name": "Sombrero vaquero gemas"
+    },
+    "126fa11f05f485a1": {
+      "name": "Plumífero lima"
+    },
+    "fb1f5c374902e6ce": {
+      "name": "Sandalia ultrarrosa"
+    },
+    "5f76f2b1505537dc": {
+      "name": "Sombrero de campana"
+    },
+    "d121326530879316": {
+      "name": "Hipocampo-B chocolate"
+    },
+    "4af3f9ca3bc0153f": {
+      "name": "Playera roja"
+    },
+    "52f6ded7fa0502c2": {
+      "name": "Tenis especial"
+    },
+    "40c238f5bb55f658": {
+      "name": "Cumbres larga"
+    },
+    "876024e49bf245f6": {
+      "name": "Gorra vuelta"
+    },
+    "8b237659c0671b55": {
+      "name": "Zapato azul"
+    },
+    "a0abca747544faed": {
+      "name": "Camiseta negra"
+    },
+    "d8658688d12980e4": {
+      "name": "Chaqueta F-3 decorada"
+    },
+    "def63dfb2de0a349": {
+      "name": "Sandalia ultranaranja"
+    },
+    "ec0c785a1a9caf90": {
+      "name": "Camiseta Annak collar"
+    },
+    "14775ed65b5bedb8": {
+      "name": "Suela extra Annak tribal"
+    },
+    "2d08e8989db642d7": {
+      "name": "Camiseta pirata"
+    },
+    "d4e783da0e6e162c": {
+      "name": "Sombrero montañero"
+    },
+    "42df0b2cf7471ddc": {
+      "name": "Hipocampo-A zombi"
+    },
+    "42b5402e9eb64e49": {
+      "name": "Gorra con líneas"
+    },
+    "8e474adbf0b1de1b": {
+      "name": "Chancla negra"
+    },
+    "ae595eff83b88b5b": {
+      "name": "Bota montaña pro"
+    },
+    "452d724de6df3056": {
+      "name": "Bota impermeable verde"
+    },
+    "11c60e7c644758c3": {
+      "name": "Auriculares acorazados"
+    },
+    "3434c77d55faa725": {
+      "name": "Abrigo octariano Forima"
+    },
+    "ef4a34530ef5783b": {
+      "name": "Chubasquero montañés"
+    },
+    "d22ab67b6963492d": {
+      "name": "Uniforme béisbol"
+    },
+    "3ec43b15e540fca6": {
+      "name": "Camiseta degradado fuego"
+    },
+    "2122b1e6bf54cef3": {
+      "name": "Chancla conchas"
+    },
+    "ce56023598fa2be7": {
+      "name": "Camiseta marinera"
+    },
+    "a75e7ce05c103f50": {
+      "name": "Sudadera atlética Sepioca"
+    },
+    "d74020abaeb90118": {
+      "name": "Chaqueta ajustable negativa"
+    },
+    "11c0bdc9f869694b": {
+      "name": "Camiseta Doña Pulpona"
+    },
+    "8e280599b2678219": {
+      "name": "Playera lunares"
+    },
+    "090050f61f468d22": {
+      "name": "Sudadera plantas"
+    },
+    "552a8ee1ea64d236": {
+      "name": "Vectores roja"
+    },
+    "ef82c7026049a3ac": {
+      "name": "Zapakrakien oro"
+    },
+    "5882ffd030005203": {
+      "name": "Abrigo de lana crema"
+    },
+    "49cf4db6f834714d": {
+      "name": "Béisbol blanca"
+    },
+    "d8a06f7070e1db3c": {
+      "name": "Deportiva futurista amarilla"
+    },
+    "ff5f2a9a0718704b": {
+      "name": "Tintaz larga"
+    },
+    "13e5e6e89ff2bf76": {
+      "name": "Retrocamiseta+ azul"
+    },
+    "f99d83847b5d7f5d": {
+      "name": "Bamba pez payaso"
+    },
+    "23bba62ce2a06226": {
+      "name": "Zapatilla roja"
+    },
+    "85acbc1607f78ad7": {
+      "name": "Jersey puño amarillo"
+    },
+    "8b2135f32fdb1a21": {
+      "name": "Camiseta ofídica"
+    },
+    "ff0bfb7aeac4aa6d": {
+      "name": "Sombrero cónico ostras"
+    },
+    "3ae1c8a4eecf91e3": {
+      "name": "Rockenberg negra"
+    },
+    "a7774baa69c08989": {
+      "name": "Deportiva wasabi"
+    },
+    "229d49cb636089c0": {
+      "name": "Sombrero de tela vaquera"
+    },
+    "a12167e8d2f28bc4": {
+      "name": "Camiseta holgada rosa"
+    },
+    "d00c5befc82384e4": {
+      "name": "Megabota azulada"
+    },
+    "92fd25365b270e34": {
+      "name": "Sudadera marinera"
+    },
+    "2bbb730975a3d2e4": {
+      "name": "Hipocampo-A oro"
+    },
+    "ce512460e6ed3d20": {
+      "name": "Camiseta Hightide Era"
+    },
+    "a2a53544339fc704": {
+      "name": "Tirantes franja Theutik"
+    },
+    "cabb500a341a7297": {
+      "name": "Mocasín escualo"
+    },
+    "76c98dcadfa3254e": {
+      "name": "Béisbol negra"
+    },
+    "45e78598c560379c": {
+      "name": "Sudadera mostaza"
+    },
+    "3c85da60025f9def": {
+      "name": "Chaqueta aviador"
+    },
+    "7d5e52e2c5bb83f5": {
+      "name": "Máscara antigás"
+    },
+    "da94f64e21dea66e": {
+      "name": "Deportiva futurista negra"
+    },
+    "c1e0f231ee4d92b1": {
+      "name": "Abrigo Theutik marino"
+    },
+    "66b67f985e1298a7": {
+      "name": "Cinta fútbol"
+    },
+    "fe17ac29feb37984": {
+      "name": "Jersey puño rojo"
+    },
+    "f1828d6cf750b256": {
+      "name": "Suela extra rosa"
+    },
+    "8b7c930b2cc0e498": {
+      "name": "Chaqueta Meddux 528"
+    },
+    "2b9bb9aa6b80f37e": {
+      "name": "Gafas ovaladas dobles"
+    },
+    "e35713e444afb4eb": {
+      "name": "Camiseta Barazushi arroz"
+    },
+    "b63cbc8e8458640d": {
+      "name": "Polo rugby extra 010"
+    },
+    "2b91bcfea4de8809": {
+      "name": "Negra larga"
+    },
+    "8fd5ab805c9687e2": {
+      "name": "Sudadera morada Theutik"
+    },
+    "f121f611a8379f3f": {
+      "name": "Camiseta negra pro"
+    },
+    "460574ad6d73934b": {
+      "name": "Chubasquero glacial"
+    },
+    "7c409e0ca76b942b": {
+      "name": "Ancla blanca"
+    },
+    "22b856345ca7de8e": {
+      "name": "Bamba alta trufa"
+    },
+    "759f10e900939f5c": {
+      "name": "Camisa lino"
+    },
+    "f566a101b0f5b132": {
+      "name": "Calamar doble"
+    },
+    "e328bb1204b9fab3": {
+      "name": "Zapato rojo y azul"
+    },
+    "ea7403918192ffc4": {
+      "name": "Camisa octropical"
+    },
+    "85c6fc1e82e176a5": {
+      "name": "Camiseta sol"
+    },
+    "fc4daf64413e0935": {
+      "name": "Chubasquero lima"
+    },
+    "82e84adc3d2d435b": {
+      "name": "Abrigo Tonken"
+    },
+    "051dbc8aeb5ddf6d": {
+      "name": "Camiseta liguera"
+    },
+    "c03f0c705e5a2ad3": {
+      "name": "Zapato doble hebilla"
+    },
+    "2672cbe3aa792e52": {
+      "name": "Retrocamiseta gris"
+    },
+    "32c45f03137ffd14": {
+      "name": "Chaqueta de punto naranja"
+    },
+    "527b06f73d3b7018": {
+      "name": "Ezko rábano larga"
+    },
+    "28d6795565c997b8": {
+      "name": "Camisa blanca"
+    },
+    "7b9c71c2c795b6a6": {
+      "name": "Baloncesto local"
+    },
+    "e8285de857d1444c": {
+      "name": "Sudadera con camisa"
+    }
+  },
+  "powers": {
+    "032c2b30027d6a23": {
+      "name": "Tintahorro (ppal.)"
+    },
+    "294d158b20a03702": {
+      "name": "Remontada"
+    },
+    "8eff7c5906b17202": {
+      "name": "Ninjalamar"
+    },
+    "a6ee72ab2e279e1d": {
+      "name": "Superbuceo"
+    },
+    "793e8f393b093b33": {
+      "name": "Supersalto invisible"
+    },
+    "7491b2168b321d3e": {
+      "name": "Supersalto rápido"
+    },
+    "9a736dd26cc6d3c5": {
+      "name": "Supercarrera"
+    },
+    "ea552d4a7c94a0eb": {
+      "name": "Amortiguador"
+    },
+    "1a994b9f1d422b23": {
+      "name": "Superarma especial"
+    },
+    "4b8e1b77f6b1ef60": {
+      "name": "Desconocido"
+    },
+    "1406c4da9fe690c9": {
+      "name": "Tintahorro (ppal.)"
+    },
+    "c8179c066b561cd5": {
+      "name": "Remontada"
+    },
+    "0e71bff24c3f37ad": {
+      "name": "Ninjalamar"
+    },
+    "03c7b7bc6cb68512": {
+      "name": "Superbuceo"
+    },
+    "b4e72a2b9c9f3d53": {
+      "name": "Supersalto invisible"
+    },
+    "1f86150af97debf6": {
+      "name": "Supersalto rápido"
+    },
+    "16cbf780227d6f6d": {
+      "name": "Supercarrera"
+    },
+    "c54714a0c4aa3e11": {
+      "name": "Amortiguador"
+    },
+    "e2c02f122de2c567": {
+      "name": "Superarma especial"
+    },
+    "264ff06a6e99b11a": {
+      "name": "Desconocido"
+    },
+    "1d202ffb6e81bce5": {
+      "name": "Castigo póstumo"
+    },
+    "815a9a65c869e5d9": {
+      "name": "Resistencia secundaria"
+    },
+    "d419d93c9ca266f2": {
+      "name": "Impermeabilidad"
+    },
+    "0e164aae93afae43": {
+      "name": "Reducción especial"
+    },
+    "28c5ec4430082450": {
+      "name": "Retorno exprés"
+    },
+    "aedd94fe223261d5": {
+      "name": "Agilidad extra"
+    },
+    "c43ab03140bb13f2": {
+      "name": "Recarga rápida"
+    },
+    "6dcecca7e07e73c4": {
+      "name": "Recarga especial"
+    },
+    "8afb83ffeb289865": {
+      "name": "Represalia"
+    },
+    "9d5a18e4c5e5645e": {
+      "name": "Acelerón de salida"
+    },
+    "0e2ac5e15d77b2cb": {
+      "name": "Superarma secundaria"
+    },
+    "3820d64c12f27290": {
+      "name": "Demolición"
+    },
+    "8340c4eed8943fc7": {
+      "name": "Tintahorro (sec.)"
+    },
+    "5602e981c1c00258": {
+      "name": "Señuelo"
+    },
+    "44d2c5620c1d3c73": {
+      "name": "Ventaja"
+    },
+    "51f03088c1111fd7": {
+      "name": "Sprint final"
+    },
+    "d00bc8d303659ec6": {
+      "name": "Recarga rápida"
+    },
+    "41a16a26faa38d13": {
+      "name": "Retorno exprés"
+    },
+    "bde0eb22530d4466": {
+      "name": "Recarga especial"
+    },
+    "86cdcc0fd608423a": {
+      "name": "Amortiguador"
+    },
+    "276cddac2f57fa12": {
+      "name": "Castigo póstumo"
+    },
+    "cd3ddfd6e986e696": {
+      "name": "Superarma especial"
+    },
+    "92122d477e563d7b": {
+      "name": "Impermeabilidad"
+    },
+    "cef7771e1562e6f9": {
+      "name": "Desconocido"
+    },
+    "1d855c39cfd4d1ad": {
+      "name": "Resistencia secundaria"
+    },
+    "4eb2633ea2cc53c5": {
+      "name": "Superarma secundaria"
+    },
+    "65995d04d06440c3": {
+      "name": "Agilidad extra"
+    },
+    "57aceb0bcb925e93": {
+      "name": "Tintahorro (sec.)"
+    },
+    "73e2e892e74ab1b9": {
+      "name": "Sprint final"
+    },
+    "0c8e815c244cde48": {
+      "name": "Ventaja"
+    },
+    "620af3d72bd265ea": {
+      "name": "Superbuceo"
+    },
+    "870b81ce67189ad3": {
+      "name": "Represalia"
+    },
+    "8182fe5e6b07ef53": {
+      "name": "Tintahorro (ppal.)"
+    },
+    "3d1ad74f74989f8d": {
+      "name": "Supersalto rápido"
+    },
+    "fad0ac5cace2e2a4": {
+      "name": "Supercarrera"
+    },
+    "cf48bc70458f9b0b": {
+      "name": "Señuelo"
+    },
+    "98f9e51856a7a8fb": {
+      "name": "Ninjalamar"
+    },
+    "e6087224d046f0dc": {
+      "name": "Reducción especial"
+    },
+    "009a41cd1f5702c0": {
+      "name": "Supersalto invisible"
+    },
+    "23fa65038ff7b3be": {
+      "name": "Remontada"
+    },
+    "f60a2e453b279d3c": {
+      "name": "Demolición"
+    },
+    "3d4c8db9a6144122": {
+      "name": "Acelerón de salida"
+    },
+    "bb95857faf2ee2ce": {
+      "name": "Recarga especial"
+    },
+    "7fda9e58be0148ba": {
+      "name": "Supercarrera"
+    },
+    "4b93ede887594882": {
+      "name": "Agilidad extra"
+    },
+    "eb113dfd628fe97d": {
+      "name": "Tintahorro (ppal.)"
+    },
+    "481e489df1599c5e": {
+      "name": "Superarma secundaria"
+    },
+    "50cbb1f4d01ed04f": {
+      "name": "Sprint final"
+    },
+    "b6c2fce7a284b8cf": {
+      "name": "Recarga rápida"
+    },
+    "189689c8bda666d7": {
+      "name": "Impermeabilidad"
+    },
+    "5b196254c80fd4b5": {
+      "name": "Desconocido"
+    },
+    "9a60bd30bf6280cb": {
+      "name": "Represalia"
+    },
+    "9db907b90b370d4f": {
+      "name": "Tintahorro (sec.)"
+    },
+    "96f1a2dd35702375": {
+      "name": "Superarma especial"
+    },
+    "68c079f60fbccc99": {
+      "name": "Resistencia secundaria"
+    },
+    "df5bce5ddddb57e0": {
+      "name": "Reducción especial"
+    },
+    "add7e9d4bf832d64": {
+      "name": "Ventaja"
+    },
+    "b6d2e0293e72924e": {
+      "name": "Superbuceo"
+    },
+    "806fd26d33ffcdd6": {
+      "name": "Retorno exprés"
+    },
+    "fbdf26d37a2c74be": {
+      "name": "Supersalto rápido"
+    },
+    "df2ac662442781ce": {
+      "name": "Castigo póstumo"
+    },
+    "514d40657c1ab7ed": {
+      "name": "Supersalto invisible"
+    },
+    "4aca3727ab8e8509": {
+      "name": "Señuelo"
+    },
+    "b441c990d3de0d1a": {
+      "name": "Amortiguador"
+    },
+    "88338f2180bbb23d": {
+      "name": "Acelerón de salida"
+    },
+    "cc519de29fe8f2e5": {
+      "name": "Remontada"
+    },
+    "d939d4401935ee27": {
+      "name": "Demolición"
+    },
+    "3ea0270d5dbdd966": {
+      "name": "Ninjalamar"
+    },
+    "7f6d89f40eabc41d": {
+      "name": "Retorno exprés"
+    },
+    "7a177ddb3aeaed0b": {
+      "name": "Impermeabilidad"
+    },
+    "9da8a55c915271b6": {
+      "name": "Supercarrera"
+    },
+    "1f746cec210906af": {
+      "name": "Agilidad extra"
+    },
+    "bf7742050e8638f9": {
+      "name": "Recarga especial"
+    },
+    "2497992da827dbbf": {
+      "name": "Tintahorro (sec.)"
+    },
+    "1e735ea69cb58677": {
+      "name": "Superbuceo"
+    },
+    "ef78dc3c91f93dbd": {
+      "name": "Supersalto rápido"
+    },
+    "c3692f89900a0839": {
+      "name": "Represalia"
+    },
+    "4352d3f254655a4f": {
+      "name": "Recarga rápida"
+    },
+    "f09d91b4cb53fbe1": {
+      "name": "Reducción especial"
+    },
+    "351dbd2ad833da59": {
+      "name": "Tintahorro (ppal.)"
+    },
+    "668f5cf3759aa059": {
+      "name": "Desconocido"
+    },
+    "75bb4b4b145f5f22": {
+      "name": "Superarma especial"
+    },
+    "e6cf18b7c3d7777a": {
+      "name": "Resistencia secundaria"
+    },
+    "79a401dc1b5a80b1": {
+      "name": "Sprint final"
+    },
+    "a3d44c0645fcc37a": {
+      "name": "Superarma secundaria"
+    },
+    "31d03e5fdf33d308": {
+      "name": "Amortiguador"
+    },
+    "7f398a113a8542f9": {
+      "name": "Ventaja"
+    },
+    "a94450681ff5481a": {
+      "name": "Castigo póstumo"
+    },
+    "ad9a06bbb1123add": {
+      "name": "Señuelo"
+    },
+    "fc0d34e5084cfa0c": {
+      "name": "Supersalto invisible"
+    },
+    "719305cabfd863f9": {
+      "name": "Remontada"
+    },
+    "24f62ff0fc66449b": {
+      "name": "Demolición"
+    },
+    "2aa79bd15fcdafe7": {
+      "name": "Acelerón de salida"
+    },
+    "5739c59fcddc57ca": {
+      "name": "Ninjalamar"
+    }
+  },
+  "festivals": {
+    "JUEA-00004": {
+      "title": "¿Cuál es tu chocolate favorito?",
+      "teams": [
+        {
+          "teamName": "Puro"
+        },
+        {
+          "teamName": "Con leche"
+        },
+        {
+          "teamName": "Blanco"
+        }
+      ]
+    },
+    "JUEA-00003": {
+      "title": "¿Qué tipo de sabor prefieres?",
+      "teams": [
+        {
+          "teamName": "Picante"
+        },
+        {
+          "teamName": "Dulce"
+        },
+        {
+          "teamName": "Ácido"
+        }
+      ]
+    },
+    "JUEA-00002": {
+      "title": "¿De qué tipo es tu acompañante Pokémon?",
+      "teams": [
+        {
+          "teamName": "Planta"
+        },
+        {
+          "teamName": "Fuego"
+        },
+        {
+          "teamName": "Agua"
+        }
+      ]
+    },
+    "JUEA-00001": {
+      "title": "¿Qué te llevarías a una isla desierta?",
+      "teams": [
+        {
+          "teamName": "Herramientas"
+        },
+        {
+          "teamName": "Comida"
+        },
+        {
+          "teamName": "Pasatiempos"
+        }
+      ]
+    },
+    "JUEA-00005": {
+      "title": "¿Quién existe realmente?",
+      "teams": [
+        {
+          "teamName": "Nessie"
+        },
+        {
+          "teamName": "Marcianos"
+        },
+        {
+          "teamName": "Bigfoot"
+        }
+      ]
+    },
+    "JUEA-00006": {
+      "title": "¿Qué anhelas tener?",
+      "teams": [
+        {
+          "teamName": "Poder"
+        },
+        {
+          "teamName": "Sabiduría"
+        },
+        {
+          "teamName": "Valor"
+        }
+      ]
+    },
+    "JUEA-00007": {
+      "title": "¿Qué sabor de helado es el mejor?",
+      "teams": [
+        {
+          "teamName": "Vainilla"
+        },
+        {
+          "teamName": "Fresa"
+        },
+        {
+          "teamName": "Menta y chocolate"
+        }
+      ]
+    },
+    "JUEA-00008": {
+      "title": "¿Qué importa más en la vida?",
+      "teams": [
+        {
+          "teamName": "Dinero"
+        },
+        {
+          "teamName": "Fama"
+        },
+        {
+          "teamName": "Amor"
+        }
+      ]
+    },
+    "JUEA-00009": {
+      "title": "¿Quién sería mejor líder?",
+      "teams": [
+        {
+          "teamName": "Megan"
+        },
+        {
+          "teamName": "Angie"
+        },
+        {
+          "teamName": "Rayan"
+        }
+      ]
+    },
+    "JUEA-00010": {
+      "title": "¿A quién preferirías como amigo?",
+      "teams": [
+        {
+          "teamName": "Zombi"
+        },
+        {
+          "teamName": "Esqueleto"
+        },
+        {
+          "teamName": "Fantasma"
+        }
+      ]
+    },
+    "UEA-90011": {
+      "title": "¿Cuál es tu saludo favorito?",
+      "teams": [
+        {
+          "teamName": "Apretón de manos"
+        },
+        {
+          "teamName": "Choque de puños"
+        },
+        {
+          "teamName": "Abrazo"
+        }
+      ]
+    },
+    "JUEA-00012": {
+      "title": "¿Con quién te gusta pasar las fiestas?",
+      "teams": [
+        {
+          "teamName": "Amistades"
+        },
+        {
+          "teamName": "Familiares"
+        },
+        {
+          "teamName": "A mi bola"
+        }
+      ]
+    },
+    "UEA-00013": {
+      "title": "¿Qué día del fin de semana es mejor?",
+      "teams": [
+        {
+          "teamName": "Viernes"
+        },
+        {
+          "teamName": "Sábado"
+        },
+        {
+          "teamName": "Domingo"
+        }
+      ]
+    },
+    "UEA-00014": {
+      "title": "¿Qué instrumento preferirías tocar?",
+      "teams": [
+        {
+          "teamName": "Batería"
+        },
+        {
+          "teamName": "Guitarra"
+        },
+        {
+          "teamName": "Teclados"
+        }
+      ]
+    },
+    "JUEA-00015": {
+      "title": "¡Llega la tierna y delicada primavera!",
+      "teams": [
+        {
+          "teamName": "Pollitos"
+        },
+        {
+          "teamName": "Conejitos"
+        },
+        {
+          "teamName": "Ositos"
+        }
+      ]
+    },
+    "JUEA-00016": {
+      "title": "¿Qué harías si se acabara el mundo?",
+      "teams": [
+        {
+          "teamName": "Seguir a lo mío"
+        },
+        {
+          "teamName": "Cosas pendientes"
+        },
+        {
+          "teamName": "Salvar a la gente"
+        }
+      ]
+    },
+    "JUEA-00017": {
+      "title": "¿Qué alquilarías durante un día?",
+      "teams": [
+        {
+          "teamName": "Palacio"
+        },
+        {
+          "teamName": "Parque temático"
+        },
+        {
+          "teamName": "Playa"
+        }
+      ]
+    },
+    "JUEA-00018": {
+      "title": "¿Qué podrías comer todos los días?",
+      "teams": [
+        {
+          "teamName": "Pan"
+        },
+        {
+          "teamName": "Arroz"
+        },
+        {
+          "teamName": "Pasta"
+        }
+      ]
+    },
+    "JUEA-00019": {
+      "title": "¿Qué es lo más importante para ti?",
+      "teams": [
+        {
+          "teamName": "Pasado"
+        },
+        {
+          "teamName": "Presente"
+        },
+        {
+          "teamName": "Futuro"
+        }
+      ]
+    },
+    "JUEA-00100": {
+      "title": "¿Qué harías en un mundo fantástico?",
+      "teams": [
+        {
+          "teamName": "Hechicería"
+        },
+        {
+          "teamName": "Caballería"
+        },
+        {
+          "teamName": "Artes ninja"
+        }
+      ]
+    },
+    "JUEA-00105": {
+      "title": "¿Con quién te gusta pasar las fiestas?",
+      "teams": [
+        {
+          "teamName": "Amistades"
+        },
+        {
+          "teamName": "Familiares"
+        },
+        {
+          "teamName": "A mi bola"
+        }
+      ]
+    },
+    "JUEA-00104": {
+      "title": "¿A quién preferirías como amigo?",
+      "teams": [
+        {
+          "teamName": "Zombi"
+        },
+        {
+          "teamName": "Esqueleto"
+        },
+        {
+          "teamName": "Fantasma"
+        }
+      ]
+    },
+    "JUEA-00103": {
+      "title": "¿Por qué medio preferirías viajar?",
+      "teams": [
+        {
+          "teamName": "Por tierra"
+        },
+        {
+          "teamName": "Por mar"
+        },
+        {
+          "teamName": "Por aire"
+        }
+      ]
+    },
+    "JUEA-00102": {
+      "title": "¿Cuándo haces más cosas?",
+      "teams": [
+        {
+          "teamName": "Por la mañana"
+        },
+        {
+          "teamName": "Por la tarde"
+        },
+        {
+          "teamName": "Por la noche"
+        }
+      ]
+    },
+    "JUEA-00200": {
+      "title": "¿Cuál es tu chocolate favorito?",
+      "teams": [
+        {
+          "teamName": "Puro"
+        },
+        {
+          "teamName": "Con leche"
+        },
+        {
+          "teamName": "Blanco"
+        }
+      ]
+    },
+    "JUEA-00101": {
+      "title": "¿Qué os haría más felices?",
+      "teams": [
+        {
+          "teamName": "Dinero"
+        },
+        {
+          "teamName": "Recuerdos"
+        },
+        {
+          "teamName": "Regalos"
+        }
+      ]
+    },
+    "JUEA-00106": {
+      "title": "¡Llega la tierna y delicada primavera!",
+      "teams": [
+        {
+          "teamName": "Pollitos"
+        },
+        {
+          "teamName": "Conejitos"
+        },
+        {
+          "teamName": "Ositos"
+        }
+      ]
+    },
+    "JUEA-00201": {
+      "title": "¿Qué valoras más en combate?",
+      "teams": [
+        {
+          "teamName": "Velocidad"
+        },
+        {
+          "teamName": "Potencia"
+        },
+        {
+          "teamName": "Táctica"
+        }
+      ]
+    }
+  },
+  "events": {
+    "TGVhZ3VlTWF0Y2hFdmVudC1OZXdTZWFzb25DdXA=": {
+      "name": "Reto inaugural de temporada",
+      "desc": "¡Inicio de temporada con nuevo escenario!",
+      "regulation": "Con el inicio de una nueva temporada, ¡toca combatir en lugares diferentes!<br /><br />・ ¡Todo nuevo escenario requiere estrategias renovadas!<br />・ En los combates territoriales valen solo los potenciadores principales. ¡Los secundarios no tienen efecto!<br />・ ¡En el estilo de combate caótico, no hay limitación de potenciadores!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVNob3Q=": {
+      "name": "Certamen del tintazuca triple",
+      "desc": "¡Lucha con tintazucas triples por doquier!",
+      "regulation": "¿Quién ganaría en un enfrentamiento entre tintazucas triples? ¡Es el momento de comprobarlo!<br /><br />・ Solo pueden usarse armas que lleven el tintazuca triple como arma especial.<br />・ ¡El medidor de arma especial se rellena solo y con gran rapidez!<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb24=": {
+      "name": "Antología de armamento",
+      "desc": "¡Saca partido a numerosas armas al azar!",
+      "regulation": "Jairo cede su arsenal en beneficio de la diversidad armamentística.<br /><br />・ ¡Cada combate se disputa con nuevas armas seleccionadas al azar!<br />・ No es necesario poseer previamente ningún arma. Se proporcionarán a modo de préstamo durante los combates.<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb250aGx5TGVhZ3VlTWF0Y2hSZWFs": {
+      "name": "Evento mensual",
+      "desc": "¡A por la máxima energía evento del mes!",
+      "regulation": "¿Hasta dónde llegará tu límite de energía evento durante este mes?<br /><br />・ En los combates territoriales valen solo los potenciadores principales. ¡Los secundarios no tienen efecto!<br />・ ¡En el estilo de combate caótico, no hay limitación de potenciadores!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1EZWVwRm9n": {
+      "name": "Refriega nebulosa",
+      "desc": "¡Máxima tensión y mínima visibilidad!",
+      "regulation": "¿No se ve ni torta? ¡Algún partido se le podrá sacar a la situación!<br /><br />・ Todo el escenario está cubierto de niebla durante la batalla.<br />・ ¡Pero la densidad de esta varía según transcurre el tiempo!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1QYWlyQ3Vw": {
+      "name": "Duelo de parejas",
+      "desc": "¡Un dúo se enfrenta a otro par de rivales!",
+      "regulation": "¡El compañerismo es un factor clave en estas peleas de dos contra dos!<br /><br />・ ¡Para llegar a ser los mejores, hay que probar nuevas tácticas!<br />・ Se puede participar como pareja o en solitario.<br />・ ¡El tiempo de reaparición se acorta!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1JvbGxlckJydXNo": {
+      "name": "Batalla pictórica histórica",
+      "desc": "¡Una gran disputa de pinceles y rodillos!",
+      "regulation": "¿Combates por amor al arte o solo te interesa la victoria?<br /><br />・ ¡Solo pueden usarse rodillos o armas de tipo pincel o brocha!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1IaWdoSnVtcA==": {
+      "name": "A saltos al asalto",
+      "desc": "¡Añade poder de salto extra a tu ofensiva!",
+      "regulation": "¡Capacidad de salto ampliada para explorar nuevas rutas de ataque!<br /><br />・ Todos los jugadores pueden efectuar saltos de mucho más alcance.<br />・ ¡La armadura aumenta su resistencia al recomenzar desde el punto base!<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9aaXBDYXN0ZXI=": {
+      "name": "Certamen del gancho tentacular",
+      "desc": "¡Usa el gancho tentacular sin límite!",
+      "regulation": "¿Cómo serían los combates si se pudiera utilizar el gancho tentacular hasta aburrirse?<br /><br />・ Solo pueden usarse armas que incluyan el gancho tentacular como arma especial.<br />・ ¡El medidor de arma especial se rellena solo y con gran rapidez!<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Ob3RGb3VuZA==": {
+      "name": "？？？？？",
+      "desc": "？？？？？",
+      "regulation": ""
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9MaW5lTWFya2Vy": {
+      "name": "Megabatalla con tiralíneas",
+      "desc": "¡Un peligroso duelo de tiralíneas cruzados!",
+      "regulation": "¡Los tiralíneas cruzan sus rayos en este enfrentamiento de alto riesgo!<br /><br />・ Solo pueden usarse armas que lleven el tiralíneas como arma secundaria.<br />・ Aumenta considerablemente el daño que causan los tiralíneas.<br />・ También aumenta enormemente la cantidad de tinta que consumen.<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db21wZXRpdGlvblJlaGVhcnNhbHNKUA==": {
+      "name": "Evento clasificatorio de prueba (Japón)",
+      "desc": "¡Practica e intenta alcanzar los mejores puestos!",
+      "regulation": "Este tipo de combate evento sirve como práctica de cara a clasificarse para un torneo de la región de Japón. Puedes participar en él aunque no tengas pensado competir en el torneo.<br /><br />Podría ser necesario inscribirse por separado para participar en los torneos. La participación puede restringirse en función del país de residencia y otros factores."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1GYXN0TW92ZQ==": {
+      "name": "Pelea a nado",
+      "desc": "¡Nada a toda pastilla en forma cefalópoda!",
+      "regulation": "¡Recorre el escenario nadando a gran velocidad en forma de pulpo o calamar!<br /><br />・ ¡El desplazamiento al sumergirse en la tinta es mucho más rápido!<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!<br />・ Tampoco puede usarse el potenciador superbuceo."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db21wZXRpdGlvbnNKUA==": {
+      "name": "Evento clasificatorio (Japón)",
+      "desc": "¡Intenta alcanzar los mejores puestos!",
+      "regulation": "Este tipo de combate evento sirve como prueba clasificatoria para participar en un torneo de la región de Japón. Puedes combatir en él aunque no tengas pensado competir en el torneo.<br /><br />Podría ser necesario inscribirse por separado para participar en los torneos. La participación puede restringirse en función del país de residencia y otros factores."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9KZXRQYWNr": {
+      "name": "Certamen del propulsor",
+      "desc": "¡Refriega aérea usando a tope el propulsor!",
+      "regulation": "¡Revoluciona los cielos mediante la propulsión a chorro!<br /><br />・ Solo pueden usarse armas que lleven el propulsor como arma especial.<br />・ ¡El medidor de arma especial se rellena solo y con gran rapidez!<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9SYWlubWFrZXI=": {
+      "name": "Prueba con pez dorado plus",
+      "desc": "¡Atrévete a probar un pez dorado renovado!",
+      "regulation": "¿Te atreves a dar caña con un pez dorado de funcionalidad renovada?<br /><br />・ Se combate en estilo pez dorado.<br />・ ¡El pez dorado puede disparar en tres direcciones si se carga a tope!<br />・ Quien lleva el pez dorado ve potenciadas sus habilidades.<br />・ ¡Cuidado! El pez dorado explota 30 segundos después de haberlo agarrado.<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Db3N0dW1lUGFydHk=": {
+      "name": "Trofeo del arma y el disfraz",
+      "desc": "¡Pásalo bomba con armas y artículos aleatorios!",
+      "regulation": "¡Pásalo bomba sacando todo el partido posible a armas y artículos elegidos de forma aleatoria!<br /><br />・ Se usan conjuntos predeterminados de artículos para luchar.<br />・ ¡Cada combate se disputa con nuevas armas seleccionadas al azar!<br />・ No es necesario poseer previamente ningún arma. Se proporcionarán a modo de préstamo durante los combates."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NwaW5uZXI=": {
+      "name": "Encontronazo de tintralladoras",
+      "desc": "¡Lucha con la fuerza de las tintralladoras!",
+      "regulation": "¿Quién resultará ser más fuerte empleando tintralladoras y nada más?<br /><br />・ ¡Solo pueden usarse tintralladoras como armas!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9Ta2V3ZXI=": {
+      "name": "Certamen del flotiburón",
+      "desc": "¿Te apuntas a un explosivo paseo?",
+      "regulation": "¿Quién se apunta a un paseo en flotiburón con final explosivo? En este evento... ¡todo el mundo!<br /><br />・ Solo pueden usarse armas que lleven el flotiburón como arma especial.<br />・ ¡El medidor de arma especial se rellena solo y con gran rapidez!<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1HZXlzZXI=": {
+      "name": "¡Que surta el efecto!",
+      "desc": "Ahora los escenarios que conoces están<br />llenos de surtidores. ¿Qué uso les darás?",
+      "regulation": "¿De dónde han salido esos surtidores? ¡Úsalos a tope!<br /><br />・ ¡Hay surtidores por todo el escenario!<br />・ Dispara a un surtidor para que expulse tinta de tu color.<br />・ Puedes usarlos para esconderte o trepar.<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0JsYXN0ZXI=": {
+      "name": "Combate devastador",
+      "desc": "¡Devasta que da gusto con devastadores!",
+      "regulation": "¡A ver qué tal se te da el manejo del devastador!<br /><br />・ ¡Solo se puede combatir con devastadores!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Nb2RpZmllZF9Ub3dlckNvbnRyb2w=": {
+      "name": "Torre gigante",
+      "desc": "¡La torre es enorme!<br />¡Todo el mundo al abordaje!",
+      "regulation": "¿Podréis controlar una torre de esta magnitud?<br /><br />・ Los combates siguen las reglas del estilo torre.<br />・ La torre es enorme: ¡todo tu equipo cabrá en ella!<br />・ Coordínate con el resto del equipo para asaltar la base enemiga.<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYWlubWFrZXJEcm9w": {
+      "name": "¿Un pez dorado... aquí?",
+      "desc": "¡Pez dorado en lugares insospechados!",
+      "regulation": "¡Prueba el pez dorado en combates convencionales!<br /><br />・ No se aplican las reglas habituales del estilo pez dorado.<br />・ El pez dorado aparecerá en el medio del escenario.<br />・ ¡Quien se haga con él podrá aprovechar sus ventajas!<br />・ El pez dorado volverá al centro del escenario si su portador es eliminado.<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX0NoYXJnZXI=": {
+      "name": "¡A cargar las tintas!",
+      "desc": "¡A ver cómo te manejas con el cargatintas!",
+      "regulation": "¡Usa tu cargatintas favorito para liarte a tiros!<br /><br />・ ¡Solo se puede combatir con cargatintas!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX01hbmV1dmVy": {
+      "name": "Monopolio de armas duales",
+      "desc": "¿Quién demostrará mayor poderío<br />empleando armas duales?",
+      "regulation": "¡La dualidad armamentística manda!<br /><br />・ ¡Solo se puede competir con armas duales!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1Sb2xsZXJCcnVzaFNwZWVkVXA=": {
+      "name": "Avance a toda tinta",
+      "desc": "¡Una refriega de rodillos y pinceles con<br />velocidad extra! ¡No te quedes atrás!",
+      "regulation": "¡Nunca fue tan rápido arrollar o dar brochazos a diestro y siniestro!<br /><br />・ ¡Solo pueden usarse rodillos o armas de tipo pincel o brocha!<br />・ Estos avanzan más rápido y entintan más terreno de lo habitual.<br />・ ¡El consumo de tinta correspondiente también será mayor!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9DdXJsaW5nQm9tYg==": {
+      "name": "Gran duelo de bombas deslizantes",
+      "desc": "¡Un frenético choque entre gigantescas<br />bombas deslizantes!",
+      "regulation": "¡Imagina la que puede liarse con enormes bombas deslizantes aquí y allá!<br /><br />・ Solo pueden usarse armas que lleven bombas deslizantes como arma secundaria.<br />・ ¡Las bombas deslizantes aumentan muchísimo de tamaño!<br />・ ¡Quien reciba el impacto de una sufrirá un tremendo daño!<br />・ ¡El tamaño de la explosión también aumenta mucho!<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1NoZWx0ZXI=": {
+      "name": "Combate de paratintas",
+      "desc": "¡Si la tinta no para, es porque<br />los paratintas están en juego!",
+      "regulation": "¡Demuestra lo que puede lograrse con paratintas!<br /><br />・ ¡Solo se puede combatir con paratintas!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TcGVjaWFsUnVzaF9VbHRyYVN0YW1w": {
+      "name": "Certamen de la utraselladora",
+      "desc": "¡Estampa antes de que te estampen a ti!",
+      "regulation": "¡Deja tu sello en combate con la máxima contundencia!<br /><br />・ Solo pueden usarse armas que lleven la ultraselladora como arma especial.<br />・ ¡El medidor de arma especial se rellena solo y con gran rapidez!<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclN1YldlYXBvbl9TcGxhc2hCb21i": {
+      "name": "Bombas básicas a tutiplén",
+      "desc": "¡Que las bombas básicas vuelen libres!",
+      "regulation": "¿Quién ganaría en un enfrentamiento entre bombas básicas? ¡Es el momento de comprobarlo!<br /><br />・ Solo pueden usarse armas que lleven bombas básicas como arma secundaria.<br />・ El consumo de tinta de las bombas se reduce a la mitad.<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlckJlYWNvbg==": {
+      "name": "Certamen del supersalto",
+      "desc": "¡Tus colegas siempre a tiro de supersalto!",
+      "regulation": "¡Atrae a tus compañeros a la velocidad del rayo para no luchar en solitario!<br /><br />・ Solo pueden usarse armas que lleven la baliza transportadora como arma secundaria.<br />・ ¡Los supersaltos se efectúan con mucha más rapidez!<br />・ Solo valen los potenciadores principales, excepto supersalto rápido y superarma secundaria. ¡Tanto estos como los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1TdXBlclNwZWNpYWxXZWFwb25fQ2hhcmlvdA==": {
+      "name": "Choque de cangrejobots",
+      "desc": "¡Ataca sin piedad empleando el cangrejobot<br />a paso acelerado!",
+      "regulation": "¿Caminar como un cangrejo implica ir despacio? ¡Eso sería antes!<br /><br />・ Solo pueden usarse armas que lleven el cangrejobot como arma especial.<br />・ ¡El cangrejobot caminará con mucha más rapidez hacia los lados!<br />・ La velocidad al rodar manteniendo pulsado el botón ZL no cambia.<br />・ Solo valen los potenciadores principales. ¡Los secundarios no tienen efecto!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1XZWFwb25MaW1pdGVkX1Nsb3NoZXI=": {
+      "name": "El reinado del Derramatic",
+      "desc": "¡Baña a quien se ponga delante!",
+      "regulation": "¡Demuestra que verter tinta a mansalva también se te da bien!<br /><br />・ ¡Solo se puede combatir con derramatic!<br />・ ¡Pueden usarse potenciadores principales y secundarios!"
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1SYW5kb21XZWFwb25BbmRHZWFyUG93ZXI=": {
+      "name": "Torneo de potenciadores de Jairo",
+      "desc": "¡Jairo seleccionará las armas<br />y los potenciadores al azar!",
+      "regulation": "¡Demuestra que sabes adaptarte a todo tipo de condiciones dejando que decida Jairo entre su catálogo!<br /><br />・ ¡Se asignan armas y potenciadores al azar cada vez que combates!<br />・ ¡Uno de los potenciadores que recibas se configurará al máximo!<br />・ Se te asignarán también tres potenciadores secundarios, con independencia del número de ranuras libres que tengas.<br />・ Cuando termines de combatir, recuperarás las armas y potenciadores que estuvieras usando previamente."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwUGFjaWZpYw==": {
+      "name": "Combate evento pro (División Sepioca)",
+      "desc": "¡Un evento especial solo disponible<br />para combatientes selectos!",
+      "regulation": "Este combate evento es solo para jugadores de la División Sepioca de los combates X que, en la temporada anterior, lograran clasificarse entre los 1000 mejores del rango X para el estilo de combate establecido en el evento.<br /><br />No es posible participar en pareja o como equipo."
+    },
+    "TGVhZ3VlTWF0Y2hFdmVudC1YTWF0Y2hQbGF5T2ZmX0dyb3VwQXRsYW50aWM=": {
+      "name": "Combate evento pro (División Arome)",
+      "desc": "¡Un evento especial solo disponible<br />para combatientes selectos!",
+      "regulation": "Este combate evento es solo para jugadores de la División Arome de los combates X que, en la temporada anterior, lograran clasificarse entre los 1000 mejores del rango X para el estilo de combate establecido en el evento.<br /><br />No es posible participar en pareja o como equipo."
+    }
+  },
+  "bosses": {
+    "Q29vcEVuZW15LTI0": {
+      "name": "Dragón"
+    },
+    "Q29vcEVuZW15LTIz": {
+      "name": "Salmonote"
+    },
+    "Q29vcEVuZW15LTI1": {
+      "name": "Megalodoncio"
+    },
+    "Q29vcEVuZW15LTMx": {
+      "name": "Al azar"
+    },
+    "Q29vcEVuZW15LTMw": {
+      "name": "Trialianza"
+    }
+  }
+}

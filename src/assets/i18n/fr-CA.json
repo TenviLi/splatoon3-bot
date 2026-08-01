@@ -1,0 +1,70 @@
+{
+  "times": {
+    "now": "Actuel",
+    "next": "Suivant",
+    "future": "Prochains"
+  },
+  "time": {
+    "in": "dans {time}",
+    "remaining": "{time} restant",
+    "until": "Jusqu'au {time}",
+    "left": "{time} restantes",
+    "d": "{n}j | {n}j",
+    "h": "{n}h | {n}h",
+    "m": "{n}m | {n}m",
+    "s": "{n}s | {n}s",
+    "days": "{n} jour | {n} jours",
+    "hours": "{n} heure | {n} heures",
+    "minutes": "{n} minute | {n} minutes",
+    "seconds": "{n} seconde | {n} secondes"
+  },
+  "schedule": {
+    "title": "Horaire",
+    "types": {
+      "series": "Série",
+      "open": "Ouvert",
+      "pro": "Défi",
+      "tricolor": "Tricolore",
+      "regular": "Match classique",
+      "anarchy": "Match anarchie",
+      "splatfest": "Festimatch",
+      "xmatch": "Match X",
+      "league": "Match de ligue"
+    },
+    "all-upcoming": "Les stages à venir"
+  },
+  "salmonrun": {
+    "title": "Salmon Run",
+    "weapons": "Armes fournies",
+    "bigrun": "Big Run",
+    "eggstrawork": "Défi œuf sup'"
+  },
+  "festival": {
+    "title": "Festivals",
+    "upcoming": "Festival",
+    "active": "Festival",
+    "past": "Festival",
+    "results": {
+      "title": "Résultats",
+      "conchshells": "Conques",
+      "votes": "Votes",
+      "open": "Ouvert",
+      "pro": "Défi",
+      "tricolor": "Match tricolore",
+      "won": "{team} l'emporte!"
+    }
+  },
+  "gear": {
+    "title": "Équipement",
+    "sale": "Équipement en solde",
+    "dailydrop": "Chouchou du jour",
+    "order": "Commander"
+  },
+  "events": {
+    "title": "Match épreuve",
+    "available": "Tout à l'heure",
+    "not_available": "Aucun match épreuve prévu pour le moment.",
+    "now": "Actuellement",
+    "now_open": "En cours!"
+  }
+}

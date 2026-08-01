@@ -11,7 +11,7 @@ This note compares platform-native rich-message options for the notification ada
 | WeCom | `news_notice` Template Card | Whole-card URL action | Keep the card; use built-in content-addressed icons and concise native sections |
 | Discord | One image-rich embed | Clickable embed title | Keep the embed; improve field grouping, text budgets, and metadata |
 | Telegram | `sendPhoto` with formatted caption | URL inline-keyboard button | Keep the current structure; make caption truncation entity-safe |
-| QQ | Custom Markdown for group/user; capability-aware fallback for channels | Markdown link | Do not depend on keyboards; fix image dimensions and split behavior by target type |
+| QQ | Custom Markdown for group/user | Markdown link | Keep the scheduled adapter stateless; reject channel Targets that require a live Gateway session |
 | Feishu/Lark | Card schema 2.0 | `open_url` button behavior | Migrate from the legacy card shape; keep remote screenshot as a link unless app credentials are added |
 | DingTalk | `actionCard` | `singleURL` or URL-only `btns` | Keep ActionCard for individual notifications; reserve FeedCard for digests |
 | WhatsApp | Approved media template | Template URL button | Always use a template; require opt-in and fail closed when the approved contract does not match |
@@ -138,14 +138,15 @@ Safe payload shape:
 - ARK is a platform-native structured card system. Template 23 is a link/text list and template 24 is a text/thumbnail card with title, description, image, link, and source fields. [Structured card messages](https://bot.q.qq.com/wiki/develop/api-v2/server-inter/message/type/ark.html)
 - Embed messages are channel-only. They support a prompt, title, thumbnail, and fields, but are not a common group/user solution. [Embed messages](https://bot.q.qq.com/wiki/develop/api-v2/server-inter/message/type/embed.html)
 - Message keyboards can provide URL-jump, callback, or command buttons. Official docs mark button templates as application-gated and custom buttons as invitation-gated; custom layouts allow up to five rows with five buttons per row. [Message buttons](https://bot.q.qq.com/wiki/develop/api-v2/server-inter/message/trans/msg-btn.html)
+- Sending to a channel requires the bot interface to stay connected to the Gateway WebSocket. A short-lived scheduled GitHub Actions run cannot truthfully provide that independent online service. [Send a channel message](https://bot.q.qq.com/wiki/develop/api-v2/server-inter/channel/message/send.html)
 
 ### Adapter recommendation
 
-Use target-type-aware rendering instead of pretending QQ has one uniform rich-message surface:
+Keep the scheduled adapter deliberately stateless:
 
-- `group` and `user`: keep custom Markdown, which is now the least stateful rich option. Use one screenshot, concise headings, facts, and one ordinary Markdown link.
-- `channel`: prefer a channel Embed when custom Markdown capability is unavailable. The adapter configuration should expose an explicit capability choice rather than silently assuming the invitation-gated feature.
-- Fix screenshot dimension metadata. For a 16:9 screenshot the Markdown dimensions should follow the real orientation, for example `#1200px #675px`, not a portrait-shaped pair.
+- `group` and `user`: use custom Markdown, the least stateful rich option. Include one screenshot, concise headings, facts, and one ordinary Markdown link.
+- `channel`: reject the Target during Configuration Preflight. Supporting channels would require a separately deployed, continuously connected Gateway service rather than pretending one HTTP request is sufficient.
+- Keep screenshot dimension metadata in the real 16:9 orientation, for example `#1200px #675px`, not a portrait-shaped pair.
 - Do not enable keyboards by default. Even a URL-only button depends on platform enablement that a repository Secret cannot prove.
 - Do not switch the default to uploaded rich media: it adds an upload request, expiring `file_info`, and separate caches/scopes for group and user delivery.
 - ARK template 24 is a promising card fallback, but the official pages are not fully consistent about `msg_type=3` support across generated group/user endpoint tables. Do not adopt it as a universal default until fixture tests cover each target type against a real sandbox.
@@ -351,7 +352,7 @@ Use one Flex bubble per notification and make it look intentionally native:
 - Use a compact accent-colored header with the source and title, a full-width `16:9` hero image in `fit` mode so screenshots are never cropped, a body for subtitle and sections, two-column rows for short facts, and one primary footer button.
 - Apply the same `uri` action to the hero image and footer button. Both are ordinary navigation and need no callback server.
 - Generate `altText` from the title and most important context so notifications and clients without Flex rendering remain useful.
-- Keep the bubble below 30 KB and the whole HTTP body below LINE's 2 MB common request limit. The provider-neutral S3 publisher creates the real `1024×576` notification PNG before upload rather than projecting a CDN transformation URL. Before sending, inspect the public object and reject a missing or mismatched image MIME type, unsupported bytes, dimensions above `1024×1024`, or a file above 10 MB.
+- Keep the bubble below 30 KB and the whole HTTP body below LINE's 2 MB common request limit. The provider-neutral S3 publisher creates a real `1024×576` LINE compatibility PNG under `compact-images/` rather than reducing the primary `BOT_SCREENSHOT_RESOLUTION` image or projecting a CDN transformation URL. Before sending, inspect the public object and reject a missing or mismatched image MIME type, unsupported bytes, dimensions above `1024×1024`, or a file above 10 MB.
 - Generate one UUID retry key per target and notification delivery, and reuse it only for retries of that same logical delivery. Preserve `X-Line-Request-Id` in errors for diagnosis.
 - Treat a `409` response carrying `X-Line-Accepted-Request-Id` as an already accepted duplicate of the same retry key, not as a second failed delivery.
 - Treat `200` as API acceptance rather than proof of display because blocked or deleted recipients can be silently skipped.

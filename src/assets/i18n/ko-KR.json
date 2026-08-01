@@ -1,0 +1,69 @@
+{
+  "times": {
+    "now": "오픈!",
+    "next": "다음",
+    "future": "그다음"
+  },
+  "time": {
+    "in": "{time}안에",
+    "remaining": "{time}남음",
+    "until": "{time}까지",
+    "left": "{time}남았다",
+    "d": "{n}일 | {n}일",
+    "h": "{n}시간 | {n}시간",
+    "m": "{n}분 | {n}분",
+    "s": "{n}초 | {n}초",
+    "days": "{n}일 | {n}일",
+    "hours": "{n}시간 | {n}시간",
+    "minutes": "{n}분 | {n}분",
+    "seconds": "{n}초 | {n}초"
+  },
+  "schedule": {
+    "title": "스케줄",
+    "types": {
+      "series": "챌린지",
+      "open": "오픈",
+      "pro": "챌린지",
+      "tricolor": "트리컬러",
+      "regular": "레귤러 매치",
+      "anarchy": "카오폴리스 매치",
+      "splatfest": "페스티벌 매치",
+      "xmatch": "X 매치",
+      "league": "리그 매치"
+    }
+  },
+  "salmonrun": {
+    "title": "새먼 런",
+    "weapons": "지급 무기",
+    "bigrun": "빅 런",
+    "eggstrawork": "아르바이트 팀 콘테스트"
+  },
+  "festival": {
+    "title": "페스티벌",
+    "upcoming": "페스티벌",
+    "active": "페스티벌",
+    "past": "페스티벌",
+    "results": {
+      "title": "정산",
+      "conchshells": "소라고둥 획득률",
+      "votes": "득표율",
+      "open": "오픈",
+      "pro": "챌린지",
+      "tricolor": "트리컬러 어택",
+      "won": "{team} 승리!"
+    }
+  },
+  "gear": {
+    "title": "기어",
+    "sale": "현재 판매 중인 기어",
+    "dailydrop": "오늘의 픽업",
+    "order": "주문하기"
+  },
+  "events": {
+    "title": "이벤트 매치",
+    "available": "다음",
+    "not_available": "스케줄이 미정입니다",
+    "now": "지금",
+    "now_open": "개최 중!"
+  }
+}

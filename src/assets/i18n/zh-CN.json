@@ -23,17 +23,36 @@
     "types": {
       "series": "挑战",
       "open": "开放",
+      "pro": "挑战",
+      "tricolor": "三色夺宝攻击",
       "regular": "一般比赛",
       "anarchy": "蛮颓比赛",
-      "splatfest": "祭典比赛"
+      "splatfest": "祭典比赛",
+      "xmatch": "X比赛",
+      "league": "联盟比赛"
     },
-    "rainmakerLong": "真格鱼虎对战",
-    "rainmakerShort": "真格鱼虎",
     "all-upcoming": "接下来的对战场地"
   },
   "salmonrun": {
     "title": "鲑鱼跑",
-    "weapons": "发放武器"
+    "weapons": "发放武器",
+    "bigrun": "大型跑",
+    "eggstrawork": "团队打工竞赛"
+  },
+  "festival": {
+    "title": "祭典",
+    "upcoming": "祭典",
+    "active": "祭典",
+    "past": "祭典",
+    "results": {
+      "title": "结算",
+      "conchshells": "法螺获得率",
+      "votes": "得票率",
+      "open": "开放",
+      "pro": "挑战",
+      "tricolor": "三色夺宝攻击",
+      "won": "{team}获胜！"
+    }
   },
   "gear": {
     "title": "装备",
@@ -41,44 +60,11 @@
     "dailydrop": "今日精选",
     "order": "预定"
   },
-  "screenshot": {
-    "headers": {
-      "schedules": "对战日程表",
-      "salmonRun": "打工提醒小助手",
-      "dailyDropGear": "鱿鱼须商城·今日精选",
-      "regularGear": "鱿鱼须商城·目前贩卖的装备"
-    }
-  },
-  "notification": {
-    "common": {
-      "gear": "装备"
-    },
-    "schedules": {
-      "source": "今天你喷喷了吗?",
-      "title": "日程已更新",
-      "regularSection": "🔫  占地对战",
-      "rankedSection": "🔰  {rule}  ({mode})",
-      "ruleSuffix": "对战",
-      "imageAlt": "Splatoon 3 对战日程",
-      "action": "查看日程截图"
-    },
-    "salmonRun": {
-      "source": "打工的时间到啦!",
-      "randomWeapons": "🎉 随机武器! 随机武器!",
-      "suppliedWeapons": "🐻 发放武器:",
-      "imageAlt": "Splatoon 3 鲑鱼跑排班",
-      "action": "查看鲑鱼跑截图"
-    },
-    "dailyDropGear": {
-      "source": "鱿鱼须商城·今日精选",
-      "imageAlt": "鱿鱼须商城今日精选",
-      "action": "查看今日精选"
-    },
-    "regularGear": {
-      "source": "鱿鱼须商城·目前贩卖",
-      "title": "鱿鱼须商城上新啦",
-      "imageAlt": "鱿鱼须商城目前贩卖装备",
-      "action": "查看目前贩卖"
-    }
+  "events": {
+    "title": "活动比赛",
+    "available": "下一场",
+    "not_available": "日程未定",
+    "now": "现在",
+    "now_open": "举行中！"
   }
 }
