@@ -1,4 +1,8 @@
 <p align="center">
+  <strong>English</strong> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.ja.md">日本語</a>
+</p>
+
+<p align="center">
   <img src="./src/assets/img/favicon.svg" width="96" height="96" alt="splatoon3-bot logo">
 </p>
 
@@ -11,17 +15,15 @@
 
 <p align="center">
   <a href="https://github.com/TenviLi/splatoon3-bot/actions/workflows/ci.yml"><img alt="Verify workflow" src="https://github.com/TenviLi/splatoon3-bot/actions/workflows/ci.yml/badge.svg"></a>
-  <img alt="Node.js 24" src="https://img.shields.io/badge/Node.js-24-5FA04E?logo=nodedotjs&logoColor=white">
-  <img alt="pnpm 11" src="https://img.shields.io/badge/pnpm-11-F69220?logo=pnpm&logoColor=white">
+  <img alt="GitHub Actions hosted" src="https://img.shields.io/badge/operations-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white">
+  <img alt="Nine notification adapters" src="https://img.shields.io/badge/notification%20adapters-9-6F42C1">
   <img alt="S3 compatible" src="https://img.shields.io/badge/storage-S3%20compatible-569A31?logo=amazons3&logoColor=white">
   <a href="./LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/TenviLi/splatoon3-bot?label=license"></a>
 </p>
 
 <p align="center">
-  <a href="#overview">Overview</a> ·
-  <a href="#preview">Preview</a> ·
   <a href="#quick-start">Quick Start</a> ·
-  <a href="#automation">Automation</a> ·
+  <a href="#preview">Screenshots</a> ·
   <a href="#configuration">Configuration</a> ·
   <a href="#notification-channels">Channels</a> ·
   <a href="#reliability">Reliability</a>
@@ -48,14 +50,7 @@ Nine adapters are included today: **WeCom, Discord, Telegram, QQ, Feishu, DingTa
 
 ## Preview
 
-<p align="center">
-  <img src="./tests/golden/screenshots/linux-x64/schedules.png" width="900" alt="Splatoon 3 schedules screenshot">
-</p>
-
-<details>
-<summary><strong>View all four deterministic Screenshot Artifacts</strong></summary>
-
-<br>
+### View all four deterministic Screenshot Artifacts
 
 <table>
   <tr>
@@ -68,8 +63,6 @@ Nine adapters are included today: **WeCom, Discord, Telegram, QQ, Feishu, DingTa
   </tr>
 </table>
 
-</details>
-
 Production Screenshot Definitions use a `1200×675` viewport at `2x` device scale, producing exact `2400×1350` PNG files. The publisher additionally creates `1024×576` notification variants for cross-platform delivery.
 
 ## Quick Start
@@ -78,10 +71,23 @@ Production Screenshot Definitions use a `1200×675` viewport at `2x` device scal
 
 Each installation belongs in a Private repository under the operator's own GitHub account. That repository is the deployment and trust boundary: its owner can customize the code and independently manage every Repository Secret, Repository Variable, Environment, schedule, and protection rule.
 
-1. Create the Private repository. If this source repository is Private and its forking policy permits it, use **Fork**. If the source is Public, use **Use this template** or [GitHub Importer](https://github.com/new/import) instead—[public repository forks are always public](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks#visibility-of-forks) and cannot be made Private independently.
+<p align="center">
+  <a href="https://github.com/TenviLi/splatoon3-bot/fork"><strong>Fork your private installation →</strong></a>
+</p>
+
+> [!TIP]
+> Hosted operation needs only GitHub Actions, one S3-compatible bucket, and at least one messaging destination. **You do not need to install Node.js, pnpm, Chrome, Docker, or a server.**
+
+| You provide | Stored as | Start here |
+| --- | --- | --- |
+| Three public notification icon URLs | Repository Variable `BOT_BRANDING_CONFIG` | [Branding example](#1-repository-variables) |
+| S3-compatible upload credentials and public asset URL | Repository Secret `S3_CONFIG` | [Storage setup](#2-publication-secret) |
+| One or more messaging destinations | Repository Secret `BOT_*_CONFIG` | [Choose a Channel](#notification-channels) |
+
+1. Use **Fork** to create the installation under your own GitHub account while this source repository remains Private and its forking policy permits it. If Fork is unavailable, or if the source later becomes Public, create an independent Private copy with **Use this template** or [GitHub Importer](https://github.com/new/import)—[public repository forks are always public](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks#visibility-of-forks) and cannot be made Private independently.
 2. Open the Private repository's <kbd>Actions</kbd> tab, allow workflows to run if GitHub prompts you, and ensure **Splatoon3 Bot (every 2 hours)** and **Splatoon3 Bot (daily twice)** are enabled.
-3. Under that repository's <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd>, create the required `BOT_BRANDING_CONFIG` Repository Variable and `S3_CONFIG` Repository Secret.
-4. Add one or more optional `BOT_*_CONFIG` Repository Secrets for the platforms you want to notify. An absent Channel Secret simply leaves that adapter disabled.
+3. Under that repository's <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd>, add `BOT_BRANDING_CONFIG` on the **Variables** tab and `S3_CONFIG` on the **Secrets** tab. Both values use the YAML examples below.
+4. Choose any platform from [Notification Channels](#notification-channels), follow its official setup guide, and create the corresponding `BOT_*_CONFIG` Repository Secret. Each present Secret enables that adapter automatically.
 5. Run **Check Bot Configuration** with the `all` profile. It validates Variables, Secrets, S3 settings, and Notification routing without publishing an image or sending a message.
 6. Run **Notification Channel smoke test** for one configured destination. This is the deliberate side-effecting check: it prepares and publishes current screenshots, then sends a real notification before scheduled delivery is trusted.
 
@@ -91,46 +97,8 @@ Each installation belongs in a Private repository under the operator's own GitHu
 > [!CAUTION]
 > Workflows on the Private repository's default branch can consume its credentials. Review incoming changes—especially `.github/workflows/`, `bot/`, and `scripts/`—before merging or synchronizing them. If a credential is ever committed, rotate or revoke it immediately; deleting the file or rewriting history is not sufficient on its own.
 
-### Local Development
-
-Local development is optional and uses your Private repository as `origin`:
-
-#### Requirements
-
-- Node.js 24 LTS
-- pnpm 11.18 or newer within major version 11
-
-```sh
-git clone git@github.com:YOUR_GITHUB_USERNAME/splatoon3-bot.git
-cd splatoon3-bot
-git remote add upstream https://github.com/TenviLi/splatoon3-bot.git
-corepack enable
-pnpm install --frozen-lockfile --strict-peer-dependencies
-pnpm run download-data
-pnpm run verify
-```
-
-> [!TIP]
-> Chrome does not need to be installed manually. The screenshot runtime downloads and caches the Chrome for Testing revision pinned by `puppeteer-core`.
-
-Set `PUPPETEER_EXECUTABLE_PATH`, `PUPPETEER_CHANNEL`, or `PUPPETEER_BROWSER_VERSION` only when an explicit browser override is required. On Linux CI, the runtime adds Chrome's `--no-sandbox` and `--disable-setuid-sandbox` flags because current GitHub-hosted Ubuntu runners restrict the user-namespace sandbox; local development launches do not receive those flags.
-
-### Useful Commands
-
-| Command | Purpose |
-| --- | --- |
-| `pnpm run dev` | Start the Vite development server. |
-| `pnpm run download-data` | Download and atomically publish one validated Data Snapshot. |
-| `pnpm run bot:describe <profile>` | Resolve a Run Profile and its Screenshot and Notification selections. |
-| `pnpm run bot:doctor <profile> [channel]` | Validate all required configuration and routed Channel Targets without publishing or sending. |
-| `pnpm run bot:prepare <profile>` | Download data, build, render screenshots, and write the Run Manifest. |
-| `pnpm run bot:publish <profile>` | Verify the Run Manifest and PNG hashes, then publish only selected screenshots. |
-| `pnpm run bot:notify <profile> [channel]` | Deliver every configured Channel, or one explicitly selected Channel. |
-| `pnpm run test:unit` | Run data, plan, Manifest, adapter, delivery, workflow, and publisher contracts. |
-| `pnpm run test:browser-ci` | Force Linux CI launch arguments and verify that Chrome starts successfully. |
-| `pnpm run test:visual` | Compare deterministic local screenshots with committed golden PNGs. |
-| `pnpm run verify` | Run actionlint, syntax checks, all tests, production build, and the dependency audit. |
-| `pnpm run verify:actions` | Scan Git history and the worktree for Secrets, then execute `Verify` plus a fixture-backed S3/WeCom Bot Run in OrbStack through `act`. |
+<details>
+<summary><strong>How the GitHub Actions pipeline works</strong></summary>
 
 ## Automation
 
@@ -171,6 +139,8 @@ Together, the two scheduled workflows complete exactly one schedules delivery ev
 
 For a full local runner check on macOS, install and start OrbStack, install `act`, then run `pnpm run verify:actions`. The command first scans complete Git history and the current worktree with the same pinned Gitleaks image used by CI, builds the pinned `.github/act/Dockerfile` runner, executes `Verify`, then runs the complete reusable prepare → artifact → S3 publication → WeCom delivery path against committed fixtures and local fake endpoints. It performs no external publication or notification, retries transient local runner failures once, and reuses local images on later runs. Because `act` does not yet implement the current Artifact service protocol, local prepare and publish Jobs exchange the same selected Bot Run files through an isolated temporary bind mount; official GitHub-hosted runs continue to use the SHA-pinned upload/download Artifact Actions. Local containers inherit the host pnpm registry, bounded download concurrency, and any credential-free host proxy settings; loopback proxy addresses are safely projected through `host.docker.internal`. An npmmirror registry also selects its matching Chrome for Testing mirror. Set `ACT_NPM_REGISTRY`, `ACT_CHROME_DOWNLOAD_BASE_URL`, or `ACT_NETWORK_CONCURRENCY` only when an explicit override is needed. Official GitHub-hosted runs continue to use their normal registry configuration.
 
+</details>
+
 ## Configuration
 
 Configure these values in your own Private repository under <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd>.
@@ -205,7 +175,7 @@ Repository Variables expose non-sensitive operational choices without duplicatin
 | `BOT_ARTIFACT_RETENTION_DAYS` | No | `7` | Screenshot archive retention accepted by `actions/upload-artifact`, from 1 through 90 days. |
 
 > [!TIP]
-> Leave `BOT_SCREENSHOT_ATTRIBUTION` unset to show `splatoon3.ink`, or set it to a short custom credit such as `@锂碘`. The value is trimmed, validated, recorded in both Manifests, and rendered as platform-neutral text without a WeCom icon.
+> Leave `BOT_SCREENSHOT_ATTRIBUTION` unset to show `splatoon3.ink`, or set it to a short custom community credit. The value is trimmed, validated, recorded in both Manifests, and rendered as platform-neutral text without a messaging-platform icon.
 
 <details>
 <summary><strong>BOT_BRANDING_CONFIG example</strong></summary>
@@ -230,6 +200,15 @@ The publisher records these exact validated URLs in the credential-free Publicat
 | `S3_CONFIG` | Strict YAML S3 publication configuration, including the public asset URL and required credentials. |
 
 `S3_CONFIG` is the only publication Secret. `endpoint` is the private S3-compatible API address used for uploads; `publicBaseUrl` is the public HTTPS bucket-root URL consumed by messaging platforms. The publisher appends normalized `keyPrefix` values to both object keys and public URLs, so do not repeat that prefix in `publicBaseUrl`. Empty path segments such as `bot//production` are rejected before upload.
+
+| Provider | Recommended values | Official setup |
+| --- | --- | --- |
+| AWS S3 | Omit `endpoint`; use the real region and dedicated IAM access keys | [Create a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket) · [Manage access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) |
+| Cloudflare R2 | `region: auto`; account endpoint; bucket-scoped API token; custom-domain public URL | [Get started](https://developers.cloudflare.com/r2/get-started/) · [Create API tokens](https://developers.cloudflare.com/r2/api/tokens/) · [Public buckets](https://developers.cloudflare.com/r2/buckets/public-buckets/) |
+| MinIO / AIStor | S3 API endpoint; `forcePathStyle: true`; dedicated access key; public HTTPS read path | [Create a bucket](https://docs.min.io/aistor/reference/cli/mc-mb/) · [Create an access key](https://docs.min.io/aistor/reference/cli/admin/mc-admin-accesskey/mc-admin-accesskey-create/) |
+| Upyun S3 | `region: us-east-1`; `https://s3.api.upyun.com`; `forcePathStyle: true`; S3 credentials | [AWS S3 compatibility](https://help.upyun.com/knowledge-base/aws-s3%E5%85%BC%E5%AE%B9/) · [S3 API](https://help.upyun.com/knowledge-base/s3-api/) |
+
+See the [operator setup directory](./docs/operator-setup-links.md#s3-compatible-publication) for least-privilege, public URL, and provider-specific prerequisites.
 
 <details open>
 <summary><strong>S3_CONFIG example and provider guidance</strong></summary>
@@ -279,17 +258,19 @@ Configured Channels and multiple Targets within each Channel run in parallel. No
 
 Every adapter speaks the platform's native visual language rather than flattening all messages into one generic webhook payload.
 
-| Platform | Native presentation | Configuration Secret |
-| --- | --- | --- |
-| WeCom | Template Card | `BOT_WECOM_CONFIG` |
-| Discord | Image-rich Embed | `BOT_DISCORD_CONFIG` |
-| Telegram | Photo, safe HTML, inline URL button | `BOT_TELEGRAM_CONFIG` |
-| QQ | Embed or custom Markdown | `BOT_QQ_CONFIG` |
-| Feishu | Card Schema 2.0 | `BOT_FEISHU_CONFIG` |
-| DingTalk | ActionCard | `BOT_DINGTALK_CONFIG` |
-| WhatsApp | Approved media template | `BOT_WHATSAPP_CONFIG` |
-| LINE | Flex Message bubble | `BOT_LINE_CONFIG` |
-| Slack | Block Kit | `BOT_SLACK_CONFIG` |
+| Platform | Native presentation | Configuration Secret | Official setup |
+| --- | --- | --- | --- |
+| WeCom | Template Card | `BOT_WECOM_CONFIG` | [Group robot webhook](https://developer.work.weixin.qq.com/document/path/91770) |
+| Discord | Image-rich Embed | `BOT_DISCORD_CONFIG` | [Create a webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) |
+| Telegram | Photo, safe HTML, inline URL button | `BOT_TELEGRAM_CONFIG` | [Create a bot with BotFather](https://core.telegram.org/bots/features#botfather) |
+| QQ | Embed or custom Markdown | `BOT_QQ_CONFIG` | [Register an official bot](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/getting-started.html) |
+| Feishu | Card Schema 2.0 | `BOT_FEISHU_CONFIG` | [Add a custom bot](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot) |
+| DingTalk | ActionCard | `BOT_DINGTALK_CONFIG` | [Custom robot access](https://open.dingtalk.com/document/robots/custom-robot-access) |
+| WhatsApp | Approved media template | `BOT_WHATSAPP_CONFIG` | [Cloud API setup](https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started) |
+| LINE | Flex Message bubble | `BOT_LINE_CONFIG` | [Create a Messaging API channel](https://developers.line.biz/en/docs/messaging-api/getting-started/) |
+| Slack | Block Kit | `BOT_SLACK_CONFIG` | [Enable Incoming Webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/) |
+
+For required credentials, recipient eligibility, quotas, security modes, and additional official references, use the [complete operator setup directory](./docs/operator-setup-links.md#notification-adapters).
 
 <details>
 <summary><strong>WeCom</strong> · Template Cards with Notification routing</summary>
@@ -474,6 +455,37 @@ pnpm run verify
 Review every changed image before accepting new golden PNGs. The local `act` runner image derives its pnpm, Chrome for Testing, and browser-installer versions from the checked-out project, avoiding repeated network bootstrap work inside OrbStack workflow containers.
 
 </details>
+
+## Local Development
+
+This section is for contributors and advanced operators only; it is not required for GitHub Actions deployment.
+
+### Requirements
+
+- Node.js 24 LTS
+- pnpm 11.18 or newer within major version 11
+
+```sh
+git clone git@github.com:YOUR_GITHUB_USERNAME/splatoon3-bot.git
+cd splatoon3-bot
+git remote add upstream https://github.com/TenviLi/splatoon3-bot.git
+corepack enable
+pnpm install --frozen-lockfile --strict-peer-dependencies
+pnpm run download-data
+pnpm run verify
+```
+
+Chrome does not need to be installed manually. The screenshot runtime downloads and caches the Chrome for Testing revision pinned by `puppeteer-core`. Set `PUPPETEER_EXECUTABLE_PATH`, `PUPPETEER_CHANNEL`, or `PUPPETEER_BROWSER_VERSION` only for an explicit override.
+
+| Command | Purpose |
+| --- | --- |
+| `pnpm run dev` | Start the Vite development server. |
+| `pnpm run bot:doctor <profile> [channel]` | Validate configuration without publishing or sending. |
+| `pnpm run bot:prepare <profile>` | Download data, build, render, and write the Run Manifest. |
+| `pnpm run bot:publish <profile>` | Verify and publish selected screenshots through S3. |
+| `pnpm run bot:notify <profile> [channel]` | Deliver all configured Channels or one selected Channel. |
+| `pnpm run verify` | Run static checks, tests, visual contracts, build, and dependency audit. |
+| `pnpm run verify:actions` | Scan Secrets and execute Linux CI plus a fixture-backed S3/WeCom run through OrbStack and `act`. |
 
 ## Contributing
 

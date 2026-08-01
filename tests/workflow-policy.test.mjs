@@ -83,6 +83,49 @@ test('GitHub Actions is the only supported hosted automation surface', async () 
   assert.match(readme, /GitHub Actions is the only supported hosted automation surface/)
 })
 
+test('README provides direct screenshots and three operator-first languages', async () => {
+  const english = await fs.readFile(path.join(process.cwd(), 'README.md'), 'utf8')
+  const simplifiedChinese = await fs.readFile(path.join(process.cwd(), 'README.zh-CN.md'), 'utf8')
+  const japanese = await fs.readFile(path.join(process.cwd(), 'README.ja.md'), 'utf8')
+  const screenshotPaths = [
+    'tests/golden/screenshots/linux-x64/schedules.png',
+    'tests/golden/screenshots/linux-x64/salmon-run.png',
+    'tests/golden/screenshots/linux-x64/gear-dailydrop.png',
+    'tests/golden/screenshots/linux-x64/gear-regular.png',
+  ]
+
+  const preview = english.slice(english.indexOf('## Preview'), english.indexOf('## Quick Start'))
+  assert.match(preview, /View all four deterministic Screenshot Artifacts/)
+  assert.doesNotMatch(preview, /<details>|@锂碘|wxwork-icon|WeCom icon/)
+
+  for (const [filename, source] of [
+    ['README.md', english],
+    ['README.zh-CN.md', simplifiedChinese],
+    ['README.ja.md', japanese],
+  ]) {
+    assert.match(source, /https:\/\/github\.com\/TenviLi\/splatoon3-bot\/fork/, `${filename}: private Fork entry`)
+    assert.doesNotMatch(source, /@锂碘|wxwork-icon/, filename)
+    for (const screenshotPath of screenshotPaths) {
+      assert.ok(source.includes(screenshotPath), `${filename}: ${screenshotPath}`)
+    }
+    for (const configurationName of ['BOT_BRANDING_CONFIG', 'S3_CONFIG', 'BOT_WECOM_CONFIG']) {
+      assert.ok(source.includes(configurationName), `${filename}: ${configurationName}`)
+    }
+  }
+
+  assert.match(english, /README\.zh-CN\.md/)
+  assert.match(english, /README\.ja\.md/)
+  assert.match(simplifiedChinese, /README\.md/)
+  assert.match(simplifiedChinese, /README\.ja\.md/)
+  assert.match(japanese, /README\.md/)
+  assert.match(japanese, /README\.zh-CN\.md/)
+
+  const quickStart = english.slice(english.indexOf('## Quick Start'), english.indexOf('## Automation'))
+  assert.match(quickStart, /You do not need to install Node\.js, pnpm, Chrome, Docker, or a server/)
+  assert.doesNotMatch(quickStart, /^### Local Development|Node\.js 24 LTS|pnpm 11\.18/m)
+  assert.doesNotMatch(english.slice(0, english.indexOf('## Overview')), /Node\.js-24|pnpm-11/)
+})
+
 test('workflows never compute secret names dynamically', async () => {
   for (const { filename, source } of await readWorkflows()) {
     assert.doesNotMatch(source, /secrets\s*\[/, filename)
