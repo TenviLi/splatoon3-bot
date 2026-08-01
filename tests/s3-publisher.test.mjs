@@ -7,6 +7,7 @@ import path from 'node:path'
 import test from 'node:test'
 import { PNG } from 'pngjs'
 import sharp from 'sharp'
+import { prepareBrandingIcons } from '../bot/publish/BrandingAssets.mjs'
 import { parseS3Configuration } from '../bot/publish/S3Configuration.mjs'
 import { publishToS3 } from '../bot/publish/S3Publisher.mjs'
 import {
@@ -20,7 +21,10 @@ function sha256(buffer) {
   return crypto.createHash('sha256').update(buffer).digest('hex')
 }
 
-async function createBotRun(directory, { width = 2_400, height = 1_350 } = {}) {
+async function createBotRun(
+  directory,
+  { width = 2_400, height = 1_350, manifestWidth = 2_400, manifestHeight = 1_350 } = {}
+) {
   const screenshot = new PNG({ width, height })
   const buffer = PNG.sync.write(screenshot)
   await fs.mkdir(directory, { recursive: true })
@@ -28,10 +32,12 @@ async function createBotRun(directory, { width = 2_400, height = 1_350 } = {}) {
   await fs.writeFile(path.join(directory, 'unselected.png'), 'must not be published')
   await writeRunManifest(
     {
-      version: 3,
+      version: 4,
       profile: 'schedules',
       renderTime: Date.parse('2026-07-30T00:00:00Z'),
       timeZone: 'Asia/Shanghai',
+      locale: 'zh-CN',
+      resolution: '2400x1350',
       screenshotAttribution: 'splatoon3.ink',
       snapshot: {
         createdAt: '2026-07-30T00:00:00.000Z',
@@ -45,6 +51,8 @@ async function createBotRun(directory, { width = 2_400, height = 1_350 } = {}) {
           bytes: buffer.byteLength,
           sha256: sha256(buffer),
           browserVersion: '138.0.0.0',
+          width: manifestWidth,
+          height: manifestHeight,
         },
       ],
     },
@@ -60,39 +68,62 @@ const configuration = Object.freeze({
   forcePathStyle: true,
   keyPrefix: 'bot/production',
   publicBaseUrl: 'https://cdn.example.com/assets',
-  credentials: Object.freeze({ accessKeyId: 'access-key', secretAccessKey: 'secret-key' }),
+  accessKeyId: 'access-key',
+  secretAccessKey: 'secret-key',
 })
-const branding = Object.freeze({
-  icons: Object.freeze({
-    schedules: 'https://brand.example.com/icon.png',
-    salmonRun: 'https://brand.example.com/icon2.png',
-    gear: 'https://brand.example.com/icon3.png',
-  }),
-})
+
+function missingObjectError() {
+  const error = new Error('Not Found')
+  error.name = 'NotFound'
+  error.$metadata = { httpStatusCode: 404 }
+  return error
+}
+
+function accessDeniedError() {
+  const error = new Error('Access Denied')
+  error.name = 'AccessDenied'
+  error.$metadata = { httpStatusCode: 403 }
+  return error
+}
 
 test('publishes verified notification and original PNG variants through S3', async (context) => {
   const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-s3-publisher-'))
   const screenshotDirectory = path.join(temporaryDirectory, 'screenshots')
-  const uploads = []
+  const commands = []
   context.after(() => fs.rm(temporaryDirectory, { recursive: true, force: true }))
   const originalBuffer = await createBotRun(screenshotDirectory)
 
   const manifest = await publishToS3({
     profileName: 'schedules',
     configuration,
-    branding,
     screenshotDirectory,
-    client: { send: async (command) => uploads.push(command.input) },
+    client: {
+      send: async (command) => {
+        commands.push(command)
+        if (command.constructor.name === 'HeadObjectCommand') {
+          throw missingObjectError()
+        }
+      },
+    },
   })
 
+  const uploads = commands
+    .filter((command) => command.constructor.name === 'PutObjectCommand')
+    .map(({ input }) => input)
+  const inspections = commands.filter((command) => command.constructor.name === 'HeadObjectCommand')
   const originalUpload = uploads.find(({ Key }) => Key.includes('/originals/'))
   const notificationUpload = uploads.find(({ Key }) => Key.includes('/notification-images/'))
-  assert.deepEqual(
-    uploads.map(({ Key }) => Key).sort(),
-    [
-      `bot/production/notification-images/${sha256(notificationUpload.Body)}/schedules.png`,
-      `bot/production/originals/${sha256(originalBuffer)}/schedules.png`,
-    ].sort()
+  const brandingUploads = uploads.filter(({ Key }) => Key.includes('/branding-icons/'))
+  assert.equal(inspections.length, 3)
+  assert.equal(brandingUploads.length, 3)
+  assert.equal(uploads.length, 5)
+  assert.ok(
+    uploads.some(
+      ({ Key }) => Key === `bot/production/notification-images/${sha256(notificationUpload.Body)}/schedules.png`
+    )
+  )
+  assert.ok(
+    uploads.some(({ Key }) => Key === `bot/production/originals/${sha256(originalBuffer)}/schedules.png`)
   )
   assert.deepEqual(originalUpload.Body, originalBuffer)
   assert.equal(notificationUpload.ContentType, 'image/png')
@@ -103,9 +134,11 @@ test('publishes verified notification and original PNG variants through S3', asy
   assert.equal(metadata.width, 1_024)
   assert.equal(metadata.height, 576)
   assert.equal(manifest.assetBaseUrl, 'https://cdn.example.com/assets/bot/production')
-  assert.equal(manifest.version, 2)
-  assert.equal(manifest.runManifestVersion, 3)
+  assert.equal(manifest.version, 3)
+  assert.equal(manifest.runManifestVersion, 4)
   assert.equal(manifest.timeZone, 'Asia/Shanghai')
+  assert.equal(manifest.locale, 'zh-CN')
+  assert.equal(manifest.resolution, '2400x1350')
   assert.equal(manifest.screenshotAttribution, 'splatoon3.ink')
   assert.equal(manifest.snapshotManifestSha256, 'c'.repeat(64))
   assert.equal(
@@ -116,7 +149,21 @@ test('publishes verified notification and original PNG variants through S3', asy
     manifest.artifacts[0].originalImage.url,
     `https://cdn.example.com/assets/bot/production/originals/${sha256(originalBuffer)}/schedules.png`
   )
-  assert.deepEqual(manifest.branding, branding)
+  assert.deepEqual(
+    Object.keys(manifest.branding.icons).sort(),
+    ['gear', 'salmonRun', 'schedules']
+  )
+  for (const [name, icon] of Object.entries(manifest.branding.icons)) {
+    assert.match(
+      icon.key,
+      new RegExp(
+        `^bot/production/branding-icons/[a-f0-9]{64}/${name === 'salmonRun' ? 'salmon-run' : name}\\.png$`
+      )
+    )
+    assert.equal(icon.url, `https://cdn.example.com/assets/${icon.key}`)
+    assert.equal(icon.width, 256)
+    assert.equal(icon.height, 256)
+  }
   assert.deepEqual(await readPublicationManifest(path.join(screenshotDirectory, 'publication-manifest.json')), manifest)
   const runManifest = await readRunManifest(path.join(screenshotDirectory, 'run-manifest.json'))
   assert.deepEqual(assertPublicationManifestMatchesRun(manifest, runManifest), manifest)
@@ -135,6 +182,23 @@ test('publishes verified notification and original PNG variants through S3', asy
   assert.throws(
     () => assertPublicationManifestMatchesRun(manifest, { ...runManifest, timeZone: 'UTC' }),
     /time zone/
+  )
+  assert.throws(
+    () => assertPublicationManifestMatchesRun(manifest, { ...runManifest, locale: 'en-US' }),
+    /locale/
+  )
+  assert.throws(
+    () =>
+      assertPublicationManifestMatchesRun(manifest, {
+        ...runManifest,
+        resolution: '1920x1080',
+        artifacts: runManifest.artifacts.map((artifact) => ({
+          ...artifact,
+          width: 1_920,
+          height: 1_080,
+        })),
+      }),
+    /resolution/
   )
   assert.throws(
     () =>
@@ -165,6 +229,75 @@ test('publishes verified notification and original PNG variants through S3', asy
   assert.throws(() => validatePublicationManifest(nestedUrlManifest), /must exactly match assetBaseUrl/)
 })
 
+test('reuses matching content-addressed branding icons already stored in S3', async (context) => {
+  const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-s3-branding-cache-'))
+  const screenshotDirectory = path.join(temporaryDirectory, 'screenshots')
+  const commands = []
+  const brandingIcons = await prepareBrandingIcons()
+  const iconsByKey = new Map(
+    brandingIcons.map((icon) => [
+      `bot/production/branding-icons/${icon.sha256}/${icon.outputFilename}`,
+      icon,
+    ])
+  )
+  context.after(() => fs.rm(temporaryDirectory, { recursive: true, force: true }))
+  await createBotRun(screenshotDirectory)
+
+  await publishToS3({
+    profileName: 'schedules',
+    configuration,
+    screenshotDirectory,
+    client: {
+      send: async (command) => {
+        commands.push(command)
+        if (command.constructor.name === 'HeadObjectCommand') {
+          const icon = iconsByKey.get(command.input.Key)
+          return {
+            ContentLength: icon.bytes,
+            ContentType: 'image/png',
+            Metadata: { sha256: icon.sha256 },
+          }
+        }
+      },
+    },
+  })
+
+  const uploads = commands.filter((command) => command.constructor.name === 'PutObjectCommand')
+  assert.equal(commands.filter((command) => command.constructor.name === 'HeadObjectCommand').length, 3)
+  assert.equal(uploads.length, 2)
+  assert.ok(uploads.every(({ input }) => !input.Key.includes('/branding-icons/')))
+})
+
+test('uploads branding icons when least-privilege S3 credentials cannot inspect missing objects', async (context) => {
+  const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-s3-branding-access-'))
+  const screenshotDirectory = path.join(temporaryDirectory, 'screenshots')
+  const commands = []
+  context.after(() => fs.rm(temporaryDirectory, { recursive: true, force: true }))
+  await createBotRun(screenshotDirectory)
+
+  await publishToS3({
+    profileName: 'schedules',
+    configuration,
+    screenshotDirectory,
+    client: {
+      send: async (command) => {
+        commands.push(command)
+        if (command.constructor.name === 'HeadObjectCommand') {
+          throw accessDeniedError()
+        }
+      },
+    },
+  })
+
+  assert.equal(commands.filter((command) => command.constructor.name === 'HeadObjectCommand').length, 3)
+  assert.equal(
+    commands.filter(
+      (command) => command.constructor.name === 'PutObjectCommand' && command.input.Key.includes('/branding-icons/')
+    ).length,
+    3
+  )
+})
+
 test('refuses to publish a screenshot that does not match the Run Manifest', async (context) => {
   const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-s3-invalid-'))
   const screenshotDirectory = path.join(temporaryDirectory, 'screenshots')
@@ -177,7 +310,6 @@ test('refuses to publish a screenshot that does not match the Run Manifest', asy
     publishToS3({
       profileName: 'schedules',
       configuration,
-      branding,
       screenshotDirectory,
       client: { send: async (command) => uploads.push(command.input) },
     }),
@@ -197,7 +329,6 @@ test('rejects unexpected screenshot geometry before any S3 request', async (cont
     publishToS3({
       profileName: 'schedules',
       configuration,
-      branding,
       screenshotDirectory,
       client: { send: async (command) => uploads.push(command.input) },
     }),
@@ -220,6 +351,11 @@ test('uses signed path-style PUT requests with a local S3-compatible endpoint', 
         headers: request.headers,
         body: Buffer.concat(chunks),
       })
+      if (request.method === 'HEAD') {
+        response.writeHead(404)
+        response.end()
+        return
+      }
       response.writeHead(200, { etag: `"${requests.length}"` })
       response.end()
     })
@@ -242,16 +378,14 @@ endpoint: http://127.0.0.1:${server.address().port}
 forcePathStyle: true
 keyPrefix: bot/production
 publicBaseUrl: https://cdn.example.com
-credentials:
-  accessKeyId: access-key
-  secretAccessKey: secret-key
+accessKeyId: access-key
+secretAccessKey: secret-key
 `),
-    branding,
     screenshotDirectory,
   })
 
-  assert.equal(requests.length, 2)
-  assert.ok(requests.every(({ method }) => method === 'PUT'))
+  assert.equal(requests.filter(({ method }) => method === 'HEAD').length, 3)
+  assert.equal(requests.filter(({ method }) => method === 'PUT').length, 5)
   assert.ok(
     requests.some(({ url }) =>
       /^\/splatoon-assets\/bot\/production\/notification-images\/[a-f0-9]{64}\/schedules\.png\?x-id=PutObject$/.test(
@@ -266,10 +400,13 @@ credentials:
       )
     )
   )
+  assert.equal(requests.filter(({ url }) => /\/branding-icons\//.test(url)).length, 6)
   for (const request of requests) {
     assert.match(request.headers.authorization, /^AWS4-HMAC-SHA256 Credential=access-key\//)
-    assert.equal(request.headers['content-type'], 'image/png')
-    assert.equal(Number(request.headers['content-length']), request.body.byteLength)
+    if (request.method === 'PUT') {
+      assert.equal(request.headers['content-type'], 'image/png')
+      assert.equal(Number(request.headers['content-length']), request.body.byteLength)
+    }
   }
 })
 
@@ -281,9 +418,8 @@ endpoint: https://s3.api.upyun.com
 forcePathStyle: true
 keyPrefix: bot/production
 publicBaseUrl: https://splatoon.example.com
-credentials:
-  accessKeyId: access-key
-  secretAccessKey: secret-key
+accessKeyId: access-key
+secretAccessKey: secret-key
 `),
     {
       bucket: 'splatoon-assets',
@@ -292,7 +428,8 @@ credentials:
       forcePathStyle: true,
       keyPrefix: 'bot/production',
       publicBaseUrl: 'https://splatoon.example.com',
-      credentials: { accessKeyId: 'access-key', secretAccessKey: 'secret-key' },
+      accessKeyId: 'access-key',
+      secretAccessKey: 'secret-key',
     }
   )
 
@@ -313,6 +450,17 @@ credentials:
   )
   assert.throws(
     () => parseS3Configuration('bucket: one\npublicBaseUrl: https://cdn.example.com'),
+    /Invalid configuration in S3_CONFIG/
+  )
+  assert.throws(
+    () =>
+      parseS3Configuration(`
+bucket: one
+publicBaseUrl: https://cdn.example.com
+credentials:
+  accessKeyId: access-key
+  secretAccessKey: secret-key
+`),
     /Invalid configuration in S3_CONFIG/
   )
 })

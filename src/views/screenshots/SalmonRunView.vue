@@ -1,5 +1,5 @@
 <template>
-  <ScreenshotLayout header="打工提醒小助手">
+  <ScreenshotLayout :header="$t('screenshot.headers.salmonRun')">
     <div class="grow flex items-center justify-center">
       <div class="max-w-2xl scale-[1.6]">
         <SalmonRunBox class="-rotate-1" />

@@ -43,7 +43,7 @@ async function composeRunNotifications(plan, { publicationManifest, snapshotDire
   if (publication.profile !== plan.name) {
     throw new Error(`Publication manifest profile ${publication.profile} does not match ${plan.name}`)
   }
-  const context = await createBotContext({ snapshotDirectory, now, timeZone })
+  const context = await createBotContext({ snapshotDirectory, now, timeZone, locale: publication.locale })
   if (context.snapshotManifestSha256 !== publication.snapshotManifestSha256) {
     throw new Error('Archived Data Snapshot Manifest does not match Publication Manifest')
   }

@@ -1,34 +1,48 @@
+import { getScreenshotResolution } from '../../bot/config/ScreenshotResolution.mjs'
+import { listBrandingIconDefinitions } from '../../bot/publish/BrandingAssets.mjs'
 import { getRunPlan, getScreenshotDefinition } from '../../bot/run/RunPlan.mjs'
 
 export function createPublicationManifestFixture(
   profile = 'all',
-  { assetBaseUrl = 'https://cdn.example.com', brandingBaseUrl = assetBaseUrl } = {}
+  { assetBaseUrl = 'https://cdn.example.com', locale = 'zh-CN', resolution = '2400x1350' } = {}
 ) {
   const normalizedAssetBaseUrl = assetBaseUrl.replace(/\/$/, '')
-  const normalizedBrandingBaseUrl = brandingBaseUrl.replace(/\/$/, '')
   const plan = getRunPlan(profile)
+  const originalDimensions = getScreenshotResolution(resolution)
   const notificationSha256 = 'a'.repeat(64)
   const originalSha256 = 'b'.repeat(64)
   return {
-    version: 2,
-    runManifestVersion: 3,
+    version: 3,
+    runManifestVersion: 4,
     profile,
     renderTime: Date.parse('2026-07-29T19:00:00Z'),
     timeZone: 'Asia/Shanghai',
+    locale,
+    resolution,
     screenshotAttribution: 'splatoon3.ink',
-    snapshotManifestSha256: '80c31540131253c528fb04b0fea9f86b0679b04b9f3a072618d019191bf93452',
+    snapshotManifestSha256: '00809cd566248534814327ea99c831bcf3b0c8096537805181e234b0218c1e17',
     assetBaseUrl: normalizedAssetBaseUrl,
     branding: {
-      icons: {
-        schedules: `${normalizedBrandingBaseUrl}/icon.png`,
-        salmonRun: `${normalizedBrandingBaseUrl}/icon2.png`,
-        gear: `${normalizedBrandingBaseUrl}/icon3.png`,
-      },
+      icons: Object.fromEntries(
+        listBrandingIconDefinitions().map(({ name, outputFilename }, index) => {
+          const sha256 = String.fromCharCode('c'.charCodeAt(0) + index).repeat(64)
+          const key = `branding-icons/${sha256}/${outputFilename}`
+          return [
+            name,
+            {
+              key,
+              url: `${normalizedAssetBaseUrl}/${key}`,
+              width: 256,
+              height: 256,
+              bytes: 10_000,
+              sha256,
+            },
+          ]
+        })
+      ),
     },
     artifacts: plan.screenshots.map((name) => {
       const definition = getScreenshotDefinition(name)
-      const originalWidth = definition.viewport.width * definition.viewport.deviceScaleFactor
-      const originalHeight = definition.viewport.height * definition.viewport.deviceScaleFactor
       return {
         name,
         notificationImage: {
@@ -42,8 +56,8 @@ export function createPublicationManifestFixture(
         originalImage: {
           key: `originals/${originalSha256}/${definition.outputFilename}`,
           url: `${normalizedAssetBaseUrl}/originals/${originalSha256}/${definition.outputFilename}`,
-          width: originalWidth,
-          height: originalHeight,
+          width: originalDimensions.width,
+          height: originalDimensions.height,
           bytes: 1_600_000,
           sha256: originalSha256,
         },

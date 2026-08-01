@@ -1,5 +1,6 @@
 import { createI18n } from 'vue-i18n'
-import zhCN from '../../src/assets/i18n/zh-CN.json' with { type: 'json' }
+import languages from '../../src/assets/i18n/index.mjs'
+import { resolveBotLocale } from '../config/BotLocale.mjs'
 import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { loadDataSnapshot } from '../data/DataSnapshot.mjs'
 import { getTopOfCurrentHour } from '../common/util.mjs'
@@ -7,13 +8,13 @@ import { getTopOfCurrentHour } from '../common/util.mjs'
 function createTranslator(locale, timeZone) {
   const i18n = createI18n({
     legacy: false,
-    locale: 'zh-CN',
-    fallbackLocale: 'zh-CN',
+    locale: locale.name,
+    fallbackLocale: locale.name,
     messages: {
-      'zh-CN': { ...zhCN, splatnet: locale },
+      [locale.name]: { ...languages[locale.name], splatnet: locale.data },
     },
     datetimeFormats: {
-      'zh-CN': {
+      [locale.name]: {
         dateTimeShort: {
           month: 'numeric',
           day: 'numeric',
@@ -44,12 +45,17 @@ export async function createBotContext({
   snapshotDirectory,
   now = Date.now(),
   timeZone = resolveBotTimeZone(),
+  locale = resolveBotLocale(),
 } = {}) {
   const snapshot = await loadDataSnapshot(snapshotDirectory)
   const currentTime = getTopOfCurrentHour(new Date(now))
   const schedulesData = snapshot.values.schedules.data
   const gearData = snapshot.values.gear.data
-  const translator = createTranslator(snapshot.values['locale/zh-CN'], timeZone)
+  const localeData = snapshot.values[`locale/${locale}`]
+  if (!localeData) {
+    throw new Error(`Data Snapshot does not contain locale/${locale}`)
+  }
+  const translator = createTranslator({ name: locale, data: localeData }, timeZone)
   const stageImages = new Map(schedulesData.vsStages.nodes.map((stage) => [stage.id, stage.originalImage]))
   const activeSchedule = (nodes, selectSettings) => {
     const node = nodes.find(
@@ -87,6 +93,7 @@ export async function createBotContext({
   return Object.freeze({
     ...translator,
     now,
+    locale,
     snapshotManifest: snapshot.manifest,
     snapshotManifestSha256: snapshot.manifestSha256,
     schedules: Object.freeze({

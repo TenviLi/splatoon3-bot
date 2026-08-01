@@ -28,6 +28,8 @@
       "anarchy": "Anarchy Battle",
       "splatfest": "Splatfest Battle"
     },
+    "rainmakerLong": "Rainmaker",
+    "rainmakerShort": "Rainmaker",
     "all-upcoming": "All Upcoming Stages"
   },
   "salmonrun": {
@@ -39,6 +41,46 @@
     "sale": "Gear on Sale Now",
     "dailydrop": "The Daily Drop",
     "order": "Order"
+  },
+  "screenshot": {
+    "headers": {
+      "schedules": "Battle Schedules",
+      "salmonRun": "Salmon Run Reminder",
+      "dailyDropGear": "SplatNet Shop · The Daily Drop",
+      "regularGear": "SplatNet Shop · Gear on Sale"
+    }
+  },
+  "notification": {
+    "common": {
+      "gear": "Gear"
+    },
+    "schedules": {
+      "source": "Ready for another match?",
+      "title": "Schedules updated",
+      "regularSection": "🔫  Turf War",
+      "rankedSection": "🔰  {rule}  ({mode})",
+      "ruleSuffix": "",
+      "imageAlt": "Splatoon 3 battle schedules",
+      "action": "View schedule image"
+    },
+    "salmonRun": {
+      "source": "Your shift is ready!",
+      "randomWeapons": "🎉 Random weapons!",
+      "suppliedWeapons": "🐻 Supplied weapons:",
+      "imageAlt": "Splatoon 3 Salmon Run schedule",
+      "action": "View Salmon Run image"
+    },
+    "dailyDropGear": {
+      "source": "SplatNet Shop · The Daily Drop",
+      "imageAlt": "SplatNet Shop Daily Drop",
+      "action": "View the Daily Drop"
+    },
+    "regularGear": {
+      "source": "SplatNet Shop · Gear on Sale",
+      "title": "New gear is available",
+      "imageAlt": "SplatNet Shop gear on sale",
+      "action": "View gear on sale"
+    }
   },
   "about": {
     "title": "About!",

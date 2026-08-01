@@ -9,25 +9,43 @@
 <h1 align="center">splatoon3-bot</h1>
 
 <p align="center">
-  再現可能な『スプラトゥーン3』画像を生成し、各プラットフォーム固有のリッチメッセージで配信します。<br>
-  検証済みの Data Snapshot から、信頼できる 1 回の Bot Run ですべてのコミュニティへ。
+  Splatoon 3 のスクリーンショットを再現可能に生成し、各サービスに最適化したリッチ通知を配信します。<br>
+  自分専用の Private repository を用意すれば、運用は GitHub Actions に任せられます。
+</p>
+
+<p align="center">
+  <a href="https://github.com/TenviLi/splatoon3-bot/actions/workflows/ci.yml"><img alt="検証ワークフロー" src="https://github.com/TenviLi/splatoon3-bot/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="GitHub Actions 運用" src="https://img.shields.io/badge/operations-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white">
+  <img alt="9 notification adapters" src="https://img.shields.io/badge/notification%20adapters-9-6F42C1">
+  <img alt="S3 compatible" src="https://img.shields.io/badge/storage-S3%20compatible-569A31?logo=amazons3&logoColor=white">
 </p>
 
 <p align="center">
   <a href="#クイックスタート">クイックスタート</a> ·
   <a href="#スクリーンショット">スクリーンショット</a> ·
-  <a href="#リポジトリ設定">リポジトリ設定</a> ·
-  <a href="#通知プラットフォーム">通知プラットフォーム</a> ·
-  <a href="#ローカル開発">ローカル開発</a>
+  <a href="#設定">設定</a> ·
+  <a href="#通知プラットフォーム">通知</a> ·
+  <a href="#信頼性">信頼性</a>
 </p>
 
 ## 特長
 
-- **GitHub Actions だけで運用**：サーバー、Node.js、pnpm、Chrome、Docker のローカル導入は不要です。
-- **決定論的な画像生成**：データ、時刻、Viewport、フォント、画像読み込み、レイアウトを固定し、macOS/Linux の golden で検証します。
-- **汎用 S3 配信**：AWS S3、Cloudflare R2、MinIO、Upyun S3、その他の SigV4 互換ストレージに対応します。
-- **9 種類のネイティブ通知**：WeCom、Discord、Telegram、QQ、Feishu、DingTalk、WhatsApp、LINE、Slack。
-- **安全な設定境界**：Secrets と Variables は利用者自身の Private repository にのみ保存し、外部処理の前に設定を検証します。
+`splatoon3-bot` は、検証済みの [Splatoon 3](https://splatoon3.ink/) Data Snapshot から再現可能な Screenshot Artifact を生成し、S3 互換ストレージへ公開して、設定済みの宛先へ並列配信します。
+
+<table>
+  <tr>
+    <td width="33%" align="center"><strong>決定論的レンダリング</strong><br><sub>データ、時刻、言語、Viewport、フォント、画像、寸法、Visual Golden を固定。</sub></td>
+    <td width="33%" align="center"><strong>ポータブルな公開</strong><br><sub>AWS S3、Cloudflare R2、MinIO、Upyun S3 などの SigV4 互換サービス。</sub></td>
+    <td width="33%" align="center"><strong>ネイティブな表現</strong><br><sub>Template Card、Embed、Flex Message、Block Kit、承認済み Media Template。</sub></td>
+  </tr>
+  <tr>
+    <td width="33%" align="center"><strong>並列・部分成功</strong><br><sub>Channel と Target を並列化し、同じ Target 内の通知順序は維持。</sub></td>
+    <td width="33%" align="center"><strong>Manifest 整合性</strong><br><sub>ハッシュ、URL、寸法、描画条件、データ ID を全工程で関連付け。</sub></td>
+    <td width="33%" align="center"><strong>CI ファースト</strong><br><sub>固定 SHA の Actions、厳密な YAML、Environment、監査、Linux 検証。</sub></td>
+  </tr>
+</table>
+
+**WeCom、Discord、Telegram、QQ、Feishu、DingTalk、WhatsApp、LINE、Slack** の 9 アダプターを搭載しています。各サービス向けレイアウトの設計根拠は [通知プラットフォーム能力監査](./docs/notification-platform-capabilities.md) を参照してください。
 
 ## スクリーンショット
 
@@ -35,182 +53,203 @@
 
 <table>
   <tr>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/schedules.png" alt="バトルスケジュール"><br><sub><code>schedules.png</code></sub></td>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/salmon-run.png" alt="サーモンラン"><br><sub><code>salmon-run.png</code></sub></td>
+    <td align="center"><img src="./tests/golden/screenshots/linux-x64/schedules.ja.png" alt="日本語のバトルスケジュール"><br><sub><code>schedules.ja.png</code></sub></td>
+    <td align="center"><img src="./tests/golden/screenshots/linux-x64/salmon-run.ja.png" alt="日本語のサーモンランスケジュール"><br><sub><code>salmon-run.ja.png</code></sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-dailydrop.png" alt="今日のピックアップギア"><br><sub><code>gear-dailydrop.png</code></sub></td>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-regular.png" alt="販売中のギア"><br><sub><code>gear-regular.png</code></sub></td>
+    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-dailydrop.ja.png" alt="日本語のゲソタウン今日のピックアップ"><br><sub><code>gear-dailydrop.ja.png</code></sub></td>
+    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-regular.ja.png" alt="日本語のゲソタウン販売中ギア"><br><sub><code>gear-regular.ja.png</code></sub></td>
   </tr>
 </table>
 
-本番画像は `2400×1350` PNG、通知用画像は `1024×576` です。フッターの既定値は `splatoon3.ink` で、WeCom アイコンは表示しません。
+論理 Viewport は常に `1200×675` です。`BOT_SCREENSHOT_RESOLUTION` で正確な 16:9 の原画像サイズを選択し、公開時には各通知サービス向けの `1024×576` 画像も生成します。
 
 ## クイックスタート
 
 ### 自分の Private repository に Fork して実行する
 
-各利用者は、自分の GitHub アカウントにある Private repository でこのプロジェクトを実行・カスタマイズします。そのリポジトリが独立したデプロイおよび信頼境界となり、Schedules、Secrets、Variables、Environments、コード変更を所有者が管理します。
+インストールごとに、自分の GitHub アカウントで Private repository を管理します。このリポジトリがデプロイと信頼の境界となり、コード、スケジュール、Repository Secrets、Repository Variables、Environment、配信先を所有します。
 
 <p align="center">
-  <a href="https://github.com/TenviLi/splatoon3-bot/fork"><strong>Private installation を Fork →</strong></a>
+  <a href="https://github.com/TenviLi/splatoon3-bot/fork"><strong>Fork または Private インストールを作成 →</strong></a>
 </p>
 
 > [!TIP]
-> ホスト運用に必要なのは GitHub Actions、S3 互換バケット、1 つ以上の通知先だけです。**Node.js、pnpm、Chrome、Docker、専用サーバーのインストールは不要です。**
+> Hosted 運用に必要なのは GitHub Actions、S3 互換 Bucket、通知先 1 つだけです。Node.js、pnpm、Chrome、Docker、常駐サーバーを自分で用意する必要はありません。
+
+1. 自分の GitHub アカウントにインストール用リポジトリを作成します。可視性と組織ポリシーが Private fork を許可している場合は **Fork** を使います。[Public repository の Fork は常に Public](https://docs.github.com/ja/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks#about-visibility-of-forks) になるため、Private fork を作れない場合は [GitHub Importer](https://github.com/new/import) または独立した Private mirror を利用してください。
+2. [`S3_CONFIG` の例](#s3_config)から同名の Repository Secret を作成します。
+3. 日本語版のクイックスタートでは LINE Messaging API を例にします。LINE Official Account と Messaging API channel を作成し、Repository Secret `BOT_LINE_CONFIG` を保存します。
+
+   ```yaml
+   - name: personal-line
+     channelAccessToken: "..."
+     targetType: user
+     targetId: U0123456789abcdef0123456789abcdef
+     notificationDisabled: false
+   ```
+
+   LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選択してください。
+4. Repository Variable `BOT_LOCALE` を `ja-JP`、`BOT_TIME_ZONE` を `Asia/Tokyo` に設定します。`BOT_SCREENSHOT_RESOLUTION` など、その他の [Repository Variables](#repository-variables) は既定値を変更するときだけ追加します。
+5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、Profile `all` で **Check Bot Configuration** を実行します。アップロードや送信を行わずに設定を検証します。
+6. 設定した Channel に対して **Notification Channel smoke test** を実行します。これは S3 公開と実際の配信先を確認する、意図的に副作用を持つ最終テストです。
 
 > [!IMPORTANT]
-> 上流が Private で Fork が許可されている場合は **Fork** を使えます。上流が Public になった場合、Public repository の Fork を個別に Private へ変更することはできないため、**Use this template** または [GitHub Importer](https://github.com/new/import) で独立した Private repository を作成してください。
-
-| 用意するもの | 保存先 | 設定ガイド |
-| --- | --- | --- |
-| 公開 HTTPS の通知アイコン URL 3 個 | Repository Variable `BOT_BRANDING_CONFIG` | [Variables](#1-repository-variables) |
-| S3 アップロード認証情報と公開 URL | Repository Secret `S3_CONFIG` | [S3 設定](#2-s3_config) |
-| 1 つ以上の通知先 | 対応する Repository Secret `BOT_*_CONFIG` | [通知プラットフォーム](#通知プラットフォーム) |
-
-1. 上流が Private のままで Fork が許可されている場合は、上のリンクから自分の GitHub アカウントに Private Fork を作成します。Fork できない場合、または上流が Public になった場合は、**Use this template** か [GitHub Importer](https://github.com/new/import) で独立した Private copy を作成します。
-2. そのリポジトリの <kbd>Actions</kbd> を開き、必要なら Workflow を許可し、**Splatoon3 Bot (every 2 hours)** と **Splatoon3 Bot (daily twice)** が有効であることを確認します。
-3. <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> を開きます。
-4. **Variables** タブに `BOT_BRANDING_CONFIG`、**Secrets** タブに `S3_CONFIG` を追加します。
-5. [通知プラットフォーム](#通知プラットフォーム)から利用するサービスを選び、公式ガイドに従って Bot/Webhook を作成し、対応する `BOT_*_CONFIG` Secret を追加します。Secret が存在する adapter だけが自動的に有効になります。`BOT_NOTIFICATION_CHANNELS` は不要です。
-6. Actions から **Check Bot Configuration** を `all` Profile で実行します。YAML、S3、通知ルーティングだけを確認し、アップロードや送信は行いません。
-7. 通知先ごとに **Notification Channel smoke test** を実行します。S3 と実メッセージを確認してから定期 Workflow を利用してください。
+> 本番 Credential は、自分の Private インストールの Repository Secrets にだけ保存してください。ソースコード、Pull Request、ログへ記録してはいけません。
 
 > [!CAUTION]
-> 実際の認証情報、Webhook、Token、電話番号、Target ID を Git、Pull Request、ログ、Repository Variables に保存しないでください。上流変更を取り込む前に `.github/workflows/`、`bot/`、`scripts/` を確認してください。
+> 既定ブランチの Workflow は Credential を利用できます。上流の変更を同期する前に、特に `.github/workflows/`、`bot/`、`scripts/` を確認し、漏えいした Credential は直ちにローテーションしてください。
 
-## リポジトリ設定
+## 自動化
 
-すべての値は自分の Private repository の <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> に設定します。
+<p align="center">
+  <strong>Data Snapshot</strong> → <strong>Build</strong> → <strong>Screenshot</strong> → <strong>Preflight</strong> → <strong>S3</strong> → <strong>Adapters</strong>
+</p>
 
-### 1. Repository Variables
+定期実行と手動実行は、同じ 2 段階の Reusable Workflow を使用します。
 
-| Variable | 必須 | 既定値 | 用途 |
-| --- | :---: | --- | --- |
-| `BOT_BRANDING_CONFIG` | 必須 | — | 公開 HTTPS 通知アイコン URL 3 個を含む YAML。 |
-| `BOT_TIME_ZONE` | 任意 | `Asia/Shanghai` | 画像と通知で共有する IANA タイムゾーン。 |
-| `BOT_SCREENSHOT_ATTRIBUTION` | 任意 | `splatoon3.ink` | 画像フッターの短いクレジット。最大 40 文字。 |
-| `BOT_RUNNER` | 任意 | `ubuntu-24.04` | GitHub Actions Runner ラベル。 |
-| `BOT_ENVIRONMENT` | 任意 | `production` | Publish Job が使用する GitHub Environment。 |
-| `BOT_CONCURRENCY_GROUP` | 任意 | `splatoon3-bot-production` | 本番 Bot Run を直列化する concurrency group。 |
-| `BOT_ARTIFACT_RETENTION_DAYS` | 任意 | `7` | Artifact 保存日数。1〜90。 |
+1. **Prepare** は 1 つの完全な Data Snapshot を取得・検証し、Frontend を Build して、選択された Screenshot Artifact をまとめます。
+2. **Publish and notify** は Archive を 1 回だけ取得し、副作用の前に設定を一括検証して、画像と内蔵 Icon を S3 に公開した後、すべての Channel と Target を同じ Job 内で並列実行します。
 
-`BOT_BRANDING_CONFIG` の例：
+| Workflow | Trigger | Run Profile |
+| --- | --- | --- |
+| `bot-schedules.yml` | その他の UTC 偶数時 | `schedules` |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `all` |
+| `bot-manual.yml` | 手動選択 | 任意の Profile |
+| `configuration-check.yml` | 手動選択 | Preflight のみ |
+| `notification-smoke.yml` | Profile と Channel を手動選択 | 完全な実配信テスト |
 
-```yaml
-icons:
-  schedules: https://assets.example.com/icon.png
-  salmonRun: https://assets.example.com/icon2.png
-  gear: https://assets.example.com/icon3.png
-```
+定期 Workflow 全体で、スケジュール通知は 2 時間ごとに重複なく 1 回配信されます。外部 Actions はすべて不変の Commit SHA に固定されています。Hosted automation は GitHub Actions のみをサポートします。
 
-これらは公開表示用 URL なので Variable に保存します。資格情報や query token を URL に含めないでください。
+## 設定
 
-### 2. `S3_CONFIG`
+インストール先リポジトリの <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> で設定します。
 
-`S3_CONFIG` は配信用の唯一の Secret で、1 つの厳密な YAML mapping を使用します。
+### Repository Variables
+
+| Variable | 選択肢 / 既定値 | 用途 |
+| --- | --- | --- |
+| `BOT_LOCALE` | `en-US`、`zh-CN`、`ja-JP`；既定 `zh-CN` | スクリーンショットと通知本文の言語。 |
+| `BOT_SCREENSHOT_RESOLUTION` | `1200x675`、`1920x1080`、`2400x1350`、`3840x2160`；既定 `2400x1350` | 原画像の正確な寸法。 |
+| `BOT_TIME_ZONE` | IANA Time Zone；既定 `Asia/Shanghai` | 描画と通知で共有する Time Zone。 |
+| `BOT_SCREENSHOT_ATTRIBUTION` | 最大 40 文字；既定 `splatoon3.ink` | Footer に表示する中立的なクレジット。 |
+| `BOT_RUNNER` | 既定 `ubuntu-24.04` | 2 つの Bot Run Job で使う Runner。 |
+| `BOT_ENVIRONMENT` | 既定 `production` | 公開を Gate する GitHub Environment。 |
+| `BOT_CONCURRENCY_GROUP` | 既定 `splatoon3-bot-production` | Production Bot Run を直列化。 |
+| `BOT_ARTIFACT_RETENTION_DAYS` | `1`–`90`；既定 `7` | Bot Run Archive の保存日数。 |
+
+| 解像度 | Scale | 用途 |
+| --- | :---: | --- |
+| `1200x675` | 1× | 小さい Artifact と Visual Test |
+| `1920x1080` | 1.6× | Full HD 原画像 |
+| `2400x1350` | 2× | 画質と容量の推奨バランス |
+| `3840x2160` | 3.2× | 4K 原画像。Archive と Upload は大きくなります |
+
+スケジュール、サーモンラン、ギアの Icon はリポジトリ内の Asset から生成され、Content-addressed key で S3 に自動公開されます。公開 Icon URL を別途用意する必要はありません。
+
+### `S3_CONFIG`
+
+Repository Secret `S3_CONFIG` に、次のような厳密な YAML Mapping を保存します。
 
 ```yaml
 bucket: splatoon-assets
+publicBaseUrl: https://splatoon.example.com
+accessKeyId: your-s3-access-key
+secretAccessKey: your-s3-secret-access-key
 region: us-east-1
-endpoint: https://s3.api.upyun.com
+endpoint: https://s3.example.com
 forcePathStyle: true
 keyPrefix: splatoon3-bot
-publicBaseUrl: https://splatoon.example.com
-credentials:
-  accessKeyId: your-s3-access-key
-  secretAccessKey: your-s3-secret-access-key
 ```
 
-- `endpoint`：GitHub Actions がアップロードに使う S3 API。AWS S3 では通常省略します。
-- `publicBaseUrl`：各通知サービスが画像を取得する公開 HTTPS root。`keyPrefix` は含めません。
-- `keyPrefix`：任意の Object prefix。
-- `credentials`：対象 Bucket に必要な最小権限だけを与えた専用資格情報を推奨します。
+**必須フィールド**
 
-| ストレージ | 公式セットアップ |
+| Field | 説明 |
 | --- | --- |
-| AWS S3 | [Bucket を作成](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket) · [Access Key を管理](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) |
+| `bucket` | 公開先 Bucket 名。 |
+| `publicBaseUrl` | Credential を含まない Public HTTPS の Bucket root または CDN URL。`keyPrefix` は含めません。 |
+| `accessKeyId` | Upload 権限を持つ専用 S3 Access Key。Object を確認できる場合は内蔵 Icon の再 Upload を省略します。 |
+| `secretAccessKey` | `accessKeyId` と組み合わせる Secret Key。 |
+
+**任意フィールド**
+
+| Field | 既定値 | 設定する場合 |
+| --- | --- | --- |
+| `region` | `us-east-1` | Provider の署名 Region。R2 は `auto`。 |
+| `endpoint` | AWS SDK 既定 | R2、MinIO、Upyun S3 などで必要。 |
+| `forcePathStyle` | `false` | MinIO と Upyun S3 では通常 `true`。 |
+| `keyPrefix` | 空 | Project Object に Namespace を付ける場合。 |
+| `sessionToken` | 空 | 一時 Credential の場合のみ。 |
+
+`endpoint` は Upload API、`publicBaseUrl` は各通知サービスが画像を取得する URL です。Publisher は通知画像、原画像、内蔵 Icon を Content-addressed object として保存し、寸法・ハッシュ・URL を Publication Manifest に記録します。
+
+| Provider | 公式ドキュメント |
+| --- | --- |
+| AWS S3 / CloudFront | [Bucket 作成](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket) · [Access Key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) · [CloudFront OAC](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) |
 | Cloudflare R2 | [Get started](https://developers.cloudflare.com/r2/get-started/) · [API Token](https://developers.cloudflare.com/r2/api/tokens/) · [Public bucket](https://developers.cloudflare.com/r2/buckets/public-buckets/) |
-| MinIO / AIStor | [Bucket を作成](https://docs.min.io/aistor/reference/cli/mc-mb/) · [Access Key を作成](https://docs.min.io/aistor/reference/cli/admin/mc-admin-accesskey/mc-admin-accesskey-create/) |
-| Upyun S3 | [AWS S3 互換](https://help.upyun.com/knowledge-base/aws-s3%E5%85%BC%E5%AE%B9/) · [S3 API](https://help.upyun.com/knowledge-base/s3-api/) |
+| MinIO / AIStor | [Bucket 作成](https://docs.min.io/aistor/reference/cli/mc-mb/) · [Access Key 作成](https://docs.min.io/aistor/reference/cli/admin/mc-admin-accesskey/mc-admin-accesskey-create/) |
+| Upyun S3 | [S3 互換性](https://help.upyun.com/knowledge-base/aws-s3%E5%85%BC%E5%AE%B9/) · [S3 API](https://help.upyun.com/knowledge-base/s3-api/) |
 
-最小権限、公開 URL、Provider ごとの注意点は[運用者向けセットアップ一覧](./docs/operator-setup-links.md#s3-compatible-publication)を参照してください。
+最小権限や Public URL の注意点は [S3 Operator Guide](./docs/operator-setup-links.md#s3-compatible-publication) を参照してください。
 
-### 3. Channel Secrets
-
-各 Channel Secret は、Target mapping の直接かつ空でない YAML sequence です。各 Target には一意な `name` が必要です。任意の `notifications` で配信対象を限定できます。
-
-```yaml
-- name: battle-schedules
-  notifications: [schedules]
-  webhookUrl: https://example.com/secret-webhook
-- name: gear
-  notifications: [gear-dailydrop, gear-regular]
-  webhookUrl: https://example.com/another-secret-webhook
-```
-
-複数 Channel と同一 Channel 内の複数 Target は並列で実行されます。同一 Target 内の通知順序は Run Profile の定義どおりです。
+> [!TIP]
+> Content-addressed object は意図的に蓄積します。過去の通知内リンクを維持したい期間に合わせて、`notification-images/` と `originals/` の S3 Lifecycle policy を設定してください。
 
 ## 通知プラットフォーム
 
-| Platform | Repository Secret | 必須フィールド | 表現 | 公式ガイド |
-| --- | --- | --- | --- | --- |
-| WeCom | `BOT_WECOM_CONFIG` | `name`, `webhookUrl` | Template Card | [Group robot webhook](https://developer.work.weixin.qq.com/document/path/91770) |
-| Discord | `BOT_DISCORD_CONFIG` | `name`, `webhookUrl` | Embed | [Webhook を作成](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) |
-| Telegram | `BOT_TELEGRAM_CONFIG` | `name`, `botToken`, `chatId` | Photo、HTML、URL button | [BotFather](https://core.telegram.org/bots/features#botfather) |
-| QQ official bot | `BOT_QQ_CONFIG` | `name`, `appId`, `clientSecret`, `targetType`, `targetId` | Embed / Markdown | [Bot を登録](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/getting-started.html) |
-| Feishu | `BOT_FEISHU_CONFIG` | `name`, `webhookUrl` | Card Schema 2.0 | [Custom bot](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot) |
-| DingTalk | `BOT_DINGTALK_CONFIG` | `name`, `webhookUrl` | ActionCard | [Custom robot](https://open.dingtalk.com/document/robots/custom-robot-access) |
-| WhatsApp | `BOT_WHATSAPP_CONFIG` | `name`, `accessToken`, `phoneNumberId`, `recipientPhoneNumber`, `templateName`, `languageCode` | 承認済み media template | [Cloud API](https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started) |
-| LINE | `BOT_LINE_CONFIG` | `name`, `channelAccessToken`, `targetType`, `targetId` | Flex Message | [Messaging API](https://developers.line.biz/en/docs/messaging-api/getting-started/) |
-| Slack | `BOT_SLACK_CONFIG` | `name`, `webhookUrl` | Block Kit | [Incoming Webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/) |
+Channel Secret が存在し、空でなければ、そのアダプターは自動的に有効になります。各 Secret は Target Mapping の直接かつ空でない YAML Sequence です。Target の `name` は一意にし、配信対象を限定するときだけ `notifications` を追加します。
 
-全フィールド、受信資格、署名方式、quota、追加の公式資料は[運用者向けセットアップ一覧](./docs/operator-setup-links.md#notification-adapters)を参照してください。英語版 README には各 platform の YAML 例と表示設計も掲載しています。
+| Platform | ネイティブ表現 | Repository Secret | 公式設定 |
+| --- | --- | --- | --- |
+| WeCom | `news_notice` Template Card | `BOT_WECOM_CONFIG` | [Group robot](https://developer.work.weixin.qq.com/document/path/91770) |
+| Discord | Image-rich Embed | `BOT_DISCORD_CONFIG` | [Incoming Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) |
+| Telegram | Photo、HTML、URL Button | `BOT_TELEGRAM_CONFIG` | [BotFather](https://core.telegram.org/bots/features#botfather) |
+| QQ | Embed / Custom Markdown | `BOT_QQ_CONFIG` | [Official bot](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/getting-started.html) |
+| Feishu / Lark | Card Schema 2.0 | `BOT_FEISHU_CONFIG` | [Custom bot](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot) |
+| DingTalk | ActionCard | `BOT_DINGTALK_CONFIG` | [Custom robot](https://open.dingtalk.com/document/robots/custom-robot-access) |
+| WhatsApp | Approved media template | `BOT_WHATSAPP_CONFIG` | [Cloud API](https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started) |
+| LINE | Flex Message bubble | `BOT_LINE_CONFIG` | [Messaging API](https://developers.line.biz/ja/docs/messaging-api/getting-started/) |
+| Slack | Block Kit | `BOT_SLACK_CONFIG` | [Incoming Webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/) |
 
-### WeCom の例
+[Operator Setup Directory](./docs/operator-setup-links.md#notification-adapters) には全 Platform の必須 Field、Credential、送信対象条件、公式リンクがあります。[Capability Audit](./docs/notification-platform-capabilities.md) では各 Native Layout の選定理由を説明しています。
 
-```yaml
-- name: battle-schedules
-  notifications: [schedules]
-  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
-- name: salmon-run
-  notifications: [salmon-run]
-  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
-- name: gear
-  notifications: [gear-dailydrop, gear-regular]
-  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
-```
+## 信頼性
 
-## 自動化と信頼性
+- Data Snapshot は Retry と Timeout 付きで並列取得され、Schema 検証後に Atomic replace されます。
+- Screenshot は Application、Font、Local image の準備完了を待ち、言語、クレジット、寸法、Footer、Overflow を検証します。
+- Run Manifest v4 は Locale、Resolution、Time Zone、Data Snapshot ID、Filename、寸法、SHA-256 を記録します。
+- Publication Manifest v3 は Bot Run と通知画像、原画像、内蔵 Icon、Public URL を厳密に関連付けます。
+- Configuration Preflight は最初の Upload 前に独立した設定エラーをまとめ、Secret の値を表示しません。
+- Channel と Target は並列実行され、成功済みの結果を保持したまま最後に失敗を集約します。
+- CI は Git 履歴全体を Secret scan し、Syntax、Unit、Browser、Visual、Build、Workflow policy、Dependency audit を実行します。
 
-`Data Snapshot → Build → Screenshots → Configuration Preflight → S3 → Channel Adapters`
-
-- `bot-schedules.yml` は残りの偶数 UTC 時に `schedules` を配信します。
-- `bot-salmon-run.yml` は `02:00` と `10:00` UTC に `all` Profile で 4 種類を配信します。
-- 2 つの Workflow を合わせ、スケジュール通知は 2 時間ごとに正確に 1 回です。
-- Remote Action は immutable commit SHA に固定し、CI は Gitleaks で Git 履歴全体を検査します。
-- 画像、Run Manifest、Publication Manifest、S3 object、通知 URL を寸法、hash、Data Snapshot、時刻、attribution で結び付けます。
-- 1 つの Channel の失敗で、他の開始済み Channel をキャンセルしません。すべての結果を集約してから Job を失敗させます。
+Visual Test は Linux と macOS のそれぞれで、英語・簡体中国語・日本語の 4 枚組を管理します。Pixel 差分が `0.1%` を超えると失敗します。
 
 ## ローカル開発
 
-この節は contributor と高度な operator 向けです。GitHub Actions での通常運用には不要です。
+このセクションは Contributor と高度な Operator 向けです。Hosted 運用には不要です。
 
-**要件：** Node.js 24 LTS、pnpm 11.18 以上の 11.x。
+Node.js 24 LTS と、Major version 11 の pnpm 11.18 以上が必要です。
 
 ```sh
 git clone git@github.com:YOUR_GITHUB_USERNAME/splatoon3-bot.git
 cd splatoon3-bot
-git remote add upstream https://github.com/TenviLi/splatoon3-bot.git
 corepack enable
 pnpm install --frozen-lockfile --strict-peer-dependencies
+pnpm run download-data
 pnpm run verify
 ```
 
-- `pnpm run bot:doctor all`：副作用なしのローカル設定検証。
-- `pnpm run verify`：構文、unit、browser、visual golden、build、dependency audit。
-- `pnpm run verify:actions`：OrbStack と `act` で Linux CI、S3、WeCom のローカル fake endpoint を含む全経路を検証。
+| Command | 用途 |
+| --- | --- |
+| `pnpm run bot:doctor <profile> [channel]` | 副作用なしで設定を検証。 |
+| `pnpm run bot:prepare <profile>` | Download、Build、Render、Run Manifest 作成。 |
+| `pnpm run bot:publish <profile>` | S3 へ検証済み画像を公開。 |
+| `pnpm run bot:notify <profile> [channel]` | 設定済み Channel へ配信。 |
+| `pnpm run test:update-golden` | 現在の Platform 用に 3 言語の Golden を生成。 |
+| `pnpm run verify` | 完全なローカル検証。 |
+| `pnpm run verify:actions` | OrbStack と `act` で Linux Actions を検証。 |
 
 ## ライセンス
 
-[GNU GPL v3.0](./LICENSE) で公開しています。本プロジェクトはファンメイドであり、Nintendo とは関係なく、承認も受けていません。
+[GNU General Public License v3.0](./LICENSE) で公開しています。Nintendo とは無関係の非公式ファンプロジェクトです。

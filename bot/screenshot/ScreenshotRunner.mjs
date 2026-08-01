@@ -4,7 +4,9 @@ import http from 'node:http'
 import path from 'node:path'
 import puppeteer from 'puppeteer-core'
 import sirv from 'sirv'
+import { resolveBotLocale } from '../config/BotLocale.mjs'
 import { resolveScreenshotAttribution } from '../config/ScreenshotAttribution.mjs'
+import { resolveScreenshotResolution } from '../config/ScreenshotResolution.mjs'
 import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { getScreenshotDefinition } from '../run/RunPlan.mjs'
 import { getPinnedBrowserVersion, resolveBrowserLaunchOptions } from './BrowserRuntime.mjs'
@@ -89,6 +91,7 @@ async function inspectRenderState(page) {
 
     return {
       issues,
+      locale: document.documentElement.lang,
       viewport: { width: window.innerWidth, height: window.innerHeight, devicePixelRatio: window.devicePixelRatio },
       document: {
         width: document.documentElement.scrollWidth,
@@ -113,12 +116,14 @@ export async function renderScreenshotArtifacts(
     outputDirectory = path.join(process.cwd(), 'screenshots'),
     renderTime = Date.now(),
     timeZone = resolveBotTimeZone(),
+    locale = resolveBotLocale(),
     screenshotAttribution = resolveScreenshotAttribution(),
-    deviceScaleFactor = null,
+    screenshotResolution = resolveScreenshotResolution().name,
     readyTimeoutMs = 20_000,
   } = {}
 ) {
   const definitions = screenshotNames.map(getScreenshotDefinition)
+  const resolution = resolveScreenshotResolution(screenshotResolution)
   const server = await startStaticServer(buildDirectory)
   const browser = await puppeteer.launch({
     ...(await resolveBrowserLaunchOptions({
@@ -133,7 +138,7 @@ export async function renderScreenshotArtifacts(
       const page = await browser.newPage()
       const viewport = {
         ...definition.viewport,
-        deviceScaleFactor: deviceScaleFactor ?? definition.viewport.deviceScaleFactor,
+        deviceScaleFactor: resolution.deviceScaleFactor,
       }
       const pageErrors = []
       const failedRequests = []
@@ -143,7 +148,7 @@ export async function renderScreenshotArtifacts(
       page.on('requestfailed', onRequestFailed)
 
       try {
-        await page.evaluateOnNewDocument(() => localStorage.setItem('lang', 'zh-CN'))
+        await page.evaluateOnNewDocument((botLocale) => localStorage.setItem('lang', botLocale), locale)
         await page.emulateTimezone(timeZone)
         await page.setViewport(viewport)
         const url = new URL(`http://127.0.0.1:${server.port}/screenshots.html`)
@@ -165,6 +170,9 @@ export async function renderScreenshotArtifacts(
             `screenshot attribution is ${renderState.attribution || 'missing'}, expected ${screenshotAttribution}`
           )
         }
+        if (renderState.locale !== locale) {
+          diagnostics.push(`screenshot locale is ${renderState.locale || 'missing'}, expected ${locale}`)
+        }
         if (diagnostics.length > 0) {
           throw new Error(`Screenshot ${definition.name} failed render validation:\n- ${diagnostics.join('\n- ')}`)
         }
@@ -179,6 +187,8 @@ export async function renderScreenshotArtifacts(
             bytes: buffer.byteLength,
             sha256: crypto.createHash('sha256').update(buffer).digest('hex'),
             browserVersion: getPinnedBrowserVersion(),
+            width: resolution.width,
+            height: resolution.height,
             renderState,
           })
         )

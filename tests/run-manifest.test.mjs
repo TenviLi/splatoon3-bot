@@ -7,10 +7,12 @@ import { readRunManifest, validateRunManifest, writeRunManifest } from '../bot/r
 
 function createManifest(overrides = {}) {
   return {
-    version: 3,
+    version: 4,
     profile: 'schedules',
     renderTime: Date.parse('2026-07-30T00:00:00Z'),
     timeZone: 'Asia/Shanghai',
+    locale: 'zh-CN',
+    resolution: '2400x1350',
     screenshotAttribution: 'splatoon3.ink',
     snapshot: {
       createdAt: '2026-07-30T00:00:00.000Z',
@@ -24,6 +26,8 @@ function createManifest(overrides = {}) {
         bytes: 123,
         sha256: 'a'.repeat(64),
         browserVersion: '138.0.0.0',
+        width: 2400,
+        height: 1350,
       },
     ],
     ...overrides,
@@ -80,6 +84,18 @@ test('requires a valid screenshot attribution', () => {
   )
 })
 
-test('rejects the incompatible Run Manifest version 2 schema', () => {
-  assert.throws(() => validateRunManifest(createManifest({ version: 2 })), /Invalid input/)
+test('requires supported locale, resolution, and artifact geometry', () => {
+  assert.throws(() => validateRunManifest(createManifest({ locale: 'fr-FR' })), /must be one of/)
+  assert.throws(() => validateRunManifest(createManifest({ resolution: '2560x1440' })), /Invalid option/)
+  assert.throws(
+    () =>
+      validateRunManifest(
+        createManifest({ artifacts: [{ ...createManifest().artifacts[0], width: 1920, height: 1080 }] })
+      ),
+    /expected 2400x1350/
+  )
+})
+
+test('rejects the incompatible Run Manifest version 3 schema', () => {
+  assert.throws(() => validateRunManifest(createManifest({ version: 3 })), /Invalid input/)
 })

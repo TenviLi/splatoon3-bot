@@ -27,6 +27,8 @@
       "anarchy": "蛮颓比赛",
       "splatfest": "祭典比赛"
     },
+    "rainmakerLong": "真格鱼虎对战",
+    "rainmakerShort": "真格鱼虎",
     "all-upcoming": "接下来的对战场地"
   },
   "salmonrun": {
@@ -38,5 +40,45 @@
     "sale": "目前贩卖的装备",
     "dailydrop": "今日精选",
     "order": "预定"
+  },
+  "screenshot": {
+    "headers": {
+      "schedules": "对战日程表",
+      "salmonRun": "打工提醒小助手",
+      "dailyDropGear": "鱿鱼须商城·今日精选",
+      "regularGear": "鱿鱼须商城·目前贩卖的装备"
+    }
+  },
+  "notification": {
+    "common": {
+      "gear": "装备"
+    },
+    "schedules": {
+      "source": "今天你喷喷了吗?",
+      "title": "日程已更新",
+      "regularSection": "🔫  占地对战",
+      "rankedSection": "🔰  {rule}  ({mode})",
+      "ruleSuffix": "对战",
+      "imageAlt": "Splatoon 3 对战日程",
+      "action": "查看日程截图"
+    },
+    "salmonRun": {
+      "source": "打工的时间到啦!",
+      "randomWeapons": "🎉 随机武器! 随机武器!",
+      "suppliedWeapons": "🐻 发放武器:",
+      "imageAlt": "Splatoon 3 鲑鱼跑排班",
+      "action": "查看鲑鱼跑截图"
+    },
+    "dailyDropGear": {
+      "source": "鱿鱼须商城·今日精选",
+      "imageAlt": "鱿鱼须商城今日精选",
+      "action": "查看今日精选"
+    },
+    "regularGear": {
+      "source": "鱿鱼须商城·目前贩卖",
+      "title": "鱿鱼须商城上新啦",
+      "imageAlt": "鱿鱼须商城目前贩卖装备",
+      "action": "查看目前贩卖"
+    }
   }
 }

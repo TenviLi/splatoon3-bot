@@ -51,6 +51,8 @@ jobs:
       profile: ${{ steps.plan.outputs.profile }}
     env:
       BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
+      BOT_LOCALE: ${{ vars.BOT_LOCALE || 'zh-CN' }}
+      BOT_SCREENSHOT_RESOLUTION: ${{ vars.BOT_SCREENSHOT_RESOLUTION || '2400x1350' }}
       BOT_SCREENSHOT_ATTRIBUTION: ${{ vars.BOT_SCREENSHOT_ATTRIBUTION || 'splatoon3.ink' }}
       TZ: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
     steps:
@@ -155,8 +157,9 @@ jobs:
           PROFILE: ${{ needs.prepare.outputs.profile }}
           CHANNEL: ${{ inputs.notification_channel }}
           BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
+          BOT_LOCALE: ${{ vars.BOT_LOCALE || 'zh-CN' }}
+          BOT_SCREENSHOT_RESOLUTION: ${{ vars.BOT_SCREENSHOT_RESOLUTION || '2400x1350' }}
           BOT_SCREENSHOT_ATTRIBUTION: ${{ vars.BOT_SCREENSHOT_ATTRIBUTION || 'splatoon3.ink' }}
-          BOT_BRANDING_CONFIG: ${{ vars.BOT_BRANDING_CONFIG }}
           S3_CONFIG: ${{ secrets.S3_CONFIG }}
           BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
           BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
@@ -188,7 +191,6 @@ jobs:
         env:
           PROFILE: ${{ needs.prepare.outputs.profile }}
           S3_CONFIG: ${{ secrets.S3_CONFIG }}
-          BOT_BRANDING_CONFIG: ${{ vars.BOT_BRANDING_CONFIG }}
         run: node bot/publish/index.mjs "$PROFILE"
 
       - name: Deliver configured notifications

@@ -1,5 +1,5 @@
 <template>
-  <ScreenshotLayout header="鱿鱼须商城·今日精选">
+  <ScreenshotLayout :header="$t('screenshot.headers.dailyDropGear')">
     <div class="grow relative">
       <div class="absolute flex items-center inset-0">
         <div class="ml-40 mt-20">

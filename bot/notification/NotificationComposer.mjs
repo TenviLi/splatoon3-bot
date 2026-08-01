@@ -40,22 +40,25 @@ function composeSchedules(context, publicationManifest) {
 
     const rule = context
       .t(`splatnet.rules.${schedule.settings.vsRule.id}.name`, schedule.settings.vsRule.name)
-      .replace('对战', '')
-    return { title: `🔰  ${rule}  (${mode})`, text: stageNames(schedule) }
+      .replace(context.t('notification.schedules.ruleSuffix'), '')
+    return {
+      title: context.t('notification.schedules.rankedSection', { rule, mode: context.t(mode) }),
+      text: stageNames(schedule),
+    }
   }
 
   return createNotification({
     id: 'schedules',
-    source: { name: '今天你喷喷了吗?', iconUrl: publicationManifest.branding.icons.schedules },
-    title: '日程已更新',
+    source: { name: context.t('notification.schedules.source'), iconUrl: publicationManifest.branding.icons.schedules.url },
+    title: context.t('notification.schedules.title'),
     subtitle: `${context.d(regular.startTime, 'time')} - ${context.d(regular.endTime, 'time')}`,
-    image: notificationImage(artifact, 'Splatoon 3 对战日程'),
+    image: notificationImage(artifact, context.t('notification.schedules.imageAlt')),
     sections: [
-      { title: '🔫  占地对战', text: stageNames(regular) },
-      rankedSection(anarchySeries, '挑战'),
-      rankedSection(anarchyOpen, '开放'),
+      { title: context.t('notification.schedules.regularSection'), text: stageNames(regular) },
+      rankedSection(anarchySeries, 'schedule.types.series'),
+      rankedSection(anarchyOpen, 'schedule.types.open'),
     ].filter(Boolean),
-    action: { label: '查看日程截图', url: artifact.notificationImage.url },
+    action: { label: context.t('notification.schedules.action'), url: artifact.notificationImage.url },
     accentColor: 0x39c5bb,
   })
 }
@@ -70,17 +73,19 @@ function composeSalmonRun(context, publicationManifest) {
 
   return createNotification({
     id: 'salmon-run',
-    source: { name: '打工的时间到啦!', iconUrl: publicationManifest.branding.icons.salmonRun },
+    source: { name: context.t('notification.salmonRun.source'), iconUrl: publicationManifest.branding.icons.salmonRun.url },
     title: context.t(`splatnet.stages.${schedule.settings.coopStage.id}.name`, schedule.settings.coopStage.name),
     subtitle: `${context.d(schedule.startTime, 'dateTimeShortWeekday')} - ${context.d(schedule.endTime, 'dateTimeShort')}`,
-    image: notificationImage(artifact, 'Splatoon 3 鲑鱼跑排班'),
+    image: notificationImage(artifact, context.t('notification.salmonRun.imageAlt')),
     sections: [
       {
-        title: hasMysteryWeapon ? '🎉 随机武器! 随机武器!' : '🐻 发放武器:',
+        title: hasMysteryWeapon
+          ? context.t('notification.salmonRun.randomWeapons')
+          : context.t('notification.salmonRun.suppliedWeapons'),
         listItems: hasMysteryWeapon ? [] : weaponNames,
       },
     ],
-    action: { label: '查看鲑鱼跑截图', url: artifact.notificationImage.url },
+    action: { label: context.t('notification.salmonRun.action'), url: artifact.notificationImage.url },
     accentColor: 0xf97316,
   })
 }
@@ -92,18 +97,18 @@ function composeDailyDropGear(context, publicationManifest) {
 
   return createNotification({
     id: 'gear-dailydrop',
-    source: { name: '鱿鱼须商城·今日精选', iconUrl: publicationManifest.branding.icons.gear },
+    source: { name: context.t('notification.dailyDropGear.source'), iconUrl: publicationManifest.branding.icons.gear.url },
     title: `「${context.t(`splatnet.brands.${brand.brand.id}.name`, brand.brand.name)}」`,
     subtitle: context.t('time.until', { time: context.d(brand.saleEndTime, 'dateTimeShortWeekday') }),
-    image: notificationImage(artifact, '鱿鱼须商城今日精选'),
+    image: notificationImage(artifact, context.t('notification.dailyDropGear.imageAlt')),
     facts: gears.map((gear) => ({
-      label: getGearIcon(gear) || '装备',
+      label: getGearIcon(gear) || context.t('notification.common.gear'),
       value: `${context.t(`splatnet.gear.${gear.gear.__splatoon3ink_id}.name`, gear.gear.name)}\n(${context.t(
         `splatnet.powers.${gear.gear.primaryGearPower.__splatoon3ink_id}.name`,
         gear.gear.primaryGearPower.name
       )})`,
     })),
-    action: { label: '查看今日精选', url: artifact.notificationImage.url },
+    action: { label: context.t('notification.dailyDropGear.action'), url: artifact.notificationImage.url },
     accentColor: 0xfacc15,
   })
 }
@@ -114,19 +119,19 @@ function composeRegularGear(context, publicationManifest) {
 
   return createNotification({
     id: 'gear-regular',
-    source: { name: '鱿鱼须商城·目前贩卖', iconUrl: publicationManifest.branding.icons.gear },
-    title: '鱿鱼须商城上新啦',
-    image: notificationImage(artifact, '鱿鱼须商城目前贩卖装备'),
+    source: { name: context.t('notification.regularGear.source'), iconUrl: publicationManifest.branding.icons.gear.url },
+    title: context.t('notification.regularGear.title'),
+    image: notificationImage(artifact, context.t('notification.regularGear.imageAlt')),
     facts: [
       {
-        label: getGearIcon(gear) || '装备',
+        label: getGearIcon(gear) || context.t('notification.common.gear'),
         value: `${context.t(`splatnet.gear.${gear.gear.__splatoon3ink_id}.name`, gear.gear.name)}\n(${context.t(
           `splatnet.powers.${gear.gear.primaryGearPower.__splatoon3ink_id}.name`,
           gear.gear.primaryGearPower.name
         )})`,
       },
     ],
-    action: { label: '查看目前贩卖', url: artifact.notificationImage.url },
+    action: { label: context.t('notification.regularGear.action'), url: artifact.notificationImage.url },
     accentColor: 0xfb923c,
   })
 }

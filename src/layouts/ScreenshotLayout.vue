@@ -33,6 +33,7 @@
 
 <script setup>
 import { computed, nextTick, onMounted, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { useTimeStore } from '../stores/time'
 import TimeOffsetSelector from '../components/Debug/TimeOffsetSelector.vue'
@@ -47,6 +48,7 @@ const props = defineProps({
 
 const route = useRoute()
 const time = useTimeStore()
+const { locale } = useI18n()
 const screenshotAttribution = computed(() => normalizeScreenshotAttribution(route.query.attribution))
 
 watchEffect(() => {
@@ -64,7 +66,7 @@ watchEffect(() => {
 function formatDateTime(date) {
   date = new Date(date)
 
-  return date.toLocaleString('zh-CN', {
+  return date.toLocaleString(locale.value, {
     dateStyle: 'long',
     timeStyle: 'short',
   })

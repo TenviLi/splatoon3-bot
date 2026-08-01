@@ -1,12 +1,18 @@
 import path from 'node:path'
 import { z } from 'zod'
 import { absoluteUrlSchema } from '../config/AbsoluteUrl.mjs'
+import { botLocaleSchema } from '../config/BotLocale.mjs'
 import { botTimeZoneSchema } from '../config/BotTimeZone.mjs'
-import { brandingConfigurationSchema } from '../config/BrandingConfiguration.mjs'
 import { screenshotAttributionSchema } from '../config/ScreenshotAttribution.mjs'
+import { getScreenshotResolution, screenshotResolutionSchema } from '../config/ScreenshotResolution.mjs'
 import { readManifestFile, writeManifestFile } from '../manifest/ManifestFile.mjs'
 import { getRunPlan, getScreenshotDefinition } from '../run/RunPlan.mjs'
 import { validateRunManifest } from '../run/RunManifest.mjs'
+import {
+  brandingIconDimensions,
+  brandingIconRelativeKey,
+  listBrandingIconDefinitions,
+} from './BrandingAssets.mjs'
 
 const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/)
 const publishedImageSchema = z
@@ -28,17 +34,29 @@ const publishedArtifactSchema = z
   })
   .strict()
 
+const brandingManifestSchema = z
+  .object({
+    icons: z
+      .object(
+        Object.fromEntries(listBrandingIconDefinitions().map(({ name }) => [name, publishedImageSchema]))
+      )
+      .strict(),
+  })
+  .strict()
+
 const publicationManifestSchema = z
   .object({
-    version: z.literal(2),
-    runManifestVersion: z.literal(3),
+    version: z.literal(3),
+    runManifestVersion: z.literal(4),
     profile: z.string().min(1),
     renderTime: z.number().int().nonnegative(),
     timeZone: botTimeZoneSchema,
+    locale: botLocaleSchema,
+    resolution: screenshotResolutionSchema,
     screenshotAttribution: screenshotAttributionSchema,
     snapshotManifestSha256: sha256Schema,
     assetBaseUrl: absoluteUrlSchema({ label: 'assetBaseUrl' }),
-    branding: brandingConfigurationSchema,
+    branding: brandingManifestSchema,
     artifacts: z.array(publishedArtifactSchema),
   })
   .strict()
@@ -83,31 +101,29 @@ function contentAddressedUrl(assetBaseUrl, relativeKey) {
   return url
 }
 
-function assertPublishedImage(manifest, artifactName, variant, image, expectedDimensions) {
-  const definition = getScreenshotDefinition(artifactName)
-  const expectedSuffix = publicationImageRelativeKey(variant, image.sha256, definition.outputFilename)
+function assertPublishedImage(manifest, label, image, expectedSuffix, expectedDimensions) {
   if (image.key !== expectedSuffix && !image.key.endsWith(`/${expectedSuffix}`)) {
-    throw new Error(`Publication ${variant} key for ${artifactName} must end with ${expectedSuffix}`)
+    throw new Error(`Publication ${label} key must end with ${expectedSuffix}`)
   }
 
   const baseUrl = new URL(manifest.assetBaseUrl)
   const imageUrl = new URL(image.url)
   const basePath = decodedPathname(baseUrl, 'assetBaseUrl').replace(/\/+$/, '')
-  const imagePath = decodedPathname(imageUrl, `Publication ${variant} URL`)
+  const imagePath = decodedPathname(imageUrl, `Publication ${label} URL`)
   const basePrefix = `${basePath}/`.replace(/^\/\//, '/')
   if (imageUrl.origin !== baseUrl.origin || !imagePath.startsWith(basePrefix)) {
-    throw new Error(`Publication ${variant} URL for ${artifactName} must be below assetBaseUrl`)
+    throw new Error(`Publication ${label} URL must be below assetBaseUrl`)
   }
   const expectedUrl = contentAddressedUrl(baseUrl, expectedSuffix)
   if (imageUrl.href !== expectedUrl.href) {
     throw new Error(
-      `Publication ${variant} URL for ${artifactName} must exactly match assetBaseUrl plus ${expectedSuffix}`
+      `Publication ${label} URL must exactly match assetBaseUrl plus ${expectedSuffix}`
     )
   }
 
   if (image.width !== expectedDimensions.width || image.height !== expectedDimensions.height) {
     throw new Error(
-      `Publication ${variant} for ${artifactName} is ${image.width}x${image.height}, expected ${expectedDimensions.width}x${expectedDimensions.height}`
+      `Publication ${label} is ${image.width}x${image.height}, expected ${expectedDimensions.width}x${expectedDimensions.height}`
     )
   }
 }
@@ -115,6 +131,18 @@ function assertPublishedImage(manifest, artifactName, variant, image, expectedDi
 export function validatePublicationManifest(value) {
   const manifest = publicationManifestSchema.parse(value)
   const plan = getRunPlan(manifest.profile)
+  const resolution = getScreenshotResolution(manifest.resolution)
+
+  for (const definition of listBrandingIconDefinitions()) {
+    const icon = manifest.branding.icons[definition.name]
+    assertPublishedImage(
+      manifest,
+      `branding icon ${definition.name}`,
+      icon,
+      brandingIconRelativeKey(icon.sha256, definition.outputFilename),
+      brandingIconDimensions
+    )
+  }
 
   if (manifest.artifacts.length !== plan.screenshots.length) {
     throw new Error(
@@ -129,14 +157,20 @@ export function validatePublicationManifest(value) {
       throw new Error(`Publication manifest artifact ${index + 1} is ${artifact.name}, expected ${screenshotName}`)
     }
 
-    assertPublishedImage(manifest, artifact.name, 'notificationImage', artifact.notificationImage, {
-      width: definition.notificationImage.width,
-      height: definition.notificationImage.height,
-    })
-    assertPublishedImage(manifest, artifact.name, 'originalImage', artifact.originalImage, {
-      width: definition.viewport.width * definition.viewport.deviceScaleFactor,
-      height: definition.viewport.height * definition.viewport.deviceScaleFactor,
-    })
+    assertPublishedImage(
+      manifest,
+      `notificationImage for ${artifact.name}`,
+      artifact.notificationImage,
+      publicationImageRelativeKey('notificationImage', artifact.notificationImage.sha256, definition.outputFilename),
+      definition.notificationImage
+    )
+    assertPublishedImage(
+      manifest,
+      `originalImage for ${artifact.name}`,
+      artifact.originalImage,
+      publicationImageRelativeKey('originalImage', artifact.originalImage.sha256, definition.outputFilename),
+      resolution
+    )
   }
 
   return manifest
@@ -180,6 +214,16 @@ export function assertPublicationManifestMatchesRun(publicationValue, runValue) 
   if (publicationManifest.timeZone !== runManifest.timeZone) {
     throw new Error(
       `Publication manifest time zone ${publicationManifest.timeZone} does not match ${runManifest.timeZone}`
+    )
+  }
+  if (publicationManifest.locale !== runManifest.locale) {
+    throw new Error(
+      `Publication manifest locale ${publicationManifest.locale} does not match ${runManifest.locale}`
+    )
+  }
+  if (publicationManifest.resolution !== runManifest.resolution) {
+    throw new Error(
+      `Publication manifest resolution ${publicationManifest.resolution} does not match ${runManifest.resolution}`
     )
   }
   if (publicationManifest.screenshotAttribution !== runManifest.screenshotAttribution) {

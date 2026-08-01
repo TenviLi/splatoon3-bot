@@ -1,0 +1,85 @@
+{
+  "times": {
+    "now": "開催中！",
+    "next": "次回",
+    "future": "その次",
+    "checkback": "しばらくしてから確認してください！"
+  },
+  "time": {
+    "in": "{time}後",
+    "remaining": "残り{time}",
+    "until": "{time}まで",
+    "left": "残り{time}",
+    "d": "{n}日 | {n}日",
+    "h": "{n}時間 | {n}時間",
+    "m": "{n}分 | {n}分",
+    "s": "{n}秒 | {n}秒",
+    "days": "{n}日 | {n}日",
+    "hours": "{n}時間 | {n}時間",
+    "minutes": "{n}分 | {n}分",
+    "seconds": "{n}秒 | {n}秒"
+  },
+  "schedule": {
+    "title": "スケジュール",
+    "types": {
+      "series": "チャレンジ",
+      "open": "オープン",
+      "regular": "レギュラーマッチ",
+      "anarchy": "バンカラマッチ",
+      "splatfest": "フェスマッチ"
+    },
+    "rainmakerLong": "ガチホコバトル",
+    "rainmakerShort": "ガチホコ",
+    "all-upcoming": "今後のステージ"
+  },
+  "salmonrun": {
+    "title": "サーモンラン",
+    "weapons": "支給ブキ"
+  },
+  "gear": {
+    "title": "ギア",
+    "sale": "販売中のギア",
+    "dailydrop": "今日のピックアップ",
+    "order": "注文"
+  },
+  "screenshot": {
+    "headers": {
+      "schedules": "バトルスケジュール",
+      "salmonRun": "サーモンランのお知らせ",
+      "dailyDropGear": "ゲソタウン・今日のピックアップ",
+      "regularGear": "ゲソタウン・販売中のギア"
+    }
+  },
+  "notification": {
+    "common": {
+      "gear": "ギア"
+    },
+    "schedules": {
+      "source": "今日もナワバリ！",
+      "title": "スケジュールが更新されました",
+      "regularSection": "🔫  ナワバリバトル",
+      "rankedSection": "🔰  {rule}  ({mode})",
+      "ruleSuffix": "",
+      "imageAlt": "Splatoon 3 バトルスケジュール",
+      "action": "スケジュール画像を見る"
+    },
+    "salmonRun": {
+      "source": "バイトの時間です！",
+      "randomWeapons": "🎉 ランダムブキ！",
+      "suppliedWeapons": "🐻 支給ブキ:",
+      "imageAlt": "Splatoon 3 サーモンランスケジュール",
+      "action": "サーモンラン画像を見る"
+    },
+    "dailyDropGear": {
+      "source": "ゲソタウン・今日のピックアップ",
+      "imageAlt": "ゲソタウン 今日のピックアップ",
+      "action": "今日のピックアップを見る"
+    },
+    "regularGear": {
+      "source": "ゲソタウン・販売中",
+      "title": "ゲソタウンに新しいギアが入荷しました",
+      "imageAlt": "ゲソタウン 販売中のギア",
+      "action": "販売中のギアを見る"
+    }
+  }
+}

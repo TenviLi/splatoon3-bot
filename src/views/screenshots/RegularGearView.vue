@@ -1,5 +1,5 @@
 <template>
-  <ScreenshotLayout header="鱿鱼须商城·目前贩卖的装备">
+  <ScreenshotLayout :header="$t('screenshot.headers.regularGear')">
     <div class="flex justify-center mt-4">
       <RegularGear class="-rotate-1" />
     </div>

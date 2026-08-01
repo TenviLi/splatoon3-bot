@@ -38,6 +38,7 @@ const snapshotFiles = Object.freeze([
   Object.freeze({ name: 'coop', relativePath: 'coop.json', schema: coopSchema }),
   Object.freeze({ name: 'locale/zh-CN', relativePath: 'locale/zh-CN.json', schema: localeSchema }),
   Object.freeze({ name: 'locale/en-US', relativePath: 'locale/en-US.json', schema: localeSchema }),
+  Object.freeze({ name: 'locale/ja-JP', relativePath: 'locale/ja-JP.json', schema: localeSchema }),
 ])
 const snapshotManifestSchema = z.object({
   version: z.literal(1),

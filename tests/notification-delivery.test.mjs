@@ -59,10 +59,9 @@ test('fans out Targets in parallel and preserves partial delivery results', asyn
 })
 
 test('composes notifications from exact Publication Manifest URLs', async () => {
-  const publicationManifest = createPublicationManifestFixture('schedules', {
-    brandingBaseUrl: 'https://brand.example.com',
-  })
+  const publicationManifest = createPublicationManifestFixture('schedules')
   const expectedImageUrl = publicationManifest.artifacts[0].notificationImage.url
+  const expectedIconUrl = publicationManifest.branding.icons.schedules.url
   let payload
 
   await deliverNotificationChannel({
@@ -80,7 +79,31 @@ test('composes notifications from exact Publication Manifest URLs', async () => 
 
   assert.equal(payload.template_card.card_image.url, expectedImageUrl)
   assert.equal(payload.template_card.card_action.url, expectedImageUrl)
-  assert.equal(payload.template_card.source.icon_url, 'https://brand.example.com/icon.png')
+  assert.equal(payload.template_card.source.icon_url, expectedIconUrl)
+})
+
+test('uses the Publication Manifest locale for notification copy', async () => {
+  for (const [locale, expectedSource, expectedTitle] of [
+    ['en-US', 'Ready for another match?', 'Schedules updated'],
+    ['ja-JP', '今日もナワバリ！', 'スケジュールが更新されました'],
+  ]) {
+    let payload
+    await deliverNotificationChannel({
+      profileName: 'schedules',
+      channelName: 'wecom',
+      rawConfig: stringifyYaml([{ name: locale, webhookUrl: 'https://wecom.example.com/webhook' }]),
+      publicationManifest: createPublicationManifestFixture('schedules', { locale }),
+      snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+      now: Date.parse('2026-07-29T19:00:00Z'),
+      fetchImpl: async (_url, options) => {
+        payload = JSON.parse(options.body)
+        return response({ errcode: 0 })
+      },
+    })
+
+    assert.equal(payload.template_card.source.desc, expectedSource)
+    assert.equal(payload.template_card.main_title.title, expectedTitle)
+  }
 })
 
 test('rejects a valid archived Data Snapshot from another Bot Run', async () => {

@@ -6,7 +6,7 @@ Channel Secrets are strict YAML sequences. Every Target requires a unique `name`
 
 ## S3-compatible publication
 
-`S3_CONFIG` is one strict YAML mapping with `bucket`, `region`, `publicBaseUrl`, and `credentials.accessKeyId` / `credentials.secretAccessKey`. `endpoint`, `forcePathStyle`, `keyPrefix`, and `credentials.sessionToken` are provider-dependent. `publicBaseUrl` must be a credential-free HTTPS bucket-root or CDN URL from which every notification platform can fetch the uploaded images; do not include `keyPrefix` in it.
+`S3_CONFIG` is one strict YAML mapping with `bucket`, `publicBaseUrl`, `accessKeyId`, and `secretAccessKey`. `region`, `endpoint`, `forcePathStyle`, `keyPrefix`, and `sessionToken` are provider-dependent. `publicBaseUrl` must be a credential-free HTTPS bucket-root or CDN URL from which every notification platform can fetch the uploaded images; do not include `keyPrefix` in it.
 
 | Provider | Values needed in `S3_CONFIG` | Official setup | Critical prerequisite |
 | --- | --- | --- | --- |

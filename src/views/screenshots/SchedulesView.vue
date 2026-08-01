@@ -1,5 +1,5 @@
 <template>
-  <ScreenshotLayout header="对战日程表">
+  <ScreenshotLayout :header="$t('screenshot.headers.schedules')">
     <div class="grow flex items-center justify-center">
       <div class="flex space-x-12 items-center mx-6" v-if="usSplatfests.activeFestival">
         <div class="mx-10">

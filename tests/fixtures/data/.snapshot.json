@@ -26,6 +26,10 @@
     "locale/en-US.json": {
       "sha256": "282230dc31ebcd70f2666506b28e4ec3d1e2b4337d5aa8b4744852d4b1febeac",
       "bytes": 69419
+    },
+    "locale/ja-JP.json": {
+      "sha256": "bb172649f7e5261b5a82e8040f4f67a25178b1cb87028559c072211bcd7d75fe",
+      "bytes": 78496
     }
   }
 }

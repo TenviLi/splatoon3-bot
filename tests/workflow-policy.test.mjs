@@ -87,30 +87,27 @@ test('README provides direct screenshots and three operator-first languages', as
   const english = await fs.readFile(path.join(process.cwd(), 'README.md'), 'utf8')
   const simplifiedChinese = await fs.readFile(path.join(process.cwd(), 'README.zh-CN.md'), 'utf8')
   const japanese = await fs.readFile(path.join(process.cwd(), 'README.ja.md'), 'utf8')
-  const screenshotPaths = [
-    'tests/golden/screenshots/linux-x64/schedules.png',
-    'tests/golden/screenshots/linux-x64/salmon-run.png',
-    'tests/golden/screenshots/linux-x64/gear-dailydrop.png',
-    'tests/golden/screenshots/linux-x64/gear-regular.png',
-  ]
+  const screenshotNames = ['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular']
 
   const preview = english.slice(english.indexOf('## Preview'), english.indexOf('## Quick Start'))
   assert.match(preview, /View all four deterministic Screenshot Artifacts/)
   assert.doesNotMatch(preview, /<details>|@锂碘|wxwork-icon|WeCom icon/)
 
-  for (const [filename, source] of [
-    ['README.md', english],
-    ['README.zh-CN.md', simplifiedChinese],
-    ['README.ja.md', japanese],
+  for (const [filename, source, suffix, primaryChannelSecret] of [
+    ['README.md', english, '', 'BOT_DISCORD_CONFIG'],
+    ['README.zh-CN.md', simplifiedChinese, '.zh-CN', 'BOT_WECOM_CONFIG'],
+    ['README.ja.md', japanese, '.ja', 'BOT_LINE_CONFIG'],
   ]) {
     assert.match(source, /https:\/\/github\.com\/TenviLi\/splatoon3-bot\/fork/, `${filename}: private Fork entry`)
     assert.doesNotMatch(source, /@锂碘|wxwork-icon/, filename)
-    for (const screenshotPath of screenshotPaths) {
+    for (const screenshotName of screenshotNames) {
+      const screenshotPath = `tests/golden/screenshots/linux-x64/${screenshotName}${suffix}.png`
       assert.ok(source.includes(screenshotPath), `${filename}: ${screenshotPath}`)
     }
-    for (const configurationName of ['BOT_BRANDING_CONFIG', 'S3_CONFIG', 'BOT_WECOM_CONFIG']) {
+    for (const configurationName of ['S3_CONFIG', primaryChannelSecret]) {
       assert.ok(source.includes(configurationName), `${filename}: ${configurationName}`)
     }
+    assert.doesNotMatch(source, /BOT_BRANDING_CONFIG|SPLATOON_(?:SCHEDULES|SALMON_RUN|GEAR)_BOT_URL/)
   }
 
   assert.match(english, /README\.zh-CN\.md/)
@@ -121,7 +118,11 @@ test('README provides direct screenshots and three operator-first languages', as
   assert.match(japanese, /README\.zh-CN\.md/)
 
   const quickStart = english.slice(english.indexOf('## Quick Start'), english.indexOf('## Automation'))
+  const japaneseQuickStart = japanese.slice(japanese.indexOf('## クイックスタート'), japanese.indexOf('## 自動化'))
   assert.match(quickStart, /You do not need to install Node\.js, pnpm, Chrome, Docker, or a server/)
+  assert.match(quickStart, /`BOT_LOCALE` with value `en-US`/)
+  assert.match(japaneseQuickStart, /`BOT_LOCALE` を `ja-JP`/)
+  assert.match(japaneseQuickStart, /`BOT_TIME_ZONE` を `Asia\/Tokyo`/)
   assert.doesNotMatch(quickStart, /^### Local Development|Node\.js 24 LTS|pnpm 11\.18/m)
   assert.doesNotMatch(english.slice(0, english.indexOf('## Overview')), /Node\.js-24|pnpm-11/)
 })
@@ -141,15 +142,22 @@ test('notification adapters share the publication stage and are enabled by confi
   assert.doesNotMatch(reusableWorkflow, /^\s+notify-[^:]+:/gm)
   assert.doesNotMatch(reusableWorkflow, /bot-notify\.yml|strategy:\s*\n\s+matrix:/)
   assert.doesNotMatch(allWorkflows, /UPYUN_|UPX_|upx(?:\s|\.)/i)
+  assert.doesNotMatch(allWorkflows, /BOT_BRANDING_CONFIG/)
   assert.match(reusableWorkflow, /^      S3_CONFIG:\n        required: true$/m)
   assert.match(reusableWorkflow, /S3_CONFIG: \$\{\{ secrets\.S3_CONFIG \}\}/)
-  assert.match(reusableWorkflow, /BOT_BRANDING_CONFIG: \$\{\{ vars\.BOT_BRANDING_CONFIG \}\}/)
   assert.match(reusableWorkflow, /BOT_TIME_ZONE: \$\{\{ vars\.BOT_TIME_ZONE \|\| 'Asia\/Shanghai' \}\}/)
+  assert.match(reusableWorkflow, /BOT_LOCALE: \$\{\{ vars\.BOT_LOCALE \|\| 'zh-CN' \}\}/)
+  assert.match(
+    reusableWorkflow,
+    /BOT_SCREENSHOT_RESOLUTION: \$\{\{ vars\.BOT_SCREENSHOT_RESOLUTION \|\| '2400x1350' \}\}/
+  )
   assert.match(
     reusableWorkflow,
     /BOT_SCREENSHOT_ATTRIBUTION: \$\{\{ vars\.BOT_SCREENSHOT_ATTRIBUTION \|\| 'splatoon3\.ink' \}\}/
   )
   assert.equal(reusableWorkflow.match(/BOT_SCREENSHOT_ATTRIBUTION:/g)?.length, 2)
+  assert.equal(reusableWorkflow.match(/BOT_LOCALE:/g)?.length, 2)
+  assert.equal(reusableWorkflow.match(/BOT_SCREENSHOT_RESOLUTION:/g)?.length, 2)
   assert.match(reusableWorkflow, /runs-on: \$\{\{ vars\.BOT_RUNNER \|\| 'ubuntu-24\.04' \}\}/)
   assert.match(reusableWorkflow, /environment: \$\{\{ vars\.BOT_ENVIRONMENT \|\| 'production' \}\}/)
   assert.match(
@@ -168,8 +176,9 @@ test('notification adapters share the publication stage and are enabled by confi
   assert.match(readme, /Repository Secrets and Variables are intentionally installation-local/)
   assert.doesNotMatch(readme, /github\.com\/TenviLi\/splatoon3-bot\/settings\//)
   for (const variableName of [
-    'BOT_BRANDING_CONFIG',
     'BOT_TIME_ZONE',
+    'BOT_LOCALE',
+    'BOT_SCREENSHOT_RESOLUTION',
     'BOT_SCREENSHOT_ATTRIBUTION',
     'BOT_RUNNER',
     'BOT_ENVIRONMENT',
@@ -211,7 +220,7 @@ test('notification adapters share the publication stage and are enabled by confi
     'utf8'
   )
   assert.match(localActionsVerifier, /notification-smoke\.yml/)
-  assert.match(localActionsVerifier, /Expected two S3 uploads and one WeCom delivery/)
+  assert.match(localActionsVerifier, /Expected five S3 uploads, three branding inspections, and one WeCom delivery/)
   assert.match(localActionsVerifier, /--container-options/)
   assert.match(localActionsVerifier, /ACT_BOT_RUN_DIRECTORY=/)
   assert.match(localActionsVerifier, /shouldRetry: isTransientActFailure/)
@@ -254,6 +263,14 @@ test('notification adapters share the publication stage and are enabled by confi
     configurationCheckWorkflow,
     /BOT_SCREENSHOT_ATTRIBUTION: \$\{\{ vars\.BOT_SCREENSHOT_ATTRIBUTION \|\| 'splatoon3\.ink' \}\}/
   )
+  assert.match(
+    configurationCheckWorkflow,
+    /BOT_LOCALE: \$\{\{ vars\.BOT_LOCALE \|\| 'zh-CN' \}\}/
+  )
+  assert.match(
+    configurationCheckWorkflow,
+    /BOT_SCREENSHOT_RESOLUTION: \$\{\{ vars\.BOT_SCREENSHOT_RESOLUTION \|\| '2400x1350' \}\}/
+  )
 
   const smokeWorkflow = await fs.readFile(path.join(workflowDirectory, 'notification-smoke.yml'), 'utf8')
   assert.deepEqual(
@@ -261,6 +278,18 @@ test('notification adapters share the publication stage and are enabled by confi
     channels.map(({ name }) => name),
     'Notification smoke choices must match the Channel adapter registry'
   )
+
+  const capabilities = await fs.readFile(
+    path.join(process.cwd(), 'docs', 'notification-platform-capabilities.md'),
+    'utf8'
+  )
+  for (const channel of channels) {
+    assert.match(
+      capabilities,
+      new RegExp(`^## .*\\b${channel.name}\\b`, 'im'),
+      `${channel.name} must have a platform-capability section`
+    )
+  }
 
   const profileNames = listRunProfiles().map(({ name }) => name)
   for (const filename of ['bot-manual.yml', 'notification-smoke.yml', 'configuration-check.yml']) {

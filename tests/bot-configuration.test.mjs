@@ -6,64 +6,51 @@ import {
   formatBotPreflightStepSummary,
   inspectBotConfiguration,
 } from '../bot/config/BotPreflight.mjs'
-import { parseBrandingConfiguration } from '../bot/config/BrandingConfiguration.mjs'
+import { defaultBotLocale, resolveBotLocale } from '../bot/config/BotLocale.mjs'
 import { defaultBotTimeZone, resolveBotTimeZone } from '../bot/config/BotTimeZone.mjs'
 import {
   defaultScreenshotAttribution,
   resolveScreenshotAttribution,
 } from '../bot/config/ScreenshotAttribution.mjs'
+import {
+  defaultScreenshotResolution,
+  listScreenshotResolutions,
+  resolveScreenshotResolution,
+} from '../bot/config/ScreenshotResolution.mjs'
 
 function validEnvironment(overrides = {}) {
   return {
     BOT_TIME_ZONE: 'UTC',
+    BOT_LOCALE: 'ja-JP',
+    BOT_SCREENSHOT_RESOLUTION: '1920x1080',
     BOT_SCREENSHOT_ATTRIBUTION: 'ink.example.com',
-    BOT_BRANDING_CONFIG: stringifyYaml({
-      icons: {
-        schedules: 'https://brand.example.com/schedules.png',
-        salmonRun: 'https://brand.example.com/salmon-run.png',
-        gear: 'https://brand.example.com/gear.png',
-      },
-    }),
     S3_CONFIG: stringifyYaml({
       bucket: 'splatoon-assets',
       region: 'us-east-1',
       publicBaseUrl: 'https://assets.example.com',
-      credentials: {
-        accessKeyId: 'sensitive-access-key',
-        secretAccessKey: 'sensitive-secret-key',
-      },
+      accessKeyId: 'sensitive-access-key',
+      secretAccessKey: 'sensitive-secret-key',
     }),
     ...overrides,
   }
 }
 
-test('parses strict YAML branding URLs from a GitHub Variable', () => {
-  assert.deepEqual(
-    parseBrandingConfiguration(`
-icons:
-  schedules: https://brand.example.com/icon.png
-  salmonRun: https://brand.example.com/icon2.png
-  gear: https://brand.example.com/icon3.png
-`),
-    {
-      icons: {
-        schedules: 'https://brand.example.com/icon.png',
-        salmonRun: 'https://brand.example.com/icon2.png',
-        gear: 'https://brand.example.com/icon3.png',
-      },
-    }
-  )
+test('uses explicit locale and screenshot-resolution enumerations with stable defaults', () => {
+  assert.equal(resolveBotLocale(), defaultBotLocale)
+  assert.equal(resolveBotLocale(' ja-JP '), 'ja-JP')
+  assert.throws(() => resolveBotLocale('fr-FR'), /must be one of: en-US, zh-CN, ja-JP/)
 
-  assert.throws(
-    () =>
-      parseBrandingConfiguration(`
-icons:
-  schedules: https://brand.example.com/icon.png?token=secret
-  salmonRun: https://brand.example.com/icon2.png
-  gear: https://brand.example.com/icon3.png
-`),
-    /must not include credentials, a query, or a fragment/
+  assert.equal(resolveScreenshotResolution().name, defaultScreenshotResolution)
+  assert.deepEqual(
+    listScreenshotResolutions().map(({ name, width, height }) => ({ name, width, height })),
+    [
+      { name: '1200x675', width: 1200, height: 675 },
+      { name: '1920x1080', width: 1920, height: 1080 },
+      { name: '2400x1350', width: 2400, height: 1350 },
+      { name: '3840x2160', width: 3840, height: 2160 },
+    ]
   )
+  assert.throws(() => resolveScreenshotResolution('2560x1440'), /must be one of/)
 })
 
 test('uses an explicit validated IANA time zone with a stable default', () => {
@@ -107,8 +94,9 @@ test('preflights publication and routed Channel configuration without exposing S
     [
       { name: 'Run Profile', status: 'ready' },
       { name: 'BOT_TIME_ZONE', status: 'ready' },
+      { name: 'BOT_LOCALE', status: 'ready' },
+      { name: 'BOT_SCREENSHOT_RESOLUTION', status: 'ready' },
       { name: 'BOT_SCREENSHOT_ATTRIBUTION', status: 'ready' },
-      { name: 'BOT_BRANDING_CONFIG', status: 'ready' },
       { name: 'S3_CONFIG', status: 'ready' },
       { name: 'Notification Channel wecom', status: 'ready' },
     ]
@@ -157,14 +145,15 @@ test('reports every invalid required configuration before side effects', () => {
     profileName: 'schedules',
     environment: {
       BOT_TIME_ZONE: 'Mars/Inkling',
+      BOT_LOCALE: 'fr-FR',
+      BOT_SCREENSHOT_RESOLUTION: '2560x1440',
       BOT_SCREENSHOT_ATTRIBUTION: 'a'.repeat(41),
-      BOT_BRANDING_CONFIG: 'icons: {}',
       S3_CONFIG: 'bucket: only',
       BOT_WECOM_CONFIG: 'targets: [',
     },
   })
 
   assert.equal(report.valid, false)
-  assert.equal(report.checks.filter(({ status }) => status === 'rejected').length, 5)
+  assert.equal(report.checks.filter(({ status }) => status === 'rejected').length, 6)
   assert.match(formatBotPreflightReport(report), /Configuration has errors/)
 })

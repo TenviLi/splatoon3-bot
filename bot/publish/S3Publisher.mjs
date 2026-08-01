@@ -1,11 +1,11 @@
 import crypto from 'node:crypto'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
+import { HeadObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import sharp from 'sharp'
-import { parseBrandingConfiguration } from '../config/BrandingConfiguration.mjs'
 import { getRunPlan, getScreenshotDefinition } from '../run/RunPlan.mjs'
 import { readRunManifest } from '../run/RunManifest.mjs'
+import { brandingIconRelativeKey, prepareBrandingIcons } from './BrandingAssets.mjs'
 import {
   objectKey,
   parseS3Configuration,
@@ -47,8 +47,8 @@ async function verifyArtifactFile(artifact, screenshotDirectory) {
   }
 
   const metadata = await sharp(buffer, { failOn: 'warning' }).metadata()
-  const expectedWidth = definition.viewport.width * definition.viewport.deviceScaleFactor
-  const expectedHeight = definition.viewport.height * definition.viewport.deviceScaleFactor
+  const expectedWidth = artifact.width
+  const expectedHeight = artifact.height
   if (metadata.format !== 'png' || metadata.width !== expectedWidth || metadata.height !== expectedHeight) {
     throw new Error(
       `Screenshot artifact ${artifact.name} is ${metadata.width || 0}x${metadata.height || 0} ${metadata.format || 'unknown'}, expected ${expectedWidth}x${expectedHeight} PNG`
@@ -91,7 +91,11 @@ function createS3Client(configuration) {
     region: configuration.region,
     endpoint: configuration.endpoint,
     forcePathStyle: configuration.forcePathStyle,
-    credentials: configuration.credentials,
+    credentials: {
+      accessKeyId: configuration.accessKeyId,
+      secretAccessKey: configuration.secretAccessKey,
+      ...(configuration.sessionToken ? { sessionToken: configuration.sessionToken } : {}),
+    },
     requestChecksumCalculation: 'WHEN_REQUIRED',
     responseChecksumValidation: 'WHEN_REQUIRED',
   })
@@ -116,10 +120,42 @@ function uploadObject(client, configuration, { key, buffer, sourceSha256 }) {
   )
 }
 
+async function objectMatches(client, configuration, asset) {
+  try {
+    const response = await client.send(
+      new HeadObjectCommand({
+        Bucket: configuration.bucket,
+        Key: asset.key,
+      })
+    )
+    return (
+      response.ContentLength === asset.buffer.byteLength &&
+      response.ContentType === 'image/png' &&
+      response.Metadata?.sha256 === asset.sha256
+    )
+  } catch (error) {
+    if (
+      error.name === 'NotFound' ||
+      error.name === 'NoSuchKey' ||
+      error.name === 'AccessDenied' ||
+      [403, 404].includes(error.$metadata?.httpStatusCode)
+    ) {
+      return false
+    }
+    throw new Error(`Failed to inspect S3 branding object ${asset.key}`, { cause: error })
+  }
+}
+
+async function ensureBrandingObject(client, configuration, asset) {
+  if (await objectMatches(client, configuration, asset)) {
+    return
+  }
+  await uploadObject(client, configuration, asset)
+}
+
 export async function publishToS3({
   profileName,
   configuration = parseS3Configuration(),
-  branding = parseBrandingConfiguration(),
   screenshotDirectory = path.join(process.cwd(), 'screenshots'),
   client,
   publicationManifestFilename = path.join(screenshotDirectory, 'publication-manifest.json'),
@@ -168,12 +204,23 @@ export async function publishToS3({
       }
     })
   )
+  const preparedBrandingIcons = await Promise.all(
+    (await prepareBrandingIcons()).map(async (icon) => {
+      const relativeKey = brandingIconRelativeKey(icon.sha256, icon.outputFilename)
+      const key = objectKey(configuration, relativeKey)
+      return {
+        ...icon,
+        key,
+        url: publicObjectUrl(configuration, key),
+      }
+    })
+  )
 
   const ownsClient = !client
   const s3Client = client || createS3Client(configuration)
   try {
-    await Promise.all(
-      preparedArtifacts.flatMap(({ notificationImage, originalImage }) => [
+    await Promise.all([
+      ...preparedArtifacts.flatMap(({ notificationImage, originalImage }) => [
         uploadObject(s3Client, configuration, {
           key: originalImage.key,
           buffer: originalImage.buffer,
@@ -183,8 +230,9 @@ export async function publishToS3({
           buffer: notificationImage.buffer,
           sourceSha256: originalImage.sha256,
         }),
-      ])
-    )
+      ]),
+      ...preparedBrandingIcons.map((icon) => ensureBrandingObject(s3Client, configuration, icon)),
+    ])
   } finally {
     if (ownsClient) {
       s3Client.destroy()
@@ -193,15 +241,26 @@ export async function publishToS3({
 
   return writePublicationManifest(
     {
-      version: 2,
+      version: 3,
       runManifestVersion: runManifest.version,
       profile: plan.name,
       renderTime: runManifest.renderTime,
       timeZone: runManifest.timeZone,
+      locale: runManifest.locale,
+      resolution: runManifest.resolution,
       screenshotAttribution: runManifest.screenshotAttribution,
       snapshotManifestSha256: runManifest.snapshot.manifestSha256,
       assetBaseUrl: publicAssetBaseUrl(configuration),
-      branding,
+      branding: {
+        icons: Object.fromEntries(
+          preparedBrandingIcons.map(
+            ({ name, buffer: _buffer, sourceFilename: _sourceFilename, outputFilename: _outputFilename, ...icon }) => [
+              name,
+              icon,
+            ]
+          )
+        ),
+      },
       artifacts: preparedArtifacts.map(({ name, notificationImage, originalImage }) => ({
         name,
         notificationImage: publishedImageManifest(notificationImage),

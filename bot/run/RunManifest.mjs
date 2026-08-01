@@ -1,15 +1,19 @@
 import path from 'node:path'
 import { z } from 'zod'
+import { botLocaleSchema } from '../config/BotLocale.mjs'
 import { botTimeZoneSchema } from '../config/BotTimeZone.mjs'
 import { screenshotAttributionSchema } from '../config/ScreenshotAttribution.mjs'
+import { getScreenshotResolution, screenshotResolutionSchema } from '../config/ScreenshotResolution.mjs'
 import { readManifestFile, writeManifestFile } from '../manifest/ManifestFile.mjs'
 import { getRunPlan, getScreenshotDefinition } from './RunPlan.mjs'
 
 const runManifestSchema = z.object({
-  version: z.literal(3),
+  version: z.literal(4),
   profile: z.string().min(1),
   renderTime: z.number().int().nonnegative(),
   timeZone: botTimeZoneSchema,
+  locale: botLocaleSchema,
+  resolution: screenshotResolutionSchema,
   screenshotAttribution: screenshotAttributionSchema,
   snapshot: z
     .object({
@@ -26,6 +30,8 @@ const runManifestSchema = z.object({
         bytes: z.number().int().positive(),
         sha256: z.string().regex(/^[a-f0-9]{64}$/),
         browserVersion: z.string().min(1),
+        width: z.number().int().positive(),
+        height: z.number().int().positive(),
       })
       .strict()
   ),
@@ -36,6 +42,7 @@ export const defaultRunManifestFilename = path.join('screenshots', 'run-manifest
 export function validateRunManifest(value) {
   const manifest = runManifestSchema.parse(value)
   const plan = getRunPlan(manifest.profile)
+  const resolution = getScreenshotResolution(manifest.resolution)
 
   if (manifest.artifacts.length !== plan.screenshots.length) {
     throw new Error(
@@ -53,6 +60,11 @@ export function validateRunManifest(value) {
     if (path.basename(artifact.filename) !== definition.outputFilename) {
       throw new Error(
         `Run manifest artifact ${artifact.name} uses ${path.basename(artifact.filename)}, expected ${definition.outputFilename}`
+      )
+    }
+    if (artifact.width !== resolution.width || artifact.height !== resolution.height) {
+      throw new Error(
+        `Run manifest artifact ${artifact.name} is ${artifact.width}x${artifact.height}, expected ${resolution.width}x${resolution.height}`
       )
     }
   }

@@ -1,6 +1,7 @@
-import { parseBrandingConfiguration } from './BrandingConfiguration.mjs'
+import { resolveBotLocale } from './BotLocale.mjs'
 import { resolveBotTimeZone } from './BotTimeZone.mjs'
 import { resolveScreenshotAttribution } from './ScreenshotAttribution.mjs'
+import { resolveScreenshotResolution } from './ScreenshotResolution.mjs'
 import { prepareConfiguredNotificationChannels } from '../notification/NotificationConfiguration.mjs'
 import { parseS3Configuration } from '../publish/S3Configuration.mjs'
 import { getRunPlan } from '../run/RunPlan.mjs'
@@ -65,14 +66,19 @@ export function inspectBotConfiguration({ profileName, channelName, environment 
       (timeZone) => timeZone
     ),
     inspect(
+      'BOT_LOCALE',
+      () => resolveBotLocale(environment.BOT_LOCALE),
+      (locale) => locale
+    ),
+    inspect(
+      'BOT_SCREENSHOT_RESOLUTION',
+      () => resolveScreenshotResolution(environment.BOT_SCREENSHOT_RESOLUTION),
+      (resolution) => resolution.name
+    ),
+    inspect(
       'BOT_SCREENSHOT_ATTRIBUTION',
       () => resolveScreenshotAttribution(environment.BOT_SCREENSHOT_ATTRIBUTION),
       (attribution) => attribution
-    ),
-    inspect(
-      'BOT_BRANDING_CONFIG',
-      () => parseBrandingConfiguration(environment.BOT_BRANDING_CONFIG),
-      () => '3 public icon URLs'
     ),
     inspect('S3_CONFIG', () => parseS3Configuration(environment.S3_CONFIG), () => 'valid publication credentials'),
     ...(profileCheck.status === 'ready'

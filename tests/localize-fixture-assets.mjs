@@ -86,6 +86,7 @@ const dataFiles = [
   'coop.json',
   'locale/zh-CN.json',
   'locale/en-US.json',
+  'locale/ja-JP.json',
 ]
 for (const relativeFilename of dataFiles) {
   const filename = path.join(dataDirectory, relativeFilename)

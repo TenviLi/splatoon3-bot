@@ -1,5 +1,7 @@
 import { build } from 'vite'
+import { resolveBotLocale } from '../config/BotLocale.mjs'
 import { resolveScreenshotAttribution } from '../config/ScreenshotAttribution.mjs'
+import { resolveScreenshotResolution } from '../config/ScreenshotResolution.mjs'
 import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { downloadDataSnapshot, loadDataSnapshot } from '../data/DataSnapshot.mjs'
 import { renderScreenshotArtifacts } from '../screenshot/ScreenshotRunner.mjs'
@@ -15,6 +17,8 @@ if (!profileName) {
 const plan = getRunPlan(profileName)
 const preparationTime = Date.now()
 const timeZone = resolveBotTimeZone()
+const locale = resolveBotLocale()
+const resolution = resolveScreenshotResolution()
 const screenshotAttribution = resolveScreenshotAttribution()
 const useExistingDataSnapshot = process.env.BOT_USE_EXISTING_DATA_SNAPSHOT === 'true'
 if (!useExistingDataSnapshot) {
@@ -30,25 +34,31 @@ await build()
 const artifacts = await renderScreenshotArtifacts(plan.screenshots, {
   renderTime,
   timeZone,
+  locale,
+  screenshotResolution: resolution.name,
   screenshotAttribution,
 })
 const manifest = await writeRunManifest({
-  version: 3,
+  version: 4,
   profile: plan.name,
   renderTime,
   timeZone,
+  locale,
+  resolution: resolution.name,
   screenshotAttribution,
   snapshot: {
     createdAt: snapshot.createdAt,
     source: snapshot.source,
     manifestSha256: dataSnapshot.manifestSha256,
   },
-  artifacts: artifacts.map(({ name, filename, bytes, sha256, browserVersion }) => ({
+  artifacts: artifacts.map(({ name, filename, bytes, sha256, browserVersion, width, height }) => ({
     name,
     filename,
     bytes,
     sha256,
     browserVersion,
+    width,
+    height,
   })),
 })
 

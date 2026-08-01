@@ -200,9 +200,22 @@ async function startBotRunMockServer() {
 
 function assertBotRunRequests(requests) {
   const uploads = requests.filter(({ method }) => method === 'PUT')
+  const inspections = requests.filter(({ method }) => method === 'HEAD')
   const deliveries = requests.filter(({ method, url }) => method === 'POST' && url === '/wecom')
-  if (uploads.length !== 2 || deliveries.length !== 1) {
-    throw new Error(`Expected two S3 uploads and one WeCom delivery, received ${uploads.length} and ${deliveries.length}`)
+  const notificationUploads = uploads.filter(({ url }) => url.includes('/notification-images/'))
+  const originalUploads = uploads.filter(({ url }) => url.includes('/originals/'))
+  const brandingUploads = uploads.filter(({ url }) => url.includes('/branding-icons/'))
+  if (
+    uploads.length !== 5 ||
+    inspections.length !== 3 ||
+    notificationUploads.length !== 1 ||
+    originalUploads.length !== 1 ||
+    brandingUploads.length !== 3 ||
+    deliveries.length !== 1
+  ) {
+    throw new Error(
+      `Expected five S3 uploads, three branding inspections, and one WeCom delivery; received ${uploads.length}, ${inspections.length}, and ${deliveries.length}`
+    )
   }
   if (uploads.some(({ headers }) => headers['cache-control'] !== 'public, max-age=31536000, immutable')) {
     throw new Error('Local Bot Run did not publish every S3 object with immutable caching')
@@ -210,8 +223,12 @@ function assertBotRunRequests(requests) {
 
   const payload = JSON.parse(deliveries[0].body.toString('utf8'))
   const imageUrl = payload.template_card?.card_image?.url
+  const iconUrl = payload.template_card?.source?.icon_url
   if (!/^https:\/\/assets\.example\.com\/act\/notification-images\/[a-f0-9]{64}\/schedules\.png$/.test(imageUrl)) {
     throw new Error(`Local Bot Run produced an unexpected WeCom image URL: ${imageUrl}`)
+  }
+  if (!/^https:\/\/assets\.example\.com\/act\/branding-icons\/[a-f0-9]{64}\/schedules\.png$/.test(iconUrl)) {
+    throw new Error(`Local Bot Run produced an unexpected WeCom icon URL: ${iconUrl}`)
   }
 }
 
@@ -324,15 +341,10 @@ endpoint: http://host.docker.internal:${mockServer.port}
 forcePathStyle: true
 keyPrefix: act
 publicBaseUrl: https://assets.example.com
-credentials:
-  accessKeyId: act-access-key
-  secretAccessKey: act-secret-key`
+accessKeyId: act-access-key
+secretAccessKey: act-secret-key`
 const weComConfiguration = `- name: local-verification
   webhookUrl: http://host.docker.internal:${mockServer.port}/wecom`
-const brandingConfiguration = `icons:
-  schedules: https://assets.example.com/icon.png
-  salmonRun: https://assets.example.com/icon2.png
-  gear: https://assets.example.com/icon3.png`
 
 try {
   await runWithRetries(
@@ -353,8 +365,6 @@ try {
       `S3_CONFIG=${s3Configuration}`,
       '--secret',
       `BOT_WECOM_CONFIG=${weComConfiguration}`,
-      '--var',
-      `BOT_BRANDING_CONFIG=${brandingConfiguration}`,
       ...commonActArguments,
     ],
     actEnvironment,

@@ -8,6 +8,7 @@ This note compares platform-native rich-message options for the notification ada
 
 | Platform | Default presentation | Safe primary action | Recommended change |
 | --- | --- | --- | --- |
+| WeCom | `news_notice` Template Card | Whole-card URL action | Keep the card; use built-in content-addressed icons and concise native sections |
 | Discord | One image-rich embed | Clickable embed title | Keep the embed; improve field grouping, text budgets, and metadata |
 | Telegram | `sendPhoto` with formatted caption | URL inline-keyboard button | Keep the current structure; make caption truncation entity-safe |
 | QQ | Custom Markdown for group/user; capability-aware fallback for channels | Markdown link | Do not depend on keyboards; fix image dimensions and split behavior by target type |
@@ -18,6 +19,41 @@ This note compares platform-native rich-message options for the notification ada
 | Slack | Incoming Webhook with Block Kit | `mrkdwn` or rich-text link | Use native blocks, but avoid button elements because even URL buttons require acknowledgements |
 
 Across adapters, preserve the common `Notification` model but add adapter-owned layout and length budgets. A single universal text renderer would discard the strongest native features of each platform.
+
+## WeCom Group Robots
+
+### Official capabilities
+
+- A WeCom group robot receives messages through its group-scoped webhook. The webhook key grants send access and must be stored as a Secret. [Group robot webhook](https://developer.work.weixin.qq.com/document/path/91770)
+- Template Cards provide a platform-native presentation with source identity, main title, image, vertical and horizontal content, and a card action. The `news_notice` card used here is a natural fit for one screenshot-led update. [Template Card messages](https://developer.work.weixin.qq.com/document/path/91770#template_card-%E7%B1%BB%E5%9E%8B)
+- A card action with `type: 1` opens an ordinary URL and does not require a callback service. This keeps scheduled delivery one-way and stateless.
+
+### Adapter recommendation
+
+Keep one `news_notice` Template Card per notification:
+
+- Use the project-owned content-addressed icon as the source identity; operators should not need to provision separate branding URLs.
+- Keep the optimized screenshot as `card_image` and the same public URL as the whole-card action.
+- Use `vertical_content_list` for substantial sections and `horizontal_content_list` for compact facts, preserving the most important items when platform budgets require truncation.
+- Keep routing in the Secret's optional `notifications` array so schedules, Salmon Run, and gear can target different group robots without legacy one-variable-per-webhook configuration.
+- Treat any non-zero `errcode` as a platform rejection even when the HTTP request succeeds.
+
+Safe payload shape:
+
+```js
+{
+  msgtype: "template_card",
+  template_card: {
+    card_type: "news_notice",
+    source: { icon_url: iconUrl, desc: sourceName, desc_color: 0 },
+    main_title: { title, desc: subtitle },
+    card_image: { url: screenshotUrl, aspect_ratio: 1.78 },
+    vertical_content_list: sections,
+    horizontal_content_list: facts,
+    card_action: { type: 1, url: screenshotUrl }
+  }
+}
+```
 
 ## Discord Incoming Webhooks
 
@@ -418,12 +454,13 @@ Safe payload direction:
 
 ## Implementation Status
 
-All three platforms are implemented as ordinary adapters in the existing concurrent partial-success delivery process. Their Secrets are optional and auto-enable each Channel; GitHub Actions keeps one shared publish-and-notify Job rather than creating one Job per platform. Contract and payload-golden tests cover native layout, escaping, platform budgets, retry behavior, target validation, and callback-free actions.
+All nine platforms are implemented as ordinary adapters in the existing concurrent partial-success delivery process. Their Secrets are optional and auto-enable each Channel; GitHub Actions keeps one shared publish-and-notify Job rather than creating one Job per platform. Contract and payload-golden tests cover native layout, escaping, platform budgets, retry behavior, target validation, and callback-free actions.
 
 WhatsApp remains operationally disabled until its Secret exists, but configuration alone is not sufficient: the operator must also complete opt-in, billing, phone-number registration, and exact media-template approval. LINE should likewise be enabled only after a smoke run confirms the real CDN derivative and destination eligibility.
 
 ## Official-Documentation Access Notes
 
+- WeCom's official group-robot documentation was used for the Template Card and whole-card URL-action contract.
 - Discord and Telegram documentation was directly accessible from their official developer sites.
 - QQ official pages were directly accessible. The 2026-04-23 custom-Markdown update is current relative to this research date, but QQ's overview and generated endpoint tables are not perfectly consistent about universal ARK support; the recommendation intentionally avoids relying on that uncertainty.
 - Feishu's official custom-bot guide was directly accessible in its first-party Markdown representation.

@@ -16,14 +16,6 @@ const keyPrefixSchema = z
     message: 'keyPrefix contains unsupported URL or control characters',
   })
 
-const credentialsSchema = z
-  .object({
-    accessKeyId: z.string().min(1),
-    secretAccessKey: z.string().min(1),
-    sessionToken: z.string().min(1).optional(),
-  })
-  .strict()
-
 const s3ConfigurationSchema = z
   .object({
     bucket: z.string().trim().min(1),
@@ -36,7 +28,9 @@ const s3ConfigurationSchema = z
     forcePathStyle: z.boolean().default(false),
     keyPrefix: keyPrefixSchema.default(''),
     publicBaseUrl: absoluteUrlSchema({ label: 'publicBaseUrl' }),
-    credentials: credentialsSchema,
+    accessKeyId: z.string().min(1),
+    secretAccessKey: z.string().min(1),
+    sessionToken: z.string().min(1).optional(),
   })
   .strict()
 

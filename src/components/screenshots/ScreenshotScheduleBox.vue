@@ -18,7 +18,7 @@
                 $t(
                   `splatnet.rules.${store.activeSchedule.settings.vsRule.id}.name`,
                   store.activeSchedule.settings.vsRule.name
-                ).replace('真格鱼虎对战', '真格鱼虎')
+                ).replace($t('schedule.rainmakerLong'), $t('schedule.rainmakerShort'))
               }}
             </div>
           </div>
