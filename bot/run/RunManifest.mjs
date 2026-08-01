@@ -1,14 +1,16 @@
 import path from 'node:path'
 import { z } from 'zod'
 import { botTimeZoneSchema } from '../config/BotTimeZone.mjs'
+import { screenshotAttributionSchema } from '../config/ScreenshotAttribution.mjs'
 import { readManifestFile, writeManifestFile } from '../manifest/ManifestFile.mjs'
 import { getRunPlan, getScreenshotDefinition } from './RunPlan.mjs'
 
 const runManifestSchema = z.object({
-  version: z.literal(2),
+  version: z.literal(3),
   profile: z.string().min(1),
   renderTime: z.number().int().nonnegative(),
   timeZone: botTimeZoneSchema,
+  screenshotAttribution: screenshotAttributionSchema,
   snapshot: z
     .object({
       createdAt: z.string().min(1),

@@ -513,6 +513,7 @@ test('Slack requires the official success token and webhook URL shape', async ()
 })
 
 test('LINE uses an uncropped Flex bubble and a stable retry key', async () => {
+  const expectedRetryUuid = '07820c6b-df31-4a10-8270-dd7cd0396535'
   let payload
   let requestOptions
   await deliverLine(
@@ -524,7 +525,7 @@ test('LINE uses an uncropped Flex bubble and a stable retry key', async () => {
       targetId: 'U0123456789abcdef0123456789abcdef',
     },
     {
-      retryKey: '07820c6b-df31-4a10-8270-dd7cd0396535',
+      retryKey: expectedRetryUuid,
       inspectImage: async () => validImageMetadata,
       fetchImpl: async (_url, options) => {
         requestOptions = options
@@ -537,7 +538,7 @@ test('LINE uses an uncropped Flex bubble and a stable retry key', async () => {
   const bubble = payload.messages[0].contents
   assert.equal(payload.to, 'U0123456789abcdef0123456789abcdef')
   assert.equal(requestOptions.headers.Authorization, 'Bearer channel-access-token')
-  assert.equal(requestOptions.headers['X-Line-Retry-Key'], '07820c6b-df31-4a10-8270-dd7cd0396535')
+  assert.equal(requestOptions.headers['X-Line-Retry-Key'], expectedRetryUuid)
   assert.equal(bubble.header.backgroundColor, '#FF5A36')
   assert.equal(bubble.hero.url, lineNotification.image.url)
   assert.equal(bubble.hero.aspectMode, 'fit')

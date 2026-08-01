@@ -8,6 +8,7 @@ import { getPinnedBrowserVersion } from '../bot/screenshot/BrowserRuntime.mjs'
 
 const execFileAsync = promisify(execFile)
 const runnerImage = process.env.ACT_RUNNER_IMAGE || 'splatoon3-bot-act-runner:ubuntu-24.04'
+const gitleaksImage = 'splatoon3-bot-gitleaks:local'
 const runnerPlatform = 'linux/amd64'
 const packageJson = JSON.parse(await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'))
 const browsersPackageJson = JSON.parse(
@@ -217,6 +218,26 @@ function assertBotRunRequests(requests) {
 const dockerHost = (
   await execFileAsync('docker', ['context', 'inspect', '--format', '{{.Endpoints.docker.Host}}'])
 ).stdout.trim()
+
+await run('docker', ['build', '--tag', gitleaksImage, '.github/gitleaks'])
+for (const command of ['git', 'dir']) {
+  await run('docker', [
+    'run',
+    '--rm',
+    '--volume',
+    `${process.cwd()}:/repo:ro`,
+    '--workdir',
+    '/repo',
+    gitleaksImage,
+    command,
+    '--no-banner',
+    '--no-color',
+    '--redact',
+    '--gitleaks-ignore-path',
+    '/repo/.gitleaksignore',
+    command === 'git' ? '/repo' : '.',
+  ])
+}
 
 if (!process.env.ACT_RUNNER_IMAGE) {
   await run('docker', [

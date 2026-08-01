@@ -15,6 +15,27 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  secret-scan:
+    name: Scan Git history for secrets
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out complete Git history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Scan with Gitleaks
+        run: |
+          docker build --tag splatoon3-bot-gitleaks:ci .github/gitleaks
+          docker run --rm \
+            --volume "$GITHUB_WORKSPACE:/repo:ro" \
+            --workdir /repo \
+            splatoon3-bot-gitleaks:ci \
+            git --no-banner --no-color --redact \
+            --gitleaks-ignore-path /repo/.gitleaksignore /repo
+
   verify:
     name: Verify engineering contracts
     runs-on: ubuntu-24.04

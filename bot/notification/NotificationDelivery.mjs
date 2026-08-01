@@ -1,71 +1,11 @@
-import { z } from 'zod'
-import { parseYamlEnvironment } from '../config/YamlEnvironment.mjs'
 import { validatePublicationManifest } from '../publish/PublicationManifest.mjs'
-import { getNotificationDefinition, getRunPlan } from '../run/RunPlan.mjs'
+import { getRunPlan } from '../run/RunPlan.mjs'
 import { createBotContext } from './BotContext.mjs'
 import { composeNotification } from './NotificationComposer.mjs'
-import { getChannelAdapter, resolveConfiguredNotificationChannels } from './channels/index.mjs'
-
-function parseTargets(rawConfig, channel) {
-  const notificationSelectionSchema = z
-    .array(z.string().min(1))
-    .min(1)
-    .superRefine((notificationIds, validationContext) => {
-      const seenNotificationIds = new Set()
-      for (const [index, notificationId] of notificationIds.entries()) {
-        if (seenNotificationIds.has(notificationId)) {
-          validationContext.addIssue({
-            code: 'custom',
-            path: [index],
-            message: `Duplicate Notification: ${notificationId}`,
-          })
-        }
-        seenNotificationIds.add(notificationId)
-
-        try {
-          getNotificationDefinition(notificationId)
-        } catch {
-          validationContext.addIssue({
-            code: 'custom',
-            path: [index],
-            message: `Unknown Notification: ${notificationId}`,
-          })
-        }
-      }
-    })
-  const targetSchema = channel.targetSchema.extend({ notifications: notificationSelectionSchema.optional() })
-
-  const targetsSchema = z
-    .array(targetSchema)
-    .min(1)
-    .superRefine((targets, context) => {
-      const names = new Set()
-      for (const [index, target] of targets.entries()) {
-        if (names.has(target.name)) {
-          context.addIssue({
-            code: 'custom',
-            path: [index, 'name'],
-            message: `Duplicate Notification Target name: ${target.name}`,
-          })
-        }
-        names.add(target.name)
-      }
-    })
-
-  return parseYamlEnvironment(rawConfig, {
-    variableName: channel.configurationEnvironmentVariable,
-    schema: targetsSchema,
-  })
-}
-
-function selectTargetNotificationIds(target, notificationIds) {
-  if (!target.notifications) {
-    return notificationIds
-  }
-
-  const selectedNotificationIds = new Set(target.notifications)
-  return notificationIds.filter((notificationId) => selectedNotificationIds.has(notificationId))
-}
+import {
+  prepareConfiguredNotificationChannels,
+  prepareNotificationChannelConfiguration,
+} from './NotificationConfiguration.mjs'
 
 async function deliverTargetNotifications(channel, target, notifications, options) {
   const results = []
@@ -98,19 +38,6 @@ async function deliverTargetNotifications(channel, target, notifications, option
   return results
 }
 
-function prepareNotificationChannel(plan, channel, rawConfig) {
-  const targets = parseTargets(rawConfig, channel)
-  const deliveries = targets
-    .map((target) => ({ target, notificationIds: selectTargetNotificationIds(target, plan.notifications) }))
-    .filter(({ notificationIds }) => notificationIds.length > 0)
-
-  if (deliveries.length === 0) {
-    throw new Error(`No ${channel.name} Notification Targets select ${plan.name} Notifications`)
-  }
-
-  return Object.freeze({ channel, deliveries: Object.freeze(deliveries) })
-}
-
 async function composeRunNotifications(plan, { publicationManifest, snapshotDirectory, now, timeZone }) {
   const publication = validatePublicationManifest(publicationManifest)
   if (publication.profile !== plan.name) {
@@ -136,6 +63,15 @@ function createNotificationDeliveryReport(channelResults, sharedError) {
     channelResults: Object.freeze(channelResults),
     deliveryResults: Object.freeze(channelResults.flatMap(({ results }) => results)),
     ...(sharedError ? { sharedError } : {}),
+  })
+}
+
+function emptyChannelResult(channelPreparation) {
+  return Object.freeze({
+    channelName: channelPreparation.channelName,
+    status: channelPreparation.status,
+    results: Object.freeze([]),
+    ...(channelPreparation.error ? { error: channelPreparation.error } : {}),
   })
 }
 
@@ -177,8 +113,7 @@ export async function deliverNotificationChannel({
   fetchImpl = fetch,
 }) {
   const plan = getRunPlan(profileName)
-  const channel = getChannelAdapter(channelName)
-  const preparedChannel = prepareNotificationChannel(plan, channel, rawConfig)
+  const preparedChannel = prepareNotificationChannelConfiguration({ profileName, channelName, rawConfig })
   const notificationRun = await composeRunNotifications(plan, {
     publicationManifest,
     snapshotDirectory,
@@ -198,23 +133,13 @@ export async function deliverConfiguredNotificationChannels({
   timeZone,
   fetchImpl = fetch,
 }) {
-  const configuredChannels = resolveConfiguredNotificationChannels({ environment, channelName })
-  if (configuredChannels.length === 0) {
+  const configuration = prepareConfiguredNotificationChannels({ profileName, channelName, environment })
+  if (configuration.channels.length === 0) {
     return createNotificationDeliveryReport([])
   }
 
-  const plan = getRunPlan(profileName)
-  const channelPreparations = configuredChannels.map(({ channel, rawConfig }) => {
-    try {
-      return Object.freeze({
-        channelName: channel.name,
-        status: 'ready',
-        preparedChannel: prepareNotificationChannel(plan, channel, rawConfig),
-      })
-    } catch (error) {
-      return Object.freeze({ channelName: channel.name, status: 'rejected', results: [], error })
-    }
-  })
+  const { plan } = configuration
+  const channelPreparations = configuration.channels
   const hasDeliverableChannel = channelPreparations.some(({ status }) => status === 'ready')
   let notificationRun
   if (hasDeliverableChannel) {
@@ -227,9 +152,13 @@ export async function deliverConfiguredNotificationChannels({
       })
     } catch (error) {
       const blockedChannelResults = channelPreparations.map((channelPreparation) =>
-        channelPreparation.status === 'rejected'
-          ? channelPreparation
-          : Object.freeze({ channelName: channelPreparation.channelName, status: 'blocked', results: [] })
+        channelPreparation.status !== 'ready'
+          ? emptyChannelResult(channelPreparation)
+          : Object.freeze({
+              channelName: channelPreparation.channelName,
+              status: 'blocked',
+              results: Object.freeze([]),
+            })
       )
       const report = createNotificationDeliveryReport(blockedChannelResults, error)
       error.report = report
@@ -239,13 +168,13 @@ export async function deliverConfiguredNotificationChannels({
   }
   const channelResults = await Promise.all(
     channelPreparations.map(async (channelPreparation) => {
-      if (channelPreparation.status === 'rejected') {
-        return channelPreparation
+      if (channelPreparation.status !== 'ready') {
+        return emptyChannelResult(channelPreparation)
       }
 
       try {
         const results = await deliverPreparedNotificationChannel(
-          channelPreparation.preparedChannel,
+          channelPreparation,
           notificationRun,
           fetchImpl
         )

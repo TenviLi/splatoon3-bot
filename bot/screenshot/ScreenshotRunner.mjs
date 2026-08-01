@@ -4,6 +4,7 @@ import http from 'node:http'
 import path from 'node:path'
 import puppeteer from 'puppeteer-core'
 import sirv from 'sirv'
+import { resolveScreenshotAttribution } from '../config/ScreenshotAttribution.mjs'
 import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { getScreenshotDefinition } from '../run/RunPlan.mjs'
 import { getPinnedBrowserVersion, resolveBrowserLaunchOptions } from './BrowserRuntime.mjs'
@@ -35,6 +36,7 @@ async function inspectRenderState(page) {
   return page.evaluate(() => {
     const root = document.querySelector('[data-screenshot-root]')
     const footer = document.querySelector('[data-screenshot-footer]')
+    const attribution = document.querySelector('[data-screenshot-attribution]')
     const rootRect = root?.getBoundingClientRect()
     const footerRect = footer?.getBoundingClientRect()
     const footerText = footer?.textContent?.trim() || ''
@@ -97,6 +99,7 @@ async function inspectRenderState(page) {
         ? { x: footerRect.x, y: footerRect.y, width: footerRect.width, height: footerRect.height, bottom: footerRect.bottom }
         : null,
       footerText,
+      attribution: attribution?.textContent?.trim() || '',
       imageCount: images.length,
       externalImageUrls,
     }
@@ -110,6 +113,7 @@ export async function renderScreenshotArtifacts(
     outputDirectory = path.join(process.cwd(), 'screenshots'),
     renderTime = Date.now(),
     timeZone = resolveBotTimeZone(),
+    screenshotAttribution = resolveScreenshotAttribution(),
     deviceScaleFactor = null,
     readyTimeoutMs = 20_000,
   } = {}
@@ -143,7 +147,10 @@ export async function renderScreenshotArtifacts(
         await page.emulateTimezone(timeZone)
         await page.setViewport(viewport)
         const url = new URL(`http://127.0.0.1:${server.port}/screenshots.html`)
-        url.hash = `/${definition.route}?${new URLSearchParams({ time: String(renderTime) })}`
+        url.hash = `/${definition.route}?${new URLSearchParams({
+          time: String(renderTime),
+          attribution: screenshotAttribution,
+        })}`
 
         await page.goto(url, { waitUntil: 'domcontentloaded' })
         await page.waitForFunction(
@@ -153,6 +160,11 @@ export async function renderScreenshotArtifacts(
 
         const renderState = await inspectRenderState(page)
         const diagnostics = [...pageErrors, ...failedRequests, ...renderState.issues]
+        if (renderState.attribution !== screenshotAttribution) {
+          diagnostics.push(
+            `screenshot attribution is ${renderState.attribution || 'missing'}, expected ${screenshotAttribution}`
+          )
+        }
         if (diagnostics.length > 0) {
           throw new Error(`Screenshot ${definition.name} failed render validation:\n- ${diagnostics.join('\n- ')}`)
         }

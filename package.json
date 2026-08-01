@@ -26,15 +26,10 @@
     "preview": "vite preview --port 5050",
     "download-data": "node scripts/download_data.mjs",
     "bot:describe": "node bot/run/describe.mjs",
+    "bot:doctor": "node bot/config/index.mjs",
     "bot:prepare": "node bot/run/prepare.mjs",
     "bot:publish": "node bot/publish/index.mjs",
-    "bot:notify": "node bot/notification/index.mjs",
-    "start:schedules": "node bot/screenshot/index.mjs schedules",
-    "start:salmon-run": "node bot/screenshot/index.mjs salmon-run",
-    "start:gear": "node bot/screenshot/index.mjs gear",
-    "send-message:schedules": "node bot/notification/index.mjs schedules wecom",
-    "send-message:salmon-run": "node bot/notification/index.mjs salmon-run wecom",
-    "send-message:gear": "node bot/notification/index.mjs gear wecom"
+    "bot:notify": "node bot/notification/index.mjs"
   },
   "keywords": [],
   "author": "tenvili",

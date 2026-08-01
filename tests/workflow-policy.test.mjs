@@ -49,6 +49,40 @@ test('remote actions use immutable commit references', async () => {
   }
 })
 
+test('CI scans complete Git history with a digest-pinned Gitleaks image', async () => {
+  const source = await fs.readFile(path.join(workflowDirectory, 'ci.yml'), 'utf8')
+  const readme = await fs.readFile(path.join(process.cwd(), 'README.md'), 'utf8')
+  const imageDefinition = await fs.readFile(
+    path.join(process.cwd(), '.github', 'gitleaks', 'Dockerfile'),
+    'utf8'
+  )
+  const dependabot = await fs.readFile(path.join(process.cwd(), '.github', 'dependabot.yml'), 'utf8')
+  const localVerification = await fs.readFile(
+    path.join(process.cwd(), 'scripts', 'verify_actions.mjs'),
+    'utf8'
+  )
+
+  assert.match(source, /^  secret-scan:\n/m)
+  assert.match(source, /fetch-depth: 0/)
+  assert.match(
+    imageDefinition,
+    /^FROM ghcr\.io\/gitleaks\/gitleaks:v8\.30\.1@sha256:[0-9a-f]{64}\n$/
+  )
+  assert.match(source, /docker build --tag splatoon3-bot-gitleaks:ci \.github\/gitleaks/)
+  assert.match(source, /--gitleaks-ignore-path \/repo\/\.gitleaksignore \/repo/)
+  assert.match(dependabot, /directory: \/\.github\/gitleaks/)
+  assert.match(localVerification, /const gitleaksImage = 'splatoon3-bot-gitleaks:local'/)
+  assert.match(localVerification, /for \(const command of \['git', 'dir'\]\)/)
+  assert.match(readme, /scans the complete Git history with a digest-pinned Gitleaks image/)
+})
+
+test('GitHub Actions is the only supported hosted automation surface', async () => {
+  const readme = await fs.readFile(path.join(process.cwd(), 'README.md'), 'utf8')
+
+  await assert.rejects(fs.access(path.join(process.cwd(), '.gitlab-ci.yml')), { code: 'ENOENT' })
+  assert.match(readme, /GitHub Actions is the only supported hosted automation surface/)
+})
+
 test('workflows never compute secret names dynamically', async () => {
   for (const { filename, source } of await readWorkflows()) {
     assert.doesNotMatch(source, /secrets\s*\[/, filename)
@@ -68,6 +102,11 @@ test('notification adapters share the publication stage and are enabled by confi
   assert.match(reusableWorkflow, /S3_CONFIG: \$\{\{ secrets\.S3_CONFIG \}\}/)
   assert.match(reusableWorkflow, /BOT_BRANDING_CONFIG: \$\{\{ vars\.BOT_BRANDING_CONFIG \}\}/)
   assert.match(reusableWorkflow, /BOT_TIME_ZONE: \$\{\{ vars\.BOT_TIME_ZONE \|\| 'Asia\/Shanghai' \}\}/)
+  assert.match(
+    reusableWorkflow,
+    /BOT_SCREENSHOT_ATTRIBUTION: \$\{\{ vars\.BOT_SCREENSHOT_ATTRIBUTION \|\| 'splatoon3\.ink' \}\}/
+  )
+  assert.equal(reusableWorkflow.match(/BOT_SCREENSHOT_ATTRIBUTION:/g)?.length, 2)
   assert.match(reusableWorkflow, /runs-on: \$\{\{ vars\.BOT_RUNNER \|\| 'ubuntu-24\.04' \}\}/)
   assert.match(reusableWorkflow, /environment: \$\{\{ vars\.BOT_ENVIRONMENT \|\| 'production' \}\}/)
   assert.match(
@@ -80,9 +119,15 @@ test('notification adapters share the publication stage and are enabled by confi
   )
   assert.doesNotMatch(reusableWorkflow, /Install Upyun CLI|curl[\s\S]*upyun/i)
   assert.match(readme, /Every Channel Secret must contain a direct, non-empty YAML sequence/)
+  assert.match(readme, /Run in Your Own Private Repository/)
+  assert.match(readme, /repository is the deployment and trust boundary/)
+  assert.match(readme, /public repository forks are always public/)
+  assert.match(readme, /Repository Secrets and Variables are intentionally installation-local/)
+  assert.doesNotMatch(readme, /github\.com\/TenviLi\/splatoon3-bot\/settings\//)
   for (const variableName of [
     'BOT_BRANDING_CONFIG',
     'BOT_TIME_ZONE',
+    'BOT_SCREENSHOT_ATTRIBUTION',
     'BOT_RUNNER',
     'BOT_ENVIRONMENT',
     'BOT_CONCURRENCY_GROUP',
@@ -95,6 +140,11 @@ test('notification adapters share the publication stage and are enabled by confi
   assert.match(reusableWorkflow, /publish:\n[\s\S]*?timeout-minutes: 20/)
   assert.match(reusableWorkflow, /BOT_USE_EXISTING_DATA_SNAPSHOT:/)
   assert.match(reusableWorkflow, /SPLATOON_PUBLIC_DIRECTORY:/)
+  assert.match(reusableWorkflow, /Validate Bot configuration/)
+  assert.ok(
+    reusableWorkflow.indexOf('Validate Bot configuration') < reusableWorkflow.indexOf('Publish through S3'),
+    'Bot configuration must be validated before publication side effects'
+  )
   assert.match(
     reusableWorkflow,
     /Stage Bot Run for local Actions verification\n\s+if: \$\{\{ env\.ACT == 'true' \}\}/
@@ -137,7 +187,13 @@ test('notification adapters share the publication stage and are enabled by confi
     assert.ok(readme.includes(`| \`${secretName}\` |`), `${secretName} must be documented in README.md`)
   }
 
-  for (const filename of ['bot-schedules.yml', 'bot-salmon-run.yml', 'bot-manual.yml', 'notification-smoke.yml']) {
+  for (const filename of [
+    'bot-schedules.yml',
+    'bot-salmon-run.yml',
+    'bot-manual.yml',
+    'notification-smoke.yml',
+    'configuration-check.yml',
+  ]) {
     const source = await fs.readFile(path.join(workflowDirectory, filename), 'utf8')
     assert.ok(source.includes('S3_CONFIG: ${{ secrets.S3_CONFIG }}'), `${filename}: S3_CONFIG Secret`)
     for (const channel of channels) {
@@ -147,6 +203,15 @@ test('notification adapters share the publication stage and are enabled by confi
     }
   }
 
+  const configurationCheckWorkflow = await fs.readFile(
+    path.join(workflowDirectory, 'configuration-check.yml'),
+    'utf8'
+  )
+  assert.match(
+    configurationCheckWorkflow,
+    /BOT_SCREENSHOT_ATTRIBUTION: \$\{\{ vars\.BOT_SCREENSHOT_ATTRIBUTION \|\| 'splatoon3\.ink' \}\}/
+  )
+
   const smokeWorkflow = await fs.readFile(path.join(workflowDirectory, 'notification-smoke.yml'), 'utf8')
   assert.deepEqual(
     workflowDispatchChoiceOptions(smokeWorkflow, 'channel'),
@@ -155,7 +220,7 @@ test('notification adapters share the publication stage and are enabled by confi
   )
 
   const profileNames = listRunProfiles().map(({ name }) => name)
-  for (const filename of ['bot-manual.yml', 'notification-smoke.yml']) {
+  for (const filename of ['bot-manual.yml', 'notification-smoke.yml', 'configuration-check.yml']) {
     const source = await fs.readFile(path.join(workflowDirectory, filename), 'utf8')
     assert.deepEqual(
       workflowDispatchChoiceOptions(source, 'profile'),

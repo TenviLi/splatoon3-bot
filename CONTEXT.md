@@ -21,11 +21,15 @@ The stable identity, route, viewport, and output name of one screenshot artifact
 _Avoid_: Screenshot type, page config
 
 **Screenshot Artifact**:
-A rendered PNG produced from a Screenshot Definition, Data Snapshot, and fixed render time.
+A rendered PNG produced from a Screenshot Definition, Data Snapshot, fixed render time, time zone, and screenshot attribution.
 _Avoid_: Screenshot file, image output
 
+**Screenshot Attribution**:
+Short, non-sensitive, platform-neutral text displayed beside the title in every Screenshot Artifact footer.
+_Avoid_: WeCom account, author icon
+
 **Publication Manifest**:
-A credential-free record that binds one Bot Run and its Data Snapshot Manifest to immutable published image variants, public URLs, dimensions, byte counts, SHA-256 digests, branding, render time, and time zone.
+A credential-free record that binds one Bot Run and its Data Snapshot Manifest to immutable published image variants, public URLs, dimensions, byte counts, SHA-256 digests, branding, render time, time zone, and screenshot attribution.
 _Avoid_: Upload result, URL map
 
 **Notification**:
@@ -39,6 +43,10 @@ _Avoid_: Platform client, webhook type
 **Notification Target**:
 One configured destination within a Notification Channel. A Channel can contain multiple Targets, and each Target may select which Notifications it receives.
 _Avoid_: Webhook URL, chat config
+
+**Configuration Preflight**:
+A side-effect-free validation of the selected Run Profile, public project options, publication credentials, and every configured Notification Channel before publication begins.
+_Avoid_: Dry run, config check
 
 **Delivery Result**:
 The success or failure of delivering one Notification to one Notification Target.

@@ -10,6 +10,7 @@ import {
   getScreenshotGoldenDirectory,
   listScreenshotGoldenEnvironments,
 } from './support/ScreenshotGoldenEnvironment.mjs'
+import { defaultScreenshotAttribution } from '../src/common/screenshotAttribution.mjs'
 
 test('screenshot artifacts match structural and visual contracts', { timeout: 120_000 }, async () => {
   process.env.SPLATOON_DATA_DIRECTORY = 'tests/fixtures/data'
@@ -37,6 +38,7 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 12
       buildDirectory,
       outputDirectory,
       renderTime: Date.parse('2026-07-29T19:00:00Z'),
+      screenshotAttribution: defaultScreenshotAttribution,
       deviceScaleFactor: 1,
     }
   )
@@ -44,6 +46,7 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 12
   await fs.mkdir(diffDirectory, { recursive: true })
   for (const artifact of artifacts) {
     assert.deepEqual(artifact.renderState.externalImageUrls, [], `${artifact.name} loaded external fixture images`)
+    assert.equal(artifact.renderState.attribution, defaultScreenshotAttribution)
     const current = PNG.sync.read(await fs.readFile(artifact.filename))
     const golden = PNG.sync.read(await fs.readFile(path.join(goldenDirectory, `${artifact.name}.png`)))
     assert.equal(current.width, golden.width, `${artifact.name} width changed`)
@@ -61,15 +64,18 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 12
     assert.ok(differenceRatio <= 0.001, `${artifact.name} visual difference is ${(differenceRatio * 100).toFixed(3)}%`)
   }
 
+  const customScreenshotAttribution = 'a'.repeat(40)
   const productionArtifacts = await renderScreenshotArtifacts(
     definitions.map((definition) => definition.name),
     {
       buildDirectory,
       outputDirectory: productionOutputDirectory,
       renderTime: Date.parse('2026-07-29T19:00:00Z'),
+      screenshotAttribution: customScreenshotAttribution,
     }
   )
   for (const artifact of productionArtifacts) {
+    assert.equal(artifact.renderState.attribution, customScreenshotAttribution)
     const imageBytes = await fs.readFile(artifact.filename)
     const image = PNG.sync.read(imageBytes)
     assert.ok(imageBytes.byteLength <= 10 * 1024 * 1024, `${artifact.name} exceeds Telegram's 10 MB photo limit`)

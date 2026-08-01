@@ -2,6 +2,7 @@ import path from 'node:path'
 import { listScreenshotDefinitions } from '../bot/run/RunPlan.mjs'
 import { renderScreenshotArtifacts } from '../bot/screenshot/ScreenshotRunner.mjs'
 import { getScreenshotGoldenDirectory } from './support/ScreenshotGoldenEnvironment.mjs'
+import { defaultScreenshotAttribution } from '../src/common/screenshotAttribution.mjs'
 
 process.env.SPLATOON_DATA_DIRECTORY = 'tests/fixtures/data'
 process.env.SPLATOON_PUBLIC_DIRECTORY = 'tests/fixtures/public'
@@ -13,7 +14,13 @@ const renderTime = Date.parse('2026-07-29T19:00:00Z')
 await build({ build: { outDir: buildDirectory, emptyOutDir: true } })
 const artifacts = await renderScreenshotArtifacts(
   listScreenshotDefinitions().map((definition) => definition.name),
-  { buildDirectory, outputDirectory, renderTime, deviceScaleFactor: 1 }
+  {
+    buildDirectory,
+    outputDirectory,
+    renderTime,
+    screenshotAttribution: defaultScreenshotAttribution,
+    deviceScaleFactor: 1,
+  }
 )
 
 for (const artifact of artifacts) {

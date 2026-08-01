@@ -6,22 +6,20 @@
 
     <div data-screenshot-footer class="h-12 m-4 bg-black bg-opacity-50 backdrop-blur-sm rounded-full absolute bottom-0 inset-x-0">
       <div class="flex justify-between h-full font-splatoon2 text-sm text-zinc-300">
-        <div class="flex justify-start items-center space-x-6 ml-4">
-          <div>
+        <div class="ml-4 flex min-w-0 flex-1 items-center gap-6">
+          <div class="shrink-0">
             <img src="@/assets/img/favicon.svg" class="h-16 -my-8" />
           </div>
-          <div class="flex items-center space-x-8">
-            <div class="text-3xl text-zinc-50">
+          <div class="flex min-w-0 items-center gap-8">
+            <div class="shrink-0 text-3xl text-zinc-50">
               {{ props.header }}
             </div>
-            <div class="text-xl text-thin text-zinc-500">
-              <img src="@/assets/img/wxwork-icon.png" width="20" height="20" class="inline" />
-              @锂碘
+            <div data-screenshot-attribution class="min-w-0 max-w-64 truncate text-xl font-thin text-zinc-400">
+              {{ screenshotAttribution }}
             </div>
-            <!-- <div>splatoon3.ink</div> -->
           </div>
         </div>
-        <div class="flex justify-end items-center mr-6 text-2xl">
+        <div class="mr-6 flex shrink-0 items-center justify-end text-2xl">
           {{ formatDateTime(time.now) }}
         </div>
       </div>
@@ -34,11 +32,12 @@
 </template>
 
 <script setup>
-import { nextTick, onMounted, watchEffect } from 'vue'
+import { computed, nextTick, onMounted, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { useTimeStore } from '../stores/time'
 import TimeOffsetSelector from '../components/Debug/TimeOffsetSelector.vue'
 import { markScreenshotReady } from '../common/screenshotReady.mjs'
+import { normalizeScreenshotAttribution } from '../common/screenshotAttribution.mjs'
 
 const props = defineProps({
   header: {
@@ -48,6 +47,7 @@ const props = defineProps({
 
 const route = useRoute()
 const time = useTimeStore()
+const screenshotAttribution = computed(() => normalizeScreenshotAttribution(route.query.attribution))
 
 watchEffect(() => {
   if (route.query.time) {

@@ -35,6 +35,8 @@ function logReport(report) {
   for (const channelResult of report.channelResults) {
     if (channelResult.status === 'rejected' && channelResult.results.length === 0) {
       console.error(`${channelResult.channelName}: ${channelResult.error.message}`)
+    } else if (channelResult.status === 'skipped') {
+      console.log(`${channelResult.channelName}: skipped; no Target selects this Run Profile`)
     } else if (channelResult.status === 'blocked') {
       console.error(`${channelResult.channelName}: blocked before delivery`)
     }

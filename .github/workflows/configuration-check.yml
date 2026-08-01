@@ -1,0 +1,65 @@
+name: Check Bot Configuration
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: Run Profile whose routing should be inspected
+        required: true
+        default: all
+        type: choice
+        options:
+          - schedules
+          - salmon-run
+          - gear
+          - salmon-run-and-gear
+          - all
+
+permissions:
+  contents: read
+
+concurrency:
+  group: configuration-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check ${{ inputs.profile }} configuration
+    runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install production dependencies
+        run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
+
+      - name: Check Bot configuration without side effects
+        env:
+          PROFILE: ${{ inputs.profile }}
+          BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
+          BOT_SCREENSHOT_ATTRIBUTION: ${{ vars.BOT_SCREENSHOT_ATTRIBUTION || 'splatoon3.ink' }}
+          BOT_BRANDING_CONFIG: ${{ vars.BOT_BRANDING_CONFIG }}
+          S3_CONFIG: ${{ secrets.S3_CONFIG }}
+          BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
+          BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
+          BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}
+          BOT_QQ_CONFIG: ${{ secrets.BOT_QQ_CONFIG }}
+          BOT_FEISHU_CONFIG: ${{ secrets.BOT_FEISHU_CONFIG }}
+          BOT_DINGTALK_CONFIG: ${{ secrets.BOT_DINGTALK_CONFIG }}
+          BOT_WHATSAPP_CONFIG: ${{ secrets.BOT_WHATSAPP_CONFIG }}
+          BOT_LINE_CONFIG: ${{ secrets.BOT_LINE_CONFIG }}
+          BOT_SLACK_CONFIG: ${{ secrets.BOT_SLACK_CONFIG }}
+        run: pnpm run bot:doctor "$PROFILE"

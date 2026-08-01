@@ -1,4 +1,5 @@
 import { build } from 'vite'
+import { resolveScreenshotAttribution } from '../config/ScreenshotAttribution.mjs'
 import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { downloadDataSnapshot, loadDataSnapshot } from '../data/DataSnapshot.mjs'
 import { renderScreenshotArtifacts } from '../screenshot/ScreenshotRunner.mjs'
@@ -14,6 +15,7 @@ if (!profileName) {
 const plan = getRunPlan(profileName)
 const preparationTime = Date.now()
 const timeZone = resolveBotTimeZone()
+const screenshotAttribution = resolveScreenshotAttribution()
 const useExistingDataSnapshot = process.env.BOT_USE_EXISTING_DATA_SNAPSHOT === 'true'
 if (!useExistingDataSnapshot) {
   await downloadDataSnapshot({ createdAt: new Date(preparationTime) })
@@ -25,12 +27,17 @@ if (!dataSnapshot.manifest || !dataSnapshot.manifestSha256) {
 const snapshot = dataSnapshot.manifest
 const renderTime = useExistingDataSnapshot ? Date.parse(snapshot.createdAt) : preparationTime
 await build()
-const artifacts = await renderScreenshotArtifacts(plan.screenshots, { renderTime, timeZone })
+const artifacts = await renderScreenshotArtifacts(plan.screenshots, {
+  renderTime,
+  timeZone,
+  screenshotAttribution,
+})
 const manifest = await writeRunManifest({
-  version: 2,
+  version: 3,
   profile: plan.name,
   renderTime,
   timeZone,
+  screenshotAttribution,
   snapshot: {
     createdAt: snapshot.createdAt,
     source: snapshot.source,

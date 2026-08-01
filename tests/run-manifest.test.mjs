@@ -7,10 +7,11 @@ import { readRunManifest, validateRunManifest, writeRunManifest } from '../bot/r
 
 function createManifest(overrides = {}) {
   return {
-    version: 2,
+    version: 3,
     profile: 'schedules',
     renderTime: Date.parse('2026-07-30T00:00:00Z'),
     timeZone: 'Asia/Shanghai',
+    screenshotAttribution: 'splatoon3.ink',
     snapshot: {
       createdAt: '2026-07-30T00:00:00.000Z',
       source: 'https://splatoon3.ink/data',
@@ -72,6 +73,13 @@ test('requires a valid IANA time zone', () => {
   )
 })
 
-test('rejects the incompatible Run Manifest version 1 schema', () => {
-  assert.throws(() => validateRunManifest(createManifest({ version: 1 })), /Invalid input/)
+test('requires a valid screenshot attribution', () => {
+  assert.throws(
+    () => validateRunManifest(createManifest({ screenshotAttribution: 'a'.repeat(41) })),
+    /must not exceed 40 characters/
+  )
+})
+
+test('rejects the incompatible Run Manifest version 2 schema', () => {
+  assert.throws(() => validateRunManifest(createManifest({ version: 2 })), /Invalid input/)
 })

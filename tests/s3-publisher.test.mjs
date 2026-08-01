@@ -28,10 +28,11 @@ async function createBotRun(directory, { width = 2_400, height = 1_350 } = {}) {
   await fs.writeFile(path.join(directory, 'unselected.png'), 'must not be published')
   await writeRunManifest(
     {
-      version: 2,
+      version: 3,
       profile: 'schedules',
       renderTime: Date.parse('2026-07-30T00:00:00Z'),
       timeZone: 'Asia/Shanghai',
+      screenshotAttribution: 'splatoon3.ink',
       snapshot: {
         createdAt: '2026-07-30T00:00:00.000Z',
         source: 'https://splatoon3.ink/data',
@@ -102,8 +103,10 @@ test('publishes verified notification and original PNG variants through S3', asy
   assert.equal(metadata.width, 1_024)
   assert.equal(metadata.height, 576)
   assert.equal(manifest.assetBaseUrl, 'https://cdn.example.com/assets/bot/production')
-  assert.equal(manifest.runManifestVersion, 2)
+  assert.equal(manifest.version, 2)
+  assert.equal(manifest.runManifestVersion, 3)
   assert.equal(manifest.timeZone, 'Asia/Shanghai')
+  assert.equal(manifest.screenshotAttribution, 'splatoon3.ink')
   assert.equal(manifest.snapshotManifestSha256, 'c'.repeat(64))
   assert.equal(
     manifest.artifacts[0].notificationImage.url,
@@ -132,6 +135,14 @@ test('publishes verified notification and original PNG variants through S3', asy
   assert.throws(
     () => assertPublicationManifestMatchesRun(manifest, { ...runManifest, timeZone: 'UTC' }),
     /time zone/
+  )
+  assert.throws(
+    () =>
+      assertPublicationManifestMatchesRun(manifest, {
+        ...runManifest,
+        screenshotAttribution: 'custom.example',
+      }),
+    /screenshot attribution/
   )
   assert.throws(
     () =>

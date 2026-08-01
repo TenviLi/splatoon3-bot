@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { absoluteUrlSchema } from '../config/AbsoluteUrl.mjs'
 import { botTimeZoneSchema } from '../config/BotTimeZone.mjs'
 import { brandingConfigurationSchema } from '../config/BrandingConfiguration.mjs'
+import { screenshotAttributionSchema } from '../config/ScreenshotAttribution.mjs'
 import { readManifestFile, writeManifestFile } from '../manifest/ManifestFile.mjs'
 import { getRunPlan, getScreenshotDefinition } from '../run/RunPlan.mjs'
 import { validateRunManifest } from '../run/RunManifest.mjs'
@@ -29,11 +30,12 @@ const publishedArtifactSchema = z
 
 const publicationManifestSchema = z
   .object({
-    version: z.literal(1),
-    runManifestVersion: z.literal(2),
+    version: z.literal(2),
+    runManifestVersion: z.literal(3),
     profile: z.string().min(1),
     renderTime: z.number().int().nonnegative(),
     timeZone: botTimeZoneSchema,
+    screenshotAttribution: screenshotAttributionSchema,
     snapshotManifestSha256: sha256Schema,
     assetBaseUrl: absoluteUrlSchema({ label: 'assetBaseUrl' }),
     branding: brandingConfigurationSchema,
@@ -178,6 +180,11 @@ export function assertPublicationManifestMatchesRun(publicationValue, runValue) 
   if (publicationManifest.timeZone !== runManifest.timeZone) {
     throw new Error(
       `Publication manifest time zone ${publicationManifest.timeZone} does not match ${runManifest.timeZone}`
+    )
+  }
+  if (publicationManifest.screenshotAttribution !== runManifest.screenshotAttribution) {
+    throw new Error(
+      `Publication manifest screenshot attribution ${publicationManifest.screenshotAttribution} does not match ${runManifest.screenshotAttribution}`
     )
   }
   if (publicationManifest.snapshotManifestSha256 !== runManifest.snapshot.manifestSha256) {

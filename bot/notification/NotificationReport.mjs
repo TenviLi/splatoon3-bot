@@ -20,6 +20,11 @@ export function formatNotificationStepSummary({ report, failed = false } = {}) {
   }
 
   for (const channelResult of report.channelResults) {
+    if (channelResult.status === 'skipped') {
+      lines.push(`- ${channelResult.channelName}: skipped; no Target selects this Run Profile`)
+      continue
+    }
+
     if (channelResult.status === 'blocked') {
       lines.push(`- ${channelResult.channelName}: blocked before delivery`)
       continue

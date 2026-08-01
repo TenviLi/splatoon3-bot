@@ -10,11 +10,12 @@ export function createPublicationManifestFixture(
   const notificationSha256 = 'a'.repeat(64)
   const originalSha256 = 'b'.repeat(64)
   return {
-    version: 1,
-    runManifestVersion: 2,
+    version: 2,
+    runManifestVersion: 3,
     profile,
     renderTime: Date.parse('2026-07-29T19:00:00Z'),
     timeZone: 'Asia/Shanghai',
+    screenshotAttribution: 'splatoon3.ink',
     snapshotManifestSha256: '80c31540131253c528fb04b0fea9f86b0679b04b9f3a072618d019191bf93452',
     assetBaseUrl: normalizedAssetBaseUrl,
     branding: {

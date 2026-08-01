@@ -51,6 +51,7 @@ jobs:
       profile: ${{ steps.plan.outputs.profile }}
     env:
       BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
+      BOT_SCREENSHOT_ATTRIBUTION: ${{ vars.BOT_SCREENSHOT_ATTRIBUTION || 'splatoon3.ink' }}
       TZ: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
     steps:
       - name: Check out repository
@@ -148,6 +149,25 @@ jobs:
 
       - name: Install production dependencies
         run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
+
+      - name: Validate Bot configuration
+        env:
+          PROFILE: ${{ needs.prepare.outputs.profile }}
+          CHANNEL: ${{ inputs.notification_channel }}
+          BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
+          BOT_SCREENSHOT_ATTRIBUTION: ${{ vars.BOT_SCREENSHOT_ATTRIBUTION || 'splatoon3.ink' }}
+          BOT_BRANDING_CONFIG: ${{ vars.BOT_BRANDING_CONFIG }}
+          S3_CONFIG: ${{ secrets.S3_CONFIG }}
+          BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
+          BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
+          BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}
+          BOT_QQ_CONFIG: ${{ secrets.BOT_QQ_CONFIG }}
+          BOT_FEISHU_CONFIG: ${{ secrets.BOT_FEISHU_CONFIG }}
+          BOT_DINGTALK_CONFIG: ${{ secrets.BOT_DINGTALK_CONFIG }}
+          BOT_WHATSAPP_CONFIG: ${{ secrets.BOT_WHATSAPP_CONFIG }}
+          BOT_LINE_CONFIG: ${{ secrets.BOT_LINE_CONFIG }}
+          BOT_SLACK_CONFIG: ${{ secrets.BOT_SLACK_CONFIG }}
+        run: node bot/config/index.mjs "$PROFILE" "$CHANNEL"
 
       - name: Download Bot Run
         if: ${{ env.ACT != 'true' }}

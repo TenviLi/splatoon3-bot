@@ -193,11 +193,12 @@ export async function publishToS3({
 
   return writePublicationManifest(
     {
-      version: 1,
+      version: 2,
       runManifestVersion: runManifest.version,
       profile: plan.name,
       renderTime: runManifest.renderTime,
       timeZone: runManifest.timeZone,
+      screenshotAttribution: runManifest.screenshotAttribution,
       snapshotManifestSha256: runManifest.snapshot.manifestSha256,
       assetBaseUrl: publicAssetBaseUrl(configuration),
       branding,

@@ -271,6 +271,28 @@ test('skips delivery without configured Secrets and requires an explicitly selec
   )
 })
 
+test('skips configured Channels whose Targets do not select the active Run Profile', async () => {
+  const report = await deliverConfiguredNotificationChannels({
+    profileName: 'schedules',
+    environment: {
+      BOT_WECOM_CONFIG: stringifyYaml([
+        {
+          name: 'gear-only',
+          notifications: ['gear-dailydrop', 'gear-regular'],
+          webhookUrl: 'https://example.com/gear',
+        },
+      ]),
+    },
+    snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'missing'),
+  })
+
+  assert.deepEqual(
+    report.channelResults.map(({ channelName, status }) => ({ channelName, status })),
+    [{ channelName: 'wecom', status: 'skipped' }]
+  )
+  assert.deepEqual(report.deliveryResults, [])
+})
+
 test('routes only selected Notifications to each Target', async () => {
   const results = await deliverNotificationChannel({
     profileName: 'salmon-run-and-gear',
