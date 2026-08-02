@@ -583,3 +583,5 @@ pnpm run verify
 ## 许可证
 
 本项目以 [GNU General Public License v3.0](./LICENSE) 发布，是非官方同人项目，与 Nintendo 无隶属或背书关系。
+
+本项目的 Vue 应用代码源自 [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink)，谨向原项目的维护者与贡献者致谢。

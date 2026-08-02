@@ -582,3 +582,5 @@ pnpm run verify
 ## ライセンス
 
 [GNU General Public License v3.0](./LICENSE) で公開しています。Nintendo とは無関係の非公式ファンプロジェクトです。
+
+Vue アプリケーションのコードは [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink) を基にしています。原プロジェクトのメンテナーとコントリビューターに感謝します。

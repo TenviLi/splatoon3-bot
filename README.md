@@ -583,3 +583,5 @@ Keep behavior deterministic, preserve Run Plan and Manifest boundaries, update c
 ## License
 
 Released under the [GNU General Public License v3.0](./LICENSE). This fan-made project is not affiliated with or endorsed by Nintendo.
+
+The Vue application is based on [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink), with thanks to its maintainers and contributors.
