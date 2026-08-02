@@ -3,17 +3,18 @@ name: Splatoon3 Bot (manual)
 on:
   workflow_dispatch:
     inputs:
-      profile:
-        description: Run Profile
-        default: schedules
-        required: true
-        type: choice
-        options:
-          - schedules
-          - salmon-run
-          - gear
-          - salmon-run-and-gear
-          - all
+      schedules:
+        description: Include Schedules
+        type: boolean
+        default: true
+      salmon_run:
+        description: Include Salmon Run
+        type: boolean
+        default: false
+      gear:
+        description: Include Gear (Daily Drop + Regular)
+        type: boolean
+        default: false
 permissions:
   contents: read
 
@@ -21,7 +22,9 @@ jobs:
   bot:
     uses: ./.github/workflows/bot-reusable.yml
     with:
-      profile: ${{ inputs.profile }}
+      schedules: ${{ inputs.schedules }}
+      salmon_run: ${{ inputs.salmon_run }}
+      gear: ${{ inputs.gear }}
     secrets:
       S3_CONFIG: ${{ secrets.S3_CONFIG }}
       BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}

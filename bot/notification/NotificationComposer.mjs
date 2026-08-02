@@ -34,7 +34,12 @@ function notificationImage(artifact, alt) {
   return {
     ...notificationImageVariant(artifact.notificationImage),
     alt,
-    compact: notificationImageVariant(artifact.compactImage),
+    variants: Object.fromEntries(
+      Object.entries(artifact.platformImages).map(([platformName, image]) => [
+        platformName,
+        notificationImageVariant(image),
+      ])
+    ),
   }
 }
 

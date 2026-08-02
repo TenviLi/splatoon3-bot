@@ -73,7 +73,7 @@
   </tr>
 </table>
 
-README のプレビュー画像は `1200×675` です。`BOT_SCREENSHOT_RESOLUTION` では 4 種類の正確な 16:9 サイズから選択でき、保存用画像と通知のメイン画像に同じ設定が反映されます。LINE と WhatsApp だけは、サービス側の制限に合わせて `1024×576` の互換画像も使用します。
+README のプレビュー画像は `1200×675` です。`BOT_SCREENSHOT_RESOLUTION` では 4 種類の正確な 16:9 サイズから選択でき、保存用画像と通知のメイン画像に同じ設定が反映されます。LINE と WhatsApp には個別の `1024×576` 画像を生成し、ほかの通知サービスの画質を下げずに各アダプター固有の制限を適用します。
 
 ## クイックスタート
 
@@ -101,7 +101,7 @@ Template から、自分の GitHub アカウントに独立した Private reposi
 
    LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選択してください。
 4. 既定言語は `zh-CN` のため、`BOT_LOCALE=ja-JP` と `BOT_TIME_ZONE=Asia/Tokyo` を設定します。`BOT_SCREENSHOT_RESOLUTION` など、その他の [Repository Variables](#repository-variables) は既定値を変更するときだけ追加します。
-5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、`all` モードで **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
+5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、3 つの Content Group をすべて選択した状態で **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
 6. 設定したサービスに対して **Notification Channel smoke test** を実行します。画像を 1 回実際にアップロードし、テストメッセージを 1 件送信して、定期配信を始める前に経路全体を確認します。
 
 > [!IMPORTANT]
@@ -128,9 +128,9 @@ flowchart LR
 
 | Workflow | 実行タイミング | 配信内容 |
 | --- | --- | --- |
-| `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | `schedules` モード |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `all` モード |
-| `bot-manual.yml` | 必要なときに手動実行 | 選択した任意のモード |
+| `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | バトルスケジュール Content Group |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | 3 つの Content Group すべて |
+| `bot-manual.yml` | 必要なときに手動実行 | 任意のチェックボックス組み合わせ |
 | `configuration-check.yml` | 必要なときに手動実行 | 設定確認のみ。アップロードや送信は行わない |
 | `notification-smoke.yml` | 必要なときに手動実行 | 現在の画像を公開し、選択したサービスへテスト通知を 1 件送信 |
 
@@ -140,18 +140,18 @@ flowchart LR
 
 インストール先の既定ブランチで `.github/workflows/bot-schedules.yml` と `.github/workflows/bot-salmon-run.yml` の `on.schedule` cron 式を編集すると、各モードの配信時刻を変更できます。GitHub は式を UTC として評価します。`BOT_TIME_ZONE` は画像とメッセージに表示する時刻を変更しますが、Actions の起動時刻は変更しません。
 
-GitHub の `on.schedule.cron` は Repository Variables や Secrets を参照できないため、配信時刻用の Variable はありません。GitHub 公式の [`on.schedule` 構文](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)と [crontab.guru](https://crontab.guru/) を利用してください。`all` モードにもスケジュール通知が含まれます。重複通知が必要な場合を除き、`schedules` モードと同時刻に実行しないでください。
+GitHub の `on.schedule.cron` は Repository Variables や Secrets を参照できないため、配信時刻用の Variable はありません。GitHub 公式の [`on.schedule` 構文](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)と [crontab.guru](https://crontab.guru/) を利用してください。1 日 2 回の Workflow もバトルスケジュールを選択しています。重複通知が必要な場合を除き、スケジュール専用 Workflow と同時刻に実行しないでください。
 
 <details>
-<summary><strong>実行モード</strong></summary>
+<summary><strong>Run Content Group</strong></summary>
 
-| モード | 生成する画像 | 送信する通知 |
+手動実行、Smoke Test、設定確認では、次の Content Group が GitHub ネイティブのチェックボックスとして表示されます。空でない任意の組み合わせを選択でき、再利用可能な Bot Run は 1 回だけ実行され、順序が安定した Run Plan を自動生成します。
+
+| Content Group | 生成する画像 | 送信する通知 |
 | --- | --- | --- |
 | `schedules` | バトルスケジュール | バトルスケジュール |
 | `salmon-run` | サーモンラン | サーモンラン |
 | `gear` | ギア画像 2 枚 | ギア通知 2 件 |
-| `salmon-run-and-gear` | サーモンランとギア画像 2 枚 | サーモンランとギア通知 2 件 |
-| `all` | 4 種類すべて | 4 種類すべて |
 
 </details>
 
@@ -210,7 +210,7 @@ Bot のスクリーンショット生成と通知配信は 14 値すべてに対
 | `2400x1350` | 2× | 画質と容量の推奨バランス |
 | `3840x2160` | 3.2× | 4K 原画像。保存容量とアップロード量が増えます |
 
-選択した寸法は、保存用画像、`notification-images/` オブジェクト、通知のメイン画像まで一貫して維持されます。LINE と WhatsApp は画像制限に対応するため `1024×576` の互換画像を使いますが、通知内の表示ボタンは選択した解像度のメイン画像を開きます。
+選択した寸法は、保存用画像、`notification-images/` オブジェクト、通知のメイン画像まで一貫して維持されます。LINE は `1 MB` 以下の専用 `1024×576` 画像を使用します。これは LINE の Flex 画像上限 `1024×1024` に収まる、クロップなしで最大の 16:9 サイズです。WhatsApp は `5 MB` のメディア制限に合わせた専用 `1024×576` 画像を使用します。どちらの表示ボタンも、選択した解像度のメイン画像を開きます。
 
 スケジュール、サーモンラン、ギアの Icon はリポジトリ内の Asset から生成され、Content-addressed key で S3 に自動公開されます。公開 Icon URL を別途用意する必要はありません。
 
@@ -284,7 +284,8 @@ keyPrefix: splatoon3-bot
 | オブジェクトの接頭辞 | 内容 | 用途と保存方針 |
 | --- | --- | --- |
 | `notification-images/<sha256>/` | `BOT_SCREENSHOT_RESOLUTION` の正確な寸法で最適化したメイン画像 | WeCom、Discord、Telegram、QQ、Feishu、DingTalk、Slack が表示し、通知内の表示ボタンもこの画像を開きます。 |
-| `compact-images/<sha256>/` | `1024×576` の互換画像 | LINE と WhatsApp だけが表示し、両サービスの制限がほかの通知画像の画質を下げないようにします。 |
+| `line-images/<sha256>/` | LINE 専用 `1024×576` PNG。必要な場合だけ Palette PNG へ自動圧縮 | 16:9 の全体を維持し、`1024×1024` の上限と LINE 推奨の `1 MB` 以下を満たします。 |
+| `whatsapp-images/<sha256>/` | WhatsApp 専用 `1024×576` PNG | 承認済み Media Template の Image Header に使用し、WhatsApp の `5 MB` 上限以内に保ちます。 |
 | `originals/<sha256>/` | 選択した解像度のまま再圧縮していない元の画像ファイル | 高解像度の保存と Publication Manifest の検証に使用します。元画像の履歴が不要なら、短い Lifecycle を設定できます。 |
 | `branding-icons/<sha256>/` | スケジュール、サーモンラン、ギア用の内蔵小型アイコン | メッセージカードの見出しやアバターに使用します。自動的にアップロード・再利用され、通常は長期保存できます。 |
 
@@ -294,7 +295,7 @@ keyPrefix: splatoon3-bot
 最小権限や公開 URL の注意点は [S3 運用ガイド](./docs/operator-setup-links.md#s3-compatible-publication)を参照してください。
 
 > [!TIP]
-> 画像内容が変わるたびに古い URL を上書きせず、新しい版を作成します。接頭辞ごとに Lifecycle rule を設定できます。`notification-images/` と `compact-images/` は過去のメッセージを表示したい期間、`originals/` は元画像が必要な期間だけ保持し、小さく再利用される `branding-icons/` は通常そのまま保持します。
+> 画像内容が変わるたびに古い URL を上書きせず、新しい版を作成します。接頭辞ごとに Lifecycle rule を設定できます。`notification-images/`、`line-images/`、`whatsapp-images/` は過去のメッセージを表示したい期間、`originals/` は元画像が必要な期間だけ保持し、小さく再利用される `branding-icons/` は通常そのまま保持します。
 
 ## 通知プラットフォーム
 
@@ -330,6 +331,208 @@ keyPrefix: splatoon3-bot
 | `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group`、`room`）、`targetId` | `notificationDisabled` |
 | `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | — |
 
+各サービスを開くと、そのままコピーできる Secret の例を確認できます。**Settings → Secrets and variables → Actions** に保存する前に、すべてのプレースホルダーを置き換えてください。
+
+<details>
+<summary><strong>WeCom · BOT_WECOM_CONFIG</strong> — Template Card と通知別ルーティング</summary>
+
+1 つの Secret から、スケジュール、サーモンラン、ギアを別々の Group Robot に送信できます。
+
+```yaml
+- name: battle-schedules
+  notifications: [schedules]
+  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_SCHEDULES_KEY
+- name: daily-updates
+  notifications: [salmon-run, gear-dailydrop, gear-regular]
+  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_UPDATES_KEY
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。設定検証と配信結果に表示されます。 |
+| `notifications` | いいえ | この宛先へ送る Notification ID。省略すると現在の Run Selection に含まれるすべての通知を受信します。 |
+| `webhookUrl` | はい | WeCom からコピーした完全な Group Robot Webhook URL。URL 内の `key` は認証情報です。 |
+
+</details>
+
+<details>
+<summary><strong>Discord · BOT_DISCORD_CONFIG</strong> — 画像付き Embed</summary>
+
+Webhook が送信先 Channel を決定します。表示名と Avatar の上書きは任意です。
+
+```yaml
+- name: splatoon-community
+  webhookUrl: https://discord.com/api/webhooks/123456789012345678/example-token
+  username: Splatoon Bot
+  avatarUrl: https://splatoon.example.com/bot-avatar.png
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
+| `notifications` | いいえ | この Webhook が受信する通知のサブセット。 |
+| `webhookUrl` | はい | 完全な Discord Incoming Webhook URL。URL 自体が認証情報を含みます。 |
+| `username` | いいえ | Webhook が送信するメッセージの表示名。 |
+| `avatarUrl` | いいえ | Webhook Avatar として使う公開 HTTPS 画像。 |
+
+</details>
+
+<details>
+<summary><strong>Telegram · BOT_TELEGRAM_CONFIG</strong> — 画像、HTML Caption、URL Button</summary>
+
+Bot は対象 Chat へ送信できる状態である必要があります。Forum Topic では `messageThreadId` も指定します。
+
+```yaml
+- name: community-topic
+  botToken: "123456:example_bot_token"
+  chatId: "-1001234567890"
+  messageThreadId: 42
+  disableNotification: false
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
+| `notifications` | いいえ | この Chat または Topic が受信する通知のサブセット。 |
+| `botToken` | はい | BotFather が発行した Token。Repository Secret 以外には保存しないでください。 |
+| `chatId` | はい | User、Group、Supergroup、Channel の ID。負数は YAML で引用符を付けることを推奨します。 |
+| `messageThreadId` | いいえ | Supergroup 内の正の Forum Topic ID。 |
+| `disableNotification` | いいえ | `true` なら Silent Message。省略時は Telegram の既定動作です。 |
+
+</details>
+
+<details>
+<summary><strong>QQ · BOT_QQ_CONFIG</strong> — Group / Direct Chat Markdown</summary>
+
+この定期実行アダプターは QQ Group と Direct Chat に対応します。QQ Channel は常時接続の Gateway が別途必要なため、設定の事前検証で拒否されます。
+
+```yaml
+- name: official-group
+  appId: "102000000"
+  clientSecret: "example-client-secret"
+  targetType: group
+  targetId: GROUP_OPENID
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
+| `notifications` | いいえ | この Group または User が受信する通知のサブセット。 |
+| `appId` | はい | QQ 公式 Bot の AppID。 |
+| `clientSecret` | はい | Access Token の取得に使用する Bot ClientSecret。 |
+| `targetType` | はい | Group OpenID は `group`、User OpenID は `user`。 |
+| `targetId` | はい | QQ の公式 Interaction Event から取得した Group または User OpenID。 |
+
+</details>
+
+<details>
+<summary><strong>Feishu / Lark · BOT_FEISHU_CONFIG</strong> — Card Schema 2.0</summary>
+
+Custom Bot で署名検証を有効にした場合は、署名用の `secret` も指定します。
+
+```yaml
+- name: team-group
+  webhookUrl: https://open.feishu.cn/open-apis/bot/v2/hook/REPLACE_WITH_HOOK_ID
+  secret: "example-signing-secret"
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
+| `notifications` | いいえ | この Group が受信する通知のサブセット。 |
+| `webhookUrl` | はい | Feishu または Lark からコピーした完全な Custom Bot Webhook。 |
+| `secret` | いいえ | Custom Bot の Security 設定で署名検証を有効にした場合の署名鍵。 |
+
+</details>
+
+<details>
+<summary><strong>DingTalk · BOT_DINGTALK_CONFIG</strong> — ActionCard</summary>
+
+署名方式の Security 設定を推奨します。Keyword のみの設定では生成メッセージが拒否されることがあります。
+
+```yaml
+- name: team-group
+  webhookUrl: https://oapi.dingtalk.com/robot/send?access_token=example-access-token
+  secret: "SECexample-signing-secret"
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
+| `notifications` | いいえ | この Group が受信する通知のサブセット。 |
+| `webhookUrl` | はい | Access Token を含む完全な Custom Robot Webhook。 |
+| `secret` | いいえ | 署名を有効にした場合に使う `SEC...` 形式の署名鍵。 |
+
+</details>
+
+<details>
+<summary><strong>WhatsApp · BOT_WHATSAPP_CONFIG</strong> — 承認済み Media Template</summary>
+
+`IMAGE` Header、名前付き Body Parameter、動的 URL Button を持つ Template を先に承認してください。Button の Prefix は `S3_CONFIG.publicBaseUrl` と `keyPrefix` を連結した値に一致させます。
+
+```yaml
+- name: personal-updates
+  accessToken: "REPLACE_WITH_ACCESS_TOKEN"
+  phoneNumberId: "123456789012345"
+  recipientPhoneNumber: "819012345678"
+  templateName: splatoon_notification
+  languageCode: ja
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
+| `notifications` | いいえ | Opt-in 済みの受信者へ送る通知のサブセット。 |
+| `accessToken` | はい | 対象 WhatsApp Business Account への権限を持つ Meta Cloud API Token。 |
+| `phoneNumberId` | はい | 登録済み送信番号の数値 ID。表示される電話番号そのものではありません。 |
+| `recipientPhoneNumber` | はい | Opt-in 済み受信者の E.164 数字列。先頭の `+` は付けません。 |
+| `templateName` | はい | 定期メッセージに使う承認済みの小文字 Template 名。 |
+| `languageCode` | はい | 承認済み Template 言語の正確な Code。日本語例は `ja`。 |
+
+</details>
+
+<details>
+<summary><strong>LINE · BOT_LINE_CONFIG</strong> — Flex Message Bubble</summary>
+
+宛先には Push Message の受信資格が必要です。ID の Prefix は選択した宛先種別と一致させます。
+
+```yaml
+- name: personal-chat
+  channelAccessToken: "example-channel-access-token"
+  targetType: user
+  targetId: U0123456789abcdef0123456789abcdef
+  notificationDisabled: false
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
+| `notifications` | いいえ | この受信者へ送る通知のサブセット。 |
+| `channelAccessToken` | はい | LINE Developers で発行した Messaging API Channel Access Token。 |
+| `targetType` | はい | `user`、`group`、`room` のいずれか。 |
+| `targetId` | はい | Webhook Event の Source ID。種別に応じて `U`、`C`、`R` で始まります。 |
+| `notificationDisabled` | いいえ | `true` なら LINE が対応する場面で User Notification を抑制します。 |
+
+</details>
+
+<details>
+<summary><strong>Slack · BOT_SLACK_CONFIG</strong> — Accessible Block Kit</summary>
+
+各 Incoming Webhook は Slack App の Installation と送信先 Channel に紐付きます。
+
+```yaml
+- name: team-channel
+  webhookUrl: https://hooks.slack.com/services/T/B/key
+```
+
+| フィールド | 必須 | 説明 |
+| --- | --- | --- |
+| `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
+| `notifications` | いいえ | この Channel が受信する通知のサブセット。 |
+| `webhookUrl` | はい | Slack または Slack Gov の公式 Incoming Webhook URL。URL 自体が認証情報です。 |
+
+</details>
+
 [サービス別設定ガイド](./docs/operator-setup-links.md#notification-adapters)では、認証情報の前提、受信者の条件、公式手順へのリンクを詳しく説明しています。[機能監査](./docs/notification-platform-capabilities.md)では、各サービスで現在のメッセージ形式を採用した理由を説明しています。
 
 ## 信頼性
@@ -338,8 +541,8 @@ keyPrefix: splatoon3-bot
 
 - データ取得には再試行とタイムアウトがあり、新しい一式が Schema 検証をすべて通過した場合だけ以前の有効データを置き換えます。
 - 画像生成はアプリ、フォント、ローカル画像の準備を待ち、言語、クレジット、寸法、フッター位置、はみ出しを検査します。
-- Run Manifest v4 は「何を生成したか」を記録します。言語、解像度、タイムゾーン、データ ID、ファイル名、寸法、SHA-256 が対象です。
-- Publication Manifest v4 は「何を公開したか」を記録します。通知用メイン画像、互換画像、原画像、内蔵アイコン、公開 URL が対象です。
+- Run Manifest v5 は選択した Content Group と「何を生成したか」を記録します。言語、解像度、タイムゾーン、データ ID、ファイル名、寸法、SHA-256 が対象です。
+- Publication Manifest v6 は同じ Run Selection と「何を公開したか」を記録します。通知用メイン画像、LINE・WhatsApp 専用画像、原画像、内蔵アイコン、公開 URL が対象です。
 - 設定の事前検証は、最初のアップロード前に独立したエラーをまとめて報告し、Secret の値を表示しません。
 - 宛先は独立して実行されます。1 つの宛先が失敗しても、ほかの宛先への配信成功は保持され、最後に失敗理由をまとめて報告します。
 - CI は Git 履歴全体を Secret scan し、Syntax、Unit、Browser、Visual、Build、Workflow policy、Dependency audit を実行します。
@@ -364,10 +567,10 @@ pnpm run verify
 
 | Command | 用途 |
 | --- | --- |
-| `pnpm run bot:doctor <profile> [channel]` | 設定を検証し、アップロードや送信は行わない。 |
-| `pnpm run bot:prepare <profile>` | データ取得、ビルド、画像生成、Run Manifest 作成。 |
-| `pnpm run bot:publish <profile>` | S3 へ検証済み画像を公開。 |
-| `pnpm run bot:notify <profile> [channel]` | 設定済みサービスへ配信。 |
+| `pnpm run bot:doctor <selection> [channel]` | 設定を検証。Content Group は `schedules,gear` のようにカンマで区切る。 |
+| `pnpm run bot:prepare <selection>` | データ取得、ビルド、画像生成、Run Manifest 作成。 |
+| `pnpm run bot:publish <selection>` | S3 へ検証済み画像を公開。 |
+| `pnpm run bot:notify <selection> [channel]` | 設定済みサービスへ配信。 |
 | `pnpm run test:update-golden` | 現在の OS 用に 3 言語の画像比較基準を生成。 |
 | `pnpm run verify` | 完全なローカル検証。 |
 | `pnpm run verify:actions` | OrbStack と `act` で Linux Actions を検証。 |

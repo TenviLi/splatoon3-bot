@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { HeadObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import sharp from 'sharp'
-import { getRunPlan, getScreenshotDefinition } from '../run/RunPlan.mjs'
+import { getScreenshotDefinition, resolveRunPlan } from '../run/RunPlan.mjs'
 import { readRunManifest } from '../run/RunManifest.mjs'
 import { brandingIconRelativeKey, prepareBrandingIcons } from './BrandingAssets.mjs'
 import {
@@ -13,8 +13,8 @@ import {
   publicObjectUrl,
 } from './S3Configuration.mjs'
 import { publicationImageRelativeKey, writePublicationManifest } from './PublicationManifest.mjs'
+import { listPlatformImageVariantDefinitions } from './PublicationImageVariants.mjs'
 
-const compactImageMaximumBytes = 5 * 1024 * 1024
 const immutableAssetCacheControl = 'public, max-age=31536000, immutable'
 
 function sha256(buffer) {
@@ -58,7 +58,7 @@ async function verifyArtifactFile(artifact, screenshotDirectory) {
   return { artifact, buffer, definition, originalWidth: metadata.width, originalHeight: metadata.height }
 }
 
-async function createImageVariant(buffer, { dimensions, label, resize = false, maximumBytes }) {
+async function encodePng(buffer, { dimensions, resize, palette }) {
   let image = sharp(buffer, { failOn: 'warning' })
   if (resize) {
     image = image.resize({
@@ -68,9 +68,19 @@ async function createImageVariant(buffer, { dimensions, label, resize = false, m
       kernel: sharp.kernel.lanczos3,
     })
   }
-  const imageBuffer = await image
-    .png({ adaptiveFiltering: true, compressionLevel: 9, effort: 10 })
+  return image
+    .png({
+      adaptiveFiltering: true,
+      compressionLevel: 9,
+      effort: 10,
+      ...(palette === undefined ? {} : { palette }),
+      ...(palette ? { colours: 256, dither: 0.75 } : {}),
+    })
     .toBuffer()
+}
+
+async function createImageVariant(buffer, { dimensions, label, resize = false }) {
+  const imageBuffer = await encodePng(buffer, { dimensions, resize })
   const metadata = await sharp(imageBuffer).metadata()
 
   if (
@@ -82,11 +92,55 @@ async function createImageVariant(buffer, { dimensions, label, resize = false, m
       `Generated ${label} is ${metadata.width || 0}x${metadata.height || 0} ${metadata.format || 'unknown'}, expected ${dimensions.width}x${dimensions.height} PNG`
     )
   }
-  if (maximumBytes && imageBuffer.byteLength > maximumBytes) {
-    throw new Error(`Generated ${label} exceeds the ${maximumBytes / 1024 / 1024} MB limit`)
-  }
-
   return imageBuffer
+}
+
+async function createPlatformImageVariants(buffer) {
+  const losslessBuffers = new Map()
+  const entries = await Promise.all(
+    listPlatformImageVariantDefinitions().map(async (imageDefinition) => {
+      const dimensionsKey = `${imageDefinition.dimensions.width}x${imageDefinition.dimensions.height}`
+      if (!losslessBuffers.has(dimensionsKey)) {
+        losslessBuffers.set(
+          dimensionsKey,
+          encodePng(buffer, {
+            dimensions: imageDefinition.dimensions,
+            resize: true,
+            palette: false,
+          })
+        )
+      }
+
+      let imageBuffer = await losslessBuffers.get(dimensionsKey)
+      if (
+        imageDefinition.paletteFallback &&
+        imageBuffer.byteLength > imageDefinition.maximumBytes
+      ) {
+        imageBuffer = await encodePng(buffer, {
+          dimensions: imageDefinition.dimensions,
+          resize: true,
+          palette: true,
+        })
+      }
+      const metadata = await sharp(imageBuffer).metadata()
+      if (
+        metadata.format !== 'png' ||
+        metadata.width !== imageDefinition.dimensions.width ||
+        metadata.height !== imageDefinition.dimensions.height
+      ) {
+        throw new Error(
+          `Generated ${imageDefinition.name} image is ${metadata.width || 0}x${metadata.height || 0} ${metadata.format || 'unknown'}, expected ${imageDefinition.dimensions.width}x${imageDefinition.dimensions.height} PNG`
+        )
+      }
+      if (imageBuffer.byteLength > imageDefinition.maximumBytes) {
+        throw new Error(
+          `Generated ${imageDefinition.name} image exceeds the ${imageDefinition.maximumBytesLabel} limit`
+        )
+      }
+      return [imageDefinition.name, { definition: imageDefinition, buffer: imageBuffer }]
+    })
+  )
+  return Object.fromEntries(entries)
 }
 
 function createS3Client(configuration) {
@@ -157,16 +211,18 @@ async function ensureBrandingObject(client, configuration, asset) {
 }
 
 export async function publishToS3({
-  profileName,
+  selection,
   configuration = parseS3Configuration(),
   screenshotDirectory = path.join(process.cwd(), 'screenshots'),
   client,
   publicationManifestFilename = path.join(screenshotDirectory, 'publication-manifest.json'),
 } = {}) {
-  const plan = getRunPlan(profileName)
+  const plan = resolveRunPlan(selection)
   const runManifest = await readRunManifest(path.join(screenshotDirectory, 'run-manifest.json'))
-  if (runManifest.profile !== plan.name) {
-    throw new Error(`Run manifest profile ${runManifest.profile} does not match ${plan.name}`)
+  if (runManifest.selection.join(',') !== plan.selection.join(',')) {
+    throw new Error(
+      `Run manifest selection ${runManifest.selection.join(',')} does not match ${plan.selection.join(',')}`
+    )
   }
 
   const verifiedArtifacts = await Promise.all(
@@ -178,21 +234,38 @@ export async function publishToS3({
         dimensions: { width: originalWidth, height: originalHeight },
         label: 'notification image',
       })
-      const compactBuffer = await createImageVariant(buffer, {
-        dimensions: definition.compactImage,
-        label: 'compact image',
-        resize: true,
-        maximumBytes: compactImageMaximumBytes,
-      })
+      const platformImageVariants = await createPlatformImageVariants(buffer)
+      const platformImages = Object.fromEntries(
+        Object.entries(platformImageVariants).map(
+          ([platformName, { definition: imageDefinition, buffer: platformBuffer }]) => {
+            const platformSha256 = sha256(platformBuffer)
+            const platformImageKey = objectKey(
+              configuration,
+              publicationImageRelativeKey(
+                imageDefinition.name,
+                platformSha256,
+                definition.outputFilename
+              )
+            )
+            return [
+              platformName,
+              {
+                buffer: platformBuffer,
+                key: platformImageKey,
+                url: publicObjectUrl(configuration, platformImageKey),
+                width: imageDefinition.dimensions.width,
+                height: imageDefinition.dimensions.height,
+                bytes: platformBuffer.byteLength,
+                sha256: platformSha256,
+              },
+            ]
+          }
+        )
+      )
       const notificationSha256 = sha256(notificationBuffer)
-      const compactSha256 = sha256(compactBuffer)
       const notificationImageKey = objectKey(
         configuration,
         publicationImageRelativeKey('notificationImage', notificationSha256, definition.outputFilename)
-      )
-      const compactImageKey = objectKey(
-        configuration,
-        publicationImageRelativeKey('compactImage', compactSha256, definition.outputFilename)
       )
       const originalImageKey = objectKey(
         configuration,
@@ -209,15 +282,7 @@ export async function publishToS3({
           bytes: notificationBuffer.byteLength,
           sha256: notificationSha256,
         },
-        compactImage: {
-          buffer: compactBuffer,
-          key: compactImageKey,
-          url: publicObjectUrl(configuration, compactImageKey),
-          width: definition.compactImage.width,
-          height: definition.compactImage.height,
-          bytes: compactBuffer.byteLength,
-          sha256: compactSha256,
-        },
+        platformImages,
         originalImage: {
           buffer,
           key: originalImageKey,
@@ -246,7 +311,7 @@ export async function publishToS3({
   const s3Client = client || createS3Client(configuration)
   try {
     await Promise.all([
-      ...preparedArtifacts.flatMap(({ notificationImage, compactImage, originalImage }) => [
+      ...preparedArtifacts.flatMap(({ notificationImage, platformImages, originalImage }) => [
         uploadObject(s3Client, configuration, {
           key: originalImage.key,
           buffer: originalImage.buffer,
@@ -256,11 +321,13 @@ export async function publishToS3({
           buffer: notificationImage.buffer,
           sourceSha256: originalImage.sha256,
         }),
-        uploadObject(s3Client, configuration, {
-          key: compactImage.key,
-          buffer: compactImage.buffer,
-          sourceSha256: originalImage.sha256,
-        }),
+        ...Object.values(platformImages).map((platformImage) =>
+          uploadObject(s3Client, configuration, {
+            key: platformImage.key,
+            buffer: platformImage.buffer,
+            sourceSha256: originalImage.sha256,
+          })
+        ),
       ]),
       ...preparedBrandingIcons.map((icon) => ensureBrandingObject(s3Client, configuration, icon)),
     ])
@@ -272,9 +339,9 @@ export async function publishToS3({
 
   return writePublicationManifest(
     {
-      version: 4,
+      version: 6,
       runManifestVersion: runManifest.version,
-      profile: plan.name,
+      selection: plan.selection,
       renderTime: runManifest.renderTime,
       timeZone: runManifest.timeZone,
       locale: runManifest.locale,
@@ -292,10 +359,15 @@ export async function publishToS3({
           )
         ),
       },
-      artifacts: preparedArtifacts.map(({ name, notificationImage, compactImage, originalImage }) => ({
+      artifacts: preparedArtifacts.map(({ name, notificationImage, platformImages, originalImage }) => ({
         name,
         notificationImage: publishedImageManifest(notificationImage),
-        compactImage: publishedImageManifest(compactImage),
+        platformImages: Object.fromEntries(
+          Object.entries(platformImages).map(([platformName, image]) => [
+            platformName,
+            publishedImageManifest(image),
+          ])
+        ),
         originalImage: publishedImageManifest(originalImage),
       })),
     },

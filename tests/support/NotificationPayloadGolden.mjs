@@ -3,12 +3,10 @@ import { createBotContext } from '../../bot/notification/BotContext.mjs'
 import { createNotification } from '../../bot/notification/Notification.mjs'
 import { composeNotification } from '../../bot/notification/NotificationComposer.mjs'
 import { getChannelAdapter } from '../../bot/notification/channels/index.mjs'
-import { listRunProfiles } from '../../bot/run/RunPlan.mjs'
+import { listNotificationDefinitions } from '../../bot/run/RunPlan.mjs'
 import { createPublicationManifestFixture } from './PublicationManifestFixture.mjs'
 
-const notificationIds = Object.freeze([
-  ...new Set(listRunProfiles().flatMap((profile) => profile.notifications)),
-])
+const notificationIds = Object.freeze(listNotificationDefinitions().map(({ name }) => name))
 const validImageMetadata = Object.freeze({ format: 'png', width: 1024, height: 576, bytes: 800_000 })
 
 const platformCases = Object.freeze([
@@ -82,11 +80,19 @@ const escapingNotification = createNotification({
     width: 2400,
     height: 1350,
     aspectRatio: 2400 / 1350,
-    compact: {
-      url: 'https://cdn.example.com/escaping-compact.png',
-      width: 1024,
-      height: 576,
-      aspectRatio: 1024 / 576,
+    variants: {
+      line: {
+        url: 'https://cdn.example.com/escaping-line.png',
+        width: 1024,
+        height: 576,
+        aspectRatio: 1024 / 576,
+      },
+      whatsapp: {
+        url: 'https://cdn.example.com/escaping-whatsapp.png',
+        width: 1024,
+        height: 576,
+        aspectRatio: 1024 / 576,
+      },
     },
   },
   sections: [
@@ -138,7 +144,7 @@ export async function createNotificationPayloadGolden() {
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-29T19:00:00Z'),
   })
-  const publicationManifest = createPublicationManifestFixture('all')
+  const publicationManifest = createPublicationManifestFixture()
   const notifications = [
     ...notificationIds.map((notificationId) =>
       composeNotification(notificationId, context, { publicationManifest })

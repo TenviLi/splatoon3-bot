@@ -27,11 +27,19 @@ const notification = createNotification({
     width: 2400,
     height: 1350,
     aspectRatio: 2400 / 1350,
-    compact: {
-      url: 'https://example.com/schedules-compact.png',
-      width: 1024,
-      height: 576,
-      aspectRatio: 1024 / 576,
+    variants: {
+      line: {
+        url: 'https://example.com/schedules-line.png',
+        width: 1024,
+        height: 576,
+        aspectRatio: 1024 / 576,
+      },
+      whatsapp: {
+        url: 'https://example.com/schedules-whatsapp.png',
+        width: 1024,
+        height: 576,
+        aspectRatio: 1024 / 576,
+      },
     },
   },
   sections: [{ title: '占地对战', text: '鱼肉碎金属·烟管鱼市场', listItems: ['斯普拉射击枪'] }],
@@ -50,11 +58,19 @@ const denseNotification = createNotification({
     width: 2400,
     height: 1350,
     aspectRatio: 2400 / 1350,
-    compact: {
-      url: 'https://example.com/schedules-compact.png',
-      width: 1024,
-      height: 576,
-      aspectRatio: 1024 / 576,
+    variants: {
+      line: {
+        url: 'https://example.com/schedules-line.png',
+        width: 1024,
+        height: 576,
+        aspectRatio: 1024 / 576,
+      },
+      whatsapp: {
+        url: 'https://example.com/schedules-whatsapp.png',
+        width: 1024,
+        height: 576,
+        aspectRatio: 1024 / 576,
+      },
     },
   },
   sections: Array.from({ length: 30 }, (_, index) => ({
@@ -541,7 +557,7 @@ test('LINE uses an uncropped Flex bubble and a stable retry key', async () => {
   assert.equal(requestOptions.headers.Authorization, 'Bearer channel-access-token')
   assert.equal(requestOptions.headers['X-Line-Retry-Key'], expectedRetryUuid)
   assert.equal(bubble.header.backgroundColor, '#FF5A36')
-  assert.equal(bubble.hero.url, lineNotification.image.compact.url)
+  assert.equal(bubble.hero.url, lineNotification.image.variants.line.url)
   assert.equal(bubble.hero.aspectMode, 'fit')
   assert.equal(bubble.hero.action.type, 'uri')
   assert.equal(bubble.footer.contents[0].action.uri, notification.action.url)
@@ -697,7 +713,10 @@ test('WhatsApp uses the approved media-template contract', async () => {
   assert.match(requestedUrl, /graph\.facebook\.com\/v25\.0\/123456789012345\/messages$/)
   assert.equal(requestOptions.headers.Authorization, 'Bearer EAA-token')
   assert.equal(payload.type, 'template')
-  assert.equal(payload.template.components[0].parameters[0].image.link, notification.image.compact.url)
+  assert.equal(
+    payload.template.components[0].parameters[0].image.link,
+    notification.image.variants.whatsapp.url
+  )
   assert.deepEqual(
     payload.template.components[1].parameters.map(({ parameter_name }) => parameter_name),
     ['title', 'context', 'details']

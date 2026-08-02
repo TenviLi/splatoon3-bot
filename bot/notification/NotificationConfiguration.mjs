@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { parseYamlEnvironment } from '../config/YamlEnvironment.mjs'
-import { getNotificationDefinition, getRunPlan } from '../run/RunPlan.mjs'
+import { getNotificationDefinition, resolveRunPlan } from '../run/RunPlan.mjs'
 import { getChannelAdapter, resolveConfiguredNotificationChannels } from './channels/index.mjs'
 
 const notificationSelectionSchema = z
@@ -87,34 +87,35 @@ function prepareChannel(plan, channel, rawConfig) {
   })
 }
 
-function requireSelectedChannelDeliveries(preparedChannel, profileName) {
+function requireSelectedChannelDeliveries(preparedChannel, plan) {
   if (preparedChannel.status === 'skipped') {
     throw new Error(
-      `No ${preparedChannel.channelName} Notification Targets select ${profileName} Notifications`
+      `No ${preparedChannel.channelName} Notification Targets select ${plan.label} Notifications`
     )
   }
   return preparedChannel
 }
 
-export function prepareNotificationChannelConfiguration({ profileName, channelName, rawConfig }) {
+export function prepareNotificationChannelConfiguration({ selection, channelName, rawConfig }) {
+  const plan = resolveRunPlan(selection)
   return requireSelectedChannelDeliveries(
-    prepareChannel(getRunPlan(profileName), getChannelAdapter(channelName), rawConfig),
-    profileName
+    prepareChannel(plan, getChannelAdapter(channelName), rawConfig),
+    plan
   )
 }
 
 export function prepareConfiguredNotificationChannels({
-  profileName,
+  selection,
   channelName,
   environment = process.env,
 }) {
-  const plan = getRunPlan(profileName)
+  const plan = resolveRunPlan(selection)
   const configuredChannels = resolveConfiguredNotificationChannels({ environment, channelName })
   const channels = configuredChannels.map(({ channel, rawConfig }) => {
     try {
       const preparedChannel = prepareChannel(plan, channel, rawConfig)
       return channelName
-        ? requireSelectedChannelDeliveries(preparedChannel, profileName)
+        ? requireSelectedChannelDeliveries(preparedChannel, plan)
         : preparedChannel
     } catch (error) {
       return Object.freeze({

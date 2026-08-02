@@ -1235,7 +1235,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/schedules.png",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/schedules.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1342,7 +1342,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/salmon-run.png",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/salmon-run.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1470,7 +1470,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-dailydrop.png",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-dailydrop.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1627,7 +1627,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-regular.png",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-regular.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1725,7 +1725,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://cdn.example.com/escaping-compact.png",
+              "url": "https://cdn.example.com/escaping-line.png",
               "size": "full",
               "aspectRatio": "16:9",
               "aspectMode": "fit",
@@ -1848,7 +1848,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/schedules.png"
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/schedules.png"
                 }
               }
             ]
@@ -1905,7 +1905,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/salmon-run.png"
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/salmon-run.png"
                 }
               }
             ]
@@ -1962,7 +1962,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-dailydrop.png"
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/gear-dailydrop.png"
                 }
               }
             ]
@@ -2019,7 +2019,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/compact-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-regular.png"
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/gear-regular.png"
                 }
               }
             ]
@@ -2076,7 +2076,7 @@
               {
                 "type": "image",
                 "image": {
-                  "link": "https://cdn.example.com/escaping-compact.png"
+                  "link": "https://cdn.example.com/escaping-whatsapp.png"
                 }
               }
             ]

@@ -3,17 +3,18 @@ name: Notification Channel smoke test
 on:
   workflow_dispatch:
     inputs:
-      profile:
-        description: Run Profile used for the smoke notification
-        default: schedules
-        required: true
-        type: choice
-        options:
-          - schedules
-          - salmon-run
-          - gear
-          - salmon-run-and-gear
-          - all
+      schedules:
+        description: Include Schedules
+        type: boolean
+        default: true
+      salmon_run:
+        description: Include Salmon Run
+        type: boolean
+        default: false
+      gear:
+        description: Include Gear (Daily Drop + Regular)
+        type: boolean
+        default: false
       channel:
         description: Notification Channel to test
         default: wecom
@@ -37,7 +38,9 @@ jobs:
   smoke:
     uses: ./.github/workflows/bot-reusable.yml
     with:
-      profile: ${{ inputs.profile }}
+      schedules: ${{ inputs.schedules }}
+      salmon_run: ${{ inputs.salmon_run }}
+      gear: ${{ inputs.gear }}
       notification_channel: ${{ inputs.channel }}
     secrets:
       S3_CONFIG: ${{ secrets.S3_CONFIG }}

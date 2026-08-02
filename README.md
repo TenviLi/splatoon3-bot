@@ -74,7 +74,7 @@ Nine adapters are included: **WeCom, Discord, Telegram, QQ, Feishu, DingTalk, Wh
   </tr>
 </table>
 
-These README previews use `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived screenshot and the primary notification image. LINE and WhatsApp alone receive an additional `1024×576` compatibility copy for their platform limits.
+These README previews use `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived screenshot and the primary notification image. LINE and WhatsApp receive separate `1024×576` variants so each adapter can enforce its own image budget without reducing every other Channel's quality.
 
 ## Quick Start
 
@@ -100,7 +100,7 @@ Before starting, prepare a GitHub account, one S3-compatible bucket with a publi
 
    Save it as the Repository Secret `BOT_DISCORD_CONFIG`. Follow Discord's [webhook setup guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks), or choose another platform from [Notification Channels](#notification-channels).
 4. Because the project default is `zh-CN`, create `BOT_LOCALE=en-US`. Set `BOT_TIME_ZONE` to your [IANA time zone](https://www.iana.org/time-zones); add `BOT_SCREENSHOT_RESOLUTION` or another [Repository Variable](#repository-variables) only when its built-in default is unsuitable.
-5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with profile `all`. This checks every configured value without uploading an image or sending a message.
+5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with all three Content Group checkboxes selected. This checks every configured value without uploading an image or sending a message.
 6. Run **Notification Channel smoke test** for the configured platform. It performs one real upload and sends one real message, confirming the complete path before scheduled delivery begins.
 
 > [!IMPORTANT]
@@ -127,9 +127,9 @@ Every scheduled or manual invocation uses the same two-stage Bot Run:
 
 | Workflow | When it runs | What it sends |
 | --- | --- | --- |
-| `bot-schedules.yml` | Every even UTC hour except `02:00` and `10:00` | `schedules` profile |
-| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | `all` profile |
-| `bot-manual.yml` | On demand | Any selected profile |
+| `bot-schedules.yml` | Every even UTC hour except `02:00` and `10:00` | Schedules Content Group |
+| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | All three Content Groups |
+| `bot-manual.yml` | On demand | Any checkbox combination |
 | `configuration-check.yml` | On demand | Checks configuration only; never uploads or sends |
 | `notification-smoke.yml` | On demand | Publishes current output and sends one real platform test |
 
@@ -139,18 +139,18 @@ Together, scheduled workflows deliver schedules exactly once every two hours. Of
 
 Edit the `on.schedule` cron entries in `.github/workflows/bot-schedules.yml` and `.github/workflows/bot-salmon-run.yml` on your installation's default branch. GitHub evaluates these expressions in UTC. `BOT_TIME_ZONE` changes the time shown in screenshots and messages; it does not change when Actions starts.
 
-GitHub does not allow Repository Variables or Secrets inside `on.schedule.cron`, so there is no scheduling Variable. Use GitHub's official [`on.schedule` syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule) and [crontab.guru](https://crontab.guru/) to prepare an expression. The `all` profile includes schedules; do not run it at the same time as `schedules` unless duplicate schedule messages are intentional.
+GitHub does not allow Repository Variables or Secrets inside `on.schedule.cron`, so there is no scheduling Variable. Use GitHub's official [`on.schedule` syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule) and [crontab.guru](https://crontab.guru/) to prepare an expression. The daily workflow also selects Schedules; do not overlap it with the schedules-only workflow unless duplicate messages are intentional.
 
 <details>
-<summary><strong>Run Profiles</strong></summary>
+<summary><strong>Run Content Groups</strong></summary>
 
-| Profile | Screenshot Artifacts | Notifications |
+The manual, smoke-test, and configuration-check forms expose these as independent native GitHub checkboxes. Select any non-empty combination; one reusable Bot Run resolves the ordered Run Plan and performs the work once.
+
+| Content Group | Screenshot Artifacts | Notifications |
 | --- | --- | --- |
 | `schedules` | `schedules.png` | Schedules |
 | `salmon-run` | `salmon-run.png` | Salmon Run |
 | `gear` | Both gear images | Both gear notifications |
-| `salmon-run-and-gear` | Salmon Run and both gear images | Salmon Run, then both gear notifications |
-| `all` | All four images | All four notifications |
 
 </details>
 
@@ -211,7 +211,7 @@ Resolution presets retain the same CSS layout and use the corresponding device s
 | `2400x1350` | 2× | Recommended balance of detail and size |
 | `3840x2160` | 3.2× | 4K originals; larger artifacts and uploads |
 
-The selected dimensions are preserved end to end for the Screenshot Artifact, `notification-images/` object, and primary message image. LINE and WhatsApp receive a derived `1024×576` compatibility image because of their provider limits; their action button still opens the selected-resolution primary image.
+The selected dimensions are preserved end to end for the Screenshot Artifact, `notification-images/` object, and primary message image. LINE receives a dedicated `1024×576` image capped at `1 MB`; that is the largest uncropped 16:9 rectangle inside LINE's `1024×1024` Flex-image limit. WhatsApp receives its own `1024×576` image under its `5 MB` media limit. Both action buttons still open the selected-resolution primary image.
 
 Built-in schedules, Salmon Run, and gear icons are rendered from repository assets and published under content-addressed `branding-icons/` keys. No external icon provisioning is required.
 
@@ -285,7 +285,8 @@ The optional `keyPrefix` comes before each path below:
 | Object prefix | Contents | Used for |
 | --- | --- | --- |
 | `notification-images/<sha256>/` | Optimized primary images at the exact `BOT_SCREENSHOT_RESOLUTION` dimensions | Embedded by WeCom, Discord, Telegram, QQ, Feishu, DingTalk, and Slack; also opened by notification action buttons. |
-| `compact-images/<sha256>/` | Derived `1024×576` compatibility images | Embedded only by LINE and WhatsApp so their stricter image limits do not reduce every other Channel's image quality. |
+| `line-images/<sha256>/` | LINE-specific `1024×576` PNG, adaptively palette-compressed only when needed | Embedded by LINE. It stays uncropped, below the `1024×1024` hard limit, and at or below LINE's recommended `1 MB` target. |
+| `whatsapp-images/<sha256>/` | WhatsApp-specific `1024×576` PNG | Used as the approved media-template header and kept below WhatsApp's `5 MB` image limit. |
 | `originals/<sha256>/` | Unmodified Screenshot Artifact bytes at the selected resolution | High-resolution archives and Publication Manifest verification. These may use a shorter lifecycle when raw artifact history is unnecessary. |
 | `branding-icons/<sha256>/` | Small built-in schedules, Salmon Run, and gear icons | Native message-card headers and avatars. They are uploaded automatically and safely reused. |
 
@@ -295,7 +296,7 @@ The optional `keyPrefix` comes before each path below:
 See the [complete S3 operator guide](./docs/operator-setup-links.md#s3-compatible-publication) for provider prerequisites and least-privilege guidance.
 
 > [!TIP]
-> Each changed image creates a new version instead of overwriting an old URL. Configure lifecycle rules by prefix: retain `notification-images/` and `compact-images/` for the lifetime of historical messages, retain `originals/` only as long as raw archives are useful, and normally keep the small reused `branding-icons/` objects.
+> Each changed image creates a new version instead of overwriting an old URL. Configure lifecycle rules by prefix: retain `notification-images/`, `line-images/`, and `whatsapp-images/` for the lifetime of historical messages, retain `originals/` only as long as raw archives are useful, and normally keep the small reused `branding-icons/` objects.
 
 ## Notification Channels
 
@@ -331,6 +332,208 @@ Field names are case-sensitive. Every Target also accepts the optional `notifica
 | `BOT_LINE_CONFIG` | `name`, `channelAccessToken`, `targetType` (`user`, `group`, or `room`), `targetId` | `notificationDisabled` |
 | `BOT_SLACK_CONFIG` | `name`, `webhookUrl` | — |
 
+Open a platform below for a copy-ready Secret value. Replace every placeholder before saving it in **Settings → Secrets and variables → Actions**.
+
+<details>
+<summary><strong>WeCom · BOT_WECOM_CONFIG</strong> — Template Card and per-topic routing</summary>
+
+One Secret can route schedules, Salmon Run, and gear to different group robots:
+
+```yaml
+- name: battle-schedules
+  notifications: [schedules]
+  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_SCHEDULES_KEY
+- name: daily-updates
+  notifications: [salmon-run, gear-dailydrop, gear-regular]
+  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_UPDATES_KEY
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique, human-readable Target name used in validation and delivery reports. |
+| `notifications` | No | Notification IDs routed to this Target; omit it to receive every Notification in the active Run Selection. |
+| `webhookUrl` | Yes | Complete group-robot webhook URL copied from WeCom; the key inside it is a Secret. |
+
+</details>
+
+<details>
+<summary><strong>Discord · BOT_DISCORD_CONFIG</strong> — Image-rich Embed</summary>
+
+The webhook determines the destination channel. Presentation overrides are optional:
+
+```yaml
+- name: splatoon-community
+  webhookUrl: https://discord.com/api/webhooks/123456789012345678/example-token
+  username: Splatoon Bot
+  avatarUrl: https://splatoon.example.com/bot-avatar.png
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique Target name used in validation and delivery reports. |
+| `notifications` | No | Optional Notification subset for this webhook. |
+| `webhookUrl` | Yes | Complete Discord Incoming Webhook URL; it contains the webhook credential. |
+| `username` | No | Display name override for messages sent by this webhook. |
+| `avatarUrl` | No | Public HTTPS image used as the webhook avatar. |
+
+</details>
+
+<details>
+<summary><strong>Telegram · BOT_TELEGRAM_CONFIG</strong> — Photo, HTML caption, and URL button</summary>
+
+The bot must already be allowed to message the selected chat. Forum topics use `messageThreadId`:
+
+```yaml
+- name: community-topic
+  botToken: "123456:example_bot_token"
+  chatId: "-1001234567890"
+  messageThreadId: 42
+  disableNotification: false
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique Target name used in validation and delivery reports. |
+| `notifications` | No | Optional Notification subset for this chat or topic. |
+| `botToken` | Yes | Token issued by BotFather; always store it only in the Repository Secret. |
+| `chatId` | Yes | Destination user, group, supergroup, or channel ID; quote negative IDs in YAML. |
+| `messageThreadId` | No | Positive forum-topic ID inside a supergroup. |
+| `disableNotification` | No | `true` sends silently; default platform behavior applies when omitted. |
+
+</details>
+
+<details>
+<summary><strong>QQ · BOT_QQ_CONFIG</strong> — Group or direct-chat Markdown</summary>
+
+This scheduled adapter supports QQ groups and direct chats. Channel Targets are rejected because QQ requires a separately maintained online Gateway connection:
+
+```yaml
+- name: official-group
+  appId: "102000000"
+  clientSecret: "example-client-secret"
+  targetType: group
+  targetId: GROUP_OPENID
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique Target name used in validation and delivery reports. |
+| `notifications` | No | Optional Notification subset for this group or user. |
+| `appId` | Yes | AppID of the QQ official bot. |
+| `clientSecret` | Yes | Bot ClientSecret used to obtain an access token. |
+| `targetType` | Yes | `group` for a group OpenID or `user` for a user OpenID. |
+| `targetId` | Yes | Group or user OpenID obtained from an official interaction event. |
+
+</details>
+
+<details>
+<summary><strong>Feishu / Lark · BOT_FEISHU_CONFIG</strong> — Card Schema 2.0</summary>
+
+When signature verification is enabled for the custom bot, include its signing `secret`:
+
+```yaml
+- name: team-group
+  webhookUrl: https://open.feishu.cn/open-apis/bot/v2/hook/REPLACE_WITH_HOOK_ID
+  secret: "example-signing-secret"
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique Target name used in validation and delivery reports. |
+| `notifications` | No | Optional Notification subset for this group. |
+| `webhookUrl` | Yes | Complete custom-bot webhook URL copied from Feishu or Lark. |
+| `secret` | No | Signing secret configured in the custom bot's security settings. |
+
+</details>
+
+<details>
+<summary><strong>DingTalk · BOT_DINGTALK_CONFIG</strong> — ActionCard</summary>
+
+Signature-based security is recommended; keyword-only rules may reject generated messages:
+
+```yaml
+- name: team-group
+  webhookUrl: https://oapi.dingtalk.com/robot/send?access_token=example-access-token
+  secret: "SECexample-signing-secret"
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique Target name used in validation and delivery reports. |
+| `notifications` | No | Optional Notification subset for this group. |
+| `webhookUrl` | Yes | Complete custom-robot webhook URL, including its access token. |
+| `secret` | No | `SEC...` signing secret when signature verification is enabled. |
+
+</details>
+
+<details>
+<summary><strong>WhatsApp · BOT_WHATSAPP_CONFIG</strong> — Approved media template</summary>
+
+Create and approve a template with an `IMAGE` header, named body parameters, and a dynamic URL button whose prefix matches `S3_CONFIG.publicBaseUrl` plus `keyPrefix`:
+
+```yaml
+- name: personal-updates
+  accessToken: "REPLACE_WITH_ACCESS_TOKEN"
+  phoneNumberId: "123456789012345"
+  recipientPhoneNumber: "14155550123"
+  templateName: splatoon_notification
+  languageCode: en_US
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique Target name used in validation and delivery reports. |
+| `notifications` | No | Optional Notification subset for this opted-in recipient. |
+| `accessToken` | Yes | Meta Cloud API access token with permission for the WhatsApp Business account. |
+| `phoneNumberId` | Yes | Numeric ID of the registered sending phone number, not the visible phone number. |
+| `recipientPhoneNumber` | Yes | Opted-in recipient in E.164 digits without a leading `+`. |
+| `templateName` | Yes | Approved lowercase template name used for every scheduled message. |
+| `languageCode` | Yes | Exact approved template language code, such as `en_US`. |
+
+</details>
+
+<details>
+<summary><strong>LINE · BOT_LINE_CONFIG</strong> — Flex Message bubble</summary>
+
+The Target must be eligible for push delivery. Its ID prefix must match the selected Target type:
+
+```yaml
+- name: personal-chat
+  channelAccessToken: "example-channel-access-token"
+  targetType: user
+  targetId: U0123456789abcdef0123456789abcdef
+  notificationDisabled: false
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique Target name used in validation and delivery reports. |
+| `notifications` | No | Optional Notification subset for this recipient. |
+| `channelAccessToken` | Yes | Messaging API channel access token issued in LINE Developers. |
+| `targetType` | Yes | `user`, `group`, or `room`. |
+| `targetId` | Yes | Webhook-event source ID; it must begin with `U`, `C`, or `R` for the selected type. |
+| `notificationDisabled` | No | `true` suppresses the user notification where LINE supports it. |
+
+</details>
+
+<details>
+<summary><strong>Slack · BOT_SLACK_CONFIG</strong> — Accessible Block Kit</summary>
+
+Each Incoming Webhook is bound to its Slack app installation and destination channel:
+
+```yaml
+- name: team-channel
+  webhookUrl: https://hooks.slack.com/services/T/B/key
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | Yes | Unique Target name used in validation and delivery reports. |
+| `notifications` | No | Optional Notification subset for this channel. |
+| `webhookUrl` | Yes | Official Slack or Slack Gov Incoming Webhook URL; the URL itself is a credential. |
+
+</details>
+
 The [platform setup guide](./docs/operator-setup-links.md#notification-adapters) explains credential prerequisites, recipient rules, and first-party setup links for every adapter. The [capability audit](./docs/notification-platform-capabilities.md) explains why each platform uses its current native layout.
 
 ## Reliability
@@ -339,8 +542,8 @@ For operators evaluating whether the bot is safe to run unattended:
 
 - Data downloads use retries and timeouts, pass schema validation, and replace the previous snapshot only after the complete new snapshot is valid.
 - Screenshot capture waits for the app, fonts, and local images, then checks language, attribution, dimensions, footer position, and overflow.
-- Run Manifest v4 records exactly what was rendered: locale, resolution, time zone, data identity, filenames, dimensions, and SHA-256 hashes.
-- Publication Manifest v4 records exactly what was uploaded: primary images, compact compatibility images, originals, built-in icons, and public URLs.
+- Run Manifest v5 records the selected Content Groups and exactly what was rendered: locale, resolution, time zone, data identity, filenames, dimensions, and SHA-256 hashes.
+- Publication Manifest v6 records the same Run Selection and exactly what was uploaded: primary images, platform-specific LINE and WhatsApp variants, originals, built-in icons, and public URLs.
 - Configuration preflight reports all independent errors before the first upload and never prints Secret values.
 - Destinations run independently; successful deliveries remain successful even when another destination fails, and failures are summarized at the end.
 - CI scans the complete Git history with a digest-pinned Gitleaks image, then runs syntax, unit, browser, visual, build, workflow-policy, and dependency-audit checks.
@@ -365,10 +568,10 @@ pnpm run verify
 
 | Command | Purpose |
 | --- | --- |
-| `pnpm run bot:doctor <profile> [channel]` | Validate configuration without side effects. |
-| `pnpm run bot:prepare <profile>` | Download, build, render, and write the Run Manifest. |
-| `pnpm run bot:publish <profile>` | Verify and publish through S3. |
-| `pnpm run bot:notify <profile> [channel]` | Deliver configured Channels. |
+| `pnpm run bot:doctor <selection> [channel]` | Validate configuration; use comma-separated Content Groups such as `schedules,gear`. |
+| `pnpm run bot:prepare <selection>` | Download, build, render, and write the Run Manifest. |
+| `pnpm run bot:publish <selection>` | Verify and publish through S3. |
+| `pnpm run bot:notify <selection> [channel]` | Deliver configured Channels. |
 | `pnpm run test:update-golden` | Regenerate all three screenshot locales for the current platform. |
 | `pnpm run verify` | Run the complete focused local verification suite. |
 | `pnpm run verify:actions` | Run Gitleaks and Linux Actions locally through OrbStack and `act`. |

@@ -5,14 +5,14 @@ import {
   inspectBotConfiguration,
 } from './BotPreflight.mjs'
 
-const [profileName, channelName] = process.argv.slice(2)
+const [selection, channelName] = process.argv.slice(2)
 
-if (!profileName) {
-  throw new Error('Usage: node bot/config/index.mjs <run-profile> [notification-channel]')
+if (!selection) {
+  throw new Error('Usage: node bot/config/index.mjs <run-selection> [notification-channel]')
 }
 
 const report = inspectBotConfiguration({
-  profileName,
+  selection,
   channelName: channelName || undefined,
 })
 process.stdout.write(formatBotPreflightReport(report))

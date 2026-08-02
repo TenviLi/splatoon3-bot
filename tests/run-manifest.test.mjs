@@ -7,8 +7,8 @@ import { readRunManifest, validateRunManifest, writeRunManifest } from '../bot/r
 
 function createManifest(overrides = {}) {
   return {
-    version: 4,
-    profile: 'schedules',
+    version: 5,
+    selection: ['schedules'],
     renderTime: Date.parse('2026-07-30T00:00:00Z'),
     timeZone: 'Asia/Shanghai',
     locale: 'zh-CN',
@@ -44,7 +44,7 @@ test('writes and reads a valid Run Manifest atomically', async (context) => {
   assert.deepEqual(await readRunManifest(filename), createManifest())
 })
 
-test('requires exactly the ordered Screenshot Artifacts selected by the Run Profile', () => {
+test('requires exactly the ordered Screenshot Artifacts selected by the Run Selection', () => {
   assert.throws(
     () => validateRunManifest(createManifest({ artifacts: [] })),
     /contains 0 artifacts, expected 1/
@@ -97,6 +97,13 @@ test('requires supported locale, resolution, and artifact geometry', () => {
   )
 })
 
-test('rejects the incompatible Run Manifest version 3 schema', () => {
-  assert.throws(() => validateRunManifest(createManifest({ version: 3 })), /Invalid input/)
+test('rejects the incompatible Run Manifest version 4 schema', () => {
+  assert.throws(() => validateRunManifest(createManifest({ version: 4 })), /Invalid input/)
+})
+
+test('requires canonical Run Selection ordering', () => {
+  assert.throws(
+    () => validateRunManifest(createManifest({ selection: ['gear', 'schedules'] })),
+    /canonical order: schedules,gear/
+  )
 })

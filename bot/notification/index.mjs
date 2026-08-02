@@ -6,12 +6,15 @@ import {
   readPublicationManifest,
 } from '../publish/PublicationManifest.mjs'
 import { readRunManifest } from '../run/RunManifest.mjs'
+import { resolveRunPlan } from '../run/RunPlan.mjs'
 
-const [profileName, channelName] = process.argv.slice(2)
+const [selection, channelName] = process.argv.slice(2)
 
-if (!profileName) {
-  throw new Error('Usage: node bot/notification/index.mjs <run-profile> [notification-channel]')
+if (!selection) {
+  throw new Error('Usage: node bot/notification/index.mjs <run-selection> [notification-channel]')
 }
+
+const plan = resolveRunPlan(selection)
 
 function logReport(report) {
   if (report.channelResults.length === 0) {
@@ -36,7 +39,7 @@ function logReport(report) {
     if (channelResult.status === 'rejected' && channelResult.results.length === 0) {
       console.error(`${channelResult.channelName}: ${channelResult.error.message}`)
     } else if (channelResult.status === 'skipped') {
-      console.log(`${channelResult.channelName}: skipped; no Target selects this Run Profile`)
+      console.log(`${channelResult.channelName}: skipped; no Target selects this Run Selection`)
     } else if (channelResult.status === 'blocked') {
       console.error(`${channelResult.channelName}: blocked before delivery`)
     }
@@ -59,13 +62,15 @@ let report
 let deliveryError
 try {
   const manifest = await readRunManifest()
-  if (manifest.profile !== profileName) {
-    throw new Error(`Run manifest profile ${manifest.profile} does not match ${profileName}`)
+  if (manifest.selection.join(',') !== plan.selection.join(',')) {
+    throw new Error(
+      `Run manifest selection ${manifest.selection.join(',')} does not match ${plan.selection.join(',')}`
+    )
   }
   const publicationManifest = await readPublicationManifest()
   assertPublicationManifestMatchesRun(publicationManifest, manifest)
   report = await deliverConfiguredNotificationChannels({
-    profileName,
+    selection: plan.selection,
     channelName: channelName || undefined,
     publicationManifest,
     now: manifest.renderTime,

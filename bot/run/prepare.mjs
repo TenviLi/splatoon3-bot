@@ -5,16 +5,16 @@ import { resolveScreenshotResolution } from '../config/ScreenshotResolution.mjs'
 import { resolveBotTimeZone } from '../config/BotTimeZone.mjs'
 import { downloadDataSnapshot, loadDataSnapshot } from '../data/DataSnapshot.mjs'
 import { renderScreenshotArtifacts } from '../screenshot/ScreenshotRunner.mjs'
-import { getRunPlan } from './RunPlan.mjs'
+import { resolveRunPlan } from './RunPlan.mjs'
 import { writeRunManifest } from './RunManifest.mjs'
 
-const [profileName] = process.argv.slice(2)
+const [selection] = process.argv.slice(2)
 
-if (!profileName) {
-  throw new Error('Usage: node bot/run/prepare.mjs <run-profile>')
+if (!selection) {
+  throw new Error('Usage: node bot/run/prepare.mjs <run-selection>')
 }
 
-const plan = getRunPlan(profileName)
+const plan = resolveRunPlan(selection)
 const preparationTime = Date.now()
 const timeZone = resolveBotTimeZone()
 const locale = resolveBotLocale()
@@ -39,8 +39,8 @@ const artifacts = await renderScreenshotArtifacts(plan.screenshots, {
   screenshotAttribution,
 })
 const manifest = await writeRunManifest({
-  version: 4,
-  profile: plan.name,
+  version: 5,
+  selection: plan.selection,
   renderTime,
   timeZone,
   locale,
@@ -62,4 +62,4 @@ const manifest = await writeRunManifest({
   })),
 })
 
-console.log(`Prepared ${manifest.profile} with ${manifest.artifacts.length} screenshot artifacts`)
+console.log(`Prepared ${plan.label} with ${manifest.artifacts.length} screenshot artifacts`)

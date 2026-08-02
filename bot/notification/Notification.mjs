@@ -26,7 +26,12 @@ export const notificationSchema = z.object({
   subtitle: z.string().optional(),
   image: imageVariantSchema.extend({
     alt: z.string().min(1),
-    compact: imageVariantSchema,
+    variants: z
+      .object({
+        line: imageVariantSchema,
+        whatsapp: imageVariantSchema,
+      })
+      .strict(),
   }),
   sections: z.array(textBlockSchema).default([]),
   facts: z.array(factSchema).default([]),

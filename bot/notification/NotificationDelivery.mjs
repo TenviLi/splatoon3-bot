@@ -1,5 +1,5 @@
 import { validatePublicationManifest } from '../publish/PublicationManifest.mjs'
-import { getRunPlan } from '../run/RunPlan.mjs'
+import { resolveRunPlan } from '../run/RunPlan.mjs'
 import { createBotContext } from './BotContext.mjs'
 import { composeNotification } from './NotificationComposer.mjs'
 import {
@@ -40,8 +40,10 @@ async function deliverTargetNotifications(channel, target, notifications, option
 
 async function composeRunNotifications(plan, { publicationManifest, snapshotDirectory, now, timeZone }) {
   const publication = validatePublicationManifest(publicationManifest)
-  if (publication.profile !== plan.name) {
-    throw new Error(`Publication manifest profile ${publication.profile} does not match ${plan.name}`)
+  if (publication.selection.join(',') !== plan.selection.join(',')) {
+    throw new Error(
+      `Publication manifest selection ${publication.selection.join(',')} does not match ${plan.selection.join(',')}`
+    )
   }
   const context = await createBotContext({ snapshotDirectory, now, timeZone, locale: publication.locale })
   if (context.snapshotManifestSha256 !== publication.snapshotManifestSha256) {
@@ -103,7 +105,7 @@ async function deliverPreparedNotificationChannel(preparedChannel, notificationR
 }
 
 export async function deliverNotificationChannel({
-  profileName,
+  selection,
   channelName,
   rawConfig,
   publicationManifest,
@@ -112,8 +114,8 @@ export async function deliverNotificationChannel({
   timeZone,
   fetchImpl = fetch,
 }) {
-  const plan = getRunPlan(profileName)
-  const preparedChannel = prepareNotificationChannelConfiguration({ profileName, channelName, rawConfig })
+  const plan = resolveRunPlan(selection)
+  const preparedChannel = prepareNotificationChannelConfiguration({ selection, channelName, rawConfig })
   const notificationRun = await composeRunNotifications(plan, {
     publicationManifest,
     snapshotDirectory,
@@ -124,7 +126,7 @@ export async function deliverNotificationChannel({
 }
 
 export async function deliverConfiguredNotificationChannels({
-  profileName,
+  selection,
   channelName,
   environment = process.env,
   publicationManifest,
@@ -133,7 +135,7 @@ export async function deliverConfiguredNotificationChannels({
   timeZone,
   fetchImpl = fetch,
 }) {
-  const configuration = prepareConfiguredNotificationChannels({ profileName, channelName, environment })
+  const configuration = prepareConfiguredNotificationChannels({ selection, channelName, environment })
   if (configuration.channels.length === 0) {
     return createNotificationDeliveryReport([])
   }

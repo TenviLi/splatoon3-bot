@@ -11,7 +11,9 @@ jobs:
   bot:
     uses: ./.github/workflows/bot-reusable.yml
     with:
-      profile: schedules
+      schedules: true
+      salmon_run: false
+      gear: false
     secrets:
       S3_CONFIG: ${{ secrets.S3_CONFIG }}
       BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}

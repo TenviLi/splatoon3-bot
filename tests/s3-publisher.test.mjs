@@ -30,17 +30,30 @@ async function createBotRun(
     height = 1_350,
     manifestWidth = 2_400,
     manifestHeight = 1_350,
+    noisy = false,
   } = {}
 ) {
   const screenshot = new PNG({ width, height })
+  if (noisy) {
+    let state = 0x9e3779b9
+    for (let offset = 0; offset < screenshot.data.length; offset += 4) {
+      state ^= state << 13
+      state ^= state >>> 17
+      state ^= state << 5
+      screenshot.data[offset] = state & 0xff
+      screenshot.data[offset + 1] = (state >>> 8) & 0xff
+      screenshot.data[offset + 2] = (state >>> 16) & 0xff
+      screenshot.data[offset + 3] = 0xff
+    }
+  }
   const buffer = PNG.sync.write(screenshot)
   await fs.mkdir(directory, { recursive: true })
   await fs.writeFile(path.join(directory, 'schedules.png'), buffer)
   await fs.writeFile(path.join(directory, 'unselected.png'), 'must not be published')
   await writeRunManifest(
     {
-      version: 4,
-      profile: 'schedules',
+      version: 5,
+      selection: ['schedules'],
       renderTime: Date.parse('2026-07-30T00:00:00Z'),
       timeZone: 'Asia/Shanghai',
       locale: 'zh-CN',
@@ -101,7 +114,7 @@ test('publishes the configured resolution as the primary notification image', as
   const originalBuffer = await createBotRun(screenshotDirectory)
 
   const manifest = await publishToS3({
-    profileName: 'schedules',
+    selection: 'schedules',
     configuration,
     screenshotDirectory,
     client: {
@@ -120,11 +133,12 @@ test('publishes the configured resolution as the primary notification image', as
   const inspections = commands.filter((command) => command.constructor.name === 'HeadObjectCommand')
   const originalUpload = uploads.find(({ Key }) => Key.includes('/originals/'))
   const notificationUpload = uploads.find(({ Key }) => Key.includes('/notification-images/'))
-  const compactUpload = uploads.find(({ Key }) => Key.includes('/compact-images/'))
+  const lineUpload = uploads.find(({ Key }) => Key.includes('/line-images/'))
+  const whatsAppUpload = uploads.find(({ Key }) => Key.includes('/whatsapp-images/'))
   const brandingUploads = uploads.filter(({ Key }) => Key.includes('/branding-icons/'))
   assert.equal(inspections.length, 3)
   assert.equal(brandingUploads.length, 3)
-  assert.equal(uploads.length, 6)
+  assert.equal(uploads.length, 7)
   assert.ok(
     uploads.some(
       ({ Key }) => Key === `bot/production/notification-images/${sha256(notificationUpload.Body)}/schedules.png`
@@ -132,7 +146,13 @@ test('publishes the configured resolution as the primary notification image', as
   )
   assert.ok(
     uploads.some(
-      ({ Key }) => Key === `bot/production/compact-images/${sha256(compactUpload.Body)}/schedules.png`
+      ({ Key }) => Key === `bot/production/line-images/${sha256(lineUpload.Body)}/schedules.png`
+    )
+  )
+  assert.ok(
+    uploads.some(
+      ({ Key }) =>
+        Key === `bot/production/whatsapp-images/${sha256(whatsAppUpload.Body)}/schedules.png`
     )
   )
   assert.ok(
@@ -146,15 +166,20 @@ test('publishes the configured resolution as the primary notification image', as
   assert.equal(metadata.format, 'png')
   assert.equal(metadata.width, 2_400)
   assert.equal(metadata.height, 1_350)
-  assert.equal(compactUpload.ContentType, 'image/png')
-  assert.equal(compactUpload.Metadata['source-sha256'], sha256(originalBuffer))
-  const compactMetadata = await sharp(compactUpload.Body).metadata()
-  assert.equal(compactMetadata.format, 'png')
-  assert.equal(compactMetadata.width, 1_024)
-  assert.equal(compactMetadata.height, 576)
+  for (const platformUpload of [lineUpload, whatsAppUpload]) {
+    assert.equal(platformUpload.ContentType, 'image/png')
+    assert.equal(platformUpload.Metadata['source-sha256'], sha256(originalBuffer))
+    const platformMetadata = await sharp(platformUpload.Body).metadata()
+    assert.equal(platformMetadata.format, 'png')
+    assert.equal(platformMetadata.width, 1_024)
+    assert.equal(platformMetadata.height, 576)
+    assert.equal(platformMetadata.isPalette, false)
+  }
+  assert.ok(lineUpload.Body.byteLength <= 1_000_000)
   assert.equal(manifest.assetBaseUrl, 'https://cdn.example.com/assets/bot/production')
-  assert.equal(manifest.version, 4)
-  assert.equal(manifest.runManifestVersion, 4)
+  assert.equal(manifest.version, 6)
+  assert.equal(manifest.runManifestVersion, 5)
+  assert.deepEqual(manifest.selection, ['schedules'])
   assert.equal(manifest.timeZone, 'Asia/Shanghai')
   assert.equal(manifest.locale, 'zh-CN')
   assert.equal(manifest.resolution, '2400x1350')
@@ -165,8 +190,12 @@ test('publishes the configured resolution as the primary notification image', as
     `https://cdn.example.com/assets/bot/production/notification-images/${sha256(notificationUpload.Body)}/schedules.png`
   )
   assert.equal(
-    manifest.artifacts[0].compactImage.url,
-    `https://cdn.example.com/assets/bot/production/compact-images/${sha256(compactUpload.Body)}/schedules.png`
+    manifest.artifacts[0].platformImages.line.url,
+    `https://cdn.example.com/assets/bot/production/line-images/${sha256(lineUpload.Body)}/schedules.png`
+  )
+  assert.equal(
+    manifest.artifacts[0].platformImages.whatsapp.url,
+    `https://cdn.example.com/assets/bot/production/whatsapp-images/${sha256(whatsAppUpload.Body)}/schedules.png`
   )
   assert.equal(
     manifest.artifacts[0].originalImage.url,
@@ -250,6 +279,10 @@ test('publishes the configured resolution as the primary notification image', as
     '/unexpected/notification-images/'
   )
   assert.throws(() => validatePublicationManifest(nestedUrlManifest), /must exactly match assetBaseUrl/)
+
+  const oversizedLineManifest = structuredClone(manifest)
+  oversizedLineManifest.artifacts[0].platformImages.line.bytes = 1_000_001
+  assert.throws(() => validatePublicationManifest(oversizedLineManifest), /line image.*1 MB limit/)
 })
 
 test('preserves every screenshot resolution preset in primary notification images', async (context) => {
@@ -268,7 +301,7 @@ test('preserves every screenshot resolution preset in primary notification image
     })
 
     const manifest = await publishToS3({
-      profileName: 'schedules',
+      selection: 'schedules',
       configuration,
       screenshotDirectory,
       client: {
@@ -284,9 +317,11 @@ test('preserves every screenshot resolution preset in primary notification image
       .filter((command) => command.constructor.name === 'PutObjectCommand')
       .map(({ input }) => input)
     const primaryUpload = uploads.find(({ Key }) => Key.includes('/notification-images/'))
-    const compactUpload = uploads.find(({ Key }) => Key.includes('/compact-images/'))
+    const lineUpload = uploads.find(({ Key }) => Key.includes('/line-images/'))
+    const whatsAppUpload = uploads.find(({ Key }) => Key.includes('/whatsapp-images/'))
     const primaryMetadata = await sharp(primaryUpload.Body).metadata()
-    const compactMetadata = await sharp(compactUpload.Body).metadata()
+    const lineMetadata = await sharp(lineUpload.Body).metadata()
+    const whatsAppMetadata = await sharp(whatsAppUpload.Body).metadata()
 
     assert.deepEqual(
       { width: primaryMetadata.width, height: primaryMetadata.height },
@@ -302,11 +337,61 @@ test('preserves every screenshot resolution preset in primary notification image
       resolution.name
     )
     assert.deepEqual(
-      { width: compactMetadata.width, height: compactMetadata.height },
+      { width: lineMetadata.width, height: lineMetadata.height },
       { width: 1_024, height: 576 },
       resolution.name
     )
+    assert.deepEqual(
+      { width: whatsAppMetadata.width, height: whatsAppMetadata.height },
+      { width: 1_024, height: 576 },
+      resolution.name
+    )
+    assert.ok(lineUpload.Body.byteLength <= 1_000_000, resolution.name)
   }
+})
+
+test('keeps the LINE variant below the recommended one MB target', async (context) => {
+  const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-s3-line-image-'))
+  const screenshotDirectory = path.join(temporaryDirectory, 'screenshots')
+  const commands = []
+  context.after(() => fs.rm(temporaryDirectory, { recursive: true, force: true }))
+  await createBotRun(screenshotDirectory, {
+    resolution: '1200x675',
+    width: 1_200,
+    height: 675,
+    manifestWidth: 1_200,
+    manifestHeight: 675,
+    noisy: true,
+  })
+
+  const manifest = await publishToS3({
+    selection: 'schedules',
+    configuration,
+    screenshotDirectory,
+    client: {
+      send: async (command) => {
+        commands.push(command)
+        if (command.constructor.name === 'HeadObjectCommand') {
+          throw missingObjectError()
+        }
+      },
+    },
+  })
+  const lineUpload = commands
+    .filter((command) => command.constructor.name === 'PutObjectCommand')
+    .map(({ input }) => input)
+    .find(({ Key }) => Key.includes('/line-images/'))
+  const whatsAppUpload = commands
+    .filter((command) => command.constructor.name === 'PutObjectCommand')
+    .map(({ input }) => input)
+    .find(({ Key }) => Key.includes('/whatsapp-images/'))
+  const metadata = await sharp(lineUpload.Body).metadata()
+
+  assert.deepEqual({ width: metadata.width, height: metadata.height }, { width: 1_024, height: 576 })
+  assert.equal(metadata.isPalette, true)
+  assert.ok(lineUpload.Body.byteLength <= 1_000_000)
+  assert.ok(lineUpload.Body.byteLength < whatsAppUpload.Body.byteLength)
+  assert.equal(manifest.artifacts[0].platformImages.line.bytes, lineUpload.Body.byteLength)
 })
 
 test('reuses matching content-addressed branding icons already stored in S3', async (context) => {
@@ -324,7 +409,7 @@ test('reuses matching content-addressed branding icons already stored in S3', as
   await createBotRun(screenshotDirectory)
 
   await publishToS3({
-    profileName: 'schedules',
+    selection: 'schedules',
     configuration,
     screenshotDirectory,
     client: {
@@ -344,7 +429,7 @@ test('reuses matching content-addressed branding icons already stored in S3', as
 
   const uploads = commands.filter((command) => command.constructor.name === 'PutObjectCommand')
   assert.equal(commands.filter((command) => command.constructor.name === 'HeadObjectCommand').length, 3)
-  assert.equal(uploads.length, 3)
+  assert.equal(uploads.length, 4)
   assert.ok(uploads.every(({ input }) => !input.Key.includes('/branding-icons/')))
 })
 
@@ -356,7 +441,7 @@ test('uploads branding icons when least-privilege S3 credentials cannot inspect 
   await createBotRun(screenshotDirectory)
 
   await publishToS3({
-    profileName: 'schedules',
+    selection: 'schedules',
     configuration,
     screenshotDirectory,
     client: {
@@ -388,7 +473,7 @@ test('refuses to publish a screenshot that does not match the Run Manifest', asy
 
   await assert.rejects(
     publishToS3({
-      profileName: 'schedules',
+      selection: 'schedules',
       configuration,
       screenshotDirectory,
       client: { send: async (command) => uploads.push(command.input) },
@@ -407,7 +492,7 @@ test('rejects unexpected screenshot geometry before any S3 request', async (cont
 
   await assert.rejects(
     publishToS3({
-      profileName: 'schedules',
+      selection: 'schedules',
       configuration,
       screenshotDirectory,
       client: { send: async (command) => uploads.push(command.input) },
@@ -451,7 +536,7 @@ test('uses signed path-style PUT requests with a local S3-compatible endpoint', 
   await createBotRun(screenshotDirectory)
 
   await publishToS3({
-    profileName: 'schedules',
+    selection: 'schedules',
     configuration: parseS3Configuration(`
 bucket: splatoon-assets
 endpoint: http://127.0.0.1:${server.address().port}
@@ -465,10 +550,17 @@ secretAccessKey: secret-key
   })
 
   assert.equal(requests.filter(({ method }) => method === 'HEAD').length, 3)
-  assert.equal(requests.filter(({ method }) => method === 'PUT').length, 6)
+  assert.equal(requests.filter(({ method }) => method === 'PUT').length, 7)
   assert.ok(
     requests.some(({ url }) =>
-      /^\/splatoon-assets\/bot\/production\/compact-images\/[a-f0-9]{64}\/schedules\.png\?x-id=PutObject$/.test(
+      /^\/splatoon-assets\/bot\/production\/line-images\/[a-f0-9]{64}\/schedules\.png\?x-id=PutObject$/.test(
+        url
+      )
+    )
+  )
+  assert.ok(
+    requests.some(({ url }) =>
+      /^\/splatoon-assets\/bot\/production\/whatsapp-images\/[a-f0-9]{64}\/schedules\.png\?x-id=PutObject$/.test(
         url
       )
     )

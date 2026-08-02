@@ -2,8 +2,9 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { prepareNotificationChannelConfiguration } from '../bot/notification/NotificationConfiguration.mjs'
 import { listChannelAdapters } from '../bot/notification/channels/index.mjs'
-import { getRunPlan, listRunProfiles } from '../bot/run/RunPlan.mjs'
+import { listRunContentGroups, resolveRunPlan } from '../bot/run/RunPlan.mjs'
 import { supportedBotLocales } from '../src/common/botLocale.mjs'
 
 const workflowDirectory = path.join(process.cwd(), '.github', 'workflows')
@@ -50,6 +51,20 @@ function workflowDispatchChoiceOptions(source, inputName) {
   const inputBlock = nextInput === -1 ? followingSource : followingSource.slice(0, nextInput + 1)
   const options = inputBlock.match(/^          - ([a-z0-9-]+)[ \t]*$/gm) || []
   return options.map((line) => line.replace(/^\s*-\s*/, '').trim())
+}
+
+function assertBooleanSelectionInput(source, inputName, expectedDefault) {
+  const inputStart = source.search(new RegExp(`^      ${inputName}:[ \\t]*$`, 'm'))
+  assert.notEqual(inputStart, -1, `Missing workflow_dispatch input ${inputName}`)
+  const followingSource = source.slice(inputStart)
+  const nextInput = followingSource.slice(1).search(/^      [a-z_]+:[ \t]*$/m)
+  const inputBlock = nextInput === -1 ? followingSource : followingSource.slice(0, nextInput + 1)
+  assert.match(inputBlock, /^        type: boolean$/m, `${inputName} must render as a checkbox`)
+  assert.match(
+    inputBlock,
+    new RegExp(`^        default: ${expectedDefault}$`, 'm'),
+    `${inputName} default`
+  )
 }
 
 function scheduledUtcHours(source) {
@@ -188,9 +203,9 @@ test('README provides direct screenshots and three operator-first languages', as
       assert.ok(source.includes(`| \`${locale}\` |`), `${filename}: missing BOT_LOCALE value ${locale}`)
     }
   }
-  for (const { name } of listRunProfiles()) {
+  for (const { name } of listRunContentGroups()) {
     for (const [filename, source] of operatorReadmes) {
-      assert.ok(source.includes(`| \`${name}\` |`), `${filename}: missing Run Profile ${name}`)
+      assert.ok(source.includes(`| \`${name}\` |`), `${filename}: missing Run Content Group ${name}`)
     }
   }
   for (const variableName of repositoryVariables) {
@@ -217,10 +232,13 @@ test('README provides direct screenshots and three operator-first languages', as
     assert.match(source, /^#### `BOT_SCREENSHOT_RESOLUTION`$/m, `${filename}: dedicated resolution table`)
     assert.match(source, /GitHub Artifact/, `${filename}: why public object storage is required`)
     assert.match(source, /`notification-images\/<sha256>\/`/, `${filename}: primary image objects`)
-    assert.match(source, /`compact-images\/<sha256>\/`/, `${filename}: compatibility image objects`)
+    assert.match(source, /`line-images\/<sha256>\/`/, `${filename}: LINE image objects`)
+    assert.match(source, /`whatsapp-images\/<sha256>\/`/, `${filename}: WhatsApp image objects`)
     assert.match(source, /`originals\/<sha256>\/`/, `${filename}: original image objects`)
     assert.match(source, /`branding-icons\/<sha256>\/`/, `${filename}: branding icon objects`)
-    assert.match(source, /`1024×576`/, `${filename}: compatibility image dimensions`)
+    assert.match(source, /`1024×576`/, `${filename}: platform image dimensions`)
+    assert.match(source, /`1024×1024`/, `${filename}: LINE hard image dimensions`)
+    assert.match(source, /`1 MB`/, `${filename}: LINE recommended image size`)
     for (const documentationUrl of s3ProviderDocumentationUrls) {
       assert.ok(source.includes(documentationUrl), `${filename}: missing S3 provider ${documentationUrl}`)
     }
@@ -259,6 +277,7 @@ test('README provides direct screenshots and three operator-first languages', as
   ]) {
     const notificationSection = source.slice(source.indexOf(sectionStart), source.indexOf(sectionEnd))
     assert.match(notificationSection, /`notifications`/, `${filename}: common Notification selection field`)
+    assert.equal(notificationSection.match(/^<details>$/gm)?.length, 9, `${filename}: one example per adapter`)
     for (const [secretName, fields] of Object.entries(documentedTargetFields)) {
       const row = notificationSection
         .split('\n')
@@ -266,6 +285,37 @@ test('README provides direct screenshots and three operator-first languages', as
       assert.ok(row, `${filename}: missing ${secretName} field reference`)
       for (const field of fields) {
         assert.ok(row.includes(`\`${field}\``), `${filename}: ${secretName} missing ${field}`)
+      }
+
+      const summaryIndex = notificationSection.indexOf(secretName, notificationSection.indexOf('<details>'))
+      const detailStart = notificationSection.lastIndexOf('<details>', summaryIndex)
+      const detailEnd = notificationSection.indexOf('</details>', summaryIndex)
+      assert.ok(summaryIndex >= 0 && detailStart >= 0 && detailEnd > summaryIndex, `${filename}: ${secretName} example`)
+      const detail = notificationSection.slice(detailStart, detailEnd)
+      const yaml = detail.match(/```yaml\n([\s\S]+?)\n```/)?.[1]
+      assert.ok(yaml, `${filename}: ${secretName} copy-ready YAML`)
+
+      const channel = listChannelAdapters().find(
+        (candidate) => candidate.configurationEnvironmentVariable === secretName
+      )
+      const prepared = prepareNotificationChannelConfiguration({
+        selection: ['schedules', 'salmon-run', 'gear'],
+        channelName: channel.name,
+        rawConfig: yaml,
+      })
+      assert.equal(prepared.status, 'ready', `${filename}: ${secretName} example is usable`)
+
+      const describedFields = [
+        'name',
+        'notifications',
+        ...fields.filter((field) => !['name', 'group', 'user', 'room'].includes(field)),
+      ]
+      for (const field of describedFields) {
+        assert.match(
+          detail,
+          new RegExp('^\\| `' + field + '` \\| [^|]+ \\| [^|]+ \\|$', 'm'),
+          `${filename}: ${secretName} missing description for ${field}`
+        )
       }
     }
   }
@@ -304,7 +354,7 @@ test('README provides direct screenshots and three operator-first languages', as
     )
     assert.ok(
       automation.includes('`.github/workflows/bot-salmon-run.yml`'),
-      `${filename}: all-profile customization entry point`
+      `${filename}: daily selection customization entry point`
     )
     assert.ok(automation.includes('`BOT_TIME_ZONE`'), `${filename}: trigger time-zone distinction`)
     assert.ok(automation.includes('`on.schedule.cron`'), `${filename}: static cron limitation`)
@@ -451,9 +501,10 @@ test('notification adapters share the publication stage and are enabled by confi
     'utf8'
   )
   assert.match(localActionsVerifier, /notification-smoke\.yml/)
-  assert.match(localActionsVerifier, /Expected six S3 uploads, three branding inspections, and one WeCom delivery/)
+  assert.match(localActionsVerifier, /Expected fifteen S3 uploads, three branding inspections, and three WeCom deliveries/)
   assert.match(localActionsVerifier, /primary notification image instead of BOT_SCREENSHOT_RESOLUTION 2400x1350/)
-  assert.match(localActionsVerifier, /compatibility image instead of 1024x576/)
+  assert.match(localActionsVerifier, /LINE image instead of 1024x576/)
+  assert.match(localActionsVerifier, /LINE image above 1 MB/)
   assert.match(localActionsVerifier, /--container-options/)
   assert.match(localActionsVerifier, /ACT_BOT_RUN_DIRECTORY=/)
   assert.match(localActionsVerifier, /shouldRetry: isTransientActFailure/)
@@ -524,24 +575,25 @@ test('notification adapters share the publication stage and are enabled by confi
     )
   }
 
-  const profileNames = listRunProfiles().map(({ name }) => name)
   for (const filename of ['bot-manual.yml', 'notification-smoke.yml', 'configuration-check.yml']) {
     const source = await fs.readFile(path.join(workflowDirectory, filename), 'utf8')
-    assert.deepEqual(
-      workflowDispatchChoiceOptions(source, 'profile'),
-      profileNames,
-      `${filename} Profile choices must match the Run Profile registry`
-    )
+    assert.doesNotMatch(source, /^      profile:$/m, `${filename} must not expose combination Profiles`)
+    for (const { name } of listRunContentGroups()) {
+      const inputName = name.replaceAll('-', '_')
+      const expectedDefault = filename === 'configuration-check.yml' || name === 'schedules'
+      assertBooleanSelectionInput(source, inputName, expectedDefault)
+    }
   }
 })
 
 test('daily twice workflow delivers every Notification', async () => {
   const dailyWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-salmon-run.yml'), 'utf8')
   const schedulesWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-schedules.yml'), 'utf8')
-  const profileName = dailyWorkflow.match(/^      profile: ([a-z0-9-]+)$/m)?.[1]
-  assert.ok(profileName, 'bot-salmon-run.yml must select a static Run Profile')
+  const selectedGroups = listRunContentGroups()
+    .filter(({ name }) => dailyWorkflow.includes(`      ${name.replaceAll('-', '_')}: true`))
+    .map(({ name }) => name)
 
-  assert.deepEqual(getRunPlan(profileName).notifications, [
+  assert.deepEqual(resolveRunPlan(selectedGroups).notifications, [
     'schedules',
     'salmon-run',
     'gear-dailydrop',

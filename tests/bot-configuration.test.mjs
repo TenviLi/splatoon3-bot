@@ -147,7 +147,7 @@ test('uses a concise screenshot attribution with a stable default', () => {
 
 test('preflights publication and routed Channel configuration without exposing Secrets', () => {
   const report = inspectBotConfiguration({
-    profileName: 'schedules',
+    selection: 'schedules',
     environment: validEnvironment({
       BOT_WECOM_CONFIG: stringifyYaml([
         {
@@ -168,7 +168,7 @@ test('preflights publication and routed Channel configuration without exposing S
   assert.deepEqual(
     report.checks.map(({ name, status }) => ({ name, status })),
     [
-      { name: 'Run Profile', status: 'ready' },
+      { name: 'Run Selection', status: 'ready' },
       { name: 'BOT_TIME_ZONE', status: 'ready' },
       { name: 'BOT_LOCALE', status: 'ready' },
       { name: 'BOT_SCREENSHOT_RESOLUTION', status: 'ready' },
@@ -188,7 +188,7 @@ test('preflights publication and routed Channel configuration without exposing S
   assert.doesNotMatch(stepSummary, /sensitive|webhook|splatoon-assets/)
 })
 
-test('treats unmatched Channel routing as an intentional per-profile skip', () => {
+test('treats unmatched Channel routing as an intentional per-selection skip', () => {
   const environment = validEnvironment({
     BOT_WECOM_CONFIG: stringifyYaml([
       {
@@ -199,16 +199,16 @@ test('treats unmatched Channel routing as an intentional per-profile skip', () =
     ]),
   })
   const report = inspectBotConfiguration({
-    profileName: 'schedules',
+    selection: 'schedules',
     environment,
   })
 
   assert.equal(report.valid, true)
   assert.equal(report.checks.at(-1).status, 'skipped')
-  assert.match(formatBotPreflightReport(report), /none selected by schedules/)
+  assert.match(formatBotPreflightReport(report), /none selected by Schedules/)
 
   const selectedChannelReport = inspectBotConfiguration({
-    profileName: 'schedules',
+    selection: 'schedules',
     channelName: 'wecom',
     environment,
   })
@@ -218,7 +218,7 @@ test('treats unmatched Channel routing as an intentional per-profile skip', () =
 
 test('reports every invalid required configuration before side effects', () => {
   const report = inspectBotConfiguration({
-    profileName: 'schedules',
+    selection: 'schedules',
     environment: {
       BOT_TIME_ZONE: 'Mars/Inkling',
       BOT_LOCALE: 'pt-BR',

@@ -1,13 +1,13 @@
-import { getRunPlan } from '../run/RunPlan.mjs'
+import { resolveRunPlan } from '../run/RunPlan.mjs'
 import { renderScreenshotArtifacts } from './ScreenshotRunner.mjs'
 
-const [profileName] = process.argv.slice(2)
+const [selection] = process.argv.slice(2)
 
-if (!profileName) {
-  throw new Error('Usage: node bot/screenshot/index.mjs <run-profile>')
+if (!selection) {
+  throw new Error('Usage: node bot/screenshot/index.mjs <run-selection>')
 }
 
-const plan = getRunPlan(profileName)
+const plan = resolveRunPlan(selection)
 const artifacts = await renderScreenshotArtifacts(plan.screenshots)
 
 for (const artifact of artifacts) {

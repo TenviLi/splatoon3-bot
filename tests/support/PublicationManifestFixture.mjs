@@ -1,21 +1,21 @@
 import { getScreenshotResolution } from '../../bot/config/ScreenshotResolution.mjs'
 import { listBrandingIconDefinitions } from '../../bot/publish/BrandingAssets.mjs'
-import { getRunPlan, getScreenshotDefinition } from '../../bot/run/RunPlan.mjs'
+import { listPlatformImageVariantDefinitions } from '../../bot/publish/PublicationImageVariants.mjs'
+import { getScreenshotDefinition, resolveRunPlan } from '../../bot/run/RunPlan.mjs'
 
 export function createPublicationManifestFixture(
-  profile = 'all',
+  selection = ['schedules', 'salmon-run', 'gear'],
   { assetBaseUrl = 'https://cdn.example.com', locale = 'zh-CN', resolution = '2400x1350' } = {}
 ) {
   const normalizedAssetBaseUrl = assetBaseUrl.replace(/\/$/, '')
-  const plan = getRunPlan(profile)
+  const plan = resolveRunPlan(selection)
   const originalDimensions = getScreenshotResolution(resolution)
   const notificationSha256 = 'a'.repeat(64)
-  const compactSha256 = 'b'.repeat(64)
   const originalSha256 = 'c'.repeat(64)
   return {
-    version: 4,
-    runManifestVersion: 4,
-    profile,
+    version: 6,
+    runManifestVersion: 5,
+    selection: plan.selection,
     renderTime: Date.parse('2026-07-29T19:00:00Z'),
     timeZone: 'Asia/Shanghai',
     locale,
@@ -54,14 +54,23 @@ export function createPublicationManifestFixture(
           bytes: 800_000,
           sha256: notificationSha256,
         },
-        compactImage: {
-          key: `compact-images/${compactSha256}/${definition.outputFilename}`,
-          url: `${normalizedAssetBaseUrl}/compact-images/${compactSha256}/${definition.outputFilename}`,
-          width: definition.compactImage.width,
-          height: definition.compactImage.height,
-          bytes: 500_000,
-          sha256: compactSha256,
-        },
+        platformImages: Object.fromEntries(
+          listPlatformImageVariantDefinitions().map((imageDefinition, index) => {
+            const sha256 = String.fromCharCode('b'.charCodeAt(0) + index).repeat(64)
+            const key = `${imageDefinition.directory}/${sha256}/${definition.outputFilename}`
+            return [
+              imageDefinition.name,
+              {
+                key,
+                url: `${normalizedAssetBaseUrl}/${key}`,
+                width: imageDefinition.dimensions.width,
+                height: imageDefinition.dimensions.height,
+                bytes: 500_000,
+                sha256,
+              },
+            ]
+          })
+        ),
         originalImage: {
           key: `originals/${originalSha256}/${definition.outputFilename}`,
           url: `${normalizedAssetBaseUrl}/originals/${originalSha256}/${definition.outputFilename}`,

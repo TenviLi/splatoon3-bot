@@ -73,7 +73,7 @@
   </tr>
 </table>
 
-README 中的预览图使用 `1200×675`。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档截图和通知主图。只有 LINE 与 WhatsApp 会因为平台限制额外使用一份 `1024×576` 兼容图。
+README 中的预览图使用 `1200×675`。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档截图和通知主图。LINE 与 WhatsApp 会各自使用独立的 `1024×576` 平台变体，使每个适配器能够单独落实自身限制，而不降低其他通知平台的画质。
 
 ## 快速开始
 
@@ -102,7 +102,7 @@ README 中的预览图使用 `1200×675`。`BOT_SCREENSHOT_RESOLUTION` 可以从
 
    参考企业微信官方的[群机器人说明](https://developer.work.weixin.qq.com/document/path/91770)，或从[通知平台](#通知平台)中选择其他适配器。
 4. 默认语言已经是 `zh-CN`。如果你的时区不是 `Asia/Shanghai`，请设置 `BOT_TIME_ZONE`；只有默认值不合适时，才需要添加 `BOT_SCREENSHOT_RESOLUTION` 等其他 [Repository Variables](#repository-variables)。
-5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后以 `all` 模式运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
+5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后勾选全部三个内容组运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
 6. 对已配置的平台运行 **Notification Channel smoke test**。它会真实上传一次图片并发送一条消息，用来确认从 S3 到消息目标的完整链路，然后再放心交给定时任务。
 
 > [!IMPORTANT]
@@ -129,9 +129,9 @@ flowchart LR
 
 | 工作流 | 何时运行 | 发送内容 |
 | --- | --- | --- |
-| `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | `schedules` 模式 |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `all` 模式 |
-| `bot-manual.yml` | 按需手动运行 | 任意所选模式 |
+| `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | 对战日程内容组 |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | 全部三个内容组 |
+| `bot-manual.yml` | 按需手动运行 | 任意复选框组合 |
 | `configuration-check.yml` | 按需手动运行 | 只检查配置，不上传、不发送 |
 | `notification-smoke.yml` | 按需手动运行 | 发布当前图片，并向所选平台发送一条真实测试消息 |
 
@@ -141,18 +141,18 @@ flowchart LR
 
 在安装仓库默认分支中修改 `.github/workflows/bot-schedules.yml` 与 `.github/workflows/bot-salmon-run.yml` 的 `on.schedule` cron 表达式，即可决定各模式的推送时间。GitHub 按 UTC 解释这些表达式。`BOT_TIME_ZONE` 只改变截图和消息中显示的时间，不会改变 Actions 的启动时刻。
 
-GitHub 不允许在 `on.schedule.cron` 中读取 Repository Variables 或 Secrets，因此这里没有定时 Variable。可以参考 GitHub 官方的 [`on.schedule` 语法](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)，并用 [crontab.guru](https://crontab.guru/) 辅助生成表达式。`all` 模式也包含日程通知；除非你确实需要重复消息，否则不要让它与 `schedules` 模式同时触发。
+GitHub 不允许在 `on.schedule.cron` 中读取 Repository Variables 或 Secrets，因此这里没有定时 Variable。可以参考 GitHub 官方的 [`on.schedule` 语法](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)，并用 [crontab.guru](https://crontab.guru/) 辅助生成表达式。每日两次的工作流也勾选了对战日程；除非确实需要重复消息，否则不要让它与仅发送日程的工作流重叠。
 
 <details>
-<summary><strong>运行模式</strong></summary>
+<summary><strong>运行内容组</strong></summary>
 
-| 模式 | 生成截图 | 发送通知 |
+手动运行、Smoke Test 与配置检查表单会把以下内容组显示为 GitHub 原生复选框。可以选择任意非空组合；系统只执行一次可复用 Bot Run，并自动生成顺序稳定的运行计划。
+
+| 内容组 | 生成截图 | 发送通知 |
 | --- | --- | --- |
 | `schedules` | 对战日程 | 对战日程 |
 | `salmon-run` | 鲑鱼跑 | 鲑鱼跑 |
 | `gear` | 两张装备图 | 两条装备通知 |
-| `salmon-run-and-gear` | 鲑鱼跑和两张装备图 | 鲑鱼跑及两条装备通知 |
-| `all` | 全部四张图 | 全部四类通知 |
 
 </details>
 
@@ -211,7 +211,7 @@ Bot 截图与通知运行链路支持全部 14 个值；面向运维者的 READM
 | `2400x1350` | 2× | 推荐的清晰度与体积平衡 |
 | `3840x2160` | 3.2× | 4K 原图，归档和上传更大 |
 
-所选尺寸会同时用于归档截图、`notification-images/` 对象和主要消息图片。LINE 与 WhatsApp 因平台图片限制使用派生的 `1024×576` 兼容图，但消息中的查看按钮仍会打开所选分辨率的主要图片。
+所选尺寸会同时用于归档截图、`notification-images/` 对象和主要消息图片。LINE 使用独立且不超过 `1 MB` 的 `1024×576` 图片；它正好是 LINE `1024×1024` Flex 图片硬限制内最大的无裁切 16:9 矩形。WhatsApp 则使用独立、符合 `5 MB` 媒体限制的 `1024×576` 图片。两个平台的查看按钮仍会打开所选分辨率的主要图片。
 
 对战日程、鲑鱼跑与装备图标由仓库内置资源生成，并按内容哈希自动发布到 S3；用户不需要另行准备公共图标 URL。
 
@@ -285,7 +285,8 @@ keyPrefix: splatoon3-bot
 | 对象目录 | 内容 | 用途与保留建议 |
 | --- | --- | --- |
 | `notification-images/<sha256>/` | 按 `BOT_SCREENSHOT_RESOLUTION` 精确尺寸优化的主要图片 | 企业微信、Discord、Telegram、QQ、飞书、钉钉与 Slack 直接展示；通知查看按钮也打开该图片。 |
-| `compact-images/<sha256>/` | 派生的 `1024×576` 兼容图 | 仅供 LINE 与 WhatsApp 展示，避免它们更严格的平台限制降低其他渠道的图片清晰度。 |
+| `line-images/<sha256>/` | LINE 专用 `1024×576` PNG，仅在必要时自适应转换为调色板 PNG | 供 LINE 展示；保持完整 16:9 画面，低于 `1024×1024` 硬限制，并达到官方建议的 `1 MB` 以内目标。 |
+| `whatsapp-images/<sha256>/` | WhatsApp 专用 `1024×576` PNG | 用作已审批媒体模板的图片 Header，并保持在 WhatsApp 的 `5 MB` 图片限制以内。 |
 | `originals/<sha256>/` | 所选分辨率下未经重新压缩的截图原始文件 | 用于高清归档和 Publication Manifest 校验；不需要长期保存原始归档时，可以配置更短的生命周期。 |
 | `branding-icons/<sha256>/` | 内置的日程、鲑鱼跑和装备小图标 | 用于消息卡片标题或头像；由机器人自动上传并复用，通常可以长期保留。 |
 
@@ -295,7 +296,7 @@ keyPrefix: splatoon3-bot
 更多最小权限、公网 URL 和服务商注意事项见 [S3 运维指南](./docs/operator-setup-links.md#s3-compatible-publication)。
 
 > [!TIP]
-> 图片内容变化时会创建新版本，而不是覆盖旧 URL。可以按目录配置生命周期：`notification-images/` 与 `compact-images/` 的保留时间取决于历史消息需要展示多久，`originals/` 只需保留到原始归档不再需要，体积很小且会复用的 `branding-icons/` 通常无需清理。
+> 图片内容变化时会创建新版本，而不是覆盖旧 URL。可以按目录配置生命周期：`notification-images/`、`line-images/` 与 `whatsapp-images/` 的保留时间取决于历史消息需要展示多久，`originals/` 只需保留到原始归档不再需要，体积很小且会复用的 `branding-icons/` 通常无需清理。
 
 ## 通知平台
 
@@ -331,6 +332,208 @@ keyPrefix: splatoon3-bot
 | `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group` 或 `room`）、`targetId` | `notificationDisabled` |
 | `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | — |
 
+展开下面的平台即可取得可复制的 Secret 内容。保存到 **Settings → Secrets and variables → Actions** 前，请替换所有占位值。
+
+<details>
+<summary><strong>企业微信 · BOT_WECOM_CONFIG</strong> — 模板卡片与分类路由</summary>
+
+一个 Secret 可以把日程、鲑鱼跑和装备分别发送到不同群机器人：
+
+```yaml
+- name: battle-schedules
+  notifications: [schedules]
+  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_SCHEDULES_KEY
+- name: daily-updates
+  notifications: [salmon-run, gear-dailydrop, gear-regular]
+  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_UPDATES_KEY
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一、便于识别的目标名称，用于配置校验和发送报告。 |
+| `notifications` | 否 | 发送到此目标的通知 ID；省略时接收当前运行选择中的全部通知。 |
+| `webhookUrl` | 是 | 从企业微信复制的完整群机器人 Webhook，其中的 `key` 属于敏感凭据。 |
+
+</details>
+
+<details>
+<summary><strong>Discord · BOT_DISCORD_CONFIG</strong> — 图片 Embed</summary>
+
+Webhook 决定目标频道，显示名称和头像覆盖均为可选：
+
+```yaml
+- name: splatoon-community
+  webhookUrl: https://discord.com/api/webhooks/123456789012345678/example-token
+  username: Splatoon Bot
+  avatarUrl: https://splatoon.example.com/bot-avatar.png
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一的目标名称，用于校验和发送报告。 |
+| `notifications` | 否 | 此 Webhook 接收的通知子集。 |
+| `webhookUrl` | 是 | 完整的 Discord Incoming Webhook URL，URL 本身包含凭据。 |
+| `username` | 否 | 此 Webhook 发送消息时使用的显示名称。 |
+| `avatarUrl` | 否 | 用作 Webhook 头像的公网 HTTPS 图片。 |
+
+</details>
+
+<details>
+<summary><strong>Telegram · BOT_TELEGRAM_CONFIG</strong> — 图片、HTML 说明与 URL 按钮</summary>
+
+机器人必须已经能够向目标会话发消息；论坛话题还需要 `messageThreadId`：
+
+```yaml
+- name: community-topic
+  botToken: "123456:example_bot_token"
+  chatId: "-1001234567890"
+  messageThreadId: 42
+  disableNotification: false
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一的目标名称。 |
+| `notifications` | 否 | 此会话或话题接收的通知子集。 |
+| `botToken` | 是 | BotFather 签发的机器人 Token，只应保存在 Repository Secret 中。 |
+| `chatId` | 是 | 用户、群组、超级群组或频道 ID；YAML 中建议给负数 ID 加引号。 |
+| `messageThreadId` | 否 | 超级群组内大于零的论坛话题 ID。 |
+| `disableNotification` | 否 | `true` 表示静默发送；省略时使用 Telegram 默认行为。 |
+
+</details>
+
+<details>
+<summary><strong>QQ · BOT_QQ_CONFIG</strong> — 群聊或单聊 Markdown</summary>
+
+此定时适配器支持 QQ 群聊和单聊。QQ 频道要求独立维护在线 Gateway 长连接，因此频道目标会在配置预检时被拒绝：
+
+```yaml
+- name: official-group
+  appId: "102000000"
+  clientSecret: "example-client-secret"
+  targetType: group
+  targetId: GROUP_OPENID
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一的目标名称。 |
+| `notifications` | 否 | 此群聊或用户接收的通知子集。 |
+| `appId` | 是 | QQ 官方机器人的 AppID。 |
+| `clientSecret` | 是 | 用于获取访问令牌的机器人 ClientSecret。 |
+| `targetType` | 是 | 群 OpenID 使用 `group`，用户 OpenID 使用 `user`。 |
+| `targetId` | 是 | 从 QQ 官方交互事件中取得的群或用户 OpenID。 |
+
+</details>
+
+<details>
+<summary><strong>飞书 / Lark · BOT_FEISHU_CONFIG</strong> — Card Schema 2.0</summary>
+
+如果自定义机器人启用了签名校验，请同时填写签名 `secret`：
+
+```yaml
+- name: team-group
+  webhookUrl: https://open.feishu.cn/open-apis/bot/v2/hook/REPLACE_WITH_HOOK_ID
+  secret: "example-signing-secret"
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一的目标名称。 |
+| `notifications` | 否 | 此群聊接收的通知子集。 |
+| `webhookUrl` | 是 | 从飞书或 Lark 复制的完整自定义机器人 Webhook。 |
+| `secret` | 否 | 在机器人安全设置中启用签名校验时配置的签名密钥。 |
+
+</details>
+
+<details>
+<summary><strong>钉钉 · BOT_DINGTALK_CONFIG</strong> — ActionCard</summary>
+
+建议采用加签安全设置；仅使用关键词规则可能会拒绝机器人生成的消息：
+
+```yaml
+- name: team-group
+  webhookUrl: https://oapi.dingtalk.com/robot/send?access_token=example-access-token
+  secret: "SECexample-signing-secret"
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一的目标名称。 |
+| `notifications` | 否 | 此群聊接收的通知子集。 |
+| `webhookUrl` | 是 | 包含 Access Token 的完整自定义机器人 Webhook。 |
+| `secret` | 否 | 启用加签时使用的 `SEC...` 签名密钥。 |
+
+</details>
+
+<details>
+<summary><strong>WhatsApp · BOT_WHATSAPP_CONFIG</strong> — 已审批媒体模板</summary>
+
+请先创建并审批包含 `IMAGE` Header、命名 Body 参数和动态 URL 按钮的模板；按钮前缀必须等于 `S3_CONFIG.publicBaseUrl` 加 `keyPrefix`：
+
+```yaml
+- name: personal-updates
+  accessToken: "REPLACE_WITH_ACCESS_TOKEN"
+  phoneNumberId: "123456789012345"
+  recipientPhoneNumber: "8613800000000"
+  templateName: splatoon_notification
+  languageCode: zh_CN
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一的目标名称。 |
+| `notifications` | 否 | 此已授权接收者接收的通知子集。 |
+| `accessToken` | 是 | 拥有对应 WhatsApp Business Account 权限的 Meta Cloud API Token。 |
+| `phoneNumberId` | 是 | 已注册发送号码的数字 ID，不是对外显示的手机号码。 |
+| `recipientPhoneNumber` | 是 | 已明确授权接收消息的 E.164 数字号码，不包含前导 `+`。 |
+| `templateName` | 是 | 每次定时消息使用的已审批小写模板名称。 |
+| `languageCode` | 是 | 模板已审批语言版本的精确代码，例如 `zh_CN`。 |
+
+</details>
+
+<details>
+<summary><strong>LINE · BOT_LINE_CONFIG</strong> — Flex Message</summary>
+
+目标必须具备 Push Message 接收资格，并且 ID 前缀要与目标类型一致：
+
+```yaml
+- name: personal-chat
+  channelAccessToken: "example-channel-access-token"
+  targetType: user
+  targetId: U0123456789abcdef0123456789abcdef
+  notificationDisabled: false
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一的目标名称。 |
+| `notifications` | 否 | 此接收者接收的通知子集。 |
+| `channelAccessToken` | 是 | 在 LINE Developers 签发的 Messaging API Channel Access Token。 |
+| `targetType` | 是 | `user`、`group` 或 `room`。 |
+| `targetId` | 是 | Webhook 事件中的来源 ID；按类型分别以 `U`、`C` 或 `R` 开头。 |
+| `notificationDisabled` | 否 | `true` 时在 LINE 支持的场景下抑制用户通知。 |
+
+</details>
+
+<details>
+<summary><strong>Slack · BOT_SLACK_CONFIG</strong> — 无障碍 Block Kit</summary>
+
+每个 Incoming Webhook 都绑定到对应 Slack App 安装和目标频道：
+
+```yaml
+- name: team-channel
+  webhookUrl: https://hooks.slack.com/services/T/B/key
+```
+
+| 字段 | 必选 | 说明 |
+| --- | --- | --- |
+| `name` | 是 | 平台 Secret 内唯一的目标名称。 |
+| `notifications` | 否 | 此频道接收的通知子集。 |
+| `webhookUrl` | 是 | Slack 或 Slack Gov 官方 Incoming Webhook URL，URL 本身属于凭据。 |
+
+</details>
+
 [平台配置指南](./docs/operator-setup-links.md#notification-adapters)进一步说明凭据前提、接收方规则和官方教程；[平台能力审计](./docs/notification-platform-capabilities.md)解释了各适配器的原生布局选择。
 
 ## 可靠性
@@ -339,8 +542,8 @@ keyPrefix: splatoon3-bot
 
 - 数据下载带重试和超时，完整通过 Schema 校验后才替换上一份有效数据。
 - 截图会等待应用、字体和本地图片就绪，并检查语言、署名、尺寸、底栏位置和内容溢出。
-- Run Manifest v4 精确记录“生成了什么”：语言、分辨率、时区、数据身份、文件名、尺寸和 SHA-256。
-- Publication Manifest v4 精确记录“发布了什么”：通知主图、平台兼容图、原图、内置图标和公网 URL。
+- Run Manifest v5 记录所选内容组，并精确记录“生成了什么”：语言、分辨率、时区、数据身份、文件名、尺寸和 SHA-256。
+- Publication Manifest v6 记录同一运行选择，并精确记录“发布了什么”：通知主图、LINE 与 WhatsApp 平台专用图、原图、内置图标和公网 URL。
 - 配置预检会在首次上传前一次性汇总所有独立错误，而且不会输出 Secret 内容。
 - 各消息目标独立执行；某个目标失败不会撤销其他目标已经成功发送的消息，最终会统一汇总失败原因。
 - CI 扫描完整 Git 历史，并运行语法、单元、浏览器、视觉、构建、工作流策略与依赖审计。
@@ -365,10 +568,10 @@ pnpm run verify
 
 | 命令 | 用途 |
 | --- | --- |
-| `pnpm run bot:doctor <profile> [channel]` | 校验配置，不上传图片或发送消息。 |
-| `pnpm run bot:prepare <profile>` | 下载、构建、截图并写入 Run Manifest。 |
-| `pnpm run bot:publish <profile>` | 校验并通过 S3 发布。 |
-| `pnpm run bot:notify <profile> [channel]` | 发送已配置的平台。 |
+| `pnpm run bot:doctor <selection> [channel]` | 校验配置；内容组用逗号分隔，例如 `schedules,gear`。 |
+| `pnpm run bot:prepare <selection>` | 下载、构建、截图并写入 Run Manifest。 |
+| `pnpm run bot:publish <selection>` | 校验并通过 S3 发布。 |
+| `pnpm run bot:notify <selection> [channel]` | 发送已配置的平台。 |
 | `pnpm run test:update-golden` | 生成当前平台的中、英、日截图基线。 |
 | `pnpm run verify` | 运行完整本地验证。 |
 | `pnpm run verify:actions` | 通过 OrbStack 与 `act` 验证 Linux Actions。 |

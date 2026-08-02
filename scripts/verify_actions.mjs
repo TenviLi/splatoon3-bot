@@ -204,48 +204,71 @@ async function assertBotRunRequests(requests) {
   const inspections = requests.filter(({ method }) => method === 'HEAD')
   const deliveries = requests.filter(({ method, url }) => method === 'POST' && url === '/wecom')
   const notificationUploads = uploads.filter(({ url }) => url.includes('/notification-images/'))
-  const compactUploads = uploads.filter(({ url }) => url.includes('/compact-images/'))
+  const lineUploads = uploads.filter(({ url }) => url.includes('/line-images/'))
+  const whatsAppUploads = uploads.filter(({ url }) => url.includes('/whatsapp-images/'))
   const originalUploads = uploads.filter(({ url }) => url.includes('/originals/'))
   const brandingUploads = uploads.filter(({ url }) => url.includes('/branding-icons/'))
   if (
-    uploads.length !== 6 ||
+    uploads.length !== 15 ||
     inspections.length !== 3 ||
-    notificationUploads.length !== 1 ||
-    compactUploads.length !== 1 ||
-    originalUploads.length !== 1 ||
+    notificationUploads.length !== 3 ||
+    lineUploads.length !== 3 ||
+    whatsAppUploads.length !== 3 ||
+    originalUploads.length !== 3 ||
     brandingUploads.length !== 3 ||
-    deliveries.length !== 1
+    deliveries.length !== 3
   ) {
     throw new Error(
-      `Expected six S3 uploads, three branding inspections, and one WeCom delivery; received ${uploads.length}, ${inspections.length}, and ${deliveries.length}`
+      `Expected fifteen S3 uploads, three branding inspections, and three WeCom deliveries; received ${uploads.length}, ${inspections.length}, and ${deliveries.length}`
     )
   }
   if (uploads.some(({ headers }) => headers['cache-control'] !== 'public, max-age=31536000, immutable')) {
     throw new Error('Local Bot Run did not publish every S3 object with immutable caching')
   }
-  const [notificationMetadata, compactMetadata] = await Promise.all([
-    sharp(notificationUploads[0].body).metadata(),
-    sharp(compactUploads[0].body).metadata(),
+  const [notificationMetadata, lineMetadata, whatsAppMetadata] = await Promise.all([
+    Promise.all(notificationUploads.map(({ body }) => sharp(body).metadata())),
+    Promise.all(lineUploads.map(({ body }) => sharp(body).metadata())),
+    Promise.all(whatsAppUploads.map(({ body }) => sharp(body).metadata())),
   ])
-  if (notificationMetadata.width !== 2400 || notificationMetadata.height !== 1350) {
-    throw new Error(
-      `Local Bot Run published a ${notificationMetadata.width || 0}x${notificationMetadata.height || 0} primary notification image instead of BOT_SCREENSHOT_RESOLUTION 2400x1350`
-    )
+  for (const metadata of notificationMetadata) {
+    if (metadata.width !== 2400 || metadata.height !== 1350) {
+      throw new Error(
+        `Local Bot Run published a ${metadata.width || 0}x${metadata.height || 0} primary notification image instead of BOT_SCREENSHOT_RESOLUTION 2400x1350`
+      )
+    }
   }
-  if (compactMetadata.width !== 1024 || compactMetadata.height !== 576) {
-    throw new Error(
-      `Local Bot Run published a ${compactMetadata.width || 0}x${compactMetadata.height || 0} compatibility image instead of 1024x576`
-    )
+  for (const [index, metadata] of lineMetadata.entries()) {
+    if (metadata.width !== 1024 || metadata.height !== 576) {
+      throw new Error(
+        `Local Bot Run published a ${metadata.width || 0}x${metadata.height || 0} LINE image instead of 1024x576`
+      )
+    }
+    if (lineUploads[index].body.byteLength > 1_000_000) {
+      throw new Error(`Local Bot Run published a ${lineUploads[index].body.byteLength}-byte LINE image above 1 MB`)
+    }
+  }
+  for (const metadata of whatsAppMetadata) {
+    if (metadata.width !== 1024 || metadata.height !== 576) {
+      throw new Error(
+        `Local Bot Run published a ${metadata.width || 0}x${metadata.height || 0} WhatsApp image instead of 1024x576`
+      )
+    }
   }
 
-  const payload = JSON.parse(deliveries[0].body.toString('utf8'))
-  const imageUrl = payload.template_card?.card_image?.url
-  const iconUrl = payload.template_card?.source?.icon_url
-  if (!/^https:\/\/assets\.example\.com\/act\/notification-images\/[a-f0-9]{64}\/schedules\.png$/.test(imageUrl)) {
-    throw new Error(`Local Bot Run produced an unexpected WeCom image URL: ${imageUrl}`)
-  }
-  if (!/^https:\/\/assets\.example\.com\/act\/branding-icons\/[a-f0-9]{64}\/schedules\.png$/.test(iconUrl)) {
-    throw new Error(`Local Bot Run produced an unexpected WeCom icon URL: ${iconUrl}`)
+  for (const [index, expected] of [
+    { image: 'schedules.png', icon: 'schedules.png' },
+    { image: 'gear-dailydrop.png', icon: 'gear.png' },
+    { image: 'gear-regular.png', icon: 'gear.png' },
+  ].entries()) {
+    const payload = JSON.parse(deliveries[index].body.toString('utf8'))
+    const imageUrl = payload.template_card?.card_image?.url
+    const iconUrl = payload.template_card?.source?.icon_url
+    if (!new RegExp(`^https://assets\\.example\\.com/act/notification-images/[a-f0-9]{64}/${expected.image}$`).test(imageUrl)) {
+      throw new Error(`Local Bot Run produced an unexpected WeCom image URL: ${imageUrl}`)
+    }
+    if (!new RegExp(`^https://assets\\.example\\.com/act/branding-icons/[a-f0-9]{64}/${expected.icon}$`).test(iconUrl)) {
+      throw new Error(`Local Bot Run produced an unexpected WeCom icon URL: ${iconUrl}`)
+    }
   }
 }
 
@@ -371,7 +394,11 @@ try {
       '--workflows',
       '.github/workflows/notification-smoke.yml',
       '--input',
-      'profile=schedules',
+      'schedules=true',
+      '--input',
+      'salmon_run=false',
+      '--input',
+      'gear=true',
       '--input',
       'channel=wecom',
       '--container-options',

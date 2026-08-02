@@ -1,15 +1,14 @@
 import fs from 'node:fs/promises'
-import { getRunPlan } from './RunPlan.mjs'
+import { resolveRunPlan, resolveRunPlanFromEnvironment } from './RunPlan.mjs'
 
-const [profileName] = process.argv.slice(2)
+const selectionArguments = process.argv.slice(2)
 
-if (!profileName) {
-  throw new Error('Usage: node bot/run/describe.mjs <profile>')
-}
-
-const plan = getRunPlan(profileName)
+const plan = selectionArguments.length > 0
+  ? resolveRunPlan(selectionArguments)
+  : resolveRunPlanFromEnvironment()
 const description = {
-  profile: plan.name,
+  selection: plan.selection,
+  label: plan.label,
   artifactName: plan.artifactName,
   screenshots: plan.screenshots,
   notifications: plan.notifications,
@@ -17,7 +16,8 @@ const description = {
 
 if (process.env.GITHUB_OUTPUT) {
   const outputs = [
-    `profile=${description.profile}`,
+    `selection=${description.selection.join(',')}`,
+    `selection_label=${description.label}`,
     `artifact_name=${description.artifactName}`,
     `screenshots=${description.screenshots.join(',')}`,
     `notifications=${description.notifications.join(',')}`,

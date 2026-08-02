@@ -6,13 +6,17 @@ import { botTimeZoneSchema } from '../config/BotTimeZone.mjs'
 import { screenshotAttributionSchema } from '../config/ScreenshotAttribution.mjs'
 import { getScreenshotResolution, screenshotResolutionSchema } from '../config/ScreenshotResolution.mjs'
 import { readManifestFile, writeManifestFile } from '../manifest/ManifestFile.mjs'
-import { getRunPlan, getScreenshotDefinition } from '../run/RunPlan.mjs'
+import { getScreenshotDefinition, resolveRunPlan } from '../run/RunPlan.mjs'
 import { validateRunManifest } from '../run/RunManifest.mjs'
 import {
   brandingIconDimensions,
   brandingIconRelativeKey,
   listBrandingIconDefinitions,
 } from './BrandingAssets.mjs'
+import {
+  getPublicationImageVariantDefinition,
+  listPlatformImageVariantDefinitions,
+} from './PublicationImageVariants.mjs'
 
 const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/)
 const publishedImageSchema = z
@@ -30,7 +34,13 @@ const publishedArtifactSchema = z
   .object({
     name: z.string().min(1),
     notificationImage: publishedImageSchema,
-    compactImage: publishedImageSchema,
+    platformImages: z
+      .object(
+        Object.fromEntries(
+          listPlatformImageVariantDefinitions().map(({ name }) => [name, publishedImageSchema])
+        )
+      )
+      .strict(),
     originalImage: publishedImageSchema,
   })
   .strict()
@@ -47,9 +57,9 @@ const brandingManifestSchema = z
 
 const publicationManifestSchema = z
   .object({
-    version: z.literal(4),
-    runManifestVersion: z.literal(4),
-    profile: z.string().min(1),
+    version: z.literal(6),
+    runManifestVersion: z.literal(5),
+    selection: z.array(z.string().min(1)).min(1),
     renderTime: z.number().int().nonnegative(),
     timeZone: botTimeZoneSchema,
     locale: botLocaleSchema,
@@ -62,19 +72,10 @@ const publicationManifestSchema = z
   })
   .strict()
 
-const publicationDirectories = Object.freeze({
-  notificationImage: 'notification-images',
-  compactImage: 'compact-images',
-  originalImage: 'originals',
-})
-
 export const defaultPublicationManifestFilename = path.join('screenshots', 'publication-manifest.json')
 
 export function publicationImageRelativeKey(variant, sha256, outputFilename) {
-  const directory = publicationDirectories[variant]
-  if (!directory) {
-    throw new Error(`Unknown publication image variant: ${variant}`)
-  }
+  const directory = getPublicationImageVariantDefinition(variant).directory
   if (!/^[a-f0-9]{64}$/.test(sha256)) {
     throw new Error(`Invalid publication image SHA-256: ${sha256}`)
   }
@@ -103,7 +104,15 @@ function contentAddressedUrl(assetBaseUrl, relativeKey) {
   return url
 }
 
-function assertPublishedImage(manifest, label, image, expectedSuffix, expectedDimensions) {
+function assertPublishedImage(
+  manifest,
+  label,
+  image,
+  expectedSuffix,
+  expectedDimensions,
+  maximumBytes,
+  maximumBytesLabel
+) {
   if (image.key !== expectedSuffix && !image.key.endsWith(`/${expectedSuffix}`)) {
     throw new Error(`Publication ${label} key must end with ${expectedSuffix}`)
   }
@@ -128,12 +137,21 @@ function assertPublishedImage(manifest, label, image, expectedSuffix, expectedDi
       `Publication ${label} is ${image.width}x${image.height}, expected ${expectedDimensions.width}x${expectedDimensions.height}`
     )
   }
+  if (maximumBytes && image.bytes > maximumBytes) {
+    throw new Error(
+      `Publication ${label} exceeds the ${maximumBytesLabel || `${maximumBytes} byte`} limit`
+    )
+  }
 }
 
 export function validatePublicationManifest(value) {
   const manifest = publicationManifestSchema.parse(value)
-  const plan = getRunPlan(manifest.profile)
+  const plan = resolveRunPlan(manifest.selection)
   const resolution = getScreenshotResolution(manifest.resolution)
+
+  if (manifest.selection.join(',') !== plan.selection.join(',')) {
+    throw new Error(`Publication manifest selection must use canonical order: ${plan.selection.join(',')}`)
+  }
 
   for (const definition of listBrandingIconDefinitions()) {
     const icon = manifest.branding.icons[definition.name]
@@ -148,7 +166,7 @@ export function validatePublicationManifest(value) {
 
   if (manifest.artifacts.length !== plan.screenshots.length) {
     throw new Error(
-      `Publication manifest for ${plan.name} contains ${manifest.artifacts.length} artifacts, expected ${plan.screenshots.length}`
+      `Publication manifest for ${plan.label} contains ${manifest.artifacts.length} artifacts, expected ${plan.screenshots.length}`
     )
   }
 
@@ -166,13 +184,18 @@ export function validatePublicationManifest(value) {
       publicationImageRelativeKey('notificationImage', artifact.notificationImage.sha256, definition.outputFilename),
       resolution
     )
-    assertPublishedImage(
-      manifest,
-      `compactImage for ${artifact.name}`,
-      artifact.compactImage,
-      publicationImageRelativeKey('compactImage', artifact.compactImage.sha256, definition.outputFilename),
-      definition.compactImage
-    )
+    for (const imageDefinition of listPlatformImageVariantDefinitions()) {
+      const image = artifact.platformImages[imageDefinition.name]
+      assertPublishedImage(
+        manifest,
+        `${imageDefinition.name} image for ${artifact.name}`,
+        image,
+        publicationImageRelativeKey(imageDefinition.name, image.sha256, definition.outputFilename),
+        imageDefinition.dimensions,
+        imageDefinition.maximumBytes,
+        imageDefinition.maximumBytesLabel
+      )
+    }
     assertPublishedImage(
       manifest,
       `originalImage for ${artifact.name}`,
@@ -210,9 +233,9 @@ export function assertPublicationManifestMatchesRun(publicationValue, runValue) 
       `Publication manifest Run Manifest version ${publicationManifest.runManifestVersion} does not match ${runManifest.version}`
     )
   }
-  if (publicationManifest.profile !== runManifest.profile) {
+  if (publicationManifest.selection.join(',') !== runManifest.selection.join(',')) {
     throw new Error(
-      `Publication manifest profile ${publicationManifest.profile} does not match ${runManifest.profile}`
+      `Publication manifest selection ${publicationManifest.selection.join(',')} does not match ${runManifest.selection.join(',')}`
     )
   }
   if (publicationManifest.renderTime !== runManifest.renderTime) {

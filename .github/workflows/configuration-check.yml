@@ -3,17 +3,18 @@ name: Check Bot Configuration
 on:
   workflow_dispatch:
     inputs:
-      profile:
-        description: Run Profile whose routing should be inspected
-        required: true
-        default: all
-        type: choice
-        options:
-          - schedules
-          - salmon-run
-          - gear
-          - salmon-run-and-gear
-          - all
+      schedules:
+        description: Include Schedules
+        type: boolean
+        default: true
+      salmon_run:
+        description: Include Salmon Run
+        type: boolean
+        default: true
+      gear:
+        description: Include Gear (Daily Drop + Regular)
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -24,10 +25,16 @@ concurrency:
 
 jobs:
   check:
-    name: Check ${{ inputs.profile }} configuration
+    name: Check selected configuration
     runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 10
     steps:
+      - name: Require at least one Content Group
+        if: ${{ !inputs.schedules && !inputs.salmon_run && !inputs.gear }}
+        run: |
+          echo "Select at least one Run Content Group" >&2
+          exit 1
+
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -46,9 +53,17 @@ jobs:
       - name: Install production dependencies
         run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
 
+      - name: Resolve Run Plan
+        id: plan
+        env:
+          RUN_SCHEDULES: ${{ inputs.schedules }}
+          RUN_SALMON_RUN: ${{ inputs.salmon_run }}
+          RUN_GEAR: ${{ inputs.gear }}
+        run: node bot/run/describe.mjs
+
       - name: Check Bot configuration without side effects
         env:
-          PROFILE: ${{ inputs.profile }}
+          RUN_SELECTION: ${{ steps.plan.outputs.selection }}
           BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
           BOT_LOCALE: ${{ vars.BOT_LOCALE || 'zh-CN' }}
           BOT_SCREENSHOT_RESOLUTION: ${{ vars.BOT_SCREENSHOT_RESOLUTION || '2400x1350' }}
@@ -63,4 +78,4 @@ jobs:
           BOT_WHATSAPP_CONFIG: ${{ secrets.BOT_WHATSAPP_CONFIG }}
           BOT_LINE_CONFIG: ${{ secrets.BOT_LINE_CONFIG }}
           BOT_SLACK_CONFIG: ${{ secrets.BOT_SLACK_CONFIG }}
-        run: pnpm run bot:doctor "$PROFILE"
+        run: pnpm run bot:doctor "$RUN_SELECTION"

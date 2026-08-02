@@ -5,11 +5,11 @@ import { botTimeZoneSchema } from '../config/BotTimeZone.mjs'
 import { screenshotAttributionSchema } from '../config/ScreenshotAttribution.mjs'
 import { getScreenshotResolution, screenshotResolutionSchema } from '../config/ScreenshotResolution.mjs'
 import { readManifestFile, writeManifestFile } from '../manifest/ManifestFile.mjs'
-import { getRunPlan, getScreenshotDefinition } from './RunPlan.mjs'
+import { getScreenshotDefinition, resolveRunPlan } from './RunPlan.mjs'
 
 const runManifestSchema = z.object({
-  version: z.literal(4),
-  profile: z.string().min(1),
+  version: z.literal(5),
+  selection: z.array(z.string().min(1)).min(1),
   renderTime: z.number().int().nonnegative(),
   timeZone: botTimeZoneSchema,
   locale: botLocaleSchema,
@@ -41,12 +41,16 @@ export const defaultRunManifestFilename = path.join('screenshots', 'run-manifest
 
 export function validateRunManifest(value) {
   const manifest = runManifestSchema.parse(value)
-  const plan = getRunPlan(manifest.profile)
+  const plan = resolveRunPlan(manifest.selection)
   const resolution = getScreenshotResolution(manifest.resolution)
+
+  if (manifest.selection.join(',') !== plan.selection.join(',')) {
+    throw new Error(`Run manifest selection must use canonical order: ${plan.selection.join(',')}`)
+  }
 
   if (manifest.artifacts.length !== plan.screenshots.length) {
     throw new Error(
-      `Run manifest for ${plan.name} contains ${manifest.artifacts.length} artifacts, expected ${plan.screenshots.length}`
+      `Run manifest for ${plan.label} contains ${manifest.artifacts.length} artifacts, expected ${plan.screenshots.length}`
     )
   }
 

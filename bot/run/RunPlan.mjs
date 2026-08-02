@@ -1,33 +1,27 @@
-const compactImage = Object.freeze({ width: 1024, height: 576 })
-
 const screenshotDefinitions = Object.freeze({
   schedules: Object.freeze({
     name: 'schedules',
     route: 'schedules',
     outputFilename: 'schedules.png',
     viewport: Object.freeze({ width: 1200, height: 675 }),
-    compactImage,
   }),
   'salmon-run': Object.freeze({
     name: 'salmon-run',
     route: 'salmon-run',
     outputFilename: 'salmon-run.png',
     viewport: Object.freeze({ width: 1200, height: 675 }),
-    compactImage,
   }),
   'gear-dailydrop': Object.freeze({
     name: 'gear-dailydrop',
     route: 'gear-dailydrop',
     outputFilename: 'gear-dailydrop.png',
     viewport: Object.freeze({ width: 1200, height: 675 }),
-    compactImage,
   }),
   'gear-regular': Object.freeze({
     name: 'gear-regular',
     route: 'gear-regular',
     outputFilename: 'gear-regular.png',
     viewport: Object.freeze({ width: 1200, height: 675 }),
-    compactImage,
   }),
 })
 
@@ -38,38 +32,31 @@ const notificationDefinitions = Object.freeze({
   'gear-regular': Object.freeze({ name: 'gear-regular', screenshot: 'gear-regular' }),
 })
 
-const runProfiles = Object.freeze({
+const runContentGroups = Object.freeze({
   schedules: Object.freeze({
     name: 'schedules',
-    artifactName: 'schedules',
+    label: 'Schedules',
+    environmentVariable: 'RUN_SCHEDULES',
     screenshots: Object.freeze(['schedules']),
     notifications: Object.freeze(['schedules']),
   }),
   'salmon-run': Object.freeze({
     name: 'salmon-run',
-    artifactName: 'salmon-run',
+    label: 'Salmon Run',
+    environmentVariable: 'RUN_SALMON_RUN',
     screenshots: Object.freeze(['salmon-run']),
     notifications: Object.freeze(['salmon-run']),
   }),
   gear: Object.freeze({
     name: 'gear',
-    artifactName: 'gear',
+    label: 'Gear',
+    environmentVariable: 'RUN_GEAR',
     screenshots: Object.freeze(['gear-dailydrop', 'gear-regular']),
     notifications: Object.freeze(['gear-dailydrop', 'gear-regular']),
   }),
-  'salmon-run-and-gear': Object.freeze({
-    name: 'salmon-run-and-gear',
-    artifactName: 'salmon-run-and-gear',
-    screenshots: Object.freeze(['salmon-run', 'gear-dailydrop', 'gear-regular']),
-    notifications: Object.freeze(['salmon-run', 'gear-dailydrop', 'gear-regular']),
-  }),
-  all: Object.freeze({
-    name: 'all',
-    artifactName: 'all',
-    screenshots: Object.freeze(['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular']),
-    notifications: Object.freeze(['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular']),
-  }),
 })
+
+const runContentGroupNames = Object.freeze(Object.keys(runContentGroups))
 
 function requireEntry(catalog, name, label) {
   const entry = catalog[name]
@@ -81,8 +68,47 @@ function requireEntry(catalog, name, label) {
   return entry
 }
 
-export function getRunPlan(name) {
-  return requireEntry(runProfiles, name, 'run profile')
+function selectionValues(selection) {
+  const values = Array.isArray(selection) ? selection : [selection]
+  return values.flatMap((value) => (typeof value === 'string' ? value.split(',') : [value]))
+}
+
+function normalizeRunSelection(selection) {
+  const selectedNames = new Set()
+  for (const value of selectionValues(selection)) {
+    if (typeof value !== 'string' || value.trim() === '') {
+      continue
+    }
+    const name = value.trim()
+    requireEntry(runContentGroups, name, 'run content group')
+    selectedNames.add(name)
+  }
+
+  const normalized = runContentGroupNames.filter((name) => selectedNames.has(name))
+  if (normalized.length === 0) {
+    throw new Error('Select at least one Run Content Group')
+  }
+  return normalized
+}
+
+export function resolveRunPlan(selection) {
+  const selectedNames = normalizeRunSelection(selection)
+  const selectedGroups = selectedNames.map((name) => runContentGroups[name])
+  return Object.freeze({
+    selection: Object.freeze(selectedNames),
+    label: selectedGroups.map(({ label }) => label).join(' + '),
+    artifactName: selectedNames.join('_'),
+    screenshots: Object.freeze(selectedGroups.flatMap(({ screenshots }) => screenshots)),
+    notifications: Object.freeze(selectedGroups.flatMap(({ notifications }) => notifications)),
+  })
+}
+
+export function resolveRunPlanFromEnvironment(environment = process.env) {
+  return resolveRunPlan(
+    listRunContentGroups()
+      .filter(({ environmentVariable }) => environment[environmentVariable] === 'true')
+      .map(({ name }) => name)
+  )
 }
 
 export function getScreenshotDefinition(name) {
@@ -93,10 +119,14 @@ export function getNotificationDefinition(name) {
   return requireEntry(notificationDefinitions, name, 'notification')
 }
 
-export function listRunProfiles() {
-  return Object.values(runProfiles)
+export function listRunContentGroups() {
+  return Object.values(runContentGroups)
 }
 
 export function listScreenshotDefinitions() {
   return Object.values(screenshotDefinitions)
+}
+
+export function listNotificationDefinitions() {
+  return Object.values(notificationDefinitions)
 }

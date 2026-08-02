@@ -39,7 +39,7 @@ test('notification payloads match every platform and Notification golden', async
   )
   assert.match(
     actualPayloads.whatsapp.schedules.template.components[0].parameters[0].image.link,
-    /\/compact-images\/[a-f0-9]{64}\/schedules\.png$/
+    /\/whatsapp-images\/[a-f0-9]{64}\/schedules\.png$/
   )
   assert.match(
     actualPayloads.wecom.schedules.template_card.card_image.url,
@@ -47,6 +47,6 @@ test('notification payloads match every platform and Notification golden', async
   )
   assert.match(
     actualPayloads.line.schedules.messages[0].contents.hero.url,
-    /\/compact-images\/[a-f0-9]{64}\/schedules\.png$/
+    /\/line-images\/[a-f0-9]{64}\/schedules\.png$/
   )
 })
