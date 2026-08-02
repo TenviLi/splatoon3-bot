@@ -19,7 +19,7 @@ const screenshotResolutionPresets = Object.freeze(
   )
 )
 
-export const defaultScreenshotResolution = '2400x1350'
+export const defaultScreenshotResolution = '1200x675'
 export const screenshotResolutionSchema = z.enum(screenshotResolutionNames)
 
 export function getScreenshotResolution(name) {

@@ -2,6 +2,14 @@
   "name": "splatoon3-bot",
   "version": "2.0.0",
   "description": "Deterministic Splatoon 3 screenshots and native rich notifications",
+  "homepage": "https://github.com/TenviLi/splatoon3-bot#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TenviLi/splatoon3-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TenviLi/splatoon3-bot/issues"
+  },
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.18.0",
@@ -31,8 +39,15 @@
     "bot:publish": "node bot/publish/index.mjs",
     "bot:notify": "node bot/notification/index.mjs"
   },
-  "keywords": [],
-  "author": "tenvili",
+  "keywords": [
+    "splatoon-3",
+    "github-actions",
+    "notification-bot",
+    "s3",
+    "screenshots",
+    "vue"
+  ],
+  "author": "TenviLi",
   "license": "GPL-3.0-only",
   "dependencies": {
     "@aws-sdk/client-s3": "3.1100.0",

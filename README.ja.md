@@ -73,7 +73,7 @@
   </tr>
 </table>
 
-README のプレビュー画像は `1200×675` です。`BOT_SCREENSHOT_RESOLUTION` では 4 種類の正確な 16:9 サイズから選択でき、保存用画像と通知のメイン画像に同じ設定が反映されます。LINE と WhatsApp には個別の `1024×576` 画像を生成し、ほかの通知サービスの画質を下げずに各アダプター固有の制限を適用します。
+README のプレビュー画像は既定解像度の `1200×675` です。`BOT_SCREENSHOT_RESOLUTION` では 4 種類の正確な 16:9 サイズから選択でき、保存用画像と通知のメイン画像に同じ設定が反映されます。LINE と WhatsApp には個別の `1024×576` 画像を生成し、ほかの通知サービスの画質を下げずに各アダプター固有の制限を適用します。
 
 ## クイックスタート
 
@@ -172,7 +172,7 @@ Workflow には安定した既定値があるため、以下の Repository Varia
 | Variable | 必須 | 選択肢 / 既定値 | 用途 |
 | --- | :---: | --- | --- |
 | `BOT_LOCALE` | いいえ | 下表の 14 値；既定 `zh-CN` | スクリーンショットと通知本文の言語。 |
-| `BOT_SCREENSHOT_RESOLUTION` | いいえ | `1200x675`、`1920x1080`、`2400x1350`、`3840x2160`；既定 `2400x1350` | 保存用画像と通知のメイン画像の正確な寸法。 |
+| `BOT_SCREENSHOT_RESOLUTION` | いいえ | `1200x675`、`1920x1080`、`2400x1350`、`3840x2160`；既定 `1200x675` | 保存用画像と通知のメイン画像の正確な寸法。 |
 | `BOT_TIME_ZONE` | いいえ | IANA Time Zone；既定 `Asia/Shanghai` | 描画と通知で共有する Time Zone。 |
 | `BOT_SCREENSHOT_ATTRIBUTION` | いいえ | 最大 40 文字；既定 `splatoon3.ink` | 画像下部に表示する中立的なクレジット。 |
 | `BOT_RUNNER` | いいえ | 既定 `ubuntu-24.04` | 2 つの実行段階で使う GitHub Actions Runner。 |
@@ -205,12 +205,12 @@ Bot のスクリーンショット生成と通知配信は 14 値すべてに対
 
 | 解像度 | Scale | 用途 |
 | --- | :---: | --- |
-| `1200x675` | 1× | 小さな保存用画像と画像比較 Test |
-| `1920x1080` | 1.6× | Full HD 原画像 |
-| `2400x1350` | 2× | 画質と容量の推奨バランス |
+| `1200x675` | 1× | 既定値。生成が最も速く、転送量と保存容量が最小 |
+| `1920x1080` | 1.6× | Full HD。転送量と保存容量は中程度 |
+| `2400x1350` | 2× | 高精細。転送量と保存容量が増加 |
 | `3840x2160` | 3.2× | 4K 原画像。保存容量とアップロード量が増えます |
 
-選択した寸法は、保存用画像、`notification-images/` オブジェクト、通知のメイン画像まで一貫して維持されます。LINE は `1 MB` 以下の専用 `1024×576` 画像を使用します。これは LINE の Flex 画像上限 `1024×1024` に収まる、クロップなしで最大の 16:9 サイズです。WhatsApp は `5 MB` のメディア制限に合わせた専用 `1024×576` 画像を使用します。どちらの表示ボタンも、選択した解像度のメイン画像を開きます。
+既定値は README のプレビューと一致し、Actions の実行時間、S3 の保存容量、メッセージの読み込み負荷を抑えます。より高解像度のメイン画像や保存用画像が必要な場合だけ変更してください。選択した寸法は、保存用画像、`notification-images/` オブジェクト、通知のメイン画像まで一貫して維持されます。LINE は `1 MB` 以下の専用 `1024×576` 画像を使用します。これは LINE の Flex 画像上限 `1024×1024` に収まる、クロップなしで最大の 16:9 サイズです。WhatsApp は `5 MB` のメディア制限に合わせた専用 `1024×576` 画像を使用します。どちらの表示ボタンも、選択した解像度のメイン画像を開きます。
 
 スケジュール、サーモンラン、ギアの Icon はリポジトリ内の Asset から生成され、Content-addressed key で S3 に自動公開されます。公開 Icon URL を別途用意する必要はありません。
 
@@ -577,10 +577,10 @@ pnpm run verify
 
 ## コントリビューション
 
-画像と通知の再現性を保ち、Run Plan と Manifest の境界を維持し、動作変更に対応する契約 Test を更新してください。Pull Request の作成前に `pnpm run verify` を実行し、Actions または Linux Browser の動作を変更した場合は `pnpm run verify:actions` も実行します。
+画像と通知の再現性を保ち、Run Plan と Manifest の境界を維持し、動作変更に対応する契約 Test を更新してください。詳しい手順は [CONTRIBUTING.md](./CONTRIBUTING.md)、脆弱性の非公開報告は [SECURITY.md](./SECURITY.md) を参照してください。
 
 ## ライセンス
 
 [GNU General Public License v3.0](./LICENSE) で公開しています。Nintendo とは無関係の非公式ファンプロジェクトです。
 
-Vue アプリケーションのコードは [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink) を基にしています。原プロジェクトのメンテナーとコントリビューターに感謝します。
+Vue アプリケーションのコードは [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink) を基にしています。原プロジェクトのメンテナーとコントリビューターに感謝し、MIT License の表示を [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) に保持しています。

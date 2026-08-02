@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a reproducible problem in screenshots, automation, publication, or notifications.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Remove every credential, webhook URL, recipient identifier, and private installation detail before submitting.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - GitHub Actions
+        - Configuration
+        - Data Snapshot
+        - Screenshots
+        - S3 publication
+        - Notification adapter
+        - Documentation
+        - Local development
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Commit SHA, release, or template creation date.
+      placeholder: eaf68ce or v2.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Provide the smallest repeatable sequence, with all sensitive values replaced by placeholders.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted diagnostics
+      description: Paste only the smallest relevant excerpt after removing credentials and private identifiers.
+      render: text
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, webhook URLs, recipient identifiers, and private installation data.
+          required: true
+        - label: This report does not disclose a security vulnerability.
+          required: true

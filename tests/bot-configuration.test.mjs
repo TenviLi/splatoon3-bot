@@ -69,6 +69,7 @@ test('uses explicit locale and screenshot-resolution enumerations with stable de
   assert.throws(() => resolveBotLocale('pt-BR'), /must be one of/)
 
   assert.equal(resolveScreenshotResolution().name, defaultScreenshotResolution)
+  assert.equal(defaultScreenshotResolution, '1200x675')
   assert.deepEqual(
     listScreenshotResolutions().map(({ name, width, height }) => ({ name, width, height })),
     [

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/TenviLi/splatoon3-bot/security/advisories/new
+    about: Report vulnerabilities privately; never disclose credentials or exploit details in an Issue.

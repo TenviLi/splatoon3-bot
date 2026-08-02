@@ -231,9 +231,9 @@ async function assertBotRunRequests(requests) {
     Promise.all(whatsAppUploads.map(({ body }) => sharp(body).metadata())),
   ])
   for (const metadata of notificationMetadata) {
-    if (metadata.width !== 2400 || metadata.height !== 1350) {
+    if (metadata.width !== 1200 || metadata.height !== 675) {
       throw new Error(
-        `Local Bot Run published a ${metadata.width || 0}x${metadata.height || 0} primary notification image instead of BOT_SCREENSHOT_RESOLUTION 2400x1350`
+        `Local Bot Run published a ${metadata.width || 0}x${metadata.height || 0} primary notification image instead of BOT_SCREENSHOT_RESOLUTION 1200x675`
       )
     }
   }

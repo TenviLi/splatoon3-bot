@@ -74,7 +74,7 @@ Nine adapters are included: **WeCom, Discord, Telegram, QQ, Feishu, DingTalk, Wh
   </tr>
 </table>
 
-These README previews use `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived screenshot and the primary notification image. LINE and WhatsApp receive separate `1024×576` variants so each adapter can enforce its own image budget without reducing every other Channel's quality.
+These README previews use the default `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived screenshot and the primary notification image. LINE and WhatsApp receive separate `1024×576` variants so each adapter can enforce its own image budget without reducing every other Channel's quality.
 
 ## Quick Start
 
@@ -171,7 +171,7 @@ Every Repository Variable is optional because the workflows provide a stable def
 | Repository Variable | Required | Allowed values / default | Purpose |
 | --- | :---: | --- | --- |
 | `BOT_LOCALE` | No | 14 supported values below; default `zh-CN` | Language shared by screenshots and notification copy. |
-| `BOT_SCREENSHOT_RESOLUTION` | No | `1200x675`, `1920x1080`, `2400x1350`, `3840x2160`; default `2400x1350` | Exact Screenshot Artifact and primary notification-image size. |
+| `BOT_SCREENSHOT_RESOLUTION` | No | `1200x675`, `1920x1080`, `2400x1350`, `3840x2160`; default `1200x675` | Exact Screenshot Artifact and primary notification-image size. |
 | `BOT_TIME_ZONE` | No | IANA time zone; default `Asia/Shanghai` | Time zone shared by screenshots and notification formatting. |
 | `BOT_SCREENSHOT_ATTRIBUTION` | No | Up to 40 characters; default `splatoon3.ink` | Platform-neutral footer credit. |
 | `BOT_RUNNER` | No | Default `ubuntu-24.04` | Runner label for both Bot Run stages. |
@@ -206,12 +206,12 @@ Resolution presets retain the same CSS layout and use the corresponding device s
 
 | Preset | Scale | Good default for |
 | --- | :---: | --- |
-| `1200x675` | 1× | Small artifacts and visual fixtures |
-| `1920x1080` | 1.6× | Full HD archives |
-| `2400x1350` | 2× | Recommended balance of detail and size |
+| `1200x675` | 1× | Default; fastest generation and smallest uploads |
+| `1920x1080` | 1.6× | Full HD with moderate storage and upload cost |
+| `2400x1350` | 2× | High-detail images with larger storage and uploads |
 | `3840x2160` | 3.2× | 4K originals; larger artifacts and uploads |
 
-The selected dimensions are preserved end to end for the Screenshot Artifact, `notification-images/` object, and primary message image. LINE receives a dedicated `1024×576` image capped at `1 MB`; that is the largest uncropped 16:9 rectangle inside LINE's `1024×1024` Flex-image limit. WhatsApp receives its own `1024×576` image under its `5 MB` media limit. Both action buttons still open the selected-resolution primary image.
+The default matches the README previews and keeps Actions time, S3 storage, and message loading modest. Increase it only when recipients need higher-resolution primary images or archives. The selected dimensions are preserved end to end for the Screenshot Artifact, `notification-images/` object, and primary message image. LINE receives a dedicated `1024×576` image capped at `1 MB`; that is the largest uncropped 16:9 rectangle inside LINE's `1024×1024` Flex-image limit. WhatsApp receives its own `1024×576` image under its `5 MB` media limit. Both action buttons still open the selected-resolution primary image.
 
 Built-in schedules, Salmon Run, and gear icons are rendered from repository assets and published under content-addressed `branding-icons/` keys. No external icon provisioning is required.
 
@@ -578,10 +578,10 @@ pnpm run verify
 
 ## Contributing
 
-Keep behavior deterministic, preserve Run Plan and Manifest boundaries, update contract tests for behavior changes, and review every changed image or payload golden deliberately. Run `pnpm run verify` before opening a pull request; use `pnpm run verify:actions` when changing Actions or Linux browser behavior.
+Keep behavior deterministic, preserve Run Plan and Manifest boundaries, update contract tests for behavior changes, and review every changed image or payload golden deliberately. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the complete workflow and [SECURITY.md](./SECURITY.md) for private vulnerability reporting.
 
 ## License
 
 Released under the [GNU General Public License v3.0](./LICENSE). This fan-made project is not affiliated with or endorsed by Nintendo.
 
-The Vue application is based on [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink), with thanks to its maintainers and contributors.
+The Vue application is based on [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink), with thanks to its maintainers and contributors. Its MIT attribution is preserved in [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).

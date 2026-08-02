@@ -120,6 +120,48 @@ test('GitHub Actions is the only supported hosted automation surface', async () 
   assert.match(readme, /GitHub Actions is the only supported hosted automation surface/)
 })
 
+test('public template ships community health and third-party attribution', async () => {
+  const packageMetadata = JSON.parse(await fs.readFile(path.join(process.cwd(), 'package.json'), 'utf8'))
+  const contributing = await fs.readFile(path.join(process.cwd(), 'CONTRIBUTING.md'), 'utf8')
+  const security = await fs.readFile(path.join(process.cwd(), 'SECURITY.md'), 'utf8')
+  const notices = await fs.readFile(path.join(process.cwd(), 'THIRD_PARTY_NOTICES.md'), 'utf8')
+  const context = await fs.readFile(path.join(process.cwd(), 'CONTEXT.md'), 'utf8')
+  const editorConfig = await fs.readFile(path.join(process.cwd(), '.editorconfig'), 'utf8')
+
+  assert.equal(packageMetadata.private, true)
+  assert.equal(packageMetadata.repository.url, 'git+https://github.com/TenviLi/splatoon3-bot.git')
+  assert.equal(packageMetadata.bugs.url, 'https://github.com/TenviLi/splatoon3-bot/issues')
+  assert.match(contributing, /pnpm run verify/)
+  assert.match(contributing, /SECURITY\.md/)
+  assert.match(security, /private vulnerability reporting/)
+  assert.match(security, /Repository Secrets/)
+  assert.match(notices, /Copyright \(c\) 2022 Matt Isenhower/)
+  assert.match(notices, /The above copyright notice and this permission notice shall be included/)
+  assert.match(context, /\*\*Run Content Group\*\*/)
+  assert.match(context, /\*\*Run Selection\*\*/)
+  assert.match(context, /\*\*Run Plan\*\*/)
+  assert.doesNotMatch(context, /^\*\*Run Profile\*\*:/m)
+  assert.match(editorConfig, /^root = true$/m)
+  assert.match(editorConfig, /^end_of_line = lf$/m)
+
+  for (const filename of ['README.md', 'README.zh-CN.md', 'README.ja.md']) {
+    const source = await fs.readFile(path.join(process.cwd(), filename), 'utf8')
+    assert.match(source, /THIRD_PARTY_NOTICES\.md/, `${filename}: third-party notices`)
+    assert.match(source, /misenhower\/splatoon3\.ink/, `${filename}: upstream attribution`)
+    assert.match(source, /CONTRIBUTING\.md/, `${filename}: contributing guide`)
+    assert.match(source, /SECURITY\.md/, `${filename}: security policy`)
+  }
+
+  for (const filename of [
+    '.github/PULL_REQUEST_TEMPLATE.md',
+    '.github/ISSUE_TEMPLATE/bug-report.yml',
+    '.github/ISSUE_TEMPLATE/feature-request.yml',
+    '.github/ISSUE_TEMPLATE/config.yml',
+  ]) {
+    await fs.access(path.join(process.cwd(), filename))
+  }
+})
+
 test('README provides direct screenshots and three operator-first languages', async () => {
   const english = await fs.readFile(path.join(process.cwd(), 'README.md'), 'utf8')
   const simplifiedChinese = await fs.readFile(path.join(process.cwd(), 'README.zh-CN.md'), 'utf8')
@@ -396,6 +438,9 @@ test('README provides direct screenshots and three operator-first languages', as
   assert.match(english, /Every Repository Variable is optional/)
   assert.match(simplifiedChinese, /Repository Variable.*全部可选/)
   assert.match(japanese, /Repository Variable.*すべて任意/)
+  assert.match(english, /previews use the default `1200×675`/)
+  assert.match(simplifiedChinese, /预览图使用默认分辨率 `1200×675`/)
+  assert.match(japanese, /プレビュー画像は既定解像度の `1200×675`/)
   assert.doesNotMatch(english, /English quick start uses/)
   assert.doesNotMatch(simplifiedChinese, /中文快速开始|默认使用企业微信/)
   assert.doesNotMatch(japanese, /日本語版のクイックスタート/)
@@ -432,7 +477,7 @@ test('notification adapters share the publication stage and are enabled by confi
   assert.match(reusableWorkflow, /BOT_LOCALE: \$\{\{ vars\.BOT_LOCALE \|\| 'zh-CN' \}\}/)
   assert.match(
     reusableWorkflow,
-    /BOT_SCREENSHOT_RESOLUTION: \$\{\{ vars\.BOT_SCREENSHOT_RESOLUTION \|\| '2400x1350' \}\}/
+    /BOT_SCREENSHOT_RESOLUTION: \$\{\{ vars\.BOT_SCREENSHOT_RESOLUTION \|\| '1200x675' \}\}/
   )
   assert.match(
     reusableWorkflow,
@@ -502,7 +547,7 @@ test('notification adapters share the publication stage and are enabled by confi
   )
   assert.match(localActionsVerifier, /notification-smoke\.yml/)
   assert.match(localActionsVerifier, /Expected fifteen S3 uploads, three branding inspections, and three WeCom deliveries/)
-  assert.match(localActionsVerifier, /primary notification image instead of BOT_SCREENSHOT_RESOLUTION 2400x1350/)
+  assert.match(localActionsVerifier, /primary notification image instead of BOT_SCREENSHOT_RESOLUTION 1200x675/)
   assert.match(localActionsVerifier, /LINE image instead of 1024x576/)
   assert.match(localActionsVerifier, /LINE image above 1 MB/)
   assert.match(localActionsVerifier, /--container-options/)
@@ -553,7 +598,7 @@ test('notification adapters share the publication stage and are enabled by confi
   )
   assert.match(
     configurationCheckWorkflow,
-    /BOT_SCREENSHOT_RESOLUTION: \$\{\{ vars\.BOT_SCREENSHOT_RESOLUTION \|\| '2400x1350' \}\}/
+    /BOT_SCREENSHOT_RESOLUTION: \$\{\{ vars\.BOT_SCREENSHOT_RESOLUTION \|\| '1200x675' \}\}/
   )
 
   const smokeWorkflow = await fs.readFile(path.join(workflowDirectory, 'notification-smoke.yml'), 'utf8')

@@ -73,7 +73,7 @@
   </tr>
 </table>
 
-README 中的预览图使用 `1200×675`。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档截图和通知主图。LINE 与 WhatsApp 会各自使用独立的 `1024×576` 平台变体，使每个适配器能够单独落实自身限制，而不降低其他通知平台的画质。
+README 中的预览图使用默认分辨率 `1200×675`。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档截图和通知主图。LINE 与 WhatsApp 会各自使用独立的 `1024×576` 平台变体，使每个适配器能够单独落实自身限制，而不降低其他通知平台的画质。
 
 ## 快速开始
 
@@ -173,7 +173,7 @@ GitHub 不允许在 `on.schedule.cron` 中读取 Repository Variables 或 Secret
 | Variable | 必填 | 可选值 / 默认值 | 用途 |
 | --- | :---: | --- | --- |
 | `BOT_LOCALE` | 否 | 下表列出的 14 个值；默认 `zh-CN` | 同时控制截图与通知文案语言。 |
-| `BOT_SCREENSHOT_RESOLUTION` | 否 | `1200x675`、`1920x1080`、`2400x1350`、`3840x2160`；默认 `2400x1350` | 归档截图与主要通知图片的精确尺寸。 |
+| `BOT_SCREENSHOT_RESOLUTION` | 否 | `1200x675`、`1920x1080`、`2400x1350`、`3840x2160`；默认 `1200x675` | 归档截图与主要通知图片的精确尺寸。 |
 | `BOT_TIME_ZONE` | 否 | IANA 时区；默认 `Asia/Shanghai` | 截图和通知共用的时区。 |
 | `BOT_SCREENSHOT_ATTRIBUTION` | 否 | 最多 40 字符；默认 `splatoon3.ink` | 截图底栏的中立署名。 |
 | `BOT_RUNNER` | 否 | 默认 `ubuntu-24.04` | 两个运行阶段使用的 GitHub Actions Runner。 |
@@ -206,12 +206,12 @@ Bot 截图与通知运行链路支持全部 14 个值；面向运维者的 READM
 
 | 分辨率 | 缩放 | 适用场景 |
 | --- | :---: | --- |
-| `1200x675` | 1× | 小体积与视觉测试 |
-| `1920x1080` | 1.6× | Full HD 原图 |
-| `2400x1350` | 2× | 推荐的清晰度与体积平衡 |
+| `1200x675` | 1× | 默认值；生成最快、上传与存储最小 |
+| `1920x1080` | 1.6× | Full HD，上传与存储开销适中 |
+| `2400x1350` | 2× | 更高清，上传与存储开销更大 |
 | `3840x2160` | 3.2× | 4K 原图，归档和上传更大 |
 
-所选尺寸会同时用于归档截图、`notification-images/` 对象和主要消息图片。LINE 使用独立且不超过 `1 MB` 的 `1024×576` 图片；它正好是 LINE `1024×1024` Flex 图片硬限制内最大的无裁切 16:9 矩形。WhatsApp 则使用独立、符合 `5 MB` 媒体限制的 `1024×576` 图片。两个平台的查看按钮仍会打开所选分辨率的主要图片。
+默认值与 README 预览保持一致，同时减少 Actions 用时、S3 存储和消息加载开销；只有确实需要更高清的主图或归档时才建议调高。所选尺寸会同时用于归档截图、`notification-images/` 对象和主要消息图片。LINE 使用独立且不超过 `1 MB` 的 `1024×576` 图片；它正好是 LINE `1024×1024` Flex 图片硬限制内最大的无裁切 16:9 矩形。WhatsApp 则使用独立、符合 `5 MB` 媒体限制的 `1024×576` 图片。两个平台的查看按钮仍会打开所选分辨率的主要图片。
 
 对战日程、鲑鱼跑与装备图标由仓库内置资源生成，并按内容哈希自动发布到 S3；用户不需要另行准备公共图标 URL。
 
@@ -578,10 +578,10 @@ pnpm run verify
 
 ## 参与贡献
 
-请保持截图和通知结果可复现，维护 Run Plan 与 Manifest 的边界，并为行为变化更新相应契约测试。提交 Pull Request 前运行 `pnpm run verify`；修改 Actions 或 Linux 浏览器行为时，再运行 `pnpm run verify:actions`。
+请保持截图和通知结果可复现，维护 Run Plan 与 Manifest 的边界，并为行为变化更新相应契约测试。完整流程见 [CONTRIBUTING.md](./CONTRIBUTING.md)；安全漏洞请按 [SECURITY.md](./SECURITY.md) 私下报告。
 
 ## 许可证
 
 本项目以 [GNU General Public License v3.0](./LICENSE) 发布，是非官方同人项目，与 Nintendo 无隶属或背书关系。
 
-本项目的 Vue 应用代码源自 [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink)，谨向原项目的维护者与贡献者致谢。
+本项目的 Vue 应用代码源自 [misenhower/splatoon3.ink](https://github.com/misenhower/splatoon3.ink)，谨向原项目的维护者与贡献者致谢；其 MIT 许可证声明完整保留于 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)。

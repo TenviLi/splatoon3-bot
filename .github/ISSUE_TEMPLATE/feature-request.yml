@@ -1,0 +1,46 @@
+name: Feature request
+description: Propose a focused improvement for operators, contributors, or a notification platform.
+title: "[Feature]: "
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Operator experience
+        - GitHub Actions
+        - Screenshots
+        - S3 publication
+        - Existing notification adapter
+        - New notification adapter
+        - Reliability and testing
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the concrete user need rather than only the desired implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain the expected workflow, configuration, or message experience.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This request contains no credentials or private installation data.
+          required: true
+        - label: I checked existing Issues for the same request.
+          required: true

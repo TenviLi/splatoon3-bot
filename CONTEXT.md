@@ -8,9 +8,17 @@ The project turns a validated Splatoon data snapshot into screenshot artifacts a
 A complete execution that prepares data, renders screenshot artifacts, publishes them, and delivers notifications.
 _Avoid_: Job, pipeline
 
-**Run Profile**:
-A named selection of screenshot artifacts and notifications produced by a Bot Run, such as schedules or gear.
-_Avoid_: Bot type, message type
+**Run Content Group**:
+A composable operator choice such as schedules, Salmon Run, or gear. Each group owns a stable set of Screenshot Definitions and Notifications.
+_Avoid_: Run Profile, Bot type, message type
+
+**Run Selection**:
+A non-empty, canonical ordering of the Run Content Groups chosen for one Bot Run.
+_Avoid_: Profile, checkbox state
+
+**Run Plan**:
+The resolved, ordered Screenshot Definitions and Notifications produced from one Run Selection.
+_Avoid_: Matrix, Job list
 
 **Data Snapshot**:
 One validated, immutable generation of all Splatoon data required by a Bot Run.
@@ -45,7 +53,7 @@ One configured destination within a Notification Channel. A Channel can contain 
 _Avoid_: Webhook URL, chat config
 
 **Configuration Preflight**:
-A side-effect-free validation of the selected Run Profile, public project options, publication credentials, and every configured Notification Channel before publication begins.
+A side-effect-free validation of the Run Selection, public project options, publication credentials, and every configured Notification Channel before publication begins.
 _Avoid_: Dry run, config check
 
 **Delivery Result**:
