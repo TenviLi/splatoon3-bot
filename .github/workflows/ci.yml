@@ -34,6 +34,7 @@ jobs:
             --workdir /repo \
             splatoon3-bot-gitleaks:ci \
             git --no-banner --no-color --redact \
+            --config /repo/.gitleaks.toml \
             --gitleaks-ignore-path /repo/.gitleaksignore /repo
 
   verify:

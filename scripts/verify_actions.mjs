@@ -311,6 +311,8 @@ for (const command of ['git', 'dir']) {
     '--no-banner',
     '--no-color',
     '--redact',
+    '--config',
+    '/repo/.gitleaks.toml',
     '--gitleaks-ignore-path',
     '/repo/.gitleaksignore',
     command === 'git' ? '/repo' : '.',

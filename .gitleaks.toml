@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Reproducible dependency and build caches"
+paths = [
+  '''(^|/)(?:node_modules|dist|\.cache|\.pnpm-store)/''',
+]

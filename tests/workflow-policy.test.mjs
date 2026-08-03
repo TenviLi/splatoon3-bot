@@ -96,6 +96,7 @@ test('CI scans complete Git history with a digest-pinned Gitleaks image', async 
     path.join(process.cwd(), '.github', 'gitleaks', 'Dockerfile'),
     'utf8'
   )
+  const gitleaksConfiguration = await fs.readFile(path.join(process.cwd(), '.gitleaks.toml'), 'utf8')
   const dependabot = await fs.readFile(path.join(process.cwd(), '.github', 'dependabot.yml'), 'utf8')
   const localVerification = await fs.readFile(
     path.join(process.cwd(), 'scripts', 'verify_actions.mjs'),
@@ -109,10 +110,16 @@ test('CI scans complete Git history with a digest-pinned Gitleaks image', async 
     /^FROM ghcr\.io\/gitleaks\/gitleaks:v8\.30\.1@sha256:[0-9a-f]{64}\n$/
   )
   assert.match(source, /docker build --tag splatoon3-bot-gitleaks:ci \.github\/gitleaks/)
+  assert.match(source, /--config \/repo\/\.gitleaks\.toml/)
   assert.match(source, /--gitleaks-ignore-path \/repo\/\.gitleaksignore \/repo/)
+  assert.match(gitleaksConfiguration, /^\[extend\]\nuseDefault = true$/m)
+  for (const directory of ['node_modules', 'dist', '\\.cache', '\\.pnpm-store']) {
+    assert.ok(gitleaksConfiguration.includes(directory), `.gitleaks.toml must exclude ${directory}`)
+  }
   assert.match(dependabot, /directory: \/\.github\/gitleaks/)
   assert.match(localVerification, /const gitleaksImage = 'splatoon3-bot-gitleaks:local'/)
   assert.match(localVerification, /for \(const command of \['git', 'dir'\]\)/)
+  assert.match(localVerification, /'--config',\n\s+'\/repo\/\.gitleaks\.toml'/)
   assert.match(readme, /scans the complete Git history with a digest-pinned Gitleaks image/)
 })
 
