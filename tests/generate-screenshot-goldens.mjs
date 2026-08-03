@@ -5,8 +5,8 @@ import { getScreenshotGoldenDirectory } from './support/ScreenshotGoldenEnvironm
 import { renderFixtureScreenshotArtifacts } from './support/ScreenshotFixtureRenderer.mjs'
 import { defaultScreenshotAttribution } from '../src/common/screenshotAttribution.mjs'
 import {
-  screenshotGoldenFilename,
   screenshotGoldenLocales,
+  screenshotGoldenPath,
 } from './support/ScreenshotGoldenLocale.mjs'
 
 process.env.SPLATOON_DATA_DIRECTORY = 'tests/fixtures/data'
@@ -29,8 +29,9 @@ for (const { locale } of screenshotGoldenLocales) {
     }
   )
 
+  await fs.mkdir(path.join(outputDirectory, locale), { recursive: true })
   for (const artifact of artifacts) {
-    const targetFilename = path.join(outputDirectory, screenshotGoldenFilename(artifact.name, locale))
+    const targetFilename = screenshotGoldenPath(outputDirectory, artifact.name, locale)
     await fs.copyFile(artifact.filename, targetFilename)
     console.log(`${locale}/${artifact.name}: ${targetFilename}`)
   }

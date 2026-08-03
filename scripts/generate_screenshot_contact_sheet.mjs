@@ -5,11 +5,7 @@ import { parseArgs } from 'node:util'
 import sharp from 'sharp'
 import { listScreenshotDefinitions } from '../bot/run/RunPlan.mjs'
 
-const localeSuffixes = Object.freeze({
-  'en-US': '',
-  'zh-CN': '.zh-CN',
-  'ja-JP': '.ja',
-})
+const contactSheetLocales = Object.freeze(['en-US', 'zh-CN', 'ja-JP'])
 
 function positiveInteger(value, label) {
   const parsed = Number.parseInt(value, 10)
@@ -46,12 +42,11 @@ function labelImage(name, width, height) {
   )
 }
 
-export function screenshotGoldenSuffix(locale) {
-  const suffix = localeSuffixes[locale]
-  if (suffix === undefined) {
-    throw new Error(`Unsupported contact-sheet locale: ${locale}. Use ${Object.keys(localeSuffixes).join(', ')}`)
+export function screenshotGoldenLocaleDirectory(inputDirectory, locale) {
+  if (!contactSheetLocales.includes(locale)) {
+    throw new Error(`Unsupported contact-sheet locale: ${locale}. Use ${contactSheetLocales.join(', ')}`)
   }
-  return suffix
+  return path.join(inputDirectory, locale)
 }
 
 export async function generateScreenshotContactSheet({
@@ -79,10 +74,10 @@ export async function generateScreenshotContactSheet({
   const rows = Math.ceil(names.length / normalizedColumns)
   const width = normalizedColumns * normalizedTileWidth + (normalizedColumns + 1) * normalizedGap
   const height = rows * tileHeight + (rows + 1) * normalizedGap
-  const suffix = screenshotGoldenSuffix(locale)
+  const localeDirectory = screenshotGoldenLocaleDirectory(inputDirectory, locale)
   const inputs = names.map((name) => ({
     name,
-    filename: path.join(inputDirectory, `${name}${suffix}.png`),
+    filename: path.join(localeDirectory, `${name}.png`),
   }))
 
   for (const { name, filename } of inputs) {

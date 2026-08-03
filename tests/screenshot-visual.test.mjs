@@ -17,6 +17,7 @@ import { getLocaleFontFamilies } from '../src/common/fontFamilies.mjs'
 import {
   screenshotGoldenFilename,
   screenshotGoldenLocales,
+  screenshotGoldenPath,
 } from './support/ScreenshotGoldenLocale.mjs'
 
 test('screenshot artifacts match structural and visual contracts', { timeout: 600_000 }, async () => {
@@ -30,15 +31,29 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 60
   const diffDirectory = path.join(process.cwd(), '.cache', 'visual-diff')
   const goldenDirectory = getScreenshotGoldenDirectory()
   const definitions = listScreenshotDefinitions()
-  const expectedGoldenFilenames = screenshotGoldenLocales
-    .flatMap(({ locale }) => definitions.map(({ name }) => screenshotGoldenFilename(name, locale)))
-    .sort()
+  const expectedGoldenFilenames = definitions.map(({ name }) => screenshotGoldenFilename(name)).sort()
 
   for (const environment of listScreenshotGoldenEnvironments()) {
-    const filenames = (await fs.readdir(getScreenshotGoldenDirectory(environment)))
-      .filter((filename) => filename.endsWith('.png'))
+    const environmentDirectory = getScreenshotGoldenDirectory(environment)
+    const localeDirectories = (await fs.readdir(environmentDirectory, { withFileTypes: true }))
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
       .sort()
-    assert.deepEqual(filenames, expectedGoldenFilenames, `${environment} golden screenshots are incomplete`)
+    assert.deepEqual(
+      localeDirectories,
+      screenshotGoldenLocales.map(({ locale }) => locale).sort(),
+      `${environment} golden locale directories are incomplete`
+    )
+    for (const { locale } of screenshotGoldenLocales) {
+      const filenames = (await fs.readdir(path.join(environmentDirectory, locale)))
+        .filter((filename) => filename.endsWith('.png'))
+        .sort()
+      assert.deepEqual(
+        filenames,
+        expectedGoldenFilenames,
+        `${environment}/${locale} golden screenshots are incomplete`
+      )
+    }
   }
 
   await build({ build: { outDir: buildDirectory, emptyOutDir: true } })
@@ -76,7 +91,7 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 60
       assert.deepEqual(artifact.renderState.fontFamilies, getLocaleFontFamilies(locale))
       const current = PNG.sync.read(await fs.readFile(artifact.filename))
       const golden = PNG.sync.read(
-        await fs.readFile(path.join(goldenDirectory, screenshotGoldenFilename(artifact.name, locale)))
+        await fs.readFile(screenshotGoldenPath(goldenDirectory, artifact.name, locale))
       )
       assert.equal(current.width, golden.width, `${label} width changed`)
       assert.equal(current.height, golden.height, `${label} height changed`)
@@ -88,7 +103,9 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 60
       const differenceRatio = differentPixels / (current.width * current.height)
 
       if (differenceRatio > 0.001) {
-        await fs.writeFile(path.join(diffDirectory, screenshotGoldenFilename(artifact.name, locale)), PNG.sync.write(diff))
+        const diffFilename = screenshotGoldenPath(diffDirectory, artifact.name, locale)
+        await fs.mkdir(path.dirname(diffFilename), { recursive: true })
+        await fs.writeFile(diffFilename, PNG.sync.write(diff))
       }
       assert.ok(differenceRatio <= 0.001, `${label} visual difference is ${(differenceRatio * 100).toFixed(3)}%`)
     }

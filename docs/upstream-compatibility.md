@@ -35,3 +35,5 @@ The complete upstream CJK font set is also retained. Simplified Chinese, Traditi
 3. Add a failing behavior test before changing a project-owned divergence.
 4. Run `pnpm run verify`; run `pnpm run verify:actions` when the change affects Linux rendering or automation.
 5. Generate `pnpm run screenshots:contact-sheet -- --locale zh-CN` and review the complete artifact catalog when visual goldens change.
+
+Pixel goldens use `tests/golden/screenshots/<platform>/<locale>/<Screenshot ID>.png`; locale suffixes do not belong in Screenshot ID filenames.

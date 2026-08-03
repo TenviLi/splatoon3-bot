@@ -108,10 +108,10 @@ test('environment checkboxes resolve through the same Run Plan interface', () =>
 })
 
 test('invalid or empty selections fail before a Bot Run starts', () => {
-  assert.throws(() => resolveRunPlan('unknown'), /Unknown run content group/)
-  assert.throws(() => resolveRunPlan([]), /Select at least one Run Content Group/)
+  assert.throws(() => resolveRunPlan('unknown'), /Unknown Content Group ID/)
+  assert.throws(() => resolveRunPlan([]), /Select at least one Content Group/)
   assert.throws(
     () => resolveRunPlanFromEnvironment({ RUN_SCHEDULES: 'false' }),
-    /Select at least one Run Content Group/
+    /Select at least one Content Group/
   )
 })

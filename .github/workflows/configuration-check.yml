@@ -4,35 +4,35 @@ on:
   workflow_dispatch:
     inputs:
       schedules:
-        description: Include battle overview (Regular/Anarchy/X or Splatfest)
+        description: 'Content Group schedules: battle overview (Regular/Anarchy/X or Splatfest)'
         type: boolean
         default: true
       schedules_regular:
-        description: Include the single Regular Battle card
+        description: 'Content Group schedules-regular: single Regular Battle card'
         type: boolean
         default: true
       schedules_anarchy:
-        description: Include the Anarchy Series and Open cards
+        description: 'Content Group schedules-anarchy: Anarchy Series and Open cards'
         type: boolean
         default: true
       schedules_x:
-        description: Include the single X Battle card
+        description: 'Content Group schedules-x: single X Battle card'
         type: boolean
         default: true
       challenges:
-        description: Include Challenges
+        description: 'Content Group challenges: Challenges'
         type: boolean
         default: true
       salmon_run:
-        description: Include Salmon Run
+        description: 'Content Group salmon-run: Salmon Run'
         type: boolean
         default: true
       gear:
-        description: Include Gear (Daily Drop + Regular + Salmon Run)
+        description: 'Content Group gear: Daily Drop, regular shop, and Salmon Run gear'
         type: boolean
         default: true
       splatfest:
-        description: Include Splatfest views and notifications for all regions
+        description: 'Content Group splatfest: Splatfest views and notifications for all regions'
         type: boolean
         default: true
 
@@ -52,7 +52,7 @@ jobs:
       - name: Require at least one Content Group
         if: ${{ !inputs.schedules && !inputs.schedules_regular && !inputs.schedules_anarchy && !inputs.schedules_x && !inputs.challenges && !inputs.salmon_run && !inputs.gear && !inputs.splatfest }}
         run: |
-          echo "Select at least one Run Content Group" >&2
+          echo "Select at least one Content Group" >&2
           exit 1
 
       - name: Check out repository

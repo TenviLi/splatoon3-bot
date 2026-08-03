@@ -60,20 +60,54 @@
 
 ## 截图预览
 
-### 直接查看四张代表性稳定截图
+### 全部十三个 Screenshot ID
+
+可勾选的选项叫 **Content Group ID（内容组 ID）**，不是 Run Profile。一个 Content Group ID 对应 GitHub Actions 中的一个复选框或 CLI 中的一个选择值，并会展开为一个或多个 **Screenshot ID（截图 ID）**。Screenshot ID 同时也是生成 PNG 的稳定文件主名和对应 Notification 的 ID，因此也可以直接写进通知目标的 `notifications:` 列表。
 
 <table>
   <tr>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/schedules.zh-CN.png" alt="中文对战日程截图"><br><sub><code>schedules.zh-CN.png</code></sub></td>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/salmon-run.zh-CN.png" alt="中文鲑鱼跑截图"><br><sub><code>salmon-run.zh-CN.png</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/schedules.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/schedules.png" alt="中文对战日程总览截图"></a><br><strong>对战日程总览</strong><br><sub>Screenshot ID：<code>schedules</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/schedules-regular.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/schedules-regular.png" alt="中文一般比赛截图"></a><br><strong>一般比赛</strong><br><sub>Screenshot ID：<code>schedules-regular</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/schedules-anarchy.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/schedules-anarchy.png" alt="中文蛮颓比赛截图"></a><br><strong>蛮颓比赛</strong><br><sub>Screenshot ID：<code>schedules-anarchy</code></sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-dailydrop.zh-CN.png" alt="中文鱿鱼须商城今日精选截图"><br><sub><code>gear-dailydrop.zh-CN.png</code></sub></td>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-regular.zh-CN.png" alt="中文鱿鱼须商城在售装备截图"><br><sub><code>gear-regular.zh-CN.png</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/schedules-x.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/schedules-x.png" alt="中文 X 比赛截图"></a><br><strong>X 比赛</strong><br><sub>Screenshot ID：<code>schedules-x</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/challenges.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/challenges.png" alt="中文活动比赛截图"></a><br><strong>活动比赛</strong><br><sub>Screenshot ID：<code>challenges</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/salmon-run.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/salmon-run.png" alt="中文鲑鱼跑截图"></a><br><strong>鲑鱼跑</strong><br><sub>Screenshot ID：<code>salmon-run</code></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/gear-dailydrop.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/gear-dailydrop.png" alt="中文鱿鱼须商城今日精选截图"></a><br><strong>今日精选</strong><br><sub>Screenshot ID：<code>gear-dailydrop</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/gear-regular.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/gear-regular.png" alt="中文鱿鱼须商城在售装备截图"></a><br><strong>在售装备</strong><br><sub>Screenshot ID：<code>gear-regular</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/gear-salmon-run.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/gear-salmon-run.png" alt="中文鲑鱼跑月度装备截图"></a><br><strong>鲑鱼跑月度装备</strong><br><sub>Screenshot ID：<code>gear-salmon-run</code></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/splatfest-na.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/splatfest-na.png" alt="中文北美区域祭典截图"></a><br><strong>祭典 · NA</strong><br><sub>Screenshot ID：<code>splatfest-na</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/splatfest-eu.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/splatfest-eu.png" alt="中文欧洲区域祭典截图"></a><br><strong>祭典 · EU</strong><br><sub>Screenshot ID：<code>splatfest-eu</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/splatfest-jp.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/splatfest-jp.png" alt="中文日本区域祭典截图"></a><br><strong>祭典 · JP</strong><br><sub>Screenshot ID：<code>splatfest-jp</code></sub></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center"><a href="./tests/golden/screenshots/linux-x64/zh-CN/splatfest-ap.png"><img src="./tests/golden/screenshots/linux-x64/zh-CN/splatfest-ap.png" width="33%" alt="中文亚太区域祭典截图"></a><br><strong>祭典 · AP</strong><br><sub>Screenshot ID：<code>splatfest-ap</code></sub></td>
   </tr>
 </table>
 
-这四张预览是十三类截图中会直接用于通知的代表性子集，使用默认分辨率 `1200×675`。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档截图和通知主图。LINE 与 WhatsApp 会各自使用独立的 `1024×576` 平台变体，使每个适配器能够单独落实自身限制，而不降低其他通知平台的画质。
+这些预览使用默认分辨率 `1200×675`；点击任意图片可以查看完整尺寸。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档 Screenshot Artifact 与通知主图。LINE 与 WhatsApp 会各自使用独立的 `1024×576` 平台变体，使每个适配器能够单独落实自身限制，而不降低其他通知平台的画质。
+
+### 可选内容组
+
+下面八个 Content Group ID 就是手动运行、Smoke Test 与配置检查表单中真实可选的项目；CLI 也接受同一组 ID，并用逗号组成 Run Selection。
+
+| Content Group ID | 生成的 Screenshot ID | 适用内容 |
+| --- | --- | --- |
+| `schedules` | `schedules` | 普通、蛮颓、X 比赛或当前祭典模式的完整对战总览。 |
+| `schedules-regular` | `schedules-regular` | 只展示一般比赛的专题卡片。 |
+| `schedules-anarchy` | `schedules-anarchy` | 并列展示蛮颓比赛（挑战）与开放。 |
+| `schedules-x` | `schedules-x` | 只展示 X 比赛的专题卡片。 |
+| `challenges` | `challenges` | 当前或下一场活动比赛及可参加时段。 |
+| `salmon-run` | `salmon-run` | 当前鲑鱼跑轮换。 |
+| `gear` | `gear-dailydrop`、`gear-regular`、`gear-salmon-run` | 今日精选、通常商品与鲑鱼跑月度装备。 |
+| `splatfest` | `splatfest-na`、`splatfest-eu`、`splatfest-jp`、`splatfest-ap` | 四个区域各一张祭典图片和一条通知。 |
+
+**Run Selection（运行选择）**是任意非空的 Content Group ID 组合；Bot 会把它解析成顺序稳定的 **Run Plan（运行计划）**，其中列出本次真正要生成的 Screenshot ID 与 Notification。这里刻意不使用“Run Profile”：这些选项可以自由组合，并不是互斥的预设档位。
 
 ## 快速开始
 
@@ -98,7 +132,7 @@
 
    参考企业微信官方的[群机器人说明](https://developer.work.weixin.qq.com/document/path/91770)，或从[通知平台](#通知平台)中选择其他适配器。
 4. 默认语言已经是 `zh-CN`。如果你的时区不是 `Asia/Shanghai`，请设置 `BOT_TIME_ZONE`；只有默认值不合适时，才需要添加 `BOT_SCREENSHOT_RESOLUTION` 等其他 [Repository Variables](#repository-variables)。
-5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后保留全部八个内容组并运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
+5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后选中全部八个 [Content Group ID](#可选内容组) 并运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
 6. 对已配置的平台运行 **Notification Channel smoke test**。它会真实上传一次图片并发送一条消息，用来确认从 S3 到消息目标的完整链路，然后再放心交给定时任务。
 
 > [!IMPORTANT]
@@ -125,8 +159,8 @@ flowchart LR
 
 | 工作流 | 何时运行 | 发送内容 |
 | --- | --- | --- |
-| `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | 对战日程内容组 |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | 对战日程、鲑鱼跑与装备内容组 |
+| `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | `schedules` Content Group ID |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run` 与 `gear` Content Group ID |
 | `bot-manual.yml` | 按需手动运行 | 任意复选框组合 |
 | `configuration-check.yml` | 按需手动运行 | 只检查配置，不上传、不发送 |
 | `notification-smoke.yml` | 按需手动运行 | 发布当前图片，并向所选平台发送一条真实测试消息 |
@@ -139,25 +173,7 @@ flowchart LR
 
 GitHub 不允许在 `on.schedule.cron` 中读取 Repository Variables 或 Secrets，因此这里没有定时 Variable。可以参考 GitHub 官方的 [`on.schedule` 语法](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)，并用 [crontab.guru](https://crontab.guru/) 辅助生成表达式。每日两次的工作流也勾选了对战日程；除非确实需要重复消息，否则不要让它与仅发送日程的工作流重叠。
 
-<details>
-<summary><strong>运行内容组</strong></summary>
-
-手动运行、Smoke Test 与配置检查表单会把以下内容组显示为 GitHub 原生复选框。可以选择任意非空组合；系统只执行一次可复用 Bot Run，并自动生成顺序稳定的运行计划。
-
-| 内容组 | 生成截图 | 发送通知 |
-| --- | --- | --- |
-| `schedules` | `schedules.png`：普通、蛮颓、X 对战或祭典模式总览 | 对战日程 |
-| `schedules-regular` | `schedules-regular.png`：只展示一张普通比赛卡片 | 普通比赛 |
-| `schedules-anarchy` | `schedules-anarchy.png`：并列展示蛮颓比赛（挑战）与开放两张卡片 | 蛮颓比赛（挑战）与开放 |
-| `schedules-x` | `schedules-x.png`：只展示一张 X 比赛卡片 | X 比赛 |
-| `challenges` | `challenges.png`：当前或下一场活动比赛 | 比赛规则、场地与可参加时段 |
-| `salmon-run` | `salmon-run.png`：鲑鱼跑 | 鲑鱼跑 |
-| `gear` | `gear-dailydrop.png`、`gear-regular.png` 与 `gear-salmon-run.png` | 今日精选、通常商品与鲑鱼跑月度装备 |
-| `splatfest` | `splatfest-na.png`、`splatfest-eu.png`、`splatfest-jp.png` 与 `splatfest-ap.png` | 每张区域图片对应一条祭典通知 |
-
-扩展后的目录遵循上游 [截图路由](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)。每张选中的图片都会进入 Bot Run 归档、发布到 S3，并由专门设计的通知内容承载；各平台适配器再将同一份内容渲染为原生模板卡片、Embed、图片消息或消息模板。
-
-</details>
+Content Group ID、生成的 Screenshot ID 与 Notification 之间的完整映射已经直接展示在[截图目录](#全部十三个-screenshot-id)中。该目录遵循上游 [截图路由](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)；每张选中的图片都会进入 Bot Run 归档并发布到 S3，再由各平台适配器渲染为原生模板卡片、Embed、图片消息或消息模板。
 
 ## 配置
 
@@ -562,7 +578,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 - 数据下载带重试和超时，完整通过 Schema 校验后才替换上一份有效数据。
 - 截图会等待应用、字体和本地图片就绪，并检查语言、署名、尺寸、底栏位置和内容溢出。
-- Run Manifest v5 记录所选内容组，并精确记录“生成了什么”：语言、分辨率、时区、数据身份、文件名、尺寸和 SHA-256。
+- Run Manifest v5 记录所选 Content Group ID，并精确记录“生成了什么”：语言、分辨率、时区、数据身份、Screenshot ID、文件名、尺寸和 SHA-256。
 - Publication Manifest v7 记录同一运行选择，并精确记录“发布了什么”：通知主图、LINE 与 WhatsApp 平台专用图、原图、内置图标和公网 URL。
 - 配置预检会在首次上传前一次性汇总所有独立错误，而且不会输出 Secret 内容。
 - 各消息目标独立执行；某个目标失败不会撤销其他目标已经成功发送的消息，最终会统一汇总失败原因。
@@ -588,7 +604,7 @@ pnpm run verify
 
 | 命令 | 用途 |
 | --- | --- |
-| `pnpm run bot:doctor <selection> [channel]` | 校验配置；内容组用逗号分隔，例如 `schedules,gear`。 |
+| `pnpm run bot:doctor <selection> [channel]` | 校验配置；Content Group ID 用逗号分隔，例如 `schedules,gear`。 |
 | `pnpm run bot:prepare <selection>` | 下载、构建、截图并写入 Run Manifest。 |
 | `pnpm run bot:publish <selection>` | 校验并通过 S3 发布。 |
 | `pnpm run bot:notify <selection> [channel]` | 发送已配置的平台。 |

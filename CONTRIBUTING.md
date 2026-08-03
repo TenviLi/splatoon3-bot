@@ -34,6 +34,8 @@ Run `pnpm run verify:actions` when changing GitHub Actions, Linux browser behavi
 
 Use `pnpm run screenshots:contact-sheet -- --help` to build a labeled overview when reviewing a large screenshot-golden change.
 
+Screenshot goldens are grouped as `tests/golden/screenshots/<platform>/<locale>/<Screenshot ID>.png`. Keep the locale in the directory rather than the filename so Screenshot IDs remain stable across documentation, generated artifacts, notifications, and tests.
+
 When synchronizing Vue behavior from `splatoon3.ink`, follow [docs/upstream-compatibility.md](./docs/upstream-compatibility.md) and preserve the documented project-owned divergences.
 
 ## Pull Requests

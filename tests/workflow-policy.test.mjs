@@ -141,7 +141,9 @@ test('public template ships community health and third-party attribution', async
   assert.match(security, /Repository Secrets/)
   assert.match(notices, /Copyright \(c\) 2022 Matt Isenhower/)
   assert.match(notices, /The above copyright notice and this permission notice shall be included/)
-  assert.match(context, /\*\*Run Content Group\*\*/)
+  assert.match(context, /\*\*Content Group\*\*/)
+  assert.match(context, /\*\*Content Group ID\*\*/)
+  assert.match(context, /\*\*Screenshot ID\*\*/)
   assert.match(context, /\*\*Run Selection\*\*/)
   assert.match(context, /\*\*Run Plan\*\*/)
   assert.doesNotMatch(context, /^\*\*Run Profile\*\*:/m)
@@ -171,17 +173,18 @@ test('README provides direct screenshots and three operator-first languages', as
   const simplifiedChinese = await fs.readFile(path.join(process.cwd(), 'README.zh-CN.md'), 'utf8')
   const japanese = await fs.readFile(path.join(process.cwd(), 'README.ja.md'), 'utf8')
   const operatorGuide = await fs.readFile(path.join(process.cwd(), 'docs/operator-setup-links.md'), 'utf8')
-  const screenshotNames = ['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular']
+  const screenshotNames = listScreenshotDefinitions().map(({ name }) => name)
 
   const preview = english.slice(english.indexOf('## Preview'), english.indexOf('## Quick Start'))
-  assert.match(preview, /Four featured deterministic Screenshot Artifacts/)
-  assert.match(preview, /thirteen-artifact catalog/)
+  assert.match(preview, /All thirteen Screenshot IDs/)
+  assert.match(preview, /Content Group ID/)
+  assert.match(preview, /Screenshot ID/)
   assert.doesNotMatch(preview, /<details>|@锂碘|wxwork-icon|WeCom icon/)
 
-  for (const [filename, source, suffix, primaryChannelSecret] of [
-    ['README.md', english, '', 'BOT_DISCORD_CONFIG'],
-    ['README.zh-CN.md', simplifiedChinese, '.zh-CN', 'BOT_WECOM_CONFIG'],
-    ['README.ja.md', japanese, '.ja', 'BOT_LINE_CONFIG'],
+  for (const [filename, source, locale, primaryChannelSecret] of [
+    ['README.md', english, 'en-US', 'BOT_DISCORD_CONFIG'],
+    ['README.zh-CN.md', simplifiedChinese, 'zh-CN', 'BOT_WECOM_CONFIG'],
+    ['README.ja.md', japanese, 'ja-JP', 'BOT_LINE_CONFIG'],
   ]) {
     assert.match(
       source,
@@ -197,9 +200,11 @@ test('README provides direct screenshots and three operator-first languages', as
     )
     assert.doesNotMatch(source, /@锂碘|wxwork-icon/, filename)
     for (const screenshotName of screenshotNames) {
-      const screenshotPath = `tests/golden/screenshots/linux-x64/${screenshotName}${suffix}.png`
+      const screenshotPath = `tests/golden/screenshots/linux-x64/${locale}/${screenshotName}.png`
       assert.ok(source.includes(screenshotPath), `${filename}: ${screenshotPath}`)
+      assert.ok(source.includes(`<code>${screenshotName}</code>`), `${filename}: Screenshot ID ${screenshotName}`)
     }
+    assert.doesNotMatch(source, /\.(?:ja|zh-CN)\.png/, `${filename}: locale suffix in screenshot filename`)
     for (const configurationName of ['S3_CONFIG', primaryChannelSecret]) {
       assert.ok(source.includes(configurationName), `${filename}: ${configurationName}`)
     }
@@ -252,12 +257,12 @@ test('README provides direct screenshots and three operator-first languages', as
   }
   for (const { name } of listRunContentGroups()) {
     for (const [filename, source] of operatorReadmes) {
-      assert.ok(source.includes(`| \`${name}\` |`), `${filename}: missing Run Content Group ${name}`)
+      assert.ok(source.includes(`| \`${name}\` |`), `${filename}: missing Content Group ID ${name}`)
     }
   }
-  for (const { outputFilename } of listScreenshotDefinitions()) {
+  for (const { name } of listScreenshotDefinitions()) {
     for (const [filename, source] of operatorReadmes) {
-      assert.ok(source.includes(`\`${outputFilename}\``), `${filename}: missing ${outputFilename}`)
+      assert.ok(source.includes(`<code>${name}</code>`), `${filename}: missing Screenshot ID ${name}`)
     }
   }
   for (const variableName of repositoryVariables) {
@@ -458,9 +463,9 @@ test('README provides direct screenshots and three operator-first languages', as
   assert.match(english, /Every Repository Variable is optional/)
   assert.match(simplifiedChinese, /Repository Variable.*全部可选/)
   assert.match(japanese, /Repository Variable.*すべて任意/)
-  assert.match(english, /They use the default `1200×675`/)
-  assert.match(simplifiedChinese, /使用默认分辨率 `1200×675`/)
-  assert.match(japanese, /既定解像度は `1200×675`/)
+  assert.match(english, /previews use the default `1200×675`/)
+  assert.match(simplifiedChinese, /预览使用默认分辨率 `1200×675`/)
+  assert.match(japanese, /プレビューは既定解像度 `1200×675`/)
   assert.doesNotMatch(english, /English quick start uses/)
   assert.doesNotMatch(simplifiedChinese, /中文快速开始|默认使用企业微信/)
   assert.doesNotMatch(japanese, /日本語版のクイックスタート/)
@@ -656,6 +661,11 @@ test('notification adapters share the publication stage and are enabled by confi
       const inputName = name.replaceAll('-', '_')
       const expectedDefault = filename === 'configuration-check.yml' || name === 'schedules'
       assertBooleanSelectionInput(source, inputName, expectedDefault)
+      assert.match(
+        source,
+        new RegExp(`description: 'Content Group ${name}:`),
+        `${filename} must show the canonical Content Group ID ${name}`
+      )
     }
   }
 })

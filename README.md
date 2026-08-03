@@ -61,20 +61,54 @@ Nine adapters are included: **WeCom, Discord, Telegram, QQ, Feishu, DingTalk, Wh
 
 ## Preview
 
-### Four featured deterministic Screenshot Artifacts
+### All thirteen Screenshot IDs
+
+The selectable options are **Content Group IDs**, not Run Profiles. One Content Group ID is one GitHub Actions checkbox or CLI selection value; it expands to one or more **Screenshot IDs**. A Screenshot ID is the stable basename of the generated PNG and the ID of its matching Notification, so the same values are also valid inside a Notification Target's `notifications:` list.
 
 <table>
   <tr>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/schedules.png" alt="English battle schedules screenshot"><br><sub><code>schedules.png</code></sub></td>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/salmon-run.png" alt="English Salmon Run screenshot"><br><sub><code>salmon-run.png</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/schedules.png"><img src="./tests/golden/screenshots/linux-x64/en-US/schedules.png" alt="English battle overview screenshot"></a><br><strong>Battle overview</strong><br><sub>Screenshot ID: <code>schedules</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/schedules-regular.png"><img src="./tests/golden/screenshots/linux-x64/en-US/schedules-regular.png" alt="English Regular Battle screenshot"></a><br><strong>Regular Battle</strong><br><sub>Screenshot ID: <code>schedules-regular</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/schedules-anarchy.png"><img src="./tests/golden/screenshots/linux-x64/en-US/schedules-anarchy.png" alt="English Anarchy Battle screenshot"></a><br><strong>Anarchy Battle</strong><br><sub>Screenshot ID: <code>schedules-anarchy</code></sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-dailydrop.png" alt="English SplatNet Gear Daily Drop screenshot"><br><sub><code>gear-dailydrop.png</code></sub></td>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-regular.png" alt="English SplatNet Gear on-sale screenshot"><br><sub><code>gear-regular.png</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/schedules-x.png"><img src="./tests/golden/screenshots/linux-x64/en-US/schedules-x.png" alt="English X Battle screenshot"></a><br><strong>X Battle</strong><br><sub>Screenshot ID: <code>schedules-x</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/challenges.png"><img src="./tests/golden/screenshots/linux-x64/en-US/challenges.png" alt="English Challenge screenshot"></a><br><strong>Challenges</strong><br><sub>Screenshot ID: <code>challenges</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/salmon-run.png"><img src="./tests/golden/screenshots/linux-x64/en-US/salmon-run.png" alt="English Salmon Run screenshot"></a><br><strong>Salmon Run</strong><br><sub>Screenshot ID: <code>salmon-run</code></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/gear-dailydrop.png"><img src="./tests/golden/screenshots/linux-x64/en-US/gear-dailydrop.png" alt="English SplatNet Gear Daily Drop screenshot"></a><br><strong>Daily Drop</strong><br><sub>Screenshot ID: <code>gear-dailydrop</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/gear-regular.png"><img src="./tests/golden/screenshots/linux-x64/en-US/gear-regular.png" alt="English SplatNet Gear on-sale screenshot"></a><br><strong>Gear on sale</strong><br><sub>Screenshot ID: <code>gear-regular</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/gear-salmon-run.png"><img src="./tests/golden/screenshots/linux-x64/en-US/gear-salmon-run.png" alt="English monthly Salmon Run gear screenshot"></a><br><strong>Monthly Salmon Run gear</strong><br><sub>Screenshot ID: <code>gear-salmon-run</code></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/splatfest-na.png"><img src="./tests/golden/screenshots/linux-x64/en-US/splatfest-na.png" alt="English North America Splatfest screenshot"></a><br><strong>Splatfest · NA</strong><br><sub>Screenshot ID: <code>splatfest-na</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/splatfest-eu.png"><img src="./tests/golden/screenshots/linux-x64/en-US/splatfest-eu.png" alt="English Europe Splatfest screenshot"></a><br><strong>Splatfest · EU</strong><br><sub>Screenshot ID: <code>splatfest-eu</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/splatfest-jp.png"><img src="./tests/golden/screenshots/linux-x64/en-US/splatfest-jp.png" alt="English Japan Splatfest screenshot"></a><br><strong>Splatfest · JP</strong><br><sub>Screenshot ID: <code>splatfest-jp</code></sub></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center"><a href="./tests/golden/screenshots/linux-x64/en-US/splatfest-ap.png"><img src="./tests/golden/screenshots/linux-x64/en-US/splatfest-ap.png" width="33%" alt="English Asia-Pacific Splatfest screenshot"></a><br><strong>Splatfest · AP</strong><br><sub>Screenshot ID: <code>splatfest-ap</code></sub></td>
   </tr>
 </table>
 
-These four previews are the notification-oriented subset of a thirteen-artifact catalog. They use the default `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived screenshot and the primary notification image. LINE and WhatsApp receive separate `1024×576` variants so each adapter can enforce its own image budget without reducing every other Channel's quality.
+These previews use the default `1200×675`. Click any image to inspect it at full size. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived Screenshot Artifact and the primary notification image. LINE and WhatsApp receive separate `1024×576` variants so each adapter can enforce its own image budget without reducing every other Channel's quality.
+
+### Selectable Content Groups
+
+These eight Content Group IDs are the actual choices exposed by the manual-run, smoke-test, and configuration-check forms. The CLI accepts the same IDs as a comma-separated Run Selection.
+
+| Content Group ID | Screenshot IDs produced | Use it for |
+| --- | --- | --- |
+| `schedules` | `schedules` | One complete battle overview: Regular, Anarchy, X Battle, or the active Splatfest modes. |
+| `schedules-regular` | `schedules-regular` | A focused Regular Battle card. |
+| `schedules-anarchy` | `schedules-anarchy` | Focused Anarchy Series and Open cards. |
+| `schedules-x` | `schedules-x` | A focused X Battle card. |
+| `challenges` | `challenges` | The active or next Challenge, including its playable periods. |
+| `salmon-run` | `salmon-run` | The current Salmon Run shift. |
+| `gear` | `gear-dailydrop`, `gear-regular`, `gear-salmon-run` | Daily Drop, regular shop, and monthly Salmon Run gear. |
+| `splatfest` | `splatfest-na`, `splatfest-eu`, `splatfest-jp`, `splatfest-ap` | One Splatfest image and Notification for each region. |
+
+A **Run Selection** is any non-empty combination of Content Group IDs. The Bot resolves it into one ordered **Run Plan** containing the exact Screenshot IDs and Notifications to produce. “Run Profile” is intentionally not used: these choices compose freely instead of selecting one preset profile.
 
 ## Quick Start
 
@@ -100,7 +134,7 @@ Before starting, prepare a GitHub account, one S3-compatible bucket with a publi
 
    Save it as the Repository Secret `BOT_DISCORD_CONFIG`. Follow Discord's [webhook setup guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks), or choose another platform from [Notification Channels](#notification-channels).
 4. Because the project default is `zh-CN`, create `BOT_LOCALE=en-US`. Set `BOT_TIME_ZONE` to your [IANA time zone](https://www.iana.org/time-zones); add `BOT_SCREENSHOT_RESOLUTION` or another [Repository Variable](#repository-variables) only when its built-in default is unsuitable.
-5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with all eight Content Group checkboxes selected. This checks every configured value without uploading an image or sending a message.
+5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with all eight [Content Group IDs](#selectable-content-groups) selected. This checks every configured value without uploading an image or sending a message.
 6. Run **Notification Channel smoke test** for the configured platform. It performs one real upload and sends one real message, confirming the complete path before scheduled delivery begins.
 
 > [!IMPORTANT]
@@ -127,8 +161,8 @@ Every scheduled or manual invocation uses the same two-stage Bot Run:
 
 | Workflow | When it runs | What it sends |
 | --- | --- | --- |
-| `bot-schedules.yml` | Every even UTC hour except `02:00` and `10:00` | Schedules Content Group |
-| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | Schedules, Salmon Run, and Gear Content Groups |
+| `bot-schedules.yml` | Every even UTC hour except `02:00` and `10:00` | `schedules` Content Group ID |
+| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | `schedules`, `salmon-run`, and `gear` Content Group IDs |
 | `bot-manual.yml` | On demand | Any checkbox combination |
 | `configuration-check.yml` | On demand | Checks configuration only; never uploads or sends |
 | `notification-smoke.yml` | On demand | Publishes current output and sends one real platform test |
@@ -141,25 +175,7 @@ Edit the `on.schedule` cron entries in `.github/workflows/bot-schedules.yml` and
 
 GitHub does not allow Repository Variables or Secrets inside `on.schedule.cron`, so there is no scheduling Variable. Use GitHub's official [`on.schedule` syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule) and [crontab.guru](https://crontab.guru/) to prepare an expression. The daily workflow also selects Schedules; do not overlap it with the schedules-only workflow unless duplicate messages are intentional.
 
-<details>
-<summary><strong>Run Content Groups</strong></summary>
-
-The manual, smoke-test, and configuration-check forms expose these as independent native GitHub checkboxes. Select any non-empty combination; one reusable Bot Run resolves the ordered Run Plan and performs the work once.
-
-| Content Group | Screenshot Artifacts | Notifications |
-| --- | --- | --- |
-| `schedules` | `schedules.png`: Regular, Anarchy, X Battle, or active Splatfest modes | Schedules |
-| `schedules-regular` | `schedules-regular.png`: one focused Regular Battle card | Regular Battle |
-| `schedules-anarchy` | `schedules-anarchy.png`: focused Anarchy Series and Open cards | Anarchy Series and Open |
-| `schedules-x` | `schedules-x.png`: one focused X Battle card | X Battle |
-| `challenges` | `challenges.png`: active or next available Challenge | Challenge details and available periods |
-| `salmon-run` | `salmon-run.png` | Salmon Run |
-| `gear` | `gear-dailydrop.png`, `gear-regular.png`, and `gear-salmon-run.png` | Daily Drop, regular shop, and monthly Salmon Run gear |
-| `splatfest` | `splatfest-na.png`, `splatfest-eu.png`, `splatfest-jp.png`, and `splatfest-ap.png` | One regional Splatfest notification per image |
-
-The expanded catalog follows the upstream [screenshot routes](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js). Every selected image is archived, published to S3, and paired with a purpose-built notification; platform adapters then render that shared content as native cards, embeds, photos, or message templates.
-
-</details>
+The complete mapping between selectable Content Group IDs, generated Screenshot IDs, and Notifications is shown in the [Preview catalog](#all-thirteen-screenshot-ids). The catalog follows the upstream [screenshot routes](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js); every selected image is archived, published to S3, and rendered by each platform adapter as a native card, embed, photo, or message template.
 
 ## Configuration
 
@@ -566,7 +582,7 @@ For operators evaluating whether the bot is safe to run unattended:
 
 - Data downloads use retries and timeouts, pass schema validation, and replace the previous snapshot only after the complete new snapshot is valid.
 - Screenshot capture waits for the app, fonts, and local images, then checks language, attribution, dimensions, footer position, and overflow.
-- Run Manifest v5 records the selected Content Groups and exactly what was rendered: locale, resolution, time zone, data identity, filenames, dimensions, and SHA-256 hashes.
+- Run Manifest v5 records the selected Content Group IDs and exactly what was rendered: locale, resolution, time zone, data identity, Screenshot IDs, filenames, dimensions, and SHA-256 hashes.
 - Publication Manifest v7 records the same Run Selection and exactly what was uploaded: primary images, platform-specific LINE and WhatsApp variants, originals, built-in icons, and public URLs.
 - Configuration preflight reports all independent errors before the first upload and never prints Secret values.
 - Destinations run independently; successful deliveries remain successful even when another destination fails, and failures are summarized at the end.
@@ -592,7 +608,7 @@ pnpm run verify
 
 | Command | Purpose |
 | --- | --- |
-| `pnpm run bot:doctor <selection> [channel]` | Validate configuration; use comma-separated Content Groups such as `schedules,gear`. |
+| `pnpm run bot:doctor <selection> [channel]` | Validate configuration; use comma-separated Content Group IDs such as `schedules,gear`. |
 | `pnpm run bot:prepare <selection>` | Download, build, render, and write the Run Manifest. |
 | `pnpm run bot:publish <selection>` | Verify and publish through S3. |
 | `pnpm run bot:notify <selection> [channel]` | Deliver configured Channels. |

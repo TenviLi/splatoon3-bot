@@ -6,20 +6,21 @@ import test from 'node:test'
 import sharp from 'sharp'
 import {
   generateScreenshotContactSheet,
-  screenshotGoldenSuffix,
+  screenshotGoldenLocaleDirectory,
 } from '../scripts/generate_screenshot_contact_sheet.mjs'
 
 test('generates a labeled 16:9 screenshot contact sheet atomically', async (context) => {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-contact-sheet-'))
   context.after(() => fs.rm(directory, { recursive: true, force: true }))
   const inputDirectory = path.join(directory, 'goldens')
+  const localeDirectory = path.join(inputDirectory, 'en-US')
   const outputFilename = path.join(directory, 'output', 'sheet.png')
-  await fs.mkdir(inputDirectory, { recursive: true })
+  await fs.mkdir(localeDirectory, { recursive: true })
 
   for (const [name, background] of [['schedules', '#22c55e'], ['schedules-x', '#06b6d4']]) {
     await sharp({ create: { width: 160, height: 90, channels: 4, background } })
       .png()
-      .toFile(path.join(inputDirectory, `${name}.png`))
+      .toFile(path.join(localeDirectory, `${name}.png`))
   }
 
   const result = await generateScreenshotContactSheet({
@@ -43,9 +44,9 @@ test('generates a labeled 16:9 screenshot contact sheet atomically', async (cont
   assert.equal(metadata.height, result.height)
 })
 
-test('maps the three maintained screenshot locales to their golden suffixes', () => {
-  assert.equal(screenshotGoldenSuffix('en-US'), '')
-  assert.equal(screenshotGoldenSuffix('zh-CN'), '.zh-CN')
-  assert.equal(screenshotGoldenSuffix('ja-JP'), '.ja')
-  assert.throws(() => screenshotGoldenSuffix('de-DE'), /Unsupported contact-sheet locale/)
+test('maps the three maintained screenshot locales to directories', () => {
+  assert.equal(screenshotGoldenLocaleDirectory('/goldens', 'en-US'), path.join('/goldens', 'en-US'))
+  assert.equal(screenshotGoldenLocaleDirectory('/goldens', 'zh-CN'), path.join('/goldens', 'zh-CN'))
+  assert.equal(screenshotGoldenLocaleDirectory('/goldens', 'ja-JP'), path.join('/goldens', 'ja-JP'))
+  assert.throws(() => screenshotGoldenLocaleDirectory('/goldens', 'de-DE'), /Unsupported contact-sheet locale/)
 })

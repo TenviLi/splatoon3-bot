@@ -60,20 +60,54 @@
 
 ## スクリーンショット
 
-### 代表的な 4 種類の再現可能なスクリーンショット
+### 13 個すべての Screenshot ID
+
+選択肢の正式名称は **Content Group ID（コンテンツグループ ID）** であり、Run Profile ではありません。1 つの Content Group ID は、GitHub Actions の 1 つのチェックボックスまたは CLI の 1 つの選択値に対応し、1 個以上の **Screenshot ID** に展開されます。Screenshot ID は生成される PNG の安定したベース名であり、対応する Notification の ID でもあるため、通知先の `notifications:` リストにも同じ値を指定できます。
 
 <table>
   <tr>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/schedules.ja.png" alt="日本語のバトルスケジュール"><br><sub><code>schedules.ja.png</code></sub></td>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/salmon-run.ja.png" alt="日本語のサーモンランスケジュール"><br><sub><code>salmon-run.ja.png</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/schedules.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/schedules.png" alt="日本語のバトルスケジュール一覧"></a><br><strong>バトルスケジュール一覧</strong><br><sub>Screenshot ID: <code>schedules</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/schedules-regular.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/schedules-regular.png" alt="日本語のレギュラーマッチ"></a><br><strong>レギュラーマッチ</strong><br><sub>Screenshot ID: <code>schedules-regular</code></sub></td>
+    <td width="33%" align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/schedules-anarchy.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/schedules-anarchy.png" alt="日本語のバンカラマッチ"></a><br><strong>バンカラマッチ</strong><br><sub>Screenshot ID: <code>schedules-anarchy</code></sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-dailydrop.ja.png" alt="日本語のゲソタウン今日のピックアップ"><br><sub><code>gear-dailydrop.ja.png</code></sub></td>
-    <td align="center"><img src="./tests/golden/screenshots/linux-x64/gear-regular.ja.png" alt="日本語のゲソタウン販売中ギア"><br><sub><code>gear-regular.ja.png</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/schedules-x.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/schedules-x.png" alt="日本語の X マッチ"></a><br><strong>X マッチ</strong><br><sub>Screenshot ID: <code>schedules-x</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/challenges.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/challenges.png" alt="日本語のイベントマッチ"></a><br><strong>イベントマッチ</strong><br><sub>Screenshot ID: <code>challenges</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/salmon-run.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/salmon-run.png" alt="日本語のサーモンラン"></a><br><strong>サーモンラン</strong><br><sub>Screenshot ID: <code>salmon-run</code></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/gear-dailydrop.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/gear-dailydrop.png" alt="日本語のゲソタウン今日のピックアップ"></a><br><strong>今日のピックアップ</strong><br><sub>Screenshot ID: <code>gear-dailydrop</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/gear-regular.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/gear-regular.png" alt="日本語のゲソタウン販売中ギア"></a><br><strong>販売中のギア</strong><br><sub>Screenshot ID: <code>gear-regular</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/gear-salmon-run.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/gear-salmon-run.png" alt="日本語のサーモンラン月間ギア"></a><br><strong>サーモンラン月間ギア</strong><br><sub>Screenshot ID: <code>gear-salmon-run</code></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/splatfest-na.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/splatfest-na.png" alt="日本語の北米地域フェス"></a><br><strong>フェス · NA</strong><br><sub>Screenshot ID: <code>splatfest-na</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/splatfest-eu.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/splatfest-eu.png" alt="日本語の欧州地域フェス"></a><br><strong>フェス · EU</strong><br><sub>Screenshot ID: <code>splatfest-eu</code></sub></td>
+    <td align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/splatfest-jp.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/splatfest-jp.png" alt="日本語の日本地域フェス"></a><br><strong>フェス · JP</strong><br><sub>Screenshot ID: <code>splatfest-jp</code></sub></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center"><a href="./tests/golden/screenshots/linux-x64/ja-JP/splatfest-ap.png"><img src="./tests/golden/screenshots/linux-x64/ja-JP/splatfest-ap.png" width="33%" alt="日本語のアジア太平洋地域フェス"></a><br><strong>フェス · AP</strong><br><sub>Screenshot ID: <code>splatfest-ap</code></sub></td>
   </tr>
 </table>
 
-この 4 枚は、13 種類のカタログのうち通知で直接利用する代表的な画像です。既定解像度は `1200×675` です。`BOT_SCREENSHOT_RESOLUTION` では 4 種類の正確な 16:9 サイズから選択でき、保存用画像と通知のメイン画像に同じ設定が反映されます。LINE と WhatsApp には個別の `1024×576` 画像を生成し、ほかの通知サービスの画質を下げずに各アダプター固有の制限を適用します。
+これらのプレビューは既定解像度 `1200×675` です。画像をクリックするとフルサイズで確認できます。`BOT_SCREENSHOT_RESOLUTION` は、保存する Screenshot Artifact と通知のメイン画像に共通する 4 種類の正確な 16:9 サイズから選択できます。LINE と WhatsApp には個別の `1024×576` 画像を用意し、それぞれの制限を満たしながら他サービスの画質を下げない設計です。
+
+### 選択できる Content Group
+
+次の 8 個の Content Group ID が、手動実行、Smoke Test、設定確認フォームに実際に表示される選択肢です。CLI でも同じ ID を使用し、カンマ区切りで Run Selection を構成します。
+
+| Content Group ID | 生成する Screenshot ID | 用途 |
+| --- | --- | --- |
+| `schedules` | `schedules` | レギュラー、バンカラ、X マッチ、または開催中のフェスマッチをまとめた一覧。 |
+| `schedules-regular` | `schedules-regular` | レギュラーマッチに絞ったカード。 |
+| `schedules-anarchy` | `schedules-anarchy` | バンカラマッチのチャレンジとオープン。 |
+| `schedules-x` | `schedules-x` | X マッチに絞ったカード。 |
+| `challenges` | `challenges` | 開催中または次回のイベントマッチと参加可能時間。 |
+| `salmon-run` | `salmon-run` | 現在のサーモンランシフト。 |
+| `gear` | `gear-dailydrop`、`gear-regular`、`gear-salmon-run` | 今日のピックアップ、通常販売、サーモンラン月間ギア。 |
+| `splatfest` | `splatfest-na`、`splatfest-eu`、`splatfest-jp`、`splatfest-ap` | 4 地域それぞれのフェス画像と通知。 |
+
+**Run Selection** は Content Group ID の空でない任意の組み合わせです。Bot はそれを、今回生成する Screenshot ID と Notification を正確に並べた **Run Plan** に解決します。「Run Profile」は使用しません。これらは 1 つのプリセットを選ぶ仕組みではなく、自由に組み合わせられる選択肢だからです。
 
 ## クイックスタート
 
@@ -101,7 +135,7 @@ Template から、自分の GitHub アカウントに独立した Private reposi
 
    LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選択してください。
 4. 既定言語は `zh-CN` のため、`BOT_LOCALE=ja-JP` と `BOT_TIME_ZONE=Asia/Tokyo` を設定します。`BOT_SCREENSHOT_RESOLUTION` など、その他の [Repository Variables](#repository-variables) は既定値を変更するときだけ追加します。
-5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、8 つの Content Group をすべて選択した状態で **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
+5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、8 個すべての [Content Group ID](#選択できる-content-group) を選択した状態で **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
 6. 設定したサービスに対して **Notification Channel smoke test** を実行します。画像を 1 回実際にアップロードし、テストメッセージを 1 件送信して、定期配信を始める前に経路全体を確認します。
 
 > [!IMPORTANT]
@@ -128,8 +162,8 @@ flowchart LR
 
 | Workflow | 実行タイミング | 配信内容 |
 | --- | --- | --- |
-| `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | バトルスケジュール Content Group |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | バトルスケジュール、サーモンラン、ギアの Content Group |
+| `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | `schedules` Content Group ID |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run`、`gear` Content Group ID |
 | `bot-manual.yml` | 必要なときに手動実行 | 任意のチェックボックス組み合わせ |
 | `configuration-check.yml` | 必要なときに手動実行 | 設定確認のみ。アップロードや送信は行わない |
 | `notification-smoke.yml` | 必要なときに手動実行 | 現在の画像を公開し、選択したサービスへテスト通知を 1 件送信 |
@@ -142,25 +176,7 @@ flowchart LR
 
 GitHub の `on.schedule.cron` は Repository Variables や Secrets を参照できないため、配信時刻用の Variable はありません。GitHub 公式の [`on.schedule` 構文](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)と [crontab.guru](https://crontab.guru/) を利用してください。1 日 2 回の Workflow もバトルスケジュールを選択しています。重複通知が必要な場合を除き、スケジュール専用 Workflow と同時刻に実行しないでください。
 
-<details>
-<summary><strong>Run Content Group</strong></summary>
-
-手動実行、Smoke Test、設定確認では、次の Content Group が GitHub ネイティブのチェックボックスとして表示されます。空でない任意の組み合わせを選択でき、再利用可能な Bot Run は 1 回だけ実行され、順序が安定した Run Plan を自動生成します。
-
-| Content Group | 生成する画像 | 送信する通知 |
-| --- | --- | --- |
-| `schedules` | `schedules.png`：レギュラー、バンカラ、X マッチ、または開催中のフェスマッチ | バトルスケジュール |
-| `schedules-regular` | `schedules-regular.png`：レギュラーマッチだけを表示する 1 枚のカード | レギュラーマッチ |
-| `schedules-anarchy` | `schedules-anarchy.png`：バンカラマッチ（チャレンジ）と（オープン）の 2 枚のカード | バンカラマッチ（チャレンジ / オープン） |
-| `schedules-x` | `schedules-x.png`：X マッチだけを表示する 1 枚のカード | X マッチ |
-| `challenges` | `challenges.png`：開催中または次に参加できるイベントマッチ | ルール、ステージ、参加可能な時間帯 |
-| `salmon-run` | `salmon-run.png`：サーモンラン | サーモンラン |
-| `gear` | `gear-dailydrop.png`、`gear-regular.png`、`gear-salmon-run.png` | ピックアップ、通常販売、サーモンランの月間ギア |
-| `splatfest` | `splatfest-na.png`、`splatfest-eu.png`、`splatfest-jp.png`、`splatfest-ap.png` | 地域別画像ごとのフェス通知 |
-
-拡張されたカタログは、上流の [スクリーンショット用ルート](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)に沿っています。選択した画像はすべて Bot Run に保存され、S3 へ公開され、用途別に設計した通知と組み合わされます。各アダプターは同じ内容を、サービス固有の Card、Embed、画像メッセージ、Template として描画します。
-
-</details>
+Content Group ID、生成される Screenshot ID、Notification の完全な対応関係は、[スクリーンショット一覧](#13-個すべての-screenshot-id)に直接掲載しています。この一覧は上流の [スクリーンショット用ルート](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)に沿っており、選択された画像は Bot Run に保存して S3 へ公開し、各アダプターがサービス固有の Card、Embed、画像メッセージ、Template として描画します。
 
 ## 設定
 
@@ -565,7 +581,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 
 - データ取得には再試行とタイムアウトがあり、新しい一式が Schema 検証をすべて通過した場合だけ以前の有効データを置き換えます。
 - 画像生成はアプリ、フォント、ローカル画像の準備を待ち、言語、クレジット、寸法、フッター位置、はみ出しを検査します。
-- Run Manifest v5 は選択した Content Group と「何を生成したか」を記録します。言語、解像度、タイムゾーン、データ ID、ファイル名、寸法、SHA-256 が対象です。
+- Run Manifest v5 は選択した Content Group ID と「何を生成したか」を記録します。言語、解像度、タイムゾーン、データ ID、Screenshot ID、ファイル名、寸法、SHA-256 が対象です。
 - Publication Manifest v7 は同じ Run Selection と「何を公開したか」を記録します。通知用メイン画像、LINE・WhatsApp 専用画像、原画像、内蔵アイコン、公開 URL が対象です。
 - 設定の事前検証は、最初のアップロード前に独立したエラーをまとめて報告し、Secret の値を表示しません。
 - 宛先は独立して実行されます。1 つの宛先が失敗しても、ほかの宛先への配信成功は保持され、最後に失敗理由をまとめて報告します。
@@ -591,7 +607,7 @@ pnpm run verify
 
 | Command | 用途 |
 | --- | --- |
-| `pnpm run bot:doctor <selection> [channel]` | 設定を検証。Content Group は `schedules,gear` のようにカンマで区切る。 |
+| `pnpm run bot:doctor <selection> [channel]` | 設定を検証。Content Group ID は `schedules,gear` のようにカンマで区切る。 |
 | `pnpm run bot:prepare <selection>` | データ取得、ビルド、画像生成、Run Manifest 作成。 |
 | `pnpm run bot:publish <selection>` | S3 へ検証済み画像を公開。 |
 | `pnpm run bot:notify <selection> [channel]` | 設定済みサービスへ配信。 |

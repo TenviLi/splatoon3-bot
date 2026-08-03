@@ -131,13 +131,13 @@ function normalizeRunSelection(selection) {
       continue
     }
     const name = value.trim()
-    requireEntry(runContentGroups, name, 'run content group')
+    requireEntry(runContentGroups, name, 'Content Group ID')
     selectedNames.add(name)
   }
 
   const normalized = runContentGroupNames.filter((name) => selectedNames.has(name))
   if (normalized.length === 0) {
-    throw new Error('Select at least one Run Content Group')
+    throw new Error('Select at least one Content Group')
   }
   return normalized
 }
