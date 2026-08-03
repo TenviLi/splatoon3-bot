@@ -62,6 +62,12 @@ function workflowDispatchChoiceOptions(source, inputName) {
 
 function assertBooleanSelectionInput(source, inputName, expectedDefault) {
   const inputBlock = workflowInputBlock(source, inputName)
+  assert.match(inputBlock, /^        description: '.+'$/m, `${inputName} description`)
+  assert.doesNotMatch(
+    inputBlock,
+    /description: 'Screenshot ID /,
+    `${inputName} description must not repeat the form field concept`
+  )
   assert.match(inputBlock, /^        type: boolean$/m, `${inputName} must render as a checkbox`)
   assert.match(
     inputBlock,
@@ -596,11 +602,11 @@ test('notification adapters share the publication stage and are enabled by confi
   )
   assert.match(
     reusableWorkflow,
-    /Stage Bot Run for local Actions verification\n\s+if: \$\{\{ env\.ACT == 'true' \}\}/
+    /Stage Bot Run for local Actions verification\n\s+if: \$\{\{ env\.ACT == 'true' && steps\.prepare\.outputs\.has_content == 'true' \}\}/
   )
   assert.match(
     reusableWorkflow,
-    /Archive Bot Run\n\s+if: \$\{\{ env\.ACT != 'true' \}\}\n\s+uses: actions\/upload-artifact@/
+    /Archive Bot Run\n\s+if: \$\{\{ env\.ACT != 'true' && steps\.prepare\.outputs\.has_content == 'true' \}\}\n\s+uses: actions\/upload-artifact@/
   )
   assert.match(
     reusableWorkflow,
@@ -708,11 +714,6 @@ test('notification adapters share the publication stage and are enabled by confi
       const environmentVariable = `RUN_${inputName.toUpperCase()}`
       const expectedDefault = filename === 'configuration-check.yml' || name === 'schedules'
       assertBooleanSelectionInput(source, inputName, expectedDefault)
-      assert.match(
-        source,
-        new RegExp(`description: 'Screenshot ID ${name}:`),
-        `${filename} must show the canonical Screenshot ID ${name}`
-      )
       if (filename === 'configuration-check.yml') {
         assert.ok(
           source.includes(`          ${environmentVariable}: \${{ inputs.${inputName} }}`),
@@ -731,16 +732,25 @@ test('notification adapters share the publication stage and are enabled by confi
     const inputName = name.replaceAll('-', '_')
     const environmentVariable = `RUN_${inputName.toUpperCase()}`
     assertBooleanSelectionInput(reusableWorkflow, inputName, false)
-    assert.match(
-      reusableWorkflow,
-      new RegExp(`description: 'Screenshot ID ${name}:`),
-      `bot-reusable.yml must expose Screenshot ID ${name}`
-    )
     assert.ok(
       reusableWorkflow.includes(`          ${environmentVariable}: \${{ inputs.${inputName} }}`),
       `bot-reusable.yml must project ${name} into ${environmentVariable}`
     )
   }
+
+  assert.match(reusableWorkflow, /artifact_name: \$\{\{ steps\.prepare\.outputs\.artifact_name \}\}/)
+  assert.match(reusableWorkflow, /selection: \$\{\{ steps\.prepare\.outputs\.selection \}\}/)
+  assert.match(reusableWorkflow, /has_content: \$\{\{ steps\.prepare\.outputs\.has_content \}\}/)
+  assert.match(reusableWorkflow, /Prepare Data Snapshot and screenshot artifacts\n        id: prepare/)
+  assert.match(
+    reusableWorkflow,
+    /Archive Bot Run\n        if: \$\{\{ env\.ACT != 'true' && steps\.prepare\.outputs\.has_content == 'true' \}\}/
+  )
+  assert.match(
+    reusableWorkflow,
+    /publish:\n    name: Publish and notify\n    needs: prepare\n    if: \$\{\{ needs\.prepare\.outputs\.has_content == 'true' \}\}/
+  )
+  assert.doesNotMatch(reusableWorkflow, /screenshots-\$\{\{ steps\.plan\.outputs\.artifact_name \}\}/)
 })
 
 test('daily twice workflow delivers every Notification', async () => {

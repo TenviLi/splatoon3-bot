@@ -34,8 +34,8 @@ async function writeFileAtomically(filename, buffer) {
   await fs.rename(temporaryFilename, filename)
 }
 
-async function inspectRenderState(page, requiredContentSelector) {
-  return page.evaluate((selector) => {
+async function inspectRenderState(page, requiredContentSelector, screenshotName) {
+  return page.evaluate(({ selector, screenshotId }) => {
     const root = document.querySelector('[data-screenshot-root]')
     const footer = document.querySelector('[data-screenshot-footer]')
     const attribution = document.querySelector('[data-screenshot-attribution]')
@@ -76,7 +76,9 @@ async function inspectRenderState(page, requiredContentSelector) {
       issues.push('document is not marked ready')
     }
     if (selector && !document.querySelector(selector)) {
-      issues.push(`required content is unavailable: ${selector}`)
+      issues.push(
+        `expected domain content for Screenshot ID "${screenshotId}" was not rendered; the page did not report a more specific availability reason`
+      )
     }
     if (document.fonts.status !== 'loaded') {
       issues.push(`fonts are ${document.fonts.status}`)
@@ -141,7 +143,7 @@ async function inspectRenderState(page, requiredContentSelector) {
       splatfestResultsCount: document.querySelectorAll('[data-screenshot-splatfest-results]').length,
       externalImageUrls,
     }
-  }, requiredContentSelector)
+  }, { selector: requiredContentSelector, screenshotId: screenshotName })
 }
 
 async function inspectReadinessState(page) {
@@ -241,7 +243,11 @@ export async function renderScreenshotArtifacts(
           })
         }
 
-        const renderState = await inspectRenderState(page, definition.requiredContentSelector)
+        const renderState = await inspectRenderState(
+          page,
+          definition.requiredContentSelector,
+          definition.name
+        )
         const diagnostics = [...pageErrors, ...failedRequests, ...renderState.issues]
         if (renderState.attribution !== screenshotAttribution) {
           diagnostics.push(

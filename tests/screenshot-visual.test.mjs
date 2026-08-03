@@ -67,7 +67,7 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 60
       screenshotAttribution: defaultScreenshotAttribution,
       screenshotResolution: '1200x675',
     }),
-    /required content is unavailable: \[data-screenshot-content="schedules"\]/,
+    /expected domain content for Screenshot ID "schedules" was not rendered/,
     'an active Splatfest without its battle schedules must not publish a partial screenshot'
   )
   const [activeSplatfestArtifact] = await renderScreenshotArtifacts(['splatfest-na'], {

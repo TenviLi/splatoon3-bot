@@ -2,7 +2,7 @@ export const STATUS_PAST = 'past'
 export const STATUS_ACTIVE = 'active'
 export const STATUS_UPCOMING = 'upcoming'
 
-const recentSplatfestWindowMs = 3 * 24 * 60 * 60 * 1000
+export const recentSplatfestWindowMs = 3 * 24 * 60 * 60 * 1000
 
 export function getSplatfestStatus(festival, now) {
   const startTime = Date.parse(festival.startTime)

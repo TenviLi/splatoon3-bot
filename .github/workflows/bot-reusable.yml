@@ -4,67 +4,67 @@ on:
   workflow_call:
     inputs:
       schedules:
-        description: 'Screenshot ID schedules: battle overview (Regular/Anarchy/X or Splatfest)'
+        description: 'Battle overview (Regular, Anarchy, X Battle, or active Splatfest)'
         required: false
         default: false
         type: boolean
       schedules_regular:
-        description: 'Screenshot ID schedules-regular: single Regular Battle card'
+        description: 'Single Regular Battle card'
         required: false
         default: false
         type: boolean
       schedules_anarchy:
-        description: 'Screenshot ID schedules-anarchy: Anarchy Series and Open cards'
+        description: 'Anarchy Series and Open cards'
         required: false
         default: false
         type: boolean
       schedules_x:
-        description: 'Screenshot ID schedules-x: single X Battle card'
+        description: 'Single X Battle card'
         required: false
         default: false
         type: boolean
       challenges:
-        description: 'Screenshot ID challenges: Challenges'
+        description: 'Challenges'
         required: false
         default: false
         type: boolean
       salmon_run:
-        description: 'Screenshot ID salmon-run: Salmon Run'
+        description: 'Salmon Run'
         required: false
         default: false
         type: boolean
       gear_dailydrop:
-        description: 'Screenshot ID gear-dailydrop: Daily Drop gear'
+        description: 'Daily Drop gear'
         required: false
         default: false
         type: boolean
       gear_regular:
-        description: 'Screenshot ID gear-regular: gear currently on sale'
+        description: 'Gear currently on sale'
         required: false
         default: false
         type: boolean
       gear_salmon_run:
-        description: 'Screenshot ID gear-salmon-run: monthly Salmon Run gear'
+        description: 'Monthly Salmon Run gear'
         required: false
         default: false
         type: boolean
       splatfest_na:
-        description: 'Screenshot ID splatfest-na: North America Splatfest'
+        description: 'North America Splatfest (time-dependent)'
         required: false
         default: false
         type: boolean
       splatfest_eu:
-        description: 'Screenshot ID splatfest-eu: Europe Splatfest'
+        description: 'Europe Splatfest (time-dependent)'
         required: false
         default: false
         type: boolean
       splatfest_jp:
-        description: 'Screenshot ID splatfest-jp: Japan Splatfest'
+        description: 'Japan Splatfest (time-dependent)'
         required: false
         default: false
         type: boolean
       splatfest_ap:
-        description: 'Screenshot ID splatfest-ap: Asia-Pacific Splatfest'
+        description: 'Asia-Pacific Splatfest (time-dependent)'
         required: false
         default: false
         type: boolean
@@ -108,8 +108,9 @@ jobs:
     runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     outputs:
-      artifact_name: ${{ steps.plan.outputs.artifact_name }}
-      selection: ${{ steps.plan.outputs.selection }}
+      artifact_name: ${{ steps.prepare.outputs.artifact_name }}
+      selection: ${{ steps.prepare.outputs.selection }}
+      has_content: ${{ steps.prepare.outputs.has_content }}
     env:
       BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
       BOT_LOCALE: ${{ vars.BOT_LOCALE || 'zh-CN' }}
@@ -186,6 +187,7 @@ jobs:
           fi
 
       - name: Prepare Data Snapshot and screenshot artifacts
+        id: prepare
         env:
           RUN_SELECTION: ${{ steps.plan.outputs.selection }}
           BOT_USE_EXISTING_DATA_SNAPSHOT: ${{ env.ACT == 'true' && 'true' || '' }}
@@ -193,7 +195,7 @@ jobs:
         run: node bot/run/prepare.mjs "$RUN_SELECTION"
 
       - name: Stage Bot Run for local Actions verification
-        if: ${{ env.ACT == 'true' }}
+        if: ${{ env.ACT == 'true' && steps.prepare.outputs.has_content == 'true' }}
         run: |
           test -n "$ACT_BOT_RUN_DIRECTORY"
           mkdir -p "$ACT_BOT_RUN_DIRECTORY"
@@ -207,10 +209,10 @@ jobs:
           mv "$temporary_archive" "$archive"
 
       - name: Archive Bot Run
-        if: ${{ env.ACT != 'true' }}
+        if: ${{ env.ACT != 'true' && steps.prepare.outputs.has_content == 'true' }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: screenshots-${{ steps.plan.outputs.artifact_name }}-${{ github.run_id }}
+          name: screenshots-${{ steps.prepare.outputs.artifact_name }}-${{ github.run_id }}
           path: |
             screenshots/*.png
             screenshots/run-manifest.json
@@ -223,6 +225,7 @@ jobs:
   publish:
     name: Publish and notify
     needs: prepare
+    if: ${{ needs.prepare.outputs.has_content == 'true' }}
     runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
     environment: production
     timeout-minutes: 20

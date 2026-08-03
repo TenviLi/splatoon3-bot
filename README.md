@@ -191,14 +191,18 @@ The manual-run, smoke-test, and configuration-check forms expose one checkbox fo
 
 Selections are automatically deduplicated and ordered, so checkbox order and CLI argument order do not change the resulting Bot Run.
 
+> [!IMPORTANT]
+> Regional Splatfest Screenshot IDs select Nintendo data regions: `NA`, `EU`, `JP`, or `AP`. This is independent of `BOT_LOCALE`, which changes translated screenshot text only. To prevent stale automated notifications, a regional Splatfest is eligible only while active, upcoming, or for less than 72 hours after it ends. Content outside that window is logged and skipped before the build; other selected IDs continue normally, and a run with nothing eligible finishes successfully as a no-op.
+
 ## Automation
 
 ```mermaid
 flowchart LR
-  snapshot["Data Snapshot"] --> build["Build"]
+  snapshot["Data Snapshot"] --> content["Content Preflight"]
+  content --> build["Build"]
   build --> screenshots["Screenshots"]
-  screenshots --> preflight["Configuration Preflight"]
-  preflight --> publish["S3 Publication"]
+  screenshots --> config["Configuration Preflight"]
+  config --> publish["S3 Publication"]
   publish --> adapters["Platform Adapters"]
 ```
 

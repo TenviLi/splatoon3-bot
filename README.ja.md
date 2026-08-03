@@ -192,14 +192,18 @@ Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variab
 
 選択内容は自動的に重複排除され、固定順に整列されます。チェックした順序や CLI 引数の順序によって Bot Run の結果は変わりません。
 
+> [!IMPORTANT]
+> 地域別フェスの Screenshot ID は Nintendo のデータ地域（`NA`、`EU`、`JP`、`AP`）を選択します。スクリーンショットの翻訳文だけを変更する `BOT_LOCALE` とは独立しています。古いフェスを定期実行で繰り返し通知しないため、対象になるのは開催中、開催予定、または終了後 72 時間未満です。期間外の項目は理由を記録してビルド前に自動スキップされ、ほかの選択項目は継続します。すべて対象外なら、正常な no-op として成功終了します。
+
 ## 自動化
 
 ```mermaid
 flowchart LR
-  snapshot["データスナップショット"] --> build["ビルド"]
+  snapshot["データスナップショット"] --> content["コンテンツ事前検証"]
+  content --> build["ビルド"]
   build --> screenshots["スクリーンショット"]
-  screenshots --> preflight["構成の事前検証"]
-  preflight --> publish["S3 への公開"]
+  screenshots --> config["構成の事前検証"]
+  config --> publish["S3 への公開"]
   publish --> adapters["プラットフォームアダプター"]
 ```
 

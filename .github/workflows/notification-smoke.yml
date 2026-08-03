@@ -4,55 +4,55 @@ on:
   workflow_dispatch:
     inputs:
       schedules:
-        description: 'Screenshot ID schedules: battle overview (Regular/Anarchy/X or Splatfest)'
+        description: 'Battle overview (Regular, Anarchy, X Battle, or active Splatfest)'
         type: boolean
         default: true
       schedules_regular:
-        description: 'Screenshot ID schedules-regular: single Regular Battle card'
+        description: 'Single Regular Battle card'
         type: boolean
         default: false
       schedules_anarchy:
-        description: 'Screenshot ID schedules-anarchy: Anarchy Series and Open cards'
+        description: 'Anarchy Series and Open cards'
         type: boolean
         default: false
       schedules_x:
-        description: 'Screenshot ID schedules-x: single X Battle card'
+        description: 'Single X Battle card'
         type: boolean
         default: false
       challenges:
-        description: 'Screenshot ID challenges: Challenges'
+        description: 'Challenges'
         type: boolean
         default: false
       salmon_run:
-        description: 'Screenshot ID salmon-run: Salmon Run'
+        description: 'Salmon Run'
         type: boolean
         default: false
       gear_dailydrop:
-        description: 'Screenshot ID gear-dailydrop: Daily Drop gear'
+        description: 'Daily Drop gear'
         type: boolean
         default: false
       gear_regular:
-        description: 'Screenshot ID gear-regular: gear currently on sale'
+        description: 'Gear currently on sale'
         type: boolean
         default: false
       gear_salmon_run:
-        description: 'Screenshot ID gear-salmon-run: monthly Salmon Run gear'
+        description: 'Monthly Salmon Run gear'
         type: boolean
         default: false
       splatfest_na:
-        description: 'Screenshot ID splatfest-na: North America Splatfest'
+        description: 'North America Splatfest (time-dependent)'
         type: boolean
         default: false
       splatfest_eu:
-        description: 'Screenshot ID splatfest-eu: Europe Splatfest'
+        description: 'Europe Splatfest (time-dependent)'
         type: boolean
         default: false
       splatfest_jp:
-        description: 'Screenshot ID splatfest-jp: Japan Splatfest'
+        description: 'Japan Splatfest (time-dependent)'
         type: boolean
         default: false
       splatfest_ap:
-        description: 'Screenshot ID splatfest-ap: Asia-Pacific Splatfest'
+        description: 'Asia-Pacific Splatfest (time-dependent)'
         type: boolean
         default: false
       channel:

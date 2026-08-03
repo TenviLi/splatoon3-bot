@@ -189,14 +189,18 @@ Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Var
 
 系统会自动去重并按固定顺序处理，因此勾选顺序或 CLI 参数顺序不会改变 Bot Run 的结果。
 
+> [!IMPORTANT]
+> 地区祭典 Screenshot ID 选择的是 Nintendo 的数据区域：`NA`、`EU`、`JP` 或 `AP`。它与 `BOT_LOCALE` 无关；后者只改变截图中的翻译文案。为避免定时任务反复发送陈旧祭典，地区祭典仅在进行中、即将开始或结束未满 72 小时时可用。超出窗口的选项会在构建前记录原因并自动跳过；其他已选 ID 照常继续，若全部不可用则本次运行会作为正常 no-op 成功结束。
+
 ## 自动化
 
 ```mermaid
 flowchart LR
-  snapshot["数据快照"] --> build["构建"]
+  snapshot["数据快照"] --> content["内容预检"]
+  content --> build["构建"]
   build --> screenshots["截图"]
-  screenshots --> preflight["配置预检"]
-  preflight --> publish["S3 发布"]
+  screenshots --> config["配置预检"]
+  config --> publish["S3 发布"]
   publish --> adapters["平台适配器"]
 ```
 
