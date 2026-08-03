@@ -35,15 +35,15 @@
           </div>
         </div>
 
-        <div class="space-y-8">
+        <div class="mx-4 flex gap-7" data-screenshot-stage-row>
           <StageImage
-            class="flex-1"
+            class="min-w-0 flex-1"
             img-class="rounded-2xl"
             :stage="store.activeSchedule.settings.vsStages[0]"
             text-size="text-3xl"
           />
           <StageImage
-            class="flex-1"
+            class="min-w-0 flex-1"
             img-class="rounded-2xl"
             :stage="store.activeSchedule.settings.vsStages[1]"
             text-size="text-3xl"

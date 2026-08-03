@@ -70,6 +70,19 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 60
     /required content is unavailable: \[data-screenshot-content="schedules"\]/,
     'an active Splatfest without its battle schedules must not publish a partial screenshot'
   )
+  const [activeSplatfestArtifact] = await renderScreenshotArtifacts(['splatfest-na'], {
+    buildDirectory,
+    outputDirectory: path.join(outputDirectory, 'active-splatfest'),
+    renderTime: Date.parse('2026-07-12T12:00:00Z'),
+    locale: 'en-US',
+    screenshotAttribution: defaultScreenshotAttribution,
+    screenshotResolution: '1200x675',
+  })
+  assert.equal(
+    activeSplatfestArtifact.renderState.splatfestResultsCount,
+    0,
+    'an active Splatfest screenshot must not reveal result data'
+  )
   for (const { locale } of screenshotGoldenLocales) {
     const localeOutputDirectory = path.join(outputDirectory, locale)
     const artifacts = await renderFixtureScreenshotArtifacts(
@@ -89,6 +102,27 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 60
       assert.equal(artifact.renderState.locale, locale)
       assert.equal(artifact.renderState.attribution, defaultScreenshotAttribution)
       assert.deepEqual(artifact.renderState.fontFamilies, getLocaleFontFamilies(locale))
+      if (['schedules-regular', 'schedules-x'].includes(artifact.name)) {
+        assert.equal(artifact.renderState.stageRows.length, 1, `${label} stage row is missing`)
+        const [stageRow] = artifact.renderState.stageRows
+        assert.ok(['flex', 'grid'].includes(stageRow.display), `${label} stage row uses ${stageRow.display}`)
+        assert.equal(stageRow.itemCount, 2, `${label} stage row item count changed`)
+        assert.ok(stageRow.gap >= 22 && stageRow.gap <= 26, `${label} stage gap is ${stageRow.gap}px`)
+        assert.ok(stageRow.leftInset >= stageRow.gap - 1, `${label} left inset is ${stageRow.leftInset}px`)
+        assert.ok(stageRow.rightInset >= stageRow.gap - 1, `${label} right inset is ${stageRow.rightInset}px`)
+        assert.ok(
+          Math.abs(stageRow.leftInset - stageRow.rightInset) <= 1,
+          `${label} side insets differ by ${Math.abs(stageRow.leftInset - stageRow.rightInset)}px`
+        )
+        assert.ok(Math.abs(stageRow.centerOffset) <= 1, `${label} stage row is off center by ${stageRow.centerOffset}px`)
+      }
+      if (artifact.name.startsWith('splatfest-')) {
+        assert.equal(
+          artifact.renderState.splatfestResultsCount,
+          1,
+          `${label} completed Splatfest results card is missing`
+        )
+      }
       const current = PNG.sync.read(await fs.readFile(artifact.filename))
       const golden = PNG.sync.read(
         await fs.readFile(screenshotGoldenPath(goldenDirectory, artifact.name, locale))

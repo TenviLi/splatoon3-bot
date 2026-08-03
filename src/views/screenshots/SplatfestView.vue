@@ -14,6 +14,7 @@
         <SplatfestResultsBox
           v-if="festival.status === STATUS_PAST && festival.hasResults"
           :festival="festival"
+          data-screenshot-splatfest-results
           class="max-w-md md:rotate-1 scale-[1.2]"
         />
       </div>

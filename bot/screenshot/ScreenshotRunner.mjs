@@ -45,6 +45,24 @@ async function inspectRenderState(page, requiredContentSelector) {
     const rootStyle = getComputedStyle(document.documentElement)
     const images = [...document.images]
     const fittedTextElements = [...document.querySelectorAll('[data-screenshot-fit]')]
+    const stageRows = [...document.querySelectorAll('[data-screenshot-stage-row]')].map((row) => {
+      const containerRect = row.parentElement?.getBoundingClientRect()
+      const itemRects = [...row.children].map((item) => item.getBoundingClientRect())
+      const firstItem = itemRects[0]
+      const lastItem = itemRects.at(-1)
+
+      return {
+        display: getComputedStyle(row).display,
+        itemCount: itemRects.length,
+        gap: itemRects.length > 1 ? itemRects[1].left - firstItem.right : null,
+        leftInset: firstItem && containerRect ? firstItem.left - containerRect.left : null,
+        rightInset: lastItem && containerRect ? containerRect.right - lastItem.right : null,
+        centerOffset:
+          firstItem && lastItem && containerRect
+            ? (firstItem.left + lastItem.right) / 2 - (containerRect.left + containerRect.right) / 2
+            : null,
+      }
+    })
     const externalImageUrls = images
       .map((image) => image.currentSrc || image.src)
       .filter(Boolean)
@@ -119,6 +137,8 @@ async function inspectRenderState(page, requiredContentSelector) {
       },
       imageCount: images.length,
       fittedTextCount: fittedTextElements.length,
+      stageRows,
+      splatfestResultsCount: document.querySelectorAll('[data-screenshot-splatfest-results]').length,
       externalImageUrls,
     }
   }, requiredContentSelector)

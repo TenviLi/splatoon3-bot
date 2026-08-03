@@ -1,10 +1,10 @@
 import { renderScreenshotArtifacts } from '../../bot/screenshot/ScreenshotRunner.mjs'
 
 const scheduleRenderTime = Date.parse('2026-07-29T19:00:00Z')
-const splatfestRenderTime = Date.parse('2026-07-12T12:00:00Z')
+const completedSplatfestRenderTime = Date.parse('2026-07-13T12:00:00Z')
 
 export function getFixtureRenderTime(screenshotName) {
-  return screenshotName.startsWith('splatfest-') ? splatfestRenderTime : scheduleRenderTime
+  return screenshotName.startsWith('splatfest-') ? completedSplatfestRenderTime : scheduleRenderTime
 }
 
 export async function renderFixtureScreenshotArtifacts(screenshotNames, options) {
