@@ -593,6 +593,22 @@ test('parses one strict YAML S3_CONFIG with provider-neutral credentials', () =>
   assert.deepEqual(
     parseS3Configuration(`
 bucket: splatoon-assets
+publicBaseUrl: https://splatoon.example.com
+accessKeyId: access-key
+secretAccessKey: secret-key
+`),
+    {
+      bucket: 'splatoon-assets',
+      region: 'us-east-1',
+      publicBaseUrl: 'https://splatoon.example.com',
+      accessKeyId: 'access-key',
+      secretAccessKey: 'secret-key',
+    }
+  )
+
+  assert.deepEqual(
+    parseS3Configuration(`
+bucket: splatoon-assets
 endpoint: https://s3.api.upyun.com
 forcePathStyle: true
 keyPrefix: bot/production

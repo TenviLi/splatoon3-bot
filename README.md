@@ -318,10 +318,6 @@ bucket: splatoon-assets
 publicBaseUrl: https://splatoon.example.com
 accessKeyId: your-s3-access-key
 secretAccessKey: your-s3-secret-access-key
-region: us-east-1
-endpoint: https://s3.example.com
-forcePathStyle: true
-keyPrefix: splatoon3-bot
 ```
 
 | Field | Requirement | Default | Purpose / when to set |
@@ -331,10 +327,10 @@ keyPrefix: splatoon3-bot
 | `accessKeyId` | Required | — | Dedicated S3-compatible access key with upload permission; object inspection avoids redundant icon uploads when allowed. |
 | `secretAccessKey` | Required | — | Secret key paired with `accessKeyId`. |
 | `region` | Optional | `us-east-1` | Use the provider's signing region; R2 uses `auto`. |
-| `endpoint` | Optional | AWS SDK default | Required by R2, MinIO, Upyun S3, and other compatible services. |
-| `forcePathStyle` | Optional | `false` | Commonly `true` for MinIO and Upyun S3. |
-| `keyPrefix` | Optional | Empty | Namespace all project objects, for example `splatoon3-bot`. |
-| `sessionToken` | Optional | Empty | Temporary session credentials only. |
+| `endpoint` | Optional | Not set | Required by R2, MinIO, Upyun S3, and other compatible services. |
+| `forcePathStyle` | Optional | AWS SDK default (`false`) | Commonly `true` for MinIO and Upyun S3. |
+| `keyPrefix` | Optional | Not set | Namespace all project objects, for example `splatoon3-bot`. |
+| `sessionToken` | Optional | Not set | Temporary session credentials only. |
 
 `endpoint` is the authenticated upload API; `publicBaseUrl` is the credential-free HTTPS root fetched by messaging platforms. They are often different domains.
 

@@ -146,8 +146,10 @@ async function createPlatformImageVariants(buffer) {
 function createS3Client(configuration) {
   return new S3Client({
     region: configuration.region,
-    endpoint: configuration.endpoint,
-    forcePathStyle: configuration.forcePathStyle,
+    ...(configuration.endpoint ? { endpoint: configuration.endpoint } : {}),
+    ...(configuration.forcePathStyle === undefined
+      ? {}
+      : { forcePathStyle: configuration.forcePathStyle }),
     credentials: {
       accessKeyId: configuration.accessKeyId,
       secretAccessKey: configuration.secretAccessKey,

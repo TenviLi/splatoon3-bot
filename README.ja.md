@@ -317,10 +317,6 @@ bucket: splatoon-assets
 publicBaseUrl: https://splatoon.example.com
 accessKeyId: your-s3-access-key
 secretAccessKey: your-s3-secret-access-key
-region: us-east-1
-endpoint: https://s3.example.com
-forcePathStyle: true
-keyPrefix: splatoon3-bot
 ```
 
 | Field | 区分 | 既定値 | 説明 |
@@ -330,10 +326,10 @@ keyPrefix: splatoon3-bot
 | `accessKeyId` | 必須 | — | アップロード権限を持つ専用 S3 Access Key。オブジェクトを確認できる場合は内蔵アイコンの再アップロードを省略します。 |
 | `secretAccessKey` | 必須 | — | `accessKeyId` と組み合わせる Secret Key。 |
 | `region` | 任意 | `us-east-1` | Provider の署名 Region。R2 は `auto`。 |
-| `endpoint` | 任意 | AWS SDK 既定 | R2、MinIO、Upyun S3 などで必要。 |
-| `forcePathStyle` | 任意 | `false` | MinIO と Upyun S3 では通常 `true`。 |
-| `keyPrefix` | 任意 | 空 | このプロジェクトのオブジェクトに共通の名前空間を付ける場合。 |
-| `sessionToken` | 任意 | 空 | 一時認証情報を使う場合のみ。 |
+| `endpoint` | 任意 | 未設定 | R2、MinIO、Upyun S3 などで必要。 |
+| `forcePathStyle` | 任意 | AWS SDK 既定（`false`） | MinIO と Upyun S3 では通常 `true`。 |
+| `keyPrefix` | 任意 | 未設定 | このプロジェクトのオブジェクトに共通の名前空間を付ける場合。 |
+| `sessionToken` | 任意 | 未設定 | 一時認証情報を使う場合のみ。 |
 
 `endpoint` は認証が必要なアップロード API、`publicBaseUrl` は各通知サービスが認証なしで画像を取得する HTTPS ルートです。通常、この 2 つは異なるドメインです。
 

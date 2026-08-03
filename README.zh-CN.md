@@ -314,10 +314,6 @@ bucket: splatoon-assets
 publicBaseUrl: https://splatoon.example.com
 accessKeyId: your-s3-access-key
 secretAccessKey: your-s3-secret-access-key
-region: us-east-1
-endpoint: https://s3.example.com
-forcePathStyle: true
-keyPrefix: splatoon3-bot
 ```
 
 | 字段 | 要求 | 默认值 | 说明 |
@@ -327,10 +323,10 @@ keyPrefix: splatoon3-bot
 | `accessKeyId` | 必选 | — | 拥有上传权限的专用 S3 Access Key；允许对象检查时可避免重复上传内置图标。 |
 | `secretAccessKey` | 必选 | — | 与 `accessKeyId` 配对的 Secret Key。 |
 | `region` | 可选 | `us-east-1` | 使用服务商签名 Region；R2 使用 `auto`。 |
-| `endpoint` | 可选 | AWS SDK 默认值 | R2、MinIO、又拍云 S3 等兼容服务需要填写。 |
-| `forcePathStyle` | 可选 | `false` | MinIO 与又拍云 S3 通常设为 `true`。 |
-| `keyPrefix` | 可选 | 空 | 为所有对象增加命名空间。 |
-| `sessionToken` | 可选 | 空 | 仅临时凭据需要。 |
+| `endpoint` | 可选 | 未设置 | R2、MinIO、又拍云 S3 等兼容服务需要填写。 |
+| `forcePathStyle` | 可选 | AWS SDK 默认值（`false`） | MinIO 与又拍云 S3 通常设为 `true`。 |
+| `keyPrefix` | 可选 | 未设置 | 为所有对象增加命名空间。 |
+| `sessionToken` | 可选 | 未设置 | 仅临时凭据需要。 |
 
 `endpoint` 是需要凭据的上传 API，`publicBaseUrl` 是消息平台无需凭据即可读取图片的 HTTPS 根地址；两者经常不是同一个域名。
 
