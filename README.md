@@ -116,7 +116,7 @@ Run **Notification Channel smoke test**. Keep the default `schedules` Screenshot
 
 ### Step 7 — Confirm scheduled delivery
 
-After Step 6 succeeds, the two scheduled workflows can operate with the same Secrets and Variables. Review the default UTC schedule in [Automation](#automation); keep it as-is or customize it before the next run. Use **Splatoon3 Bot (manual)** whenever you want to send any combination of Screenshot IDs immediately.
+After Step 6 succeeds, the two production workflows can operate with the same Secrets and Variables. Review the default UTC schedule in [Automation](#automation); keep it as-is or customize it before the next run. Use either workflow's **Run workflow** button whenever you want to rerun its fixed production selection immediately.
 
 **Done when:** workflows are enabled and either the default schedule is acceptable or your replacement cron expressions are saved.
 
@@ -130,7 +130,7 @@ After Step 6 succeeds, the two scheduled workflows can operate with the same Sec
 
 | I want to… | Continue with |
 | --- | --- |
-| See every available image and choose what to send | [Preview](#preview) |
+| See every available image and choose a smoke-test item | [Preview](#preview) |
 | Change language, time zone, image size, or delivery time | [Configuration](#configuration) and [Automation](#automation) |
 | Add platforms, destinations, or notification routing | [Notification Channels](#notification-channels) |
 | Understand the safety model or contribute code | [Reliability](#reliability) and [Local Development](#local-development) |
@@ -139,7 +139,7 @@ After Step 6 succeeds, the two scheduled workflows can operate with the same Sec
 
 ### All thirteen Screenshot IDs
 
-Every selectable option is a **Screenshot ID**. The same value appears in the manual-run checkboxes, the smoke-test dropdown, the generated PNG name, the matching Notification, and a Target's optional `screenshotIds:` list. Each selected ID produces exactly one screenshot and one Notification.
+Every selectable option is a **Screenshot ID**. The same value appears in the smoke-test dropdown, the generated PNG name, the matching Notification, local commands, and a Target's optional `screenshotIds:` list. Each selected ID produces exactly one screenshot and one Notification.
 
 <table>
   <tr>
@@ -173,11 +173,11 @@ These previews use the default `1200×675`. Click any image to inspect it at ful
 
 Choose the Actions form by what you are trying to do:
 
-1. **Send one or several items now:** use **Splatoon3 Bot (manual)** and select any Screenshot ID combination.
+1. **Rerun a production plan now:** open **Splatoon3 Bot (every 2 hours)** or **Splatoon3 Bot (daily twice)** and choose **Run workflow**. The manual rerun uses exactly the same fixed Screenshot IDs as its schedule.
 2. **Check Secrets and routing safely:** use **Check Bot Configuration**; it checks every ID and Target without uploading or sending.
 3. **Test one real delivery path:** use **Notification Channel smoke test** and choose one `screenshot_id` plus one Channel.
 
-Local commands accept the same IDs as a comma-separated list. Only the manual form is a multi-select form.
+Local commands accept the same IDs as a comma-separated list. The hosted template intentionally has no second multi-select form: customize the fixed selections in your fork's production workflows when you want different recurring content.
 
 | Screenshot ID | What it captures |
 | --- | --- |
@@ -195,7 +195,7 @@ Local commands accept the same IDs as a comma-separated list. Only the manual fo
 | `splatfest-jp` | The Japan Splatfest. |
 | `splatfest-ap` | The Asia-Pacific Splatfest. |
 
-Selections are automatically deduplicated and ordered, so checkbox order and CLI argument order do not change the resulting Bot Run.
+Selections are automatically deduplicated and ordered, so workflow declaration order and CLI argument order do not change the resulting Bot Run.
 
 > [!IMPORTANT]
 > Regional Splatfest Screenshot IDs select Nintendo data regions: `NA`, `EU`, `JP`, or `AP`. This is independent of `BOT_LOCALE`, which changes translated screenshot text only. To prevent stale automated notifications, a regional Splatfest is eligible only while active, upcoming, or for less than 72 hours after it ends. Content outside that window is logged and skipped before the build; other selected IDs continue normally, and a run with nothing eligible finishes successfully as a no-op.
@@ -219,13 +219,12 @@ Every scheduled or manual invocation uses the same two-stage Bot Run:
 
 | Workflow | When it runs | What it sends |
 | --- | --- | --- |
-| `bot-schedules.yml` | Every even UTC hour except `02:00` and `10:00` | `schedules` |
-| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | `schedules`, `salmon-run`, `gear-dailydrop`, `gear-regular`, `gear-salmon-run` |
-| `bot-manual.yml` | On demand | Any Screenshot ID checkbox combination |
+| `bot-schedules.yml` | Every even UTC hour except `02:00` and `10:00`, or on demand | `schedules` |
+| `bot-salmon-run.yml` | `02:00` and `10:00` UTC, or on demand | `schedules`, `salmon-run`, `gear-dailydrop`, `gear-regular`, `gear-salmon-run` |
 | `configuration-check.yml` | On demand | Validates all Screenshot IDs and configured Targets; never uploads or sends |
 | `notification-smoke.yml` | On demand | Publishes one selected Screenshot ID and sends it through one selected Channel |
 
-Together, scheduled workflows deliver schedules exactly once every two hours. Official Actions are pinned to immutable commit SHAs. GitHub Actions is the only supported hosted automation surface.
+Together, scheduled workflows deliver schedules exactly once every two hours. Both production workflows also expose an input-free **Run workflow** button, so an on-demand rerun cannot accidentally redefine their Run Selection. Official Actions are pinned to immutable commit SHAs. GitHub Actions is the only supported hosted automation surface.
 
 ### Customize delivery times
 
@@ -383,10 +382,12 @@ Each platform Secret is a YAML list. Every list item is one destination—called
 
 Routing happens in two simple steps:
 
-1. **Run Selection chooses what is generated.** Scheduled workflows define this in code; the manual workflow uses checkboxes; the smoke test uses one dropdown.
+1. **Run Selection chooses what is generated.** Production workflows define a fixed selection in code for both scheduled and on-demand runs; the smoke test selects one ID from a dropdown.
 2. **`screenshotIds` chooses what one Target receives.** Add it inside that Target only when the destination should receive a subset.
 
 > **Effective delivery = IDs generated by this run ∩ the Target's `screenshotIds`.** If `screenshotIds` is omitted, that Target receives every item generated by the run.
+
+An empty intersection sends nothing to that Target. Production runs skip a Channel when none of its Targets match; the smoke test fails early when its explicitly selected Channel has no matching Target, because that run exists to verify one real delivery path.
 
 Targets run independently and in parallel, while messages for one Target keep their expected order.
 

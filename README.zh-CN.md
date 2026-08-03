@@ -114,7 +114,7 @@
 
 ### Step 7 — 确认定时推送
 
-Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Variables 自动运行。查看[自动化](#自动化)中的默认 UTC 时间；可以直接保留，也可以在下一次运行前修改。需要立即推送任意 Screenshot ID 组合时，使用 **Splatoon3 Bot (manual)**。
+Step 6 成功后，两个生产工作流就可以复用同一组 Secrets 与 Variables 自动运行。查看[自动化](#自动化)中的默认 UTC 时间；可以直接保留，也可以在下一次运行前修改。需要立即重跑时，点击对应工作流的 **Run workflow**，它会使用与定时触发完全相同的固定内容。
 
 **完成标志：** 工作流已经启用，并且你已确认默认定时或保存了自己的 cron 表达式。
 
@@ -128,7 +128,7 @@ Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Var
 
 | 你想要…… | 继续阅读 |
 | --- | --- |
-| 查看全部可用图片并选择发送内容 | [截图预览](#截图预览) |
+| 查看全部可用图片并选择 Smoke Test 内容 | [截图预览](#截图预览) |
 | 修改语言、时区、图片尺寸或推送时间 | [配置](#配置)与[自动化](#自动化) |
 | 增加平台、消息目标或通知路由 | [通知平台](#通知平台) |
 | 评估可靠性、调试或参与开发 | [可靠性](#可靠性)与[本地开发](#本地开发) |
@@ -137,7 +137,7 @@ Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Var
 
 ### 全部十三个 Screenshot ID
 
-每个可选项就是一个 **Screenshot ID（截图 ID）**。同一个值会出现在手动运行的复选框、Smoke Test 的下拉框、生成的 PNG 文件名、对应 Notification，以及通知目标可选的 `screenshotIds:` 列表中。每个选中的 ID 都只生成一张截图和一条通知。
+每个可选项就是一个 **Screenshot ID（截图 ID）**。同一个值会出现在 Smoke Test 下拉框、生成的 PNG 文件名、对应 Notification、本地命令，以及通知目标可选的 `screenshotIds:` 列表中。每个选中的 ID 都只生成一张截图和一条通知。
 
 <table>
   <tr>
@@ -171,11 +171,11 @@ Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Var
 
 根据你的目的选择 Actions 表单：
 
-1. **现在发送一项或多项内容：** 使用 **Splatoon3 Bot (manual)**，自由勾选 Screenshot ID。
+1. **立即重跑生产任务：** 打开 **Splatoon3 Bot (every 2 hours)** 或 **Splatoon3 Bot (daily twice)**，点击 **Run workflow**。手动重跑与对应定时任务使用完全相同的固定 Screenshot ID。
 2. **安全检查 Secrets 与路由：** 使用 **Check Bot Configuration**；它自动检查全部 ID 和目标，不上传、不发送。
 3. **测试一条真实发送链路：** 使用 **Notification Channel smoke test**，选择一个 `screenshot_id` 和一个平台。
 
-本地命令也接受同一组 ID，以逗号分隔即可。只有手动运行表单支持多选。
+本地命令也接受同一组 ID，以逗号分隔即可。托管模板特意不再提供第二套多选表单；需要调整长期推送内容时，请直接修改 Fork 仓库中生产工作流的固定选项。
 
 | Screenshot ID | 截图内容 |
 | --- | --- |
@@ -193,7 +193,7 @@ Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Var
 | `splatfest-jp` | 日本区域祭典。 |
 | `splatfest-ap` | 亚太区域祭典。 |
 
-系统会自动去重并按固定顺序处理，因此勾选顺序或 CLI 参数顺序不会改变 Bot Run 的结果。
+系统会自动去重并按固定顺序处理，因此工作流声明顺序或 CLI 参数顺序不会改变 Bot Run 的结果。
 
 > [!IMPORTANT]
 > 地区祭典 Screenshot ID 选择的是 Nintendo 的数据区域：`NA`、`EU`、`JP` 或 `AP`。它与 `BOT_LOCALE` 无关；后者只改变截图中的翻译文案。为避免定时任务反复发送陈旧祭典，地区祭典仅在进行中、即将开始或结束未满 72 小时时可用。超出窗口的选项会在构建前记录原因并自动跳过；其他已选 ID 照常继续，若全部不可用则本次运行会作为正常 no-op 成功结束。
@@ -217,19 +217,18 @@ flowchart LR
 
 | 工作流 | 何时运行 | 发送内容 |
 | --- | --- | --- |
-| `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | `schedules` |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run`、`gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
-| `bot-manual.yml` | 按需手动运行 | 任意 Screenshot ID 复选框组合 |
+| `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时，或按需手动重跑 | `schedules` |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00`，或按需手动重跑 | `schedules`、`salmon-run`、`gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
 | `configuration-check.yml` | 按需手动运行 | 检查全部 Screenshot ID 和已配置目标，不上传、不发送 |
 | `notification-smoke.yml` | 按需手动运行 | 发布一个选定的 Screenshot ID，并通过一个选定平台发送 |
 
-两条定时入口合计每两小时发送一次日程且不会重复。第三方 Actions 均固定到不可变 Commit SHA；仅支持 GitHub Actions 作为托管自动化平台。
+两条定时入口合计每两小时发送一次日程且不会重复。两个生产工作流还提供无参数的 **Run workflow** 按钮，因此手动重跑不会意外改变对应的 Run Selection。第三方 Actions 均固定到不可变 Commit SHA；仅支持 GitHub Actions 作为托管自动化平台。
 
 ### 自定义定时推送
 
 在安装仓库默认分支中修改 `.github/workflows/bot-schedules.yml` 与 `.github/workflows/bot-salmon-run.yml` 的 `on.schedule` cron 表达式，即可决定各模式的推送时间。GitHub 按 UTC 解释这些表达式。`BOT_TIME_ZONE` 只改变截图和消息中显示的时间，不会改变 Actions 的启动时刻。
 
-GitHub 不允许在 `on.schedule.cron` 中读取 Repository Variables 或 Secrets，因此这里没有定时 Variable。可以参考 GitHub 官方的 [`on.schedule` 语法](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)，并用 [crontab.guru](https://crontab.guru/) 辅助生成表达式。每日两次的工作流也勾选了对战日程；除非确实需要重复消息，否则不要让它与仅发送日程的工作流重叠。
+GitHub 不允许在 `on.schedule.cron` 中读取 Repository Variables 或 Secrets，因此这里没有定时 Variable。可以参考 GitHub 官方的 [`on.schedule` 语法](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)，并用 [crontab.guru](https://crontab.guru/) 辅助生成表达式。每日两次的工作流也包含对战日程；除非确实需要重复消息，否则不要让它与仅发送日程的工作流重叠。
 
 [截图目录](#全部十三个-screenshot-id)同时也是完整的 Screenshot ID 可选清单。它遵循上游 [截图路由](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)；每张选中的图片都会进入 Bot Run 归档并发布到 S3，再由各平台适配器渲染为原生模板卡片、Embed、图片消息或消息模板。
 
@@ -379,10 +378,12 @@ secretAccessKey: your-s3-secret-access-key
 
 路由分为两步：
 
-1. **本次运行选择生成什么。** 定时工作流在代码中固定选择；手动工作流使用复选框；Smoke Test 使用单选下拉框。
+1. **本次运行选择生成什么。** 生产工作流在代码中固定选择，定时触发与手动重跑完全一致；Smoke Test 从下拉框中选择一个 ID。
 2. **`screenshotIds` 选择某个目标接收什么。** 只有该目标需要接收一部分内容时，才在目标内部添加这个字段。
 
 > **实际投递内容 = 本次运行生成的 ID ∩ 目标的 `screenshotIds`。** 省略 `screenshotIds` 时，该目标接收本次运行实际生成的全部内容。
+
+交集为空时，该目标不会收到消息。如果一个平台的全部目标都不匹配，普通生产运行会将该平台标记为跳过；Smoke Test 因为明确指定了要验证的平台，会在没有匹配目标时提前失败，避免产生“测试成功但没有发送”的假象。
 
 各目标相互独立并行发送，同一目标内仍保持消息顺序。
 

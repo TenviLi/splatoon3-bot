@@ -117,7 +117,7 @@
 
 ### Step 7 — 定期配信を確認する
 
-Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variables を使って運用できます。[自動化](#自動化)で既定の UTC スケジュールを確認し、そのまま利用するか、次回実行前に変更してください。任意の Screenshot ID をすぐ送信したい場合は **Splatoon3 Bot (manual)** を使います。
+Step 6 が成功すると、2 つの Production Workflow が同じ Secrets と Variables を使って運用できます。[自動化](#自動化)で既定の UTC スケジュールを確認し、そのまま利用するか、次回実行前に変更してください。すぐ再実行する場合は、対象 Workflow の **Run workflow** を使います。定期実行と同じ固定内容が選択されます。
 
 **完了条件：** Workflow が有効で、既定スケジュールを確認済み、または独自の cron 式を保存済みであること。
 
@@ -131,7 +131,7 @@ Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variab
 
 | 目的 | 続けて読む場所 |
 | --- | --- |
-| 利用できる画像をすべて確認して、配信内容を選ぶ | [スクリーンショット](#スクリーンショット) |
+| 利用できる画像をすべて確認して Smoke Test の対象を選ぶ | [スクリーンショット](#スクリーンショット) |
 | 言語、タイムゾーン、画像サイズ、配信時刻を変更する | [設定](#設定)と[自動化](#自動化) |
 | サービス、宛先、通知ルーティングを追加する | [通知プラットフォーム](#通知プラットフォーム) |
 | 安全性を確認する、デバッグする、開発に参加する | [信頼性](#信頼性)と[ローカル開発](#ローカル開発) |
@@ -140,7 +140,7 @@ Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variab
 
 ### 13 個すべての Screenshot ID
 
-選択肢はすべて **Screenshot ID** です。同じ値が手動実行のチェックボックス、Smoke Test のドロップダウン、生成 PNG のファイル名、対応する Notification、宛先の任意 `screenshotIds:` リストに使われます。選択した各 ID から画像 1 枚と通知 1 件が生成されます。
+選択肢はすべて **Screenshot ID** です。同じ値が Smoke Test のドロップダウン、生成 PNG のファイル名、対応する Notification、ローカルコマンド、宛先の任意 `screenshotIds:` リストに使われます。選択した各 ID から画像 1 枚と通知 1 件が生成されます。
 
 <table>
   <tr>
@@ -174,11 +174,11 @@ Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variab
 
 目的に応じて Actions フォームを選びます。
 
-1. **今すぐ 1 件以上を送信する：** **Splatoon3 Bot (manual)** で任意の Screenshot ID をチェックします。
+1. **Production Run を今すぐ再実行する：** **Splatoon3 Bot (every 2 hours)** または **Splatoon3 Bot (daily twice)** を開き、**Run workflow** を選びます。手動再実行でも定期実行と同じ固定 Screenshot ID を使用します。
 2. **Secrets とルーティングを安全に確認する：** **Check Bot Configuration** を使います。全 ID と宛先を確認しますが、アップロードも送信も行いません。
 3. **実際の配信経路を 1 つ試す：** **Notification Channel smoke test** で `screenshot_id` と Channel を 1 つずつ選びます。
 
-ローカルコマンドも同じ ID をカンマ区切りで受け取ります。複数選択できるフォームは手動実行だけです。
+ローカルコマンドも同じ ID をカンマ区切りで受け取ります。Hosted Template には意図的に 2 つ目の複数選択フォームを置きません。継続的に配信する内容を変える場合は、Fork した Repository の Production Workflow にある固定選択を編集します。
 
 | Screenshot ID | 内容 |
 | --- | --- |
@@ -196,7 +196,7 @@ Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variab
 | `splatfest-jp` | 日本地域のフェス。 |
 | `splatfest-ap` | アジア太平洋地域のフェス。 |
 
-選択内容は自動的に重複排除され、固定順に整列されます。チェックした順序や CLI 引数の順序によって Bot Run の結果は変わりません。
+選択内容は自動的に重複排除され、固定順に整列されます。Workflow の宣言順や CLI 引数の順序によって Bot Run の結果は変わりません。
 
 > [!IMPORTANT]
 > 地域別フェスの Screenshot ID は Nintendo のデータ地域（`NA`、`EU`、`JP`、`AP`）を選択します。スクリーンショットの翻訳文だけを変更する `BOT_LOCALE` とは独立しています。古いフェスを定期実行で繰り返し通知しないため、対象になるのは開催中、開催予定、または終了後 72 時間未満です。期間外の項目は理由を記録してビルド前に自動スキップされ、ほかの選択項目は継続します。すべて対象外なら、正常な no-op として成功終了します。
@@ -220,13 +220,12 @@ flowchart LR
 
 | Workflow | 実行タイミング | 配信内容 |
 | --- | --- | --- |
-| `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | `schedules` |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run`、`gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
-| `bot-manual.yml` | 必要なときに手動実行 | 任意の Screenshot ID チェックボックス組み合わせ |
+| `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時、または必要なときに手動再実行 | `schedules` |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00`、または必要なときに手動再実行 | `schedules`、`salmon-run`、`gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
 | `configuration-check.yml` | 必要なときに手動実行 | 全 Screenshot ID と設定済み Target を検証。アップロードや送信は行わない |
 | `notification-smoke.yml` | 必要なときに手動実行 | 選択した 1 つの Screenshot ID を公開し、選択した 1 Channel から送信 |
 
-定期 Workflow 全体で、スケジュール通知は 2 時間ごとに重複なく 1 回配信されます。外部 Actions はすべて不変の Commit SHA に固定されています。クラウド上の自動実行は GitHub Actions のみをサポートします。
+定期 Workflow 全体で、スケジュール通知は 2 時間ごとに重複なく 1 回配信されます。2 つの Production Workflow には入力のない **Run workflow** ボタンもあり、手動再実行で Run Selection が変わることはありません。外部 Actions はすべて不変の Commit SHA に固定されています。クラウド上の自動実行は GitHub Actions のみをサポートします。
 
 ### 配信時刻をカスタマイズする
 
@@ -382,10 +381,12 @@ secretAccessKey: your-s3-secret-access-key
 
 ルーティングは 2 段階です。
 
-1. **今回の実行で何を生成するかを選びます。** 定期 Workflow はコード内で固定し、手動 Workflow はチェックボックス、Smoke Test は 1 つのドロップダウンを使います。
+1. **今回の実行で何を生成するかを選びます。** Production Workflow はコード内で固定し、定期実行と手動再実行で同じ選択を使います。Smoke Test はドロップダウンから 1 ID を選びます。
 2. **`screenshotIds` で 1 つの宛先が受信する内容を絞ります。** 一部だけを受信させたい宛先にだけ、このフィールドを追加します。
 
 > **実際の配信内容 = 今回生成された ID ∩ 宛先の `screenshotIds`。** `screenshotIds` を省略すると、その宛先は今回生成された内容をすべて受信します。
+
+共通する ID がなければ、その宛先には送信しません。すべての宛先が一致しない Channel は通常の Production Run ではスキップされます。一方、Smoke Test は指定した Channel の実配信を確認するため、一致する宛先がなければ早期に失敗し、「成功したのに未送信」という誤解を防ぎます。
 
 各宛先は独立して並列実行され、同じ宛先へのメッセージ順序は維持されます。
 

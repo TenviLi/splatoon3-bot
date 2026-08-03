@@ -675,7 +675,6 @@ test('notification adapters share the publication stage and are enabled by confi
   for (const filename of [
     'bot-schedules.yml',
     'bot-salmon-run.yml',
-    'bot-manual.yml',
     'notification-smoke.yml',
     'configuration-check.yml',
   ]) {
@@ -729,15 +728,13 @@ test('notification adapters share the publication stage and are enabled by confi
     )
   }
 
-  const manualWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-manual.yml'), 'utf8')
-  assert.doesNotMatch(manualWorkflow, /^      profile:$/m, 'bot-manual.yml must not expose combination Profiles')
+  await assert.rejects(
+    fs.access(path.join(workflowDirectory, 'bot-manual.yml')),
+    (error) => error?.code === 'ENOENT',
+    'the public template must not expose a second multi-select Manual Bot Run'
+  )
   for (const { name } of listScreenshotDefinitions()) {
     const inputName = name.replaceAll('-', '_')
-    assertBooleanSelectionInput(manualWorkflow, inputName, name === 'schedules')
-    assert.ok(
-      manualWorkflow.includes(`      ${inputName}: \${{ inputs.${inputName} }}`),
-      `bot-manual.yml must forward Screenshot ID ${name}`
-    )
     assert.doesNotMatch(
       smokeWorkflow,
       new RegExp(`^      ${inputName}:$`, 'm'),
@@ -785,6 +782,15 @@ test('notification adapters share the publication stage and are enabled by confi
 test('daily twice workflow delivers every Notification', async () => {
   const dailyWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-salmon-run.yml'), 'utf8')
   const schedulesWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-schedules.yml'), 'utf8')
+
+  for (const [filename, source] of [
+    ['bot-schedules.yml', schedulesWorkflow],
+    ['bot-salmon-run.yml', dailyWorkflow],
+  ]) {
+    assert.match(source, /^  workflow_dispatch:\s*$/m, `${filename} must support an on-demand rerun`)
+    assert.doesNotMatch(source, /^    inputs:/m, `${filename} manual rerun must not redefine Run Selection`)
+  }
+
   const selectedScreenshotIds = listScreenshotDefinitions()
     .filter(({ name }) => dailyWorkflow.includes(`      ${name.replaceAll('-', '_')}: true`))
     .map(({ name }) => name)

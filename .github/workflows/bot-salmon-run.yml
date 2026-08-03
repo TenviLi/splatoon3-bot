@@ -3,6 +3,7 @@ name: Splatoon3 Bot (daily twice)
 on:
   schedule:
     - cron: '0 2,10 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
