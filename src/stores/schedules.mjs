@@ -1,7 +1,10 @@
-import { acceptHMRUpdate, defineStore } from "pinia";
-import { computed } from "vue";
-import { useSchedulesDataStore } from "./data.mjs";
-import { useTimeStore } from "./time.mjs";
+import { acceptHMRUpdate, defineStore } from 'pinia';
+import { computed } from 'vue';
+import sortBy from 'lodash/sortBy.js';
+import min from 'lodash/min.js';
+import max from 'lodash/max.js';
+import { useTimeStore } from './time.mjs';
+import { useSchedulesDataStore } from './data.mjs';
 
 // Schedule store definition (used for each type of schedule)
 function defineScheduleStore(id, options) {
@@ -22,7 +25,7 @@ function defineScheduleStore(id, options) {
     };
 
     const time = useTimeStore();
-    const schedules = computed(() => options.nodes()?.map(n => transform(n)));
+    const schedules = computed(() => options.nodes()?.map(n => transform(n)).filter(s => s.settings));
 
     const currentSchedules = computed(() => schedules.value?.filter(s => time.isCurrent(s.endTime)));
     const activeSchedule = computed(() => schedules.value?.find(s => time.isActive(s.startTime, s.endTime)));
@@ -47,24 +50,78 @@ export const useRegularSchedulesStore = defineScheduleStore('regular', {
 // Anarchy Battle (Series)
 export const useAnarchySeriesSchedulesStore = defineScheduleStore('anarchy/series', {
   nodes: () => useSchedulesDataStore().data?.bankaraSchedules.nodes,
-  settings: node => node.bankaraMatchSettings?.find(s => s.mode === 'CHALLENGE'),
+  settings: node => node.bankaraMatchSettings?.find(s => s.bankaraMode === 'CHALLENGE'),
 });
 
 // Anarchy Battle (Open)
 export const useAnarchyOpenSchedulesStore = defineScheduleStore('anarchy/open', {
   nodes: () => useSchedulesDataStore().data?.bankaraSchedules.nodes,
-  settings: node => node.bankaraMatchSettings?.find(s => s.mode === 'OPEN'),
+  settings: node => node.bankaraMatchSettings?.find(s => s.bankaraMode === 'OPEN'),
 });
 
-// Splatfest Battle
-export const useSplatfestSchedulesStore = defineScheduleStore('splatfest', {
+// X Battle
+export const useXSchedulesStore = defineScheduleStore('xmatch', {
+  nodes: () => useSchedulesDataStore().data?.xSchedules.nodes,
+  settings: node => node.xMatchSetting,
+});
+
+// Splatfest Battle (Open)
+export const useSplatfestOpenSchedulesStore = defineScheduleStore('splatfest/open', {
   nodes: () => useSchedulesDataStore().data?.festSchedules.nodes,
-  settings: node => node.festMatchSetting,
+  settings: node => node.festMatchSettings?.find(s => s.festMode === 'REGULAR'),
+});
+
+// Splatfest Battle (Pro)
+export const useSplatfestProSchedulesStore = defineScheduleStore('splatfest/pro', {
+  nodes: () => useSchedulesDataStore().data?.festSchedules.nodes,
+  settings: node => node.festMatchSettings?.find(s => s.festMode === 'CHALLENGE'),
+});
+
+// Challenge Events
+export const useEventSchedulesStore = defineScheduleStore('event', {
+  nodes: () => useSchedulesDataStore().data?.eventSchedules.nodes.map(node => {
+    const time = useTimeStore();
+
+    return {
+      // Find the overall start/end times for the event based on all time periods
+      startTime: min(node.timePeriods.map(t => t.startTime)),
+      endTime: max(node.timePeriods.map(t => t.endTime)),
+
+      currentTimePeriods: node.timePeriods.filter(s => time.isCurrent(s.endTime)),
+      activeTimePeriod: node.timePeriods.find(s => time.isActive(s.startTime, s.endTime)),
+      upcomingTimePeriods: node.timePeriods.filter(s => time.isUpcoming(s.startTime)),
+      pastTimePeriods: node.timePeriods.filter(s => !time.isCurrent(s.endTime)),
+
+      ...node,
+    };
+  }),
+  settings: node => node.leagueMatchSetting,
 });
 
 // Salmon Run
 export const useSalmonRunSchedulesStore = defineScheduleStore('salmonRun', {
-  nodes: () => useSchedulesDataStore().data?.coopGroupingSchedule.regularSchedules.nodes,
+  nodes: () => {
+    const data = useSchedulesDataStore().data;
+
+    // Combine Salmon Run and Big Run schedules
+    let nodes = []
+      .concat(data?.coopGroupingSchedule.regularSchedules.nodes.map(n => ({ ...n, isBigRun: false })))
+      .concat(data?.coopGroupingSchedule.bigRunSchedules.nodes.map(n => ({ ...n, isBigRun: true })))
+      .filter(n => n)
+      .map(n => ({
+        ...n,
+        isMystery: n.setting.weapons.some(w => w.name === 'Random'),
+        isGrizzcoMystery: n.setting.weapons.some(w => ['6e17fbe20efecca9', '747937841598fff7'].includes(w.__splatoon3ink_id)),
+      }));
+
+    return sortBy(nodes, 'startTime');
+  },
+  settings: node => node.setting,
+});
+
+// Eggstra Work
+export const useEggstraWorkSchedulesStore = defineScheduleStore('eggstraWork', {
+  nodes: () => useSchedulesDataStore().data?.coopGroupingSchedule.teamContestSchedules.nodes || [],
   settings: node => node.setting,
 });
 
@@ -72,6 +129,10 @@ if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useRegularSchedulesStore, import.meta.hot));
   import.meta.hot.accept(acceptHMRUpdate(useAnarchySeriesSchedulesStore, import.meta.hot));
   import.meta.hot.accept(acceptHMRUpdate(useAnarchyOpenSchedulesStore, import.meta.hot));
-  import.meta.hot.accept(acceptHMRUpdate(useSplatfestSchedulesStore, import.meta.hot));
+  import.meta.hot.accept(acceptHMRUpdate(useXSchedulesStore, import.meta.hot));
+  import.meta.hot.accept(acceptHMRUpdate(useSplatfestOpenSchedulesStore, import.meta.hot));
+  import.meta.hot.accept(acceptHMRUpdate(useSplatfestProSchedulesStore, import.meta.hot));
+  import.meta.hot.accept(acceptHMRUpdate(useEventSchedulesStore, import.meta.hot));
   import.meta.hot.accept(acceptHMRUpdate(useSalmonRunSchedulesStore, import.meta.hot));
+  import.meta.hot.accept(acceptHMRUpdate(useEggstraWorkSchedulesStore, import.meta.hot));
 }

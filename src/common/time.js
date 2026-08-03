@@ -1,7 +1,7 @@
 import { useI18n } from 'vue-i18n';
-import { useTimeStore } from '../stores/time';
+import { useTimeStore } from '../stores/time.mjs';
 
-function getDurationParts(value) {
+export function getDurationParts(value) {
   let negative = (value < 0) ? '-' : '';
   value = Math.abs(value);
 
@@ -48,16 +48,21 @@ export function formatDurationFromNow(value, hideSeconds = false) {
 }
 
 export function formatShortDuration(value) {
-  const { t } = useI18n()
+  const { t } = useI18n();
   let { negative, days, hours, minutes, seconds } = getDurationParts(value);
 
+  days = days && t('time.days', days);
+  hours = hours && t('time.hours', hours);
+  minutes = minutes && t('time.minutes', { n: minutes }, minutes);
+  seconds = t('time.seconds', { n: seconds }, seconds);
+
   if (days)
-    return t('time.days', { n: `${negative}${days}` }, days);
+    return hours ? `${negative}${days} ${hours}` : `${negative}${days}`;
   if (hours)
-    return t('time.hours', { n: `${negative}${hours}` }, hours);
+    return `${negative}${hours}`;
   if (minutes)
-    return t('time.minutes', { n: `${negative}${minutes}` }, minutes);
-  return t('time.seconds', { n: `${negative}${seconds}` }, seconds);
+    return `${negative}${minutes}`;
+  return `${negative}${seconds}`;
 }
 
 export function formatShortDurationFromNow(value) {
@@ -67,12 +72,14 @@ export function formatShortDurationFromNow(value) {
 }
 
 export function formatDurationHours(value) {
-  const { t } = useI18n()
-  let { negative, days, hours } = getDurationParts(value);
+  const { t } = useI18n();
+  let { negative, days, hours, minutes } = getDurationParts(value);
 
   hours += 24 * days;
 
-  return t('time.hours', { n: `${negative}${hours}` }, hours);
+  return hours
+    ? t('time.hours', { n: `${negative}${hours}` }, hours)
+    : t('time.minutes', { n: `${negative}${minutes}` }, minutes);
 }
 
 export function formatDurationHoursFromNow(value) {

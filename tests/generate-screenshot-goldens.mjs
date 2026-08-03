@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { listScreenshotDefinitions } from '../bot/run/RunPlan.mjs'
-import { renderScreenshotArtifacts } from '../bot/screenshot/ScreenshotRunner.mjs'
 import { getScreenshotGoldenDirectory } from './support/ScreenshotGoldenEnvironment.mjs'
+import { renderFixtureScreenshotArtifacts } from './support/ScreenshotFixtureRenderer.mjs'
 import { defaultScreenshotAttribution } from '../src/common/screenshotAttribution.mjs'
 import {
   screenshotGoldenFilename,
@@ -14,17 +14,15 @@ process.env.SPLATOON_PUBLIC_DIRECTORY = 'tests/fixtures/public'
 const { build } = await import('vite')
 const buildDirectory = path.join(process.cwd(), '.cache', 'visual-dist')
 const outputDirectory = getScreenshotGoldenDirectory()
-const renderTime = Date.parse('2026-07-29T19:00:00Z')
 
 await build({ build: { outDir: buildDirectory, emptyOutDir: true } })
 for (const { locale } of screenshotGoldenLocales) {
   const localeOutputDirectory = path.join(process.cwd(), '.cache', 'screenshot-goldens', locale)
-  const artifacts = await renderScreenshotArtifacts(
+  const artifacts = await renderFixtureScreenshotArtifacts(
     listScreenshotDefinitions().map((definition) => definition.name),
     {
       buildDirectory,
       outputDirectory: localeOutputDirectory,
-      renderTime,
       locale,
       screenshotAttribution: defaultScreenshotAttribution,
       screenshotResolution: '1200x675',

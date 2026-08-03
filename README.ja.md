@@ -32,11 +32,11 @@
 
 ## このプロジェクトでできること
 
-`splatoon3-bot` は、GitHub Actions 上で動作する [Splatoon 3](https://splatoon3.ink/) 通知 Bot です。毎回同じ一式のゲームデータから 4 種類の安定した画像を生成し、S3 互換サービスへ公開して、設定した宛先ごとに最適なリッチメッセージを届けます。
+`splatoon3-bot` は、GitHub Actions 上で動作する [Splatoon 3](https://splatoon3.ink/) 通知 Bot です。毎回同じ一式のゲームデータから最大 13 種類の安定した画像を生成し、S3 互換サービスへ公開して、設定した宛先ごとに最適なリッチメッセージを届けます。
 
 <table>
   <tr>
-    <td width="33%" align="center"><strong>4 種類の安定した画像</strong><br><sub>バトル、サーモンラン、今日のピックアップ、販売中ギアを正確な 16:9 で生成。</sub></td>
+    <td width="33%" align="center"><strong>13 種類の安定した画像</strong><br><sub>一覧・個別バトルスケジュール、イベントマッチ、サーモンラン、ギア、4 地域のフェスを正確な 16:9 で生成。</sub></td>
     <td width="33%" align="center"><strong>S3 サービスを自由に選択</strong><br><sub>AWS S3、Cloudflare R2、MinIO、Upyun S3 などの SigV4 互換サービス。</sub></td>
     <td width="33%" align="center"><strong>各サービスらしい通知</strong><br><sub>カード、Embed、Flex Message、Block Kit、承認済みメディアテンプレートを活用。</sub></td>
   </tr>
@@ -60,7 +60,7 @@
 
 ## スクリーンショット
 
-### 4 種類の再現可能なスクリーンショット
+### 代表的な 4 種類の再現可能なスクリーンショット
 
 <table>
   <tr>
@@ -73,7 +73,7 @@
   </tr>
 </table>
 
-README のプレビュー画像は既定解像度の `1200×675` です。`BOT_SCREENSHOT_RESOLUTION` では 4 種類の正確な 16:9 サイズから選択でき、保存用画像と通知のメイン画像に同じ設定が反映されます。LINE と WhatsApp には個別の `1024×576` 画像を生成し、ほかの通知サービスの画質を下げずに各アダプター固有の制限を適用します。
+この 4 枚は、13 種類のカタログのうち通知で直接利用する代表的な画像です。既定解像度は `1200×675` です。`BOT_SCREENSHOT_RESOLUTION` では 4 種類の正確な 16:9 サイズから選択でき、保存用画像と通知のメイン画像に同じ設定が反映されます。LINE と WhatsApp には個別の `1024×576` 画像を生成し、ほかの通知サービスの画質を下げずに各アダプター固有の制限を適用します。
 
 ## クイックスタート
 
@@ -101,7 +101,7 @@ Template から、自分の GitHub アカウントに独立した Private reposi
 
    LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選択してください。
 4. 既定言語は `zh-CN` のため、`BOT_LOCALE=ja-JP` と `BOT_TIME_ZONE=Asia/Tokyo` を設定します。`BOT_SCREENSHOT_RESOLUTION` など、その他の [Repository Variables](#repository-variables) は既定値を変更するときだけ追加します。
-5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、3 つの Content Group をすべて選択した状態で **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
+5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、8 つの Content Group をすべて選択した状態で **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
 6. 設定したサービスに対して **Notification Channel smoke test** を実行します。画像を 1 回実際にアップロードし、テストメッセージを 1 件送信して、定期配信を始める前に経路全体を確認します。
 
 > [!IMPORTANT]
@@ -129,7 +129,7 @@ flowchart LR
 | Workflow | 実行タイミング | 配信内容 |
 | --- | --- | --- |
 | `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | バトルスケジュール Content Group |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | 3 つの Content Group すべて |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | バトルスケジュール、サーモンラン、ギアの Content Group |
 | `bot-manual.yml` | 必要なときに手動実行 | 任意のチェックボックス組み合わせ |
 | `configuration-check.yml` | 必要なときに手動実行 | 設定確認のみ。アップロードや送信は行わない |
 | `notification-smoke.yml` | 必要なときに手動実行 | 現在の画像を公開し、選択したサービスへテスト通知を 1 件送信 |
@@ -149,9 +149,16 @@ GitHub の `on.schedule.cron` は Repository Variables や Secrets を参照で�
 
 | Content Group | 生成する画像 | 送信する通知 |
 | --- | --- | --- |
-| `schedules` | バトルスケジュール | バトルスケジュール |
-| `salmon-run` | サーモンラン | サーモンラン |
-| `gear` | ギア画像 2 枚 | ギア通知 2 件 |
+| `schedules` | `schedules.png`：レギュラー、バンカラ、X マッチ、または開催中のフェスマッチ | バトルスケジュール |
+| `schedules-regular` | `schedules-regular.png`：レギュラーマッチだけを表示する 1 枚のカード | レギュラーマッチ |
+| `schedules-anarchy` | `schedules-anarchy.png`：バンカラマッチ（チャレンジ）と（オープン）の 2 枚のカード | バンカラマッチ（チャレンジ / オープン） |
+| `schedules-x` | `schedules-x.png`：X マッチだけを表示する 1 枚のカード | X マッチ |
+| `challenges` | `challenges.png`：開催中または次に参加できるイベントマッチ | ルール、ステージ、参加可能な時間帯 |
+| `salmon-run` | `salmon-run.png`：サーモンラン | サーモンラン |
+| `gear` | `gear-dailydrop.png`、`gear-regular.png`、`gear-salmon-run.png` | ピックアップ、通常販売、サーモンランの月間ギア |
+| `splatfest` | `splatfest-na.png`、`splatfest-eu.png`、`splatfest-jp.png`、`splatfest-ap.png` | 地域別画像ごとのフェス通知 |
+
+拡張されたカタログは、上流の [スクリーンショット用ルート](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)に沿っています。選択した画像はすべて Bot Run に保存され、S3 へ公開され、用途別に設計した通知と組み合わされます。各アダプターは同じ内容を、サービス固有の Card、Embed、画像メッセージ、Template として描画します。
 
 </details>
 
@@ -212,7 +219,7 @@ Bot のスクリーンショット生成と通知配信は 14 値すべてに対
 
 既定値は README のプレビューと一致し、Actions の実行時間、S3 の保存容量、メッセージの読み込み負荷を抑えます。より高解像度のメイン画像や保存用画像が必要な場合だけ変更してください。選択した寸法は、保存用画像、`notification-images/` オブジェクト、通知のメイン画像まで一貫して維持されます。LINE は `1 MB` 以下の専用 `1024×576` 画像を使用します。これは LINE の Flex 画像上限 `1024×1024` に収まる、クロップなしで最大の 16:9 サイズです。WhatsApp は `5 MB` のメディア制限に合わせた専用 `1024×576` 画像を使用します。どちらの表示ボタンも、選択した解像度のメイン画像を開きます。
 
-スケジュール、サーモンラン、ギアの Icon はリポジトリ内の Asset から生成され、Content-addressed key で S3 に自動公開されます。公開 Icon URL を別途用意する必要はありません。
+スケジュール、イベントマッチ、サーモンラン、ギア、フェスの Icon はリポジトリ内の Asset から生成され、Content-addressed key で S3 に自動公開されます。公開 Icon URL を別途用意する必要はありません。
 
 ### `S3_CONFIG`
 
@@ -287,7 +294,7 @@ keyPrefix: splatoon3-bot
 | `line-images/<sha256>/` | LINE 専用 `1024×576` PNG。必要な場合だけ Palette PNG へ自動圧縮 | 16:9 の全体を維持し、`1024×1024` の上限と LINE 推奨の `1 MB` 以下を満たします。 |
 | `whatsapp-images/<sha256>/` | WhatsApp 専用 `1024×576` PNG | 承認済み Media Template の Image Header に使用し、WhatsApp の `5 MB` 上限以内に保ちます。 |
 | `originals/<sha256>/` | 選択した解像度のまま再圧縮していない元の画像ファイル | 高解像度の保存と Publication Manifest の検証に使用します。元画像の履歴が不要なら、短い Lifecycle を設定できます。 |
-| `branding-icons/<sha256>/` | スケジュール、サーモンラン、ギア用の内蔵小型アイコン | メッセージカードの見出しやアバターに使用します。自動的にアップロード・再利用され、通常は長期保存できます。 |
+| `branding-icons/<sha256>/` | スケジュール、イベントマッチ、サーモンラン、ギア、フェス用の内蔵小型アイコン | メッセージカードの見出しやアバターに使用します。自動的にアップロード・再利用され、通常は長期保存できます。 |
 
 > [!NOTE]
 > `<sha256>` はファイル内容から計算したダイジェスト値です。同じ画像内容なら同じ URL を再利用し、内容が変わった場合だけ新しい URL を作ります。そのため、後続の実行が過去の通知画像を意図せず置き換えることはありません。
@@ -301,7 +308,15 @@ keyPrefix: splatoon3-bot
 
 利用する通知サービスごとに Repository Secret を 1 つ作成します。Secret が存在し、空でなければ対応するアダプターが自動的に有効になり、設定していないサービスは無効のままです。
 
-各サービスの Secret は YAML の配列です。同じサービスに複数のルーム、ユーザー、グループ、Webhook を設定でき、配列の各項目が 1 つの宛先になります。各項目には一意の `name` が必要です。一部の通知だけを受け取る宛先に限り、`notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]` を追加します。宛先は独立して並列実行され、同じ宛先へのメッセージ順序は維持されます。
+各サービスの Secret は YAML の配列です。同じサービスに複数のルーム、ユーザー、グループ、Webhook を設定でき、配列の各項目が 1 つの宛先になります。各項目には一意の `name` が必要です。現在の Run で選択された通知の一部だけを受け取る場合に限り、`notifications` リストを追加します。省略するとすべて受信します。宛先は独立して並列実行され、同じ宛先へのメッセージ順序は維持されます。
+
+| 内容 | `notifications` に指定できる Notification ID |
+| --- | --- |
+| バトルスケジュール | `schedules`、`schedules-regular`、`schedules-anarchy`、`schedules-x` |
+| イベントマッチ | `challenges` |
+| サーモンラン | `salmon-run` |
+| ギア | `gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
+| 地域別フェス | `splatfest-na`、`splatfest-eu`、`splatfest-jp`、`splatfest-ap` |
 
 | サービス | メッセージ形式 | Repository Secret | 公式設定 |
 | --- | --- | --- | --- |
@@ -336,14 +351,23 @@ keyPrefix: splatoon3-bot
 <details>
 <summary><strong>WeCom · BOT_WECOM_CONFIG</strong> — Template Card と通知別ルーティング</summary>
 
-1 つの Secret から、スケジュール、サーモンラン、ギアを別々の Group Robot に送信できます。
+1 つの Secret から、バトル、イベントマッチ、フェス、サーモンラン、ギアを別々の Group Robot に送信できます。
 
 ```yaml
 - name: battle-schedules
-  notifications: [schedules]
+  notifications:
+    - schedules
+    - schedules-regular
+    - schedules-anarchy
+    - schedules-x
+    - challenges
+    - splatfest-na
+    - splatfest-eu
+    - splatfest-jp
+    - splatfest-ap
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_SCHEDULES_KEY
 - name: daily-updates
-  notifications: [salmon-run, gear-dailydrop, gear-regular]
+  notifications: [salmon-run, gear-dailydrop, gear-regular, gear-salmon-run]
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_UPDATES_KEY
 ```
 
@@ -542,12 +566,12 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 - データ取得には再試行とタイムアウトがあり、新しい一式が Schema 検証をすべて通過した場合だけ以前の有効データを置き換えます。
 - 画像生成はアプリ、フォント、ローカル画像の準備を待ち、言語、クレジット、寸法、フッター位置、はみ出しを検査します。
 - Run Manifest v5 は選択した Content Group と「何を生成したか」を記録します。言語、解像度、タイムゾーン、データ ID、ファイル名、寸法、SHA-256 が対象です。
-- Publication Manifest v6 は同じ Run Selection と「何を公開したか」を記録します。通知用メイン画像、LINE・WhatsApp 専用画像、原画像、内蔵アイコン、公開 URL が対象です。
+- Publication Manifest v7 は同じ Run Selection と「何を公開したか」を記録します。通知用メイン画像、LINE・WhatsApp 専用画像、原画像、内蔵アイコン、公開 URL が対象です。
 - 設定の事前検証は、最初のアップロード前に独立したエラーをまとめて報告し、Secret の値を表示しません。
 - 宛先は独立して実行されます。1 つの宛先が失敗しても、ほかの宛先への配信成功は保持され、最後に失敗理由をまとめて報告します。
 - CI は Git 履歴全体を Secret scan し、Syntax、Unit、Browser、Visual、Build、Workflow policy、Dependency audit を実行します。
 
-構造検証では、対応するすべての Bot 言語で 4 種類の画像を生成します。英語・簡体中国語・日本語では Linux と macOS の Pixel Golden も管理し、差分が `0.1%` を超えると失敗します。
+構造検証では、対応するすべての Bot 言語で 13 種類の画像を生成します。英語・簡体中国語・日本語では Linux と macOS の Pixel Golden も管理し、差分が `0.1%` を超えると失敗します。
 
 ## ローカル開発
 
@@ -572,6 +596,7 @@ pnpm run verify
 | `pnpm run bot:publish <selection>` | S3 へ検証済み画像を公開。 |
 | `pnpm run bot:notify <selection> [channel]` | 設定済みサービスへ配信。 |
 | `pnpm run test:update-golden` | 現在の OS 用に 3 言語の画像比較基準を生成。 |
+| `pnpm run screenshots:contact-sheet -- --locale ja-JP` | 現在の OS の Golden から、全 Screenshot Artifact の名前付き一覧画像を生成。レイアウトと出力先は `--help` で確認。 |
 | `pnpm run verify` | 完全なローカル検証。 |
 | `pnpm run verify:actions` | OrbStack と `act` で Linux Actions を検証。 |
 

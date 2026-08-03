@@ -49,4 +49,18 @@ test('notification payloads match every platform and Notification golden', async
     actualPayloads.line.schedules.messages[0].contents.hero.url,
     /\/line-images\/[a-f0-9]{64}\/schedules\.png$/
   )
+  for (const [platform, payloads] of Object.entries(actualPayloads)) {
+    assert.match(
+      JSON.stringify(payloads['gear-salmon-run']),
+      /参与鲑鱼跑/u,
+      `${platform} monthly Salmon Run gear payload lost its earning guidance`
+    )
+    for (const splatfestId of ['splatfest-na', 'splatfest-eu', 'splatfest-jp', 'splatfest-ap']) {
+      assert.doesNotMatch(
+        JSON.stringify(payloads[splatfestId]),
+        /🏆|🗳️|🏁/u,
+        `${platform}/${splatfestId} exposed results while the festival is active`
+      )
+    }
+  }
 })

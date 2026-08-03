@@ -333,7 +333,7 @@ test('routes only selected Notifications to each Target', async () => {
       },
       {
         name: 'gear',
-        notifications: ['gear-dailydrop', 'gear-regular'],
+        notifications: ['gear-dailydrop', 'gear-regular', 'gear-salmon-run'],
         webhookUrl: 'https://example.com/gear',
       },
     ]),
@@ -349,6 +349,7 @@ test('routes only selected Notifications to each Target', async () => {
       { target: 'salmon-run', notification: 'salmon-run' },
       { target: 'gear', notification: 'gear-dailydrop' },
       { target: 'gear', notification: 'gear-regular' },
+      { target: 'gear', notification: 'gear-salmon-run' },
     ]
   )
 })
@@ -384,7 +385,7 @@ test('rejects invalid direct Target arrays before delivery', async () => {
       ]),
       snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'missing'),
     }),
-    /No wecom Notification Targets select Schedules Notifications/
+    /No wecom Notification Targets select Battle Schedules Notifications/
   )
 
   await assert.rejects(

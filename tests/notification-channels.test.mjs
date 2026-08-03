@@ -84,6 +84,10 @@ const denseNotification = createNotification({
   })),
   action: { label: '查看日程截图'.repeat(50), url: 'https://example.com/schedules.png' },
 })
+const denseNotificationWithEnglishAction = createNotification({
+  ...denseNotification,
+  action: { ...denseNotification.action, label: 'View full image' },
+})
 const lineNotification = createNotification({
   ...notification,
   image: { ...notification.image, url: 'https://example.com/schedules.png' },
@@ -187,7 +191,7 @@ test('Telegram uses sendPhoto with HTML and an action button', async () => {
 
 test('Telegram preserves valid HTML while fitting the caption limit', async () => {
   let payload
-  await deliverTelegram(denseNotification, { name: 'dense', botToken: 'token', chatId: '-10001' }, {
+  await deliverTelegram(denseNotificationWithEnglishAction, { name: 'dense', botToken: 'token', chatId: '-10001' }, {
     fetchImpl: async (_url, options) => {
       payload = JSON.parse(options.body)
       return response({ ok: true, result: { message_id: 1 } })
@@ -195,7 +199,9 @@ test('Telegram preserves valid HTML while fitting the caption limit', async () =
   })
 
   assert.ok(payload.caption.length <= 1024)
-  assert.match(payload.caption, /规则 0/)
+  assert.match(payload.caption, /模式 0/)
+  assert.match(payload.caption, /View full image/)
+  assert.doesNotMatch(payload.caption, /更多内容/)
   for (const tag of ['b', 'i', 'blockquote']) {
     assert.equal(
       payload.caption.match(new RegExp(`<${tag}>`, 'g'))?.length || 0,
@@ -360,7 +366,7 @@ test('DingTalk uses an action card with a Markdown image', async () => {
 
 test('DingTalk keeps complete Markdown blocks within its local presentation budget', async () => {
   let payload
-  await deliverDingTalk(denseNotification, { name: 'dense', webhookUrl: 'https://example.com/dingtalk' }, {
+  await deliverDingTalk(denseNotificationWithEnglishAction, { name: 'dense', webhookUrl: 'https://example.com/dingtalk' }, {
     fetchImpl: async (_url, options) => {
       payload = JSON.parse(options.body)
       return response({ errcode: 0 })
@@ -369,6 +375,8 @@ test('DingTalk keeps complete Markdown blocks within its local presentation budg
 
   assert.ok(payload.actionCard.text.length <= 12_000)
   assert.match(payload.actionCard.text, /schedules\.png/)
+  assert.match(payload.actionCard.text, /View full image/)
+  assert.doesNotMatch(payload.actionCard.text, /更多内容/)
 })
 
 test('Slack uses accessible Block Kit without callback-dependent controls', async () => {

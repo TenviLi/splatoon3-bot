@@ -2,13 +2,13 @@
 
 Checked against current first-party documentation on 2026-08-02. Store every YAML configuration described below as a GitHub **Repository Secret** under **Settings → Secrets and variables → Actions**. Do not commit real credentials, tokens, webhook URLs, phone numbers, or destination IDs.
 
-Channel Secrets are strict YAML sequences. Every Target requires a unique `name`; add `notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]` only when that Target should receive a subset. Omit an entire `BOT_*_CONFIG` Secret to disable that adapter.
+Channel Secrets are strict YAML sequences. Every Target requires a unique `name`; add a `notifications` list only when that Target should receive a subset, and omit it to receive every Notification in the active Run Selection. Valid IDs are `schedules`, `schedules-regular`, `schedules-anarchy`, `schedules-x`, `challenges`, `salmon-run`, `gear-dailydrop`, `gear-regular`, `gear-salmon-run`, `splatfest-na`, `splatfest-eu`, `splatfest-jp`, and `splatfest-ap`. Omit an entire `BOT_*_CONFIG` Secret to disable that adapter.
 
 ## S3-compatible publication
 
 `S3_CONFIG` is one strict YAML mapping with `bucket`, `publicBaseUrl`, `accessKeyId`, and `secretAccessKey`. `region`, `endpoint`, `forcePathStyle`, `keyPrefix`, and `sessionToken` are provider-dependent. `publicBaseUrl` must be a credential-free HTTPS bucket-root or CDN URL from which every notification platform can fetch the uploaded images; do not include `keyPrefix` in it.
 
-GitHub Artifacts are authenticated archives, so notification platforms cannot embed them directly. The publisher uploads optimized primary images at `BOT_SCREENSHOT_RESOLUTION` dimensions under `notification-images/`, a LINE-specific `1024×576` image under `line-images/`, a WhatsApp-specific `1024×576` image under `whatsapp-images/`, unmodified Screenshot Artifact bytes under `originals/`, and reusable built-in icons under `branding-icons/`. The LINE variant targets 1 MB or less and falls back to a palette PNG only when lossless PNG exceeds that recommendation. Each path contains the file's SHA-256 digest so a later Bot Run never overwrites the URL already stored in a historical message.
+GitHub Artifacts are authenticated archives, so notification platforms cannot embed them directly. The publisher uploads optimized primary images at `BOT_SCREENSHOT_RESOLUTION` dimensions under `notification-images/`, a LINE-specific `1024×576` image under `line-images/`, a WhatsApp-specific `1024×576` image under `whatsapp-images/`, unmodified Screenshot Artifact bytes under `originals/`, and reusable schedules, Challenges, Salmon Run, gear, and Splatfest icons under `branding-icons/`. The LINE variant targets 1 MB or less and falls back to a palette PNG only when lossless PNG exceeds that recommendation. Each path contains the file's SHA-256 digest so a later Bot Run never overwrites the URL already stored in a historical message.
 
 | Provider | Values needed in `S3_CONFIG` | Official setup | Critical prerequisite |
 | --- | --- | --- | --- |

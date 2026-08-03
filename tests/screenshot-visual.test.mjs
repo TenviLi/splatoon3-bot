@@ -6,18 +6,20 @@ import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
 import { listScreenshotDefinitions } from '../bot/run/RunPlan.mjs'
 import { renderScreenshotArtifacts } from '../bot/screenshot/ScreenshotRunner.mjs'
+import { renderFixtureScreenshotArtifacts } from './support/ScreenshotFixtureRenderer.mjs'
 import {
   getScreenshotGoldenDirectory,
   listScreenshotGoldenEnvironments,
 } from './support/ScreenshotGoldenEnvironment.mjs'
 import { supportedBotLocales } from '../src/common/botLocale.mjs'
 import { defaultScreenshotAttribution } from '../src/common/screenshotAttribution.mjs'
+import { getLocaleFontFamilies } from '../src/common/fontFamilies.mjs'
 import {
   screenshotGoldenFilename,
   screenshotGoldenLocales,
 } from './support/ScreenshotGoldenLocale.mjs'
 
-test('screenshot artifacts match structural and visual contracts', { timeout: 180_000 }, async () => {
+test('screenshot artifacts match structural and visual contracts', { timeout: 600_000 }, async () => {
   process.env.SPLATOON_DATA_DIRECTORY = 'tests/fixtures/data'
   process.env.SPLATOON_PUBLIC_DIRECTORY = 'tests/fixtures/public'
   const { build } = await import('vite')
@@ -41,14 +43,25 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 18
 
   await build({ build: { outDir: buildDirectory, emptyOutDir: true } })
   await fs.mkdir(diffDirectory, { recursive: true })
+  await assert.rejects(
+    renderScreenshotArtifacts(['schedules'], {
+      buildDirectory,
+      outputDirectory: path.join(outputDirectory, 'missing-festival-schedules'),
+      renderTime: Date.parse('2026-07-12T12:00:00Z'),
+      locale: 'en-US',
+      screenshotAttribution: defaultScreenshotAttribution,
+      screenshotResolution: '1200x675',
+    }),
+    /required content is unavailable: \[data-screenshot-content="schedules"\]/,
+    'an active Splatfest without its battle schedules must not publish a partial screenshot'
+  )
   for (const { locale } of screenshotGoldenLocales) {
     const localeOutputDirectory = path.join(outputDirectory, locale)
-    const artifacts = await renderScreenshotArtifacts(
+    const artifacts = await renderFixtureScreenshotArtifacts(
       definitions.map((definition) => definition.name),
       {
         buildDirectory,
         outputDirectory: localeOutputDirectory,
-        renderTime: Date.parse('2026-07-29T19:00:00Z'),
         locale,
         screenshotAttribution: defaultScreenshotAttribution,
         screenshotResolution: '1200x675',
@@ -60,6 +73,7 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 18
       assert.deepEqual(artifact.renderState.externalImageUrls, [], `${label} loaded external fixture images`)
       assert.equal(artifact.renderState.locale, locale)
       assert.equal(artifact.renderState.attribution, defaultScreenshotAttribution)
+      assert.deepEqual(artifact.renderState.fontFamilies, getLocaleFontFamilies(locale))
       const current = PNG.sync.read(await fs.readFile(artifact.filename))
       const golden = PNG.sync.read(
         await fs.readFile(path.join(goldenDirectory, screenshotGoldenFilename(artifact.name, locale)))
@@ -82,12 +96,11 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 18
 
   const goldenLocales = new Set(screenshotGoldenLocales.map(({ locale }) => locale))
   for (const locale of supportedBotLocales.filter((candidate) => !goldenLocales.has(candidate))) {
-    const artifacts = await renderScreenshotArtifacts(
+    const artifacts = await renderFixtureScreenshotArtifacts(
       definitions.map((definition) => definition.name),
       {
         buildDirectory,
         outputDirectory: path.join(localeOutputDirectory, locale),
-        renderTime: Date.parse('2026-07-29T19:00:00Z'),
         locale,
         screenshotAttribution: defaultScreenshotAttribution,
         screenshotResolution: '1200x675',
@@ -96,6 +109,7 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 18
     for (const artifact of artifacts) {
       assert.equal(artifact.renderState.locale, locale)
       assert.equal(artifact.renderState.attribution, defaultScreenshotAttribution)
+      assert.deepEqual(artifact.renderState.fontFamilies, getLocaleFontFamilies(locale))
       if (['schedules', 'salmon-run'].includes(artifact.name)) {
         assert.ok(artifact.renderState.fittedTextCount > 0, `${locale}/${artifact.name} did not inspect fitted text`)
       }
@@ -105,12 +119,11 @@ test('screenshot artifacts match structural and visual contracts', { timeout: 18
   }
 
   const customScreenshotAttribution = 'a'.repeat(40)
-  const productionArtifacts = await renderScreenshotArtifacts(
+  const productionArtifacts = await renderFixtureScreenshotArtifacts(
     definitions.map((definition) => definition.name),
     {
       buildDirectory,
       outputDirectory: productionOutputDirectory,
-      renderTime: Date.parse('2026-07-29T19:00:00Z'),
       locale: 'zh-CN',
       screenshotAttribution: customScreenshotAttribution,
       screenshotResolution: '2400x1350',

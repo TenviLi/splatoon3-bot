@@ -24,9 +24,18 @@ function markdownText(value, maximumLength) {
 function headerTemplate(notification) {
   const templates = {
     schedules: 'turquoise',
+    'schedules-regular': 'green',
+    'schedules-anarchy': 'orange',
+    'schedules-x': 'turquoise',
+    challenges: 'purple',
     'salmon-run': 'orange',
     'gear-dailydrop': 'yellow',
     'gear-regular': 'orange',
+    'gear-salmon-run': 'orange',
+    'splatfest-na': 'purple',
+    'splatfest-eu': 'purple',
+    'splatfest-jp': 'purple',
+    'splatfest-ap': 'purple',
   }
   return templates[notification.id] || 'blue'
 }

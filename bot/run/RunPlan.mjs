@@ -1,58 +1,109 @@
+import { splatfestRegions } from '../../src/common/splatfestRegions.mjs'
+import { getScreenshotRouteDefinition } from '../../src/common/screenshotRoutes.mjs'
+
+const screenshotViewport = Object.freeze({ width: 1200, height: 675 })
+
+function defineScreenshot(name, options = {}) {
+  const route = getScreenshotRouteDefinition(name)
+  return Object.freeze({
+    name,
+    route: route.path.slice(1),
+    outputFilename: `${name}.png`,
+    viewport: screenshotViewport,
+    requiredContentSelector: `[data-screenshot-content="${name}"]`,
+    ...options,
+  })
+}
+
+const splatfestScreenshotDefinitions = Object.fromEntries(
+  splatfestRegions.map(({ name: region, slug }) => {
+    const name = `splatfest-${slug}`
+    return [
+      name,
+      defineScreenshot(name, { region }),
+    ]
+  })
+)
+
 const screenshotDefinitions = Object.freeze({
-  schedules: Object.freeze({
-    name: 'schedules',
-    route: 'schedules',
-    outputFilename: 'schedules.png',
-    viewport: Object.freeze({ width: 1200, height: 675 }),
-  }),
-  'salmon-run': Object.freeze({
-    name: 'salmon-run',
-    route: 'salmon-run',
-    outputFilename: 'salmon-run.png',
-    viewport: Object.freeze({ width: 1200, height: 675 }),
-  }),
-  'gear-dailydrop': Object.freeze({
-    name: 'gear-dailydrop',
-    route: 'gear-dailydrop',
-    outputFilename: 'gear-dailydrop.png',
-    viewport: Object.freeze({ width: 1200, height: 675 }),
-  }),
-  'gear-regular': Object.freeze({
-    name: 'gear-regular',
-    route: 'gear-regular',
-    outputFilename: 'gear-regular.png',
-    viewport: Object.freeze({ width: 1200, height: 675 }),
-  }),
+  schedules: defineScreenshot('schedules'),
+  'schedules-regular': defineScreenshot('schedules-regular'),
+  'schedules-anarchy': defineScreenshot('schedules-anarchy'),
+  'schedules-x': defineScreenshot('schedules-x'),
+  challenges: defineScreenshot('challenges'),
+  'salmon-run': defineScreenshot('salmon-run'),
+  'gear-dailydrop': defineScreenshot('gear-dailydrop'),
+  'gear-regular': defineScreenshot('gear-regular'),
+  'gear-salmon-run': defineScreenshot('gear-salmon-run'),
+  ...splatfestScreenshotDefinitions,
 })
 
-const notificationDefinitions = Object.freeze({
-  schedules: Object.freeze({ name: 'schedules', screenshot: 'schedules' }),
-  'salmon-run': Object.freeze({ name: 'salmon-run', screenshot: 'salmon-run' }),
-  'gear-dailydrop': Object.freeze({ name: 'gear-dailydrop', screenshot: 'gear-dailydrop' }),
-  'gear-regular': Object.freeze({ name: 'gear-regular', screenshot: 'gear-regular' }),
-})
+const notificationDefinitions = Object.freeze(
+  Object.fromEntries(
+    Object.values(screenshotDefinitions).map(({ name, region }) => [
+      name,
+      Object.freeze({ name, screenshot: name, ...(region ? { region } : {}) }),
+    ])
+  )
+)
+
+function defineContentGroup({ screenshots, ...definition }) {
+  const contentNames = Object.freeze(screenshots)
+  return Object.freeze({
+    ...definition,
+    screenshots: contentNames,
+    notifications: contentNames,
+  })
+}
 
 const runContentGroups = Object.freeze({
-  schedules: Object.freeze({
+  schedules: defineContentGroup({
     name: 'schedules',
-    label: 'Schedules',
+    label: 'Battle Schedules',
     environmentVariable: 'RUN_SCHEDULES',
-    screenshots: Object.freeze(['schedules']),
-    notifications: Object.freeze(['schedules']),
+    screenshots: ['schedules'],
   }),
-  'salmon-run': Object.freeze({
+  'schedules-regular': defineContentGroup({
+    name: 'schedules-regular',
+    label: 'Regular Battle Schedule',
+    environmentVariable: 'RUN_SCHEDULES_REGULAR',
+    screenshots: ['schedules-regular'],
+  }),
+  'schedules-anarchy': defineContentGroup({
+    name: 'schedules-anarchy',
+    label: 'Anarchy Battle Schedules',
+    environmentVariable: 'RUN_SCHEDULES_ANARCHY',
+    screenshots: ['schedules-anarchy'],
+  }),
+  'schedules-x': defineContentGroup({
+    name: 'schedules-x',
+    label: 'X Battle Schedule',
+    environmentVariable: 'RUN_SCHEDULES_X',
+    screenshots: ['schedules-x'],
+  }),
+  challenges: defineContentGroup({
+    name: 'challenges',
+    label: 'Challenges',
+    environmentVariable: 'RUN_CHALLENGES',
+    screenshots: ['challenges'],
+  }),
+  'salmon-run': defineContentGroup({
     name: 'salmon-run',
     label: 'Salmon Run',
     environmentVariable: 'RUN_SALMON_RUN',
-    screenshots: Object.freeze(['salmon-run']),
-    notifications: Object.freeze(['salmon-run']),
+    screenshots: ['salmon-run'],
   }),
-  gear: Object.freeze({
+  gear: defineContentGroup({
     name: 'gear',
     label: 'Gear',
     environmentVariable: 'RUN_GEAR',
-    screenshots: Object.freeze(['gear-dailydrop', 'gear-regular']),
-    notifications: Object.freeze(['gear-dailydrop', 'gear-regular']),
+    screenshots: ['gear-dailydrop', 'gear-regular', 'gear-salmon-run'],
+  }),
+  splatfest: defineContentGroup({
+    name: 'splatfest',
+    label: 'Splatfest (all regions)',
+    environmentVariable: 'RUN_SPLATFEST',
+    screenshots: splatfestRegions.map(({ slug }) => `splatfest-${slug}`),
   }),
 })
 

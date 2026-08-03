@@ -1,5 +1,10 @@
 <template>
-  <ProductContainer class="pt-6 pb-4" bg="bg-splatoon-blue bg-circles">
+  <ProductContainer
+    v-if="hasDailyDropGearContent(brand, gears)"
+    data-screenshot-content="gear-dailydrop"
+    class="pt-6 pb-4"
+    bg="bg-splatoon-blue bg-circles"
+  >
     <div class="space-y-4">
       <div>
         <div class="flex flex-col items-center -mt-10 -space-y-2">
@@ -37,6 +42,7 @@ import { computed } from 'vue'
 import GearCard from '@/components/gear/GearCard.vue'
 import ProductContainer from '@/components/ProductContainer.vue'
 import SquidTape from '@/components/SquidTape.vue'
+import { hasDailyDropGearContent } from '@/common/contentAvailability.mjs'
 
 const gearStore = useGearStore()
 const brand = computed(() => gearStore.dailyDropBrand)

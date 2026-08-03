@@ -7,13 +7,17 @@ import sirv from 'sirv'
 import { listScreenshotDefinitions } from '../bot/run/RunPlan.mjs'
 import { resolveBrowserLaunchOptions } from '../bot/screenshot/BrowserRuntime.mjs'
 import { supportedBotLocales } from '../src/common/botLocale.mjs'
+import {
+  localizeFixtureDataFiles,
+  refreshSnapshotManifest,
+} from './support/FixtureLocalization.mjs'
+import { getFixtureRenderTime } from './support/ScreenshotFixtureRenderer.mjs'
 
 const fixtureDirectory = path.join(process.cwd(), 'tests', 'fixtures')
 const dataDirectory = path.join(fixtureDirectory, 'data')
 const publicDirectory = path.join(fixtureDirectory, 'public')
 const assetDirectory = path.join(publicDirectory, 'fixture-assets')
 const buildDirectory = path.join(process.cwd(), '.cache', 'fixture-localization-dist')
-const renderTime = Date.parse('2026-07-29T19:00:00Z')
 
 process.env.SPLATOON_DATA_DIRECTORY = path.relative(process.cwd(), dataDirectory)
 process.env.SPLATOON_PUBLIC_DIRECTORY = path.relative(process.cwd(), publicDirectory)
@@ -37,7 +41,7 @@ try {
   await page.emulateTimezone('Asia/Shanghai')
   for (const definition of listScreenshotDefinitions()) {
     await page.setViewport({ ...definition.viewport, deviceScaleFactor: 1 })
-    const url = `http://127.0.0.1:${server.address().port}/screenshots.html#/${definition.route}?time=${renderTime}`
+    const url = `http://127.0.0.1:${server.address().port}/screenshots.html#/${definition.route}?time=${getFixtureRenderTime(definition.name)}`
     await page.goto(url, { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.documentElement.dataset.screenshotReady === 'true')
     const sources = await page.evaluate(() => [...document.images].map((image) => image.currentSrc || image.src))
@@ -67,19 +71,6 @@ await Promise.all(
   })
 )
 
-function replaceUrls(value) {
-  if (typeof value === 'string') {
-    return replacements.get(value) || value
-  }
-  if (Array.isArray(value)) {
-    return value.map(replaceUrls)
-  }
-  if (value && typeof value === 'object') {
-    return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, replaceUrls(entry)]))
-  }
-  return value
-}
-
 const dataFiles = [
   'schedules.json',
   'gear.json',
@@ -87,10 +78,7 @@ const dataFiles = [
   'coop.json',
   ...supportedBotLocales.map((locale) => `locale/${locale}.json`),
 ]
-for (const relativeFilename of dataFiles) {
-  const filename = path.join(dataDirectory, relativeFilename)
-  const value = JSON.parse(await fs.readFile(filename, 'utf8'))
-  await fs.writeFile(filename, `${JSON.stringify(replaceUrls(value), null, 2)}\n`)
-}
+await localizeFixtureDataFiles(dataDirectory, dataFiles, replacements)
+await refreshSnapshotManifest(dataDirectory)
 
 console.log(`Localized ${replacements.size} fixture assets`)

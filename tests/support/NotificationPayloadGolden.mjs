@@ -144,10 +144,27 @@ export async function createNotificationPayloadGolden() {
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-29T19:00:00Z'),
   })
-  const publicationManifest = createPublicationManifestFixture()
+  const splatfestContext = await createBotContext({
+    snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+    now: Date.parse('2026-07-12T12:00:00Z'),
+  })
+  const publicationManifest = createPublicationManifestFixture([
+    'schedules',
+    'schedules-regular',
+    'schedules-anarchy',
+    'schedules-x',
+    'challenges',
+    'salmon-run',
+    'gear',
+    'splatfest',
+  ])
   const notifications = [
     ...notificationIds.map((notificationId) =>
-      composeNotification(notificationId, context, { publicationManifest })
+      composeNotification(
+        notificationId,
+        notificationId.startsWith('splatfest-') ? splatfestContext : context,
+        { publicationManifest }
+      )
     ),
     escapingNotification,
   ]

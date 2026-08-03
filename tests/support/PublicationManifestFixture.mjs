@@ -13,7 +13,7 @@ export function createPublicationManifestFixture(
   const notificationSha256 = 'a'.repeat(64)
   const originalSha256 = 'c'.repeat(64)
   return {
-    version: 6,
+    version: 7,
     runManifestVersion: 5,
     selection: plan.selection,
     renderTime: Date.parse('2026-07-29T19:00:00Z'),
@@ -21,12 +21,12 @@ export function createPublicationManifestFixture(
     locale,
     resolution,
     screenshotAttribution: 'splatoon3.ink',
-    snapshotManifestSha256: '7e86d01f7d7d1f4731720eded67e95d46a46b3031fadf023fa2347d702bfaf2c',
+    snapshotManifestSha256: 'd7c5a5e88d82efed986c8977764d5cab034235badf6896726e840ca0a22f9b50',
     assetBaseUrl: normalizedAssetBaseUrl,
     branding: {
       icons: Object.fromEntries(
         listBrandingIconDefinitions().map(({ name, outputFilename }, index) => {
-          const sha256 = String.fromCharCode('d'.charCodeAt(0) + index).repeat(64)
+          const sha256 = ['d', 'e', 'f', '0', '1'][index].repeat(64)
           const key = `branding-icons/${sha256}/${outputFilename}`
           return [
             name,

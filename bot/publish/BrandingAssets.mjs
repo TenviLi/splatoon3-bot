@@ -11,6 +11,11 @@ const brandingIconDefinitions = Object.freeze({
     sourceFilename: fileURLToPath(new URL('../../src/assets/img/favicon.svg', import.meta.url)),
     outputFilename: 'schedules.png',
   }),
+  challenges: Object.freeze({
+    name: 'challenges',
+    sourceFilename: fileURLToPath(new URL('../../src/assets/img/modes/event.svg', import.meta.url)),
+    outputFilename: 'challenges.png',
+  }),
   salmonRun: Object.freeze({
     name: 'salmonRun',
     sourceFilename: fileURLToPath(new URL('../../src/assets/img/modes/coop.svg', import.meta.url)),
@@ -20,6 +25,11 @@ const brandingIconDefinitions = Object.freeze({
     name: 'gear',
     sourceFilename: fileURLToPath(new URL('../../src/assets/img/gesotown-coin.svg', import.meta.url)),
     outputFilename: 'gear.png',
+  }),
+  splatfest: Object.freeze({
+    name: 'splatfest',
+    sourceFilename: fileURLToPath(new URL('../../src/assets/img/rules/tricolor.svg', import.meta.url)),
+    outputFilename: 'splatfest.png',
   }),
 })
 

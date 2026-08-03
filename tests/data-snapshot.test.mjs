@@ -11,7 +11,10 @@ const emptyLocaleSnapshot = Object.freeze({
   stages: {},
   rules: {},
   weapons: {},
+  bosses: {},
   brands: {},
+  events: {},
+  festivals: {},
   gear: {},
   powers: {},
 })
@@ -21,13 +24,21 @@ const validSnapshot = {
     data: {
       regularSchedules: { nodes: [] },
       bankaraSchedules: { nodes: [] },
-      coopGroupingSchedule: { regularSchedules: { nodes: [] } },
+      xSchedules: { nodes: [] },
+      eventSchedules: { nodes: [] },
+      festSchedules: { nodes: [] },
+      coopGroupingSchedule: {
+        regularSchedules: { nodes: [] },
+        bigRunSchedules: { nodes: [] },
+        teamContestSchedules: { nodes: [] },
+      },
+      currentFest: null,
       vsStages: { nodes: [] },
     },
   },
   gear: { data: { gesotown: { pickupBrand: null, limitedGears: [] } } },
   festivals: {},
-  coop: { data: {} },
+  coop: { data: { coopResult: { monthlyGear: null } } },
   ...Object.fromEntries(supportedBotLocales.map((locale) => [`locale/${locale}`, emptyLocaleSnapshot])),
 }
 
@@ -50,7 +61,7 @@ test('ships the deterministic fixture with a verified Data Snapshot Manifest', a
   const snapshot = await loadDataSnapshot(path.join(import.meta.dirname, 'fixtures/data'))
 
   assert.equal(snapshot.manifest.createdAt, '2026-07-29T19:00:00.000Z')
-  assert.equal(snapshot.manifestSha256, '7e86d01f7d7d1f4731720eded67e95d46a46b3031fadf023fa2347d702bfaf2c')
+  assert.equal(snapshot.manifestSha256, 'd7c5a5e88d82efed986c8977764d5cab034235badf6896726e840ca0a22f9b50')
   assert.equal(Object.keys(snapshot.manifest.files).length, 4 + supportedBotLocales.length)
 })
 

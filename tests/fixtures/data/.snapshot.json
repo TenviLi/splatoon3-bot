@@ -4,20 +4,20 @@
   "source": "https://splatoon3.ink/data",
   "files": {
     "schedules.json": {
-      "sha256": "61f0cc02b8875d1ea7f1cf3305c6783bfa8ea8eee304ccfc0aee250ca424d63d",
-      "bytes": 90042
+      "sha256": "e00085ae37f6367ee430b7494f58ea38d96e73823909a6684ab0d7c439c7e5c7",
+      "bytes": 87819
     },
     "gear.json": {
       "sha256": "30ac2e562317ed1696e8cd8e1ddf1ef45688dff6cddc3a00f7e52b3dd8446f3f",
       "bytes": 23491
     },
     "festivals.json": {
-      "sha256": "375ddeabcbd874263866c2fded0529f2eac630456986be55a4689f700c460546",
-      "bytes": 631456
+      "sha256": "a72626ffb99dfc191a9306a28aaeb2e4d055f6d7e05e3060ac9fcf29ccfba918",
+      "bytes": 630576
     },
     "coop.json": {
-      "sha256": "f094c0e5d9516a4e9af81a7548aee3a3c223e392e7ef453fda13e6cb5b802a8b",
-      "bytes": 983
+      "sha256": "8c5504f909b2b6e30c2acfd1000287a224cafae093a6e8b86ae9f7e04dc9267a",
+      "bytes": 947
     },
     "locale/de-DE.json": {
       "sha256": "b894eead50e0694227ed6c2610866c19ba329a2dfb84a15731fd2f3a041107fc",

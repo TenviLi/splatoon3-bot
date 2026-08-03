@@ -4,7 +4,23 @@ on:
   workflow_dispatch:
     inputs:
       schedules:
-        description: Include Schedules
+        description: Include battle overview (Regular/Anarchy/X or Splatfest)
+        type: boolean
+        default: true
+      schedules_regular:
+        description: Include the single Regular Battle card
+        type: boolean
+        default: true
+      schedules_anarchy:
+        description: Include the Anarchy Series and Open cards
+        type: boolean
+        default: true
+      schedules_x:
+        description: Include the single X Battle card
+        type: boolean
+        default: true
+      challenges:
+        description: Include Challenges
         type: boolean
         default: true
       salmon_run:
@@ -12,7 +28,11 @@ on:
         type: boolean
         default: true
       gear:
-        description: Include Gear (Daily Drop + Regular)
+        description: Include Gear (Daily Drop + Regular + Salmon Run)
+        type: boolean
+        default: true
+      splatfest:
+        description: Include Splatfest views and notifications for all regions
         type: boolean
         default: true
 
@@ -30,7 +50,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Require at least one Content Group
-        if: ${{ !inputs.schedules && !inputs.salmon_run && !inputs.gear }}
+        if: ${{ !inputs.schedules && !inputs.schedules_regular && !inputs.schedules_anarchy && !inputs.schedules_x && !inputs.challenges && !inputs.salmon_run && !inputs.gear && !inputs.splatfest }}
         run: |
           echo "Select at least one Run Content Group" >&2
           exit 1
@@ -57,8 +77,13 @@ jobs:
         id: plan
         env:
           RUN_SCHEDULES: ${{ inputs.schedules }}
+          RUN_SCHEDULES_REGULAR: ${{ inputs.schedules_regular }}
+          RUN_SCHEDULES_ANARCHY: ${{ inputs.schedules_anarchy }}
+          RUN_SCHEDULES_X: ${{ inputs.schedules_x }}
+          RUN_CHALLENGES: ${{ inputs.challenges }}
           RUN_SALMON_RUN: ${{ inputs.salmon_run }}
           RUN_GEAR: ${{ inputs.gear }}
+          RUN_SPLATFEST: ${{ inputs.splatfest }}
         run: node bot/run/describe.mjs
 
       - name: Check Bot configuration without side effects

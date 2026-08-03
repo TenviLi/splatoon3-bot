@@ -19,8 +19,20 @@
         },
         "vertical_content_list": [
           {
-            "title": "🔫  占地对战",
-            "desc": "鬼头刀SPA度假区·海女美术大学"
+            "title": "🟢 一般比赛 · 占地对战",
+            "desc": "鬼头刀SPA度假区 · 海女美术大学"
+          },
+          {
+            "title": "🟠 挑战 · 真格塔楼",
+            "desc": "温泉花大峡谷 · 鱼肉碎金属"
+          },
+          {
+            "title": "🤝 开放 · 真格鱼虎",
+            "desc": "竹蛏疏洪道 · 大比目鱼海运中心"
+          },
+          {
+            "title": "❎ X比赛 · 真格蛤蜊",
+            "desc": "臭鱼干温泉 · 昆布赛道"
           }
         ],
         "horizontal_content_list": [],
@@ -30,12 +42,168 @@
         }
       }
     },
+    "schedules-regular": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png",
+          "desc": "今天你喷喷了吗?",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "一般比赛",
+          "desc": "2:00 - 4:00"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [
+          {
+            "title": "🟢 一般比赛 · 占地对战",
+            "desc": "鬼头刀SPA度假区 · 海女美术大学"
+          }
+        ],
+        "horizontal_content_list": [],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png"
+        }
+      }
+    },
+    "schedules-anarchy": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png",
+          "desc": "今天你喷喷了吗?",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "蛮颓比赛",
+          "desc": "2:00 - 4:00"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [
+          {
+            "title": "🏅 挑战 · 真格塔楼",
+            "desc": "温泉花大峡谷 · 鱼肉碎金属"
+          },
+          {
+            "title": "🤝 开放 · 真格鱼虎",
+            "desc": "竹蛏疏洪道 · 大比目鱼海运中心"
+          }
+        ],
+        "horizontal_content_list": [],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png"
+        }
+      }
+    },
+    "schedules-x": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png",
+          "desc": "今天你喷喷了吗?",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "X比赛",
+          "desc": "2:00 - 4:00"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [
+          {
+            "title": "❎ X比赛 · 真格蛤蜊",
+            "desc": "臭鱼干温泉 · 昆布赛道"
+          }
+        ],
+        "horizontal_content_list": [],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png"
+        }
+      }
+    },
+    "challenges": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/challenges.png",
+          "desc": "活动比赛",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "装扮并爱惜使用武器的武器子杯",
+          "desc": "下一场 · 8/3周一 10:00 - 12:00"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [
+          {
+            "title": "🎯 真格塔楼",
+            "desc": "高脚经济特区 · 贝见亭"
+          },
+          {
+            "title": "📜 活动说明",
+            "desc": "装扮和武器皆为随机！请务必享受对战！"
+          },
+          {
+            "title": "🕒 下一场"
+          }
+        ],
+        "horizontal_content_list": [
+          {
+            "keyname": "-",
+            "value": "8/3周一 10:00 - 12:00"
+          },
+          {
+            "keyname": "-",
+            "value": "8/3周一 14:00 - 16:00"
+          },
+          {
+            "keyname": "-",
+            "value": "8/3周一 18:00 - 20:00"
+          },
+          {
+            "keyname": "-",
+            "value": "8/3周一 22:00 - 0:00"
+          },
+          {
+            "keyname": "-",
+            "value": "8/4周二 2:00 - 4:00"
+          },
+          {
+            "keyname": "-",
+            "value": "8/4周二 6:00 - 8:00"
+          }
+        ],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png"
+        }
+      }
+    },
     "salmon-run": {
       "msgtype": "template_card",
       "template_card": {
         "card_type": "news_notice",
         "source": {
-          "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/salmon-run.png",
+          "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/salmon-run.png",
           "desc": "打工的时间到啦!",
           "desc_color": 0
         },
@@ -49,7 +217,7 @@
         },
         "vertical_content_list": [
           {
-            "title": "🐻 发放武器:"
+            "title": "🐻 发放武器"
           }
         ],
         "horizontal_content_list": [
@@ -68,6 +236,10 @@
           {
             "keyname": "-",
             "value": "14式竹筒枪·甲"
+          },
+          {
+            "keyname": "👑",
+            "value": "横纲"
           }
         ],
         "card_action": {
@@ -81,12 +253,12 @@
       "template_card": {
         "card_type": "news_notice",
         "source": {
-          "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png",
+          "icon_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png",
           "desc": "鱿鱼须商城·今日精选",
           "desc_color": 0
         },
         "main_title": {
-          "title": "「七轮」",
+          "title": "精选品牌「七轮」",
           "desc": "到7/30周四 8:00为止"
         },
         "card_image": {
@@ -119,7 +291,7 @@
       "template_card": {
         "card_type": "news_notice",
         "source": {
-          "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png",
+          "icon_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png",
           "desc": "鱿鱼须商城·目前贩卖的装备",
           "desc_color": 0
         },
@@ -140,6 +312,188 @@
         "card_action": {
           "type": 1,
           "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png"
+        }
+      }
+    },
+    "gear-salmon-run": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png",
+          "desc": "鲑鱼跑 · 装备",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "消防盔",
+          "desc": "本月报酬装备"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [],
+        "horizontal_content_list": [
+          {
+            "keyname": "🧢",
+            "value": "参与鲑鱼跑即可获得本月报酬装备。"
+          }
+        ],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png"
+        }
+      }
+    },
+    "splatfest-na": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png",
+          "desc": "🟢 祭典 · NA",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "最强的是？",
+          "desc": "7/11周六 8:00 - 7/13周一 8:00"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [],
+        "horizontal_content_list": [
+          {
+            "keyname": "①",
+            "value": "速度"
+          },
+          {
+            "keyname": "②",
+            "value": "力量"
+          },
+          {
+            "keyname": "③",
+            "value": "技术"
+          }
+        ],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png"
+        }
+      }
+    },
+    "splatfest-eu": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png",
+          "desc": "🟢 祭典 · EU",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "最强的是？",
+          "desc": "7/11周六 8:00 - 7/13周一 8:00"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [],
+        "horizontal_content_list": [
+          {
+            "keyname": "①",
+            "value": "速度"
+          },
+          {
+            "keyname": "②",
+            "value": "力量"
+          },
+          {
+            "keyname": "③",
+            "value": "技术"
+          }
+        ],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png"
+        }
+      }
+    },
+    "splatfest-jp": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png",
+          "desc": "🟢 祭典 · JP",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "最强的是？",
+          "desc": "7/11周六 8:00 - 7/13周一 8:00"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [],
+        "horizontal_content_list": [
+          {
+            "keyname": "①",
+            "value": "速度"
+          },
+          {
+            "keyname": "②",
+            "value": "力量"
+          },
+          {
+            "keyname": "③",
+            "value": "技术"
+          }
+        ],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png"
+        }
+      }
+    },
+    "splatfest-ap": {
+      "msgtype": "template_card",
+      "template_card": {
+        "card_type": "news_notice",
+        "source": {
+          "icon_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png",
+          "desc": "🟢 祭典 · AP",
+          "desc_color": 0
+        },
+        "main_title": {
+          "title": "最强的是？",
+          "desc": "7/11周六 8:00 - 7/13周一 8:00"
+        },
+        "card_image": {
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png",
+          "aspect_ratio": 1.78
+        },
+        "vertical_content_list": [],
+        "horizontal_content_list": [
+          {
+            "keyname": "①",
+            "value": "速度"
+          },
+          {
+            "keyname": "②",
+            "value": "力量"
+          },
+          {
+            "keyname": "③",
+            "value": "技术"
+          }
+        ],
+        "card_action": {
+          "type": 1,
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png"
         }
       }
     },
@@ -206,13 +560,175 @@
           },
           "fields": [
             {
-              "name": "🔫  占地对战",
-              "value": "鬼头刀SPA度假区·海女美术大学",
+              "name": "🟢 一般比赛 · 占地对战",
+              "value": "鬼头刀SPA度假区 · 海女美术大学",
+              "inline": false
+            },
+            {
+              "name": "🟠 挑战 · 真格塔楼",
+              "value": "温泉花大峡谷 · 鱼肉碎金属",
+              "inline": false
+            },
+            {
+              "name": "🤝 开放 · 真格鱼虎",
+              "value": "竹蛏疏洪道 · 大比目鱼海运中心",
+              "inline": false
+            },
+            {
+              "name": "❎ X比赛 · 真格蛤蜊",
+              "value": "臭鱼干温泉 · 昆布赛道",
               "inline": false
             }
           ],
           "footer": {
             "text": "🦑 今天你喷喷了吗?"
+          }
+        }
+      ]
+    },
+    "schedules-regular": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "今天你喷喷了吗?",
+            "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png"
+          },
+          "title": "一般比赛",
+          "description": "2:00 - 4:00",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png",
+          "color": 2278750,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png"
+          },
+          "fields": [
+            {
+              "name": "🟢 一般比赛 · 占地对战",
+              "value": "鬼头刀SPA度假区 · 海女美术大学",
+              "inline": false
+            }
+          ],
+          "footer": {
+            "text": "🦑 今天你喷喷了吗?"
+          }
+        }
+      ]
+    },
+    "schedules-anarchy": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "今天你喷喷了吗?",
+            "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png"
+          },
+          "title": "蛮颓比赛",
+          "description": "2:00 - 4:00",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png",
+          "color": 16347926,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png"
+          },
+          "fields": [
+            {
+              "name": "🏅 挑战 · 真格塔楼",
+              "value": "温泉花大峡谷 · 鱼肉碎金属",
+              "inline": false
+            },
+            {
+              "name": "🤝 开放 · 真格鱼虎",
+              "value": "竹蛏疏洪道 · 大比目鱼海运中心",
+              "inline": false
+            }
+          ],
+          "footer": {
+            "text": "🦑 今天你喷喷了吗?"
+          }
+        }
+      ]
+    },
+    "schedules-x": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "今天你喷喷了吗?",
+            "icon_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png"
+          },
+          "title": "X比赛",
+          "description": "2:00 - 4:00",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png",
+          "color": 440020,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png"
+          },
+          "fields": [
+            {
+              "name": "❎ X比赛 · 真格蛤蜊",
+              "value": "臭鱼干温泉 · 昆布赛道",
+              "inline": false
+            }
+          ],
+          "footer": {
+            "text": "🦑 今天你喷喷了吗?"
+          }
+        }
+      ]
+    },
+    "challenges": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "活动比赛",
+            "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/challenges.png"
+          },
+          "title": "装扮并爱惜使用武器的武器子杯",
+          "description": "下一场 · 8/3周一 10:00 - 12:00",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png",
+          "color": 11032055,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/challenges.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png"
+          },
+          "fields": [
+            {
+              "name": "🎯 真格塔楼",
+              "value": "高脚经济特区 · 贝见亭",
+              "inline": false
+            },
+            {
+              "name": "📜 活动说明",
+              "value": "装扮和武器皆为随机！请务必享受对战！",
+              "inline": false
+            },
+            {
+              "name": "🕒 下一场",
+              "value": "• 8/3周一 10:00 - 12:00\n• 8/3周一 14:00 - 16:00\n• 8/3周一 18:00 - 20:00\n• 8/3周一 22:00 - 0:00\n• 8/4周二 2:00 - 4:00\n• 8/4周二 6:00 - 8:00",
+              "inline": false
+            }
+          ],
+          "footer": {
+            "text": "🦑 活动比赛"
           }
         }
       ]
@@ -225,23 +741,28 @@
         {
           "author": {
             "name": "打工的时间到啦!",
-            "icon_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/salmon-run.png"
+            "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/salmon-run.png"
           },
           "title": "鲑鱼心脏斗技场",
           "description": "7/29周三 16:00 - 7/31 8:00",
           "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png",
           "color": 16347926,
           "thumbnail": {
-            "url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/salmon-run.png"
+            "url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/salmon-run.png"
           },
           "image": {
             "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png"
           },
           "fields": [
             {
-              "name": "🐻 发放武器:",
+              "name": "🐻 发放武器",
               "value": "• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲",
               "inline": false
+            },
+            {
+              "name": "👑",
+              "value": "横纲",
+              "inline": true
             }
           ],
           "footer": {
@@ -258,14 +779,14 @@
         {
           "author": {
             "name": "鱿鱼须商城·今日精选",
-            "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png"
+            "icon_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png"
           },
-          "title": "「七轮」",
+          "title": "精选品牌「七轮」",
           "description": "到7/30周四 8:00为止",
           "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png",
           "color": 16436245,
           "thumbnail": {
-            "url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png"
+            "url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png"
           },
           "image": {
             "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png"
@@ -301,13 +822,13 @@
         {
           "author": {
             "name": "鱿鱼须商城·目前贩卖的装备",
-            "icon_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png"
+            "icon_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png"
           },
           "title": "鱿鱼须商城上新啦",
           "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png",
           "color": 16486972,
           "thumbnail": {
-            "url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png"
+            "url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png"
           },
           "image": {
             "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png"
@@ -321,6 +842,211 @@
           ],
           "footer": {
             "text": "🦑 鱿鱼须商城·目前贩卖的装备"
+          }
+        }
+      ]
+    },
+    "gear-salmon-run": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "鲑鱼跑 · 装备",
+            "icon_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png"
+          },
+          "title": "消防盔",
+          "description": "本月报酬装备",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png",
+          "color": 16347926,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png"
+          },
+          "fields": [
+            {
+              "name": "🧢",
+              "value": "参与鲑鱼跑即可获得本月报酬装备。",
+              "inline": true
+            }
+          ],
+          "footer": {
+            "text": "🦑 鲑鱼跑 · 装备"
+          }
+        }
+      ]
+    },
+    "splatfest-na": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "🟢 祭典 · NA",
+            "icon_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png"
+          },
+          "title": "最强的是？",
+          "description": "7/11周六 8:00 - 7/13周一 8:00",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png",
+          "color": 3708102,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png"
+          },
+          "fields": [
+            {
+              "name": "①",
+              "value": "速度",
+              "inline": true
+            },
+            {
+              "name": "②",
+              "value": "力量",
+              "inline": true
+            },
+            {
+              "name": "③",
+              "value": "技术",
+              "inline": true
+            }
+          ],
+          "footer": {
+            "text": "🦑 🟢 祭典 · NA"
+          }
+        }
+      ]
+    },
+    "splatfest-eu": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "🟢 祭典 · EU",
+            "icon_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png"
+          },
+          "title": "最强的是？",
+          "description": "7/11周六 8:00 - 7/13周一 8:00",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png",
+          "color": 3708102,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png"
+          },
+          "fields": [
+            {
+              "name": "①",
+              "value": "速度",
+              "inline": true
+            },
+            {
+              "name": "②",
+              "value": "力量",
+              "inline": true
+            },
+            {
+              "name": "③",
+              "value": "技术",
+              "inline": true
+            }
+          ],
+          "footer": {
+            "text": "🦑 🟢 祭典 · EU"
+          }
+        }
+      ]
+    },
+    "splatfest-jp": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "🟢 祭典 · JP",
+            "icon_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png"
+          },
+          "title": "最强的是？",
+          "description": "7/11周六 8:00 - 7/13周一 8:00",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png",
+          "color": 3708102,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png"
+          },
+          "fields": [
+            {
+              "name": "①",
+              "value": "速度",
+              "inline": true
+            },
+            {
+              "name": "②",
+              "value": "力量",
+              "inline": true
+            },
+            {
+              "name": "③",
+              "value": "技术",
+              "inline": true
+            }
+          ],
+          "footer": {
+            "text": "🦑 🟢 祭典 · JP"
+          }
+        }
+      ]
+    },
+    "splatfest-ap": {
+      "allowed_mentions": {
+        "parse": []
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": "🟢 祭典 · AP",
+            "icon_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png"
+          },
+          "title": "最强的是？",
+          "description": "7/11周六 8:00 - 7/13周一 8:00",
+          "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png",
+          "color": 3708102,
+          "thumbnail": {
+            "url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png"
+          },
+          "image": {
+            "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png"
+          },
+          "fields": [
+            {
+              "name": "①",
+              "value": "速度",
+              "inline": true
+            },
+            {
+              "name": "②",
+              "value": "力量",
+              "inline": true
+            },
+            {
+              "name": "③",
+              "value": "技术",
+              "inline": true
+            }
+          ],
+          "footer": {
+            "text": "🦑 🟢 祭典 · AP"
           }
         }
       ]
@@ -368,7 +1094,7 @@
     "schedules": {
       "chat_id": "-10001",
       "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png",
-      "caption": "<b>日程已更新</b>\n\n<blockquote>2:00 - 4:00</blockquote>\n\n<i>🦑 今天你喷喷了吗?</i>\n\n<b>🔫  占地对战</b>\n鬼头刀SPA度假区·海女美术大学",
+      "caption": "<b>日程已更新</b>\n\n<blockquote>2:00 - 4:00</blockquote>\n\n<b>🟢 一般比赛 · 占地对战</b>\n鬼头刀SPA度假区 · 海女美术大学\n\n<b>🟠 挑战 · 真格塔楼</b>\n温泉花大峡谷 · 鱼肉碎金属\n\n<b>🤝 开放 · 真格鱼虎</b>\n竹蛏疏洪道 · 大比目鱼海运中心\n\n<b>❎ X比赛 · 真格蛤蜊</b>\n臭鱼干温泉 · 昆布赛道\n\n<i>🦑 今天你喷喷了吗?</i>",
       "parse_mode": "HTML",
       "show_caption_above_media": true,
       "disable_notification": false,
@@ -383,10 +1109,82 @@
         ]
       }
     },
+    "schedules-regular": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png",
+      "caption": "<b>一般比赛</b>\n\n<blockquote>2:00 - 4:00</blockquote>\n\n<b>🟢 一般比赛 · 占地对战</b>\n鬼头刀SPA度假区 · 海女美术大学\n\n<i>🦑 今天你喷喷了吗?</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看一般比赛截图",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png"
+            }
+          ]
+        ]
+      }
+    },
+    "schedules-anarchy": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png",
+      "caption": "<b>蛮颓比赛</b>\n\n<blockquote>2:00 - 4:00</blockquote>\n\n<b>🏅 挑战 · 真格塔楼</b>\n温泉花大峡谷 · 鱼肉碎金属\n\n<b>🤝 开放 · 真格鱼虎</b>\n竹蛏疏洪道 · 大比目鱼海运中心\n\n<i>🦑 今天你喷喷了吗?</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看蛮颓比赛截图",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png"
+            }
+          ]
+        ]
+      }
+    },
+    "schedules-x": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png",
+      "caption": "<b>X比赛</b>\n\n<blockquote>2:00 - 4:00</blockquote>\n\n<b>❎ X比赛 · 真格蛤蜊</b>\n臭鱼干温泉 · 昆布赛道\n\n<i>🦑 今天你喷喷了吗?</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看X比赛截图",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png"
+            }
+          ]
+        ]
+      }
+    },
+    "challenges": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png",
+      "caption": "<b>装扮并爱惜使用武器的武器子杯</b>\n\n<blockquote>下一场 · 8/3周一 10:00 - 12:00</blockquote>\n\n<b>🎯 真格塔楼</b>\n高脚经济特区 · 贝见亭\n\n<b>📜 活动说明</b>\n装扮和武器皆为随机！请务必享受对战！\n\n<b>🕒 下一场</b>\n• 8/3周一 10:00 - 12:00\n• 8/3周一 14:00 - 16:00\n• 8/3周一 18:00 - 20:00\n• 8/3周一 22:00 - 0:00\n• 8/4周二 2:00 - 4:00\n• 8/4周二 6:00 - 8:00\n\n<i>🦑 活动比赛</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看活动比赛截图",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png"
+            }
+          ]
+        ]
+      }
+    },
     "salmon-run": {
       "chat_id": "-10001",
       "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png",
-      "caption": "<b>鲑鱼心脏斗技场</b>\n\n<blockquote>7/29周三 16:00 - 7/31 8:00</blockquote>\n\n<i>🦑 打工的时间到啦!</i>\n\n<b>🐻 发放武器:</b>\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲",
+      "caption": "<b>鲑鱼心脏斗技场</b>\n\n<blockquote>7/29周三 16:00 - 7/31 8:00</blockquote>\n\n<b>🐻 发放武器</b>\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲\n\n• <b>👑</b>\n横纲\n\n<i>🦑 打工的时间到啦!</i>",
       "parse_mode": "HTML",
       "show_caption_above_media": true,
       "disable_notification": false,
@@ -404,7 +1202,7 @@
     "gear-dailydrop": {
       "chat_id": "-10001",
       "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png",
-      "caption": "<b>「七轮」</b>\n\n<blockquote>到7/30周四 8:00为止</blockquote>\n\n<i>🦑 鱿鱼须商城·今日精选</i>\n\n• <b>🧢</b>\n桶眼鱼护目镜\n(逆境强化)\n\n• <b>👕</b>\n鱼片衬衫 城市\n(降低特殊武器减少量)\n\n• <b>👟</b>\nBS拖鞋\n(提升墨汁回复力)",
+      "caption": "<b>精选品牌「七轮」</b>\n\n<blockquote>到7/30周四 8:00为止</blockquote>\n\n• <b>🧢</b>\n桶眼鱼护目镜\n(逆境强化)\n\n• <b>👕</b>\n鱼片衬衫 城市\n(降低特殊武器减少量)\n\n• <b>👟</b>\nBS拖鞋\n(提升墨汁回复力)\n\n<i>🦑 鱿鱼须商城·今日精选</i>",
       "parse_mode": "HTML",
       "show_caption_above_media": true,
       "disable_notification": false,
@@ -422,7 +1220,7 @@
     "gear-regular": {
       "chat_id": "-10001",
       "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png",
-      "caption": "<b>鱿鱼须商城上新啦</b>\n\n<i>🦑 鱿鱼须商城·目前贩卖的装备</i>\n\n• <b>👕</b>\n棒球运动服\n(缩短复活时间)",
+      "caption": "<b>鱿鱼须商城上新啦</b>\n\n• <b>👕</b>\n棒球运动服\n(缩短复活时间)\n\n<i>🦑 鱿鱼须商城·目前贩卖的装备</i>",
       "parse_mode": "HTML",
       "show_caption_above_media": true,
       "disable_notification": false,
@@ -437,10 +1235,100 @@
         ]
       }
     },
+    "gear-salmon-run": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png",
+      "caption": "<b>消防盔</b>\n\n<blockquote>本月报酬装备</blockquote>\n\n• <b>🧢</b>\n参与鲑鱼跑即可获得本月报酬装备。\n\n<i>🦑 鲑鱼跑 · 装备</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看本月装备",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png"
+            }
+          ]
+        ]
+      }
+    },
+    "splatfest-na": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png",
+      "caption": "<b>最强的是？</b>\n\n<blockquote>7/11周六 8:00 - 7/13周一 8:00</blockquote>\n\n• <b>①</b>\n速度\n\n• <b>②</b>\n力量\n\n• <b>③</b>\n技术\n\n<i>🦑 🟢 祭典 · NA</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看 NA 祭典截图",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png"
+            }
+          ]
+        ]
+      }
+    },
+    "splatfest-eu": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png",
+      "caption": "<b>最强的是？</b>\n\n<blockquote>7/11周六 8:00 - 7/13周一 8:00</blockquote>\n\n• <b>①</b>\n速度\n\n• <b>②</b>\n力量\n\n• <b>③</b>\n技术\n\n<i>🦑 🟢 祭典 · EU</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看 EU 祭典截图",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png"
+            }
+          ]
+        ]
+      }
+    },
+    "splatfest-jp": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png",
+      "caption": "<b>最强的是？</b>\n\n<blockquote>7/11周六 8:00 - 7/13周一 8:00</blockquote>\n\n• <b>①</b>\n速度\n\n• <b>②</b>\n力量\n\n• <b>③</b>\n技术\n\n<i>🦑 🟢 祭典 · JP</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看 JP 祭典截图",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png"
+            }
+          ]
+        ]
+      }
+    },
+    "splatfest-ap": {
+      "chat_id": "-10001",
+      "photo": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png",
+      "caption": "<b>最强的是？</b>\n\n<blockquote>7/11周六 8:00 - 7/13周一 8:00</blockquote>\n\n• <b>①</b>\n速度\n\n• <b>②</b>\n力量\n\n• <b>③</b>\n技术\n\n<i>🦑 🟢 祭典 · AP</i>",
+      "parse_mode": "HTML",
+      "show_caption_above_media": true,
+      "disable_notification": false,
+      "reply_markup": {
+        "inline_keyboard": [
+          [
+            {
+              "text": "🖼️ 查看 AP 祭典截图",
+              "url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png"
+            }
+          ]
+        ]
+      }
+    },
     "escaping-contract": {
       "chat_id": "-10001",
       "photo": "https://cdn.example.com/escaping.png",
-      "caption": "<b>特殊 &lt;&amp;&gt; *标题* [链接]</b>\n\n<blockquote>时间 &lt;02:00&gt; &amp; _下划线_</blockquote>\n\n<i>🦑 来源 &lt;&amp;&gt; *喷喷*</i>\n\n• <b>规则 [链接]</b>\n值 *粗体* &amp; &lt;tag&gt;\n\n<b>模式 *A* [测试]</b>\n场地 &lt;A&gt; &amp; B _下划线_\n• 武器 (测试)",
+      "caption": "<b>特殊 &lt;&amp;&gt; *标题* [链接]</b>\n\n<blockquote>时间 &lt;02:00&gt; &amp; _下划线_</blockquote>\n\n<b>模式 *A* [测试]</b>\n场地 &lt;A&gt; &amp; B _下划线_\n• 武器 (测试)\n\n• <b>规则 [链接]</b>\n值 *粗体* &amp; &lt;tag&gt;\n\n<i>🦑 来源 &lt;&amp;&gt; *喷喷*</i>",
       "parse_mode": "HTML",
       "show_caption_above_media": true,
       "disable_notification": false,
@@ -484,7 +1372,19 @@
             },
             {
               "tag": "markdown",
-              "content": "**🔫  占地对战**\n鬼头刀SPA度假区·海女美术大学"
+              "content": "**🟢 一般比赛 · 占地对战**\n鬼头刀SPA度假区 · 海女美术大学"
+            },
+            {
+              "tag": "markdown",
+              "content": "**🟠 挑战 · 真格塔楼**\n温泉花大峡谷 · 鱼肉碎金属"
+            },
+            {
+              "tag": "markdown",
+              "content": "**🤝 开放 · 真格鱼虎**\n竹蛏疏洪道 · 大比目鱼海运中心"
+            },
+            {
+              "tag": "markdown",
+              "content": "**❎ X比赛 · 真格蛤蜊**\n臭鱼干温泉 · 昆布赛道"
             },
             {
               "tag": "hr"
@@ -505,6 +1405,238 @@
                 {
                   "type": "open_url",
                   "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "schedules-regular": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "green",
+          "title": {
+            "tag": "plain_text",
+            "content": "一般比赛"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**2:00 \\- 4:00**\n*🦑 今天你喷喷了吗?*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "**🟢 一般比赛 · 占地对战**\n鬼头刀SPA度假区 · 海女美术大学"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ 一般比赛](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看一般比赛截图"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "schedules-anarchy": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "orange",
+          "title": {
+            "tag": "plain_text",
+            "content": "蛮颓比赛"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**2:00 \\- 4:00**\n*🦑 今天你喷喷了吗?*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "**🏅 挑战 · 真格塔楼**\n温泉花大峡谷 · 鱼肉碎金属"
+            },
+            {
+              "tag": "markdown",
+              "content": "**🤝 开放 · 真格鱼虎**\n竹蛏疏洪道 · 大比目鱼海运中心"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ 蛮颓比赛](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看蛮颓比赛截图"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "schedules-x": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "turquoise",
+          "title": {
+            "tag": "plain_text",
+            "content": "X比赛"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**2:00 \\- 4:00**\n*🦑 今天你喷喷了吗?*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "**❎ X比赛 · 真格蛤蜊**\n臭鱼干温泉 · 昆布赛道"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ X比赛](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看X比赛截图"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "challenges": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "purple",
+          "title": {
+            "tag": "plain_text",
+            "content": "装扮并爱惜使用武器的武器子杯"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**下一场 · 8/3周一 10:00 \\- 12:00**\n*🦑 活动比赛*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "**🎯 真格塔楼**\n高脚经济特区 · 贝见亭"
+            },
+            {
+              "tag": "markdown",
+              "content": "**📜 活动说明**\n装扮和武器皆为随机！请务必享受对战！"
+            },
+            {
+              "tag": "markdown",
+              "content": "**🕒 下一场**\n• 8/3周一 10:00 \\- 12:00\n• 8/3周一 14:00 \\- 16:00\n• 8/3周一 18:00 \\- 20:00\n• 8/3周一 22:00 \\- 0:00\n• 8/4周二 2:00 \\- 4:00\n• 8/4周二 6:00 \\- 8:00"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ 活动比赛](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看活动比赛截图"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png"
                 }
               ]
             }
@@ -539,7 +1671,27 @@
             },
             {
               "tag": "markdown",
-              "content": "**🐻 发放武器:**\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲"
+              "content": "**🐻 发放武器**\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**👑**\n横纲"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "tag": "hr"
@@ -579,7 +1731,7 @@
           "template": "yellow",
           "title": {
             "tag": "plain_text",
-            "content": "「七轮」"
+            "content": "精选品牌「七轮」"
           }
         },
         "body": {
@@ -731,6 +1883,458 @@
         }
       }
     },
+    "gear-salmon-run": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "orange",
+          "title": {
+            "tag": "plain_text",
+            "content": "消防盔"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**本月报酬装备**\n*🦑 鲑鱼跑 · 装备*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**🧢**\n参与鲑鱼跑即可获得本月报酬装备。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ 鲑鱼跑 · 装备](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看本月装备"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "splatfest-na": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "purple",
+          "title": {
+            "tag": "plain_text",
+            "content": "最强的是？"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**7/11周六 8:00 \\- 7/13周一 8:00**\n*🦑 🟢 祭典 · NA*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**①**\n速度"
+                    }
+                  ]
+                },
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**②**\n力量"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**③**\n技术"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ 祭典 · NA](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看 NA 祭典截图"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "splatfest-eu": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "purple",
+          "title": {
+            "tag": "plain_text",
+            "content": "最强的是？"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**7/11周六 8:00 \\- 7/13周一 8:00**\n*🦑 🟢 祭典 · EU*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**①**\n速度"
+                    }
+                  ]
+                },
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**②**\n力量"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**③**\n技术"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ 祭典 · EU](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看 EU 祭典截图"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "splatfest-jp": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "purple",
+          "title": {
+            "tag": "plain_text",
+            "content": "最强的是？"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**7/11周六 8:00 \\- 7/13周一 8:00**\n*🦑 🟢 祭典 · JP*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**①**\n速度"
+                    }
+                  ]
+                },
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**②**\n力量"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**③**\n技术"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ 祭典 · JP](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看 JP 祭典截图"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "splatfest-ap": {
+      "msg_type": "interactive",
+      "card": {
+        "schema": "2.0",
+        "config": {
+          "wide_screen_mode": true,
+          "enable_forward": true
+        },
+        "header": {
+          "template": "purple",
+          "title": {
+            "tag": "plain_text",
+            "content": "最强的是？"
+          }
+        },
+        "body": {
+          "direction": "vertical",
+          "elements": [
+            {
+              "tag": "markdown",
+              "content": "**7/11周六 8:00 \\- 7/13周一 8:00**\n*🦑 🟢 祭典 · AP*"
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**①**\n速度"
+                    }
+                  ]
+                },
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**②**\n力量"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "column_set",
+              "flex_mode": "none",
+              "columns": [
+                {
+                  "tag": "column",
+                  "width": "weighted",
+                  "weight": 1,
+                  "elements": [
+                    {
+                      "tag": "markdown",
+                      "content": "**③**\n技术"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "hr"
+            },
+            {
+              "tag": "markdown",
+              "content": "[🖼️ 祭典 · AP](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png)"
+            },
+            {
+              "tag": "button",
+              "type": "primary",
+              "width": "fill",
+              "text": {
+                "tag": "plain_text",
+                "content": "查看 AP 祭典截图"
+              },
+              "behaviors": [
+                {
+                  "type": "open_url",
+                  "default_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
     "escaping-contract": {
       "msg_type": "interactive",
       "card": {
@@ -812,18 +2416,62 @@
       "msgtype": "actionCard",
       "actionCard": {
         "title": "日程已更新",
-        "text": "### 日程已更新\n\n> 2:00 \\- 4:00\n> 🦑 今天你喷喷了吗?\n\n![对战日程表](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)\n\n#### 🔫  占地对战\n鬼头刀SPA度假区·海女美术大学",
+        "text": "### 日程已更新\n\n> 2:00 \\- 4:00\n> 🦑 今天你喷喷了吗?\n\n![对战日程表](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)\n\n#### 🟢 一般比赛 · 占地对战\n鬼头刀SPA度假区 · 海女美术大学\n\n#### 🟠 挑战 · 真格塔楼\n温泉花大峡谷 · 鱼肉碎金属\n\n#### 🤝 开放 · 真格鱼虎\n竹蛏疏洪道 · 大比目鱼海运中心\n\n#### ❎ X比赛 · 真格蛤蜊\n臭鱼干温泉 · 昆布赛道",
         "hideAvatar": "0",
         "btnOrientation": "0",
         "singleTitle": "🖼️ 查看日程截图",
         "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png"
       }
     },
+    "schedules-regular": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "一般比赛",
+        "text": "### 一般比赛\n\n> 2:00 \\- 4:00\n> 🦑 今天你喷喷了吗?\n\n![一般比赛](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png)\n\n#### 🟢 一般比赛 · 占地对战\n鬼头刀SPA度假区 · 海女美术大学",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看一般比赛截图",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png"
+      }
+    },
+    "schedules-anarchy": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "蛮颓比赛",
+        "text": "### 蛮颓比赛\n\n> 2:00 \\- 4:00\n> 🦑 今天你喷喷了吗?\n\n![蛮颓比赛](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png)\n\n#### 🏅 挑战 · 真格塔楼\n温泉花大峡谷 · 鱼肉碎金属\n\n#### 🤝 开放 · 真格鱼虎\n竹蛏疏洪道 · 大比目鱼海运中心",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看蛮颓比赛截图",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png"
+      }
+    },
+    "schedules-x": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "X比赛",
+        "text": "### X比赛\n\n> 2:00 \\- 4:00\n> 🦑 今天你喷喷了吗?\n\n![X比赛](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png)\n\n#### ❎ X比赛 · 真格蛤蜊\n臭鱼干温泉 · 昆布赛道",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看X比赛截图",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png"
+      }
+    },
+    "challenges": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "装扮并爱惜使用武器的武器子杯",
+        "text": "### 装扮并爱惜使用武器的武器子杯\n\n> 下一场 · 8/3周一 10:00 \\- 12:00\n> 🦑 活动比赛\n\n![活动比赛](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png)\n\n#### 🎯 真格塔楼\n高脚经济特区 · 贝见亭\n\n#### 📜 活动说明\n装扮和武器皆为随机！请务必享受对战！\n\n#### 🕒 下一场\n- 8/3周一 10:00 \\- 12:00\n- 8/3周一 14:00 \\- 16:00\n- 8/3周一 18:00 \\- 20:00\n- 8/3周一 22:00 \\- 0:00\n- 8/4周二 2:00 \\- 4:00\n- 8/4周二 6:00 \\- 8:00",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看活动比赛截图",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png"
+      }
+    },
     "salmon-run": {
       "msgtype": "actionCard",
       "actionCard": {
         "title": "鲑鱼心脏斗技场",
-        "text": "### 鲑鱼心脏斗技场\n\n> 7/29周三 16:00 \\- 7/31 8:00\n> 🦑 打工的时间到啦\\!\n\n![打工提醒小助手](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)\n\n#### 🐻 发放武器:\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲",
+        "text": "### 鲑鱼心脏斗技场\n\n> 7/29周三 16:00 \\- 7/31 8:00\n> 🦑 打工的时间到啦\\!\n\n![打工提醒小助手](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)\n\n#### 🐻 发放武器\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲\n\n- **👑** 横纲",
         "hideAvatar": "0",
         "btnOrientation": "0",
         "singleTitle": "🖼️ 查看鲑鱼跑截图",
@@ -833,8 +2481,8 @@
     "gear-dailydrop": {
       "msgtype": "actionCard",
       "actionCard": {
-        "title": "「七轮」",
-        "text": "### 「七轮」\n\n> 到7/30周四 8:00为止\n> 🦑 鱿鱼须商城·今日精选\n\n![鱿鱼须商城·今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)",
+        "title": "精选品牌「七轮」",
+        "text": "### 精选品牌「七轮」\n\n> 到7/30周四 8:00为止\n> 🦑 鱿鱼须商城·今日精选\n\n![鱿鱼须商城·今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)",
         "hideAvatar": "0",
         "btnOrientation": "0",
         "singleTitle": "🖼️ 查看今日精选",
@@ -852,6 +2500,61 @@
         "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png"
       }
     },
+    "gear-salmon-run": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "消防盔",
+        "text": "### 消防盔\n\n> 本月报酬装备\n> 🦑 鲑鱼跑 · 装备\n\n![鲑鱼跑 · 装备](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png)\n\n- **🧢** 参与鲑鱼跑即可获得本月报酬装备。",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看本月装备",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png"
+      }
+    },
+    "splatfest-na": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "最强的是？",
+        "text": "### 最强的是？\n\n> 7/11周六 8:00 \\- 7/13周一 8:00\n> 🦑 🟢 祭典 · NA\n\n![祭典 · NA](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png)\n\n- **①** 速度\n\n- **②** 力量\n\n- **③** 技术",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看 NA 祭典截图",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png"
+      }
+    },
+    "splatfest-eu": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "最强的是？",
+        "text": "### 最强的是？\n\n> 7/11周六 8:00 \\- 7/13周一 8:00\n> 🦑 🟢 祭典 · EU\n\n![祭典 · EU](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png)\n\n- **①** 速度\n\n- **②** 力量\n\n- **③** 技术",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看 EU 祭典截图",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png"
+      }
+    },
+    "splatfest-jp": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "最强的是？",
+        "text": "### 最强的是？\n\n> 7/11周六 8:00 \\- 7/13周一 8:00\n> 🦑 🟢 祭典 · JP\n\n![祭典 · JP](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png)\n\n- **①** 速度\n\n- **②** 力量\n\n- **③** 技术",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看 JP 祭典截图",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png"
+      }
+    },
+    "splatfest-ap": {
+      "msgtype": "actionCard",
+      "actionCard": {
+        "title": "最强的是？",
+        "text": "### 最强的是？\n\n> 7/11周六 8:00 \\- 7/13周一 8:00\n> 🦑 🟢 祭典 · AP\n\n![祭典 · AP](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png)\n\n- **①** 速度\n\n- **②** 力量\n\n- **③** 技术",
+        "hideAvatar": "0",
+        "btnOrientation": "0",
+        "singleTitle": "🖼️ 查看 AP 祭典截图",
+        "singleURL": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png"
+      }
+    },
     "escaping-contract": {
       "msgtype": "actionCard",
       "actionCard": {
@@ -866,7 +2569,7 @@
   },
   "slack": {
     "schedules": {
-      "text": "日程已更新\n2:00 - 4:00\n🔫  占地对战\n鬼头刀SPA度假区·海女美术大学\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png",
+      "text": "日程已更新\n2:00 - 4:00\n🟢 一般比赛 · 占地对战\n鬼头刀SPA度假区 · 海女美术大学\n🟠 挑战 · 真格塔楼\n温泉花大峡谷 · 鱼肉碎金属\n🤝 开放 · 真格鱼虎\n竹蛏疏洪道 · 大比目鱼海运中心\n❎ X比赛 · 真格蛤蜊\n臭鱼干温泉 · 昆布赛道\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png",
       "blocks": [
         {
           "type": "header",
@@ -908,7 +2611,31 @@
           "type": "section",
           "text": {
             "type": "mrkdwn",
-            "text": "*🔫  占地对战*\n鬼头刀SPA度假区·海女美术大学",
+            "text": "*🟢 一般比赛 · 占地对战*\n鬼头刀SPA度假区 · 海女美术大学",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🟠 挑战 · 真格塔楼*\n温泉花大峡谷 · 鱼肉碎金属",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🤝 开放 · 真格鱼虎*\n竹蛏疏洪道 · 大比目鱼海运中心",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*❎ X比赛 · 真格蛤蜊*\n臭鱼干温泉 · 昆布赛道",
             "verbatim": true
           }
         },
@@ -927,8 +2654,280 @@
       "unfurl_links": false,
       "unfurl_media": false
     },
+    "schedules-regular": {
+      "text": "一般比赛\n2:00 - 4:00\n🟢 一般比赛 · 占地对战\n鬼头刀SPA度假区 · 海女美术大学\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "一般比赛",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png",
+              "alt_text": "今天你喷喷了吗?"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*今天你喷喷了吗?*  ·  2:00 - 4:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png",
+          "alt_text": "一般比赛",
+          "title": {
+            "type": "plain_text",
+            "text": "一般比赛",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🟢 一般比赛 · 占地对战*\n鬼头刀SPA度假区 · 海女美术大学",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png|查看一般比赛截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "schedules-anarchy": {
+      "text": "蛮颓比赛\n2:00 - 4:00\n🏅 挑战 · 真格塔楼\n温泉花大峡谷 · 鱼肉碎金属\n🤝 开放 · 真格鱼虎\n竹蛏疏洪道 · 大比目鱼海运中心\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "蛮颓比赛",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png",
+              "alt_text": "今天你喷喷了吗?"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*今天你喷喷了吗?*  ·  2:00 - 4:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png",
+          "alt_text": "蛮颓比赛",
+          "title": {
+            "type": "plain_text",
+            "text": "蛮颓比赛",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🏅 挑战 · 真格塔楼*\n温泉花大峡谷 · 鱼肉碎金属",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🤝 开放 · 真格鱼虎*\n竹蛏疏洪道 · 大比目鱼海运中心",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png|查看蛮颓比赛截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "schedules-x": {
+      "text": "X比赛\n2:00 - 4:00\n❎ X比赛 · 真格蛤蜊\n臭鱼干温泉 · 昆布赛道\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "X比赛",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/schedules.png",
+              "alt_text": "今天你喷喷了吗?"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*今天你喷喷了吗?*  ·  2:00 - 4:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png",
+          "alt_text": "X比赛",
+          "title": {
+            "type": "plain_text",
+            "text": "X比赛",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*❎ X比赛 · 真格蛤蜊*\n臭鱼干温泉 · 昆布赛道",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png|查看X比赛截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "challenges": {
+      "text": "装扮并爱惜使用武器的武器子杯\n下一场 · 8/3周一 10:00 - 12:00\n🎯 真格塔楼\n高脚经济特区 · 贝见亭\n📜 活动说明\n装扮和武器皆为随机！请务必享受对战！\n🕒 下一场\n8/3周一 10:00 - 12:00\n8/3周一 14:00 - 16:00\n8/3周一 18:00 - 20:00\n8/3周一 22:00 - 0:00\n8/4周二 2:00 - 4:00\n8/4周二 6:00 - 8:00\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "装扮并爱惜使用武器的武器子杯",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/challenges.png",
+              "alt_text": "活动比赛"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*活动比赛*  ·  下一场 · 8/3周一 10:00 - 12:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png",
+          "alt_text": "活动比赛",
+          "title": {
+            "type": "plain_text",
+            "text": "活动比赛",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🎯 真格塔楼*\n高脚经济特区 · 贝见亭",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*📜 活动说明*\n装扮和武器皆为随机！请务必享受对战！",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*🕒 下一场*\n• 8/3周一 10:00 - 12:00\n• 8/3周一 14:00 - 16:00\n• 8/3周一 18:00 - 20:00\n• 8/3周一 22:00 - 0:00\n• 8/4周二 2:00 - 4:00\n• 8/4周二 6:00 - 8:00",
+            "verbatim": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png|查看活动比赛截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
     "salmon-run": {
-      "text": "鲑鱼心脏斗技场\n7/29周三 16:00 - 7/31 8:00\n🐻 发放武器:\n24式可替换伞·甲\n斯普拉机动枪\n双重清洁枪\n14式竹筒枪·甲\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png",
+      "text": "鲑鱼心脏斗技场\n7/29周三 16:00 - 7/31 8:00\n🐻 发放武器\n24式可替换伞·甲\n斯普拉机动枪\n双重清洁枪\n14式竹筒枪·甲\n👑 横纲\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png",
       "blocks": [
         {
           "type": "header",
@@ -943,7 +2942,7 @@
           "elements": [
             {
               "type": "image",
-              "image_url": "https://cdn.example.com/branding-icons/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/salmon-run.png",
+              "image_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/salmon-run.png",
               "alt_text": "打工的时间到啦!"
             },
             {
@@ -970,9 +2969,19 @@
           "type": "section",
           "text": {
             "type": "mrkdwn",
-            "text": "*🐻 发放武器:*\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲",
+            "text": "*🐻 发放武器*\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲",
             "verbatim": true
           }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*👑*\n横纲",
+              "verbatim": true
+            }
+          ]
         },
         {
           "type": "divider"
@@ -990,13 +2999,13 @@
       "unfurl_media": false
     },
     "gear-dailydrop": {
-      "text": "「七轮」\n到7/30周四 8:00为止\n🧢 桶眼鱼护目镜\n(逆境强化)\n👕 鱼片衬衫 城市\n(降低特殊武器减少量)\n👟 BS拖鞋\n(提升墨汁回复力)\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png",
+      "text": "精选品牌「七轮」\n到7/30周四 8:00为止\n🧢 桶眼鱼护目镜\n(逆境强化)\n👕 鱼片衬衫 城市\n(降低特殊武器减少量)\n👟 BS拖鞋\n(提升墨汁回复力)\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png",
       "blocks": [
         {
           "type": "header",
           "text": {
             "type": "plain_text",
-            "text": "「七轮」",
+            "text": "精选品牌「七轮」",
             "emoji": true
           }
         },
@@ -1005,7 +3014,7 @@
           "elements": [
             {
               "type": "image",
-              "image_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png",
+              "image_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png",
               "alt_text": "鱿鱼须商城·今日精选"
             },
             {
@@ -1079,7 +3088,7 @@
           "elements": [
             {
               "type": "image",
-              "image_url": "https://cdn.example.com/branding-icons/ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff/gear.png",
+              "image_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png",
               "alt_text": "鱿鱼须商城·目前贩卖的装备"
             },
             {
@@ -1120,6 +3129,366 @@
           "text": {
             "type": "mrkdwn",
             "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png|查看目前贩卖 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "gear-salmon-run": {
+      "text": "消防盔\n本月报酬装备\n🧢 参与鲑鱼跑即可获得本月报酬装备。\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "消防盔",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/0000000000000000000000000000000000000000000000000000000000000000/gear.png",
+              "alt_text": "鲑鱼跑 · 装备"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*鲑鱼跑 · 装备*  ·  本月报酬装备",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png",
+          "alt_text": "鲑鱼跑 · 装备",
+          "title": {
+            "type": "plain_text",
+            "text": "鲑鱼跑 · 装备",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*🧢*\n参与鲑鱼跑即可获得本月报酬装备。",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png|查看本月装备 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "splatfest-na": {
+      "text": "最强的是？\n7/11周六 8:00 - 7/13周一 8:00\n① 速度\n② 力量\n③ 技术\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "最强的是？",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png",
+              "alt_text": "🟢 祭典 · NA"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*🟢 祭典 · NA*  ·  7/11周六 8:00 - 7/13周一 8:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png",
+          "alt_text": "祭典 · NA",
+          "title": {
+            "type": "plain_text",
+            "text": "祭典 · NA",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*①*\n速度",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*②*\n力量",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*③*\n技术",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png|查看 NA 祭典截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "splatfest-eu": {
+      "text": "最强的是？\n7/11周六 8:00 - 7/13周一 8:00\n① 速度\n② 力量\n③ 技术\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "最强的是？",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png",
+              "alt_text": "🟢 祭典 · EU"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*🟢 祭典 · EU*  ·  7/11周六 8:00 - 7/13周一 8:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png",
+          "alt_text": "祭典 · EU",
+          "title": {
+            "type": "plain_text",
+            "text": "祭典 · EU",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*①*\n速度",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*②*\n力量",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*③*\n技术",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png|查看 EU 祭典截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "splatfest-jp": {
+      "text": "最强的是？\n7/11周六 8:00 - 7/13周一 8:00\n① 速度\n② 力量\n③ 技术\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "最强的是？",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png",
+              "alt_text": "🟢 祭典 · JP"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*🟢 祭典 · JP*  ·  7/11周六 8:00 - 7/13周一 8:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png",
+          "alt_text": "祭典 · JP",
+          "title": {
+            "type": "plain_text",
+            "text": "祭典 · JP",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*①*\n速度",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*②*\n力量",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*③*\n技术",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png|查看 JP 祭典截图 ↗>*",
+            "verbatim": true
+          }
+        }
+      ],
+      "unfurl_links": false,
+      "unfurl_media": false
+    },
+    "splatfest-ap": {
+      "text": "最强的是？\n7/11周六 8:00 - 7/13周一 8:00\n① 速度\n② 力量\n③ 技术\nhttps://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png",
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "最强的是？",
+            "emoji": true
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "image",
+              "image_url": "https://cdn.example.com/branding-icons/1111111111111111111111111111111111111111111111111111111111111111/splatfest.png",
+              "alt_text": "🟢 祭典 · AP"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*🟢 祭典 · AP*  ·  7/11周六 8:00 - 7/13周一 8:00",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image_url": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png",
+          "alt_text": "祭典 · AP",
+          "title": {
+            "type": "plain_text",
+            "text": "祭典 · AP",
+            "emoji": true
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*①*\n速度",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*②*\n力量",
+              "verbatim": true
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*③*\n技术",
+              "verbatim": true
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*<https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png|查看 AP 祭典截图 ↗>*",
             "verbatim": true
           }
         }
@@ -1269,7 +3638,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "🔫  占地对战",
+                      "text": "🟢 一般比赛 · 占地对战",
                       "weight": "bold",
                       "size": "sm",
                       "color": "#39C5BB",
@@ -1277,7 +3646,73 @@
                     },
                     {
                       "type": "text",
-                      "text": "鬼头刀SPA度假区·海女美术大学",
+                      "text": "鬼头刀SPA度假区 · 海女美术大学",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🟠 挑战 · 真格塔楼",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#39C5BB",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "温泉花大峡谷 · 鱼肉碎金属",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🤝 开放 · 真格鱼虎",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#39C5BB",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "竹蛏疏洪道 · 大比目鱼海运中心",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "❎ X比赛 · 真格蛤蜊",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#39C5BB",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "臭鱼干温泉 · 昆布赛道",
                       "size": "sm",
                       "color": "#333333",
                       "wrap": true
@@ -1299,6 +3734,535 @@
                     "type": "uri",
                     "label": "查看日程截图",
                     "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "schedules-regular": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "一般比赛 · 2:00 - 4:00 · 查看一般比赛截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#22C55E",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 今天你喷喷了吗?",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "一般比赛",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/schedules-regular.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看一般比赛截图",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "2:00 - 4:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🟢 一般比赛 · 占地对战",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#22C55E",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "鬼头刀SPA度假区 · 海女美术大学",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#22C55E",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看一般比赛截图",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "schedules-anarchy": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "蛮颓比赛 · 2:00 - 4:00 · 查看蛮颓比赛截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#F97316",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 今天你喷喷了吗?",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "蛮颓比赛",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/schedules-anarchy.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看蛮颓比赛截图",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "2:00 - 4:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🏅 挑战 · 真格塔楼",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#F97316",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "温泉花大峡谷 · 鱼肉碎金属",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🤝 开放 · 真格鱼虎",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#F97316",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "竹蛏疏洪道 · 大比目鱼海运中心",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#F97316",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看蛮颓比赛截图",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "schedules-x": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "X比赛 · 2:00 - 4:00 · 查看X比赛截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#06B6D4",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 今天你喷喷了吗?",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "X比赛",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/schedules-x.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看X比赛截图",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "2:00 - 4:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "❎ X比赛 · 真格蛤蜊",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#06B6D4",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "臭鱼干温泉 · 昆布赛道",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#06B6D4",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看X比赛截图",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "challenges": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "装扮并爱惜使用武器的武器子杯 · 下一场 · 8/3周一 10:00 - 12:00 · 查看活动比赛截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#A855F7",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 活动比赛",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "装扮并爱惜使用武器的武器子杯",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/challenges.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看活动比赛截图",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "下一场 · 8/3周一 10:00 - 12:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🎯 真格塔楼",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#A855F7",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "高脚经济特区 · 贝见亭",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "📜 活动说明",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#A855F7",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "装扮和武器皆为随机！请务必享受对战！",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🕒 下一场",
+                      "weight": "bold",
+                      "size": "sm",
+                      "color": "#A855F7",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 8/3周一 10:00 - 12:00",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 8/3周一 14:00 - 16:00",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 8/3周一 18:00 - 20:00",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 8/3周一 22:00 - 0:00",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 8/4周二 2:00 - 4:00",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "• 8/4周二 6:00 - 8:00",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#A855F7",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看活动比赛截图",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png"
                   }
                 }
               ]
@@ -1376,7 +4340,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "🐻 发放武器:",
+                      "text": "🐻 发放武器",
                       "weight": "bold",
                       "size": "sm",
                       "color": "#F97316",
@@ -1411,6 +4375,30 @@
                       "wrap": true
                     }
                   ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "👑",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "横纲",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
                 }
               ]
             },
@@ -1441,7 +4429,7 @@
       "messages": [
         {
           "type": "flex",
-          "altText": "「七轮」 · 到7/30周四 8:00为止 · 查看今日精选",
+          "altText": "精选品牌「七轮」 · 到7/30周四 8:00为止 · 查看今日精选",
           "contents": {
             "type": "bubble",
             "header": {
@@ -1460,7 +4448,7 @@
                 },
                 {
                   "type": "text",
-                  "text": "「七轮」",
+                  "text": "精选品牌「七轮」",
                   "weight": "bold",
                   "size": "xl",
                   "color": "#FFFFFF",
@@ -1691,6 +4679,743 @@
       ],
       "notificationDisabled": false
     },
+    "gear-salmon-run": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "消防盔 · 本月报酬装备 · 查看本月装备",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#F97316",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 鲑鱼跑 · 装备",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "消防盔",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/gear-salmon-run.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看本月装备",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "本月报酬装备",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "🧢",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "参与鲑鱼跑即可获得本月报酬装备。",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#F97316",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看本月装备",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "splatfest-na": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "最强的是？ · 7/11周六 8:00 - 7/13周一 8:00 · 查看 NA 祭典截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#3894C6",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 🟢 祭典 · NA",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "最强的是？",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/splatfest-na.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看 NA 祭典截图",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "7/11周六 8:00 - 7/13周一 8:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "①",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "速度",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "②",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "力量",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "③",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "技术",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#3894C6",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看 NA 祭典截图",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "splatfest-eu": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "最强的是？ · 7/11周六 8:00 - 7/13周一 8:00 · 查看 EU 祭典截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#3894C6",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 🟢 祭典 · EU",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "最强的是？",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/splatfest-eu.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看 EU 祭典截图",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "7/11周六 8:00 - 7/13周一 8:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "①",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "速度",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "②",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "力量",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "③",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "技术",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#3894C6",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看 EU 祭典截图",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "splatfest-jp": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "最强的是？ · 7/11周六 8:00 - 7/13周一 8:00 · 查看 JP 祭典截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#3894C6",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 🟢 祭典 · JP",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "最强的是？",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/splatfest-jp.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看 JP 祭典截图",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "7/11周六 8:00 - 7/13周一 8:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "①",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "速度",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "②",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "力量",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "③",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "技术",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#3894C6",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看 JP 祭典截图",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
+    "splatfest-ap": {
+      "to": "U0123456789abcdef0123456789abcdef",
+      "messages": [
+        {
+          "type": "flex",
+          "altText": "最强的是？ · 7/11周六 8:00 - 7/13周一 8:00 · 查看 AP 祭典截图",
+          "contents": {
+            "type": "bubble",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "paddingAll": "18px",
+              "backgroundColor": "#3894C6",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "🦑 🟢 祭典 · AP",
+                  "size": "xs",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "最强的是？",
+                  "weight": "bold",
+                  "size": "xl",
+                  "color": "#FFFFFF",
+                  "wrap": true
+                }
+              ]
+            },
+            "hero": {
+              "type": "image",
+              "url": "https://cdn.example.com/line-images/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/splatfest-ap.png",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "fit",
+              "backgroundColor": "#111111",
+              "action": {
+                "type": "uri",
+                "label": "查看 AP 祭典截图",
+                "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png"
+              }
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "7/11周六 8:00 - 7/13周一 8:00",
+                  "size": "sm",
+                  "color": "#777777",
+                  "wrap": true
+                },
+                {
+                  "type": "separator",
+                  "margin": "lg"
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "①",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "速度",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "②",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "力量",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "md",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "③",
+                      "size": "sm",
+                      "color": "#888888",
+                      "flex": 2,
+                      "wrap": true
+                    },
+                    {
+                      "type": "text",
+                      "text": "技术",
+                      "size": "sm",
+                      "color": "#222222",
+                      "flex": 5,
+                      "align": "end",
+                      "wrap": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "color": "#3894C6",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "查看 AP 祭典截图",
+                    "uri": "https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "notificationDisabled": false
+    },
     "escaping-contract": {
       "to": "U0123456789abcdef0123456789abcdef",
       "messages": [
@@ -1869,7 +5594,7 @@
               {
                 "type": "text",
                 "parameter_name": "details",
-                "text": "🔫 占地对战｜鬼头刀SPA度假区·海女美术大学"
+                "text": "🟢 一般比赛 · 占地对战｜鬼头刀SPA度假区 · 海女美术大学\n🟠 挑战 · 真格塔楼｜温泉花大峡谷 · 鱼肉碎金属\n🤝 开放 · 真格鱼虎｜竹蛏疏洪道 · 大比目鱼海运中心\n❎ X比赛 · 真格蛤蜊｜臭鱼干温泉 · 昆布赛道"
               }
             ]
           },
@@ -1882,6 +5607,234 @@
                 "type": "text",
                 "parameter_name": "action_path",
                 "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "schedules-regular": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/schedules-regular.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "一般比赛"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "2:00 - 4:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "🟢 一般比赛 · 占地对战｜鬼头刀SPA度假区 · 海女美术大学"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "schedules-anarchy": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/schedules-anarchy.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "蛮颓比赛"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "2:00 - 4:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "🏅 挑战 · 真格塔楼｜温泉花大峡谷 · 鱼肉碎金属\n🤝 开放 · 真格鱼虎｜竹蛏疏洪道 · 大比目鱼海运中心"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "schedules-x": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/schedules-x.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "X比赛"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "2:00 - 4:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "❎ X比赛 · 真格蛤蜊｜臭鱼干温泉 · 昆布赛道"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "challenges": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/challenges.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "装扮并爱惜使用武器的武器子杯"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "下一场 · 8/3周一 10:00 - 12:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "🎯 真格塔楼｜高脚经济特区 · 贝见亭\n📜 活动说明｜装扮和武器皆为随机！请务必享受对战！\n🕒 下一场\n• 8/3周一 10:00 - 12:00\n• 8/3周一 14:00 - 16:00\n• 8/3周一 18:00 - 20:00\n• 8/3周一 22:00 - 0:00\n• 8/4周二 2:00 - 4:00\n• 8/4周二 6:00 - 8:00"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png"
               }
             ]
           }
@@ -1926,7 +5879,7 @@
               {
                 "type": "text",
                 "parameter_name": "details",
-                "text": "🐻 发放武器:\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲"
+                "text": "🐻 发放武器\n• 24式可替换伞·甲\n• 斯普拉机动枪\n• 双重清洁枪\n• 14式竹筒枪·甲\n👑｜横纲"
               }
             ]
           },
@@ -1973,7 +5926,7 @@
               {
                 "type": "text",
                 "parameter_name": "title",
-                "text": "「七轮」"
+                "text": "精选品牌「七轮」"
               },
               {
                 "type": "text",
@@ -2059,6 +6012,291 @@
         ]
       }
     },
+    "gear-salmon-run": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/gear-salmon-run.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "消防盔"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "本月报酬装备"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "🧢｜参与鲑鱼跑即可获得本月报酬装备。"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "splatfest-na": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/splatfest-na.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "最强的是？"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "7/11周六 8:00 - 7/13周一 8:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "①｜速度\n②｜力量\n③｜技术"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "splatfest-eu": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/splatfest-eu.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "最强的是？"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "7/11周六 8:00 - 7/13周一 8:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "①｜速度\n②｜力量\n③｜技术"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "splatfest-jp": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/splatfest-jp.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "最强的是？"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "7/11周六 8:00 - 7/13周一 8:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "①｜速度\n②｜力量\n③｜技术"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "splatfest-ap": {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": "8613800000000",
+      "type": "template",
+      "template": {
+        "name": "splatoon_notification",
+        "language": {
+          "code": "zh_CN"
+        },
+        "components": [
+          {
+            "type": "header",
+            "parameters": [
+              {
+                "type": "image",
+                "image": {
+                  "link": "https://cdn.example.com/whatsapp-images/cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc/splatfest-ap.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "body",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "title",
+                "text": "最强的是？"
+              },
+              {
+                "type": "text",
+                "parameter_name": "context",
+                "text": "7/11周六 8:00 - 7/13周一 8:00"
+              },
+              {
+                "type": "text",
+                "parameter_name": "details",
+                "text": "①｜速度\n②｜力量\n③｜技术"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "sub_type": "url",
+            "index": "0",
+            "parameters": [
+              {
+                "type": "text",
+                "parameter_name": "action_path",
+                "text": "notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "escaping-contract": {
       "messaging_product": "whatsapp",
       "recipient_type": "individual",
@@ -2121,25 +6359,79 @@
     "schedules": {
       "msg_type": 2,
       "markdown": {
-        "content": "# 日程已更新\n\n2:00 \\- 4:00\n\n![对战日程表 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)\n\n## 🔫  占地对战\n鬼头刀SPA度假区·海女美术大学\n\n[查看日程截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)"
+        "content": "# 日程已更新\n\n2:00 \\- 4:00\n\n![对战日程表 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)\n\n## 🟢 一般比赛 · 占地对战\n鬼头刀SPA度假区 · 海女美术大学\n\n## 🟠 挑战 · 真格塔楼\n温泉花大峡谷 · 鱼肉碎金属\n\n## 🤝 开放 · 真格鱼虎\n竹蛏疏洪道 · 大比目鱼海运中心\n\n## ❎ X比赛 · 真格蛤蜊\n臭鱼干温泉 · 昆布赛道\n\n[查看日程截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules.png)"
+      }
+    },
+    "schedules-regular": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 一般比赛\n\n2:00 \\- 4:00\n\n![一般比赛 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png)\n\n## 🟢 一般比赛 · 占地对战\n鬼头刀SPA度假区 · 海女美术大学\n\n[查看一般比赛截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-regular.png)"
+      }
+    },
+    "schedules-anarchy": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 蛮颓比赛\n\n2:00 \\- 4:00\n\n![蛮颓比赛 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png)\n\n## 🏅 挑战 · 真格塔楼\n温泉花大峡谷 · 鱼肉碎金属\n\n## 🤝 开放 · 真格鱼虎\n竹蛏疏洪道 · 大比目鱼海运中心\n\n[查看蛮颓比赛截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-anarchy.png)"
+      }
+    },
+    "schedules-x": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# X比赛\n\n2:00 \\- 4:00\n\n![X比赛 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png)\n\n## ❎ X比赛 · 真格蛤蜊\n臭鱼干温泉 · 昆布赛道\n\n[查看X比赛截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/schedules-x.png)"
+      }
+    },
+    "challenges": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 装扮并爱惜使用武器的武器子杯\n\n下一场 · 8/3周一 10:00 \\- 12:00\n\n![活动比赛 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png)\n\n## 🎯 真格塔楼\n高脚经济特区 · 贝见亭\n\n## 📜 活动说明\n装扮和武器皆为随机！请务必享受对战！\n\n## 🕒 下一场\n- 8/3周一 10:00 \\- 12:00\n- 8/3周一 14:00 \\- 16:00\n- 8/3周一 18:00 \\- 20:00\n- 8/3周一 22:00 \\- 0:00\n- 8/4周二 2:00 \\- 4:00\n- 8/4周二 6:00 \\- 8:00\n\n[查看活动比赛截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/challenges.png)"
       }
     },
     "salmon-run": {
       "msg_type": 2,
       "markdown": {
-        "content": "# 鲑鱼心脏斗技场\n\n7/29周三 16:00 \\- 7/31 8:00\n\n![打工提醒小助手 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)\n\n## 🐻 发放武器:\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲\n\n[查看鲑鱼跑截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)"
+        "content": "# 鲑鱼心脏斗技场\n\n7/29周三 16:00 \\- 7/31 8:00\n\n![打工提醒小助手 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)\n\n## 🐻 发放武器\n- 24式可替换伞·甲\n- 斯普拉机动枪\n- 双重清洁枪\n- 14式竹筒枪·甲\n\n- **👑** 横纲\n\n[查看鲑鱼跑截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/salmon-run.png)"
       }
     },
     "gear-dailydrop": {
       "msg_type": 2,
       "markdown": {
-        "content": "# 「七轮」\n\n到7/30周四 8:00为止\n\n![鱿鱼须商城·今日精选 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)\n\n[查看今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)"
+        "content": "# 精选品牌「七轮」\n\n到7/30周四 8:00为止\n\n![鱿鱼须商城·今日精选 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)\n\n- **🧢** 桶眼鱼护目镜\n\\(逆境强化\\)\n\n- **👕** 鱼片衬衫 城市\n\\(降低特殊武器减少量\\)\n\n- **👟** BS拖鞋\n\\(提升墨汁回复力\\)\n\n[查看今日精选](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-dailydrop.png)"
       }
     },
     "gear-regular": {
       "msg_type": 2,
       "markdown": {
         "content": "# 鱿鱼须商城上新啦\n\n![鱿鱼须商城·目前贩卖的装备 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)\n\n- **👕** 棒球运动服\n\\(缩短复活时间\\)\n\n[查看目前贩卖](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-regular.png)"
+      }
+    },
+    "gear-salmon-run": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 消防盔\n\n本月报酬装备\n\n![鲑鱼跑 · 装备 #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png)\n\n- **🧢** 参与鲑鱼跑即可获得本月报酬装备。\n\n[查看本月装备](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/gear-salmon-run.png)"
+      }
+    },
+    "splatfest-na": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 最强的是？\n\n7/11周六 8:00 \\- 7/13周一 8:00\n\n![祭典 · NA #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png)\n\n- **①** 速度\n\n- **②** 力量\n\n- **③** 技术\n\n[查看 NA 祭典截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-na.png)"
+      }
+    },
+    "splatfest-eu": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 最强的是？\n\n7/11周六 8:00 \\- 7/13周一 8:00\n\n![祭典 · EU #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png)\n\n- **①** 速度\n\n- **②** 力量\n\n- **③** 技术\n\n[查看 EU 祭典截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-eu.png)"
+      }
+    },
+    "splatfest-jp": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 最强的是？\n\n7/11周六 8:00 \\- 7/13周一 8:00\n\n![祭典 · JP #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png)\n\n- **①** 速度\n\n- **②** 力量\n\n- **③** 技术\n\n[查看 JP 祭典截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-jp.png)"
+      }
+    },
+    "splatfest-ap": {
+      "msg_type": 2,
+      "markdown": {
+        "content": "# 最强的是？\n\n7/11周六 8:00 \\- 7/13周一 8:00\n\n![祭典 · AP #2400px #1350px](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png)\n\n- **①** 速度\n\n- **②** 力量\n\n- **③** 技术\n\n[查看 AP 祭典截图](https://cdn.example.com/notification-images/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/splatfest-ap.png)"
       }
     },
     "escaping-contract": {

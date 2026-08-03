@@ -9,7 +9,17 @@ const schedulesSchema = z.object({
   data: z.object({
     regularSchedules: connectionSchema,
     bankaraSchedules: connectionSchema,
-    coopGroupingSchedule: z.object({ regularSchedules: connectionSchema }).loose(),
+    xSchedules: connectionSchema,
+    eventSchedules: connectionSchema,
+    festSchedules: connectionSchema,
+    coopGroupingSchedule: z
+      .object({
+        regularSchedules: connectionSchema,
+        bigRunSchedules: connectionSchema,
+        teamContestSchedules: connectionSchema,
+      })
+      .loose(),
+    currentFest: z.unknown().nullable(),
     vsStages: connectionSchema,
   }).loose(),
 }).loose()
@@ -21,13 +31,29 @@ const gearSchema = z.object({
     }).loose(),
   }).loose(),
 }).loose()
-const festivalsSchema = z.record(z.string(), z.unknown())
-const coopSchema = z.object({ data: z.unknown() }).loose()
+const festivalsSchema = z.record(
+  z.string(),
+  z.object({
+    data: z.object({ festRecords: connectionSchema }).loose(),
+  }).loose()
+)
+const coopSchema = z
+  .object({
+    data: z
+      .object({
+        coopResult: z.object({ monthlyGear: z.unknown().nullable() }).loose(),
+      })
+      .loose(),
+  })
+  .loose()
 const localeSchema = z.object({
   stages: z.record(z.string(), z.unknown()),
   rules: z.record(z.string(), z.unknown()),
   weapons: z.record(z.string(), z.unknown()),
+  bosses: z.record(z.string(), z.unknown()),
   brands: z.record(z.string(), z.unknown()),
+  events: z.record(z.string(), z.unknown()),
+  festivals: z.record(z.string(), z.unknown()),
   gear: z.record(z.string(), z.unknown()),
   powers: z.record(z.string(), z.unknown()),
 }).loose()

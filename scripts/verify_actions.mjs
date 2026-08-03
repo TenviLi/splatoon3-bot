@@ -199,7 +199,7 @@ async function startBotRunMockServer() {
   }
 }
 
-async function assertBotRunRequests(requests) {
+async function assertBotRunRequests(requests, expectedPublishedImages) {
   const uploads = requests.filter(({ method }) => method === 'PUT')
   const inspections = requests.filter(({ method }) => method === 'HEAD')
   const deliveries = requests.filter(({ method, url }) => method === 'POST' && url === '/wecom')
@@ -208,19 +208,33 @@ async function assertBotRunRequests(requests) {
   const whatsAppUploads = uploads.filter(({ url }) => url.includes('/whatsapp-images/'))
   const originalUploads = uploads.filter(({ url }) => url.includes('/originals/'))
   const brandingUploads = uploads.filter(({ url }) => url.includes('/branding-icons/'))
+  const expectedContentCount = expectedPublishedImages.length
+  const expectedUploadCount = expectedContentCount * 4 + 5
   if (
-    uploads.length !== 15 ||
-    inspections.length !== 3 ||
-    notificationUploads.length !== 3 ||
-    lineUploads.length !== 3 ||
-    whatsAppUploads.length !== 3 ||
-    originalUploads.length !== 3 ||
-    brandingUploads.length !== 3 ||
-    deliveries.length !== 3
+    uploads.length !== expectedUploadCount ||
+    inspections.length !== 5 ||
+    notificationUploads.length !== expectedContentCount ||
+    lineUploads.length !== expectedContentCount ||
+    whatsAppUploads.length !== expectedContentCount ||
+    originalUploads.length !== expectedContentCount ||
+    brandingUploads.length !== 5 ||
+    deliveries.length !== expectedContentCount
   ) {
     throw new Error(
-      `Expected fifteen S3 uploads, three branding inspections, and three WeCom deliveries; received ${uploads.length}, ${inspections.length}, and ${deliveries.length}`
+      `Expected ${expectedUploadCount} S3 uploads, five branding inspections, and ${expectedContentCount} WeCom deliveries; received ${uploads.length}, ${inspections.length}, and ${deliveries.length}`
     )
+  }
+  for (const [label, candidates] of [
+    ['notification', notificationUploads],
+    ['LINE', lineUploads],
+    ['WhatsApp', whatsAppUploads],
+    ['original', originalUploads],
+  ]) {
+    for (const filename of expectedPublishedImages) {
+      if (!candidates.some(({ url }) => url.endsWith(`/${filename}?x-id=PutObject`))) {
+        throw new Error(`Local Bot Run did not publish the ${label} ${filename}`)
+      }
+    }
   }
   if (uploads.some(({ headers }) => headers['cache-control'] !== 'public, max-age=31536000, immutable')) {
     throw new Error('Local Bot Run did not publish every S3 object with immutable caching')
@@ -255,11 +269,18 @@ async function assertBotRunRequests(requests) {
     }
   }
 
-  for (const [index, expected] of [
-    { image: 'schedules.png', icon: 'schedules.png' },
-    { image: 'gear-dailydrop.png', icon: 'gear.png' },
-    { image: 'gear-regular.png', icon: 'gear.png' },
-  ].entries()) {
+  for (const [index, expected] of expectedPublishedImages.map((image) => ({
+    image,
+    icon: image.startsWith('schedules')
+      ? 'schedules.png'
+      : image.startsWith('splatfest-')
+        ? 'splatfest.png'
+      : image === 'challenges.png'
+        ? 'challenges.png'
+        : image === 'salmon-run.png'
+          ? 'salmon-run.png'
+          : 'gear.png',
+  })).entries()) {
     const payload = JSON.parse(deliveries[index].body.toString('utf8'))
     const imageUrl = payload.template_card?.card_image?.url
     const iconUrl = payload.template_card?.source?.icon_url
@@ -386,25 +407,25 @@ secretAccessKey: act-secret-key`
 const weComConfiguration = `- name: local-verification
   webhookUrl: http://host.docker.internal:${mockServer.port}/wecom`
 
-try {
+async function runBotSmoke({ inputs, expectedPublishedImages, fixtureRenderTime }) {
+  mockServer.requests.splice(0)
+  await fs.rm(botRunDirectory, { recursive: true, force: true })
+  await fs.mkdir(botRunDirectory, { recursive: true })
+
   await runWithRetries(
     'act',
     [
       'workflow_dispatch',
       '--workflows',
       '.github/workflows/notification-smoke.yml',
-      '--input',
-      'schedules=true',
-      '--input',
-      'salmon_run=false',
-      '--input',
-      'gear=true',
-      '--input',
-      'channel=wecom',
+      ...Object.entries(inputs).flatMap(([name, value]) => ['--input', `${name}=${value}`]),
       '--container-options',
       `--volume=${botRunDirectory}:${containerBotRunDirectory}`,
       '--env',
       `ACT_BOT_RUN_DIRECTORY=${containerBotRunDirectory}`,
+      ...(fixtureRenderTime
+        ? ['--env', `ACT_FIXTURE_RENDER_TIME=${fixtureRenderTime}`]
+        : []),
       '--secret',
       `S3_CONFIG=${s3Configuration}`,
       '--secret',
@@ -421,7 +442,54 @@ try {
       },
     }
   )
-  await assertBotRunRequests(mockServer.requests)
+  await assertBotRunRequests(mockServer.requests, expectedPublishedImages)
+}
+
+try {
+  await runBotSmoke({
+    inputs: {
+      schedules: true,
+      schedules_regular: true,
+      schedules_anarchy: true,
+      schedules_x: true,
+      challenges: true,
+      salmon_run: true,
+      gear: true,
+      splatfest: false,
+      channel: 'wecom',
+    },
+    expectedPublishedImages: Object.freeze([
+      'schedules.png',
+      'schedules-regular.png',
+      'schedules-anarchy.png',
+      'schedules-x.png',
+      'challenges.png',
+      'salmon-run.png',
+      'gear-dailydrop.png',
+      'gear-regular.png',
+      'gear-salmon-run.png',
+    ]),
+  })
+  await runBotSmoke({
+    inputs: {
+      schedules: false,
+      schedules_regular: false,
+      schedules_anarchy: false,
+      schedules_x: false,
+      challenges: false,
+      salmon_run: false,
+      gear: false,
+      splatfest: true,
+      channel: 'wecom',
+    },
+    expectedPublishedImages: Object.freeze([
+      'splatfest-na.png',
+      'splatfest-eu.png',
+      'splatfest-jp.png',
+      'splatfest-ap.png',
+    ]),
+    fixtureRenderTime: '2026-07-12T12:00:00Z',
+  })
 } finally {
   await mockServer.close()
   await fs.rm(botRunDirectory, { recursive: true, force: true })

@@ -32,11 +32,11 @@
 
 ## 它能做什么
 
-`splatoon3-bot` 是一个由 GitHub Actions 托管运行的 [Splatoon 3](https://splatoon3.ink/) 通知机器人。它每次使用同一份完整游戏数据生成四类稳定截图，通过兼容 S3 的服务发布图片，再向你配置的每个目标发送适合该平台的富消息。
+`splatoon3-bot` 是一个由 GitHub Actions 托管运行的 [Splatoon 3](https://splatoon3.ink/) 通知机器人。它每次使用同一份完整游戏数据生成最多十三类稳定截图，通过兼容 S3 的服务发布图片，再向你配置的每个目标发送适合该平台的富消息。
 
 <table>
   <tr>
-    <td width="33%" align="center"><strong>四类稳定截图</strong><br><sub>对战日程、鲑鱼跑、今日精选装备和在售装备，尺寸始终为精确的 16:9。</sub></td>
+    <td width="33%" align="center"><strong>十三类稳定截图</strong><br><sub>总览与专题对战日程、活动比赛、鲑鱼跑、装备及四区域祭典，尺寸始终为精确的 16:9。</sub></td>
     <td width="33%" align="center"><strong>自选 S3 服务</strong><br><sub>支持 AWS S3、Cloudflare R2、MinIO、又拍云 S3 等 SigV4 兼容服务。</sub></td>
     <td width="33%" align="center"><strong>平台原生富消息</strong><br><sub>模板卡片、Embed、Flex Message、Block Kit 与媒体模板，而不是粗糙的纯文本。</sub></td>
   </tr>
@@ -60,7 +60,7 @@
 
 ## 截图预览
 
-### 直接查看全部四张稳定截图
+### 直接查看四张代表性稳定截图
 
 <table>
   <tr>
@@ -73,7 +73,7 @@
   </tr>
 </table>
 
-README 中的预览图使用默认分辨率 `1200×675`。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档截图和通知主图。LINE 与 WhatsApp 会各自使用独立的 `1024×576` 平台变体，使每个适配器能够单独落实自身限制，而不降低其他通知平台的画质。
+这四张预览是十三类截图中会直接用于通知的代表性子集，使用默认分辨率 `1200×675`。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档截图和通知主图。LINE 与 WhatsApp 会各自使用独立的 `1024×576` 平台变体，使每个适配器能够单独落实自身限制，而不降低其他通知平台的画质。
 
 ## 快速开始
 
@@ -92,17 +92,13 @@ README 中的预览图使用默认分辨率 `1200×675`。`BOT_SCREENSHOT_RESOLU
 3. 至少创建一个消息平台 Secret。以下仅以企业微信群机器人为例：在群机器人设置中取得 Webhook，并创建 Repository Secret `BOT_WECOM_CONFIG`：
 
    ```yaml
-   - name: 对战日程群
-     notifications: [schedules]
-     webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
-   - name: 打工和装备群
-     notifications: [salmon-run, gear-dailydrop, gear-regular]
+   - name: 喷喷通知群
      webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
    ```
 
    参考企业微信官方的[群机器人说明](https://developer.work.weixin.qq.com/document/path/91770)，或从[通知平台](#通知平台)中选择其他适配器。
 4. 默认语言已经是 `zh-CN`。如果你的时区不是 `Asia/Shanghai`，请设置 `BOT_TIME_ZONE`；只有默认值不合适时，才需要添加 `BOT_SCREENSHOT_RESOLUTION` 等其他 [Repository Variables](#repository-variables)。
-5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后勾选全部三个内容组运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
+5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后保留全部八个内容组并运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
 6. 对已配置的平台运行 **Notification Channel smoke test**。它会真实上传一次图片并发送一条消息，用来确认从 S3 到消息目标的完整链路，然后再放心交给定时任务。
 
 > [!IMPORTANT]
@@ -130,7 +126,7 @@ flowchart LR
 | 工作流 | 何时运行 | 发送内容 |
 | --- | --- | --- |
 | `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | 对战日程内容组 |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | 全部三个内容组 |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | 对战日程、鲑鱼跑与装备内容组 |
 | `bot-manual.yml` | 按需手动运行 | 任意复选框组合 |
 | `configuration-check.yml` | 按需手动运行 | 只检查配置，不上传、不发送 |
 | `notification-smoke.yml` | 按需手动运行 | 发布当前图片，并向所选平台发送一条真实测试消息 |
@@ -150,9 +146,16 @@ GitHub 不允许在 `on.schedule.cron` 中读取 Repository Variables 或 Secret
 
 | 内容组 | 生成截图 | 发送通知 |
 | --- | --- | --- |
-| `schedules` | 对战日程 | 对战日程 |
-| `salmon-run` | 鲑鱼跑 | 鲑鱼跑 |
-| `gear` | 两张装备图 | 两条装备通知 |
+| `schedules` | `schedules.png`：普通、蛮颓、X 对战或祭典模式总览 | 对战日程 |
+| `schedules-regular` | `schedules-regular.png`：只展示一张普通比赛卡片 | 普通比赛 |
+| `schedules-anarchy` | `schedules-anarchy.png`：并列展示蛮颓比赛（挑战）与开放两张卡片 | 蛮颓比赛（挑战）与开放 |
+| `schedules-x` | `schedules-x.png`：只展示一张 X 比赛卡片 | X 比赛 |
+| `challenges` | `challenges.png`：当前或下一场活动比赛 | 比赛规则、场地与可参加时段 |
+| `salmon-run` | `salmon-run.png`：鲑鱼跑 | 鲑鱼跑 |
+| `gear` | `gear-dailydrop.png`、`gear-regular.png` 与 `gear-salmon-run.png` | 今日精选、通常商品与鲑鱼跑月度装备 |
+| `splatfest` | `splatfest-na.png`、`splatfest-eu.png`、`splatfest-jp.png` 与 `splatfest-ap.png` | 每张区域图片对应一条祭典通知 |
+
+扩展后的目录遵循上游 [截图路由](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)。每张选中的图片都会进入 Bot Run 归档、发布到 S3，并由专门设计的通知内容承载；各平台适配器再将同一份内容渲染为原生模板卡片、Embed、图片消息或消息模板。
 
 </details>
 
@@ -213,7 +216,7 @@ Bot 截图与通知运行链路支持全部 14 个值；面向运维者的 READM
 
 默认值与 README 预览保持一致，同时减少 Actions 用时、S3 存储和消息加载开销；只有确实需要更高清的主图或归档时才建议调高。所选尺寸会同时用于归档截图、`notification-images/` 对象和主要消息图片。LINE 使用独立且不超过 `1 MB` 的 `1024×576` 图片；它正好是 LINE `1024×1024` Flex 图片硬限制内最大的无裁切 16:9 矩形。WhatsApp 则使用独立、符合 `5 MB` 媒体限制的 `1024×576` 图片。两个平台的查看按钮仍会打开所选分辨率的主要图片。
 
-对战日程、鲑鱼跑与装备图标由仓库内置资源生成，并按内容哈希自动发布到 S3；用户不需要另行准备公共图标 URL。
+对战日程、活动比赛、鲑鱼跑、装备与祭典图标都由仓库内置资源生成，并按内容哈希自动发布到 S3；用户不需要另行准备公共图标 URL。
 
 ### `S3_CONFIG`
 
@@ -288,7 +291,7 @@ keyPrefix: splatoon3-bot
 | `line-images/<sha256>/` | LINE 专用 `1024×576` PNG，仅在必要时自适应转换为调色板 PNG | 供 LINE 展示；保持完整 16:9 画面，低于 `1024×1024` 硬限制，并达到官方建议的 `1 MB` 以内目标。 |
 | `whatsapp-images/<sha256>/` | WhatsApp 专用 `1024×576` PNG | 用作已审批媒体模板的图片 Header，并保持在 WhatsApp 的 `5 MB` 图片限制以内。 |
 | `originals/<sha256>/` | 所选分辨率下未经重新压缩的截图原始文件 | 用于高清归档和 Publication Manifest 校验；不需要长期保存原始归档时，可以配置更短的生命周期。 |
-| `branding-icons/<sha256>/` | 内置的日程、鲑鱼跑和装备小图标 | 用于消息卡片标题或头像；由机器人自动上传并复用，通常可以长期保留。 |
+| `branding-icons/<sha256>/` | 内置的日程、活动比赛、鲑鱼跑、装备和祭典小图标 | 用于消息卡片标题或头像；由机器人自动上传并复用，通常可以长期保留。 |
 
 > [!NOTE]
 > `<sha256>` 是根据文件内容计算出的摘要。同一张图片内容不变时会复用原 URL；内容变化时才生成新 URL。这样后续运行不会悄悄替换历史消息中已经展示的图片。
@@ -302,7 +305,15 @@ keyPrefix: splatoon3-bot
 
 为每个需要使用的平台创建一个 Repository Secret。Secret 存在且非空时，对应适配器自动启用；没有配置的平台保持关闭。
 
-每个平台 Secret 都是一份 YAML 数组，因此同一个平台可以配置多个群、频道、用户或 Webhook。数组中的每一项代表一个消息目标，并且需要唯一的 `name`。只有某个目标不应接收全部内容时，才添加 `notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]`。各目标独立并行发送，同一目标内仍保持消息顺序。
+每个平台 Secret 都是一份 YAML 数组，因此同一个平台可以配置多个群、频道、用户或 Webhook。数组中的每一项代表一个消息目标，并且需要唯一的 `name`。只有某个目标不应接收本次运行选中的全部通知时，才添加 `notifications` 列表；省略时会接收全部。各目标独立并行发送，同一目标内仍保持消息顺序。
+
+| 内容 | `notifications` 可填写的通知 ID |
+| --- | --- |
+| 对战日程 | `schedules`、`schedules-regular`、`schedules-anarchy`、`schedules-x` |
+| 活动比赛 | `challenges` |
+| 鲑鱼跑 | `salmon-run` |
+| 装备 | `gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
+| 各区域祭典 | `splatfest-na`、`splatfest-eu`、`splatfest-jp`、`splatfest-ap` |
 
 | 平台 | 原生消息形式 | Repository Secret | 官方配置 |
 | --- | --- | --- | --- |
@@ -337,14 +348,23 @@ keyPrefix: splatoon3-bot
 <details>
 <summary><strong>企业微信 · BOT_WECOM_CONFIG</strong> — 模板卡片与分类路由</summary>
 
-一个 Secret 可以把日程、鲑鱼跑和装备分别发送到不同群机器人：
+一个 Secret 可以把对战、活动比赛、祭典、鲑鱼跑和装备分别发送到不同群机器人：
 
 ```yaml
 - name: battle-schedules
-  notifications: [schedules]
+  notifications:
+    - schedules
+    - schedules-regular
+    - schedules-anarchy
+    - schedules-x
+    - challenges
+    - splatfest-na
+    - splatfest-eu
+    - splatfest-jp
+    - splatfest-ap
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_SCHEDULES_KEY
 - name: daily-updates
-  notifications: [salmon-run, gear-dailydrop, gear-regular]
+  notifications: [salmon-run, gear-dailydrop, gear-regular, gear-salmon-run]
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_UPDATES_KEY
 ```
 
@@ -543,12 +563,12 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 - 数据下载带重试和超时，完整通过 Schema 校验后才替换上一份有效数据。
 - 截图会等待应用、字体和本地图片就绪，并检查语言、署名、尺寸、底栏位置和内容溢出。
 - Run Manifest v5 记录所选内容组，并精确记录“生成了什么”：语言、分辨率、时区、数据身份、文件名、尺寸和 SHA-256。
-- Publication Manifest v6 记录同一运行选择，并精确记录“发布了什么”：通知主图、LINE 与 WhatsApp 平台专用图、原图、内置图标和公网 URL。
+- Publication Manifest v7 记录同一运行选择，并精确记录“发布了什么”：通知主图、LINE 与 WhatsApp 平台专用图、原图、内置图标和公网 URL。
 - 配置预检会在首次上传前一次性汇总所有独立错误，而且不会输出 Secret 内容。
 - 各消息目标独立执行；某个目标失败不会撤销其他目标已经成功发送的消息，最终会统一汇总失败原因。
 - CI 扫描完整 Git 历史，并运行语法、单元、浏览器、视觉、构建、工作流策略与依赖审计。
 
-结构性截图校验会用全部 Bot 语言分别生成四张图片；中、英、日还分别维护 Linux 与 macOS 像素基线，像素差异超过 `0.1%` 即失败。
+结构性截图校验会用全部 Bot 语言分别生成十三张图片；中、英、日还分别维护 Linux 与 macOS 像素基线，像素差异超过 `0.1%` 即失败。
 
 ## 本地开发
 
@@ -573,6 +593,7 @@ pnpm run verify
 | `pnpm run bot:publish <selection>` | 校验并通过 S3 发布。 |
 | `pnpm run bot:notify <selection> [channel]` | 发送已配置的平台。 |
 | `pnpm run test:update-golden` | 生成当前平台的中、英、日截图基线。 |
+| `pnpm run screenshots:contact-sheet -- --locale zh-CN` | 从当前平台的 Golden 生成包含全部截图类型和名称的总览图；通过 `--help` 查看布局与输出选项。 |
 | `pnpm run verify` | 运行完整本地验证。 |
 | `pnpm run verify:actions` | 通过 OrbStack 与 `act` 验证 Linux Actions。 |
 

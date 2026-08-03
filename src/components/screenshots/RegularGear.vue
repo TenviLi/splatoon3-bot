@@ -1,5 +1,9 @@
 <template>
-  <div class="relative isolate">
+  <div
+    v-if="hasRegularGearContent(gearStore.regularGear)"
+    data-screenshot-content="gear-regular"
+    class="relative isolate"
+  >
     <div class="bg-paper absolute inset-0 -z-10"></div>
     <div class="absolute bottom-0 inset-x-0 -mb-px">
       <img src="@/assets/img/paper-tear-overlay-w.png" />
@@ -44,6 +48,7 @@ import { useGearStore } from '@/stores/gear.mjs';
 import { computed } from 'vue';
 import GearCard from '@/components/gear/GearCard.vue';
 import SquidTape from '@/components/SquidTape.vue';
+import { hasRegularGearContent } from '@/common/contentAvailability.mjs';
 
 const gearStore = useGearStore();
 const gears = computed(() => gearStore.regularGear?.slice().reverse().slice(1));

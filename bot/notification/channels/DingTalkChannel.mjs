@@ -29,9 +29,9 @@ function signedWebhookUrl(target) {
   return url
 }
 
-function fitMarkdownBlocks(blocks) {
+function fitMarkdownBlocks(blocks, actionLabel) {
   const includedBlocks = []
-  const overflowNotice = '> 更多内容请点击下方按钮查看'
+  const overflowNotice = `> … ${markdownText(actionLabel, 120)} ↗`
 
   for (const block of blocks) {
     const candidate = [...includedBlocks, block].join('\n\n')
@@ -75,7 +75,7 @@ function createMarkdown(notification) {
       .map((fact) => `- **${markdownText(fact.label, 80)}** ${markdownText(fact.value, 240)}`),
   ].filter(Boolean)
 
-  return fitMarkdownBlocks(blocks)
+  return fitMarkdownBlocks(blocks, notification.action.label)
 }
 
 export async function deliverDingTalk(notification, target, options = {}) {

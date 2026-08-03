@@ -3,26 +3,19 @@
     <div class="text-center space-y-4">
       <div><strong>Screenshots</strong></div>
 
-      <div>
-        <router-link to="/countdown">Countdown</router-link>
-      </div>
-      <div>
-        <router-link to="/schedules">Schedules</router-link>
-      </div>
-      <div>
-        <router-link to="/salmonrun">Salmon Run</router-link>
-      </div>
-      <div>
-        Gear:
-        <router-link to="/gear-regular">Regular</router-link>&nbsp;
-        <router-link to="/gear-dailydrop">Daily Drop</router-link>
-      </div>
-      <div>
-        <router-link to="/splatfest">Splatfest</router-link>
+      <div v-for="group in screenshotNavigationGroups" :key="group.label ?? 'screenshots'">
+        <template v-if="group.label">{{ group.label }}: </template>
+        <template v-for="route in group.routes" :key="route.name">
+          <router-link :to="route.path">{{ route.label }}</router-link>&nbsp;
+        </template>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { screenshotNavigationGroups } from '@/common/screenshotRoutes.mjs'
+</script>
 
 <style scoped>
 @reference "../../assets/css/base.css";

@@ -136,9 +136,9 @@ test('publishes the configured resolution as the primary notification image', as
   const lineUpload = uploads.find(({ Key }) => Key.includes('/line-images/'))
   const whatsAppUpload = uploads.find(({ Key }) => Key.includes('/whatsapp-images/'))
   const brandingUploads = uploads.filter(({ Key }) => Key.includes('/branding-icons/'))
-  assert.equal(inspections.length, 3)
-  assert.equal(brandingUploads.length, 3)
-  assert.equal(uploads.length, 7)
+  assert.equal(inspections.length, 5)
+  assert.equal(brandingUploads.length, 5)
+  assert.equal(uploads.length, 9)
   assert.ok(
     uploads.some(
       ({ Key }) => Key === `bot/production/notification-images/${sha256(notificationUpload.Body)}/schedules.png`
@@ -177,7 +177,7 @@ test('publishes the configured resolution as the primary notification image', as
   }
   assert.ok(lineUpload.Body.byteLength <= 1_000_000)
   assert.equal(manifest.assetBaseUrl, 'https://cdn.example.com/assets/bot/production')
-  assert.equal(manifest.version, 6)
+  assert.equal(manifest.version, 7)
   assert.equal(manifest.runManifestVersion, 5)
   assert.deepEqual(manifest.selection, ['schedules'])
   assert.equal(manifest.timeZone, 'Asia/Shanghai')
@@ -203,7 +203,7 @@ test('publishes the configured resolution as the primary notification image', as
   )
   assert.deepEqual(
     Object.keys(manifest.branding.icons).sort(),
-    ['gear', 'salmonRun', 'schedules']
+    ['challenges', 'gear', 'salmonRun', 'schedules', 'splatfest']
   )
   for (const [name, icon] of Object.entries(manifest.branding.icons)) {
     assert.match(
@@ -428,7 +428,7 @@ test('reuses matching content-addressed branding icons already stored in S3', as
   })
 
   const uploads = commands.filter((command) => command.constructor.name === 'PutObjectCommand')
-  assert.equal(commands.filter((command) => command.constructor.name === 'HeadObjectCommand').length, 3)
+  assert.equal(commands.filter((command) => command.constructor.name === 'HeadObjectCommand').length, 5)
   assert.equal(uploads.length, 4)
   assert.ok(uploads.every(({ input }) => !input.Key.includes('/branding-icons/')))
 })
@@ -454,12 +454,12 @@ test('uploads branding icons when least-privilege S3 credentials cannot inspect 
     },
   })
 
-  assert.equal(commands.filter((command) => command.constructor.name === 'HeadObjectCommand').length, 3)
+  assert.equal(commands.filter((command) => command.constructor.name === 'HeadObjectCommand').length, 5)
   assert.equal(
     commands.filter(
       (command) => command.constructor.name === 'PutObjectCommand' && command.input.Key.includes('/branding-icons/')
     ).length,
-    3
+    5
   )
 })
 
@@ -549,8 +549,8 @@ secretAccessKey: secret-key
     screenshotDirectory,
   })
 
-  assert.equal(requests.filter(({ method }) => method === 'HEAD').length, 3)
-  assert.equal(requests.filter(({ method }) => method === 'PUT').length, 7)
+  assert.equal(requests.filter(({ method }) => method === 'HEAD').length, 5)
+  assert.equal(requests.filter(({ method }) => method === 'PUT').length, 9)
   assert.ok(
     requests.some(({ url }) =>
       /^\/splatoon-assets\/bot\/production\/line-images\/[a-f0-9]{64}\/schedules\.png\?x-id=PutObject$/.test(
@@ -579,7 +579,7 @@ secretAccessKey: secret-key
       )
     )
   )
-  assert.equal(requests.filter(({ url }) => /\/branding-icons\//.test(url)).length, 6)
+  assert.equal(requests.filter(({ url }) => /\/branding-icons\//.test(url)).length, 10)
   for (const request of requests) {
     assert.match(request.headers.authorization, /^AWS4-HMAC-SHA256 Credential=access-key\//)
     if (request.method === 'PUT') {

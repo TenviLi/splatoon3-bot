@@ -33,11 +33,11 @@
 
 ## What It Does
 
-`splatoon3-bot` is a GitHub Actions-powered notification bot for [Splatoon 3](https://splatoon3.ink/). It fetches one consistent set of game data, renders four predictable screenshots, publishes them through an S3-compatible service, and sends a polished native message to every destination you configure.
+`splatoon3-bot` is a GitHub Actions-powered notification bot for [Splatoon 3](https://splatoon3.ink/). It fetches one consistent set of game data, renders up to thirteen predictable screenshots, publishes them through an S3-compatible service, and sends a polished native message to every destination you configure.
 
 <table>
   <tr>
-    <td width="33%" align="center"><strong>Four stable screenshots</strong><br><sub>Battle schedules, Salmon Run, Daily Drop gear, and regular gear at an exact 16:9 size.</sub></td>
+    <td width="33%" align="center"><strong>Thirteen screenshot types</strong><br><sub>Overview and focused battle schedules, Challenges, Salmon Run, gear, and four regional Splatfest views at an exact 16:9 size.</sub></td>
     <td width="33%" align="center"><strong>Bring your own S3</strong><br><sub>AWS S3, Cloudflare R2, MinIO, Upyun S3, and other SigV4-compatible services.</sub></td>
     <td width="33%" align="center"><strong>Native rich messages</strong><br><sub>Cards, Embeds, Flex Messages, Block Kit, and approved media templates—not plain-text dumps.</sub></td>
   </tr>
@@ -61,7 +61,7 @@ Nine adapters are included: **WeCom, Discord, Telegram, QQ, Feishu, DingTalk, Wh
 
 ## Preview
 
-### View all four deterministic Screenshot Artifacts
+### Four featured deterministic Screenshot Artifacts
 
 <table>
   <tr>
@@ -74,7 +74,7 @@ Nine adapters are included: **WeCom, Discord, Telegram, QQ, Feishu, DingTalk, Wh
   </tr>
 </table>
 
-These README previews use the default `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived screenshot and the primary notification image. LINE and WhatsApp receive separate `1024×576` variants so each adapter can enforce its own image budget without reducing every other Channel's quality.
+These four previews are the notification-oriented subset of a thirteen-artifact catalog. They use the default `1200×675`. `BOT_SCREENSHOT_RESOLUTION` selects one of four exact 16:9 sizes for both the archived screenshot and the primary notification image. LINE and WhatsApp receive separate `1024×576` variants so each adapter can enforce its own image budget without reducing every other Channel's quality.
 
 ## Quick Start
 
@@ -100,7 +100,7 @@ Before starting, prepare a GitHub account, one S3-compatible bucket with a publi
 
    Save it as the Repository Secret `BOT_DISCORD_CONFIG`. Follow Discord's [webhook setup guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks), or choose another platform from [Notification Channels](#notification-channels).
 4. Because the project default is `zh-CN`, create `BOT_LOCALE=en-US`. Set `BOT_TIME_ZONE` to your [IANA time zone](https://www.iana.org/time-zones); add `BOT_SCREENSHOT_RESOLUTION` or another [Repository Variable](#repository-variables) only when its built-in default is unsuitable.
-5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with all three Content Group checkboxes selected. This checks every configured value without uploading an image or sending a message.
+5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with all eight Content Group checkboxes selected. This checks every configured value without uploading an image or sending a message.
 6. Run **Notification Channel smoke test** for the configured platform. It performs one real upload and sends one real message, confirming the complete path before scheduled delivery begins.
 
 > [!IMPORTANT]
@@ -128,7 +128,7 @@ Every scheduled or manual invocation uses the same two-stage Bot Run:
 | Workflow | When it runs | What it sends |
 | --- | --- | --- |
 | `bot-schedules.yml` | Every even UTC hour except `02:00` and `10:00` | Schedules Content Group |
-| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | All three Content Groups |
+| `bot-salmon-run.yml` | `02:00` and `10:00` UTC | Schedules, Salmon Run, and Gear Content Groups |
 | `bot-manual.yml` | On demand | Any checkbox combination |
 | `configuration-check.yml` | On demand | Checks configuration only; never uploads or sends |
 | `notification-smoke.yml` | On demand | Publishes current output and sends one real platform test |
@@ -148,9 +148,16 @@ The manual, smoke-test, and configuration-check forms expose these as independen
 
 | Content Group | Screenshot Artifacts | Notifications |
 | --- | --- | --- |
-| `schedules` | `schedules.png` | Schedules |
+| `schedules` | `schedules.png`: Regular, Anarchy, X Battle, or active Splatfest modes | Schedules |
+| `schedules-regular` | `schedules-regular.png`: one focused Regular Battle card | Regular Battle |
+| `schedules-anarchy` | `schedules-anarchy.png`: focused Anarchy Series and Open cards | Anarchy Series and Open |
+| `schedules-x` | `schedules-x.png`: one focused X Battle card | X Battle |
+| `challenges` | `challenges.png`: active or next available Challenge | Challenge details and available periods |
 | `salmon-run` | `salmon-run.png` | Salmon Run |
-| `gear` | Both gear images | Both gear notifications |
+| `gear` | `gear-dailydrop.png`, `gear-regular.png`, and `gear-salmon-run.png` | Daily Drop, regular shop, and monthly Salmon Run gear |
+| `splatfest` | `splatfest-na.png`, `splatfest-eu.png`, `splatfest-jp.png`, and `splatfest-ap.png` | One regional Splatfest notification per image |
+
+The expanded catalog follows the upstream [screenshot routes](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js). Every selected image is archived, published to S3, and paired with a purpose-built notification; platform adapters then render that shared content as native cards, embeds, photos, or message templates.
 
 </details>
 
@@ -213,7 +220,7 @@ Resolution presets retain the same CSS layout and use the corresponding device s
 
 The default matches the README previews and keeps Actions time, S3 storage, and message loading modest. Increase it only when recipients need higher-resolution primary images or archives. The selected dimensions are preserved end to end for the Screenshot Artifact, `notification-images/` object, and primary message image. LINE receives a dedicated `1024×576` image capped at `1 MB`; that is the largest uncropped 16:9 rectangle inside LINE's `1024×1024` Flex-image limit. WhatsApp receives its own `1024×576` image under its `5 MB` media limit. Both action buttons still open the selected-resolution primary image.
 
-Built-in schedules, Salmon Run, and gear icons are rendered from repository assets and published under content-addressed `branding-icons/` keys. No external icon provisioning is required.
+Built-in schedules, Challenges, Salmon Run, gear, and Splatfest icons are rendered from repository assets and published under content-addressed `branding-icons/` keys. No external icon provisioning is required.
 
 ### `S3_CONFIG`
 
@@ -288,7 +295,7 @@ The optional `keyPrefix` comes before each path below:
 | `line-images/<sha256>/` | LINE-specific `1024×576` PNG, adaptively palette-compressed only when needed | Embedded by LINE. It stays uncropped, below the `1024×1024` hard limit, and at or below LINE's recommended `1 MB` target. |
 | `whatsapp-images/<sha256>/` | WhatsApp-specific `1024×576` PNG | Used as the approved media-template header and kept below WhatsApp's `5 MB` image limit. |
 | `originals/<sha256>/` | Unmodified Screenshot Artifact bytes at the selected resolution | High-resolution archives and Publication Manifest verification. These may use a shorter lifecycle when raw artifact history is unnecessary. |
-| `branding-icons/<sha256>/` | Small built-in schedules, Salmon Run, and gear icons | Native message-card headers and avatars. They are uploaded automatically and safely reused. |
+| `branding-icons/<sha256>/` | Small built-in schedules, Challenges, Salmon Run, gear, and Splatfest icons | Native message-card headers and avatars. They are uploaded automatically and safely reused. |
 
 > [!NOTE]
 > `<sha256>` is a digest of the file contents. An unchanged artifact reuses the same object URL; changed content receives a new URL. This prevents an image in an old notification from silently changing when a later Bot Run publishes new output.
@@ -302,7 +309,15 @@ See the [complete S3 operator guide](./docs/operator-setup-links.md#s3-compatibl
 
 Add one Repository Secret for each platform you want to use. A present, non-empty Secret enables that adapter; an absent Secret leaves it disabled.
 
-Each platform Secret is a YAML list, so one platform can deliver to multiple rooms, users, groups, or webhooks. Every list item is one destination and needs a unique `name`. Add `notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]` only when that destination should receive a subset. Destinations run independently and in parallel, while messages for one destination keep their expected order.
+Each platform Secret is a YAML list, so one platform can deliver to multiple rooms, users, groups, or webhooks. Every list item is one destination and needs a unique `name`. Add a `notifications` list only when that destination should receive a subset; omit it to receive every Notification selected by the active run. Destinations run independently and in parallel, while messages for one destination keep their expected order.
+
+| Content | Notification IDs accepted by `notifications` |
+| --- | --- |
+| Battle schedules | `schedules`, `schedules-regular`, `schedules-anarchy`, `schedules-x` |
+| Challenges | `challenges` |
+| Salmon Run | `salmon-run` |
+| Gear | `gear-dailydrop`, `gear-regular`, `gear-salmon-run` |
+| Regional Splatfests | `splatfest-na`, `splatfest-eu`, `splatfest-jp`, `splatfest-ap` |
 
 | Platform | Native presentation | Repository Secret | Official setup |
 | --- | --- | --- | --- |
@@ -337,14 +352,23 @@ Open a platform below for a copy-ready Secret value. Replace every placeholder b
 <details>
 <summary><strong>WeCom · BOT_WECOM_CONFIG</strong> — Template Card and per-topic routing</summary>
 
-One Secret can route schedules, Salmon Run, and gear to different group robots:
+One Secret can route battle, Challenge, Splatfest, Salmon Run, and gear updates to different group robots:
 
 ```yaml
 - name: battle-schedules
-  notifications: [schedules]
+  notifications:
+    - schedules
+    - schedules-regular
+    - schedules-anarchy
+    - schedules-x
+    - challenges
+    - splatfest-na
+    - splatfest-eu
+    - splatfest-jp
+    - splatfest-ap
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_SCHEDULES_KEY
 - name: daily-updates
-  notifications: [salmon-run, gear-dailydrop, gear-regular]
+  notifications: [salmon-run, gear-dailydrop, gear-regular, gear-salmon-run]
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_UPDATES_KEY
 ```
 
@@ -543,12 +567,12 @@ For operators evaluating whether the bot is safe to run unattended:
 - Data downloads use retries and timeouts, pass schema validation, and replace the previous snapshot only after the complete new snapshot is valid.
 - Screenshot capture waits for the app, fonts, and local images, then checks language, attribution, dimensions, footer position, and overflow.
 - Run Manifest v5 records the selected Content Groups and exactly what was rendered: locale, resolution, time zone, data identity, filenames, dimensions, and SHA-256 hashes.
-- Publication Manifest v6 records the same Run Selection and exactly what was uploaded: primary images, platform-specific LINE and WhatsApp variants, originals, built-in icons, and public URLs.
+- Publication Manifest v7 records the same Run Selection and exactly what was uploaded: primary images, platform-specific LINE and WhatsApp variants, originals, built-in icons, and public URLs.
 - Configuration preflight reports all independent errors before the first upload and never prints Secret values.
 - Destinations run independently; successful deliveries remain successful even when another destination fails, and failures are summarized at the end.
 - CI scans the complete Git history with a digest-pinned Gitleaks image, then runs syntax, unit, browser, visual, build, workflow-policy, and dependency-audit checks.
 
-Structural screenshot validation renders all four artifacts in every supported Bot locale. English, Simplified Chinese, and Japanese also keep macOS and Linux pixel goldens; fixture network access is local-only, and pixel differences above `0.1%` fail validation.
+Structural screenshot validation renders all thirteen artifacts in every supported Bot locale. English, Simplified Chinese, and Japanese also keep macOS and Linux pixel goldens; fixture network access is local-only, and pixel differences above `0.1%` fail validation.
 
 ## Local Development
 
@@ -573,6 +597,7 @@ pnpm run verify
 | `pnpm run bot:publish <selection>` | Verify and publish through S3. |
 | `pnpm run bot:notify <selection> [channel]` | Deliver configured Channels. |
 | `pnpm run test:update-golden` | Regenerate all three screenshot locales for the current platform. |
+| `pnpm run screenshots:contact-sheet -- --locale zh-CN` | Build a labeled overview of every Screenshot Artifact from the current platform's goldens; use `--help` for layout and output options. |
 | `pnpm run verify` | Run the complete focused local verification suite. |
 | `pnpm run verify:actions` | Run Gitleaks and Linux Actions locally through OrbStack and `act`. |
 

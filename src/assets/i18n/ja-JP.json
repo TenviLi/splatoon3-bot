@@ -1,14 +1,14 @@
 {
   "times": {
-    "now": "開催中！",
-    "next": "次回",
-    "future": "その次",
-    "checkback": "しばらくしてから確認してください！"
+    "now": "オープン！",
+    "next": "つぎ",
+    "future": "そのつぎ",
+    "checkback": "近いうちにまたチェックしよう！"
   },
   "time": {
     "in": "{time}後",
     "remaining": "残り{time}",
-    "until": "{time}まで",
+    "until": "{time} まで",
     "left": "残り{time}",
     "d": "{n}日 | {n}日",
     "h": "{n}時間 | {n}時間",
@@ -32,7 +32,7 @@
       "xmatch": "Xマッチ",
       "league": "リーグマッチ"
     },
-    "all-upcoming": "今後のステージ"
+    "all-upcoming": "今後の全ステージ"
   },
   "salmonrun": {
     "title": "サーモンラン",
@@ -65,9 +65,9 @@
   },
   "gear": {
     "title": "ギア",
-    "sale": "販売中のギア",
-    "dailydrop": "今日のピックアップ",
-    "order": "注文"
+    "sale": "ただいま販売中のギア",
+    "dailydrop": "本日のピックアップ",
+    "order": "注文する"
   },
   "about": {
     "title": "このサイトについて!",

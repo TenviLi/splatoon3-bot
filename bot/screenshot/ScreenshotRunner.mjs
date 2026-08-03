@@ -34,14 +34,15 @@ async function writeFileAtomically(filename, buffer) {
   await fs.rename(temporaryFilename, filename)
 }
 
-async function inspectRenderState(page) {
-  return page.evaluate(() => {
+async function inspectRenderState(page, requiredContentSelector) {
+  return page.evaluate((selector) => {
     const root = document.querySelector('[data-screenshot-root]')
     const footer = document.querySelector('[data-screenshot-footer]')
     const attribution = document.querySelector('[data-screenshot-attribution]')
     const rootRect = root?.getBoundingClientRect()
     const footerRect = footer?.getBoundingClientRect()
     const footerText = footer?.textContent?.trim() || ''
+    const rootStyle = getComputedStyle(document.documentElement)
     const images = [...document.images]
     const fittedTextElements = [...document.querySelectorAll('[data-screenshot-fit]')]
     const externalImageUrls = images
@@ -55,6 +56,9 @@ async function inspectRenderState(page) {
 
     if (document.documentElement.dataset.screenshotReady !== 'true') {
       issues.push('document is not marked ready')
+    }
+    if (selector && !document.querySelector(selector)) {
+      issues.push(`required content is unavailable: ${selector}`)
     }
     if (document.fonts.status !== 'loaded') {
       issues.push(`fonts are ${document.fonts.status}`)
@@ -109,11 +113,46 @@ async function inspectRenderState(page) {
         : null,
       footerText,
       attribution: attribution?.textContent?.trim() || '',
+      fontFamilies: {
+        s1: rootStyle.getPropertyValue('--font-family-s1').trim(),
+        s2: rootStyle.getPropertyValue('--font-family-s2').trim(),
+      },
       imageCount: images.length,
       fittedTextCount: fittedTextElements.length,
       externalImageUrls,
     }
-  })
+  }, requiredContentSelector)
+}
+
+async function inspectReadinessState(page) {
+  return page.evaluate(() => ({
+    marker: document.documentElement.dataset.screenshotReady || 'missing',
+    fontStatus: document.fonts.status,
+    incompleteImages: [...document.images]
+      .filter((image) => !image.complete || image.naturalWidth === 0)
+      .map((image) => image.currentSrc || image.src || '(missing source)'),
+  }))
+}
+
+export function createScreenshotReadinessTimeoutError({
+  screenshotName,
+  timeoutMs,
+  pageErrors = [],
+  failedRequests = [],
+  readinessState,
+  cause,
+}) {
+  const diagnostics = [
+    ...pageErrors,
+    ...failedRequests,
+    `ready marker is ${readinessState.marker}`,
+    `fonts are ${readinessState.fontStatus}`,
+    ...readinessState.incompleteImages.map((source) => `image is incomplete: ${source}`),
+  ]
+  return new Error(
+    `Screenshot ${screenshotName} did not become ready within ${timeoutMs}ms:\n- ${diagnostics.join('\n- ')}`,
+    { cause }
+  )
 }
 
 export async function renderScreenshotArtifacts(
@@ -165,12 +204,24 @@ export async function renderScreenshotArtifacts(
         })}`
 
         await page.goto(url, { waitUntil: 'domcontentloaded' })
-        await page.waitForFunction(
-          () => document.documentElement.dataset.screenshotReady === 'true',
-          { timeout: readyTimeoutMs }
-        )
+        try {
+          await page.waitForFunction(
+            () => document.documentElement.dataset.screenshotReady === 'true',
+            { timeout: readyTimeoutMs }
+          )
+        } catch (error) {
+          const readinessState = await inspectReadinessState(page)
+          throw createScreenshotReadinessTimeoutError({
+            screenshotName: definition.name,
+            timeoutMs: readyTimeoutMs,
+            pageErrors,
+            failedRequests,
+            readinessState,
+            cause: error,
+          })
+        }
 
-        const renderState = await inspectRenderState(page)
+        const renderState = await inspectRenderState(page, definition.requiredContentSelector)
         const diagnostics = [...pageErrors, ...failedRequests, ...renderState.issues]
         if (renderState.attribution !== screenshotAttribution) {
           diagnostics.push(

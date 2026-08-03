@@ -32,6 +32,10 @@ pnpm run verify
 
 Run `pnpm run verify:actions` when changing GitHub Actions, Linux browser behavior, secret scanning, or the local Actions verifier. Review every changed screenshot or notification golden deliberately; do not regenerate goldens merely to hide a regression.
 
+Use `pnpm run screenshots:contact-sheet -- --help` to build a labeled overview when reviewing a large screenshot-golden change.
+
+When synchronizing Vue behavior from `splatoon3.ink`, follow [docs/upstream-compatibility.md](./docs/upstream-compatibility.md) and preserve the documented project-owned divergences.
+
 ## Pull Requests
 
 - Explain the user-visible behavior and why the chosen design fits the existing module boundaries.

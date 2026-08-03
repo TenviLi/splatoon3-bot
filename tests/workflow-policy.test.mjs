@@ -4,7 +4,11 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { prepareNotificationChannelConfiguration } from '../bot/notification/NotificationConfiguration.mjs'
 import { listChannelAdapters } from '../bot/notification/channels/index.mjs'
-import { listRunContentGroups, resolveRunPlan } from '../bot/run/RunPlan.mjs'
+import {
+  listRunContentGroups,
+  listScreenshotDefinitions,
+  resolveRunPlan,
+} from '../bot/run/RunPlan.mjs'
 import { supportedBotLocales } from '../src/common/botLocale.mjs'
 
 const workflowDirectory = path.join(process.cwd(), '.github', 'workflows')
@@ -170,7 +174,8 @@ test('README provides direct screenshots and three operator-first languages', as
   const screenshotNames = ['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular']
 
   const preview = english.slice(english.indexOf('## Preview'), english.indexOf('## Quick Start'))
-  assert.match(preview, /View all four deterministic Screenshot Artifacts/)
+  assert.match(preview, /Four featured deterministic Screenshot Artifacts/)
+  assert.match(preview, /thirteen-artifact catalog/)
   assert.doesNotMatch(preview, /<details>|@锂碘|wxwork-icon|WeCom icon/)
 
   for (const [filename, source, suffix, primaryChannelSecret] of [
@@ -248,6 +253,11 @@ test('README provides direct screenshots and three operator-first languages', as
   for (const { name } of listRunContentGroups()) {
     for (const [filename, source] of operatorReadmes) {
       assert.ok(source.includes(`| \`${name}\` |`), `${filename}: missing Run Content Group ${name}`)
+    }
+  }
+  for (const { outputFilename } of listScreenshotDefinitions()) {
+    for (const [filename, source] of operatorReadmes) {
+      assert.ok(source.includes(`\`${outputFilename}\``), `${filename}: missing ${outputFilename}`)
     }
   }
   for (const variableName of repositoryVariables) {
@@ -435,12 +445,22 @@ test('README provides direct screenshots and three operator-first languages', as
   for (const documentationUrl of s3ProviderDocumentationUrls) {
     assert.ok(operatorGuide.includes(documentationUrl), `operator guide: missing S3 provider ${documentationUrl}`)
   }
+  const notificationIdGuide = operatorGuide.slice(
+    operatorGuide.indexOf('Channel Secrets are strict YAML sequences.'),
+    operatorGuide.indexOf('## S3-compatible publication')
+  )
+  for (const { name } of listScreenshotDefinitions()) {
+    assert.ok(
+      notificationIdGuide.includes(`\`${name}\``),
+      `operator guide: missing Notification ID ${name}`
+    )
+  }
   assert.match(english, /Every Repository Variable is optional/)
   assert.match(simplifiedChinese, /Repository Variable.*全部可选/)
   assert.match(japanese, /Repository Variable.*すべて任意/)
-  assert.match(english, /previews use the default `1200×675`/)
-  assert.match(simplifiedChinese, /预览图使用默认分辨率 `1200×675`/)
-  assert.match(japanese, /プレビュー画像は既定解像度の `1200×675`/)
+  assert.match(english, /They use the default `1200×675`/)
+  assert.match(simplifiedChinese, /使用默认分辨率 `1200×675`/)
+  assert.match(japanese, /既定解像度は `1200×675`/)
   assert.doesNotMatch(english, /English quick start uses/)
   assert.doesNotMatch(simplifiedChinese, /中文快速开始|默认使用企业微信/)
   assert.doesNotMatch(japanese, /日本語版のクイックスタート/)
@@ -540,13 +560,22 @@ test('notification adapters share the publication stage and are enabled by confi
     /Restore Bot Run for local Actions verification\n\s+if: \$\{\{ env\.ACT == 'true' \}\}/
   )
   assert.equal(reusableWorkflow.match(/ACT_BOT_RUN_DIRECTORY/g)?.length, 5)
+  assert.match(reusableWorkflow, /ACT_FIXTURE_RENDER_TIME/)
 
   const localActionsVerifier = await fs.readFile(
     path.join(process.cwd(), 'scripts', 'verify_actions.mjs'),
     'utf8'
   )
   assert.match(localActionsVerifier, /notification-smoke\.yml/)
-  assert.match(localActionsVerifier, /Expected fifteen S3 uploads, three branding inspections, and three WeCom deliveries/)
+  assert.match(localActionsVerifier, /expectedUploadCount/)
+  assert.match(localActionsVerifier, /schedules-regular\.png/)
+  assert.match(localActionsVerifier, /challenges\.png/)
+  assert.match(localActionsVerifier, /salmon-run\.png/)
+  assert.match(localActionsVerifier, /gear-salmon-run\.png/)
+  assert.match(localActionsVerifier, /splatfest-na\.png/)
+  assert.match(localActionsVerifier, /splatfest-eu\.png/)
+  assert.match(localActionsVerifier, /splatfest-jp\.png/)
+  assert.match(localActionsVerifier, /splatfest-ap\.png/)
   assert.match(localActionsVerifier, /primary notification image instead of BOT_SCREENSHOT_RESOLUTION 1200x675/)
   assert.match(localActionsVerifier, /LINE image instead of 1024x576/)
   assert.match(localActionsVerifier, /LINE image above 1 MB/)
@@ -643,6 +672,7 @@ test('daily twice workflow delivers every Notification', async () => {
     'salmon-run',
     'gear-dailydrop',
     'gear-regular',
+    'gear-salmon-run',
   ])
 
   const dailyHours = scheduledUtcHours(dailyWorkflow)

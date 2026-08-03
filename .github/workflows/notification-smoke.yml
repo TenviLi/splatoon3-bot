@@ -4,15 +4,35 @@ on:
   workflow_dispatch:
     inputs:
       schedules:
-        description: Include Schedules
+        description: Include battle overview (Regular/Anarchy/X or Splatfest)
         type: boolean
         default: true
+      schedules_regular:
+        description: Include the single Regular Battle card
+        type: boolean
+        default: false
+      schedules_anarchy:
+        description: Include the Anarchy Series and Open cards
+        type: boolean
+        default: false
+      schedules_x:
+        description: Include the single X Battle card
+        type: boolean
+        default: false
+      challenges:
+        description: Include Challenges
+        type: boolean
+        default: false
       salmon_run:
         description: Include Salmon Run
         type: boolean
         default: false
       gear:
-        description: Include Gear (Daily Drop + Regular)
+        description: Include Gear (Daily Drop + Regular + Salmon Run)
+        type: boolean
+        default: false
+      splatfest:
+        description: Include Splatfest views and notifications for all regions
         type: boolean
         default: false
       channel:
@@ -39,8 +59,13 @@ jobs:
     uses: ./.github/workflows/bot-reusable.yml
     with:
       schedules: ${{ inputs.schedules }}
+      schedules_regular: ${{ inputs.schedules_regular }}
+      schedules_anarchy: ${{ inputs.schedules_anarchy }}
+      schedules_x: ${{ inputs.schedules_x }}
+      challenges: ${{ inputs.challenges }}
       salmon_run: ${{ inputs.salmon_run }}
       gear: ${{ inputs.gear }}
+      splatfest: ${{ inputs.splatfest }}
       notification_channel: ${{ inputs.channel }}
     secrets:
       S3_CONFIG: ${{ secrets.S3_CONFIG }}

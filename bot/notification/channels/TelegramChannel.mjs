@@ -18,15 +18,18 @@ function htmlText(value, maximumLength) {
 
 function sectionBlock(section) {
   const details = [
-    section.text ? htmlText(section.text, 300) : null,
-    ...section.listItems.slice(0, 8).map((item) => `• ${htmlText(item, 120)}`),
-  ].filter(Boolean)
-  return [`<b>${htmlText(section.title, 120)}</b>`, ...details].join('\n')
+    section.text,
+    ...section.listItems.slice(0, 8).map((item) => `• ${item}`),
+  ].filter(Boolean).join('\n')
+  return [
+    `<b>${htmlText(section.title, 120)}</b>`,
+    details ? htmlText(details, 320) : null,
+  ].filter(Boolean).join('\n')
 }
 
-function fitCaptionBlocks(blocks) {
+function fitCaptionBlocks(blocks, actionLabel) {
   const includedBlocks = []
-  const overflowNotice = '<i>更多内容请点击下方按钮查看</i>'
+  const overflowNotice = `<i>… ${htmlText(actionLabel, 120)} ↗</i>`
 
   for (const block of blocks) {
     const candidate = [...includedBlocks, block].join('\n\n')
@@ -49,14 +52,14 @@ function createCaption(notification) {
   const blocks = [
     `<b>${htmlText(notification.title, 180)}</b>`,
     notification.subtitle ? `<blockquote>${htmlText(notification.subtitle, 240)}</blockquote>` : null,
-    `<i>🦑 ${htmlText(notification.source.name, 160)}</i>`,
+    ...notification.sections.map(sectionBlock),
     ...notification.facts.map(
       (fact) => `• <b>${htmlText(fact.label, 80)}</b>\n${htmlText(fact.value, 240)}`
     ),
-    ...notification.sections.map(sectionBlock),
+    `<i>🦑 ${htmlText(notification.source.name, 160)}</i>`,
   ].filter(Boolean)
 
-  return fitCaptionBlocks(blocks)
+  return fitCaptionBlocks(blocks, notification.action.label)
 }
 
 export async function deliverTelegram(notification, target, options = {}) {

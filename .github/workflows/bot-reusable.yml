@@ -4,7 +4,27 @@ on:
   workflow_call:
     inputs:
       schedules:
-        description: Include Schedules
+        description: Include battle overview (Regular/Anarchy/X or Splatfest)
+        required: false
+        default: false
+        type: boolean
+      schedules_regular:
+        description: Include the single Regular Battle card
+        required: false
+        default: false
+        type: boolean
+      schedules_anarchy:
+        description: Include the Anarchy Series and Open cards
+        required: false
+        default: false
+        type: boolean
+      schedules_x:
+        description: Include the single X Battle card
+        required: false
+        default: false
+        type: boolean
+      challenges:
+        description: Include Challenges
         required: false
         default: false
         type: boolean
@@ -14,7 +34,12 @@ on:
         default: false
         type: boolean
       gear:
-        description: Include Gear (Daily Drop + Regular)
+        description: Include Gear (Daily Drop + Regular + Salmon Run)
+        required: false
+        default: false
+        type: boolean
+      splatfest:
+        description: Include Splatfest views and notifications for all regions
         required: false
         default: false
         type: boolean
@@ -68,7 +93,7 @@ jobs:
       TZ: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
     steps:
       - name: Require at least one Content Group
-        if: ${{ !inputs.schedules && !inputs.salmon_run && !inputs.gear }}
+        if: ${{ !inputs.schedules && !inputs.schedules_regular && !inputs.schedules_anarchy && !inputs.schedules_x && !inputs.challenges && !inputs.salmon_run && !inputs.gear && !inputs.splatfest }}
         run: |
           echo "Select at least one Run Content Group" >&2
           exit 1
@@ -101,8 +126,13 @@ jobs:
         id: plan
         env:
           RUN_SCHEDULES: ${{ inputs.schedules }}
+          RUN_SCHEDULES_REGULAR: ${{ inputs.schedules_regular }}
+          RUN_SCHEDULES_ANARCHY: ${{ inputs.schedules_anarchy }}
+          RUN_SCHEDULES_X: ${{ inputs.schedules_x }}
+          RUN_CHALLENGES: ${{ inputs.challenges }}
           RUN_SALMON_RUN: ${{ inputs.salmon_run }}
           RUN_GEAR: ${{ inputs.gear }}
+          RUN_SPLATFEST: ${{ inputs.splatfest }}
         run: node bot/run/describe.mjs
 
       - name: Stage fixture Data Snapshot for local Actions verification
@@ -110,6 +140,20 @@ jobs:
         run: |
           rm -rf data
           cp -R tests/fixtures/data data
+          if [ -n "${ACT_FIXTURE_RENDER_TIME:-}" ]; then
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises'
+
+          const filename = 'data/.snapshot.json'
+          const renderTime = new Date(process.env.ACT_FIXTURE_RENDER_TIME)
+          if (!Number.isFinite(renderTime.getTime())) {
+            throw new Error(`Invalid ACT_FIXTURE_RENDER_TIME: ${process.env.ACT_FIXTURE_RENDER_TIME}`)
+          }
+          const manifest = JSON.parse(await fs.readFile(filename, 'utf8'))
+          manifest.createdAt = renderTime.toISOString()
+          await fs.writeFile(filename, `${JSON.stringify(manifest, null, 2)}\n`)
+          NODE
+          fi
 
       - name: Prepare Data Snapshot and screenshot artifacts
         env:

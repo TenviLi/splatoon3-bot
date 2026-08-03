@@ -97,12 +97,20 @@ test('ships complete screenshot and notification messages for every Bot locale',
     'notification.schedules.source',
     'notification.schedules.title',
     'notification.schedules.action',
+    'notification.schedules.focusedAction',
+    'notification.challenges.action',
+    'notification.challenges.details',
     'notification.salmonRun.source',
     'notification.salmonRun.randomWeapons',
     'notification.salmonRun.action',
     'notification.dailyDropGear.action',
+    'notification.dailyDropGear.title',
     'notification.regularGear.title',
     'notification.regularGear.action',
+    'notification.salmonRunGear.title',
+    'notification.salmonRunGear.hint',
+    'notification.salmonRunGear.action',
+    'notification.splatfest.regionalAction',
   ]
 
   for (const locale of supportedBotLocales) {
@@ -206,7 +214,7 @@ test('treats unmatched Channel routing as an intentional per-selection skip', ()
 
   assert.equal(report.valid, true)
   assert.equal(report.checks.at(-1).status, 'skipped')
-  assert.match(formatBotPreflightReport(report), /none selected by Schedules/)
+  assert.match(formatBotPreflightReport(report), /none selected by Battle Schedules/)
 
   const selectedChannelReport = inspectBotConfiguration({
     selection: 'schedules',

@@ -6,6 +6,8 @@ import {
   defineBotLocaleMap,
   normalizeBotLocale,
 } from './botLocale.mjs'
+import { getLocaleFontFamilies } from './fontFamilies.mjs'
+import { pluralRules } from './pluralRules.mjs'
 
 export const locales = botLocaleDefinitions
 export const defaultLocale = locales.find((locale) => locale.code === defaultBotLocale)
@@ -71,6 +73,7 @@ export function initializeI18n() {
           ...(fallbackMessages ? { [fallbackLocale]: fallbackMessages } : {}),
         },
         datetimeFormats: Object.fromEntries(locales.map(({ code }) => [code, datetimeFormats])),
+        pluralRules,
       })
       applyLocale(locale)
       return i18n
@@ -95,17 +98,7 @@ export async function setPreferredLocale(value) {
 function applyLocale(locale) {
   i18n.global.locale.value = locale
   document.documentElement.lang = locale
-
-  switch (locale) {
-    case 'zh-CN':
-    case 'zh-TW':
-      document.documentElement.style.setProperty('--font-family-s1', 'splatoon1, splatoon1chzh, sans-serif')
-      document.documentElement.style.setProperty('--font-family-s2', 'splatoon2, splatoon2chzh, sans-serif')
-      break
-
-    default:
-      document.documentElement.style.setProperty('--font-family-s1', 'splatoon1, splatoon1jpja, sans-serif')
-      document.documentElement.style.setProperty('--font-family-s2', 'splatoon2, splatoon2jpja, sans-serif')
-      break
-  }
+  const fontFamilies = getLocaleFontFamilies(locale)
+  document.documentElement.style.setProperty('--font-family-s1', fontFamilies.s1)
+  document.documentElement.style.setProperty('--font-family-s2', fontFamilies.s2)
 }

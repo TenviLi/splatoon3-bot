@@ -20,6 +20,20 @@ This note compares platform-native rich-message options for the notification ada
 
 Across adapters, preserve the common `Notification` model but add adapter-owned layout and length budgets. A single universal text renderer would discard the strongest native features of each platform.
 
+## Content-Specific Composition
+
+Platform-native layout starts from a content-aware Notification rather than a generic title-and-image envelope:
+
+| Content | Notification hierarchy |
+| --- | --- |
+| Battle schedules | Time window, mode, rule, and the two stages; focused Regular, Anarchy, and X Battle notifications keep distinct titles, actions, and accent colors. |
+| Challenges | Event title and status, rule and stages, localized event summary, then every remaining play window. |
+| Salmon Run | Shift window and stage, supplied weapons or a Mystery rotation callout, King Salmonid, and a Big Run-specific identity and accent. |
+| SplatNet gear | Localized featured brand or item, sale deadline where applicable, gear category, primary ability, and a purpose-specific action. |
+| Regional Splatfests | Region and status, localized theme and dates, teams, winner/result highlights when available, and the leading team's native color as the accent. |
+
+Adapters then map that hierarchy to native primitives: WeCom Template Card lists, Discord embed fields, Telegram caption blocks, Feishu Card 2.0 columns, DingTalk ActionCard Markdown, QQ Markdown, LINE Flex rows, WhatsApp template parameters, and Slack Block Kit fields. Content ordering remains consistent—sections before compact facts—while each adapter owns its limits, escaping, image rules, and callback-free action treatment.
+
 ## WeCom Group Robots
 
 ### Official capabilities
@@ -35,7 +49,7 @@ Keep one `news_notice` Template Card per notification:
 - Use the project-owned content-addressed icon as the source identity; operators should not need to provision separate branding URLs.
 - Keep the optimized screenshot as `card_image` and the same public URL as the whole-card action.
 - Use `vertical_content_list` for substantial sections and `horizontal_content_list` for compact facts, preserving the most important items when platform budgets require truncation.
-- Keep routing in the Secret's optional `notifications` array so schedules, Salmon Run, and gear can target different group robots without legacy one-variable-per-webhook configuration.
+- Keep routing in the Secret's optional `notifications` array so any of the thirteen content-specific Notification IDs can target different group robots without legacy one-variable-per-webhook configuration.
 - Treat any non-zero `errcode` as a platform rejection even when the HTTP request succeeds.
 
 Safe payload shape:
@@ -69,7 +83,7 @@ Safe payload shape:
 Keep one embed per Splatoon notification:
 
 - Use `author` for the source identity and `thumbnail` for its icon.
-- Keep the large schedule screenshot in `image`.
+- Keep the large content screenshot in `image`.
 - Keep the title URL as the zero-callback primary action; use footer for a short source/status label rather than repeating the action text.
 - Render sections as full-width fields and facts as inline fields, but group facts in rows of two or three so mobile rendering remains readable.
 - Budget the whole embed against the 6000-character aggregate limit, not only each individual field.
@@ -268,7 +282,6 @@ Recommended `BOT_WHATSAPP_CONFIG` Secret schema:
 
 ```yaml
 - name: personal-updates
-  notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]
   accessToken: EAA...
   phoneNumberId: "123456789012345"
   recipientPhoneNumber: "8613800000000"
@@ -361,7 +374,6 @@ Recommended `BOT_LINE_CONFIG` Secret schema:
 
 ```yaml
 - name: personal-chat
-  notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]
   channelAccessToken: "..."
   targetType: user
   targetId: U0123456789abcdef0123456789abcdef
@@ -430,7 +442,6 @@ Recommended `BOT_SLACK_CONFIG` Secret schema:
 
 ```yaml
 - name: team-channel
-  notifications: [schedules, salmon-run, gear-dailydrop, gear-regular]
   webhookUrl: https://hooks.slack.com/services/T.../B.../...
 ```
 

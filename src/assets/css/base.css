@@ -11,10 +11,15 @@
   --color-splatoon-brown: #7f413f;
   --color-splatoon-battle-regular: #19d719;
   --color-splatoon-battle-ranked: #f54910;
+  --color-splatoon-battle-xmatch: #0fdb9b;
   --color-splatoon-battle-league: #f02d7d;
   --color-splatoon-salmon-run: #ff5600;
+  --color-splatoon-salmonRun: #ff5600;
+  --color-splatoon-bigRun: #b322ff;
+  --color-splatoon-eggstraWork: #be8800;
   --font-splatoon1: var(--font-family-s1);
   --font-splatoon2: var(--font-family-s2);
+  --drop-shadow-ruleIcon: 1px 1px 0 rgb(0, 0, 0);
 }
 
 @custom-variant mobile (&:where(body.is-mobile *));
