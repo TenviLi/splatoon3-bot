@@ -49,13 +49,91 @@
 
 **WeCom、Discord、Telegram、QQ、Feishu、DingTalk、WhatsApp、LINE、Slack** の 9 アダプターを搭載しています。各サービス向けレイアウトの設計根拠は [通知プラットフォーム能力監査](./docs/notification-platform-capabilities.md) を参照してください。
 
-### 目的別ガイド
+## クイックスタート
 
-| 目的 | 最初に読む場所 |
+次の 7 ステップを順番に進めてください。Step 1–4 でインストールを作成・設定し、Step 5 ではアップロードも送信もせずに構成を確認します。Step 6 で実際のエンドツーエンドテストを 1 回行い、Step 7 で運用を GitHub Actions に引き継ぎます。
+
+### 始める前に用意するもの
+
+| 必要なもの | 用途 | 管理する場所 |
+| --- | --- | --- |
+| GitHub アカウント | 自分専用のインストールを作成して Bot を実行する | GitHub |
+| Public HTTPS URL で読み取れる S3 互換 Bucket | 通知サービスが表示する画像を保存する | 利用する Object Storage サービス |
+| 対応する通知先 1 つ以上の認証情報 | Bot の通知を受け取る | LINE、Discord、Telegram、Slack などの対応サービス |
+
+実行環境は GitHub Actions が提供します。**Node.js、pnpm、Chrome、Docker、常駐サーバーを自分で用意する必要はありません。**
+
+### Step 1 — Private インストールを作成する
+
+<kbd>Use this template</kbd> → <kbd>Create a new repository</kbd> を選択し、Owner と Repository 名を指定して、Visibility を **Private** にしてから作成します。GitHub はプロジェクト全体をコピーしますが、インストール先を Fork として関連付けません。
+
+<p align="center">
+  <a href="https://github.com/TenviLi/splatoon3-bot/generate"><strong>Use this template →</strong></a>
+</p>
+
+この Repository がデプロイと信頼の境界になります。スケジュール、認証情報、設定、配信先はここで管理し、公開ソース Repository には利用者の認証情報を保存しません。
+
+**完了条件：** 自分のアカウントで新しい Private repository が開いていること。
+
+### Step 2 — 画像ストレージを設定する
+
+新しい Repository で <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd> を開き、[コピーして設定できる例とサービス別ガイド](#s3_config)から Repository Secret `S3_CONFIG` を作成します。`publicBaseUrl` は通知サービスが生成画像を Public HTTPS で読み取れる URL にし、書き込み認証情報は Secret 内だけに保存します。
+
+**完了条件：** Repository Secrets の一覧に `S3_CONFIG` が表示されること。
+
+### Step 3 — 通知先を 1 つ設定する
+
+通知サービス用の Secret を 1 つ以上作成します。たとえば LINE Messaging API を利用する場合は、次の YAML を Repository Secret `BOT_LINE_CONFIG` として保存します。
+
+```yaml
+- name: personal-line
+  channelAccessToken: "..."
+  targetType: user
+  targetId: U0123456789abcdef0123456789abcdef
+  notificationDisabled: false
+```
+
+LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選択してください。最初の通知先が動作してから、サービスや宛先を追加できます。
+
+**完了条件：** Repository Secrets に `BOT_*_CONFIG` が 1 つ以上表示されること。
+
+### Step 4 — 表示設定を必要に応じて変更する
+
+隣の <kbd>Variables</kbd> タブを開き、`BOT_LOCALE=ja-JP` と `BOT_TIME_ZONE=Asia/Tokyo` を作成します。`BOT_SCREENSHOT_RESOLUTION` など、その他の [Repository Variables](#repository-variables) は既定値を変更するときだけ追加してください。
+
+**完了条件：** Variables の言語とタイムゾーンが目的に合っていること。認証情報はここに保存しないでください。
+
+### Step 5 — アップロードも送信もせずに構成を確認する
+
+<kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化します。**Check Bot Configuration** を選び、13 個すべての [Screenshot ID](#生成する画像を選ぶ) を選択したまま <kbd>Run workflow</kbd> を実行してください。画像ストレージ、設定済みのすべてのサービス、通知ルーティングを検証しますが、画像のアップロードやメッセージ送信は行いません。
+
+**完了条件：** Workflow が緑色になり、Summary に **Configuration is ready** と表示されること。エラーはすべて解消してから次へ進んでください。
+
+### Step 6 — 実際の Smoke Test を 1 回送信する
+
+**Notification Channel smoke test** を実行します。最初は既定の `schedules` Screenshot ID のまま、Step 3 で設定したサービスを選択してください。S3 へ画像を 1 枚実際に公開し、そのサービス向けのリッチ通知を 1 件送信します。
+
+**完了条件：** Workflow が緑色になり、メッセージが届き、画像を表示でき、メッセージ内の操作から元画像を開けること。
+
+### Step 7 — 定期配信を確認する
+
+Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variables を使って運用できます。[自動化](#自動化)で既定の UTC スケジュールを確認し、そのまま利用するか、次回実行前に変更してください。任意の Screenshot ID をすぐ送信したい場合は **Splatoon3 Bot (manual)** を使います。
+
+**完了条件：** Workflow が有効で、既定スケジュールを確認済み、または独自の cron 式を保存済みであること。
+
+> [!IMPORTANT]
+> 認証情報は Private インストールの Repository Secrets にだけ保存し、Variables、ソースコード、Pull Request、ログには記録しないでください。既定ブランチの Workflow は認証情報を利用できるため、変更を反映する前に `.github/workflows/`、`bot/`、`scripts/` を重点的に確認してください。
+
+> [!NOTE]
+> Template から作成した Repository は独立した Git history を持ち、上流の変更を自動では受信しません。新しい Release と Security fix を確認してから、必要な変更を Private インストールへ反映してください。
+
+### 次にできること
+
+| 目的 | 続けて読む場所 |
 | --- | --- |
-| 開発環境を用意せず、自分専用の Bot を動かす | [クイックスタート](#クイックスタート) |
+| 利用できる画像をすべて確認して、配信内容を選ぶ | [スクリーンショット](#スクリーンショット) |
 | 言語、タイムゾーン、画像サイズ、配信時刻を変更する | [設定](#設定)と[自動化](#自動化) |
-| 1 つ以上の通知サービスを接続する | [通知プラットフォーム](#通知プラットフォーム) |
+| サービス、宛先、通知ルーティングを追加する | [通知プラットフォーム](#通知プラットフォーム) |
 | 安全性を確認する、デバッグする、開発に参加する | [信頼性](#信頼性)と[ローカル開発](#ローカル開発) |
 
 ## スクリーンショット
@@ -113,41 +191,6 @@
 | `splatfest-ap` | アジア太平洋地域のフェス。 |
 
 選択内容は自動的に重複排除され、固定順に整列されます。チェックした順序や CLI 引数の順序によって Bot Run の結果は変わりません。
-
-## クイックスタート
-
-### Template から Private インストールを作成する
-
-Template から、自分の GitHub アカウントに独立した Private repository を作成します。このインストール先がデプロイと信頼の境界になり、スケジュール、認証情報、設定、配信先を管理します。公開ソースリポジトリには利用者の認証情報を保存しません。
-
-<p align="center">
-  <a href="https://github.com/TenviLi/splatoon3-bot/generate"><strong>Use this template →</strong></a>
-</p>
-
-開始前に用意するものは、GitHub アカウント、画像を HTTPS で公開できる S3 互換 Bucket、対応する通知サービス 1 つ以上の認証情報です。実行環境は GitHub Actions が提供するため、**Node.js、pnpm、Chrome、Docker、常駐サーバーを自分で用意する必要はありません。**
-
-1. <kbd>Use this template</kbd> → <kbd>Create a new repository</kbd> を選択し、Owner と Repository 名を指定して、Visibility を **Private** にしてから作成します。GitHub は Project 全体をコピーしますが、インストール先を Fork として関連付けません。
-2. <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> を開き、[`S3_CONFIG` の例](#s3_config)から同名の Repository Secret を作成します。通知サービスは、この設定で公開された HTTPS URL から画像を取得します。
-3. 通知サービス用の Secret を 1 つ以上作成します。次は LINE Messaging API を接続する場合の例です。LINE Official Account と Messaging API channel を作成し、Repository Secret `BOT_LINE_CONFIG` を保存します。
-
-   ```yaml
-   - name: personal-line
-     channelAccessToken: "..."
-     targetType: user
-     targetId: U0123456789abcdef0123456789abcdef
-     notificationDisabled: false
-   ```
-
-   LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選択してください。
-4. 既定言語は `zh-CN` のため、`BOT_LOCALE=ja-JP` と `BOT_TIME_ZONE=Asia/Tokyo` を設定します。`BOT_SCREENSHOT_RESOLUTION` など、その他の [Repository Variables](#repository-variables) は既定値を変更するときだけ追加します。
-5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、13 個すべての [Screenshot ID](#生成する画像を選ぶ) を選択した状態で **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
-6. 設定したサービスに対して **Notification Channel smoke test** を実行します。画像を 1 回実際にアップロードし、テストメッセージを 1 件送信して、定期配信を始める前に経路全体を確認します。
-
-> [!IMPORTANT]
-> 認証情報は Private インストールの Repository Secrets にだけ保存し、Variables、ソースコード、Pull Request、ログには記録しないでください。既定ブランチの Workflow は認証情報を利用できるため、変更を反映する前に `.github/workflows/`、`bot/`、`scripts/` を重点的に確認してください。
-
-> [!NOTE]
-> Template から作成した Repository は独立した Git history を持ち、上流の変更を自動では受信しません。新しい Release と Security fix を確認してから、必要な変更を Private インストールへ反映してください。
 
 ## 自動化
 

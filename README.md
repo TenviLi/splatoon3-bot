@@ -50,13 +50,89 @@
 
 Nine adapters are included: **WeCom, Discord, Telegram, QQ, Feishu, DingTalk, WhatsApp, LINE, and Slack**. See [CONTEXT.md](./CONTEXT.md) for domain terminology and [notification platform capabilities](./docs/notification-platform-capabilities.md) for the native-message design audit.
 
-### Choose your path
+## Quick Start
 
-| I want to… | Start here |
+Follow these seven steps in order. Steps 1–4 create the installation, Step 5 checks it without uploading or sending anything, Step 6 performs one real end-to-end test, and Step 7 hands successful operation to GitHub Actions.
+
+### Before you start
+
+| You need | Why | Where it lives |
+| --- | --- | --- |
+| A GitHub account | Owns your installation and runs the bot | GitHub |
+| One S3-compatible bucket with a public HTTPS read URL | Hosts images that messaging platforms can display | Your chosen storage provider |
+| Credentials for at least one supported messaging destination | Delivers the notification | Discord, Telegram, LINE, Slack, or another supported platform |
+
+GitHub Actions supplies the runtime. **You do not need to install Node.js, pnpm, Chrome, Docker, or a server.**
+
+### Step 1 — Create your Private installation
+
+Select <kbd>Use this template</kbd> → <kbd>Create a new repository</kbd>, choose the owner and repository name, set visibility to **Private**, then create the repository. GitHub copies the project without linking the installation as a fork.
+
+<p align="center">
+  <a href="https://github.com/TenviLi/splatoon3-bot/generate"><strong>Use this template →</strong></a>
+</p>
+
+The generated repository is the deployment and trust boundary: it owns your schedules, credentials, settings, and destinations, while this public source repository stays credential-free.
+
+**Done when:** the new Private repository opens under your account.
+
+### Step 2 — Add image storage
+
+In the new repository, open <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd>, then create the Repository Secret `S3_CONFIG` from the [copy-ready configuration and provider guide](#s3_config). Its `publicBaseUrl` must let messaging platforms load generated images over public HTTPS; the write credentials remain private.
+
+**Done when:** `S3_CONFIG` appears in the Repository Secrets list.
+
+### Step 3 — Add one notification destination
+
+Create at least one platform Secret. For example, connect a Discord webhook by saving this YAML as the Repository Secret `BOT_DISCORD_CONFIG`:
+
+```yaml
+- name: splatoon-community
+  webhookUrl: https://discord.com/api/webhooks/.../...
+  username: Splatoon Bot
+```
+
+Follow Discord's [webhook setup guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks), or choose another adapter from [Notification Channels](#notification-channels). Adding more platform Secrets or more Targets can wait until the first destination works.
+
+**Done when:** at least one `BOT_*_CONFIG` entry appears in Repository Secrets.
+
+### Step 4 — Set optional display preferences
+
+Open the adjacent <kbd>Variables</kbd> tab and create `BOT_LOCALE=en-US`. Set `BOT_TIME_ZONE` to your [IANA time zone](https://www.iana.org/time-zones). Add `BOT_SCREENSHOT_RESOLUTION` or another [Repository Variable](#repository-variables) only when its documented default is unsuitable.
+
+**Done when:** the Variables list reflects your intended language and time zone. Credentials must never be stored here.
+
+### Step 5 — Check configuration without uploading or sending
+
+Open <kbd>Actions</kbd>, enable workflows if GitHub asks, select **Check Bot Configuration**, keep all thirteen [Screenshot IDs](#selecting-screenshots) selected, and choose <kbd>Run workflow</kbd>. This validates storage, every configured Channel, and routing without uploading an image or sending a message.
+
+**Done when:** the run is green and its summary says **Configuration is ready**. Fix every reported item before continuing.
+
+### Step 6 — Send one real smoke test
+
+Run **Notification Channel smoke test**. Keep the default `schedules` Screenshot ID for the first test and choose the platform configured in Step 3. This performs one real S3 publication and sends one real native message.
+
+**Done when:** the workflow is green, the message arrives, its image loads, and its action opens the full image.
+
+### Step 7 — Confirm scheduled delivery
+
+After Step 6 succeeds, the two scheduled workflows can operate with the same Secrets and Variables. Review the default UTC schedule in [Automation](#automation); keep it as-is or customize it before the next run. Use **Splatoon3 Bot (manual)** whenever you want to send any combination of Screenshot IDs immediately.
+
+**Done when:** workflows are enabled and either the default schedule is acceptable or your replacement cron expressions are saved.
+
+> [!IMPORTANT]
+> Store credentials only as Repository Secrets in the Private installation—never in Variables, committed files, pull requests, or logs. Workflows on its default branch can use those credentials, so review changes to `.github/workflows/`, `bot/`, and `scripts/` before applying them. Repository Secrets and Variables are intentionally installation-local.
+
+> [!NOTE]
+> A repository created from the template has independent Git history and does not receive upstream changes automatically. Review new releases and security fixes before applying them to the Private installation.
+
+### Where to go next
+
+| I want to… | Continue with |
 | --- | --- |
-| Run my own bot without installing a development environment | [Quick Start](#quick-start) |
+| See every available image and choose what to send | [Preview](#preview) |
 | Change language, time zone, image size, or delivery time | [Configuration](#configuration) and [Automation](#automation) |
-| Connect one or more messaging platforms | [Notification Channels](#notification-channels) |
+| Add platforms, destinations, or notification routing | [Notification Channels](#notification-channels) |
 | Understand the safety model or contribute code | [Reliability](#reliability) and [Local Development](#local-development) |
 
 ## Preview
@@ -114,39 +190,6 @@ The manual-run, smoke-test, and configuration-check forms expose one checkbox fo
 | `splatfest-ap` | The Asia-Pacific Splatfest. |
 
 Selections are automatically deduplicated and ordered, so checkbox order and CLI argument order do not change the resulting Bot Run.
-
-## Quick Start
-
-### Create a Private Repository from the Template
-
-Use the template to create a separate Private repository under your own GitHub account. The generated repository is the deployment and trust boundary: it owns your schedules, credentials, settings, and delivery destinations, while this public source repository stays credential-free.
-
-<p align="center">
-  <a href="https://github.com/TenviLi/splatoon3-bot/generate"><strong>Use this template →</strong></a>
-</p>
-
-Before starting, prepare a GitHub account, one S3-compatible bucket with a public HTTPS read URL, and credentials for at least one supported messaging destination. GitHub Actions supplies the runtime. **You do not need to install Node.js, pnpm, Chrome, Docker, or a server.**
-
-1. Select <kbd>Use this template</kbd> → <kbd>Create a new repository</kbd>, choose the owner and repository name, set visibility to **Private**, then create the repository. GitHub copies the project without linking the installation as a fork.
-2. Open <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd>. Create the `S3_CONFIG` Repository Secret from the [copy-ready example](#s3_config); this lets messaging platforms load the generated images over public HTTPS.
-3. Create at least one messaging-platform Secret. The following example connects a Discord webhook:
-
-   ```yaml
-   - name: splatoon-community
-     webhookUrl: https://discord.com/api/webhooks/.../...
-     username: Splatoon Bot
-   ```
-
-   Save it as the Repository Secret `BOT_DISCORD_CONFIG`. Follow Discord's [webhook setup guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks), or choose another platform from [Notification Channels](#notification-channels).
-4. Because the project default is `zh-CN`, create `BOT_LOCALE=en-US`. Set `BOT_TIME_ZONE` to your [IANA time zone](https://www.iana.org/time-zones); add `BOT_SCREENSHOT_RESOLUTION` or another [Repository Variable](#repository-variables) only when its built-in default is unsuitable.
-5. Open <kbd>Actions</kbd>, enable workflows if GitHub asks, and run **Check Bot Configuration** with all thirteen [Screenshot IDs](#selecting-screenshots) selected. This checks every configured value without uploading an image or sending a message.
-6. Run **Notification Channel smoke test** for the configured platform. It performs one real upload and sends one real message, confirming the complete path before scheduled delivery begins.
-
-> [!IMPORTANT]
-> Store credentials only as Repository Secrets in the Private installation—never in Variables, committed files, pull requests, or logs. Workflows on its default branch can use those credentials, so review changes to `.github/workflows/`, `bot/`, and `scripts/` before applying them. Repository Secrets and Variables are intentionally installation-local.
-
-> [!NOTE]
-> A repository created from the template has independent Git history and does not receive upstream changes automatically. Review new releases and security fixes before applying them to the private installation.
 
 ## Automation
 

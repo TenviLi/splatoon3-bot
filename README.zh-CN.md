@@ -49,13 +49,88 @@
 
 当前内置 **企业微信、Discord、Telegram、QQ、飞书、钉钉、WhatsApp、LINE、Slack** 九个适配器。平台能力与消息设计依据见 [通知平台能力审计](./docs/notification-platform-capabilities.md)。
 
-### 按你的目标开始
+## 快速开始
 
-| 你想要…… | 从这里开始 |
+请按下面七步依次完成。Step 1–4 创建并配置安装仓库，Step 5 只检查配置而不上传或发送，Step 6 进行一次真实的端到端测试，Step 7 再把后续运行交给 GitHub Actions。
+
+### 开始前需要准备
+
+| 需要准备 | 用来做什么 | 在哪里管理 |
+| --- | --- | --- |
+| 一个 GitHub 账号 | 创建自己的安装仓库并运行机器人 | GitHub |
+| 一个支持公网 HTTPS 读取的兼容 S3 Bucket | 托管消息平台需要展示的图片 | 你选择的对象存储服务商 |
+| 至少一个受支持消息目标的凭据 | 接收机器人通知 | 企业微信、Discord、Telegram、LINE、Slack 或其他受支持平台 |
+
+运行环境由 GitHub Actions 提供，**不需要自行安装 Node.js、pnpm、Chrome、Docker，也不需要部署服务器。**
+
+### Step 1 — 创建私有安装仓库
+
+点击 <kbd>Use this template</kbd> → <kbd>Create a new repository</kbd>，选择 Owner 和仓库名称，将可见性设为 **Private**，然后创建仓库。GitHub 会复制完整项目，但不会把安装仓库关联为 Fork。
+
+<p align="center">
+  <a href="https://github.com/TenviLi/splatoon3-bot/generate"><strong>Use this template →</strong></a>
+</p>
+
+这份新仓库就是你的部署与信任边界：定时任务、凭据、设置和消息目标都由你管理；公开源仓库不会保存用户凭据。
+
+**完成标志：** 浏览器已经打开你账号下新建的 Private 仓库。
+
+### Step 2 — 配置图片存储
+
+在新仓库打开 <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd>，按照[可直接填写的配置与服务商指南](#s3_config)创建 Repository Secret `S3_CONFIG`。其中 `publicBaseUrl` 必须允许消息平台通过公网 HTTPS 读取生成图片；写入凭据仍然只保存在 Secret 中。
+
+**完成标志：** Repository Secrets 列表中出现 `S3_CONFIG`。
+
+### Step 3 — 配置一个通知目标
+
+至少创建一个平台 Secret。例如，为企业微信群机器人保存以下 YAML，并把 Repository Secret 命名为 `BOT_WECOM_CONFIG`：
+
+```yaml
+- name: 喷喷通知群
+  webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
+```
+
+参考企业微信官方的[群机器人说明](https://developer.work.weixin.qq.com/document/path/91770)，或从[通知平台](#通知平台)选择其他适配器。先让第一个目标正常工作，之后再增加更多平台或消息目标。
+
+**完成标志：** Repository Secrets 列表中至少出现一个 `BOT_*_CONFIG`。
+
+### Step 4 — 设置可选的显示偏好
+
+打开旁边的 <kbd>Variables</kbd> 标签页。默认语言和时区已经是 `zh-CN` 与 `Asia/Shanghai`；只有默认值不合适时，才创建 `BOT_LOCALE`、`BOT_TIME_ZONE`、`BOT_SCREENSHOT_RESOLUTION` 或其他 [Repository Variables](#repository-variables)。
+
+**完成标志：** 语言、时区和分辨率符合你的预期；所有凭据仍然只存放在 Secrets 中。
+
+### Step 5 — 检查配置（不上传、不发送）
+
+打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，选择 **Check Bot Configuration**，保持全部十三个 [Screenshot ID](#选择要生成的截图) 已勾选，然后点击 <kbd>Run workflow</kbd>。它会检查图片存储、所有已配置平台和通知路由，但不会上传图片或发送消息。
+
+**完成标志：** 工作流显示绿色，Summary 中出现 **Configuration is ready**。如有报错，请全部修复后再继续。
+
+### Step 6 — 发送一次真实测试
+
+运行 **Notification Channel smoke test**。第一次测试保留默认的 `schedules` Screenshot ID，并选择 Step 3 配置的平台。它会真实发布一张图片，并发送一条该平台的原生富消息。
+
+**完成标志：** 工作流为绿色、消息成功到达、图片能够加载，且消息中的操作入口可以打开完整图片。
+
+### Step 7 — 确认定时推送
+
+Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Variables 自动运行。查看[自动化](#自动化)中的默认 UTC 时间；可以直接保留，也可以在下一次运行前修改。需要立即推送任意 Screenshot ID 组合时，使用 **Splatoon3 Bot (manual)**。
+
+**完成标志：** 工作流已经启用，并且你已确认默认定时或保存了自己的 cron 表达式。
+
+> [!IMPORTANT]
+> 凭据只能保存为私有安装仓库的 Repository Secrets，绝不能放进 Variables、代码、Pull Request 或日志。默认分支上的工作流可以使用这些凭据，因此同步改动前应重点审查 `.github/workflows/`、`bot/` 与 `scripts/`。Secrets 与 Variables 都是每份安装独立配置的。
+
+> [!NOTE]
+> 通过模板创建的仓库拥有独立 Git 历史，不会自动接收上游更新。请先审查新版本和安全修复，再将需要的改动同步到 Private 安装仓库。
+
+### 接下来可以做什么
+
+| 你想要…… | 继续阅读 |
 | --- | --- |
-| 不搭建开发环境，直接运行自己的机器人 | [快速开始](#快速开始) |
+| 查看全部可用图片并选择发送内容 | [截图预览](#截图预览) |
 | 修改语言、时区、图片尺寸或推送时间 | [配置](#配置)与[自动化](#自动化) |
-| 接入一个或多个消息平台 | [通知平台](#通知平台) |
+| 增加平台、消息目标或通知路由 | [通知平台](#通知平台) |
 | 评估可靠性、调试或参与开发 | [可靠性](#可靠性)与[本地开发](#本地开发) |
 
 ## 截图预览
@@ -113,38 +188,6 @@
 | `splatfest-ap` | 亚太区域祭典。 |
 
 系统会自动去重并按固定顺序处理，因此勾选顺序或 CLI 参数顺序不会改变 Bot Run 的结果。
-
-## 快速开始
-
-### 使用模板创建你的私有安装仓库
-
-通过模板在自己的 GitHub 账号下创建一份独立的 Private 仓库。这个安装仓库是部署与信任边界：定时任务、凭据、设置和消息目标都由你管理；公开的源仓库不保存任何用户凭据。
-
-<p align="center">
-  <a href="https://github.com/TenviLi/splatoon3-bot/generate"><strong>Use this template →</strong></a>
-</p>
-
-开始前只需准备：GitHub 账号、一个能够通过公网 HTTPS 读取图片的兼容 S3 Bucket，以及至少一个受支持消息平台的凭据。运行环境由 GitHub Actions 提供，**不需要自行部署服务器，也不需要安装 Node.js、pnpm、Chrome 或 Docker。**
-
-1. 点击 <kbd>Use this template</kbd> → <kbd>Create a new repository</kbd>，选择 Owner 和仓库名称，将可见性设为 **Private**，然后创建仓库。GitHub 会复制完整项目，但不会把安装仓库关联为 Fork。
-2. 打开 <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd>，根据 [`S3_CONFIG` 示例](#s3_config)创建同名 Repository Secret。消息平台需要通过它取得可公网读取的截图地址。
-3. 至少创建一个消息平台 Secret。以下仅以企业微信群机器人为例：在群机器人设置中取得 Webhook，并创建 Repository Secret `BOT_WECOM_CONFIG`：
-
-   ```yaml
-   - name: 喷喷通知群
-     webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
-   ```
-
-   参考企业微信官方的[群机器人说明](https://developer.work.weixin.qq.com/document/path/91770)，或从[通知平台](#通知平台)中选择其他适配器。
-4. 默认语言已经是 `zh-CN`。如果你的时区不是 `Asia/Shanghai`，请设置 `BOT_TIME_ZONE`；只有默认值不合适时，才需要添加 `BOT_SCREENSHOT_RESOLUTION` 等其他 [Repository Variables](#repository-variables)。
-5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后选中全部十三个 [Screenshot ID](#选择要生成的截图) 并运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
-6. 对已配置的平台运行 **Notification Channel smoke test**。它会真实上传一次图片并发送一条消息，用来确认从 S3 到消息目标的完整链路，然后再放心交给定时任务。
-
-> [!IMPORTANT]
-> 凭据只能保存为私有安装仓库的 Repository Secrets，绝不能放进 Variables、代码、Pull Request 或日志。默认分支上的工作流可以使用这些凭据，因此同步改动前应重点审查 `.github/workflows/`、`bot/` 与 `scripts/`。Secrets 与 Variables 都是每份安装独立配置的。
-
-> [!NOTE]
-> 通过模板创建的仓库拥有独立 Git 历史，不会自动接收上游更新。请先审查新版本和安全修复，再将需要的改动同步到私有安装仓库。
 
 ## 自动化
 

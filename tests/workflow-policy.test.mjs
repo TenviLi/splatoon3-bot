@@ -180,7 +180,15 @@ test('README provides direct screenshots and three operator-first languages', as
   const operatorGuide = await fs.readFile(path.join(process.cwd(), 'docs/operator-setup-links.md'), 'utf8')
   const screenshotNames = listScreenshotDefinitions().map(({ name }) => name)
 
-  const preview = english.slice(english.indexOf('## Preview'), english.indexOf('## Quick Start'))
+  const onboardingGuide = english.slice(english.indexOf('## Quick Start'), english.indexOf('## Preview'))
+  const preview = english.slice(english.indexOf('## Preview'), english.indexOf('## Automation'))
+  assert.ok(english.indexOf('## Quick Start') < english.indexOf('## Preview'))
+  assert.match(onboardingGuide, /Step 1 — Create your Private installation/)
+  assert.match(onboardingGuide, /Step 5 — Check configuration without uploading or sending/)
+  assert.match(onboardingGuide, /Step 6 — Send one real smoke test/)
+  assert.match(onboardingGuide, /Step 7 — Confirm scheduled delivery/)
+  assert.match(onboardingGuide, /Configuration is ready/)
+  assert.match(onboardingGuide, /default `schedules` Screenshot ID/)
   assert.match(preview, /All thirteen Screenshot IDs/)
   assert.match(preview, /Screenshot ID/)
   assert.doesNotMatch(preview, /Content Group/)
@@ -217,15 +225,15 @@ test('README provides direct screenshots and three operator-first languages', as
   }
 
   for (const [filename, source, pathHeading, contributingHeading, providerSummary] of [
-    ['README.md', english, '### Choose your path', '## Contributing', 'Choose a provider: official setup links'],
+    ['README.md', english, '### Where to go next', '## Contributing', 'Choose a provider: official setup links'],
     [
       'README.zh-CN.md',
       simplifiedChinese,
-      '### 按你的目标开始',
+      '### 接下来可以做什么',
       '## 参与贡献',
       '选择服务商：官方配置入口',
     ],
-    ['README.ja.md', japanese, '### 目的別ガイド', '## コントリビューション', 'サービスを選ぶ：公式設定リンク'],
+    ['README.ja.md', japanese, '### 次にできること', '## コントリビューション', 'サービスを選ぶ：公式設定リンク'],
   ]) {
     assert.ok(source.includes(pathHeading), `${filename}: audience path guide`)
     assert.ok(source.includes(contributingHeading), `${filename}: contributor path`)
@@ -239,6 +247,39 @@ test('README provides direct screenshots and three operator-first languages', as
       `${filename}: contributor-friendly HTTPS clone`
     )
     assert.doesNotMatch(source, /side-effecting|副作用|Hosted 運用/, `${filename}: avoid operator-facing jargon`)
+  }
+
+  for (const [filename, source, headings, completionMarker] of [
+    [
+      'README.md',
+      english,
+      ['## Quick Start', '### Step 1', '### Step 2', '### Step 3', '### Step 4', '### Step 5', '### Step 6', '### Step 7', '## Preview'],
+      '**Done when:**',
+    ],
+    [
+      'README.zh-CN.md',
+      simplifiedChinese,
+      ['## 快速开始', '### Step 1', '### Step 2', '### Step 3', '### Step 4', '### Step 5', '### Step 6', '### Step 7', '## 截图预览'],
+      '**完成标志：**',
+    ],
+    [
+      'README.ja.md',
+      japanese,
+      ['## クイックスタート', '### Step 1', '### Step 2', '### Step 3', '### Step 4', '### Step 5', '### Step 6', '### Step 7', '## スクリーンショット'],
+      '**完了条件：**',
+    ],
+  ]) {
+    let previousIndex = -1
+    for (const heading of headings) {
+      const headingIndex = source.indexOf(heading, previousIndex + 1)
+      assert.ok(headingIndex > previousIndex, `${filename}: ${heading} must follow the previous onboarding step`)
+      previousIndex = headingIndex
+    }
+    assert.equal(
+      source.match(new RegExp(completionMarker.replaceAll('*', '\\*'), 'g'))?.length,
+      7,
+      `${filename}: every Quick Start step needs one completion marker`
+    )
   }
 
   assert.match(english, /README\.zh-CN\.md/)
@@ -475,8 +516,8 @@ test('README provides direct screenshots and three operator-first languages', as
   assert.doesNotMatch(simplifiedChinese, /中文快速开始|默认使用企业微信/)
   assert.doesNotMatch(japanese, /日本語版のクイックスタート/)
 
-  const quickStart = english.slice(english.indexOf('## Quick Start'), english.indexOf('## Automation'))
-  const japaneseQuickStart = japanese.slice(japanese.indexOf('## クイックスタート'), japanese.indexOf('## 自動化'))
+  const quickStart = english.slice(english.indexOf('## Quick Start'), english.indexOf('## Preview'))
+  const japaneseQuickStart = japanese.slice(japanese.indexOf('## クイックスタート'), japanese.indexOf('## スクリーンショット'))
   assert.match(quickStart, /You do not need to install Node\.js, pnpm, Chrome, Docker, or a server/)
   assert.match(quickStart, /`BOT_LOCALE=en-US`/)
   assert.match(japaneseQuickStart, /`BOT_LOCALE=ja-JP`/)
@@ -526,7 +567,7 @@ test('notification adapters share the publication stage and are enabled by confi
   )
   assert.doesNotMatch(reusableWorkflow, /Install Upyun CLI|curl[\s\S]*upyun/i)
   assert.match(readme, /Each platform Secret is a YAML list/)
-  assert.match(readme, /Create a Private Repository from the Template/)
+  assert.match(readme, /Step 1 — Create your Private installation/)
   assert.match(readme, /repository is the deployment and trust boundary/)
   assert.match(readme, /repository created from the template has independent Git history/)
   assert.match(readme, /Repository Secrets and Variables are intentionally installation-local/)
