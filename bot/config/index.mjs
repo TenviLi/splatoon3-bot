@@ -8,7 +8,7 @@ import {
 const [selection, channelName] = process.argv.slice(2)
 
 if (!selection) {
-  throw new Error('Usage: node bot/config/index.mjs <run-selection> [notification-channel]')
+  throw new Error('Usage: node bot/config/index.mjs <screenshot-ids> [notification-channel]')
 }
 
 const report = inspectBotConfiguration({

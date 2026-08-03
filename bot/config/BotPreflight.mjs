@@ -43,7 +43,7 @@ function inspectNotifications({ plan, channelName, environment }) {
         return rejected(name, channel.error)
       }
       if (channel.status === 'skipped') {
-        return skipped(name, `${channel.targetCount} Target(s), none selected by ${plan.label}`)
+        return skipped(name, `${channel.targetCount} Target(s), none select the chosen Screenshot IDs`)
       }
 
       const notificationCount = channel.deliveries.reduce(
@@ -63,12 +63,12 @@ function inspectNotifications({ plan, channelName, environment }) {
 export function inspectBotConfiguration({ selection, channelName, environment = process.env } = {}) {
   let plan
   const selectionCheck = inspect(
-    'Run Selection',
+    'Screenshot IDs',
     () => {
       plan = resolveRunPlan(selection)
       return plan
     },
-    (resolvedPlan) => resolvedPlan.label
+    (resolvedPlan) => resolvedPlan.selection.join(', ')
   )
   const checks = [
     selectionCheck,
@@ -95,12 +95,12 @@ export function inspectBotConfiguration({ selection, channelName, environment = 
     inspect('S3_CONFIG', () => parseS3Configuration(environment.S3_CONFIG), () => 'valid publication credentials'),
     ...(selectionCheck.status === 'ready'
       ? inspectNotifications({ plan, channelName, environment })
-      : [skipped('Notification Channels', 'not evaluated because the Run Selection is invalid')]),
+      : [skipped('Notification Channels', 'not evaluated because the Screenshot IDs are invalid')]),
   ]
 
   return Object.freeze({
     selection: plan?.selection || selection,
-    selectionLabel: plan?.label || String(selection || ''),
+    screenshotIdsText: plan?.selection.join(', ') || String(selection || ''),
     valid: checks.every(({ status }) => status !== 'rejected'),
     checks: Object.freeze(checks),
   })
@@ -108,7 +108,7 @@ export function inspectBotConfiguration({ selection, channelName, environment = 
 
 export function formatBotPreflightReport(report) {
   const symbol = { ready: '✓', skipped: '○', rejected: '✗' }
-  const lines = [`Bot configuration preflight for ${report.selectionLabel}`]
+  const lines = [`Bot configuration preflight for Screenshot IDs: ${report.screenshotIdsText}`]
   for (const check of report.checks) {
     const detail = check.status === 'rejected' ? check.error.message : check.detail
     lines.push(`${symbol[check.status]} ${check.name}: ${detail}`)
@@ -122,7 +122,7 @@ export function formatBotPreflightStepSummary(report) {
   const lines = [
     '## Bot Configuration Preflight',
     '',
-    `Run Selection: \`${report.selectionLabel}\``,
+    `Screenshot IDs: \`${report.screenshotIdsText}\``,
     '',
     '| Status | Check | Detail |',
     '| --- | --- | --- |',

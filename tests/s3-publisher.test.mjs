@@ -52,7 +52,7 @@ async function createBotRun(
   await fs.writeFile(path.join(directory, 'unselected.png'), 'must not be published')
   await writeRunManifest(
     {
-      version: 5,
+      version: 6,
       selection: ['schedules'],
       renderTime: Date.parse('2026-07-30T00:00:00Z'),
       timeZone: 'Asia/Shanghai',
@@ -177,8 +177,8 @@ test('publishes the configured resolution as the primary notification image', as
   }
   assert.ok(lineUpload.Body.byteLength <= 1_000_000)
   assert.equal(manifest.assetBaseUrl, 'https://cdn.example.com/assets/bot/production')
-  assert.equal(manifest.version, 7)
-  assert.equal(manifest.runManifestVersion, 5)
+  assert.equal(manifest.version, 8)
+  assert.equal(manifest.runManifestVersion, 6)
   assert.deepEqual(manifest.selection, ['schedules'])
   assert.equal(manifest.timeZone, 'Asia/Shanghai')
   assert.equal(manifest.locale, 'zh-CN')

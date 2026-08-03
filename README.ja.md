@@ -62,7 +62,7 @@
 
 ### 13 個すべての Screenshot ID
 
-選択肢の正式名称は **Content Group ID（コンテンツグループ ID）** であり、Run Profile ではありません。1 つの Content Group ID は、GitHub Actions の 1 つのチェックボックスまたは CLI の 1 つの選択値に対応し、1 個以上の **Screenshot ID** に展開されます。Screenshot ID は生成される PNG の安定したベース名であり、対応する Notification の ID でもあるため、通知先の `notifications:` リストにも同じ値を指定できます。
+選択肢はすべて **Screenshot ID** です。同じ ID が GitHub Actions のチェックボックス、生成される PNG、対応する Notification を識別し、通知先の `notifications:` リストにもそのまま指定できます。1 個以上を自由に選択でき、選択した各 ID から画像 1 枚と通知 1 件が生成されます。
 
 <table>
   <tr>
@@ -92,22 +92,27 @@
 
 これらのプレビューは既定解像度 `1200×675` です。画像をクリックするとフルサイズで確認できます。`BOT_SCREENSHOT_RESOLUTION` は、保存する Screenshot Artifact と通知のメイン画像に共通する 4 種類の正確な 16:9 サイズから選択できます。LINE と WhatsApp には個別の `1024×576` 画像を用意し、それぞれの制限を満たしながら他サービスの画質を下げない設計です。
 
-### 選択できる Content Group
+### 生成する画像を選ぶ
 
-次の 8 個の Content Group ID が、手動実行、Smoke Test、設定確認フォームに実際に表示される選択肢です。CLI でも同じ ID を使用し、カンマ区切りで Run Selection を構成します。
+手動実行、Smoke Test、設定確認フォームには、Screenshot ID ごとに 1 つのチェックボックスが表示されます。ローカルコマンドも同じ ID をカンマ区切りで直接受け取ります。
 
-| Content Group ID | 生成する Screenshot ID | 用途 |
-| --- | --- | --- |
-| `schedules` | `schedules` | レギュラー、バンカラ、X マッチ、または開催中のフェスマッチをまとめた一覧。 |
-| `schedules-regular` | `schedules-regular` | レギュラーマッチに絞ったカード。 |
-| `schedules-anarchy` | `schedules-anarchy` | バンカラマッチのチャレンジとオープン。 |
-| `schedules-x` | `schedules-x` | X マッチに絞ったカード。 |
-| `challenges` | `challenges` | 開催中または次回のイベントマッチと参加可能時間。 |
-| `salmon-run` | `salmon-run` | 現在のサーモンランシフト。 |
-| `gear` | `gear-dailydrop`、`gear-regular`、`gear-salmon-run` | 今日のピックアップ、通常販売、サーモンラン月間ギア。 |
-| `splatfest` | `splatfest-na`、`splatfest-eu`、`splatfest-jp`、`splatfest-ap` | 4 地域それぞれのフェス画像と通知。 |
+| Screenshot ID | 内容 |
+| --- | --- |
+| `schedules` | レギュラー、バンカラ、X マッチ、または開催中のフェスマッチをまとめた一覧。 |
+| `schedules-regular` | レギュラーマッチに絞ったカード。 |
+| `schedules-anarchy` | バンカラマッチのチャレンジとオープン。 |
+| `schedules-x` | X マッチに絞ったカード。 |
+| `challenges` | 開催中または次回のイベントマッチと参加可能時間。 |
+| `salmon-run` | 現在のサーモンランシフト。 |
+| `gear-dailydrop` | ゲソタウンの今日のピックアップ。 |
+| `gear-regular` | ゲソタウンで現在販売中のギア。 |
+| `gear-salmon-run` | 現在のサーモンラン月間ギア。 |
+| `splatfest-na` | 北米地域のフェス。 |
+| `splatfest-eu` | 欧州地域のフェス。 |
+| `splatfest-jp` | 日本地域のフェス。 |
+| `splatfest-ap` | アジア太平洋地域のフェス。 |
 
-**Run Selection** は Content Group ID の空でない任意の組み合わせです。Bot はそれを、今回生成する Screenshot ID と Notification を正確に並べた **Run Plan** に解決します。「Run Profile」は使用しません。これらは 1 つのプリセットを選ぶ仕組みではなく、自由に組み合わせられる選択肢だからです。
+選択内容は自動的に重複排除され、固定順に整列されます。チェックした順序や CLI 引数の順序によって Bot Run の結果は変わりません。
 
 ## クイックスタート
 
@@ -135,7 +140,7 @@ Template から、自分の GitHub アカウントに独立した Private reposi
 
    LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選択してください。
 4. 既定言語は `zh-CN` のため、`BOT_LOCALE=ja-JP` と `BOT_TIME_ZONE=Asia/Tokyo` を設定します。`BOT_SCREENSHOT_RESOLUTION` など、その他の [Repository Variables](#repository-variables) は既定値を変更するときだけ追加します。
-5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、8 個すべての [Content Group ID](#選択できる-content-group) を選択した状態で **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
+5. <kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化して、13 個すべての [Screenshot ID](#生成する画像を選ぶ) を選択した状態で **Check Bot Configuration** を実行します。すべての設定を確認しますが、画像のアップロードやメッセージ送信は行いません。
 6. 設定したサービスに対して **Notification Channel smoke test** を実行します。画像を 1 回実際にアップロードし、テストメッセージを 1 件送信して、定期配信を始める前に経路全体を確認します。
 
 > [!IMPORTANT]
@@ -162,9 +167,9 @@ flowchart LR
 
 | Workflow | 実行タイミング | 配信内容 |
 | --- | --- | --- |
-| `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | `schedules` Content Group ID |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run`、`gear` Content Group ID |
-| `bot-manual.yml` | 必要なときに手動実行 | 任意のチェックボックス組み合わせ |
+| `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | `schedules` |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run`、`gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
+| `bot-manual.yml` | 必要なときに手動実行 | 任意の Screenshot ID チェックボックス組み合わせ |
 | `configuration-check.yml` | 必要なときに手動実行 | 設定確認のみ。アップロードや送信は行わない |
 | `notification-smoke.yml` | 必要なときに手動実行 | 現在の画像を公開し、選択したサービスへテスト通知を 1 件送信 |
 
@@ -176,7 +181,7 @@ flowchart LR
 
 GitHub の `on.schedule.cron` は Repository Variables や Secrets を参照できないため、配信時刻用の Variable はありません。GitHub 公式の [`on.schedule` 構文](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)と [crontab.guru](https://crontab.guru/) を利用してください。1 日 2 回の Workflow もバトルスケジュールを選択しています。重複通知が必要な場合を除き、スケジュール専用 Workflow と同時刻に実行しないでください。
 
-Content Group ID、生成される Screenshot ID、Notification の完全な対応関係は、[スクリーンショット一覧](#13-個すべての-screenshot-id)に直接掲載しています。この一覧は上流の [スクリーンショット用ルート](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)に沿っており、選択された画像は Bot Run に保存して S3 へ公開し、各アダプターがサービス固有の Card、Embed、画像メッセージ、Template として描画します。
+[スクリーンショット一覧](#13-個すべての-screenshot-id)は、選択できる Screenshot ID の完全な一覧でもあります。この一覧は上流の [スクリーンショット用ルート](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)に沿っており、選択された画像は Bot Run に保存して S3 へ公開し、各アダプターがサービス固有の Card、Embed、画像メッセージ、Template として描画します。
 
 ## 設定
 
@@ -326,7 +331,7 @@ keyPrefix: splatoon3-bot
 
 各サービスの Secret は YAML の配列です。同じサービスに複数のルーム、ユーザー、グループ、Webhook を設定でき、配列の各項目が 1 つの宛先になります。各項目には一意の `name` が必要です。現在の Run で選択された通知の一部だけを受け取る場合に限り、`notifications` リストを追加します。省略するとすべて受信します。宛先は独立して並列実行され、同じ宛先へのメッセージ順序は維持されます。
 
-| 内容 | `notifications` に指定できる Notification ID |
+| 内容 | `notifications` に指定できる Screenshot ID |
 | --- | --- |
 | バトルスケジュール | `schedules`、`schedules-regular`、`schedules-anarchy`、`schedules-x` |
 | イベントマッチ | `challenges` |
@@ -390,7 +395,7 @@ keyPrefix: splatoon3-bot
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。設定検証と配信結果に表示されます。 |
-| `notifications` | いいえ | この宛先へ送る Notification ID。省略すると現在の Run Selection に含まれるすべての通知を受信します。 |
+| `notifications` | いいえ | この宛先へ送る Screenshot ID。省略すると今回選択したすべての通知を受信します。 |
 | `webhookUrl` | はい | WeCom からコピーした完全な Group Robot Webhook URL。URL 内の `key` は認証情報です。 |
 
 </details>
@@ -581,8 +586,8 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 
 - データ取得には再試行とタイムアウトがあり、新しい一式が Schema 検証をすべて通過した場合だけ以前の有効データを置き換えます。
 - 画像生成はアプリ、フォント、ローカル画像の準備を待ち、言語、クレジット、寸法、フッター位置、はみ出しを検査します。
-- Run Manifest v5 は選択した Content Group ID と「何を生成したか」を記録します。言語、解像度、タイムゾーン、データ ID、Screenshot ID、ファイル名、寸法、SHA-256 が対象です。
-- Publication Manifest v7 は同じ Run Selection と「何を公開したか」を記録します。通知用メイン画像、LINE・WhatsApp 専用画像、原画像、内蔵アイコン、公開 URL が対象です。
+- Run Manifest v6 は選択した Screenshot ID と「何を生成したか」を記録します。言語、解像度、タイムゾーン、データ ID、ファイル名、寸法、SHA-256 が対象です。
+- Publication Manifest v8 は同じ Screenshot ID の選択と「何を公開したか」を記録します。通知用メイン画像、LINE・WhatsApp 専用画像、原画像、内蔵アイコン、公開 URL が対象です。
 - 設定の事前検証は、最初のアップロード前に独立したエラーをまとめて報告し、Secret の値を表示しません。
 - 宛先は独立して実行されます。1 つの宛先が失敗しても、ほかの宛先への配信成功は保持され、最後に失敗理由をまとめて報告します。
 - CI は Git 履歴全体を Secret scan し、Syntax、Unit、Browser、Visual、Build、Workflow policy、Dependency audit を実行します。
@@ -607,10 +612,10 @@ pnpm run verify
 
 | Command | 用途 |
 | --- | --- |
-| `pnpm run bot:doctor <selection> [channel]` | 設定を検証。Content Group ID は `schedules,gear` のようにカンマで区切る。 |
-| `pnpm run bot:prepare <selection>` | データ取得、ビルド、画像生成、Run Manifest 作成。 |
-| `pnpm run bot:publish <selection>` | S3 へ検証済み画像を公開。 |
-| `pnpm run bot:notify <selection> [channel]` | 設定済みサービスへ配信。 |
+| `pnpm run bot:doctor <screenshot-ids> [channel]` | 設定を検証。Screenshot ID は `schedules,gear-regular` のようにカンマで区切る。 |
+| `pnpm run bot:prepare <screenshot-ids>` | データ取得、ビルド、画像生成、Run Manifest 作成。 |
+| `pnpm run bot:publish <screenshot-ids>` | S3 へ検証済み画像を公開。 |
+| `pnpm run bot:notify <screenshot-ids> [channel]` | 設定済みサービスへ配信。 |
 | `pnpm run test:update-golden` | 現在の OS 用に 3 言語の画像比較基準を生成。 |
 | `pnpm run screenshots:contact-sheet -- --locale ja-JP` | 現在の OS の Golden から、全 Screenshot Artifact の名前付き一覧画像を生成。レイアウトと出力先は `--help` で確認。 |
 | `pnpm run verify` | 完全なローカル検証。 |

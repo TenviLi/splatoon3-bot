@@ -8,7 +8,7 @@ import { readManifestFile, writeManifestFile } from '../manifest/ManifestFile.mj
 import { getScreenshotDefinition, resolveRunPlan } from './RunPlan.mjs'
 
 const runManifestSchema = z.object({
-  version: z.literal(5),
+  version: z.literal(6),
   selection: z.array(z.string().min(1)).min(1),
   renderTime: z.number().int().nonnegative(),
   timeZone: botTimeZoneSchema,

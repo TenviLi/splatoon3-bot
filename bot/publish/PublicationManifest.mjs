@@ -57,8 +57,8 @@ const brandingManifestSchema = z
 
 const publicationManifestSchema = z
   .object({
-    version: z.literal(7),
-    runManifestVersion: z.literal(5),
+    version: z.literal(8),
+    runManifestVersion: z.literal(6),
     selection: z.array(z.string().min(1)).min(1),
     renderTime: z.number().int().nonnegative(),
     timeZone: botTimeZoneSchema,

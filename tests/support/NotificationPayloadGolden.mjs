@@ -148,16 +148,7 @@ export async function createNotificationPayloadGolden() {
     snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     now: Date.parse('2026-07-12T12:00:00Z'),
   })
-  const publicationManifest = createPublicationManifestFixture([
-    'schedules',
-    'schedules-regular',
-    'schedules-anarchy',
-    'schedules-x',
-    'challenges',
-    'salmon-run',
-    'gear',
-    'splatfest',
-  ])
+  const publicationManifest = createPublicationManifestFixture(notificationIds)
   const notifications = [
     ...notificationIds.map((notificationId) =>
       composeNotification(

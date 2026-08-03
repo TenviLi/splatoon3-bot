@@ -4,35 +4,55 @@ on:
   workflow_dispatch:
     inputs:
       schedules:
-        description: 'Content Group schedules: battle overview (Regular/Anarchy/X or Splatfest)'
+        description: 'Screenshot ID schedules: battle overview (Regular/Anarchy/X or Splatfest)'
         type: boolean
         default: true
       schedules_regular:
-        description: 'Content Group schedules-regular: single Regular Battle card'
+        description: 'Screenshot ID schedules-regular: single Regular Battle card'
         type: boolean
         default: false
       schedules_anarchy:
-        description: 'Content Group schedules-anarchy: Anarchy Series and Open cards'
+        description: 'Screenshot ID schedules-anarchy: Anarchy Series and Open cards'
         type: boolean
         default: false
       schedules_x:
-        description: 'Content Group schedules-x: single X Battle card'
+        description: 'Screenshot ID schedules-x: single X Battle card'
         type: boolean
         default: false
       challenges:
-        description: 'Content Group challenges: Challenges'
+        description: 'Screenshot ID challenges: Challenges'
         type: boolean
         default: false
       salmon_run:
-        description: 'Content Group salmon-run: Salmon Run'
+        description: 'Screenshot ID salmon-run: Salmon Run'
         type: boolean
         default: false
-      gear:
-        description: 'Content Group gear: Daily Drop, regular shop, and Salmon Run gear'
+      gear_dailydrop:
+        description: 'Screenshot ID gear-dailydrop: Daily Drop gear'
         type: boolean
         default: false
-      splatfest:
-        description: 'Content Group splatfest: Splatfest views and notifications for all regions'
+      gear_regular:
+        description: 'Screenshot ID gear-regular: gear currently on sale'
+        type: boolean
+        default: false
+      gear_salmon_run:
+        description: 'Screenshot ID gear-salmon-run: monthly Salmon Run gear'
+        type: boolean
+        default: false
+      splatfest_na:
+        description: 'Screenshot ID splatfest-na: North America Splatfest'
+        type: boolean
+        default: false
+      splatfest_eu:
+        description: 'Screenshot ID splatfest-eu: Europe Splatfest'
+        type: boolean
+        default: false
+      splatfest_jp:
+        description: 'Screenshot ID splatfest-jp: Japan Splatfest'
+        type: boolean
+        default: false
+      splatfest_ap:
+        description: 'Screenshot ID splatfest-ap: Asia-Pacific Splatfest'
         type: boolean
         default: false
       channel:
@@ -64,8 +84,13 @@ jobs:
       schedules_x: ${{ inputs.schedules_x }}
       challenges: ${{ inputs.challenges }}
       salmon_run: ${{ inputs.salmon_run }}
-      gear: ${{ inputs.gear }}
-      splatfest: ${{ inputs.splatfest }}
+      gear_dailydrop: ${{ inputs.gear_dailydrop }}
+      gear_regular: ${{ inputs.gear_regular }}
+      gear_salmon_run: ${{ inputs.gear_salmon_run }}
+      splatfest_na: ${{ inputs.splatfest_na }}
+      splatfest_eu: ${{ inputs.splatfest_eu }}
+      splatfest_jp: ${{ inputs.splatfest_jp }}
+      splatfest_ap: ${{ inputs.splatfest_ap }}
       notification_channel: ${{ inputs.channel }}
     secrets:
       S3_CONFIG: ${{ secrets.S3_CONFIG }}

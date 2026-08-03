@@ -8,19 +8,14 @@ import { supportedBotLocales } from '../src/common/botLocale.mjs'
 import { createPublicationManifestFixture } from './support/PublicationManifestFixture.mjs'
 
 const snapshotDirectory = path.join(process.cwd(), 'tests', 'fixtures', 'data')
+const notificationIds = listNotificationDefinitions().map(({ name }) => name)
 const publicationManifest = createPublicationManifestFixture([
   'schedules',
   'schedules-regular',
   'schedules-anarchy',
   'schedules-x',
 ])
-const completePublicationManifest = createPublicationManifestFixture([
-  'schedules',
-  'challenges',
-  'salmon-run',
-  'gear',
-  'splatfest',
-])
+const completePublicationManifest = createPublicationManifestFixture(notificationIds)
 
 test('schedules-regular remains one standalone Regular Battle notification', async () => {
   const context = await createBotContext({
@@ -135,8 +130,6 @@ test('gives monthly Salmon Run gear a useful native-card detail', async () => {
 })
 
 test('composes every Notification ID through every supported Bot locale', async (context) => {
-  const notificationIds = listNotificationDefinitions().map(({ name }) => name)
-
   for (const locale of supportedBotLocales) {
     await context.test(locale, async () => {
       const regularContext = await createBotContext({
@@ -150,7 +143,7 @@ test('composes every Notification ID through every supported Bot locale', async 
         locale,
       })
       const localeManifest = createPublicationManifestFixture(
-        ['schedules', 'schedules-regular', 'schedules-anarchy', 'schedules-x', 'challenges', 'salmon-run', 'gear', 'splatfest'],
+        notificationIds,
         { locale }
       )
 

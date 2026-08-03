@@ -4,7 +4,7 @@ import { listPlatformImageVariantDefinitions } from '../../bot/publish/Publicati
 import { getScreenshotDefinition, resolveRunPlan } from '../../bot/run/RunPlan.mjs'
 
 export function createPublicationManifestFixture(
-  selection = ['schedules', 'salmon-run', 'gear'],
+  selection = ['schedules', 'salmon-run', 'gear-dailydrop', 'gear-regular', 'gear-salmon-run'],
   { assetBaseUrl = 'https://cdn.example.com', locale = 'zh-CN', resolution = '2400x1350' } = {}
 ) {
   const normalizedAssetBaseUrl = assetBaseUrl.replace(/\/$/, '')
@@ -13,8 +13,8 @@ export function createPublicationManifestFixture(
   const notificationSha256 = 'a'.repeat(64)
   const originalSha256 = 'c'.repeat(64)
   return {
-    version: 7,
-    runManifestVersion: 5,
+    version: 8,
+    runManifestVersion: 6,
     selection: plan.selection,
     renderTime: Date.parse('2026-07-29T19:00:00Z'),
     timeZone: 'Asia/Shanghai',

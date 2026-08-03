@@ -339,7 +339,7 @@ export async function publishToS3({
 
   return writePublicationManifest(
     {
-      version: 7,
+      version: 8,
       runManifestVersion: runManifest.version,
       selection: plan.selection,
       renderTime: runManifest.renderTime,

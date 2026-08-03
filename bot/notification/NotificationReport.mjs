@@ -21,7 +21,7 @@ export function formatNotificationStepSummary({ report, failed = false } = {}) {
 
   for (const channelResult of report.channelResults) {
     if (channelResult.status === 'skipped') {
-      lines.push(`- ${channelResult.channelName}: skipped; no Target selects this Run Selection`)
+      lines.push(`- ${channelResult.channelName}: skipped; no Target selects the chosen Screenshot IDs`)
       continue
     }
 

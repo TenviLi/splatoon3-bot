@@ -177,7 +177,7 @@ test('preflights publication and routed Channel configuration without exposing S
   assert.deepEqual(
     report.checks.map(({ name, status }) => ({ name, status })),
     [
-      { name: 'Run Selection', status: 'ready' },
+      { name: 'Screenshot IDs', status: 'ready' },
       { name: 'BOT_TIME_ZONE', status: 'ready' },
       { name: 'BOT_LOCALE', status: 'ready' },
       { name: 'BOT_SCREENSHOT_RESOLUTION', status: 'ready' },
@@ -214,7 +214,7 @@ test('treats unmatched Channel routing as an intentional per-selection skip', ()
 
   assert.equal(report.valid, true)
   assert.equal(report.checks.at(-1).status, 'skipped')
-  assert.match(formatBotPreflightReport(report), /none selected by Battle Schedules/)
+  assert.match(formatBotPreflightReport(report), /none select the chosen Screenshot IDs/)
 
   const selectedChannelReport = inspectBotConfiguration({
     selection: 'schedules',

@@ -8,20 +8,12 @@ The project turns a validated Splatoon data snapshot into screenshot artifacts a
 A complete execution that prepares data, renders screenshot artifacts, publishes them, and delivers notifications.
 _Avoid_: Job, pipeline
 
-**Content Group**:
-An operator-selectable bundle such as schedules, Salmon Run, or gear. Each group owns a stable set of Screenshot Definitions and Notifications.
-_Avoid_: Run Profile, Bot type, message type
-
-**Content Group ID**:
-The stable kebab-case value that identifies one Content Group in GitHub Actions, CLI arguments, environment projection, and a Run Selection.
-_Avoid_: Profile name, checkbox name
-
 **Run Selection**:
-A non-empty, canonical ordering of the Content Group IDs chosen for one Bot Run.
+A non-empty, canonical ordering of the Screenshot IDs chosen for one Bot Run.
 _Avoid_: Profile, checkbox state
 
 **Run Plan**:
-The resolved, ordered Screenshot Definitions and Notifications produced from one Run Selection.
+The ordered Screenshot Definitions and Notifications produced from one Run Selection.
 _Avoid_: Matrix, Job list
 
 **Data Snapshot**:
@@ -33,8 +25,8 @@ The route, viewport, output name, and rendering contract for one Screenshot ID.
 _Avoid_: Screenshot type, page config
 
 **Screenshot ID**:
-The stable kebab-case identity shared by one Screenshot Definition, its PNG basename, and its matching Notification. A Content Group may expand to one or more Screenshot IDs.
-_Avoid_: Content Group, locale filename, route name
+The stable kebab-case identity shared by one GitHub Actions checkbox, CLI selection value, Screenshot Definition, PNG basename, and matching Notification.
+_Avoid_: Bundle alias, locale filename, route name
 
 **Screenshot Artifact**:
 A rendered PNG produced from a Screenshot Definition, Data Snapshot, fixed render time, time zone, and screenshot attribution.

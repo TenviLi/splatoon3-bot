@@ -3,7 +3,7 @@ import { publishToS3 } from './S3Publisher.mjs'
 const [selection] = process.argv.slice(2)
 
 if (!selection) {
-  throw new Error('Usage: node bot/publish/index.mjs <run-selection>')
+  throw new Error('Usage: node bot/publish/index.mjs <screenshot-ids>')
 }
 
 const manifest = await publishToS3({ selection })

@@ -7,7 +7,7 @@ import { readRunManifest, validateRunManifest, writeRunManifest } from '../bot/r
 
 function createManifest(overrides = {}) {
   return {
-    version: 5,
+    version: 6,
     selection: ['schedules'],
     renderTime: Date.parse('2026-07-30T00:00:00Z'),
     timeZone: 'Asia/Shanghai',
@@ -97,13 +97,13 @@ test('requires supported locale, resolution, and artifact geometry', () => {
   )
 })
 
-test('rejects the incompatible Run Manifest version 4 schema', () => {
-  assert.throws(() => validateRunManifest(createManifest({ version: 4 })), /Invalid input/)
+test('rejects the incompatible Run Manifest version 5 schema', () => {
+  assert.throws(() => validateRunManifest(createManifest({ version: 5 })), /Invalid input/)
 })
 
 test('requires canonical Run Selection ordering', () => {
   assert.throws(
-    () => validateRunManifest(createManifest({ selection: ['gear', 'schedules'] })),
-    /canonical order: schedules,gear/
+    () => validateRunManifest(createManifest({ selection: ['gear-regular', 'schedules'] })),
+    /canonical order: schedules,gear-regular/
   )
 })

@@ -11,7 +11,7 @@ import { resolveRunPlan } from '../run/RunPlan.mjs'
 const [selection, channelName] = process.argv.slice(2)
 
 if (!selection) {
-  throw new Error('Usage: node bot/notification/index.mjs <run-selection> [notification-channel]')
+  throw new Error('Usage: node bot/notification/index.mjs <screenshot-ids> [notification-channel]')
 }
 
 const plan = resolveRunPlan(selection)
@@ -39,7 +39,7 @@ function logReport(report) {
     if (channelResult.status === 'rejected' && channelResult.results.length === 0) {
       console.error(`${channelResult.channelName}: ${channelResult.error.message}`)
     } else if (channelResult.status === 'skipped') {
-      console.log(`${channelResult.channelName}: skipped; no Target selects this Run Selection`)
+      console.log(`${channelResult.channelName}: skipped; no Target selects the chosen Screenshot IDs`)
     } else if (channelResult.status === 'blocked') {
       console.error(`${channelResult.channelName}: blocked before delivery`)
     }

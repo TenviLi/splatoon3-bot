@@ -4,35 +4,55 @@ on:
   workflow_dispatch:
     inputs:
       schedules:
-        description: 'Content Group schedules: battle overview (Regular/Anarchy/X or Splatfest)'
+        description: 'Screenshot ID schedules: battle overview (Regular/Anarchy/X or Splatfest)'
         type: boolean
         default: true
       schedules_regular:
-        description: 'Content Group schedules-regular: single Regular Battle card'
+        description: 'Screenshot ID schedules-regular: single Regular Battle card'
         type: boolean
         default: true
       schedules_anarchy:
-        description: 'Content Group schedules-anarchy: Anarchy Series and Open cards'
+        description: 'Screenshot ID schedules-anarchy: Anarchy Series and Open cards'
         type: boolean
         default: true
       schedules_x:
-        description: 'Content Group schedules-x: single X Battle card'
+        description: 'Screenshot ID schedules-x: single X Battle card'
         type: boolean
         default: true
       challenges:
-        description: 'Content Group challenges: Challenges'
+        description: 'Screenshot ID challenges: Challenges'
         type: boolean
         default: true
       salmon_run:
-        description: 'Content Group salmon-run: Salmon Run'
+        description: 'Screenshot ID salmon-run: Salmon Run'
         type: boolean
         default: true
-      gear:
-        description: 'Content Group gear: Daily Drop, regular shop, and Salmon Run gear'
+      gear_dailydrop:
+        description: 'Screenshot ID gear-dailydrop: Daily Drop gear'
         type: boolean
         default: true
-      splatfest:
-        description: 'Content Group splatfest: Splatfest views and notifications for all regions'
+      gear_regular:
+        description: 'Screenshot ID gear-regular: gear currently on sale'
+        type: boolean
+        default: true
+      gear_salmon_run:
+        description: 'Screenshot ID gear-salmon-run: monthly Salmon Run gear'
+        type: boolean
+        default: true
+      splatfest_na:
+        description: 'Screenshot ID splatfest-na: North America Splatfest'
+        type: boolean
+        default: true
+      splatfest_eu:
+        description: 'Screenshot ID splatfest-eu: Europe Splatfest'
+        type: boolean
+        default: true
+      splatfest_jp:
+        description: 'Screenshot ID splatfest-jp: Japan Splatfest'
+        type: boolean
+        default: true
+      splatfest_ap:
+        description: 'Screenshot ID splatfest-ap: Asia-Pacific Splatfest'
         type: boolean
         default: true
 
@@ -49,10 +69,10 @@ jobs:
     runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 10
     steps:
-      - name: Require at least one Content Group
-        if: ${{ !inputs.schedules && !inputs.schedules_regular && !inputs.schedules_anarchy && !inputs.schedules_x && !inputs.challenges && !inputs.salmon_run && !inputs.gear && !inputs.splatfest }}
+      - name: Require at least one Screenshot ID
+        if: ${{ !inputs.schedules && !inputs.schedules_regular && !inputs.schedules_anarchy && !inputs.schedules_x && !inputs.challenges && !inputs.salmon_run && !inputs.gear_dailydrop && !inputs.gear_regular && !inputs.gear_salmon_run && !inputs.splatfest_na && !inputs.splatfest_eu && !inputs.splatfest_jp && !inputs.splatfest_ap }}
         run: |
-          echo "Select at least one Content Group" >&2
+          echo "Select at least one Screenshot ID" >&2
           exit 1
 
       - name: Check out repository
@@ -82,8 +102,13 @@ jobs:
           RUN_SCHEDULES_X: ${{ inputs.schedules_x }}
           RUN_CHALLENGES: ${{ inputs.challenges }}
           RUN_SALMON_RUN: ${{ inputs.salmon_run }}
-          RUN_GEAR: ${{ inputs.gear }}
-          RUN_SPLATFEST: ${{ inputs.splatfest }}
+          RUN_GEAR_DAILYDROP: ${{ inputs.gear_dailydrop }}
+          RUN_GEAR_REGULAR: ${{ inputs.gear_regular }}
+          RUN_GEAR_SALMON_RUN: ${{ inputs.gear_salmon_run }}
+          RUN_SPLATFEST_NA: ${{ inputs.splatfest_na }}
+          RUN_SPLATFEST_EU: ${{ inputs.splatfest_eu }}
+          RUN_SPLATFEST_JP: ${{ inputs.splatfest_jp }}
+          RUN_SPLATFEST_AP: ${{ inputs.splatfest_ap }}
         run: node bot/run/describe.mjs
 
       - name: Check Bot configuration without side effects

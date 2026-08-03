@@ -454,8 +454,13 @@ try {
       schedules_x: true,
       challenges: true,
       salmon_run: true,
-      gear: true,
-      splatfest: false,
+      gear_dailydrop: true,
+      gear_regular: true,
+      gear_salmon_run: true,
+      splatfest_na: false,
+      splatfest_eu: false,
+      splatfest_jp: false,
+      splatfest_ap: false,
       channel: 'wecom',
     },
     expectedPublishedImages: Object.freeze([
@@ -478,8 +483,13 @@ try {
       schedules_x: false,
       challenges: false,
       salmon_run: false,
-      gear: false,
-      splatfest: true,
+      gear_dailydrop: false,
+      gear_regular: false,
+      gear_salmon_run: false,
+      splatfest_na: true,
+      splatfest_eu: true,
+      splatfest_jp: true,
+      splatfest_ap: true,
       channel: 'wecom',
     },
     expectedPublishedImages: Object.freeze([
@@ -488,7 +498,7 @@ try {
       'splatfest-jp.png',
       'splatfest-ap.png',
     ]),
-    fixtureRenderTime: '2026-07-12T12:00:00Z',
+    fixtureRenderTime: '2026-07-13T12:00:00Z',
   })
 } finally {
   await mockServer.close()

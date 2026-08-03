@@ -2,7 +2,7 @@
 
 Checked against current first-party documentation on 2026-08-02. Store every YAML configuration described below as a GitHub **Repository Secret** under **Settings → Secrets and variables → Actions**. Do not commit real credentials, tokens, webhook URLs, phone numbers, or destination IDs.
 
-Channel Secrets are strict YAML sequences. Every Target requires a unique `name`; add a `notifications` list only when that Target should receive a subset, and omit it to receive every Notification in the active Run Selection. Valid IDs are `schedules`, `schedules-regular`, `schedules-anarchy`, `schedules-x`, `challenges`, `salmon-run`, `gear-dailydrop`, `gear-regular`, `gear-salmon-run`, `splatfest-na`, `splatfest-eu`, `splatfest-jp`, and `splatfest-ap`. Omit an entire `BOT_*_CONFIG` Secret to disable that adapter.
+Channel Secrets are strict YAML sequences. Every Target requires a unique `name`; add a `notifications` list only when that Target should receive a subset, and omit it to receive every selected Notification. The values are Screenshot IDs: `schedules`, `schedules-regular`, `schedules-anarchy`, `schedules-x`, `challenges`, `salmon-run`, `gear-dailydrop`, `gear-regular`, `gear-salmon-run`, `splatfest-na`, `splatfest-eu`, `splatfest-jp`, and `splatfest-ap`. Omit an entire `BOT_*_CONFIG` Secret to disable that adapter.
 
 ## S3-compatible publication
 

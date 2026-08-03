@@ -44,5 +44,5 @@ test('summarizes skipped, shared, and per-Channel notification failures', () => 
   assert.match(summary, /shared preparation failed; inspect the step log/)
   assert.match(summary, /wecom: rejected before delivery; inspect the step log/)
   assert.match(summary, /discord: blocked before delivery/)
-  assert.match(summary, /telegram: skipped; no Target selects this Run Selection/)
+  assert.match(summary, /telegram: skipped; no Target selects the chosen Screenshot IDs/)
 })

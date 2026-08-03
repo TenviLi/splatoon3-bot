@@ -62,7 +62,7 @@
 
 ### 全部十三个 Screenshot ID
 
-可勾选的选项叫 **Content Group ID（内容组 ID）**，不是 Run Profile。一个 Content Group ID 对应 GitHub Actions 中的一个复选框或 CLI 中的一个选择值，并会展开为一个或多个 **Screenshot ID（截图 ID）**。Screenshot ID 同时也是生成 PNG 的稳定文件主名和对应 Notification 的 ID，因此也可以直接写进通知目标的 `notifications:` 列表。
+每个可选项就是一个 **Screenshot ID（截图 ID）**。同一个 ID 对应 GitHub Actions 中的一个复选框、一张生成的 PNG 和一条 Notification，也可以直接复制到通知目标的 `notifications:` 列表。任意选择一个或多个 ID 即可；每个选中的 ID 都只生成一张截图和一条通知。
 
 <table>
   <tr>
@@ -92,22 +92,27 @@
 
 这些预览使用默认分辨率 `1200×675`；点击任意图片可以查看完整尺寸。`BOT_SCREENSHOT_RESOLUTION` 可以从四个精确的 16:9 尺寸中选择，并同时控制归档 Screenshot Artifact 与通知主图。LINE 与 WhatsApp 会各自使用独立的 `1024×576` 平台变体，使每个适配器能够单独落实自身限制，而不降低其他通知平台的画质。
 
-### 可选内容组
+### 选择要生成的截图
 
-下面八个 Content Group ID 就是手动运行、Smoke Test 与配置检查表单中真实可选的项目；CLI 也接受同一组 ID，并用逗号组成 Run Selection。
+手动运行、Smoke Test 与配置检查表单都会为每个 Screenshot ID 提供一个复选框。本地命令也直接接受同一组 ID，以逗号分隔即可。
 
-| Content Group ID | 生成的 Screenshot ID | 适用内容 |
-| --- | --- | --- |
-| `schedules` | `schedules` | 普通、蛮颓、X 比赛或当前祭典模式的完整对战总览。 |
-| `schedules-regular` | `schedules-regular` | 只展示一般比赛的专题卡片。 |
-| `schedules-anarchy` | `schedules-anarchy` | 并列展示蛮颓比赛（挑战）与开放。 |
-| `schedules-x` | `schedules-x` | 只展示 X 比赛的专题卡片。 |
-| `challenges` | `challenges` | 当前或下一场活动比赛及可参加时段。 |
-| `salmon-run` | `salmon-run` | 当前鲑鱼跑轮换。 |
-| `gear` | `gear-dailydrop`、`gear-regular`、`gear-salmon-run` | 今日精选、通常商品与鲑鱼跑月度装备。 |
-| `splatfest` | `splatfest-na`、`splatfest-eu`、`splatfest-jp`、`splatfest-ap` | 四个区域各一张祭典图片和一条通知。 |
+| Screenshot ID | 截图内容 |
+| --- | --- |
+| `schedules` | 普通、蛮颓、X 比赛或当前祭典模式的完整对战总览。 |
+| `schedules-regular` | 只展示一般比赛的专题卡片。 |
+| `schedules-anarchy` | 并列展示蛮颓比赛（挑战）与开放。 |
+| `schedules-x` | 只展示 X 比赛的专题卡片。 |
+| `challenges` | 当前或下一场活动比赛及可参加时段。 |
+| `salmon-run` | 当前鲑鱼跑轮换。 |
+| `gear-dailydrop` | 鱿鱼须商城的今日精选装备。 |
+| `gear-regular` | 鱿鱼须商城当前在售装备。 |
+| `gear-salmon-run` | 当前鲑鱼跑月度装备奖励。 |
+| `splatfest-na` | 北美区域祭典。 |
+| `splatfest-eu` | 欧洲区域祭典。 |
+| `splatfest-jp` | 日本区域祭典。 |
+| `splatfest-ap` | 亚太区域祭典。 |
 
-**Run Selection（运行选择）**是任意非空的 Content Group ID 组合；Bot 会把它解析成顺序稳定的 **Run Plan（运行计划）**，其中列出本次真正要生成的 Screenshot ID 与 Notification。这里刻意不使用“Run Profile”：这些选项可以自由组合，并不是互斥的预设档位。
+系统会自动去重并按固定顺序处理，因此勾选顺序或 CLI 参数顺序不会改变 Bot Run 的结果。
 
 ## 快速开始
 
@@ -132,7 +137,7 @@
 
    参考企业微信官方的[群机器人说明](https://developer.work.weixin.qq.com/document/path/91770)，或从[通知平台](#通知平台)中选择其他适配器。
 4. 默认语言已经是 `zh-CN`。如果你的时区不是 `Asia/Shanghai`，请设置 `BOT_TIME_ZONE`；只有默认值不合适时，才需要添加 `BOT_SCREENSHOT_RESOLUTION` 等其他 [Repository Variables](#repository-variables)。
-5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后选中全部八个 [Content Group ID](#可选内容组) 并运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
+5. 打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，然后选中全部十三个 [Screenshot ID](#选择要生成的截图) 并运行 **Check Bot Configuration**。它会检查所有配置，但不会上传图片或发送消息。
 6. 对已配置的平台运行 **Notification Channel smoke test**。它会真实上传一次图片并发送一条消息，用来确认从 S3 到消息目标的完整链路，然后再放心交给定时任务。
 
 > [!IMPORTANT]
@@ -159,9 +164,9 @@ flowchart LR
 
 | 工作流 | 何时运行 | 发送内容 |
 | --- | --- | --- |
-| `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | `schedules` Content Group ID |
-| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run` 与 `gear` Content Group ID |
-| `bot-manual.yml` | 按需手动运行 | 任意复选框组合 |
+| `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | `schedules` |
+| `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run`、`gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
+| `bot-manual.yml` | 按需手动运行 | 任意 Screenshot ID 复选框组合 |
 | `configuration-check.yml` | 按需手动运行 | 只检查配置，不上传、不发送 |
 | `notification-smoke.yml` | 按需手动运行 | 发布当前图片，并向所选平台发送一条真实测试消息 |
 
@@ -173,7 +178,7 @@ flowchart LR
 
 GitHub 不允许在 `on.schedule.cron` 中读取 Repository Variables 或 Secrets，因此这里没有定时 Variable。可以参考 GitHub 官方的 [`on.schedule` 语法](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)，并用 [crontab.guru](https://crontab.guru/) 辅助生成表达式。每日两次的工作流也勾选了对战日程；除非确实需要重复消息，否则不要让它与仅发送日程的工作流重叠。
 
-Content Group ID、生成的 Screenshot ID 与 Notification 之间的完整映射已经直接展示在[截图目录](#全部十三个-screenshot-id)中。该目录遵循上游 [截图路由](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)；每张选中的图片都会进入 Bot Run 归档并发布到 S3，再由各平台适配器渲染为原生模板卡片、Embed、图片消息或消息模板。
+[截图目录](#全部十三个-screenshot-id)同时也是完整的 Screenshot ID 可选清单。它遵循上游 [截图路由](https://github.com/misenhower/splatoon3.ink/blob/main/src/router/screenshots.js)；每张选中的图片都会进入 Bot Run 归档并发布到 S3，再由各平台适配器渲染为原生模板卡片、Embed、图片消息或消息模板。
 
 ## 配置
 
@@ -323,7 +328,7 @@ keyPrefix: splatoon3-bot
 
 每个平台 Secret 都是一份 YAML 数组，因此同一个平台可以配置多个群、频道、用户或 Webhook。数组中的每一项代表一个消息目标，并且需要唯一的 `name`。只有某个目标不应接收本次运行选中的全部通知时，才添加 `notifications` 列表；省略时会接收全部。各目标独立并行发送，同一目标内仍保持消息顺序。
 
-| 内容 | `notifications` 可填写的通知 ID |
+| 内容 | `notifications` 可填写的 Screenshot ID |
 | --- | --- |
 | 对战日程 | `schedules`、`schedules-regular`、`schedules-anarchy`、`schedules-x` |
 | 活动比赛 | `challenges` |
@@ -387,7 +392,7 @@ keyPrefix: splatoon3-bot
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一、便于识别的目标名称，用于配置校验和发送报告。 |
-| `notifications` | 否 | 发送到此目标的通知 ID；省略时接收当前运行选择中的全部通知。 |
+| `notifications` | 否 | 发送到此目标的 Screenshot ID；省略时接收本次选中的全部通知。 |
 | `webhookUrl` | 是 | 从企业微信复制的完整群机器人 Webhook，其中的 `key` 属于敏感凭据。 |
 
 </details>
@@ -578,8 +583,8 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 - 数据下载带重试和超时，完整通过 Schema 校验后才替换上一份有效数据。
 - 截图会等待应用、字体和本地图片就绪，并检查语言、署名、尺寸、底栏位置和内容溢出。
-- Run Manifest v5 记录所选 Content Group ID，并精确记录“生成了什么”：语言、分辨率、时区、数据身份、Screenshot ID、文件名、尺寸和 SHA-256。
-- Publication Manifest v7 记录同一运行选择，并精确记录“发布了什么”：通知主图、LINE 与 WhatsApp 平台专用图、原图、内置图标和公网 URL。
+- Run Manifest v6 记录所选 Screenshot ID，并精确记录“生成了什么”：语言、分辨率、时区、数据身份、文件名、尺寸和 SHA-256。
+- Publication Manifest v8 记录同一组 Screenshot ID，并精确记录“发布了什么”：通知主图、LINE 与 WhatsApp 平台专用图、原图、内置图标和公网 URL。
 - 配置预检会在首次上传前一次性汇总所有独立错误，而且不会输出 Secret 内容。
 - 各消息目标独立执行；某个目标失败不会撤销其他目标已经成功发送的消息，最终会统一汇总失败原因。
 - CI 扫描完整 Git 历史，并运行语法、单元、浏览器、视觉、构建、工作流策略与依赖审计。
@@ -604,10 +609,10 @@ pnpm run verify
 
 | 命令 | 用途 |
 | --- | --- |
-| `pnpm run bot:doctor <selection> [channel]` | 校验配置；Content Group ID 用逗号分隔，例如 `schedules,gear`。 |
-| `pnpm run bot:prepare <selection>` | 下载、构建、截图并写入 Run Manifest。 |
-| `pnpm run bot:publish <selection>` | 校验并通过 S3 发布。 |
-| `pnpm run bot:notify <selection> [channel]` | 发送已配置的平台。 |
+| `pnpm run bot:doctor <screenshot-ids> [channel]` | 校验配置；Screenshot ID 用逗号分隔，例如 `schedules,gear-regular`。 |
+| `pnpm run bot:prepare <screenshot-ids>` | 下载、构建、截图并写入 Run Manifest。 |
+| `pnpm run bot:publish <screenshot-ids>` | 校验并通过 S3 发布。 |
+| `pnpm run bot:notify <screenshot-ids> [channel]` | 发送已配置的平台。 |
 | `pnpm run test:update-golden` | 生成当前平台的中、英、日截图基线。 |
 | `pnpm run screenshots:contact-sheet -- --locale zh-CN` | 从当前平台的 Golden 生成包含全部截图类型和名称的总览图；通过 `--help` 查看布局与输出选项。 |
 | `pnpm run verify` | 运行完整本地验证。 |

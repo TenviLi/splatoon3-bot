@@ -4,7 +4,7 @@ import { renderScreenshotArtifacts } from './ScreenshotRunner.mjs'
 const [selection] = process.argv.slice(2)
 
 if (!selection) {
-  throw new Error('Usage: node bot/screenshot/index.mjs <run-selection>')
+  throw new Error('Usage: node bot/screenshot/index.mjs <screenshot-ids>')
 }
 
 const plan = resolveRunPlan(selection)

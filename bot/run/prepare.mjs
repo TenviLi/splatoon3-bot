@@ -11,7 +11,7 @@ import { writeRunManifest } from './RunManifest.mjs'
 const [selection] = process.argv.slice(2)
 
 if (!selection) {
-  throw new Error('Usage: node bot/run/prepare.mjs <run-selection>')
+  throw new Error('Usage: node bot/run/prepare.mjs <screenshot-ids>')
 }
 
 const plan = resolveRunPlan(selection)
@@ -39,7 +39,7 @@ const artifacts = await renderScreenshotArtifacts(plan.screenshots, {
   screenshotAttribution,
 })
 const manifest = await writeRunManifest({
-  version: 5,
+  version: 6,
   selection: plan.selection,
   renderTime,
   timeZone,
