@@ -301,7 +301,7 @@ test('skips configured Channels whose Targets do not select the active Run Selec
       BOT_WECOM_CONFIG: stringifyYaml([
         {
           name: 'gear-only',
-          notifications: ['gear-dailydrop', 'gear-regular'],
+          screenshotIds: ['gear-dailydrop', 'gear-regular'],
           webhookUrl: 'https://example.com/gear',
         },
       ]),
@@ -316,24 +316,24 @@ test('skips configured Channels whose Targets do not select the active Run Selec
   assert.deepEqual(report.deliveryResults, [])
 })
 
-test('routes only selected Notifications to each Target', async () => {
+test('routes the intersection of Run Selection and Target screenshotIds', async () => {
   const results = await deliverNotificationChannel({
     selection: ['salmon-run', 'gear-dailydrop', 'gear-regular', 'gear-salmon-run'],
     channelName: 'wecom',
     rawConfig: stringifyYaml([
       {
         name: 'schedules',
-        notifications: ['schedules'],
+        screenshotIds: ['schedules'],
         webhookUrl: 'https://example.com/schedules',
       },
       {
         name: 'salmon-run',
-        notifications: ['salmon-run'],
+        screenshotIds: ['salmon-run'],
         webhookUrl: 'https://example.com/salmon-run',
       },
       {
         name: 'gear',
-        notifications: ['gear-dailydrop', 'gear-regular', 'gear-salmon-run'],
+        screenshotIds: ['gear-dailydrop', 'gear-regular', 'gear-salmon-run'],
         webhookUrl: 'https://example.com/gear',
       },
     ]),
@@ -366,15 +366,49 @@ test('rejects invalid direct Target arrays before delivery', async () => {
       channelName: 'wecom',
       rawConfig: stringifyYaml([
         {
+          name: 'legacy-field',
+          notifications: ['schedules'],
+          webhookUrl: 'https://example.com/legacy',
+        },
+      ]),
+      publicationManifest: createPublicationManifestFixture('schedules'),
+      snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+    }),
+    /Unrecognized key: "notifications"/
+  )
+
+  await assert.rejects(
+    deliverNotificationChannel({
+      selection: 'schedules',
+      channelName: 'wecom',
+      rawConfig: stringifyYaml([
+        {
           name: 'unknown-notification',
-          notifications: ['unknown'],
+          screenshotIds: ['unknown'],
           webhookUrl: 'https://example.com/unknown',
         },
       ]),
       publicationManifest: createPublicationManifestFixture('schedules'),
       snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
     }),
-    /Unknown Notification: unknown/
+    /Unknown Screenshot ID: unknown/
+  )
+
+  await assert.rejects(
+    deliverNotificationChannel({
+      selection: 'schedules',
+      channelName: 'wecom',
+      rawConfig: stringifyYaml([
+        {
+          name: 'duplicate-screenshot-id',
+          screenshotIds: ['schedules', 'schedules'],
+          webhookUrl: 'https://example.com/duplicate-screenshot-id',
+        },
+      ]),
+      publicationManifest: createPublicationManifestFixture('schedules'),
+      snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'data'),
+    }),
+    /Duplicate Screenshot ID: schedules/
   )
 
   await assert.rejects(
@@ -384,13 +418,13 @@ test('rejects invalid direct Target arrays before delivery', async () => {
       rawConfig: stringifyYaml([
         {
           name: 'salmon-run-only',
-          notifications: ['salmon-run'],
+          screenshotIds: ['salmon-run'],
           webhookUrl: 'https://example.com/salmon-run',
         },
       ]),
       snapshotDirectory: path.join(process.cwd(), 'tests', 'fixtures', 'missing'),
     }),
-    /No wecom Notification Targets select Battle Overview Notifications/
+    /No wecom Notification Targets match the selected Screenshot IDs: schedules/
   )
 
   await assert.rejects(

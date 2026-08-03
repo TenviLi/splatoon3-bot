@@ -162,12 +162,12 @@ test('preflights publication and routed Channel configuration without exposing S
         {
           name: 'schedules',
           webhookUrl: 'https://wecom.example.com/sensitive-webhook',
-          notifications: ['schedules'],
+          screenshotIds: ['schedules'],
         },
         {
           name: 'gear',
           webhookUrl: 'https://wecom.example.com/other-sensitive-webhook',
-          notifications: ['gear-dailydrop', 'gear-regular'],
+          screenshotIds: ['gear-dailydrop', 'gear-regular'],
         },
       ]),
     }),
@@ -203,7 +203,7 @@ test('treats unmatched Channel routing as an intentional per-selection skip', ()
       {
         name: 'gear-only',
         webhookUrl: 'https://wecom.example.com/gear',
-        notifications: ['gear-dailydrop', 'gear-regular'],
+        screenshotIds: ['gear-dailydrop', 'gear-regular'],
       },
     ]),
   })

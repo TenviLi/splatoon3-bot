@@ -1,30 +1,30 @@
 import { z } from 'zod'
 import { parseYamlEnvironment } from '../config/YamlEnvironment.mjs'
-import { getNotificationDefinition, resolveRunPlan } from '../run/RunPlan.mjs'
+import { getScreenshotDefinition, resolveRunPlan } from '../run/RunPlan.mjs'
 import { getChannelAdapter, resolveConfiguredNotificationChannels } from './channels/index.mjs'
 
-const notificationSelectionSchema = z
+const screenshotIdSelectionSchema = z
   .array(z.string().min(1))
   .min(1)
-  .superRefine((notificationIds, validationContext) => {
-    const seenNotificationIds = new Set()
-    for (const [index, notificationId] of notificationIds.entries()) {
-      if (seenNotificationIds.has(notificationId)) {
+  .superRefine((screenshotIds, validationContext) => {
+    const seenScreenshotIds = new Set()
+    for (const [index, screenshotId] of screenshotIds.entries()) {
+      if (seenScreenshotIds.has(screenshotId)) {
         validationContext.addIssue({
           code: 'custom',
           path: [index],
-          message: `Duplicate Notification: ${notificationId}`,
+          message: `Duplicate Screenshot ID: ${screenshotId}`,
         })
       }
-      seenNotificationIds.add(notificationId)
+      seenScreenshotIds.add(screenshotId)
 
       try {
-        getNotificationDefinition(notificationId)
+        getScreenshotDefinition(screenshotId)
       } catch {
         validationContext.addIssue({
           code: 'custom',
           path: [index],
-          message: `Unknown Notification: ${notificationId}`,
+          message: `Unknown Screenshot ID: ${screenshotId}`,
         })
       }
     }
@@ -32,7 +32,7 @@ const notificationSelectionSchema = z
 
 function targetConfigurationSchema(channel) {
   const targetSchema = channel.targetSchema.extend({
-    notifications: notificationSelectionSchema.optional(),
+    screenshotIds: screenshotIdSelectionSchema.optional(),
   })
 
   return z
@@ -61,12 +61,12 @@ function parseTargets(rawConfig, channel) {
 }
 
 function selectTargetNotificationIds(target, notificationIds) {
-  if (!target.notifications) {
+  if (!target.screenshotIds) {
     return notificationIds
   }
 
-  const selectedNotificationIds = new Set(target.notifications)
-  return notificationIds.filter((notificationId) => selectedNotificationIds.has(notificationId))
+  const selectedScreenshotIds = new Set(target.screenshotIds)
+  return notificationIds.filter((notificationId) => selectedScreenshotIds.has(notificationId))
 }
 
 function prepareChannel(plan, channel, rawConfig) {
@@ -90,7 +90,7 @@ function prepareChannel(plan, channel, rawConfig) {
 function requireSelectedChannelDeliveries(preparedChannel, plan) {
   if (preparedChannel.status === 'skipped') {
     throw new Error(
-      `No ${preparedChannel.channelName} Notification Targets select ${plan.label} Notifications`
+      `No ${preparedChannel.channelName} Notification Targets match the selected Screenshot IDs: ${plan.selection.join(', ')}`
     )
   }
   return preparedChannel

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { parse as parseYaml } from 'yaml'
 import { prepareNotificationChannelConfiguration } from '../bot/notification/NotificationConfiguration.mjs'
 import { listChannelAdapters } from '../bot/notification/channels/index.mjs'
 import {
@@ -217,6 +218,11 @@ test('README provides direct screenshots and three operator-first languages', as
       /splatoon3-bot\/fork|GitHub Importer|private mirror|公开仓库的 Fork|Public repository の Fork/,
       `${filename}: obsolete Fork installation flow`
     )
+    assert.doesNotMatch(
+      source,
+      /keep all thirteen|保持全部十三个.*勾选|13 個すべて.*選択/,
+      `${filename}: configuration check must not describe removed Screenshot ID inputs`
+    )
     assert.doesNotMatch(source, /@锂碘|wxwork-icon/, filename)
     for (const screenshotName of screenshotNames) {
       const screenshotPath = `tests/golden/screenshots/linux-x64/${locale}/${screenshotName}.png`
@@ -385,13 +391,14 @@ test('README provides direct screenshots and three operator-first languages', as
     ['README.ja.md', japanese, '## 通知プラットフォーム', '## 信頼性'],
   ]) {
     const notificationSection = source.slice(source.indexOf(sectionStart), source.indexOf(sectionEnd))
-    assert.match(notificationSection, /`notifications`/, `${filename}: common Notification selection field`)
+    assert.match(notificationSection, /`screenshotIds`/, `${filename}: common Screenshot ID routing field`)
     assert.equal(notificationSection.match(/^<details>$/gm)?.length, 9, `${filename}: one example per adapter`)
     for (const [secretName, fields] of Object.entries(documentedTargetFields)) {
       const row = notificationSection
         .split('\n')
         .find((line) => line.startsWith(`| \`${secretName}\` |`))
       assert.ok(row, `${filename}: missing ${secretName} field reference`)
+      assert.ok(row.includes('`screenshotIds`'), `${filename}: ${secretName} missing common routing field`)
       for (const field of fields) {
         assert.ok(row.includes(`\`${field}\``), `${filename}: ${secretName} missing ${field}`)
       }
@@ -407,16 +414,32 @@ test('README provides direct screenshots and three operator-first languages', as
       const channel = listChannelAdapters().find(
         (candidate) => candidate.configurationEnvironmentVariable === secretName
       )
+      const routedTargets = parseYaml(yaml)
+      for (const target of routedTargets) {
+        assert.ok(
+          Array.isArray(target.screenshotIds),
+          `${filename}: every ${secretName} example Target must show screenshotIds`
+        )
+      }
+      assert.ok(
+        routedTargets.some(({ screenshotIds }) => screenshotIds.includes('schedules')),
+        `${filename}: ${secretName} example must work with the default schedules smoke test`
+      )
       const prepared = prepareNotificationChannelConfiguration({
         selection: listScreenshotDefinitions().map(({ name }) => name),
         channelName: channel.name,
         rawConfig: yaml,
       })
       assert.equal(prepared.status, 'ready', `${filename}: ${secretName} example is usable`)
+      assert.equal(
+        prepared.deliveries.length,
+        routedTargets.length,
+        `${filename}: ${secretName} supports shared screenshotIds routing`
+      )
 
       const describedFields = [
         'name',
-        'notifications',
+        'screenshotIds',
         ...fields.filter((field) => !['name', 'group', 'user', 'room'].includes(field)),
       ]
       for (const field of describedFields) {
@@ -624,15 +647,10 @@ test('notification adapters share the publication stage and are enabled by confi
     'utf8'
   )
   assert.match(localActionsVerifier, /notification-smoke\.yml/)
+  assert.match(localActionsVerifier, /screenshot_id: 'schedules'/)
+  assert.match(localActionsVerifier, /screenshot_id: 'splatfest-jp'/)
   assert.match(localActionsVerifier, /expectedUploadCount/)
-  assert.match(localActionsVerifier, /schedules-regular\.png/)
-  assert.match(localActionsVerifier, /challenges\.png/)
-  assert.match(localActionsVerifier, /salmon-run\.png/)
-  assert.match(localActionsVerifier, /gear-salmon-run\.png/)
-  assert.match(localActionsVerifier, /splatfest-na\.png/)
-  assert.match(localActionsVerifier, /splatfest-eu\.png/)
   assert.match(localActionsVerifier, /splatfest-jp\.png/)
-  assert.match(localActionsVerifier, /splatfest-ap\.png/)
   assert.match(localActionsVerifier, /primary notification image instead of BOT_SCREENSHOT_RESOLUTION 1200x675/)
   assert.match(localActionsVerifier, /LINE image instead of 1024x576/)
   assert.match(localActionsVerifier, /LINE image above 1 MB/)
@@ -693,6 +711,11 @@ test('notification adapters share the publication stage and are enabled by confi
     channels.map(({ name }) => name),
     'Notification smoke choices must match the Channel adapter registry'
   )
+  assert.deepEqual(
+    workflowDispatchChoiceOptions(smokeWorkflow, 'screenshot_id'),
+    listScreenshotDefinitions().map(({ name }) => name),
+    'Notification smoke choices must match the Screenshot Definition registry'
+  )
 
   const capabilities = await fs.readFile(
     path.join(process.cwd(), 'docs', 'notification-platform-capabilities.md'),
@@ -706,27 +729,33 @@ test('notification adapters share the publication stage and are enabled by confi
     )
   }
 
-  for (const filename of ['bot-manual.yml', 'notification-smoke.yml', 'configuration-check.yml']) {
-    const source = await fs.readFile(path.join(workflowDirectory, filename), 'utf8')
-    assert.doesNotMatch(source, /^      profile:$/m, `${filename} must not expose combination Profiles`)
-    for (const { name } of listScreenshotDefinitions()) {
-      const inputName = name.replaceAll('-', '_')
-      const environmentVariable = `RUN_${inputName.toUpperCase()}`
-      const expectedDefault = filename === 'configuration-check.yml' || name === 'schedules'
-      assertBooleanSelectionInput(source, inputName, expectedDefault)
-      if (filename === 'configuration-check.yml') {
-        assert.ok(
-          source.includes(`          ${environmentVariable}: \${{ inputs.${inputName} }}`),
-          `${filename} must project ${name} into ${environmentVariable}`
-        )
-      } else {
-        assert.ok(
-          source.includes(`      ${inputName}: \${{ inputs.${inputName} }}`),
-          `${filename} must forward Screenshot ID ${name}`
-        )
-      }
-    }
+  const manualWorkflow = await fs.readFile(path.join(workflowDirectory, 'bot-manual.yml'), 'utf8')
+  assert.doesNotMatch(manualWorkflow, /^      profile:$/m, 'bot-manual.yml must not expose combination Profiles')
+  for (const { name } of listScreenshotDefinitions()) {
+    const inputName = name.replaceAll('-', '_')
+    assertBooleanSelectionInput(manualWorkflow, inputName, name === 'schedules')
+    assert.ok(
+      manualWorkflow.includes(`      ${inputName}: \${{ inputs.${inputName} }}`),
+      `bot-manual.yml must forward Screenshot ID ${name}`
+    )
+    assert.doesNotMatch(
+      smokeWorkflow,
+      new RegExp(`^      ${inputName}:$`, 'm'),
+      `notification-smoke.yml must not repeat the multi-select checkbox ${name}`
+    )
+    assert.ok(
+      smokeWorkflow.includes(`      ${inputName}: \${{ inputs.screenshot_id == '${name}' }}`),
+      `notification-smoke.yml must map ${name} from its single Screenshot ID choice`
+    )
   }
+
+  const allScreenshotIds = listScreenshotDefinitions().map(({ name }) => name).join(',')
+  assert.doesNotMatch(configurationCheckWorkflow, /^    inputs:$/m)
+  assert.doesNotMatch(configurationCheckWorkflow, /\binputs\./)
+  assert.ok(
+    configurationCheckWorkflow.includes(`          RUN_SELECTION: ${allScreenshotIds}`),
+    'configuration-check.yml must validate every canonical Screenshot ID'
+  )
 
   for (const { name } of listScreenshotDefinitions()) {
     const inputName = name.replaceAll('-', '_')

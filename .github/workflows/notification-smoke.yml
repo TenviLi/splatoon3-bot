@@ -3,58 +3,25 @@ name: Notification Channel smoke test
 on:
   workflow_dispatch:
     inputs:
-      schedules:
-        description: 'Battle overview (Regular, Anarchy, X Battle, or active Splatfest)'
-        type: boolean
-        default: true
-      schedules_regular:
-        description: 'Single Regular Battle card'
-        type: boolean
-        default: false
-      schedules_anarchy:
-        description: 'Anarchy Series and Open cards'
-        type: boolean
-        default: false
-      schedules_x:
-        description: 'Single X Battle card'
-        type: boolean
-        default: false
-      challenges:
-        description: 'Challenges'
-        type: boolean
-        default: false
-      salmon_run:
-        description: 'Salmon Run'
-        type: boolean
-        default: false
-      gear_dailydrop:
-        description: 'Daily Drop gear'
-        type: boolean
-        default: false
-      gear_regular:
-        description: 'Gear currently on sale'
-        type: boolean
-        default: false
-      gear_salmon_run:
-        description: 'Monthly Salmon Run gear'
-        type: boolean
-        default: false
-      splatfest_na:
-        description: 'North America Splatfest (time-dependent)'
-        type: boolean
-        default: false
-      splatfest_eu:
-        description: 'Europe Splatfest (time-dependent)'
-        type: boolean
-        default: false
-      splatfest_jp:
-        description: 'Japan Splatfest (time-dependent)'
-        type: boolean
-        default: false
-      splatfest_ap:
-        description: 'Asia-Pacific Splatfest (time-dependent)'
-        type: boolean
-        default: false
+      screenshot_id:
+        description: Screenshot ID to publish and send
+        default: schedules
+        required: true
+        type: choice
+        options:
+          - schedules
+          - schedules-regular
+          - schedules-anarchy
+          - schedules-x
+          - challenges
+          - salmon-run
+          - gear-dailydrop
+          - gear-regular
+          - gear-salmon-run
+          - splatfest-na
+          - splatfest-eu
+          - splatfest-jp
+          - splatfest-ap
       channel:
         description: Notification Channel to test
         default: wecom
@@ -78,19 +45,19 @@ jobs:
   smoke:
     uses: ./.github/workflows/bot-reusable.yml
     with:
-      schedules: ${{ inputs.schedules }}
-      schedules_regular: ${{ inputs.schedules_regular }}
-      schedules_anarchy: ${{ inputs.schedules_anarchy }}
-      schedules_x: ${{ inputs.schedules_x }}
-      challenges: ${{ inputs.challenges }}
-      salmon_run: ${{ inputs.salmon_run }}
-      gear_dailydrop: ${{ inputs.gear_dailydrop }}
-      gear_regular: ${{ inputs.gear_regular }}
-      gear_salmon_run: ${{ inputs.gear_salmon_run }}
-      splatfest_na: ${{ inputs.splatfest_na }}
-      splatfest_eu: ${{ inputs.splatfest_eu }}
-      splatfest_jp: ${{ inputs.splatfest_jp }}
-      splatfest_ap: ${{ inputs.splatfest_ap }}
+      schedules: ${{ inputs.screenshot_id == 'schedules' }}
+      schedules_regular: ${{ inputs.screenshot_id == 'schedules-regular' }}
+      schedules_anarchy: ${{ inputs.screenshot_id == 'schedules-anarchy' }}
+      schedules_x: ${{ inputs.screenshot_id == 'schedules-x' }}
+      challenges: ${{ inputs.screenshot_id == 'challenges' }}
+      salmon_run: ${{ inputs.screenshot_id == 'salmon-run' }}
+      gear_dailydrop: ${{ inputs.screenshot_id == 'gear-dailydrop' }}
+      gear_regular: ${{ inputs.screenshot_id == 'gear-regular' }}
+      gear_salmon_run: ${{ inputs.screenshot_id == 'gear-salmon-run' }}
+      splatfest_na: ${{ inputs.screenshot_id == 'splatfest-na' }}
+      splatfest_eu: ${{ inputs.screenshot_id == 'splatfest-eu' }}
+      splatfest_jp: ${{ inputs.screenshot_id == 'splatfest-jp' }}
+      splatfest_ap: ${{ inputs.screenshot_id == 'splatfest-ap' }}
       notification_channel: ${{ inputs.channel }}
     secrets:
       S3_CONFIG: ${{ secrets.S3_CONFIG }}

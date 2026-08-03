@@ -90,7 +90,7 @@
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=...
 ```
 
-参考企业微信官方的[群机器人说明](https://developer.work.weixin.qq.com/document/path/91770)，或从[通知平台](#通知平台)选择其他适配器。先让第一个目标正常工作，之后再增加更多平台或消息目标。
+这个入门示例故意省略 `screenshotIds`，因此该目标会接收每次 Bot Run 实际生成的全部内容。建议先用这种最简单的行为完成首次发送，再按需增加分类路由。参考企业微信官方的[群机器人说明](https://developer.work.weixin.qq.com/document/path/91770)，或从[通知平台](#通知平台)选择其他适配器。
 
 **完成标志：** Repository Secrets 列表中至少出现一个 `BOT_*_CONFIG`。
 
@@ -102,7 +102,7 @@
 
 ### Step 5 — 检查配置（不上传、不发送）
 
-打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，选择 **Check Bot Configuration**，保持全部十三个 [Screenshot ID](#选择要生成的截图) 已勾选，然后点击 <kbd>Run workflow</kbd>。它会检查图片存储、所有已配置平台和通知路由，但不会上传图片或发送消息。
+打开 <kbd>Actions</kbd>，按 GitHub 提示启用工作流，选择 **Check Bot Configuration**，然后点击 <kbd>Run workflow</kbd>。这个表单没有 Screenshot ID 选项：它会自动检查图片存储、全部十三个 ID、所有已配置平台和每个目标的路由，但不会上传图片或发送消息。
 
 **完成标志：** 工作流显示绿色，Summary 中出现 **Configuration is ready**。如有报错，请全部修复后再继续。
 
@@ -137,7 +137,7 @@ Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Var
 
 ### 全部十三个 Screenshot ID
 
-每个可选项就是一个 **Screenshot ID（截图 ID）**。同一个 ID 对应 GitHub Actions 中的一个复选框、一张生成的 PNG 和一条 Notification，也可以直接复制到通知目标的 `notifications:` 列表。任意选择一个或多个 ID 即可；每个选中的 ID 都只生成一张截图和一条通知。
+每个可选项就是一个 **Screenshot ID（截图 ID）**。同一个值会出现在手动运行的复选框、Smoke Test 的下拉框、生成的 PNG 文件名、对应 Notification，以及通知目标可选的 `screenshotIds:` 列表中。每个选中的 ID 都只生成一张截图和一条通知。
 
 <table>
   <tr>
@@ -169,7 +169,13 @@ Step 6 成功后，两条定时工作流就可以复用同一组 Secrets 与 Var
 
 ### 选择要生成的截图
 
-手动运行、Smoke Test 与配置检查表单都会为每个 Screenshot ID 提供一个复选框。本地命令也直接接受同一组 ID，以逗号分隔即可。
+根据你的目的选择 Actions 表单：
+
+1. **现在发送一项或多项内容：** 使用 **Splatoon3 Bot (manual)**，自由勾选 Screenshot ID。
+2. **安全检查 Secrets 与路由：** 使用 **Check Bot Configuration**；它自动检查全部 ID 和目标，不上传、不发送。
+3. **测试一条真实发送链路：** 使用 **Notification Channel smoke test**，选择一个 `screenshot_id` 和一个平台。
+
+本地命令也接受同一组 ID，以逗号分隔即可。只有手动运行表单支持多选。
 
 | Screenshot ID | 截图内容 |
 | --- | --- |
@@ -214,8 +220,8 @@ flowchart LR
 | `bot-schedules.yml` | 除 `02:00`、`10:00` 外的每个 UTC 偶数小时 | `schedules` |
 | `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run`、`gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
 | `bot-manual.yml` | 按需手动运行 | 任意 Screenshot ID 复选框组合 |
-| `configuration-check.yml` | 按需手动运行 | 只检查配置，不上传、不发送 |
-| `notification-smoke.yml` | 按需手动运行 | 发布当前图片，并向所选平台发送一条真实测试消息 |
+| `configuration-check.yml` | 按需手动运行 | 检查全部 Screenshot ID 和已配置目标，不上传、不发送 |
+| `notification-smoke.yml` | 按需手动运行 | 发布一个选定的 Screenshot ID，并通过一个选定平台发送 |
 
 两条定时入口合计每两小时发送一次日程且不会重复。第三方 Actions 均固定到不可变 Commit SHA；仅支持 GitHub Actions 作为托管自动化平台。
 
@@ -373,9 +379,18 @@ keyPrefix: splatoon3-bot
 
 为每个需要使用的平台创建一个 Repository Secret。Secret 存在且非空时，对应适配器自动启用；没有配置的平台保持关闭。
 
-每个平台 Secret 都是一份 YAML 数组，因此同一个平台可以配置多个群、频道、用户或 Webhook。数组中的每一项代表一个消息目标，并且需要唯一的 `name`。只有某个目标不应接收本次运行选中的全部通知时，才添加 `notifications` 列表；省略时会接收全部。各目标独立并行发送，同一目标内仍保持消息顺序。
+每个平台 Secret 都是一份 YAML 数组。数组中的每一项代表一个消息目标（**Target**），并且需要唯一的 `name`，因此同一个 Secret 可以配置多个群、频道、用户或 Webhook。
 
-| 内容 | `notifications` 可填写的 Screenshot ID |
+路由分为两步：
+
+1. **本次运行选择生成什么。** 定时工作流在代码中固定选择；手动工作流使用复选框；Smoke Test 使用单选下拉框。
+2. **`screenshotIds` 选择某个目标接收什么。** 只有该目标需要接收一部分内容时，才在目标内部添加这个字段。
+
+> **实际投递内容 = 本次运行生成的 ID ∩ 目标的 `screenshotIds`。** 省略 `screenshotIds` 时，该目标接收本次运行实际生成的全部内容。
+
+各目标相互独立并行发送，同一目标内仍保持消息顺序。
+
+| 内容 | `screenshotIds` 可填写的值 |
 | --- | --- |
 | 对战日程 | `schedules`、`schedules-regular`、`schedules-anarchy`、`schedules-x` |
 | 活动比赛 | `challenges` |
@@ -397,19 +412,19 @@ keyPrefix: splatoon3-bot
 
 #### Secret 字段速查
 
-字段名区分大小写。每个消息目标还可以使用上文介绍的可选 `notifications` 列表。
+字段名区分大小写。每个目标都可以使用可选的 `screenshotIds`；下表重复列出它，方便单独查看任意平台配置。
 
 | Repository Secret | 每个消息目标的必选字段 | 可选字段 |
 | --- | --- | --- |
-| `BOT_WECOM_CONFIG` | `name`、`webhookUrl` | — |
-| `BOT_DISCORD_CONFIG` | `name`、`webhookUrl` | `username`、`avatarUrl` |
-| `BOT_TELEGRAM_CONFIG` | `name`、`botToken`、`chatId` | `messageThreadId`、`disableNotification` |
-| `BOT_QQ_CONFIG` | `name`、`appId`、`clientSecret`、`targetType`（`group` 或 `user`）、`targetId` | — |
-| `BOT_FEISHU_CONFIG` | `name`、`webhookUrl` | `secret` |
-| `BOT_DINGTALK_CONFIG` | `name`、`webhookUrl` | `secret` |
-| `BOT_WHATSAPP_CONFIG` | `name`、`accessToken`、`phoneNumberId`、`recipientPhoneNumber`、`templateName`、`languageCode` | — |
-| `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group` 或 `room`）、`targetId` | `notificationDisabled` |
-| `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | — |
+| `BOT_WECOM_CONFIG` | `name`、`webhookUrl` | `screenshotIds` |
+| `BOT_DISCORD_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`username`、`avatarUrl` |
+| `BOT_TELEGRAM_CONFIG` | `name`、`botToken`、`chatId` | `screenshotIds`、`messageThreadId`、`disableNotification` |
+| `BOT_QQ_CONFIG` | `name`、`appId`、`clientSecret`、`targetType`（`group` 或 `user`）、`targetId` | `screenshotIds` |
+| `BOT_FEISHU_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`secret` |
+| `BOT_DINGTALK_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`secret` |
+| `BOT_WHATSAPP_CONFIG` | `name`、`accessToken`、`phoneNumberId`、`recipientPhoneNumber`、`templateName`、`languageCode` | `screenshotIds` |
+| `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group` 或 `room`）、`targetId` | `screenshotIds`、`notificationDisabled` |
+| `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | `screenshotIds` |
 
 展开下面的平台即可取得可复制的 Secret 内容。保存到 **Settings → Secrets and variables → Actions** 前，请替换所有占位值。
 
@@ -420,7 +435,7 @@ keyPrefix: splatoon3-bot
 
 ```yaml
 - name: battle-schedules
-  notifications:
+  screenshotIds:
     - schedules
     - schedules-regular
     - schedules-anarchy
@@ -432,14 +447,14 @@ keyPrefix: splatoon3-bot
     - splatfest-ap
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_SCHEDULES_KEY
 - name: daily-updates
-  notifications: [salmon-run, gear-dailydrop, gear-regular, gear-salmon-run]
+  screenshotIds: [salmon-run, gear-dailydrop, gear-regular, gear-salmon-run]
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_UPDATES_KEY
 ```
 
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一、便于识别的目标名称，用于配置校验和发送报告。 |
-| `notifications` | 否 | 发送到此目标的 Screenshot ID；省略时接收本次选中的全部通知。 |
+| `screenshotIds` | 否 | 发送到此目标的 Screenshot ID；省略时接收本次 Run Selection 生成的全部内容。 |
 | `webhookUrl` | 是 | 从企业微信复制的完整群机器人 Webhook，其中的 `key` 属于敏感凭据。 |
 
 </details>
@@ -451,6 +466,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 ```yaml
 - name: splatoon-community
+  screenshotIds: [schedules]
   webhookUrl: https://discord.com/api/webhooks/123456789012345678/example-token
   username: Splatoon Bot
   avatarUrl: https://splatoon.example.com/bot-avatar.png
@@ -459,7 +475,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一的目标名称，用于校验和发送报告。 |
-| `notifications` | 否 | 此 Webhook 接收的通知子集。 |
+| `screenshotIds` | 否 | 此 Webhook 接收的 Screenshot ID 子集。 |
 | `webhookUrl` | 是 | 完整的 Discord Incoming Webhook URL，URL 本身包含凭据。 |
 | `username` | 否 | 此 Webhook 发送消息时使用的显示名称。 |
 | `avatarUrl` | 否 | 用作 Webhook 头像的公网 HTTPS 图片。 |
@@ -473,6 +489,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 ```yaml
 - name: community-topic
+  screenshotIds: [schedules]
   botToken: "123456:example_bot_token"
   chatId: "-1001234567890"
   messageThreadId: 42
@@ -482,7 +499,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一的目标名称。 |
-| `notifications` | 否 | 此会话或话题接收的通知子集。 |
+| `screenshotIds` | 否 | 此会话或话题接收的 Screenshot ID 子集。 |
 | `botToken` | 是 | BotFather 签发的机器人 Token，只应保存在 Repository Secret 中。 |
 | `chatId` | 是 | 用户、群组、超级群组或频道 ID；YAML 中建议给负数 ID 加引号。 |
 | `messageThreadId` | 否 | 超级群组内大于零的论坛话题 ID。 |
@@ -497,6 +514,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 ```yaml
 - name: official-group
+  screenshotIds: [schedules]
   appId: "102000000"
   clientSecret: "example-client-secret"
   targetType: group
@@ -506,7 +524,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一的目标名称。 |
-| `notifications` | 否 | 此群聊或用户接收的通知子集。 |
+| `screenshotIds` | 否 | 此群聊或用户接收的 Screenshot ID 子集。 |
 | `appId` | 是 | QQ 官方机器人的 AppID。 |
 | `clientSecret` | 是 | 用于获取访问令牌的机器人 ClientSecret。 |
 | `targetType` | 是 | 群 OpenID 使用 `group`，用户 OpenID 使用 `user`。 |
@@ -521,6 +539,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 ```yaml
 - name: team-group
+  screenshotIds: [schedules]
   webhookUrl: https://open.feishu.cn/open-apis/bot/v2/hook/REPLACE_WITH_HOOK_ID
   secret: "example-signing-secret"
 ```
@@ -528,7 +547,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一的目标名称。 |
-| `notifications` | 否 | 此群聊接收的通知子集。 |
+| `screenshotIds` | 否 | 此群聊接收的 Screenshot ID 子集。 |
 | `webhookUrl` | 是 | 从飞书或 Lark 复制的完整自定义机器人 Webhook。 |
 | `secret` | 否 | 在机器人安全设置中启用签名校验时配置的签名密钥。 |
 
@@ -541,6 +560,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 ```yaml
 - name: team-group
+  screenshotIds: [schedules]
   webhookUrl: https://oapi.dingtalk.com/robot/send?access_token=example-access-token
   secret: "SECexample-signing-secret"
 ```
@@ -548,7 +568,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一的目标名称。 |
-| `notifications` | 否 | 此群聊接收的通知子集。 |
+| `screenshotIds` | 否 | 此群聊接收的 Screenshot ID 子集。 |
 | `webhookUrl` | 是 | 包含 Access Token 的完整自定义机器人 Webhook。 |
 | `secret` | 否 | 启用加签时使用的 `SEC...` 签名密钥。 |
 
@@ -561,6 +581,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 ```yaml
 - name: personal-updates
+  screenshotIds: [schedules]
   accessToken: "REPLACE_WITH_ACCESS_TOKEN"
   phoneNumberId: "123456789012345"
   recipientPhoneNumber: "8613800000000"
@@ -571,7 +592,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一的目标名称。 |
-| `notifications` | 否 | 此已授权接收者接收的通知子集。 |
+| `screenshotIds` | 否 | 此已授权接收者接收的 Screenshot ID 子集。 |
 | `accessToken` | 是 | 拥有对应 WhatsApp Business Account 权限的 Meta Cloud API Token。 |
 | `phoneNumberId` | 是 | 已注册发送号码的数字 ID，不是对外显示的手机号码。 |
 | `recipientPhoneNumber` | 是 | 已明确授权接收消息的 E.164 数字号码，不包含前导 `+`。 |
@@ -587,6 +608,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 ```yaml
 - name: personal-chat
+  screenshotIds: [schedules]
   channelAccessToken: "example-channel-access-token"
   targetType: user
   targetId: U0123456789abcdef0123456789abcdef
@@ -596,7 +618,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一的目标名称。 |
-| `notifications` | 否 | 此接收者接收的通知子集。 |
+| `screenshotIds` | 否 | 此接收者接收的 Screenshot ID 子集。 |
 | `channelAccessToken` | 是 | 在 LINE Developers 签发的 Messaging API Channel Access Token。 |
 | `targetType` | 是 | `user`、`group` 或 `room`。 |
 | `targetId` | 是 | Webhook 事件中的来源 ID；按类型分别以 `U`、`C` 或 `R` 开头。 |
@@ -611,13 +633,14 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 ```yaml
 - name: team-channel
+  screenshotIds: [schedules]
   webhookUrl: https://hooks.slack.com/services/T/B/key
 ```
 
 | 字段 | 必选 | 说明 |
 | --- | --- | --- |
 | `name` | 是 | 平台 Secret 内唯一的目标名称。 |
-| `notifications` | 否 | 此频道接收的通知子集。 |
+| `screenshotIds` | 否 | 此频道接收的 Screenshot ID 子集。 |
 | `webhookUrl` | 是 | Slack 或 Slack Gov 官方 Incoming Webhook URL，URL 本身属于凭据。 |
 
 </details>

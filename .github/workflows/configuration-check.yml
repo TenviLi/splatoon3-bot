@@ -2,59 +2,6 @@ name: Check Bot Configuration
 
 on:
   workflow_dispatch:
-    inputs:
-      schedules:
-        description: 'Battle overview (Regular, Anarchy, X Battle, or active Splatfest)'
-        type: boolean
-        default: true
-      schedules_regular:
-        description: 'Single Regular Battle card'
-        type: boolean
-        default: true
-      schedules_anarchy:
-        description: 'Anarchy Series and Open cards'
-        type: boolean
-        default: true
-      schedules_x:
-        description: 'Single X Battle card'
-        type: boolean
-        default: true
-      challenges:
-        description: 'Challenges'
-        type: boolean
-        default: true
-      salmon_run:
-        description: 'Salmon Run'
-        type: boolean
-        default: true
-      gear_dailydrop:
-        description: 'Daily Drop gear'
-        type: boolean
-        default: true
-      gear_regular:
-        description: 'Gear currently on sale'
-        type: boolean
-        default: true
-      gear_salmon_run:
-        description: 'Monthly Salmon Run gear'
-        type: boolean
-        default: true
-      splatfest_na:
-        description: 'North America Splatfest (time-dependent)'
-        type: boolean
-        default: true
-      splatfest_eu:
-        description: 'Europe Splatfest (time-dependent)'
-        type: boolean
-        default: true
-      splatfest_jp:
-        description: 'Japan Splatfest (time-dependent)'
-        type: boolean
-        default: true
-      splatfest_ap:
-        description: 'Asia-Pacific Splatfest (time-dependent)'
-        type: boolean
-        default: true
 
 permissions:
   contents: read
@@ -65,16 +12,10 @@ concurrency:
 
 jobs:
   check:
-    name: Check selected configuration
+    name: Check all configured Targets
     runs-on: ${{ vars.BOT_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 10
     steps:
-      - name: Require at least one Screenshot ID
-        if: ${{ !inputs.schedules && !inputs.schedules_regular && !inputs.schedules_anarchy && !inputs.schedules_x && !inputs.challenges && !inputs.salmon_run && !inputs.gear_dailydrop && !inputs.gear_regular && !inputs.gear_salmon_run && !inputs.splatfest_na && !inputs.splatfest_eu && !inputs.splatfest_jp && !inputs.splatfest_ap }}
-        run: |
-          echo "Select at least one Screenshot ID" >&2
-          exit 1
-
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -93,27 +34,9 @@ jobs:
       - name: Install production dependencies
         run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
 
-      - name: Resolve Run Plan
-        id: plan
-        env:
-          RUN_SCHEDULES: ${{ inputs.schedules }}
-          RUN_SCHEDULES_REGULAR: ${{ inputs.schedules_regular }}
-          RUN_SCHEDULES_ANARCHY: ${{ inputs.schedules_anarchy }}
-          RUN_SCHEDULES_X: ${{ inputs.schedules_x }}
-          RUN_CHALLENGES: ${{ inputs.challenges }}
-          RUN_SALMON_RUN: ${{ inputs.salmon_run }}
-          RUN_GEAR_DAILYDROP: ${{ inputs.gear_dailydrop }}
-          RUN_GEAR_REGULAR: ${{ inputs.gear_regular }}
-          RUN_GEAR_SALMON_RUN: ${{ inputs.gear_salmon_run }}
-          RUN_SPLATFEST_NA: ${{ inputs.splatfest_na }}
-          RUN_SPLATFEST_EU: ${{ inputs.splatfest_eu }}
-          RUN_SPLATFEST_JP: ${{ inputs.splatfest_jp }}
-          RUN_SPLATFEST_AP: ${{ inputs.splatfest_ap }}
-        run: node bot/run/describe.mjs
-
       - name: Check Bot configuration without side effects
         env:
-          RUN_SELECTION: ${{ steps.plan.outputs.selection }}
+          RUN_SELECTION: schedules,schedules-regular,schedules-anarchy,schedules-x,challenges,salmon-run,gear-dailydrop,gear-regular,gear-salmon-run,splatfest-na,splatfest-eu,splatfest-jp,splatfest-ap
           BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
           BOT_LOCALE: ${{ vars.BOT_LOCALE || 'zh-CN' }}
           BOT_SCREENSHOT_RESOLUTION: ${{ vars.BOT_SCREENSHOT_RESOLUTION || '1200x675' }}

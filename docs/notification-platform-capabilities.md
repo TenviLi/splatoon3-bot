@@ -49,7 +49,7 @@ Keep one `news_notice` Template Card per notification:
 - Use the project-owned content-addressed icon as the source identity; operators should not need to provision separate branding URLs.
 - Keep the optimized screenshot as `card_image` and the same public URL as the whole-card action.
 - Use `vertical_content_list` for substantial sections and `horizontal_content_list` for compact facts, preserving the most important items when platform budgets require truncation.
-- Keep routing in the Secret's optional `notifications` array so any of the thirteen Screenshot IDs can target different group robots without one-variable-per-webhook configuration.
+- Keep routing in the Secret's optional `screenshotIds` array so any of the thirteen Screenshot IDs can target different group robots without one-variable-per-webhook configuration.
 - Treat any non-zero `errcode` as a platform rejection even when the HTTP request succeeds.
 
 Safe payload shape:

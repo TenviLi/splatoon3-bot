@@ -49,7 +49,7 @@ A delivery medium such as WeCom, Discord, Telegram, QQ, Feishu, DingTalk, WhatsA
 _Avoid_: Platform client, webhook type
 
 **Notification Target**:
-One configured destination within a Notification Channel. A Channel can contain multiple Targets, and each Target may select which Notifications it receives.
+One configured destination within a Notification Channel. A Channel can contain multiple Targets, and each Target may use Screenshot IDs to limit which items from the Run Selection it receives.
 _Avoid_: Webhook URL, chat config
 
 **Configuration Preflight**:

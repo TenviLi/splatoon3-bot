@@ -93,7 +93,7 @@
   notificationDisabled: false
 ```
 
-LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選択してください。最初の通知先が動作してから、サービスや宛先を追加できます。
+この入門例では `screenshotIds` を意図的に省略しているため、Bot Run が実際に生成した内容をすべて受信します。まずはこの単純な動作で初回送信を成功させ、その後で宛先別ルーティングを追加してください。LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messaging-api/getting-started/) と [Channel access token](https://developers.line.biz/ja/docs/basics/channel-access-token/) を確認するか、[通知プラットフォーム](#通知プラットフォーム)から別のアダプターを選べます。
 
 **完了条件：** Repository Secrets に `BOT_*_CONFIG` が 1 つ以上表示されること。
 
@@ -105,7 +105,7 @@ LINE の [Messaging API 導入手順](https://developers.line.biz/ja/docs/messag
 
 ### Step 5 — アップロードも送信もせずに構成を確認する
 
-<kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化します。**Check Bot Configuration** を選び、13 個すべての [Screenshot ID](#生成する画像を選ぶ) を選択したまま <kbd>Run workflow</kbd> を実行してください。画像ストレージ、設定済みのすべてのサービス、通知ルーティングを検証しますが、画像のアップロードやメッセージ送信は行いません。
+<kbd>Actions</kbd> を開き、必要に応じて Workflow を有効化します。**Check Bot Configuration** を選び、<kbd>Run workflow</kbd> を実行してください。このフォームに Screenshot ID の入力はありません。画像ストレージ、13 個すべての ID、設定済みのサービス、各宛先のルーティングを自動検証しますが、画像のアップロードやメッセージ送信は行いません。
 
 **完了条件：** Workflow が緑色になり、Summary に **Configuration is ready** と表示されること。エラーはすべて解消してから次へ進んでください。
 
@@ -140,7 +140,7 @@ Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variab
 
 ### 13 個すべての Screenshot ID
 
-選択肢はすべて **Screenshot ID** です。同じ ID が GitHub Actions のチェックボックス、生成される PNG、対応する Notification を識別し、通知先の `notifications:` リストにもそのまま指定できます。1 個以上を自由に選択でき、選択した各 ID から画像 1 枚と通知 1 件が生成されます。
+選択肢はすべて **Screenshot ID** です。同じ値が手動実行のチェックボックス、Smoke Test のドロップダウン、生成 PNG のファイル名、対応する Notification、宛先の任意 `screenshotIds:` リストに使われます。選択した各 ID から画像 1 枚と通知 1 件が生成されます。
 
 <table>
   <tr>
@@ -172,7 +172,13 @@ Step 6 が成功すると、2 つの定期 Workflow が同じ Secrets と Variab
 
 ### 生成する画像を選ぶ
 
-手動実行、Smoke Test、設定確認フォームには、Screenshot ID ごとに 1 つのチェックボックスが表示されます。ローカルコマンドも同じ ID をカンマ区切りで直接受け取ります。
+目的に応じて Actions フォームを選びます。
+
+1. **今すぐ 1 件以上を送信する：** **Splatoon3 Bot (manual)** で任意の Screenshot ID をチェックします。
+2. **Secrets とルーティングを安全に確認する：** **Check Bot Configuration** を使います。全 ID と宛先を確認しますが、アップロードも送信も行いません。
+3. **実際の配信経路を 1 つ試す：** **Notification Channel smoke test** で `screenshot_id` と Channel を 1 つずつ選びます。
+
+ローカルコマンドも同じ ID をカンマ区切りで受け取ります。複数選択できるフォームは手動実行だけです。
 
 | Screenshot ID | 内容 |
 | --- | --- |
@@ -217,8 +223,8 @@ flowchart LR
 | `bot-schedules.yml` | `02:00` と `10:00` を除く UTC の偶数時 | `schedules` |
 | `bot-salmon-run.yml` | UTC `02:00`、`10:00` | `schedules`、`salmon-run`、`gear-dailydrop`、`gear-regular`、`gear-salmon-run` |
 | `bot-manual.yml` | 必要なときに手動実行 | 任意の Screenshot ID チェックボックス組み合わせ |
-| `configuration-check.yml` | 必要なときに手動実行 | 設定確認のみ。アップロードや送信は行わない |
-| `notification-smoke.yml` | 必要なときに手動実行 | 現在の画像を公開し、選択したサービスへテスト通知を 1 件送信 |
+| `configuration-check.yml` | 必要なときに手動実行 | 全 Screenshot ID と設定済み Target を検証。アップロードや送信は行わない |
+| `notification-smoke.yml` | 必要なときに手動実行 | 選択した 1 つの Screenshot ID を公開し、選択した 1 Channel から送信 |
 
 定期 Workflow 全体で、スケジュール通知は 2 時間ごとに重複なく 1 回配信されます。外部 Actions はすべて不変の Commit SHA に固定されています。クラウド上の自動実行は GitHub Actions のみをサポートします。
 
@@ -376,9 +382,18 @@ keyPrefix: splatoon3-bot
 
 利用する通知サービスごとに Repository Secret を 1 つ作成します。Secret が存在し、空でなければ対応するアダプターが自動的に有効になり、設定していないサービスは無効のままです。
 
-各サービスの Secret は YAML の配列です。同じサービスに複数のルーム、ユーザー、グループ、Webhook を設定でき、配列の各項目が 1 つの宛先になります。各項目には一意の `name` が必要です。現在の Run で選択された通知の一部だけを受け取る場合に限り、`notifications` リストを追加します。省略するとすべて受信します。宛先は独立して並列実行され、同じ宛先へのメッセージ順序は維持されます。
+各サービスの Secret は YAML の配列です。配列の各項目が 1 つの宛先（**Target**）で、一意の `name` が必要です。そのため、1 つの Secret に複数のルーム、ユーザー、グループ、Webhook を設定できます。
 
-| 内容 | `notifications` に指定できる Screenshot ID |
+ルーティングは 2 段階です。
+
+1. **今回の実行で何を生成するかを選びます。** 定期 Workflow はコード内で固定し、手動 Workflow はチェックボックス、Smoke Test は 1 つのドロップダウンを使います。
+2. **`screenshotIds` で 1 つの宛先が受信する内容を絞ります。** 一部だけを受信させたい宛先にだけ、このフィールドを追加します。
+
+> **実際の配信内容 = 今回生成された ID ∩ 宛先の `screenshotIds`。** `screenshotIds` を省略すると、その宛先は今回生成された内容をすべて受信します。
+
+各宛先は独立して並列実行され、同じ宛先へのメッセージ順序は維持されます。
+
+| 内容 | `screenshotIds` に指定できる値 |
 | --- | --- |
 | バトルスケジュール | `schedules`、`schedules-regular`、`schedules-anarchy`、`schedules-x` |
 | イベントマッチ | `challenges` |
@@ -400,19 +415,19 @@ keyPrefix: splatoon3-bot
 
 #### Secret フィールド早見表
 
-フィールド名は大文字と小文字を区別します。各宛先では、前述の任意 `notifications` リストも使用できます。
+フィールド名は大文字と小文字を区別します。任意の `screenshotIds` はすべての宛先で利用できます。各サービスの設定を単独で確認できるよう、下表にも繰り返し記載しています。
 
 | Repository Secret | 各宛先の必須フィールド | 任意フィールド |
 | --- | --- | --- |
-| `BOT_WECOM_CONFIG` | `name`、`webhookUrl` | — |
-| `BOT_DISCORD_CONFIG` | `name`、`webhookUrl` | `username`、`avatarUrl` |
-| `BOT_TELEGRAM_CONFIG` | `name`、`botToken`、`chatId` | `messageThreadId`、`disableNotification` |
-| `BOT_QQ_CONFIG` | `name`、`appId`、`clientSecret`、`targetType`（`group` または `user`）、`targetId` | — |
-| `BOT_FEISHU_CONFIG` | `name`、`webhookUrl` | `secret` |
-| `BOT_DINGTALK_CONFIG` | `name`、`webhookUrl` | `secret` |
-| `BOT_WHATSAPP_CONFIG` | `name`、`accessToken`、`phoneNumberId`、`recipientPhoneNumber`、`templateName`、`languageCode` | — |
-| `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group`、`room`）、`targetId` | `notificationDisabled` |
-| `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | — |
+| `BOT_WECOM_CONFIG` | `name`、`webhookUrl` | `screenshotIds` |
+| `BOT_DISCORD_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`username`、`avatarUrl` |
+| `BOT_TELEGRAM_CONFIG` | `name`、`botToken`、`chatId` | `screenshotIds`、`messageThreadId`、`disableNotification` |
+| `BOT_QQ_CONFIG` | `name`、`appId`、`clientSecret`、`targetType`（`group` または `user`）、`targetId` | `screenshotIds` |
+| `BOT_FEISHU_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`secret` |
+| `BOT_DINGTALK_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`secret` |
+| `BOT_WHATSAPP_CONFIG` | `name`、`accessToken`、`phoneNumberId`、`recipientPhoneNumber`、`templateName`、`languageCode` | `screenshotIds` |
+| `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group`、`room`）、`targetId` | `screenshotIds`、`notificationDisabled` |
+| `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | `screenshotIds` |
 
 各サービスを開くと、そのままコピーできる Secret の例を確認できます。**Settings → Secrets and variables → Actions** に保存する前に、すべてのプレースホルダーを置き換えてください。
 
@@ -423,7 +438,7 @@ keyPrefix: splatoon3-bot
 
 ```yaml
 - name: battle-schedules
-  notifications:
+  screenshotIds:
     - schedules
     - schedules-regular
     - schedules-anarchy
@@ -435,14 +450,14 @@ keyPrefix: splatoon3-bot
     - splatfest-ap
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_SCHEDULES_KEY
 - name: daily-updates
-  notifications: [salmon-run, gear-dailydrop, gear-regular, gear-salmon-run]
+  screenshotIds: [salmon-run, gear-dailydrop, gear-regular, gear-salmon-run]
   webhookUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=REPLACE_WITH_UPDATES_KEY
 ```
 
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。設定検証と配信結果に表示されます。 |
-| `notifications` | いいえ | この宛先へ送る Screenshot ID。省略すると今回選択したすべての通知を受信します。 |
+| `screenshotIds` | いいえ | この宛先へ送る Screenshot ID。省略すると今回の Run Selection で生成された内容をすべて受信します。 |
 | `webhookUrl` | はい | WeCom からコピーした完全な Group Robot Webhook URL。URL 内の `key` は認証情報です。 |
 
 </details>
@@ -454,6 +469,7 @@ Webhook が送信先 Channel を決定します。表示名と Avatar の上書�
 
 ```yaml
 - name: splatoon-community
+  screenshotIds: [schedules]
   webhookUrl: https://discord.com/api/webhooks/123456789012345678/example-token
   username: Splatoon Bot
   avatarUrl: https://splatoon.example.com/bot-avatar.png
@@ -462,7 +478,7 @@ Webhook が送信先 Channel を決定します。表示名と Avatar の上書�
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
-| `notifications` | いいえ | この Webhook が受信する通知のサブセット。 |
+| `screenshotIds` | いいえ | この Webhook が受信する Screenshot ID のサブセット。 |
 | `webhookUrl` | はい | 完全な Discord Incoming Webhook URL。URL 自体が認証情報を含みます。 |
 | `username` | いいえ | Webhook が送信するメッセージの表示名。 |
 | `avatarUrl` | いいえ | Webhook Avatar として使う公開 HTTPS 画像。 |
@@ -476,6 +492,7 @@ Bot は対象 Chat へ送信できる状態である必要があります。Foru
 
 ```yaml
 - name: community-topic
+  screenshotIds: [schedules]
   botToken: "123456:example_bot_token"
   chatId: "-1001234567890"
   messageThreadId: 42
@@ -485,7 +502,7 @@ Bot は対象 Chat へ送信できる状態である必要があります。Foru
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
-| `notifications` | いいえ | この Chat または Topic が受信する通知のサブセット。 |
+| `screenshotIds` | いいえ | この Chat または Topic が受信する Screenshot ID のサブセット。 |
 | `botToken` | はい | BotFather が発行した Token。Repository Secret 以外には保存しないでください。 |
 | `chatId` | はい | User、Group、Supergroup、Channel の ID。負数は YAML で引用符を付けることを推奨します。 |
 | `messageThreadId` | いいえ | Supergroup 内の正の Forum Topic ID。 |
@@ -500,6 +517,7 @@ Bot は対象 Chat へ送信できる状態である必要があります。Foru
 
 ```yaml
 - name: official-group
+  screenshotIds: [schedules]
   appId: "102000000"
   clientSecret: "example-client-secret"
   targetType: group
@@ -509,7 +527,7 @@ Bot は対象 Chat へ送信できる状態である必要があります。Foru
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
-| `notifications` | いいえ | この Group または User が受信する通知のサブセット。 |
+| `screenshotIds` | いいえ | この Group または User が受信する Screenshot ID のサブセット。 |
 | `appId` | はい | QQ 公式 Bot の AppID。 |
 | `clientSecret` | はい | Access Token の取得に使用する Bot ClientSecret。 |
 | `targetType` | はい | Group OpenID は `group`、User OpenID は `user`。 |
@@ -524,6 +542,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 
 ```yaml
 - name: team-group
+  screenshotIds: [schedules]
   webhookUrl: https://open.feishu.cn/open-apis/bot/v2/hook/REPLACE_WITH_HOOK_ID
   secret: "example-signing-secret"
 ```
@@ -531,7 +550,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
-| `notifications` | いいえ | この Group が受信する通知のサブセット。 |
+| `screenshotIds` | いいえ | この Group が受信する Screenshot ID のサブセット。 |
 | `webhookUrl` | はい | Feishu または Lark からコピーした完全な Custom Bot Webhook。 |
 | `secret` | いいえ | Custom Bot の Security 設定で署名検証を有効にした場合の署名鍵。 |
 
@@ -544,6 +563,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 
 ```yaml
 - name: team-group
+  screenshotIds: [schedules]
   webhookUrl: https://oapi.dingtalk.com/robot/send?access_token=example-access-token
   secret: "SECexample-signing-secret"
 ```
@@ -551,7 +571,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
-| `notifications` | いいえ | この Group が受信する通知のサブセット。 |
+| `screenshotIds` | いいえ | この Group が受信する Screenshot ID のサブセット。 |
 | `webhookUrl` | はい | Access Token を含む完全な Custom Robot Webhook。 |
 | `secret` | いいえ | 署名を有効にした場合に使う `SEC...` 形式の署名鍵。 |
 
@@ -564,6 +584,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 
 ```yaml
 - name: personal-updates
+  screenshotIds: [schedules]
   accessToken: "REPLACE_WITH_ACCESS_TOKEN"
   phoneNumberId: "123456789012345"
   recipientPhoneNumber: "819012345678"
@@ -574,7 +595,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
-| `notifications` | いいえ | Opt-in 済みの受信者へ送る通知のサブセット。 |
+| `screenshotIds` | いいえ | Opt-in 済みの受信者へ送る Screenshot ID のサブセット。 |
 | `accessToken` | はい | 対象 WhatsApp Business Account への権限を持つ Meta Cloud API Token。 |
 | `phoneNumberId` | はい | 登録済み送信番号の数値 ID。表示される電話番号そのものではありません。 |
 | `recipientPhoneNumber` | はい | Opt-in 済み受信者の E.164 数字列。先頭の `+` は付けません。 |
@@ -590,6 +611,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 
 ```yaml
 - name: personal-chat
+  screenshotIds: [schedules]
   channelAccessToken: "example-channel-access-token"
   targetType: user
   targetId: U0123456789abcdef0123456789abcdef
@@ -599,7 +621,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
-| `notifications` | いいえ | この受信者へ送る通知のサブセット。 |
+| `screenshotIds` | いいえ | この受信者へ送る Screenshot ID のサブセット。 |
 | `channelAccessToken` | はい | LINE Developers で発行した Messaging API Channel Access Token。 |
 | `targetType` | はい | `user`、`group`、`room` のいずれか。 |
 | `targetId` | はい | Webhook Event の Source ID。種別に応じて `U`、`C`、`R` で始まります。 |
@@ -614,13 +636,14 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 
 ```yaml
 - name: team-channel
+  screenshotIds: [schedules]
   webhookUrl: https://hooks.slack.com/services/T/B/key
 ```
 
 | フィールド | 必須 | 説明 |
 | --- | --- | --- |
 | `name` | はい | 同じ Platform Secret 内で一意となる宛先名。 |
-| `notifications` | いいえ | この Channel が受信する通知のサブセット。 |
+| `screenshotIds` | いいえ | この Channel が受信する Screenshot ID のサブセット。 |
 | `webhookUrl` | はい | Slack または Slack Gov の公式 Incoming Webhook URL。URL 自体が認証情報です。 |
 
 </details>
