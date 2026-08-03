@@ -58,7 +58,7 @@
 | 必要なもの | 用途 | 管理する場所 |
 | --- | --- | --- |
 | GitHub アカウント | 自分専用のインストールを作成して Bot を実行する | GitHub |
-| Public HTTPS URL で読み取れる S3 互換 Bucket | 通知サービスが表示する画像を保存する | 利用する Object Storage サービス |
+| Public HTTP(S) URL で読み取れる S3 互換 Bucket | 通知サービスが表示する画像を保存する。HTTPS を推奨 | 利用する Object Storage サービス |
 | 対応する通知先 1 つ以上の認証情報 | Bot の通知を受け取る | LINE、Discord、Telegram、Slack などの対応サービス |
 
 実行環境は GitHub Actions が提供します。**Node.js、pnpm、Chrome、Docker、常駐サーバーを自分で用意する必要はありません。**
@@ -77,7 +77,7 @@
 
 ### Step 2 — 画像ストレージを設定する
 
-新しい Repository で <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd> を開き、[コピーして設定できる例とサービス別ガイド](#s3_config)から Repository Secret `S3_CONFIG` を作成します。`publicBaseUrl` は通知サービスが生成画像を Public HTTPS で読み取れる URL にし、書き込み認証情報は Secret 内だけに保存します。
+新しい Repository で <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd> を開き、[コピーして設定できる例とサービス別ガイド](#s3_config)から Repository Secret `S3_CONFIG` を作成します。`publicBaseUrl` は通知サービスが生成画像を Public HTTP または HTTPS で読み取れる URL にします。LINE と WhatsApp は HTTPS を必須とするため、可能な限り HTTPS を推奨します。書き込み認証情報は Secret 内だけに保存します。
 
 **完了条件：** Repository Secrets の一覧に `S3_CONFIG` が表示されること。
 
@@ -301,7 +301,7 @@ GitHub Actions は Workflow 内で画像を生成しますが、GitHub Artifact 
 ```mermaid
 flowchart LR
   render["PNG を生成"] --> upload["S3 へアップロード"]
-  upload --> publicUrl["公開 HTTPS URL を作成"]
+  upload --> publicUrl["公開 URL を作成"]
   publicUrl --> message["ネイティブメッセージカードを送信"]
 ```
 
@@ -309,7 +309,7 @@ flowchart LR
 
 #### Secret を設定する
 
-Repository Secret `S3_CONFIG` に YAML オブジェクトを保存します。例の値は利用するサービスが発行した値へ置き換えてください。`publicBaseUrl` には、通知サービスが認証なしで読み取れる公開 HTTPS ルートを指定します。
+Repository Secret `S3_CONFIG` に YAML オブジェクトを保存します。例の値は利用するサービスが発行した値へ置き換えてください。`publicBaseUrl` には、通知サービスが認証なしで読み取れる公開 HTTP または HTTPS ルートを指定します。
 
 ```yaml
 bucket: splatoon-assets
@@ -321,7 +321,7 @@ secretAccessKey: your-s3-secret-access-key
 | Field | 区分 | 既定値 | 説明 |
 | --- | :---: | --- | --- |
 | `bucket` | 必須 | — | 公開先 Bucket 名。 |
-| `publicBaseUrl` | 必須 | — | 認証情報を含まない公開 HTTPS の Bucket ルートまたは CDN URL。`keyPrefix` は含めません。 |
+| `publicBaseUrl` | 必須 | — | 認証情報を含まない公開 HTTP または HTTPS の Bucket ルート / CDN URL。HTTPS を推奨し、LINE と WhatsApp では必須です。`keyPrefix` は含めません。 |
 | `accessKeyId` | 必須 | — | アップロード権限を持つ専用 S3 Access Key。オブジェクトを確認できる場合は内蔵アイコンの再アップロードを省略します。 |
 | `secretAccessKey` | 必須 | — | `accessKeyId` と組み合わせる Secret Key。 |
 | `region` | 任意 | `us-east-1` | Provider の署名 Region。R2 は `auto`。 |
@@ -330,7 +330,7 @@ secretAccessKey: your-s3-secret-access-key
 | `keyPrefix` | 任意 | 未設定 | このプロジェクトのオブジェクトに共通の名前空間を付ける場合。 |
 | `sessionToken` | 任意 | 未設定 | 一時認証情報を使う場合のみ。 |
 
-`endpoint` は認証が必要なアップロード API、`publicBaseUrl` は各通知サービスが認証なしで画像を取得する HTTPS ルートです。通常、この 2 つは異なるドメインです。
+`endpoint` は認証が必要なアップロード API、`publicBaseUrl` は各通知サービスが認証なしで画像を取得する HTTP(S) ルートです。通常、この 2 つは異なるドメインです。
 
 <details>
 <summary><strong>サービスを選ぶ：公式設定リンク</strong></summary>
@@ -577,7 +577,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 <details>
 <summary><strong>WhatsApp · BOT_WHATSAPP_CONFIG</strong> — 承認済み Media Template</summary>
 
-`IMAGE` Header、名前付き Body Parameter、動的 URL Button を持つ Template を先に承認してください。Button の Prefix は `S3_CONFIG.publicBaseUrl` と `keyPrefix` を連結した値に一致させます。
+`IMAGE` Header、名前付き Body Parameter、動的 URL Button を持つ Template を先に承認してください。Button の Prefix は `S3_CONFIG.publicBaseUrl` と `keyPrefix` を連結した値に一致させます。この Adapter では `publicBaseUrl` に HTTPS が必要です。
 
 ```yaml
 - name: personal-updates
@@ -604,7 +604,7 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 <details>
 <summary><strong>LINE · BOT_LINE_CONFIG</strong> — Flex Message Bubble</summary>
 
-宛先には Push Message の受信資格が必要です。ID の Prefix は選択した宛先種別と一致させます。
+宛先には Push Message の受信資格が必要で、`S3_CONFIG.publicBaseUrl` は HTTPS を使用する必要があります。ID の Prefix は選択した宛先種別と一致させます。
 
 ```yaml
 - name: personal-chat

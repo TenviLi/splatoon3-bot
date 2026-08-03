@@ -197,6 +197,66 @@ test('preflights publication and routed Channel configuration without exposing S
   assert.doesNotMatch(stepSummary, /sensitive|webhook|splatoon-assets/)
 })
 
+test('allows HTTP publication only for Notification Channels that support it', () => {
+  const httpS3Configuration = stringifyYaml({
+    bucket: 'splatoon-assets',
+    publicBaseUrl: 'http://assets.example.com',
+    accessKeyId: 'sensitive-access-key',
+    secretAccessKey: 'sensitive-secret-key',
+  })
+  const compatibleReport = inspectBotConfiguration({
+    selection: 'schedules',
+    environment: validEnvironment({
+      S3_CONFIG: httpS3Configuration,
+      BOT_WECOM_CONFIG: stringifyYaml([
+        { name: 'schedules', webhookUrl: 'https://wecom.example.com/sensitive-webhook' },
+      ]),
+    }),
+  })
+
+  assert.equal(compatibleReport.valid, true)
+  assert.equal(compatibleReport.checks.find(({ name }) => name === 'S3_CONFIG').status, 'ready')
+
+  for (const [channelName, secretName, target] of [
+    [
+      'line',
+      'BOT_LINE_CONFIG',
+      {
+        name: 'line',
+        channelAccessToken: 'sensitive-token',
+        targetType: 'user',
+        targetId: `U${'1'.repeat(32)}`,
+      },
+    ],
+    [
+      'whatsapp',
+      'BOT_WHATSAPP_CONFIG',
+      {
+        name: 'whatsapp',
+        accessToken: 'sensitive-token',
+        phoneNumberId: '123456789',
+        recipientPhoneNumber: '14155550123',
+        templateName: 'splatoon_notification',
+        languageCode: 'en_US',
+      },
+    ],
+  ]) {
+    const report = inspectBotConfiguration({
+      selection: 'schedules',
+      environment: validEnvironment({
+        S3_CONFIG: httpS3Configuration,
+        [secretName]: stringifyYaml([target]),
+      }),
+    })
+
+    assert.equal(report.valid, false, channelName)
+    assert.equal(report.checks.find(({ name }) => name === 'S3_CONFIG').status, 'ready')
+    const channelCheck = report.checks.find(({ name }) => name === `Notification Channel ${channelName}`)
+    assert.equal(channelCheck.status, 'rejected')
+    assert.match(channelCheck.error.message, /requires S3_CONFIG\.publicBaseUrl to use HTTPS/)
+  }
+})
+
 test('treats unmatched Channel routing as an intentional per-selection skip', () => {
   const environment = validEnvironment({
     BOT_WECOM_CONFIG: stringifyYaml([

@@ -26,7 +26,7 @@ function inspect(name, read, describe) {
   }
 }
 
-function inspectNotifications({ plan, channelName, environment }) {
+function inspectNotifications({ plan, channelName, environment, publicationConfiguration }) {
   try {
     const configuration = prepareConfiguredNotificationChannels({
       selection: plan.selection,
@@ -45,6 +45,16 @@ function inspectNotifications({ plan, channelName, environment }) {
       if (channel.status === 'skipped') {
         return skipped(name, `${channel.targetCount} Target(s), none select the chosen Screenshot IDs`)
       }
+      if (
+        channel.channel.requiresHttpsAssets &&
+        publicationConfiguration &&
+        new URL(publicationConfiguration.publicBaseUrl).protocol !== 'https:'
+      ) {
+        return rejected(
+          name,
+          new Error(`${channel.channelName} requires S3_CONFIG.publicBaseUrl to use HTTPS`)
+        )
+      }
 
       const notificationCount = channel.deliveries.reduce(
         (count, delivery) => count + delivery.notificationIds.length,
@@ -62,6 +72,7 @@ function inspectNotifications({ plan, channelName, environment }) {
 
 export function inspectBotConfiguration({ selection, channelName, environment = process.env } = {}) {
   let plan
+  let publicationConfiguration
   const selectionCheck = inspect(
     'Screenshot IDs',
     () => {
@@ -69,6 +80,14 @@ export function inspectBotConfiguration({ selection, channelName, environment = 
       return plan
     },
     (resolvedPlan) => resolvedPlan.selection.join(', ')
+  )
+  const publicationCheck = inspect(
+    'S3_CONFIG',
+    () => {
+      publicationConfiguration = parseS3Configuration(environment.S3_CONFIG)
+      return publicationConfiguration
+    },
+    () => 'valid publication credentials'
   )
   const checks = [
     selectionCheck,
@@ -92,9 +111,9 @@ export function inspectBotConfiguration({ selection, channelName, environment = 
       () => resolveScreenshotAttribution(environment.BOT_SCREENSHOT_ATTRIBUTION),
       (attribution) => attribution
     ),
-    inspect('S3_CONFIG', () => parseS3Configuration(environment.S3_CONFIG), () => 'valid publication credentials'),
+    publicationCheck,
     ...(selectionCheck.status === 'ready'
-      ? inspectNotifications({ plan, channelName, environment })
+      ? inspectNotifications({ plan, channelName, environment, publicationConfiguration })
       : [skipped('Notification Channels', 'not evaluated because the Screenshot IDs are invalid')]),
   ]
 

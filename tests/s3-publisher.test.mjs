@@ -17,6 +17,7 @@ import {
   validatePublicationManifest,
 } from '../bot/publish/PublicationManifest.mjs'
 import { readRunManifest, writeRunManifest } from '../bot/run/RunManifest.mjs'
+import { createPublicationManifestFixture } from './support/PublicationManifestFixture.mjs'
 
 function sha256(buffer) {
   return crypto.createHash('sha256').update(buffer).digest('hex')
@@ -632,9 +633,20 @@ secretAccessKey: secret-key
     () => parseS3Configuration('bucket: one\nbucket: two\npublicBaseUrl: https://cdn.example.com'),
     /Invalid YAML in S3_CONFIG/
   )
-  assert.throws(
-    () => parseS3Configuration('bucket: one\npublicBaseUrl: http://cdn.example.com'),
-    /Invalid configuration in S3_CONFIG/
+  assert.deepEqual(
+    parseS3Configuration(`
+bucket: splatoon-assets
+publicBaseUrl: http://cdn.example.com
+accessKeyId: access-key
+secretAccessKey: secret-key
+`),
+    {
+      bucket: 'splatoon-assets',
+      region: 'us-east-1',
+      publicBaseUrl: 'http://cdn.example.com',
+      accessKeyId: 'access-key',
+      secretAccessKey: 'secret-key',
+    }
   )
   assert.throws(
     () =>
@@ -658,4 +670,12 @@ credentials:
 `),
     /Invalid configuration in S3_CONFIG/
   )
+})
+
+test('accepts HTTP publication URLs for channels that support them', () => {
+  const manifest = createPublicationManifestFixture('schedules', {
+    assetBaseUrl: 'http://cdn.example.com/assets',
+  })
+
+  assert.deepEqual(validatePublicationManifest(manifest), manifest)
 })

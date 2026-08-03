@@ -49,12 +49,14 @@ const channels = Object.freeze({
     name: 'whatsapp',
     configurationEnvironmentVariable: 'BOT_WHATSAPP_CONFIG',
     targetSchema: whatsAppTargetSchema,
+    requiresHttpsAssets: true,
     deliver: deliverWhatsApp,
   }),
   line: Object.freeze({
     name: 'line',
     configurationEnvironmentVariable: 'BOT_LINE_CONFIG',
     targetSchema: lineTargetSchema,
+    requiresHttpsAssets: true,
     deliver: deliverLine,
   }),
   slack: Object.freeze({

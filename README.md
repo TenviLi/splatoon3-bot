@@ -59,7 +59,7 @@ Follow these seven steps in order. Steps 1–4 create the installation, Step 5 c
 | You need | Why | Where it lives |
 | --- | --- | --- |
 | A GitHub account | Owns your installation and runs the bot | GitHub |
-| One S3-compatible bucket with a public HTTPS read URL | Hosts images that messaging platforms can display | Your chosen storage provider |
+| One S3-compatible bucket with a public HTTP(S) read URL | Hosts images that messaging platforms can display; HTTPS is recommended | Your chosen storage provider |
 | Credentials for at least one supported messaging destination | Delivers the notification | Discord, Telegram, LINE, Slack, or another supported platform |
 
 GitHub Actions supplies the runtime. **You do not need to install Node.js, pnpm, Chrome, Docker, or a server.**
@@ -78,7 +78,7 @@ The generated repository is the deployment and trust boundary: it owns your sche
 
 ### Step 2 — Add image storage
 
-In the new repository, open <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd>, then create the Repository Secret `S3_CONFIG` from the [copy-ready configuration and provider guide](#s3_config). Its `publicBaseUrl` must let messaging platforms load generated images over public HTTPS; the write credentials remain private.
+In the new repository, open <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd>, then create the Repository Secret `S3_CONFIG` from the [copy-ready configuration and provider guide](#s3_config). Its `publicBaseUrl` must let messaging platforms load generated images over public HTTP or HTTPS; prefer HTTPS because LINE and WhatsApp require it. The write credentials remain private.
 
 **Done when:** `S3_CONFIG` appears in the Repository Secrets list.
 
@@ -302,7 +302,7 @@ GitHub Actions renders each Screenshot Artifact inside the workflow, but GitHub 
 ```mermaid
 flowchart LR
   render["Render PNG"] --> upload["Upload to S3"]
-  upload --> publicUrl["Create Public HTTPS URL"]
+  upload --> publicUrl["Create Public URL"]
   publicUrl --> message["Send Native Message Card"]
 ```
 
@@ -310,7 +310,7 @@ Only the generated images are publicly readable. Keep the S3 write credentials e
 
 #### Configure the Secret
 
-Create one Repository Secret named `S3_CONFIG` containing a YAML mapping. Replace the placeholders with values issued by your provider. `publicBaseUrl` must be the public HTTPS root that messaging platforms can read without credentials:
+Create one Repository Secret named `S3_CONFIG` containing a YAML mapping. Replace the placeholders with values issued by your provider. `publicBaseUrl` must be a public HTTP or HTTPS root that messaging platforms can read without credentials:
 
 ```yaml
 bucket: splatoon-assets
@@ -322,7 +322,7 @@ secretAccessKey: your-s3-secret-access-key
 | Field | Requirement | Default | Purpose / when to set |
 | --- | :---: | --- | --- |
 | `bucket` | Required | — | Destination bucket name. |
-| `publicBaseUrl` | Required | — | Credential-free public HTTPS bucket-root or CDN URL. Do not append `keyPrefix`. |
+| `publicBaseUrl` | Required | — | Credential-free public HTTP or HTTPS bucket-root/CDN URL. Prefer HTTPS; LINE and WhatsApp require it. Do not append `keyPrefix`. |
 | `accessKeyId` | Required | — | Dedicated S3-compatible access key with upload permission; object inspection avoids redundant icon uploads when allowed. |
 | `secretAccessKey` | Required | — | Secret key paired with `accessKeyId`. |
 | `region` | Optional | `us-east-1` | Use the provider's signing region; R2 uses `auto`. |
@@ -331,7 +331,7 @@ secretAccessKey: your-s3-secret-access-key
 | `keyPrefix` | Optional | Not set | Namespace all project objects, for example `splatoon3-bot`. |
 | `sessionToken` | Optional | Not set | Temporary session credentials only. |
 
-`endpoint` is the authenticated upload API; `publicBaseUrl` is the credential-free HTTPS root fetched by messaging platforms. They are often different domains.
+`endpoint` is the authenticated upload API; `publicBaseUrl` is the credential-free HTTP(S) root fetched by messaging platforms. They are often different domains.
 
 <details>
 <summary><strong>Choose a provider: official setup links</strong></summary>
@@ -578,7 +578,7 @@ Signature-based security is recommended; keyword-only rules may reject generated
 <details>
 <summary><strong>WhatsApp · BOT_WHATSAPP_CONFIG</strong> — Approved media template</summary>
 
-Create and approve a template with an `IMAGE` header, named body parameters, and a dynamic URL button whose prefix matches `S3_CONFIG.publicBaseUrl` plus `keyPrefix`:
+Create and approve a template with an `IMAGE` header, named body parameters, and a dynamic URL button whose prefix matches `S3_CONFIG.publicBaseUrl` plus `keyPrefix`. This adapter requires `publicBaseUrl` to use HTTPS:
 
 ```yaml
 - name: personal-updates
@@ -605,7 +605,7 @@ Create and approve a template with an `IMAGE` header, named body parameters, and
 <details>
 <summary><strong>LINE · BOT_LINE_CONFIG</strong> — Flex Message bubble</summary>
 
-The Target must be eligible for push delivery. Its ID prefix must match the selected Target type:
+The Target must be eligible for push delivery, and `S3_CONFIG.publicBaseUrl` must use HTTPS. Its ID prefix must match the selected Target type:
 
 ```yaml
 - name: personal-chat

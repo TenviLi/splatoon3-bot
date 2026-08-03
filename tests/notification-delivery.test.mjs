@@ -240,7 +240,7 @@ test('delivers valid Channels after another configured Channel fails validation'
 
 test('rejects invalid notification asset origins before delivery', async () => {
   const invalidOrigins = [
-    ['cdn.example.com', /assetBaseUrl must be an absolute HTTPS URL/],
+    ['cdn.example.com', /assetBaseUrl must be an absolute HTTP\(S\) URL/],
     ['https://user:password@cdn.example.com', /must not include credentials/],
     ['https://cdn.example.com?token=secret', /must not include credentials/],
     ['https://cdn.example.com#private', /must not include credentials/],

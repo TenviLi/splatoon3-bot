@@ -2,7 +2,12 @@ import { z } from 'zod'
 
 const localHostnames = new Set(['localhost', '127.0.0.1', '[::1]', 'host.docker.internal'])
 
-export function absoluteUrlSchema({ label, protocols = ['https:'], allowLocalHttp = false }) {
+export function absoluteUrlSchema({
+  label,
+  protocols = ['https:'],
+  allowHttp = false,
+  allowLocalHttp = false,
+}) {
   const protocolLabel =
     protocols.includes('http:') && protocols.includes('https:')
       ? 'HTTP(S)'
@@ -22,7 +27,11 @@ export function absoluteUrlSchema({ label, protocols = ['https:'], allowLocalHtt
       if (!protocols.includes(url.protocol)) {
         context.addIssue({ code: 'custom', message: `${label} must be an absolute ${protocolLabel} URL` })
       }
-      if (url.protocol === 'http:' && (!allowLocalHttp || !localHostnames.has(url.hostname))) {
+      if (
+        url.protocol === 'http:' &&
+        !allowHttp &&
+        (!allowLocalHttp || !localHostnames.has(url.hostname))
+      ) {
         context.addIssue({ code: 'custom', message: `${label} must use HTTPS unless it is local` })
       }
       if (url.username || url.password || url.search || url.hash) {

@@ -19,10 +19,12 @@ import {
 } from './PublicationImageVariants.mjs'
 
 const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/)
+const publicUrlSchema = (label) =>
+  absoluteUrlSchema({ label, protocols: ['http:', 'https:'], allowHttp: true })
 const publishedImageSchema = z
   .object({
     key: z.string().min(1),
-    url: absoluteUrlSchema({ label: 'published image URL' }),
+    url: publicUrlSchema('published image URL'),
     width: z.number().int().positive(),
     height: z.number().int().positive(),
     bytes: z.number().int().positive(),
@@ -66,7 +68,7 @@ const publicationManifestSchema = z
     resolution: screenshotResolutionSchema,
     screenshotAttribution: screenshotAttributionSchema,
     snapshotManifestSha256: sha256Schema,
-    assetBaseUrl: absoluteUrlSchema({ label: 'assetBaseUrl' }),
+    assetBaseUrl: publicUrlSchema('assetBaseUrl'),
     branding: brandingManifestSchema,
     artifacts: z.array(publishedArtifactSchema),
   })

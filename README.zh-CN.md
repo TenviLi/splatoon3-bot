@@ -58,7 +58,7 @@
 | 需要准备 | 用来做什么 | 在哪里管理 |
 | --- | --- | --- |
 | 一个 GitHub 账号 | 创建自己的安装仓库并运行机器人 | GitHub |
-| 一个支持公网 HTTPS 读取的兼容 S3 Bucket | 托管消息平台需要展示的图片 | 你选择的对象存储服务商 |
+| 一个支持公网 HTTP(S) 读取的兼容 S3 Bucket | 托管消息平台需要展示的图片；建议使用 HTTPS | 你选择的对象存储服务商 |
 | 至少一个受支持消息目标的凭据 | 接收机器人通知 | 企业微信、Discord、Telegram、LINE、Slack 或其他受支持平台 |
 
 运行环境由 GitHub Actions 提供，**不需要自行安装 Node.js、pnpm、Chrome、Docker，也不需要部署服务器。**
@@ -77,7 +77,7 @@
 
 ### Step 2 — 配置图片存储
 
-在新仓库打开 <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd>，按照[可直接填写的配置与服务商指南](#s3_config)创建 Repository Secret `S3_CONFIG`。其中 `publicBaseUrl` 必须允许消息平台通过公网 HTTPS 读取生成图片；写入凭据仍然只保存在 Secret 中。
+在新仓库打开 <kbd>Settings</kbd> → <kbd>Secrets and variables</kbd> → <kbd>Actions</kbd> → <kbd>Secrets</kbd>，按照[可直接填写的配置与服务商指南](#s3_config)创建 Repository Secret `S3_CONFIG`。其中 `publicBaseUrl` 必须允许消息平台通过公网 HTTP 或 HTTPS 读取生成图片；建议优先使用 HTTPS，因为 LINE 与 WhatsApp 强制要求 HTTPS。写入凭据仍然只保存在 Secret 中。
 
 **完成标志：** Repository Secrets 列表中出现 `S3_CONFIG`。
 
@@ -298,7 +298,7 @@ GitHub Actions 会在工作流内部生成截图，但 GitHub Artifact 是需要
 ```mermaid
 flowchart LR
   render["生成 PNG"] --> upload["上传到 S3"]
-  upload --> publicUrl["得到公网 HTTPS URL"]
+  upload --> publicUrl["得到公网 URL"]
   publicUrl --> message["发送原生消息卡片"]
 ```
 
@@ -306,7 +306,7 @@ flowchart LR
 
 #### 配置 Secret
 
-创建 Repository Secret `S3_CONFIG`，值为一份 YAML 对象。请将占位内容替换为服务商实际提供的值；其中 `publicBaseUrl` 必须是消息平台无需凭据即可读取的公网 HTTPS 根地址：
+创建 Repository Secret `S3_CONFIG`，值为一份 YAML 对象。请将占位内容替换为服务商实际提供的值；其中 `publicBaseUrl` 必须是消息平台无需凭据即可读取的公网 HTTP 或 HTTPS 根地址：
 
 ```yaml
 bucket: splatoon-assets
@@ -318,7 +318,7 @@ secretAccessKey: your-s3-secret-access-key
 | 字段 | 要求 | 默认值 | 说明 |
 | --- | :---: | --- | --- |
 | `bucket` | 必选 | — | 目标 Bucket 名称。 |
-| `publicBaseUrl` | 必选 | — | 无凭据、可公网访问的 HTTPS Bucket 根地址或 CDN 地址；不要包含 `keyPrefix`。 |
+| `publicBaseUrl` | 必选 | — | 无凭据、可公网访问的 HTTP 或 HTTPS Bucket 根地址/CDN 地址；建议使用 HTTPS，LINE 与 WhatsApp 强制要求 HTTPS；不要包含 `keyPrefix`。 |
 | `accessKeyId` | 必选 | — | 拥有上传权限的专用 S3 Access Key；允许对象检查时可避免重复上传内置图标。 |
 | `secretAccessKey` | 必选 | — | 与 `accessKeyId` 配对的 Secret Key。 |
 | `region` | 可选 | `us-east-1` | 使用服务商签名 Region；R2 使用 `auto`。 |
@@ -327,7 +327,7 @@ secretAccessKey: your-s3-secret-access-key
 | `keyPrefix` | 可选 | 未设置 | 为所有对象增加命名空间。 |
 | `sessionToken` | 可选 | 未设置 | 仅临时凭据需要。 |
 
-`endpoint` 是需要凭据的上传 API，`publicBaseUrl` 是消息平台无需凭据即可读取图片的 HTTPS 根地址；两者经常不是同一个域名。
+`endpoint` 是需要凭据的上传 API，`publicBaseUrl` 是消息平台无需凭据即可读取图片的 HTTP(S) 根地址；两者经常不是同一个域名。
 
 <details>
 <summary><strong>选择服务商：官方配置入口</strong></summary>
@@ -574,7 +574,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 <details>
 <summary><strong>WhatsApp · BOT_WHATSAPP_CONFIG</strong> — 已审批媒体模板</summary>
 
-请先创建并审批包含 `IMAGE` Header、命名 Body 参数和动态 URL 按钮的模板；按钮前缀必须等于 `S3_CONFIG.publicBaseUrl` 加 `keyPrefix`：
+请先创建并审批包含 `IMAGE` Header、命名 Body 参数和动态 URL 按钮的模板；按钮前缀必须等于 `S3_CONFIG.publicBaseUrl` 加 `keyPrefix`。此适配器要求 `publicBaseUrl` 使用 HTTPS：
 
 ```yaml
 - name: personal-updates
@@ -601,7 +601,7 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 <details>
 <summary><strong>LINE · BOT_LINE_CONFIG</strong> — Flex Message</summary>
 
-目标必须具备 Push Message 接收资格，并且 ID 前缀要与目标类型一致：
+目标必须具备 Push Message 接收资格，`S3_CONFIG.publicBaseUrl` 必须使用 HTTPS，并且 ID 前缀要与目标类型一致：
 
 ```yaml
 - name: personal-chat

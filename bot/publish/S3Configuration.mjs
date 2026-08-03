@@ -27,7 +27,11 @@ const s3ConfigurationSchema = z
     }).optional(),
     forcePathStyle: z.boolean().optional(),
     keyPrefix: keyPrefixSchema.optional(),
-    publicBaseUrl: absoluteUrlSchema({ label: 'publicBaseUrl' }),
+    publicBaseUrl: absoluteUrlSchema({
+      label: 'publicBaseUrl',
+      protocols: ['http:', 'https:'],
+      allowHttp: true,
+    }),
     accessKeyId: z.string().min(1),
     secretAccessKey: z.string().min(1),
     sessionToken: z.string().min(1).optional(),
