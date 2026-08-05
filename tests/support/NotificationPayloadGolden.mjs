@@ -113,9 +113,9 @@ function response(value) {
   })
 }
 
-async function capturePayload(deliver, notification, platformCase) {
+async function capturePayload(adapter, notification, platformCase) {
   let payload
-  await deliver(notification, platformCase.target, {
+  await adapter.deliver({ mode: 'individual', notifications: [notification] }, platformCase.target, {
     ...platformCase.options,
     fetchImpl: async (_url, requestOptions) => {
       payload = JSON.parse(requestOptions.body)
@@ -127,7 +127,7 @@ async function capturePayload(deliver, notification, platformCase) {
 
 async function captureQQPayload(notification, target) {
   let payload
-  await getChannelAdapter('qq').deliver(notification, target, {
+  await getChannelAdapter('qq').deliver({ mode: 'individual', notifications: [notification] }, target, {
     fetchImpl: async (url, options) => {
       if (String(url).includes('getAppAccessToken')) {
         return response({ access_token: `token-${target.targetType}`, expires_in: '7200' })
@@ -167,7 +167,7 @@ export async function createNotificationPayloadGolden() {
   for (const notification of notifications) {
     for (const platformCase of platformCases) {
       payloads[platformCase.name][notification.id] = await capturePayload(
-        getChannelAdapter(platformCase.name).deliver,
+        getChannelAdapter(platformCase.name),
         notification,
         platformCase
       )

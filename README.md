@@ -139,7 +139,7 @@ After Step 6 succeeds, the two production workflows can operate with the same Se
 
 ### All thirteen Screenshot IDs
 
-Every selectable option is a **Screenshot ID**. The same value appears in the smoke-test dropdown, the generated PNG name, the matching Notification, local commands, and a Target's optional `screenshotIds:` list. Each selected ID produces exactly one screenshot and one Notification.
+Every selectable option is a **Screenshot ID**. The same value appears in the smoke-test dropdown, the generated PNG name, the matching base Notification, local commands, and a Target's optional `screenshotIds:` list. Each selected ID produces exactly one screenshot and one base Notification; Target `mode` may combine base Notifications, and optional Event Alerts are emitted only for new states.
 
 <table>
   <tr>
@@ -204,18 +204,27 @@ Selections are automatically deduplicated and ordered, so workflow declaration o
 
 ```mermaid
 flowchart LR
-  snapshot["Data Snapshot"] --> content["Content Preflight"]
+  upstream["splatoon3.ink"] --> snapshot["Data Snapshot"]
+  lastGood["Last-known-good Snapshot"] -. "fallback" .-> snapshot
+  snapshot --> content["Content Preflight"]
   content --> build["Build"]
   build --> screenshots["Screenshots"]
   screenshots --> config["Configuration Preflight"]
   config --> publish["S3 Publication"]
   publish --> adapters["Platform Adapters"]
+  adapters <--> ledger["Delivery Ledger"]
+  snapshot --> report["Bot Run Report"]
+  screenshots --> report
+  publish --> report
+  ledger --> report
 ```
 
 Every scheduled or manual invocation uses the same two-stage Bot Run:
 
-1. **Prepare** fetches and validates one consistent data snapshot, builds the screenshot pages, captures the selected images, and archives the complete run.
-2. **Publish and notify** checks all configuration before the first upload, publishes images and built-in icons through S3, then sends to every configured destination in parallel.
+1. **Prepare** fetches and validates one consistent data snapshot, falls back to the last validated snapshot only when upstream is unavailable, removes time-expired content, builds the screenshot pages, and archives the complete run.
+2. **Publish and notify** restores the private Delivery Ledger, checks all configuration before the first upload, publishes images and built-in icons through S3, then sends to every configured destination in parallel. Successful Delivery IDs are preserved when a failed job is rerun.
+
+Every invocation writes a credential-free `run-report.json` and a rich **Bot Run Report** in the Actions Summary. It shows fresh-versus-fallback snapshot status and age, requested/effective/skipped Screenshot IDs, public image URLs with dimensions and byte counts, every Target's routing and delivery result, attempt counts, platform request IDs when available, and actionable diagnostics. A no-content run is reported as a successful no-op; an early preparation failure records that no validated Data Snapshot was available instead of losing the report.
 
 | Workflow | When it runs | What it sends |
 | --- | --- | --- |
@@ -389,7 +398,58 @@ Routing happens in two simple steps:
 
 An empty intersection sends nothing to that Target. Production runs skip a Channel when none of its Targets match; the smoke test fails early when its explicitly selected Channel has no matching Target, because that run exists to verify one real delivery path.
 
-Targets run independently and in parallel, while messages for one Target keep their expected order.
+Targets run independently and in parallel, while operations for one Target keep their expected order. Before each operation, the private Delivery Ledger checks its stable Delivery ID: an earlier success from the same Bot Run is preserved, while only a failed delivery is attempted again. A later scheduled Bot Run still sends its periodic Notifications even when their content happens to be unchanged. The ledger is restored and saved through GitHub Actions Cache and never published under the public S3 URL.
+
+#### Common Target behavior
+
+These fields are available inside every platform Target:
+
+| Field | Required | Default | Purpose |
+| --- | :---: | --- | --- |
+| `name` | Yes | — | Unique human-readable destination name shown in validation and Bot Run Reports. |
+| `screenshotIds` | No | Current effective Run Selection | Routes only the listed Screenshot IDs to this Target. |
+| `mode` | No | `individual` | `individual` sends one native message per Notification; `digest` asks the Adapter for one platform-native multi-item presentation. |
+| `alerts` | No | Disabled | Enables state-change Event Alerts for the Screenshot IDs routed to this Target. |
+
+Native Digest presentation is capability-driven rather than a shared generic template:
+
+| Platform | `mode: digest` behavior |
+| --- | --- |
+| Discord | Up to ten rich Embeds per message; larger selections continue in another message. |
+| LINE | Flex Message Carousel, up to twelve bubbles per carousel. |
+| DingTalk | FeedCard items, split at the Adapter's per-message budget. |
+| Slack | One compact multi-item Block Kit message. |
+| WeCom | Summary Template Card, split without dropping items when more than ten Notifications are selected. |
+| Telegram, QQ, Feishu / Lark, WhatsApp | Explicit individual-message fallback; the Bot Run Report still records the requested and effective behavior. |
+
+Example: one Discord destination receives five periodic updates as a compact Digest and also watches meaningful state changes:
+
+```yaml
+- name: daily-digest
+  screenshotIds: [challenges, salmon-run, gear-dailydrop, gear-regular, splatfest-na]
+  mode: digest
+  alerts:
+    includePeriodic: true
+    challengeReminderMinutes: [60, 15]
+    bigRun: true
+    randomWeapons: true
+    splatfest: true
+    gearWatchlist:
+      primaryPowerIds: [POWER_ID_FROM_DATA_SNAPSHOT]
+  webhookUrl: https://discord.com/api/webhooks/REPLACE_WITH_ID/REPLACE_WITH_TOKEN
+```
+
+| `alerts` field | Required | Meaning |
+| --- | :---: | --- |
+| `includePeriodic` | No | Default `true`; set `false` when this Target should receive Event Alerts only. |
+| `challengeReminderMinutes` | No | Unique positive minute thresholds, such as `[60, 15]`; the closest reached window becomes one state alert. |
+| `bigRun` | No | Alert once for the active Big Run rotation. |
+| `randomWeapons` | No | Alert once when the active Salmon Run rotation contains a random weapon. |
+| `splatfest` | No | Alert on regional Splatfest start, end, and available results. |
+| `gearWatchlist.gearIds` | No | Stable gear IDs to match in current SplatNet Gear inventory. |
+| `gearWatchlist.primaryPowerIds` | No | Stable primary-ability IDs to match in current inventory. At least one gear or ability list is required when `gearWatchlist` is present. |
+
+Event Alerts are evaluated only when their related Screenshot ID is in both the effective Run Selection and this Target's route. They cover Challenge reminder windows, Big Run, random-weapon rotations, Splatfest start/end/results, and gear matches. The alert state—not the newly rendered image URL—defines its Delivery ID, so an unchanged event is not sent again. Event Alerts are always delivered individually so each state transition has its own retry outcome; `mode` controls periodic base Notifications only. Set `alerts.includePeriodic: false` for an alerts-only Target; otherwise alerts supplement the normal periodic message. Gear watchlists use stable `__splatoon3ink_id` values found in the archived `data/gear.json` and locale files.
 
 | Content | Values accepted by `screenshotIds` |
 | --- | --- |
@@ -413,19 +473,19 @@ Targets run independently and in parallel, while messages for one Target keep th
 
 #### Secret field reference
 
-Field names are case-sensitive. `screenshotIds` is optional on every Target; the table repeats it so each configuration can be read independently.
+Field names are case-sensitive. The common optional fields `screenshotIds`, `mode`, and `alerts` work on every Target; the table repeats them so each configuration can be read independently.
 
 | Repository Secret | Required fields in each Target | Optional fields |
 | --- | --- | --- |
-| `BOT_WECOM_CONFIG` | `name`, `webhookUrl` | `screenshotIds` |
-| `BOT_DISCORD_CONFIG` | `name`, `webhookUrl` | `screenshotIds`, `username`, `avatarUrl` |
-| `BOT_TELEGRAM_CONFIG` | `name`, `botToken`, `chatId` | `screenshotIds`, `messageThreadId`, `disableNotification` |
-| `BOT_QQ_CONFIG` | `name`, `appId`, `clientSecret`, `targetType` (`group` or `user`), `targetId` | `screenshotIds` |
-| `BOT_FEISHU_CONFIG` | `name`, `webhookUrl` | `screenshotIds`, `secret` |
-| `BOT_DINGTALK_CONFIG` | `name`, `webhookUrl` | `screenshotIds`, `secret` |
-| `BOT_WHATSAPP_CONFIG` | `name`, `accessToken`, `phoneNumberId`, `recipientPhoneNumber`, `templateName`, `languageCode` | `screenshotIds` |
-| `BOT_LINE_CONFIG` | `name`, `channelAccessToken`, `targetType` (`user`, `group`, or `room`), `targetId` | `screenshotIds`, `notificationDisabled` |
-| `BOT_SLACK_CONFIG` | `name`, `webhookUrl` | `screenshotIds` |
+| `BOT_WECOM_CONFIG` | `name`, `webhookUrl` | `screenshotIds`, `mode`, `alerts` |
+| `BOT_DISCORD_CONFIG` | `name`, `webhookUrl` | `screenshotIds`, `mode`, `alerts`, `username`, `avatarUrl` |
+| `BOT_TELEGRAM_CONFIG` | `name`, `botToken`, `chatId` | `screenshotIds`, `mode`, `alerts`, `messageThreadId`, `disableNotification` |
+| `BOT_QQ_CONFIG` | `name`, `appId`, `clientSecret`, `targetType` (`group` or `user`), `targetId` | `screenshotIds`, `mode`, `alerts` |
+| `BOT_FEISHU_CONFIG` | `name`, `webhookUrl` | `screenshotIds`, `mode`, `alerts`, `secret` |
+| `BOT_DINGTALK_CONFIG` | `name`, `webhookUrl` | `screenshotIds`, `mode`, `alerts`, `secret` |
+| `BOT_WHATSAPP_CONFIG` | `name`, `accessToken`, `phoneNumberId`, `recipientPhoneNumber`, `templateName`, `languageCode` | `screenshotIds`, `mode`, `alerts` |
+| `BOT_LINE_CONFIG` | `name`, `channelAccessToken`, `targetType` (`user`, `group`, or `room`), `targetId` | `screenshotIds`, `mode`, `alerts`, `notificationDisabled` |
+| `BOT_SLACK_CONFIG` | `name`, `webhookUrl` | `screenshotIds`, `mode`, `alerts` |
 
 Open a platform below for a copy-ready Secret value. Replace every placeholder before saving it in **Settings → Secrets and variables → Actions**.
 
@@ -652,12 +712,15 @@ The [platform setup guide](./docs/operator-setup-links.md#notification-adapters)
 
 For operators evaluating whether the bot is safe to run unattended:
 
-- Data downloads use retries and timeouts, pass schema validation, and replace the previous snapshot only after the complete new snapshot is valid.
+- Data downloads use retries and timeouts, pass schema and SHA-256 validation, and replace the Last-known-good Actions Cache only after the complete new snapshot is valid. A fallback is labeled with its age, and expired schedule/event content is still skipped.
 - Screenshot capture waits for the app, fonts, and local images, then checks language, attribution, dimensions, footer position, and overflow.
 - Run Manifest v6 records the selected Screenshot IDs and exactly what was rendered: locale, resolution, time zone, data identity, filenames, dimensions, and SHA-256 hashes.
 - Publication Manifest v8 records the same Screenshot ID selection and exactly what was uploaded: primary images, platform-specific LINE and WhatsApp variants, originals, built-in icons, and public URLs.
 - Configuration preflight reports all independent errors before the first upload and never prints Secret values.
-- Destinations run independently; successful deliveries remain successful even when another destination fails, and failures are summarized at the end.
+- The capability-driven Adapter Interface owns asset protocol and image-variant constraints, presentation budgets, native Digest policy, retry/idempotency behavior, and platform receipt extraction.
+- The private Delivery Ledger records stable Delivery IDs, attempts, success/failure, and platform request IDs. Rerunning a failed publish job preserves successes and retries only failed operations; an interrupted outcome fails closed rather than risking an untracked duplicate.
+- Adapters retry explicit platform rejections such as rate limits and transient server errors. A network failure whose delivery result is unknowable is recorded as `uncertain` and stops automatically on non-idempotent platforms; LINE can be retried safely with its stable retry key.
+- `run-report.json` and the Actions Summary connect snapshot provenance, requested/effective/skipped IDs, image URLs and sizes, every Channel/Target result, and remediation advice without including credentials.
 - CI scans the complete Git history with a digest-pinned Gitleaks image, then runs syntax, unit, browser, visual, build, workflow-policy, and dependency-audit checks.
 
 Structural screenshot validation renders all thirteen artifacts in every supported Bot locale. English, Simplified Chinese, and Japanese also keep macOS and Linux pixel goldens; fixture network access is local-only, and pixel differences above `0.1%` fail validation.
@@ -684,6 +747,8 @@ pnpm run verify
 | `pnpm run bot:prepare <screenshot-ids>` | Download, build, render, and write the Run Manifest. |
 | `pnpm run bot:publish <screenshot-ids>` | Verify and publish through S3. |
 | `pnpm run bot:notify <screenshot-ids> [channel]` | Deliver configured Channels. |
+| `pnpm run bot:report` | Print the current credential-free Bot Run Report. |
+| `pnpm run bot:capabilities` | Print the machine-checked Adapter capability contract. |
 | `pnpm run test:update-golden` | Regenerate all three screenshot locales for the current platform. |
 | `pnpm run screenshots:contact-sheet -- --locale zh-CN` | Build a labeled overview of every Screenshot Artifact from the current platform's goldens; use `--help` for layout and output options. |
 | `pnpm run verify` | Run the complete focused local verification suite. |

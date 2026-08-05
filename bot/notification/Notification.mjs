@@ -18,6 +18,7 @@ const imageVariantSchema = z.object({
 
 export const notificationSchema = z.object({
   id: z.string().min(1),
+  sourceScreenshotId: z.string().min(1).optional(),
   source: z.object({
     name: z.string().min(1),
     iconUrl: z.url(),

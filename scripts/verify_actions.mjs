@@ -6,6 +6,7 @@ import path from 'node:path'
 import { promisify } from 'node:util'
 import sharp from 'sharp'
 import { getPinnedBrowserVersion } from '../bot/screenshot/BrowserRuntime.mjs'
+import { isTransientActFailure } from '../bot/verification/ActFailure.mjs'
 
 const execFileAsync = promisify(execFile)
 const runnerImage = process.env.ACT_RUNNER_IMAGE || 'splatoon3-bot-act-runner:ubuntu-24.04'
@@ -114,18 +115,6 @@ function run(command, args, env = process.env, { captureOutput = false } = {}) {
   })
 }
 
-function isTransientActFailure(error) {
-  return [
-    /\b(?:EAI_AGAIN|ECONNRESET|ETIMEDOUT)\b/i,
-    /connection reset by peer/i,
-    /network is unreachable/i,
-    /no route to host/i,
-    /temporary failure in name resolution/i,
-    /TLS handshake timeout/i,
-    /unexpected EOF/i,
-  ].some((pattern) => pattern.test(error.output || ''))
-}
-
 async function runWithRetries(
   command,
   args,
@@ -147,6 +136,23 @@ async function runWithRetries(
     }
   }
   throw lastError
+}
+
+async function removeActContainers(nameFilter) {
+  const { stdout } = await execFileAsync('docker', [
+    'ps',
+    '--all',
+    '--filter',
+    `name=${nameFilter}`,
+    '--format',
+    '{{.ID}}',
+  ])
+  const containerIds = stdout.split('\n').map((value) => value.trim()).filter(Boolean)
+  await Promise.all(
+    containerIds.map((containerId) =>
+      execFileAsync('docker', ['rm', '--force', containerId]).catch(() => undefined)
+    )
+  )
 }
 
 async function requestBody(request) {
@@ -392,7 +398,10 @@ await runWithRetries(
   'act',
   ['push', '--workflows', '.github/workflows/ci.yml', '--job', 'verify', ...commonActArguments],
   actEnvironment,
-  { shouldRetry: isTransientActFailure }
+  {
+    shouldRetry: isTransientActFailure,
+    beforeRetry: () => removeActContainers('act-Verify-Verify-engineering-contracts'),
+  }
 )
 
 const mockServer = await startBotRunMockServer()

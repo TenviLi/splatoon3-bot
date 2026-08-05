@@ -4,7 +4,7 @@ import http from 'node:http'
 import os from 'node:os'
 import path from 'node:path'
 import test from 'node:test'
-import { downloadDataSnapshot, loadDataSnapshot } from '../bot/data/DataSnapshot.mjs'
+import { acquireDataSnapshot, downloadDataSnapshot, loadDataSnapshot } from '../bot/data/DataSnapshot.mjs'
 import { supportedBotLocales } from '../src/common/botLocale.mjs'
 
 const emptyLocaleSnapshot = Object.freeze({
@@ -117,4 +117,83 @@ test('verifies Data Snapshot file hashes when loading an archived Bot Run', asyn
   await fs.appendFile(path.join(destinationDirectory, 'gear.json'), '\n')
 
   await assert.rejects(loadDataSnapshot(destinationDirectory), /integrity verification failed for gear.json/)
+})
+
+test('restores only a validated Last-known-good Data Snapshot after a fresh download fails', async (context) => {
+  const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-snapshot-fallback-'))
+  const destinationDirectory = path.join(temporaryDirectory, 'data')
+  const fallbackDirectory = path.join(temporaryDirectory, 'last-known-good')
+  const server = await startSnapshotServer(validSnapshot)
+  context.after(async () => {
+    await server.close()
+    await fs.rm(temporaryDirectory, { recursive: true, force: true })
+  })
+
+  await downloadDataSnapshot({
+    sourceBaseUrl: server.baseUrl,
+    destinationDirectory: fallbackDirectory,
+    createdAt: new Date('2026-07-30T00:00:00Z'),
+  })
+  const result = await acquireDataSnapshot({
+    destinationDirectory,
+    fallbackDirectory,
+    attempts: 1,
+    fetchImpl: async () => {
+      throw new Error('upstream unavailable')
+    },
+  })
+
+  assert.equal(result.acquisition, 'fallback')
+  assert.match(result.fallbackReason, /upstream unavailable/)
+  assert.equal(result.snapshot.manifest.createdAt, '2026-07-30T00:00:00.000Z')
+  assert.deepEqual((await loadDataSnapshot(destinationDirectory)).values.gear, validSnapshot.gear)
+})
+
+test('keeps a validated fresh Data Snapshot when updating the fallback cache fails', async (context) => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-data-cache-warning-'))
+  const destinationDirectory = path.join(root, 'data')
+  const fallbackParent = path.join(root, 'fallback-parent-file')
+  const fallbackDirectory = path.join(fallbackParent, 'cache')
+  context.after(() => fs.rm(root, { recursive: true, force: true }))
+  await fs.writeFile(fallbackParent, 'not a directory')
+
+  const result = await acquireDataSnapshot({
+    destinationDirectory,
+    fallbackDirectory,
+    createdAt: new Date('2026-08-05T00:00:00.000Z'),
+    fetchImpl: async (url) => {
+      const relativePath = new URL(url).pathname.replace('/data/', '')
+      return new Response(
+        await fs.readFile(path.join(import.meta.dirname, 'fixtures/data', relativePath)),
+        { status: 200 }
+      )
+    },
+    attempts: 1,
+  })
+
+  assert.equal(result.acquisition, 'fresh')
+  assert.match(result.cacheWarning, /Last-known-good cache could not be updated/)
+  assert.equal(result.snapshot.manifest.createdAt, '2026-08-05T00:00:00.000Z')
+})
+
+test('fails with both causes when neither fresh nor fallback Data Snapshot is valid', async (context) => {
+  const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'splatoon-snapshot-no-fallback-'))
+  context.after(() => fs.rm(temporaryDirectory, { recursive: true, force: true }))
+
+  await assert.rejects(
+    acquireDataSnapshot({
+      destinationDirectory: path.join(temporaryDirectory, 'data'),
+      fallbackDirectory: path.join(temporaryDirectory, 'missing'),
+      attempts: 1,
+      fetchImpl: async () => {
+        throw new Error('upstream unavailable')
+      },
+    }),
+    (error) => {
+      assert.ok(error instanceof AggregateError)
+      assert.match(error.message, /no valid Last-known-good Data Snapshot/)
+      assert.equal(error.errors.length, 2)
+      return true
+    }
+  )
 })

@@ -314,6 +314,14 @@ test('skips configured Channels whose Targets do not select the active Run Selec
     [{ channelName: 'wecom', status: 'skipped' }]
   )
   assert.deepEqual(report.deliveryResults, [])
+  assert.deepEqual(report.targetResults, [
+    {
+      channel: 'wecom',
+      target: 'gear-only',
+      status: 'skipped',
+      reason: 'Target screenshotIds do not intersect this Run Selection',
+    },
+  ])
 })
 
 test('routes the intersection of Run Selection and Target screenshotIds', async () => {

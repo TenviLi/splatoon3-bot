@@ -140,7 +140,7 @@ Step 6 が成功すると、2 つの Production Workflow が同じ Secrets と V
 
 ### 13 個すべての Screenshot ID
 
-選択肢はすべて **Screenshot ID** です。同じ値が Smoke Test のドロップダウン、生成 PNG のファイル名、対応する Notification、ローカルコマンド、宛先の任意 `screenshotIds:` リストに使われます。選択した各 ID から画像 1 枚と通知 1 件が生成されます。
+選択肢はすべて **Screenshot ID** です。同じ値が Smoke Test のドロップダウン、生成 PNG のファイル名、対応する基本 Notification、ローカルコマンド、宛先の任意 `screenshotIds:` リストに使われます。選択した各 ID から画像 1 枚と基本 Notification 1 件を生成し、Target の `mode` で複数通知をまとめられます。Event Alert は新しい状態がある場合だけ追加されます。
 
 <table>
   <tr>
@@ -205,18 +205,27 @@ Step 6 が成功すると、2 つの Production Workflow が同じ Secrets と V
 
 ```mermaid
 flowchart LR
-  snapshot["データスナップショット"] --> content["コンテンツ事前検証"]
+  upstream["splatoon3.ink"] --> snapshot["データスナップショット"]
+  lastGood["前回成功スナップショット"] -. "障害時フォールバック" .-> snapshot
+  snapshot --> content["コンテンツ事前検証"]
   content --> build["ビルド"]
   build --> screenshots["スクリーンショット"]
   screenshots --> config["構成の事前検証"]
   config --> publish["S3 への公開"]
   publish --> adapters["プラットフォームアダプター"]
+  adapters <--> ledger["配信台帳"]
+  snapshot --> report["Bot Run Report"]
+  screenshots --> report
+  publish --> report
+  ledger --> report
 ```
 
 定期実行と手動実行は、すべて同じ 2 段階の処理を使用します。
 
-1. **準備**：一貫したデータ一式を取得・検証し、画像用ページをビルドして、選択された画像を生成・保存します。
-2. **公開と通知**：最初のアップロード前にすべての設定を確認し、画像と内蔵アイコンを S3 に公開してから、設定済みの宛先へ並列配信します。
+1. **準備**：一貫したデータ一式を取得・検証します。上流障害時だけ前回検証済みデータへフォールバックし、期限切れコンテンツを除外してから画像を生成・保存します。
+2. **公開と通知**：非公開の配信台帳を復元し、最初のアップロード前にすべての設定を確認します。画像と内蔵アイコンを S3 に公開し、設定済みの宛先へ並列配信します。失敗した Job の再実行では成功済み Delivery ID を保持します。
+
+すべての実行で、認証情報を含まない `run-report.json` と Actions Summary の **Bot Run Report** を生成します。Fresh / fallback、スナップショット日時と経過時間、要求・実行・スキップされた Screenshot ID、公開画像 URL・寸法・バイト数、各 Target のルーティングと配信結果、試行回数、取得可能な Platform Request ID、具体的な対処方法を 1 か所で確認できます。対象コンテンツがない実行は正常な no-op として明示され、準備の早い段階で失敗した場合も、検証済み Data Snapshot を取得できなかったことを記録してレポートを失いません。
 
 | Workflow | 実行タイミング | 配信内容 |
 | --- | --- | --- |
@@ -388,7 +397,56 @@ secretAccessKey: your-s3-secret-access-key
 
 共通する ID がなければ、その宛先には送信しません。すべての宛先が一致しない Channel は通常の Production Run ではスキップされます。一方、Smoke Test は指定した Channel の実配信を確認するため、一致する宛先がなければ早期に失敗し、「成功したのに未送信」という誤解を防ぎます。
 
-各宛先は独立して並列実行され、同じ宛先へのメッセージ順序は維持されます。
+各宛先は独立して並列実行され、同じ宛先への操作順序は維持されます。送信前に非公開の配信台帳が Stable Delivery ID を確認し、同じ Bot Run で成功済みの操作を保持し、失敗した操作だけを再試行します。次の定期 Bot Run では、内容がたまたま同じでも定期 Notification を通常どおり送信します。台帳は GitHub Actions Cache で復元・保存され、公開 S3 URL には配置されません。
+
+#### 全プラットフォーム共通の Target フィールド
+
+| フィールド | 必須 | 既定値 | 用途 |
+| --- | :---: | --- | --- |
+| `name` | はい | — | 同じ Platform Secret 内で一意の宛先名。事前検証と Bot Run Report に表示されます。 |
+| `screenshotIds` | いいえ | 今回の有効な Run Selection | 指定した Screenshot ID だけをこの Target へ送ります。 |
+| `mode` | いいえ | `individual` | `individual` は Notification ごとに 1 通、`digest` はサービス固有の複数項目表示を使用します。 |
+| `alerts` | いいえ | 無効 | この Target にルーティングされた Screenshot ID の状態変化通知を有効にします。 |
+
+Digest は共通テキストを単純連結せず、Adapter が各サービスのネイティブ表現を選びます。
+
+| サービス | `mode: digest` の動作 |
+| --- | --- |
+| Discord | 1 メッセージ最大 10 個の Embed。超過分は次のメッセージへ継続。 |
+| LINE | Flex Message Carousel。1 Carousel 最大 12 Bubble。 |
+| DingTalk | FeedCard。Adapter の上限を超える場合は分割。 |
+| Slack | コンパクトな複数項目 Block Kit メッセージ。 |
+| WeCom | Summary Template Card。10 項目を超えても欠落させず分割。 |
+| Telegram、QQ、Feishu / Lark、WhatsApp | 明示的に個別送信へフォールバック。結果は Bot Run Report に記録。 |
+
+次の Discord Target は 5 種類の定期通知を Digest にまとめ、重要な状態変化も監視します。
+
+```yaml
+- name: daily-digest
+  screenshotIds: [challenges, salmon-run, gear-dailydrop, gear-regular, splatfest-jp]
+  mode: digest
+  alerts:
+    includePeriodic: true
+    challengeReminderMinutes: [60, 15]
+    bigRun: true
+    randomWeapons: true
+    splatfest: true
+    gearWatchlist:
+      primaryPowerIds: [DATA_SNAPSHOT_の能力_ID]
+  webhookUrl: https://discord.com/api/webhooks/REPLACE_WITH_ID/REPLACE_WITH_TOKEN
+```
+
+| `alerts` フィールド | 必須 | 意味 |
+| --- | :---: | --- |
+| `includePeriodic` | いいえ | 既定 `true`。`false` なら Event Alert 専用 Target。 |
+| `challengeReminderMinutes` | いいえ | 重複しない正の分数しきい値（例 `[60, 15]`）。最も近い到達済み Window を 1 つの状態通知にします。 |
+| `bigRun` | いいえ | 開催中の Big Run Rotation を 1 回だけ通知。 |
+| `randomWeapons` | いいえ | 開催中のサーモンランにランダム武器がある場合 1 回だけ通知。 |
+| `splatfest` | いいえ | 地域別フェスの開始、終了、結果公開を通知。 |
+| `gearWatchlist.gearIds` | いいえ | 現在の SplatNet Gear 在庫と照合する Stable Gear ID。 |
+| `gearWatchlist.primaryPowerIds` | いいえ | 現在の在庫と照合する Main Ability ID。`gearWatchlist` では Gear または Ability の一覧が 1 つ以上必要。 |
+
+Event Alert は、関連 Screenshot ID が今回の有効な Run Selection と Target の両方に含まれる場合だけ評価されます。イベントマッチの事前通知、Big Run、ランダム武器、フェス開始・終了・結果、ギア Watchlist に対応します。新しい画像 URL ではなくイベント状態から Delivery ID を作るため、状態が変わらなければ再送しません。各状態変化の再試行結果を独立させるため、Event Alert は常に個別配信され、`mode` は定期的な基本 Notification だけを制御します。`alerts.includePeriodic: false` で Alert 専用 Target にできます。既定の `true` では定期通知に Alert を追加します。Gear Watchlist には、保存された `data/gear.json` と locale ファイルの安定した `__splatoon3ink_id` を使用します。
 
 | 内容 | `screenshotIds` に指定できる値 |
 | --- | --- |
@@ -412,19 +470,19 @@ secretAccessKey: your-s3-secret-access-key
 
 #### Secret フィールド早見表
 
-フィールド名は大文字と小文字を区別します。任意の `screenshotIds` はすべての宛先で利用できます。各サービスの設定を単独で確認できるよう、下表にも繰り返し記載しています。
+フィールド名は大文字と小文字を区別します。任意の `screenshotIds`、`mode`、`alerts` はすべての宛先で利用できます。各サービスの設定を単独で確認できるよう、下表にも繰り返し記載しています。
 
 | Repository Secret | 各宛先の必須フィールド | 任意フィールド |
 | --- | --- | --- |
-| `BOT_WECOM_CONFIG` | `name`、`webhookUrl` | `screenshotIds` |
-| `BOT_DISCORD_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`username`、`avatarUrl` |
-| `BOT_TELEGRAM_CONFIG` | `name`、`botToken`、`chatId` | `screenshotIds`、`messageThreadId`、`disableNotification` |
-| `BOT_QQ_CONFIG` | `name`、`appId`、`clientSecret`、`targetType`（`group` または `user`）、`targetId` | `screenshotIds` |
-| `BOT_FEISHU_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`secret` |
-| `BOT_DINGTALK_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`secret` |
-| `BOT_WHATSAPP_CONFIG` | `name`、`accessToken`、`phoneNumberId`、`recipientPhoneNumber`、`templateName`、`languageCode` | `screenshotIds` |
-| `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group`、`room`）、`targetId` | `screenshotIds`、`notificationDisabled` |
-| `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | `screenshotIds` |
+| `BOT_WECOM_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts` |
+| `BOT_DISCORD_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts`、`username`、`avatarUrl` |
+| `BOT_TELEGRAM_CONFIG` | `name`、`botToken`、`chatId` | `screenshotIds`、`mode`、`alerts`、`messageThreadId`、`disableNotification` |
+| `BOT_QQ_CONFIG` | `name`、`appId`、`clientSecret`、`targetType`（`group` または `user`）、`targetId` | `screenshotIds`、`mode`、`alerts` |
+| `BOT_FEISHU_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts`、`secret` |
+| `BOT_DINGTALK_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts`、`secret` |
+| `BOT_WHATSAPP_CONFIG` | `name`、`accessToken`、`phoneNumberId`、`recipientPhoneNumber`、`templateName`、`languageCode` | `screenshotIds`、`mode`、`alerts` |
+| `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group`、`room`）、`targetId` | `screenshotIds`、`mode`、`alerts`、`notificationDisabled` |
+| `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts` |
 
 各サービスを開くと、そのままコピーできる Secret の例を確認できます。**Settings → Secrets and variables → Actions** に保存する前に、すべてのプレースホルダーを置き換えてください。
 
@@ -651,12 +709,15 @@ Custom Bot で署名検証を有効にした場合は、署名用の `secret` �
 
 無人運用に適しているか確認したい場合は、次の仕組みを確認してください。
 
-- データ取得には再試行とタイムアウトがあり、新しい一式が Schema 検証をすべて通過した場合だけ以前の有効データを置き換えます。
+- データ取得には再試行とタイムアウトがあり、新しい一式が Schema と SHA-256 検証をすべて通過した場合だけ Actions Cache の前回成功スナップショットを置き換えます。フォールバック時はデータ経過時間を明示し、期限切れのスケジュールやイベントを引き続き除外します。
 - 画像生成はアプリ、フォント、ローカル画像の準備を待ち、言語、クレジット、寸法、フッター位置、はみ出しを検査します。
 - Run Manifest v6 は選択した Screenshot ID と「何を生成したか」を記録します。言語、解像度、タイムゾーン、データ ID、ファイル名、寸法、SHA-256 が対象です。
 - Publication Manifest v8 は同じ Screenshot ID の選択と「何を公開したか」を記録します。通知用メイン画像、LINE・WhatsApp 専用画像、原画像、内蔵アイコン、公開 URL が対象です。
 - 設定の事前検証は、最初のアップロード前に独立したエラーをまとめて報告し、Secret の値を表示しません。
-- 宛先は独立して実行されます。1 つの宛先が失敗しても、ほかの宛先への配信成功は保持され、最後に失敗理由をまとめて報告します。
+- Capability-driven Adapter Interface が、Asset Protocol と画像 Variant、メッセージ上限、Native Digest、再試行・冪等性、Platform Receipt 抽出を一元管理します。
+- 非公開の配信台帳が Stable Delivery ID、試行回数、成功・失敗、Platform Request ID を記録します。失敗 Job の再実行では失敗項目だけを再試行し、結果不明の中断は重複送信を避けるため停止します。
+- Adapter が自動再試行するのは、Rate Limit や一時的な Server Error など、Platform が明確に拒否した Request です。Network 障害で配信結果を確認できない場合は `uncertain` として記録し、非冪等 Platform では手動確認まで停止します。LINE は安定した Retry Key により安全に再試行できます。
+- `run-report.json` と Actions Summary が、データ出所、要求・有効・スキップ ID、画像 URL と寸法、全 Channel / Target 結果、対処方法を認証情報なしで結びます。
 - CI は Git 履歴全体を Secret scan し、Syntax、Unit、Browser、Visual、Build、Workflow policy、Dependency audit を実行します。
 
 構造検証では、対応するすべての Bot 言語で 13 種類の画像を生成します。英語・簡体中国語・日本語では Linux と macOS の Pixel Golden も管理し、差分が `0.1%` を超えると失敗します。
@@ -683,6 +744,8 @@ pnpm run verify
 | `pnpm run bot:prepare <screenshot-ids>` | データ取得、ビルド、画像生成、Run Manifest 作成。 |
 | `pnpm run bot:publish <screenshot-ids>` | S3 へ検証済み画像を公開。 |
 | `pnpm run bot:notify <screenshot-ids> [channel]` | 設定済みサービスへ配信。 |
+| `pnpm run bot:report` | 現在の認証情報を含まない Bot Run Report を出力。 |
+| `pnpm run bot:capabilities` | 機械検証される Adapter 能力契約を出力。 |
 | `pnpm run test:update-golden` | 現在の OS 用に 3 言語の画像比較基準を生成。 |
 | `pnpm run screenshots:contact-sheet -- --locale ja-JP` | 現在の OS の Golden から、全 Screenshot Artifact の名前付き一覧画像を生成。レイアウトと出力先は `--help` で確認。 |
 | `pnpm run verify` | 完全なローカル検証。 |

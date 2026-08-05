@@ -629,11 +629,11 @@ test('notification adapters share the publication stage and are enabled by confi
   )
   assert.match(
     reusableWorkflow,
-    /Archive Bot Run\n\s+if: \$\{\{ env\.ACT != 'true' && steps\.prepare\.outputs\.has_content == 'true' \}\}\n\s+uses: actions\/upload-artifact@/
+    /Archive Bot Run\n\s+if: \$\{\{ always\(\) && env\.ACT != 'true' && steps\.prepare\.outcome == 'success' && steps\.prepare\.outputs\.has_content == 'true' \}\}\n\s+uses: actions\/upload-artifact@/
   )
   assert.match(
     reusableWorkflow,
-    /Download Bot Run\n\s+if: \$\{\{ env\.ACT != 'true' \}\}\n\s+uses: actions\/download-artifact@/
+    /Download Bot Run to recovery storage\n\s+if: \$\{\{ env\.ACT != 'true' \}\}\n\s+uses: actions\/download-artifact@/
   )
   assert.match(
     reusableWorkflow,
@@ -657,6 +657,7 @@ test('notification adapters share the publication stage and are enabled by confi
   assert.match(localActionsVerifier, /--container-options/)
   assert.match(localActionsVerifier, /ACT_BOT_RUN_DIRECTORY=/)
   assert.match(localActionsVerifier, /shouldRetry: isTransientActFailure/)
+  assert.match(localActionsVerifier, /removeActContainers\('act-Verify-Verify-engineering-contracts'\)/)
   assert.doesNotMatch(localActionsVerifier, /--artifact-server-path/)
 
   const channels = listChannelAdapters()
@@ -768,9 +769,102 @@ test('notification adapters share the publication stage and are enabled by confi
   assert.match(reusableWorkflow, /selection: \$\{\{ steps\.prepare\.outputs\.selection \}\}/)
   assert.match(reusableWorkflow, /has_content: \$\{\{ steps\.prepare\.outputs\.has_content \}\}/)
   assert.match(reusableWorkflow, /Prepare Data Snapshot and screenshot artifacts\n        id: prepare/)
+  assert.ok(
+    reusableWorkflow.indexOf('Initialize Bot Run Report') < reusableWorkflow.indexOf('Check out repository'),
+    'the bootstrap report must exist before repository setup can fail'
+  )
+  assert.match(reusableWorkflow, /splatoon3-bot-bootstrap-report\.json/)
+  assert.match(reusableWorkflow, /mode: 0o600/)
   assert.match(
     reusableWorkflow,
-    /Archive Bot Run\n        if: \$\{\{ env\.ACT != 'true' && steps\.prepare\.outputs\.has_content == 'true' \}\}/
+    /Ensure Bot Run Report exists\n        if: \$\{\{ always\(\) \}\}[\s\S]*?cp "\$RUNNER_TEMP\/splatoon3-bot-bootstrap-report\.json" screenshots\/run-report\.json/
+  )
+  assert.ok(
+    reusableWorkflow.indexOf('Ensure Bot Run Report exists') <
+      reusableWorkflow.indexOf('Archive preparation-only Bot Run Report'),
+    'the detailed or bootstrap report must be staged before archival'
+  )
+  assert.match(
+    reusableWorkflow,
+    /Summarize preparation-only Bot Run[\s\S]*?if \[ -f bot\/run\/report\.mjs \] && node bot\/run\/report\.mjs; then[\s\S]*?JSON\.parse\(await fs\.readFile\('screenshots\/run-report\.json'/
+  )
+  assert.ok(
+    reusableWorkflow.indexOf('Initialize publish failure report') <
+      reusableWorkflow.indexOf('Download Bot Run to recovery storage'),
+    'publish recovery must begin before artifact download or repository setup can fail'
+  )
+  assert.ok(
+    reusableWorkflow.indexOf('Download Bot Run to recovery storage') <
+      reusableWorkflow.indexOf('Prepare publish recovery report') &&
+      reusableWorkflow.indexOf('Prepare publish recovery report') <
+        reusableWorkflow.lastIndexOf('Check out repository'),
+    'the prepared report must be converted into a recovery report before checkout'
+  )
+  assert.match(reusableWorkflow, /path: \$\{\{ runner\.temp \}\}\/splatoon3-bot-run/)
+  assert.match(
+    reusableWorkflow,
+    /Prepare publish recovery report\n        if: \$\{\{ always\(\) \}\}[\s\S]*?const prepared = JSON\.parse[\s\S]*?status: 'failed'[\s\S]*?diagnostics: \[[\s\S]*?\.\.\.bootstrap\.diagnostics/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Ensure publish Bot Run Report exists\n        if: \$\{\{ always\(\) \}\}[\s\S]*?splatoon3-bot-publish-recovery-report\.json/
+  )
+  assert.doesNotMatch(
+    reusableWorkflow,
+    /Ensure publish Bot Run Report exists[\s\S]*?if \[ -s "\$RUNNER_TEMP\/splatoon3-bot-run\/screenshots\/run-report\.json" \]/,
+    'publish report recovery must not embed a nested heredoc in a shell conditional'
+  )
+  assert.match(reusableWorkflow, /Archive Bot Run Report[\s\S]*?if-no-files-found: error/)
+  assert.doesNotMatch(reusableWorkflow, /Resolve Run Plan|steps\.plan/)
+  assert.match(
+    reusableWorkflow,
+    /Prepare Data Snapshot and screenshot artifacts[\s\S]*?RUN_SCHEDULES: \$\{\{ inputs\.schedules \}\}[\s\S]*?run: node bot\/run\/prepare\.mjs\n/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Save Last-known-good Data Snapshot\n        id: save_snapshot_cache\n        if: \$\{\{ always\(\) && env\.ACT != 'true' && steps\.prepare\.outputs\.snapshot_acquisition == 'fresh' \}\}\n        continue-on-error: true/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Record Last-known-good cache warning\n        if: \$\{\{ always\(\) && steps\.save_snapshot_cache\.outcome == 'failure' && steps\.prepare\.outcome == 'success' \}\}[\s\S]*?BOT_RUN_WARNING_PHASE: prepare/
+  )
+  assert.match(reusableWorkflow, /run: node bot\/run\/warn\.mjs/)
+  assert.match(
+    reusableWorkflow,
+    /Archive preparation-only Bot Run Report\n        if: \$\{\{ always\(\) && env\.ACT != 'true' && \(steps\.prepare\.outcome != 'success' \|\| steps\.prepare\.outputs\.has_content != 'true'\) \}\}/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Summarize preparation-only Bot Run\n        if: \$\{\{ always\(\) && \(steps\.prepare\.outcome != 'success' \|\| steps\.prepare\.outputs\.has_content != 'true'\) \}\}/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Archive Bot Run\n        if: \$\{\{ always\(\) && env\.ACT != 'true' && steps\.prepare\.outcome == 'success' && steps\.prepare\.outputs\.has_content == 'true' \}\}/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Archive Bot Run[\s\S]*?include-hidden-files: true\n          if-no-files-found: error/
+  )
+  assert.match(
+    reusableWorkflow,
+    /      - name: Summarize Bot Run\n        if: \$\{\{ always\(\) \}\}[\s\S]*?if \[ -f bot\/run\/report\.mjs \] && node bot\/run\/report\.mjs; then[\s\S]*?JSON\.parse\(await fs\.readFile\('screenshots\/run-report\.json'/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Deliver configured notifications\n        id: deliver_notifications[\s\S]*?Save Delivery Ledger\n        id: save_delivery_ledger\n        if: \$\{\{ always\(\) && env\.ACT != 'true' && \(steps\.deliver_notifications\.outcome == 'success' \|\| steps\.deliver_notifications\.outcome == 'failure'\) \}\}\n        continue-on-error: true/
+  )
+  assert.match(
+    reusableWorkflow,
+    /Record Delivery Ledger cache warning\n        if: \$\{\{ always\(\) && steps\.save_delivery_ledger\.outcome == 'failure' \}\}[\s\S]*?BOT_RUN_WARNING_PHASE: notify/
+  )
+  assert.ok(
+    reusableWorkflow.indexOf('Record Delivery Ledger cache warning') <
+      reusableWorkflow.indexOf('Summarize Bot Run'),
+    'Delivery Ledger cache failures must reach the archived and summarized report'
+  )
+  assert.ok(
+    reusableWorkflow.indexOf('Summarize Bot Run') < reusableWorkflow.indexOf('Archive Bot Run Report'),
+    'the final report must be summarized before archival'
   )
   assert.match(
     reusableWorkflow,

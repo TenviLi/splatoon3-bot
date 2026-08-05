@@ -1,4 +1,10 @@
 import fs from 'node:fs/promises'
+import { createFileDeliveryLedgerStore } from './DeliveryLedger.mjs'
+import {
+  readBotRunReport,
+  withDelivery,
+  writeBotRunReport,
+} from '../run/BotRunReport.mjs'
 import { deliverConfiguredNotificationChannels } from './NotificationDelivery.mjs'
 import { formatNotificationStepSummary } from './NotificationReport.mjs'
 import {
@@ -29,9 +35,17 @@ function logReport(report) {
   for (const result of report.deliveryResults) {
     const message = `${result.channel}/${result.target}/${result.notification}`
     if (result.status === 'fulfilled') {
-      console.log(`${message}: delivered`)
+      console.log(`${message}: delivered (${result.deliveryId}; attempt ${result.attempts})`)
+    } else if (result.status === 'preserved') {
+      console.log(`${message}: preserved; Delivery ${result.deliveryId} already succeeded`)
     } else {
-      console.error(`${message}: ${result.error.message}`)
+      console.error(`${message}: ${result.error.message} (${result.deliveryId}; attempt ${result.attempts})`)
+    }
+  }
+
+  for (const target of report.targetResults) {
+    if (target.status === 'skipped' || target.status === 'blocked') {
+      console.log(`${target.channel}/${target.target}: ${target.status}; ${target.reason}`)
     }
   }
 
@@ -58,8 +72,23 @@ async function writeStepSummary({ report, failed }) {
   }
 }
 
+async function finalizeBotRunReport({ deliveryReport, error }) {
+  try {
+    const runReport = withDelivery(await readBotRunReport(), deliveryReport, error)
+    await writeBotRunReport(runReport)
+    return runReport
+  } catch (reportError) {
+    console.error(`Failed to finalize Bot Run Report: ${reportError.message}`)
+    if (!error) {
+      throw reportError
+    }
+    return null
+  }
+}
+
 let report
 let deliveryError
+let ledgerStore
 try {
   const manifest = await readRunManifest()
   if (manifest.selection.join(',') !== plan.selection.join(',')) {
@@ -69,12 +98,14 @@ try {
   }
   const publicationManifest = await readPublicationManifest()
   assertPublicationManifestMatchesRun(publicationManifest, manifest)
+  ledgerStore = createFileDeliveryLedgerStore(process.env.BOT_DELIVERY_LEDGER_DIRECTORY)
   report = await deliverConfiguredNotificationChannels({
     selection: plan.selection,
     channelName: channelName || undefined,
     publicationManifest,
     now: manifest.renderTime,
     timeZone: manifest.timeZone,
+    ledgerStore,
   })
   logReport(report)
 } catch (error) {
@@ -87,7 +118,15 @@ try {
   }
 }
 
+try {
+  await ledgerStore?.close()
+} catch (error) {
+  deliveryError ||= error
+  console.error(`Failed to close Delivery Ledger storage: ${error.message}`)
+}
+
 await writeStepSummary({ report, failed: Boolean(deliveryError) })
+await finalizeBotRunReport({ deliveryReport: report, error: deliveryError })
 
 if (deliveryError) {
   throw deliveryError

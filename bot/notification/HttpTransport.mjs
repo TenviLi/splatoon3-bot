@@ -1,5 +1,3 @@
-const retryableStatuses = new Set([429, 502, 503, 504])
-
 function wait(delayMs) {
   return new Promise((resolve) => setTimeout(resolve, delayMs))
 }
@@ -25,12 +23,20 @@ export async function request({
   fetchImpl = fetch,
   timeoutMs = 15_000,
   attempts = 2,
+  retryableStatuses = [429],
   label = 'notification request',
   isRetryableResponse,
+  onAttempt,
   waitImpl = wait,
+  networkFailureOutcome = 'uncertain',
 }) {
+  if (!['rejected', 'uncertain'].includes(networkFailureOutcome)) {
+    throw new Error(`Unknown network failure outcome: ${networkFailureOutcome}`)
+  }
+  const retryableStatusSet = new Set(retryableStatuses)
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
+      onAttempt?.(attempt)
       const response = await fetchImpl(url, {
         method,
         headers,
@@ -48,8 +54,9 @@ export async function request({
       }
 
       const error = new Error(`${label} failed with HTTP ${response.status}: ${responseBody.text.slice(0, 500)}`)
+      error.deliveryOutcome = 'rejected'
       const retryable =
-        retryableStatuses.has(response.status) || Boolean(isRetryableResponse?.(response, responseBody))
+        retryableStatusSet.has(response.status) || Boolean(isRetryableResponse?.(response, responseBody))
       if (!retryable || attempt === attempts) {
         error.retryable = false
         error.responseHeaders = response.headers
@@ -62,6 +69,12 @@ export async function request({
       const retryAfter = retryAfterHeader === null ? Number.NaN : Number(retryAfterHeader)
       await waitImpl(Number.isFinite(retryAfter) ? retryAfter * 1000 : 500 * attempt)
     } catch (error) {
+      if (error.deliveryOutcome !== 'rejected') {
+        error.deliveryOutcome = networkFailureOutcome
+        if (networkFailureOutcome === 'uncertain') {
+          throw error
+        }
+      }
       if (attempt === attempts || error.retryable === false) {
         throw error
       }
@@ -81,9 +94,29 @@ export function jsonRequest(options, value) {
   })
 }
 
+export function wrapRequestError(error, message) {
+  const wrapped = new Error(message, { cause: error })
+  for (const property of [
+    'action',
+    'deliveryOutcome',
+    'retryable',
+    'status',
+    'responseHeaders',
+    'responseBody',
+    'requestAttempts',
+  ]) {
+    if (error?.[property] !== undefined) {
+      wrapped[property] = error[property]
+    }
+  }
+  return wrapped
+}
+
 export function requireJsonSuccess(result, predicate, label) {
   if (!result.json || !predicate(result.json)) {
-    throw new Error(`${label} rejected the notification: ${result.text.slice(0, 500)}`)
+    const error = new Error(`${label} rejected the notification: ${result.text.slice(0, 500)}`)
+    error.deliveryOutcome = 'rejected'
+    throw error
   }
 
   return result.json
@@ -91,7 +124,9 @@ export function requireJsonSuccess(result, predicate, label) {
 
 export function requireTextSuccess(result, predicate, label) {
   if (!predicate(result.text)) {
-    throw new Error(`${label} rejected the notification: ${result.text.slice(0, 500)}`)
+    const error = new Error(`${label} rejected the notification: ${result.text.slice(0, 500)}`)
+    error.deliveryOutcome = 'rejected'
+    throw error
   }
 
   return result.text

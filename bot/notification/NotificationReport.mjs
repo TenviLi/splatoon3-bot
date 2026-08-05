@@ -19,6 +19,12 @@ export function formatNotificationStepSummary({ report, failed = false } = {}) {
     lines.push('- shared preparation failed; inspect the step log')
   }
 
+  for (const target of report.targetResults || []) {
+    if (target.status === 'skipped' || target.status === 'blocked') {
+      lines.push(`- ${target.channel}/${target.target}: ${target.status}; ${target.reason}`)
+    }
+  }
+
   for (const channelResult of report.channelResults) {
     if (channelResult.status === 'skipped') {
       lines.push(`- ${channelResult.channelName}: skipped; no Target selects the chosen Screenshot IDs`)
@@ -31,6 +37,7 @@ export function formatNotificationStepSummary({ report, failed = false } = {}) {
     }
 
     const delivered = channelResult.results.filter(({ status }) => status === 'fulfilled').length
+    const preserved = channelResult.results.filter(({ status }) => status === 'preserved').length
     const failedDeliveries = channelResult.results.filter(({ status }) => status === 'rejected').length
     if (channelResult.status === 'rejected' && channelResult.results.length === 0) {
       lines.push(`- ${channelResult.channelName}: rejected before delivery; inspect the step log`)
@@ -38,7 +45,7 @@ export function formatNotificationStepSummary({ report, failed = false } = {}) {
     }
 
     lines.push(
-      `- ${channelResult.channelName}: ${channelResult.status} (${delivered} delivered, ${failedDeliveries} failed)`
+      `- ${channelResult.channelName}: ${channelResult.status} (${delivered} delivered, ${preserved} preserved, ${failedDeliveries} failed)`
     )
   }
 

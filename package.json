@@ -25,7 +25,7 @@
     "verify": "node bot/verification/index.mjs",
     "verify:actions": "node scripts/verify_actions.mjs",
     "test": "pnpm run test:unit && pnpm run test:browser-ci && pnpm run test:visual",
-    "test:unit": "node --test tests/run-plan.test.mjs tests/run-manifest.test.mjs tests/run-content-preflight.test.mjs tests/data-snapshot.test.mjs tests/browser-runtime.test.mjs tests/screenshot-runner.test.mjs tests/fixture-localization.test.mjs tests/content-availability.test.mjs tests/time.test.mjs tests/i18n-runtime.test.mjs tests/upstream-regressions.test.mjs tests/contact-sheet.test.mjs tests/bot-context.test.mjs tests/bot-configuration.test.mjs tests/workflow-policy.test.mjs tests/remote-image-inspector.test.mjs tests/notification-composer.test.mjs tests/notification-channels.test.mjs tests/notification-payload-golden.test.mjs tests/notification-delivery.test.mjs tests/notification-report.test.mjs tests/s3-publisher.test.mjs",
+    "test:unit": "node --test tests/run-plan.test.mjs tests/run-manifest.test.mjs tests/run-content-preflight.test.mjs tests/data-snapshot.test.mjs tests/bot-run-report.test.mjs tests/browser-runtime.test.mjs tests/actionlint.test.mjs tests/screenshot-runner.test.mjs tests/fixture-localization.test.mjs tests/content-availability.test.mjs tests/time.test.mjs tests/i18n-runtime.test.mjs tests/upstream-regressions.test.mjs tests/contact-sheet.test.mjs tests/bot-context.test.mjs tests/bot-configuration.test.mjs tests/workflow-policy.test.mjs tests/remote-image-inspector.test.mjs tests/notification-composer.test.mjs tests/notification-channels.test.mjs tests/notification-payload-golden.test.mjs tests/notification-delivery.test.mjs tests/delivery-ledger.test.mjs tests/notification-digest.test.mjs tests/event-alert.test.mjs tests/notification-report.test.mjs tests/s3-publisher.test.mjs",
     "test:browser-ci": "node --test tests/browser-ci-smoke.test.mjs",
     "test:visual": "node --test tests/screenshot-visual.test.mjs",
     "test:update-golden": "node tests/generate-screenshot-goldens.mjs",
@@ -36,7 +36,9 @@
     "download-data": "node scripts/download_data.mjs",
     "bot:describe": "node bot/run/describe.mjs",
     "bot:doctor": "node bot/config/index.mjs",
+    "bot:capabilities": "node bot/notification/capabilities.mjs",
     "bot:prepare": "node bot/run/prepare.mjs",
+    "bot:report": "node bot/run/report.mjs",
     "bot:publish": "node bot/publish/index.mjs",
     "bot:notify": "node bot/notification/index.mjs"
   },

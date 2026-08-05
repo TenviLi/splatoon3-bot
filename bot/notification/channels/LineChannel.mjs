@@ -1,6 +1,6 @@
 import crypto from 'node:crypto'
 import { z } from 'zod'
-import { jsonRequest } from '../HttpTransport.mjs'
+import { jsonRequest, wrapRequestError } from '../HttpTransport.mjs'
 import { inspectRemoteImage } from '../RemoteImageInspector.mjs'
 import { compactText } from '../format.mjs'
 
@@ -20,6 +20,16 @@ export const lineTargetSchema = z.object({
     })
   }
 })
+
+export function createLineDeliveryOptions(deliveryId) {
+  const hexadecimal = crypto.createHash('sha256').update(deliveryId).digest('hex').slice(0, 32).split('')
+  hexadecimal[12] = '4'
+  hexadecimal[16] = ['8', '9', 'a', 'b'][Number.parseInt(hexadecimal[16], 16) % 4]
+  const value = hexadecimal.join('')
+  return Object.freeze({
+    retryKey: `${value.slice(0, 8)}-${value.slice(8, 12)}-${value.slice(12, 16)}-${value.slice(16, 20)}-${value.slice(20)}`,
+  })
+}
 
 const maximumBubbleBytes = 30_000
 const maximumImageBytes = 10 * 1024 * 1024
@@ -92,7 +102,7 @@ function validateImageMetadata(metadata) {
   }
 }
 
-function createFlexMessage(notification, imageUrl) {
+function createFlexMessage(notification, imageUrl, maximumBubbleBytes = 30_000) {
   const color = accentColor(notification)
   const actionUrl = requireHttpsUrl(notification.action.url, 1_000, 'action URL')
   const detailContents = [
@@ -200,7 +210,11 @@ export async function deliverLine(notification, target, options = {}) {
   validateImageMetadata(imageMetadata)
   const payload = {
     to: target.targetId,
-    messages: [createFlexMessage(notification, imageUrl)],
+    messages: [createFlexMessage(
+      notification,
+      imageUrl,
+      options.capabilities?.messageBudget.bubbleBytes
+    )],
     notificationDisabled: target.notificationDisabled ?? false,
   }
 
@@ -213,6 +227,10 @@ export async function deliverLine(notification, target, options = {}) {
           'X-Line-Retry-Key': options.retryKey || crypto.randomUUID(),
         },
         fetchImpl: options.fetchImpl,
+        attempts: options.attempts,
+        retryableStatuses: options.retryableStatuses,
+        onAttempt: options.onAttempt,
+        waitImpl: options.waitImpl,
         label: `LINE target ${target.name}`,
       },
       payload
@@ -223,6 +241,85 @@ export async function deliverLine(notification, target, options = {}) {
       return Object.freeze({ status: 409, duplicate: true, acceptedRequestId })
     }
     const requestId = error.responseHeaders?.get('x-line-request-id')
-    throw new Error(`${error.message}${requestId ? ` (LINE request ${requestId})` : ''}`, { cause: error })
+    throw wrapRequestError(error, `${error.message}${requestId ? ` (LINE request ${requestId})` : ''}`)
+  }
+}
+
+export async function deliverLineDigest(notifications, target, options = {}) {
+  const messageBudget = options.capabilities?.messageBudget || {}
+  const maximumBubbles = messageBudget.bubblesPerCarousel || 12
+  const maximumMessages = messageBudget.messagesPerPush || 5
+  const maximumCarouselBytes = messageBudget.carouselBytes || 50_000
+  const prepared = await Promise.all(
+    notifications.map(async (notification) => {
+      const imageUrl = requireHttpsUrl(notification.image.variants.line.url, 2_000, 'image URL')
+      const imageMetadata = await (options.inspectImage || inspectRemoteImage)(imageUrl, {
+        fetchImpl: options.fetchImpl,
+        maximumBytes: maximumImageBytes,
+      })
+      validateImageMetadata(imageMetadata)
+      return { notification, imageUrl }
+    })
+  )
+  const bubbles = prepared.map(({ notification, imageUrl }) => ({
+    title: notification.title,
+    bubble: createFlexMessage(notification, imageUrl, messageBudget.bubbleBytes).contents,
+  }))
+  const messages = []
+  let currentBubbles = []
+  const createCarousel = (items) => ({
+      type: 'flex',
+      altText: compactText(items.map(({ title }) => title).join(' · '), 400),
+      contents: {
+        type: 'carousel',
+        contents: items.map(({ bubble }) => bubble),
+      },
+    })
+  for (const bubble of bubbles) {
+    const candidate = [...currentBubbles, bubble]
+    if (
+      currentBubbles.length > 0 &&
+      (candidate.length > maximumBubbles || Buffer.byteLength(JSON.stringify(createCarousel(candidate).contents)) > maximumCarouselBytes)
+    ) {
+      messages.push(createCarousel(currentBubbles))
+      currentBubbles = []
+    }
+    currentBubbles.push(bubble)
+  }
+  if (currentBubbles.length > 0) {
+    messages.push(createCarousel(currentBubbles))
+  }
+  if (messages.length > maximumMessages) {
+    throw new Error(`LINE Digest exceeds the ${maximumMessages}-message push limit`)
+  }
+
+  try {
+    return await jsonRequest(
+      {
+        url: 'https://api.line.me/v2/bot/message/push',
+        headers: {
+          Authorization: `Bearer ${target.channelAccessToken}`,
+          'X-Line-Retry-Key': options.retryKey || crypto.randomUUID(),
+        },
+        fetchImpl: options.fetchImpl,
+        attempts: options.attempts,
+        retryableStatuses: options.retryableStatuses,
+        onAttempt: options.onAttempt,
+        waitImpl: options.waitImpl,
+        label: `LINE digest target ${target.name}`,
+      },
+      {
+        to: target.targetId,
+        messages,
+        notificationDisabled: target.notificationDisabled ?? false,
+      }
+    )
+  } catch (error) {
+    const acceptedRequestId = error.responseHeaders?.get('x-line-accepted-request-id')
+    if (error.status === 409 && acceptedRequestId) {
+      return Object.freeze({ status: 409, duplicate: true, acceptedRequestId })
+    }
+    const requestId = error.responseHeaders?.get('x-line-request-id')
+    throw wrapRequestError(error, `${error.message}${requestId ? ` (LINE request ${requestId})` : ''}`)
   }
 }

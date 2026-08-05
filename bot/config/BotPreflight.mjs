@@ -45,24 +45,44 @@ function inspectNotifications({ plan, channelName, environment, publicationConfi
       if (channel.status === 'skipped') {
         return skipped(name, `${channel.targetCount} Target(s), none select the chosen Screenshot IDs`)
       }
-      if (
-        channel.channel.requiresHttpsAssets &&
-        publicationConfiguration &&
-        new URL(publicationConfiguration.publicBaseUrl).protocol !== 'https:'
-      ) {
-        return rejected(
-          name,
-          new Error(`${channel.channelName} requires S3_CONFIG.publicBaseUrl to use HTTPS`)
-        )
+      if (publicationConfiguration) {
+        try {
+          channel.channel.validatePublicationConfiguration(publicationConfiguration)
+        } catch (error) {
+          return rejected(name, error)
+        }
       }
 
       const notificationCount = channel.deliveries.reduce(
         (count, delivery) => count + delivery.notificationIds.length,
         0
       )
+      const operationCount = channel.deliveries.reduce(
+        (count, delivery) =>
+          count + (delivery.target.alerts?.includePeriodic === false ? 0 : delivery.operations.length),
+        0
+      )
+      const nativeDigestTargets = channel.deliveries.filter(
+        ({ target, operations }) =>
+          target.alerts?.includePeriodic !== false &&
+          target.mode === 'digest' &&
+          operations[0]?.mode === 'digest'
+      ).length
+      const digestFallbackTargets = channel.deliveries.filter(
+        ({ target, operations }) =>
+          target.alerts?.includePeriodic !== false &&
+          target.mode === 'digest' &&
+          operations[0]?.mode === 'individual'
+      ).length
+      const eventAlertTargets = channel.deliveries.filter(({ target }) => Boolean(target.alerts)).length
+      const policies = [
+        nativeDigestTargets ? `${nativeDigestTargets} native Digest Target(s)` : null,
+        digestFallbackTargets ? `${digestFallbackTargets} individual Digest fallback Target(s)` : null,
+        eventAlertTargets ? `${eventAlertTargets} Event Alert Target(s)` : null,
+      ].filter(Boolean)
       return ready(
         name,
-        `${channel.deliveries.length}/${channel.targetCount} Target(s), ${notificationCount} delivery operation(s)`
+        `${channel.deliveries.length}/${channel.targetCount} Target(s), ${notificationCount} Notification(s), ${operationCount} planned operation(s)${policies.length > 0 ? `; ${policies.join(', ')}` : ''}`
       )
     })
   } catch (error) {

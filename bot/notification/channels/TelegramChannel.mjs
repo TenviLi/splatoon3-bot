@@ -27,19 +27,19 @@ function sectionBlock(section) {
   ].filter(Boolean).join('\n')
 }
 
-function fitCaptionBlocks(blocks, actionLabel) {
+function fitCaptionBlocks(blocks, actionLabel, maximumLength = maximumCaptionLength) {
   const includedBlocks = []
   const overflowNotice = `<i>… ${htmlText(actionLabel, 120)} ↗</i>`
 
   for (const block of blocks) {
     const candidate = [...includedBlocks, block].join('\n\n')
-    if (candidate.length <= maximumCaptionLength) {
+    if (candidate.length <= maximumLength) {
       includedBlocks.push(block)
       continue
     }
 
     const withOverflowNotice = [...includedBlocks, overflowNotice].join('\n\n')
-    if (withOverflowNotice.length <= maximumCaptionLength) {
+    if (withOverflowNotice.length <= maximumLength) {
       includedBlocks.push(overflowNotice)
     }
     break
@@ -48,7 +48,7 @@ function fitCaptionBlocks(blocks, actionLabel) {
   return includedBlocks.join('\n\n')
 }
 
-function createCaption(notification) {
+function createCaption(notification, maximumLength) {
   const blocks = [
     `<b>${htmlText(notification.title, 180)}</b>`,
     notification.subtitle ? `<blockquote>${htmlText(notification.subtitle, 240)}</blockquote>` : null,
@@ -59,14 +59,14 @@ function createCaption(notification) {
     `<i>🦑 ${htmlText(notification.source.name, 160)}</i>`,
   ].filter(Boolean)
 
-  return fitCaptionBlocks(blocks, notification.action.label)
+  return fitCaptionBlocks(blocks, notification.action.label, maximumLength)
 }
 
 export async function deliverTelegram(notification, target, options = {}) {
   const payload = {
     chat_id: target.chatId,
     photo: notification.image.url,
-    caption: createCaption(notification),
+    caption: createCaption(notification, options.capabilities?.messageBudget.captionCharacters),
     parse_mode: 'HTML',
     show_caption_above_media: true,
     disable_notification: target.disableNotification ?? false,
@@ -81,6 +81,9 @@ export async function deliverTelegram(notification, target, options = {}) {
     {
       url: `https://api.telegram.org/bot${target.botToken}/sendPhoto`,
       fetchImpl: options.fetchImpl,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      onAttempt: options.onAttempt,
       label: `Telegram target ${target.name}`,
     },
     payload

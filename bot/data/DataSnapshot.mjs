@@ -208,6 +208,27 @@ async function publishStagedSnapshot(stagingDirectory, destinationDirectory) {
   }
 }
 
+async function copyValidatedSnapshot(sourceDirectory, destinationDirectory) {
+  const absoluteDestination = path.resolve(destinationDirectory)
+  const stagingDirectory = path.join(
+    path.dirname(absoluteDestination),
+    `.${path.basename(absoluteDestination)}.copy-${process.pid}-${Date.now()}`
+  )
+  await fs.rm(stagingDirectory, { recursive: true, force: true })
+  try {
+    await fs.cp(path.resolve(sourceDirectory), stagingDirectory, { recursive: true })
+    const snapshot = await loadDataSnapshot(stagingDirectory)
+    if (!snapshot.manifest || !snapshot.manifestSha256) {
+      throw new Error('Data Snapshot Manifest is missing')
+    }
+    await publishStagedSnapshot(stagingDirectory, absoluteDestination)
+    return loadDataSnapshot(absoluteDestination)
+  } catch (error) {
+    await fs.rm(stagingDirectory, { recursive: true, force: true })
+    throw error
+  }
+}
+
 export async function downloadDataSnapshot({
   sourceBaseUrl = 'https://splatoon3.ink/data',
   destinationDirectory = path.join(process.cwd(), 'data'),
@@ -284,6 +305,58 @@ export async function loadDataSnapshot(directory = path.join(process.cwd(), 'dat
     manifestSha256,
     values: Object.freeze(Object.fromEntries(entries.map(({ definition, json }) => [definition.name, json]))),
   })
+}
+
+export async function acquireDataSnapshot({
+  destinationDirectory = path.join(process.cwd(), 'data'),
+  fallbackDirectory = path.join(process.cwd(), '.bot-cache', 'last-known-good-data'),
+  useExisting = false,
+  createdAt = new Date(),
+  ...downloadOptions
+} = {}) {
+  if (useExisting) {
+    const snapshot = await loadDataSnapshot(destinationDirectory)
+    if (!snapshot.manifest || !snapshot.manifestSha256) {
+      throw new Error('Existing Data Snapshot does not contain a validated Manifest')
+    }
+    return Object.freeze({ snapshot, acquisition: 'fixture' })
+  }
+
+  try {
+    await downloadDataSnapshot({
+      ...downloadOptions,
+      destinationDirectory,
+      createdAt,
+    })
+    const snapshot = await loadDataSnapshot(destinationDirectory)
+    if (!snapshot.manifest || !snapshot.manifestSha256) {
+      throw new Error('Fresh Data Snapshot does not contain a validated Manifest')
+    }
+    try {
+      await copyValidatedSnapshot(destinationDirectory, fallbackDirectory)
+      return Object.freeze({ snapshot, acquisition: 'fresh' })
+    } catch (cacheError) {
+      return Object.freeze({
+        snapshot,
+        acquisition: 'fresh',
+        cacheWarning: `Fresh Data Snapshot is valid, but the Last-known-good cache could not be updated: ${cacheError.message}`,
+      })
+    }
+  } catch (freshError) {
+    try {
+      const snapshot = await copyValidatedSnapshot(fallbackDirectory, destinationDirectory)
+      return Object.freeze({
+        snapshot,
+        acquisition: 'fallback',
+        fallbackReason: freshError.message,
+      })
+    } catch (fallbackError) {
+      throw new AggregateError(
+        [freshError, fallbackError],
+        `Fresh Data Snapshot download failed and no valid Last-known-good Data Snapshot is available. Fresh error: ${freshError.message}. Fallback error: ${fallbackError.message}`
+      )
+    }
+  }
 }
 
 export function listSnapshotFiles() {

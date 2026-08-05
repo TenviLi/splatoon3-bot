@@ -29,7 +29,9 @@ async function getAccessToken(target, options) {
       url: tokenUrl,
       fetchImpl: options.fetchImpl,
       label: `QQ token for ${target.name}`,
-      attempts: 2,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      networkFailureOutcome: 'rejected',
     },
     { appId: target.appId, clientSecret: target.clientSecret }
   )
@@ -96,6 +98,9 @@ export async function deliverQQ(notification, target, options = {}) {
         'X-Union-Appid': target.appId,
       },
       fetchImpl: options.fetchImpl,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      onAttempt: options.onAttempt,
       label: `QQ target ${target.name}`,
     },
     strategy.createPayload(notification)

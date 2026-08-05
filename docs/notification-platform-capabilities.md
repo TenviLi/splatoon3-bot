@@ -6,19 +6,37 @@ This note compares platform-native rich-message options for the notification ada
 
 ## Recommended Direction
 
-| Platform | Default presentation | Safe primary action | Recommended change |
-| --- | --- | --- | --- |
-| WeCom | `news_notice` Template Card | Whole-card URL action | Keep the card; use built-in content-addressed icons and concise native sections |
-| Discord | One image-rich embed | Clickable embed title | Keep the embed; improve field grouping, text budgets, and metadata |
-| Telegram | `sendPhoto` with formatted caption | URL inline-keyboard button | Keep the current structure; make caption truncation entity-safe |
-| QQ | Custom Markdown for group/user | Markdown link | Keep the scheduled adapter stateless; reject channel Targets that require a live Gateway session |
-| Feishu/Lark | Card schema 2.0 | `open_url` button behavior | Migrate from the legacy card shape; keep remote screenshot as a link unless app credentials are added |
-| DingTalk | `actionCard` | `singleURL` or URL-only `btns` | Keep ActionCard for individual notifications; reserve FeedCard for digests |
-| WhatsApp | Approved media template | Template URL button | Always use a template; require opt-in and fail closed when the approved contract does not match |
-| LINE | One Flex Message bubble | Flex `uri` button | Use a screenshot hero, compact facts, and a callback-free URI action |
-| Slack | Incoming Webhook with Block Kit | `mrkdwn` or rich-text link | Use native blocks, but avoid button elements because even URL buttons require acknowledgements |
+| Platform | Individual presentation | `digest` policy | Safe primary action | Direction |
+| --- | --- | --- | --- | --- |
+| WeCom | `news_notice` Template Card | Native summary Template Cards | Whole-card URL action | Keep content-addressed icons and bounded native sections |
+| Discord | One image-rich Embed | Native multi-Embed, at most 10 per message | Clickable Embed title | Preserve aggregate Embed budgets and returned message IDs |
+| Telegram | `sendPhoto` with formatted caption | Explicit individual fallback | URL inline-keyboard button | Keep entity-safe caption budgeting |
+| QQ | Custom Markdown for group/user | Explicit individual fallback | Markdown link | Keep the scheduled adapter stateless; reject live-Gateway Channel Targets |
+| Feishu/Lark | Card schema 2.0 | Explicit individual fallback | `open_url` button behavior | Keep webhook-only cards inside the 20 KB budget |
+| DingTalk | `actionCard` | Native FeedCard | `singleURL` or FeedCard item URL | Use ActionCard for detail and FeedCard for compact multi-item delivery |
+| WhatsApp | Approved media template | Explicit individual fallback | Template URL button | Require opt-in and fail closed when the approved contract does not match |
+| LINE | One Flex Message bubble | Native Flex Carousel | Flex `uri` button | Keep uncropped 1024×576 media and stable retry keys |
+| Slack | Incoming Webhook with Block Kit | Native multi-item Blocks | `mrkdwn` link | Avoid callback-dependent button elements |
 
-Across adapters, preserve the common `Notification` model but add adapter-owned layout and length budgets. A single universal text renderer would discard the strongest native features of each platform.
+Across adapters, preserve the common `Notification` model while the capability-driven Adapter Interface owns layout and length budgets, public-asset protocol and image variants, native Digest policy, retry/idempotency behavior, and platform receipt extraction. A single universal text renderer would discard the strongest native features of each platform.
+
+## Machine-Checked Adapter Contract
+
+This table is rendered from the same Adapter capability objects used by Configuration Preflight, S3 publication, delivery planning, retry handling, and tests. Run `pnpm run bot:capabilities` to reproduce it; CI rejects documentation drift.
+
+<!-- Adapter capability table: keep synchronized through formatChannelCapabilitiesMarkdown. -->
+
+| Channel | Public asset | Image variant | Digest | Retry | Idempotency | Message budget |
+| --- | --- | --- | --- | ---: | --- | --- |
+| wecom | http-or-https | notificationImage | native; 10 items/delivery | 2 attempts on 429 | none | horizontalItems=6, verticalItems=4 |
+| discord | http-or-https | notificationImage | native; 10 items/delivery | 2 attempts on 429 | none | embedCharacters=6000, embedsPerMessage=10 |
+| telegram | http-or-https | notificationImage | individual fallback | 2 attempts on 429 | none | captionCharacters=1024 |
+| qq | http-or-https | notificationImage | individual fallback | 2 attempts on 429 | none | platform implementation |
+| feishu | http-or-https | notificationImage | individual fallback | 2 attempts on 429 | none | cardBytes=20000 |
+| dingtalk | http-or-https | notificationImage | native; 10 items/delivery | 2 attempts on 429 | none | feedItemsPerMessage=10 |
+| whatsapp | https-only | whatsapp | individual fallback | 2 attempts on 429 | none | templateBodyCharacters=560 |
+| line | https-only | line | native; 60 items/delivery | 2 attempts on 429/502/503/504 | line-retry-key | bubbleBytes=30000, bubblesPerCarousel=12, carouselBytes=50000, messagesPerPush=5 |
+| slack | http-or-https | notificationImage | native; 24 items/delivery | 2 attempts on 429 | none | blocks=50, fallbackCharacters=4000 |
 
 ## Content-Specific Composition
 
@@ -187,7 +205,7 @@ Safe default payload for group/user:
 
 ### Adapter recommendation
 
-Migrate the current legacy card object to card schema 2.0:
+Keep the current Card Schema 2.0 implementation:
 
 - Use the notification accent to select a small semantic header-template palette (`turquoise`, `orange`, `yellow`, etc.) rather than hard-coding every notification to orange.
 - Use one Markdown element for subtitle/source, separate Markdown blocks for sections, and a two-column or field-like layout for short facts.
@@ -236,7 +254,7 @@ The current ActionCard is the strongest safe default for one notification:
 - Keep the large public screenshot inside ActionCard Markdown and the single URL action below it.
 - Strengthen visual hierarchy with a compact title, a quoted source/time line, the image, section headings, and short facts. DingTalk has no Discord-style arbitrary accent-color field, so use restrained emoji and ordering rather than fake color markup.
 - Use multi-button `btns` only after the domain model contains multiple distinct URL actions. URL-only buttons are safe; callback-style interaction is out of scope.
-- Use FeedCard only for an optional digest that combines several notifications into one message. It is less suitable for the detailed schedule screenshot but can reduce rate-limit pressure.
+- Use FeedCard only when the Target selects `mode: digest`; individual notifications retain the more detailed ActionCard. The Adapter splits oversized selections without dropping items.
 - Add a conservative local text budget and tests. The current official pages are dynamically rendered and their exact per-field length table was not reliably available during this research, so no unverified numeric field limits should be encoded from secondary sources.
 
 Safe individual payload:
@@ -466,7 +484,11 @@ Safe payload direction:
 
 ## Implementation Status
 
-All nine platforms are implemented as ordinary adapters in the existing concurrent partial-success delivery process. Their Secrets are optional and auto-enable each Channel; GitHub Actions keeps one shared publish-and-notify Job rather than creating one Job per platform. Contract and payload-golden tests cover native layout, escaping, platform budgets, retry behavior, target validation, and callback-free actions.
+All nine platforms are implemented as ordinary adapters in the concurrent partial-success delivery process. Their Secrets are optional and auto-enable each Channel; GitHub Actions keeps one shared publish-and-notify Job rather than creating one Job per platform. Target `mode` supports the five native Digest presentations above and an explicit individual fallback elsewhere. Contract and payload-golden tests cover native layout, Digest composition, escaping, platform budgets, retry behavior, target validation, and callback-free actions.
+
+The Delivery Ledger derives a stable ID from the Channel, hashed destination configuration, mode, and either the Bot Run plus periodic Notification content or an Event Alert state. Each scheduled Bot Run still sends its periodic Notifications; only a failed Job rerun of that same Bot Run preserves earlier successes. The Ledger is stored only in the private GitHub Actions Cache: failed operations are retried, LINE reuses a deterministic UUID retry key, and platform request/message IDs are retained when available. Challenge reminders, Big Run, random weapons, Splatfest start/end/results, and watched gear are modeled as state-change Event Alerts, so an unchanged event state does not become another alert.
+
+Transport retries are limited to explicit platform rejections such as rate limits and transient server errors. An ambiguous network failure is persisted as `uncertain` and fails closed on non-idempotent adapters; LINE remains safely retryable because the Stable Delivery ID derives the same retry key.
 
 WhatsApp remains operationally disabled until its Secret exists, but configuration alone is not sufficient: the operator must also complete opt-in, billing, phone-number registration, and exact media-template approval. LINE should likewise be enabled only after a smoke run confirms the real CDN derivative and destination eligibility.
 

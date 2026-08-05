@@ -137,7 +137,7 @@ Step 6 成功后，两个生产工作流就可以复用同一组 Secrets 与 Var
 
 ### 全部十三个 Screenshot ID
 
-每个可选项就是一个 **Screenshot ID（截图 ID）**。同一个值会出现在 Smoke Test 下拉框、生成的 PNG 文件名、对应 Notification、本地命令，以及通知目标可选的 `screenshotIds:` 列表中。每个选中的 ID 都只生成一张截图和一条通知。
+每个可选项就是一个 **Screenshot ID（截图 ID）**。同一个值会出现在 Smoke Test 下拉框、生成的 PNG 文件名、对应的基础 Notification、本地命令，以及通知目标可选的 `screenshotIds:` 列表中。每个选中的 ID 都生成一张截图和一条基础 Notification；Target `mode` 可以把多条基础通知合并，Event Alert 只在出现新状态时额外产生。
 
 <table>
   <tr>
@@ -202,18 +202,27 @@ Step 6 成功后，两个生产工作流就可以复用同一组 Secrets 与 Var
 
 ```mermaid
 flowchart LR
-  snapshot["数据快照"] --> content["内容预检"]
+  upstream["splatoon3.ink"] --> snapshot["数据快照"]
+  lastGood["上次成功数据快照"] -. "失败回退" .-> snapshot
+  snapshot --> content["内容预检"]
   content --> build["构建"]
   build --> screenshots["截图"]
   screenshots --> config["配置预检"]
   config --> publish["S3 发布"]
   publish --> adapters["平台适配器"]
+  adapters <--> ledger["投递账本"]
+  snapshot --> report["Bot Run Report"]
+  screenshots --> report
+  publish --> report
+  ledger --> report
 ```
 
 每次定时或手动触发都执行同一个两阶段 Bot Run：
 
-1. **准备**：获取并校验一份完整、口径一致的数据，构建截图页面，生成所选图片并归档本次运行。
-2. **发布并通知**：在首次上传前检查全部配置，把截图和内置图标发布到 S3，再并行发送到每个已配置目标。
+1. **准备**：获取并校验一份完整、口径一致的数据；仅当上游不可用时回退到上一次校验成功的数据，继续排除已过期内容，再构建截图页面并归档本次运行。
+2. **发布并通知**：恢复私有投递账本，在首次上传前检查全部配置，把截图和内置图标发布到 S3，再并行发送到每个已配置目标；失败 Job 重跑时保留已成功的 Delivery ID。
+
+每次运行都会生成不含凭据的 `run-report.json`，并在 Actions Summary 展示完整 **Bot Run Report**：数据是 fresh 还是 fallback、快照时间与年龄、请求/实际生成/跳过的 Screenshot ID、S3 图片链接与尺寸和字节数、每个 Target 的路由与投递结果、尝试次数、可取得的平台 Request ID，以及可直接执行的排查建议。没有可用内容时会明确记录为成功 no-op；如果准备阶段很早就失败，也会明确记录“尚未取得已校验 Data Snapshot”，而不会让报告一起消失。
 
 | 工作流 | 何时运行 | 发送内容 |
 | --- | --- | --- |
@@ -385,7 +394,56 @@ secretAccessKey: your-s3-secret-access-key
 
 交集为空时，该目标不会收到消息。如果一个平台的全部目标都不匹配，普通生产运行会将该平台标记为跳过；Smoke Test 因为明确指定了要验证的平台，会在没有匹配目标时提前失败，避免产生“测试成功但没有发送”的假象。
 
-各目标相互独立并行发送，同一目标内仍保持消息顺序。
+各目标相互独立并行发送，同一目标内仍保持操作顺序。每次发送前，私有投递账本都会检查稳定 Delivery ID：同一次 Bot Run 中已成功的操作直接保留，只有失败项才会重试。后续的定时 Bot Run 即使内容恰好未变，也会照常发送周期通知。账本通过 GitHub Actions Cache 恢复与保存，不会上传到公开 S3 地址。
+
+#### 所有平台通用的 Target 字段
+
+| 字段 | 必填 | 默认值 | 用途 |
+| --- | :---: | --- | --- |
+| `name` | 是 | — | 同一平台 Secret 内唯一的目标名，会出现在预检与 Bot Run Report 中。 |
+| `screenshotIds` | 否 | 本次实际 Run Selection | 只把列出的 Screenshot ID 路由到该目标。 |
+| `mode` | 否 | `individual` | `individual` 为每条 Notification 发送一条原生消息；`digest` 请求平台原生的多内容摘要。 |
+| `alerts` | 否 | 关闭 | 为路由到该目标的 Screenshot ID 开启状态变化提醒。 |
+
+Digest 不是把通用文本粗暴拼接起来，而是由 Adapter 选择平台原生形式：
+
+| 平台 | `mode: digest` 的实际表现 |
+| --- | --- |
+| Discord | 单条消息最多十个富 Embed；更多内容自动继续下一条。 |
+| LINE | Flex Message Carousel，每个 Carousel 最多十二张 Bubble。 |
+| 钉钉 | FeedCard，多于单条预算时自动拆分。 |
+| Slack | 一条紧凑的多内容 Block Kit 消息。 |
+| 企业微信 | 摘要 Template Card；超过十项时拆分且不丢内容。 |
+| Telegram、QQ、飞书 / Lark、WhatsApp | 明确回退为逐条发送；Bot Run Report 会保留实际结果。 |
+
+下面的 Discord Target 会把五类周期消息合成 Digest，同时订阅重要状态变化：
+
+```yaml
+- name: daily-digest
+  screenshotIds: [challenges, salmon-run, gear-dailydrop, gear-regular, splatfest-na]
+  mode: digest
+  alerts:
+    includePeriodic: true
+    challengeReminderMinutes: [60, 15]
+    bigRun: true
+    randomWeapons: true
+    splatfest: true
+    gearWatchlist:
+      primaryPowerIds: [从数据快照取得的能力_ID]
+  webhookUrl: https://discord.com/api/webhooks/替换为_ID/替换为_TOKEN
+```
+
+| `alerts` 字段 | 必填 | 含义 |
+| --- | :---: | --- |
+| `includePeriodic` | 否 | 默认 `true`；设置为 `false` 时，该 Target 只接收 Event Alert。 |
+| `challengeReminderMinutes` | 否 | 不重复的正整数分钟阈值，例如 `[60, 15]`；进入最近一个阈值窗口时形成一次状态提醒。 |
+| `bigRun` | 否 | 当前 Big Run 轮换只提醒一次。 |
+| `randomWeapons` | 否 | 当前鲑鱼跑轮换包含随机武器时只提醒一次。 |
+| `splatfest` | 否 | 区域祭典开始、结束和结果可用时提醒。 |
+| `gearWatchlist.gearIds` | 否 | 匹配当前 SplatNet 装备库存的稳定装备 ID。 |
+| `gearWatchlist.primaryPowerIds` | 否 | 匹配当前库存的稳定主能力 ID；出现 `gearWatchlist` 时，装备或能力列表至少填写一个。 |
+
+只有相关 Screenshot ID 同时存在于本次有效 Run Selection 与该 Target 路由中，Event Alert 才会参与判断。目前支持 Challenge 提前提醒、Big Run、全随机武器、祭典开始/结束/结果，以及装备关注清单。稳定身份来自事件状态而不是每次重新生成的图片 URL，因此状态没有变化就不会重复发送。Event Alert 始终单独投递，使每个状态变化都有独立的重试结果；`mode` 只控制周期性基础 Notification。设置 `alerts.includePeriodic: false` 可以建立“只收提醒”的 Target；默认 `true` 表示在周期消息之外追加提醒。装备关注使用归档 `data/gear.json` 与 locale 文件中的稳定 `__splatoon3ink_id`。
 
 | 内容 | `screenshotIds` 可填写的值 |
 | --- | --- |
@@ -409,19 +467,19 @@ secretAccessKey: your-s3-secret-access-key
 
 #### Secret 字段速查
 
-字段名区分大小写。每个目标都可以使用可选的 `screenshotIds`；下表重复列出它，方便单独查看任意平台配置。
+字段名区分大小写。每个目标都可以使用可选的 `screenshotIds`、`mode` 与 `alerts`；下表重复列出它们，方便单独查看任意平台配置。
 
 | Repository Secret | 每个消息目标的必选字段 | 可选字段 |
 | --- | --- | --- |
-| `BOT_WECOM_CONFIG` | `name`、`webhookUrl` | `screenshotIds` |
-| `BOT_DISCORD_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`username`、`avatarUrl` |
-| `BOT_TELEGRAM_CONFIG` | `name`、`botToken`、`chatId` | `screenshotIds`、`messageThreadId`、`disableNotification` |
-| `BOT_QQ_CONFIG` | `name`、`appId`、`clientSecret`、`targetType`（`group` 或 `user`）、`targetId` | `screenshotIds` |
-| `BOT_FEISHU_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`secret` |
-| `BOT_DINGTALK_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`secret` |
-| `BOT_WHATSAPP_CONFIG` | `name`、`accessToken`、`phoneNumberId`、`recipientPhoneNumber`、`templateName`、`languageCode` | `screenshotIds` |
-| `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group` 或 `room`）、`targetId` | `screenshotIds`、`notificationDisabled` |
-| `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | `screenshotIds` |
+| `BOT_WECOM_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts` |
+| `BOT_DISCORD_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts`、`username`、`avatarUrl` |
+| `BOT_TELEGRAM_CONFIG` | `name`、`botToken`、`chatId` | `screenshotIds`、`mode`、`alerts`、`messageThreadId`、`disableNotification` |
+| `BOT_QQ_CONFIG` | `name`、`appId`、`clientSecret`、`targetType`（`group` 或 `user`）、`targetId` | `screenshotIds`、`mode`、`alerts` |
+| `BOT_FEISHU_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts`、`secret` |
+| `BOT_DINGTALK_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts`、`secret` |
+| `BOT_WHATSAPP_CONFIG` | `name`、`accessToken`、`phoneNumberId`、`recipientPhoneNumber`、`templateName`、`languageCode` | `screenshotIds`、`mode`、`alerts` |
+| `BOT_LINE_CONFIG` | `name`、`channelAccessToken`、`targetType`（`user`、`group` 或 `room`）、`targetId` | `screenshotIds`、`mode`、`alerts`、`notificationDisabled` |
+| `BOT_SLACK_CONFIG` | `name`、`webhookUrl` | `screenshotIds`、`mode`、`alerts` |
 
 展开下面的平台即可取得可复制的 Secret 内容。保存到 **Settings → Secrets and variables → Actions** 前，请替换所有占位值。
 
@@ -648,12 +706,15 @@ Webhook 决定目标频道，显示名称和头像覆盖均为可选：
 
 如果你需要评估机器人是否适合长期无人值守运行，可以从以下保障入手：
 
-- 数据下载带重试和超时，完整通过 Schema 校验后才替换上一份有效数据。
+- 数据下载带重试和超时；只有新数据完整通过 Schema 与 SHA-256 校验后才会替换 Actions Cache 中上次成功的快照。回退时会明确展示快照年龄，并继续跳过已过期的日程与活动。
 - 截图会等待应用、字体和本地图片就绪，并检查语言、署名、尺寸、底栏位置和内容溢出。
 - Run Manifest v6 记录所选 Screenshot ID，并精确记录“生成了什么”：语言、分辨率、时区、数据身份、文件名、尺寸和 SHA-256。
 - Publication Manifest v8 记录同一组 Screenshot ID，并精确记录“发布了什么”：通知主图、LINE 与 WhatsApp 平台专用图、原图、内置图标和公网 URL。
 - 配置预检会在首次上传前一次性汇总所有独立错误，而且不会输出 Secret 内容。
-- 各消息目标独立执行；某个目标失败不会撤销其他目标已经成功发送的消息，最终会统一汇总失败原因。
+- Adapter 能力接口统一管理资源协议与图片变体、消息预算、原生 Digest 策略、重试/幂等能力和平台回执提取。
+- 私有投递账本记录稳定 Delivery ID、尝试次数、成功/失败与平台 Request ID。重跑失败的发布 Job 时只重试失败项；中断后结果不明确的操作会主动停止，避免无记录的重复发送。
+- Adapter 只会自动重试限流、临时服务端错误等“平台明确拒绝”的请求。网络异常导致投递结果无法确认时会记为 `uncertain`；非幂等平台会主动停止并提示人工核对，LINE 则可凭稳定 Retry Key 安全重试。
+- `run-report.json` 与 Actions Summary 串联快照来源、请求/有效/跳过的 ID、图片 URL 和尺寸、全部 Channel/Target 结果与修复建议，而且不包含凭据。
 - CI 扫描完整 Git 历史，并运行语法、单元、浏览器、视觉、构建、工作流策略与依赖审计。
 
 结构性截图校验会用全部 Bot 语言分别生成十三张图片；中、英、日还分别维护 Linux 与 macOS 像素基线，像素差异超过 `0.1%` 即失败。
@@ -680,6 +741,8 @@ pnpm run verify
 | `pnpm run bot:prepare <screenshot-ids>` | 下载、构建、截图并写入 Run Manifest。 |
 | `pnpm run bot:publish <screenshot-ids>` | 校验并通过 S3 发布。 |
 | `pnpm run bot:notify <screenshot-ids> [channel]` | 发送已配置的平台。 |
+| `pnpm run bot:report` | 输出当前不含凭据的 Bot Run Report。 |
+| `pnpm run bot:capabilities` | 输出经过机器校验的 Adapter 能力契约。 |
 | `pnpm run test:update-golden` | 生成当前平台的中、英、日截图基线。 |
 | `pnpm run screenshots:contact-sheet -- --locale zh-CN` | 从当前平台的 Golden 生成包含全部截图类型和名称的总览图；通过 `--help` 查看布局与输出选项。 |
 | `pnpm run verify` | 运行完整本地验证。 |

@@ -37,6 +37,49 @@ function createDataSnapshot(festivals = [createCompletedSplatfest()], dataKey = 
   }
 }
 
+function createBattleSettings(properties = {}) {
+  return {
+    vsRule: { id: 'rule', name: 'Rule', rule: 'RULE' },
+    vsStages: [1, 2].map((index) => ({
+      id: `stage-${index}`,
+      name: `Stage ${index}`,
+      image: { url: `https://example.com/stage-${index}.png` },
+    })),
+    ...properties,
+  }
+}
+
+function createActiveSchedule(properties = {}) {
+  return {
+    startTime: '2026-08-03T12:00:00Z',
+    endTime: '2026-08-03T14:00:00Z',
+    ...properties,
+  }
+}
+
+function addCompleteRegularSchedules(dataSnapshot) {
+  dataSnapshot.values.schedules = {
+    data: {
+      regularSchedules: {
+        nodes: [createActiveSchedule({ regularMatchSetting: createBattleSettings() })],
+      },
+      bankaraSchedules: {
+        nodes: [createActiveSchedule({
+          bankaraMatchSettings: [
+            createBattleSettings({ bankaraMode: 'CHALLENGE' }),
+            createBattleSettings({ bankaraMode: 'OPEN' }),
+          ],
+        })],
+      },
+      xSchedules: {
+        nodes: [createActiveSchedule({ xMatchSetting: createBattleSettings() })],
+      },
+      festSchedules: { nodes: [] },
+    },
+  }
+  return dataSnapshot
+}
+
 const context = Object.freeze({
   locale: 'zh-CN',
   timeZone: 'Asia/Shanghai',
@@ -144,4 +187,172 @@ test('turns malformed regional records into domain diagnostics', () => {
       return true
     }
   )
+})
+
+test('skips expired schedules from a Last-known-good Data Snapshot without failing the run', () => {
+  const dataSnapshot = createDataSnapshot()
+  dataSnapshot.values.schedules = {
+    data: {
+      regularSchedules: {
+        nodes: [{ startTime: '2026-07-01T00:00:00Z', endTime: '2026-07-01T02:00:00Z' }],
+      },
+      bankaraSchedules: { nodes: [] },
+      xSchedules: { nodes: [] },
+      eventSchedules: { nodes: [] },
+      coopGroupingSchedule: {
+        regularSchedules: { nodes: [] },
+        bigRunSchedules: { nodes: [] },
+      },
+    },
+  }
+  dataSnapshot.values.gear = {
+    data: { gesotown: { pickupBrand: null, limitedGears: [] } },
+  }
+  dataSnapshot.values.coop = { data: { coopResult: { monthlyGear: { name: 'Headgear' } } } }
+
+  const result = resolveRunContentAvailability(
+    ['schedules-regular', 'gear-salmon-run'],
+    dataSnapshot,
+    {
+      ...context,
+      renderTime: Date.parse('2026-08-03T13:26:36.633Z'),
+      snapshotAcquisition: 'fallback',
+    }
+  )
+
+  assert.deepEqual(result.availableSelection, ['gear-salmon-run'])
+  assert.equal(result.skipped[0].screenshotId, 'schedules-regular')
+  assert.match(formatContentSkip(result.skipped[0]), /restored Data Snapshot has no Regular Battle schedule/)
+})
+
+test('requires every battle mode used by the schedules overview from a fallback Snapshot', () => {
+  const dataSnapshot = createDataSnapshot()
+  dataSnapshot.values.schedules = {
+    data: {
+      regularSchedules: {
+        nodes: [{ startTime: '2026-08-03T12:00:00Z', endTime: '2026-08-03T14:00:00Z' }],
+      },
+      bankaraSchedules: { nodes: [] },
+      xSchedules: { nodes: [] },
+      festSchedules: { nodes: [] },
+    },
+  }
+
+  const result = resolveRunContentAvailability(['schedules'], dataSnapshot, {
+    ...context,
+    renderTime: Date.parse('2026-08-03T13:00:00Z'),
+    snapshotAcquisition: 'fallback',
+  })
+
+  assert.deepEqual(result.availableSelection, [])
+  assert.match(result.skipped[0].reason, /Regular, Anarchy, and X Battle schedules/)
+})
+
+test('requires renderable settings instead of accepting active fallback time windows alone', () => {
+  const dataSnapshot = createDataSnapshot()
+  dataSnapshot.values.schedules = {
+    data: {
+      regularSchedules: { nodes: [createActiveSchedule()] },
+      bankaraSchedules: { nodes: [createActiveSchedule()] },
+      xSchedules: { nodes: [createActiveSchedule()] },
+      festSchedules: { nodes: [] },
+    },
+  }
+
+  const result = resolveRunContentAvailability(
+    ['schedules', 'schedules-regular', 'schedules-anarchy', 'schedules-x'],
+    dataSnapshot,
+    {
+      ...context,
+      renderTime: Date.parse('2026-08-03T13:00:00Z'),
+      snapshotAcquisition: 'fallback',
+    }
+  )
+
+  assert.deepEqual(result.availableSelection, [])
+  assert.deepEqual(
+    result.skipped.map(({ screenshotId }) => screenshotId),
+    ['schedules', 'schedules-regular', 'schedules-anarchy', 'schedules-x']
+  )
+})
+
+test('keeps every regular battle screenshot when all required fallback settings are complete', () => {
+  const result = resolveRunContentAvailability(
+    ['schedules', 'schedules-regular', 'schedules-anarchy', 'schedules-x'],
+    addCompleteRegularSchedules(createDataSnapshot()),
+    {
+      ...context,
+      renderTime: Date.parse('2026-08-03T13:00:00Z'),
+      snapshotAcquisition: 'fallback',
+    }
+  )
+
+  assert.deepEqual(
+    result.availableSelection,
+    ['schedules', 'schedules-regular', 'schedules-anarchy', 'schedules-x']
+  )
+  assert.deepEqual(result.skipped, [])
+})
+
+test('uses Splatfest schedules instead of regular modes during an active festival', () => {
+  const activeFestival = {
+    ...createCompletedSplatfest(),
+    startTime: '2026-08-03T00:00:00Z',
+    endTime: '2026-08-04T00:00:00Z',
+  }
+  const dataSnapshot = createDataSnapshot([activeFestival])
+  dataSnapshot.values.schedules = {
+    data: {
+      regularSchedules: { nodes: [] },
+      bankaraSchedules: { nodes: [] },
+      xSchedules: { nodes: [] },
+      festSchedules: {
+        nodes: [createActiveSchedule({
+          festMatchSettings: [
+            createBattleSettings({ festMode: 'REGULAR' }),
+            createBattleSettings({ festMode: 'CHALLENGE' }),
+          ],
+        })],
+      },
+    },
+  }
+
+  const result = resolveRunContentAvailability(['schedules'], dataSnapshot, {
+    ...context,
+    renderTime: Date.parse('2026-08-03T13:00:00Z'),
+    snapshotAcquisition: 'fallback',
+  })
+
+  assert.deepEqual(result.availableSelection, ['schedules'])
+  assert.deepEqual(result.skipped, [])
+})
+
+test('skips the fallback schedules overview when an active Splatfest is missing one mode', () => {
+  const activeFestival = {
+    ...createCompletedSplatfest(),
+    startTime: '2026-08-03T00:00:00Z',
+    endTime: '2026-08-04T00:00:00Z',
+  }
+  const dataSnapshot = createDataSnapshot([activeFestival])
+  dataSnapshot.values.schedules = {
+    data: {
+      regularSchedules: { nodes: [] },
+      bankaraSchedules: { nodes: [] },
+      xSchedules: { nodes: [] },
+      festSchedules: {
+        nodes: [createActiveSchedule({
+          festMatchSettings: [createBattleSettings({ festMode: 'REGULAR' })],
+        })],
+      },
+    },
+  }
+
+  const result = resolveRunContentAvailability(['schedules'], dataSnapshot, {
+    ...context,
+    renderTime: Date.parse('2026-08-03T13:00:00Z'),
+    snapshotAcquisition: 'fallback',
+  })
+
+  assert.deepEqual(result.availableSelection, [])
+  assert.match(result.skipped[0].reason, /Splatfest Open and Pro schedules/)
 })

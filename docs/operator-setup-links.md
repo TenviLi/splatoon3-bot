@@ -2,7 +2,9 @@
 
 Checked against current first-party documentation on 2026-08-02. Store every YAML configuration described below as a GitHub **Repository Secret** under **Settings → Secrets and variables → Actions**. Do not commit real credentials, tokens, webhook URLs, phone numbers, or destination IDs.
 
-Channel Secrets are strict YAML sequences. Every Target requires a unique `name`; add a `screenshotIds` list only when that Target should receive a subset of the current Run Selection, and omit it to receive every generated item. The values are Screenshot IDs: `schedules`, `schedules-regular`, `schedules-anarchy`, `schedules-x`, `challenges`, `salmon-run`, `gear-dailydrop`, `gear-regular`, `gear-salmon-run`, `splatfest-na`, `splatfest-eu`, `splatfest-jp`, and `splatfest-ap`. Omit an entire `BOT_*_CONFIG` Secret to disable that adapter.
+Channel Secrets are strict YAML sequences. Every Target requires a unique `name`; add a `screenshotIds` list only when that Target should receive a subset of the current Run Selection, and omit it to receive every generated item. The values are Screenshot IDs: `schedules`, `schedules-regular`, `schedules-anarchy`, `schedules-x`, `challenges`, `salmon-run`, `gear-dailydrop`, `gear-regular`, `gear-salmon-run`, `splatfest-na`, `splatfest-eu`, `splatfest-jp`, and `splatfest-ap`. Every Target also accepts optional `mode: individual|digest` and `alerts`; see the main README for native Digest policies and the complete Event Alert schema. Omit an entire `BOT_*_CONFIG` Secret to disable that adapter.
+
+GitHub Actions Cache privately persists two operational stores without additional Secrets: the newest fully validated Last-known-good Data Snapshot and the Delivery Ledger. The latter preserves successful Stable Delivery IDs and retries only failed operations after a failed Job rerun. Neither cache is published through `publicBaseUrl`; `run-report.json` contains the credential-free per-run view needed for troubleshooting.
 
 ## S3-compatible publication
 

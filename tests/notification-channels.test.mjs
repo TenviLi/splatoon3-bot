@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict'
+import fs from 'node:fs/promises'
 import test from 'node:test'
+import { formatChannelCapabilitiesMarkdown } from '../bot/notification/ChannelCapabilities.mjs'
 import { createNotification } from '../bot/notification/Notification.mjs'
+import { defineChannelAdapter } from '../bot/notification/ChannelAdapter.mjs'
 import { deliverDingTalk } from '../bot/notification/channels/DingTalkChannel.mjs'
 import { deliverDiscord } from '../bot/notification/channels/DiscordChannel.mjs'
 import { deliverFeishu } from '../bot/notification/channels/FeishuChannel.mjs'
@@ -8,13 +11,59 @@ import { deliverLine, lineTargetSchema } from '../bot/notification/channels/Line
 import { deliverQQ, qqTargetSchema } from '../bot/notification/channels/QQChannel.mjs'
 import { deliverSlack, slackTargetSchema } from '../bot/notification/channels/SlackChannel.mjs'
 import { deliverTelegram } from '../bot/notification/channels/TelegramChannel.mjs'
-import { deliverWeCom } from '../bot/notification/channels/WeComChannel.mjs'
+import {
+  deliverWeCom,
+  deliverWeComDigest,
+} from '../bot/notification/channels/WeComChannel.mjs'
 import {
   deliverWhatsApp,
   whatsAppGraphApiVersion,
   whatsAppTargetSchema,
 } from '../bot/notification/channels/WhatsAppChannel.mjs'
-import { resolveConfiguredNotificationChannels } from '../bot/notification/channels/index.mjs'
+import {
+  getChannelAdapter,
+  resolveConfiguredNotificationChannels,
+} from '../bot/notification/channels/index.mjs'
+
+test('keeps the documented Adapter capability table synchronized with the runtime contract', async () => {
+  const documentation = await fs.readFile('docs/notification-platform-capabilities.md', 'utf8')
+  assert.ok(documentation.includes(formatChannelCapabilitiesMarkdown()))
+})
+
+test('Channel Adapter capabilities drive delivery retries and message budgets', async () => {
+  let deliveryOptions
+  const adapter = defineChannelAdapter({
+    name: 'test',
+    configurationEnvironmentVariable: 'BOT_TEST_CONFIG',
+    targetSchema: {},
+    capabilities: {
+      messageBudget: { items: 4 },
+      retry: { maximumAttempts: 3 },
+    },
+    deliver: async (_notification, _target, options) => {
+      deliveryOptions = options
+      return { accepted: true }
+    },
+  })
+
+  await adapter.deliver(
+    { mode: 'individual', notifications: [{ id: 'schedules' }] },
+    { name: 'target' }
+  )
+  assert.equal(deliveryOptions.attempts, 3)
+  assert.deepEqual(deliveryOptions.retryableStatuses, [429])
+  assert.equal(deliveryOptions.capabilities.messageBudget.items, 4)
+  assert.throws(
+    () => defineChannelAdapter({
+      name: 'invalid',
+      configurationEnvironmentVariable: 'BOT_INVALID_CONFIG',
+      targetSchema: {},
+      capabilities: { retry: { maximumAttempts: 0 } },
+      deliver: async () => {},
+    }),
+    /positive integer/
+  )
+})
 
 const notification = createNotification({
   id: 'schedules',
@@ -117,6 +166,57 @@ function discordEmbedTextLength(embed) {
     .reduce((total, value) => total + value.length, 0)
 }
 
+test('Adapter retry policies avoid unsafe webhook retries and allow idempotent LINE retries', async () => {
+  const operation = Object.freeze({
+    mode: 'individual',
+    requestedMode: 'individual',
+    notifications: Object.freeze([notification]),
+  })
+  const wecom = getChannelAdapter('wecom')
+  let wecomRequests = 0
+  await assert.rejects(
+    wecom.deliver(
+      operation,
+      { name: 'main', webhookUrl: 'https://example.com/wecom' },
+      {
+        fetchImpl: async () => {
+          wecomRequests += 1
+          return response({ errcode: 500 }, 503)
+        },
+        waitImpl: async () => {},
+      }
+    ),
+    /HTTP 503/
+  )
+  assert.equal(wecomRequests, 1)
+
+  const line = getChannelAdapter('line')
+  const retryKey = line.createDeliveryOptions('stable-delivery-id').retryKey
+  const observedRetryKeys = []
+  let lineRequests = 0
+  await line.deliver(
+    operation,
+    {
+      name: 'personal',
+      channelAccessToken: 'channel-access-token',
+      targetType: 'user',
+      targetId: 'U0123456789abcdef0123456789abcdef',
+    },
+    {
+      retryKey,
+      inspectImage: async () => validImageMetadata,
+      fetchImpl: async (_url, options) => {
+        lineRequests += 1
+        observedRetryKeys.push(options.headers['X-Line-Retry-Key'])
+        return lineRequests === 1 ? response({ message: 'unavailable' }, 503) : response({})
+      },
+      waitImpl: async () => {},
+    }
+  )
+  assert.equal(lineRequests, 2)
+  assert.deepEqual(observedRetryKeys, [retryKey, retryKey])
+})
+
 test('WeCom uses a news notice template card', async () => {
   let payload
   await deliverWeCom(notification, { name: 'main', webhookUrl: 'https://example.com/wecom' }, {
@@ -132,6 +232,41 @@ test('WeCom uses a news notice template card', async () => {
     keyname: '-',
     value: '斯普拉射击枪',
   })
+})
+
+test('WeCom consumes Adapter message budgets', async () => {
+  let payload
+  await deliverWeCom(denseNotification, { name: 'main', webhookUrl: 'https://example.com/wecom' }, {
+    capabilities: { messageBudget: { verticalItems: 1, horizontalItems: 2 } },
+    fetchImpl: async (_url, options) => {
+      payload = JSON.parse(options.body)
+      return response({ errcode: 0 })
+    },
+  })
+
+  assert.equal(payload.template_card.vertical_content_list.length, 1)
+  assert.equal(payload.template_card.horizontal_content_list.length, 2)
+})
+
+test('WeCom Digest consumes Adapter message budgets', async () => {
+  let payload
+  await deliverWeComDigest(
+    [notification, { ...notification, id: 'gear', title: '装备已更新' }],
+    { name: 'main', webhookUrl: 'https://example.com/wecom' },
+    {
+      capabilities: {
+        digest: { maximumItemsPerDelivery: 2 },
+        messageBudget: { verticalItems: 1, horizontalItems: 1 },
+      },
+      fetchImpl: async (_url, options) => {
+        payload = JSON.parse(options.body)
+        return response({ errcode: 0 })
+      },
+    }
+  )
+
+  assert.equal(payload.template_card.vertical_content_list.length, 1)
+  assert.equal(payload.template_card.horizontal_content_list.length, 1)
 })
 
 test('Discord uses an embed with an image and fields', async () => {
@@ -238,6 +373,42 @@ test('QQ uses official access tokens and native Markdown', async () => {
   assert.match(messagePayload.markdown.content, /schedules\.png/)
   assert.match(messagePayload.markdown.content, /#2400px #1350px/)
   assert.match(messagePayload.markdown.content, /- 斯普拉射击枪/)
+})
+
+test('QQ retries token network failures without marking message delivery uncertain', async () => {
+  let tokenRequests = 0
+  let messageRequests = 0
+
+  await assert.rejects(
+    deliverQQ(
+      notification,
+      {
+        name: 'token-network-failure',
+        appId: 'token-network-failure-app',
+        clientSecret: 'client-secret',
+        targetType: 'group',
+        targetId: 'group-openid',
+      },
+      {
+        attempts: 2,
+        fetchImpl: async (url) => {
+          if (String(url).includes('getAppAccessToken')) {
+            tokenRequests += 1
+            throw new Error('token endpoint connection failed')
+          }
+          messageRequests += 1
+          return response({ id: 'message' })
+        },
+      }
+    ),
+    (error) => {
+      assert.equal(error.deliveryOutcome, 'rejected')
+      return true
+    }
+  )
+
+  assert.equal(tokenRequests, 2)
+  assert.equal(messageRequests, 0)
 })
 
 test('QQ rejects channel targets that require an online Gateway session', () => {
@@ -619,7 +790,12 @@ test('LINE exposes request IDs from rejected push requests', async () => {
           response({ message: 'invalid request' }, 400, { 'x-line-request-id': 'line-request-id' }),
       }
     ),
-    /LINE request line-request-id/
+    (error) => {
+      assert.match(error.message, /LINE request line-request-id/)
+      assert.equal(error.deliveryOutcome, 'rejected')
+      assert.equal(error.status, 400)
+      return true
+    }
   )
 })
 
@@ -894,7 +1070,12 @@ test('WhatsApp classifies Meta throughput and configuration errors by code and d
         return response({ error: { code: 132001, error_data: { details: 'Template is not approved' } } }, 400)
       },
     }),
-    /Meta code 132001: Template is not approved/
+    (error) => {
+      assert.match(error.message, /Meta code 132001: Template is not approved/)
+      assert.equal(error.deliveryOutcome, 'rejected')
+      assert.equal(error.status, 400)
+      return true
+    }
   )
   assert.equal(attempts, 1)
 })

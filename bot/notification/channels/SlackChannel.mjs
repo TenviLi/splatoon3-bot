@@ -138,9 +138,10 @@ function createBlocks(notification) {
 }
 
 export async function deliverSlack(notification, target, options = {}) {
+  const messageBudget = options.capabilities?.messageBudget || {}
   const payload = {
-    text: mrkdwnText(notificationPlainText(notification), 4_000),
-    blocks: createBlocks(notification),
+    text: mrkdwnText(notificationPlainText(notification), messageBudget.fallbackCharacters || 4_000),
+    blocks: createBlocks(notification).slice(0, messageBudget.blocks || 50),
     unfurl_links: false,
     unfurl_media: false,
   }
@@ -150,10 +151,86 @@ export async function deliverSlack(notification, target, options = {}) {
       url: target.webhookUrl,
       fetchImpl: options.fetchImpl,
       waitImpl: options.waitImpl,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      onAttempt: options.onAttempt,
       label: `Slack target ${target.name}`,
     },
     payload
   )
 
   return requireTextSuccess(result, (text) => text === 'ok', `Slack target ${target.name}`)
+}
+
+function createDigestBlocks(notifications, maximumBlocks = 50) {
+  const blocks = [
+    {
+      type: 'header',
+      text: { type: 'plain_text', text: `🦑 Splatoon 3 · ${notifications.length}`, emoji: true },
+    },
+    {
+      type: 'context',
+      elements: [
+        {
+          type: 'mrkdwn',
+          text: mrkdwnText(notifications.map(({ source }) => source.name).join('  ·  '), maximumMrkdwnTextLength),
+          verbatim: true,
+        },
+      ],
+    },
+  ]
+
+  for (const [index, notification] of notifications.entries()) {
+    if (index > 0) {
+      blocks.push({ type: 'divider' })
+    }
+    blocks.push({
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: [
+          actionText({ label: notification.title, url: notification.action.url }),
+          notification.subtitle ? mrkdwnText(notification.subtitle, 300) : null,
+          notification.sections[0]?.text
+            ? mrkdwnText(notification.sections[0].text, 800)
+            : null,
+        ].filter(Boolean).join('\n'),
+        verbatim: true,
+      },
+      accessory: {
+        type: 'image',
+        image_url: notification.image.url,
+        alt_text: compactText(notification.image.alt, 2_000),
+      },
+    })
+  }
+
+  return blocks.slice(0, maximumBlocks)
+}
+
+export async function deliverSlackDigest(notifications, target, options = {}) {
+  const messageBudget = options.capabilities?.messageBudget || {}
+  const payload = {
+    text: mrkdwnText(
+      notifications.map((notification) => notificationPlainText(notification)).join('\n\n'),
+      messageBudget.fallbackCharacters || 4_000
+    ),
+    blocks: createDigestBlocks(notifications, messageBudget.blocks || 50),
+    unfurl_links: false,
+    unfurl_media: false,
+  }
+  const result = await jsonRequest(
+    {
+      url: target.webhookUrl,
+      fetchImpl: options.fetchImpl,
+      waitImpl: options.waitImpl,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      onAttempt: options.onAttempt,
+      label: `Slack digest target ${target.name}`,
+    },
+    payload
+  )
+
+  return requireTextSuccess(result, (text) => text === 'ok', `Slack digest target ${target.name}`)
 }

@@ -1,8 +1,12 @@
-import { hasSplatfestContent } from '../../src/common/contentAvailability.mjs'
-import { getSplatfestRegion } from '../../src/common/splatfestRegions.mjs'
+import {
+  hasBattleScheduleContent,
+  hasSplatfestContent,
+} from '../../src/common/contentAvailability.mjs'
+import { getSplatfestRegion, splatfestRegions } from '../../src/common/splatfestRegions.mjs'
 import {
   recentSplatfestWindowMs,
   selectRelevantSplatfest,
+  STATUS_ACTIVE,
 } from '../../src/common/splatfestSelection.mjs'
 import { getScreenshotDefinition } from './RunPlan.mjs'
 
@@ -108,11 +112,161 @@ function inspectSplatfestScreenshot(definition, dataSnapshot, context) {
   })
 }
 
+function normalizeBattleSchedule(node, settings) {
+  if (!settings) {
+    return null
+  }
+
+  return {
+    ...node,
+    settings: {
+      ...settings,
+      vsStages: (settings.vsStages || []).map((stage) => ({
+        ...stage,
+        thumbnailImage: stage.thumbnailImage || stage.image,
+      })),
+    },
+  }
+}
+
+function hasActiveBattleSchedule(nodes, renderTime, selectSettings) {
+  return (nodes || []).some(
+    (node) =>
+      Date.parse(node.startTime) <= renderTime &&
+      Date.parse(node.endTime) > renderTime &&
+      hasBattleScheduleContent(normalizeBattleSchedule(node, selectSettings(node)))
+  )
+}
+
+function createTimeWindowSkip(definition, dataSnapshot, context, content, nextAction) {
+  return Object.freeze({
+    screenshotId: definition.name,
+    content,
+    region: '—',
+    outcome: 'skipped',
+    reason: `the restored Data Snapshot has no ${content} content valid at ${new Date(context.renderTime).toISOString()}`,
+    nextAction,
+    ...context,
+    snapshotCreatedAt: dataSnapshot.manifest?.createdAt,
+    snapshotSource: dataSnapshot.manifest?.source,
+  })
+}
+
+function isSplatfestActive(dataSnapshot, renderTime) {
+  return splatfestRegions.some(({ dataKey }) => {
+    const records = dataSnapshot.values?.festivals?.[dataKey]?.data?.festRecords?.nodes || []
+    return selectRelevantSplatfest(records, renderTime)?.status === STATUS_ACTIVE
+  })
+}
+
+function inspectTimeDependentScreenshot(definition, dataSnapshot, context) {
+  if (context.snapshotAcquisition !== 'fallback') {
+    return null
+  }
+  const schedules = dataSnapshot.values?.schedules?.data
+  const gear = dataSnapshot.values?.gear?.data?.gesotown
+  const coop = dataSnapshot.values?.coop?.data?.coopResult
+  const activeBattle = (nodes, selectSettings) =>
+    hasActiveBattleSchedule(nodes, context.renderTime, selectSettings)
+  const regularAvailable = () =>
+    activeBattle(schedules?.regularSchedules?.nodes, (node) => node.regularMatchSetting)
+  const anarchySeriesAvailable = () =>
+    activeBattle(schedules?.bankaraSchedules?.nodes, (node) =>
+      node.bankaraMatchSettings?.find(({ bankaraMode }) => bankaraMode === 'CHALLENGE')
+    )
+  const anarchyOpenAvailable = () =>
+    activeBattle(schedules?.bankaraSchedules?.nodes, (node) =>
+      node.bankaraMatchSettings?.find(({ bankaraMode }) => bankaraMode === 'OPEN')
+    )
+  const xAvailable = () =>
+    activeBattle(schedules?.xSchedules?.nodes, (node) => node.xMatchSetting)
+  const splatfestOpenAvailable = () =>
+    activeBattle(schedules?.festSchedules?.nodes, (node) =>
+      node.festMatchSettings?.find(({ festMode }) => festMode === 'REGULAR')
+    )
+  const splatfestProAvailable = () =>
+    activeBattle(schedules?.festSchedules?.nodes, (node) =>
+      node.festMatchSettings?.find(({ festMode }) => festMode === 'CHALLENGE')
+    )
+  let available = true
+  let content = definition.label
+
+  switch (definition.name) {
+    case 'schedules': {
+      const splatfestActive = isSplatfestActive(dataSnapshot, context.renderTime)
+      available = splatfestActive
+        ? splatfestOpenAvailable() && splatfestProAvailable()
+        : regularAvailable() && anarchySeriesAvailable() && anarchyOpenAvailable() && xAvailable()
+      content = splatfestActive
+        ? 'Splatfest Open and Pro schedules'
+        : 'Regular, Anarchy, and X Battle schedules'
+      break
+    }
+    case 'schedules-regular':
+      available = regularAvailable()
+      content = 'Regular Battle schedule'
+      break
+    case 'schedules-anarchy':
+      available = anarchySeriesAvailable() && anarchyOpenAvailable()
+      content = 'Anarchy Battle schedule'
+      break
+    case 'schedules-x':
+      available = xAvailable()
+      content = 'X Battle schedule'
+      break
+    case 'challenges':
+      available = (schedules?.eventSchedules?.nodes || []).some((event) =>
+        (event.timePeriods || []).some(({ endTime }) => Date.parse(endTime) > context.renderTime)
+      )
+      content = 'upcoming Challenge'
+      break
+    case 'salmon-run':
+      available = [
+        ...(schedules?.coopGroupingSchedule?.regularSchedules?.nodes || []),
+        ...(schedules?.coopGroupingSchedule?.bigRunSchedules?.nodes || []),
+      ].some(({ startTime, endTime }) =>
+        Date.parse(startTime) <= context.renderTime && Date.parse(endTime) > context.renderTime
+      )
+      content = 'active Salmon Run rotation'
+      break
+    case 'gear-dailydrop':
+      available =
+        Date.parse(gear?.pickupBrand?.saleEndTime) > context.renderTime &&
+        (gear?.pickupBrand?.brandGears || []).some(
+          ({ saleEndTime }) => Date.parse(saleEndTime) > context.renderTime
+        )
+      content = 'active Daily Drop sale'
+      break
+    case 'gear-regular':
+      available = (gear?.limitedGears || []).some(
+        ({ saleEndTime }) => Date.parse(saleEndTime) > context.renderTime
+      )
+      content = 'active gear sale'
+      break
+    case 'gear-salmon-run':
+      available = Boolean(coop?.monthlyGear)
+      content = 'monthly Salmon Run gear'
+      break
+    default:
+      return null
+  }
+
+  return available
+    ? null
+    : createTimeWindowSkip(
+        definition,
+        dataSnapshot,
+        context,
+        content,
+        'no action is required; a fresh Snapshot will make this Screenshot ID eligible when current content is available'
+      )
+}
+
 function inspectScreenshot(definition, dataSnapshot, context) {
   if (definition.region) {
     return inspectSplatfestScreenshot(definition, dataSnapshot, context)
   }
-  return null
+  return inspectTimeDependentScreenshot(definition, dataSnapshot, context)
 }
 
 function formatIssueDetails(issue) {
@@ -140,6 +294,9 @@ function formatIssueDetails(issue) {
 }
 
 export function formatContentSkip(issue) {
+  if (!issue.region || issue.region === '—') {
+    return `Skipped ${issue.screenshotId}: ${issue.reason}.\n- Screenshot ID: ${issue.screenshotId}\n- Content: ${issue.content}\n- Render time: ${new Date(issue.renderTime).toISOString()}\n- Data Snapshot: ${formatTimestamp(issue.snapshotCreatedAt)} from ${issue.snapshotSource || 'unknown source'}\n- Next action: ${issue.nextAction}.`
+  }
   return `Skipped ${issue.screenshotId}: no current ${issue.region} Splatfest is inside the publication window.\n${formatIssueDetails(issue)}`
 }
 
@@ -160,9 +317,9 @@ export class RunContentPreflightError extends Error {
 export function resolveRunContentAvailability(
   screenshotNames,
   dataSnapshot,
-  { renderTime = Date.now(), locale, timeZone }
+  { renderTime = Date.now(), locale, timeZone, snapshotAcquisition = 'fresh' }
 ) {
-  const context = Object.freeze({ renderTime, locale, timeZone })
+  const context = Object.freeze({ renderTime, locale, timeZone, snapshotAcquisition })
   const issues = new Map()
 
   for (const name of screenshotNames) {

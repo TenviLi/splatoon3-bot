@@ -91,9 +91,48 @@ export async function deliverDingTalk(notification, target, options = {}) {
     },
   }
   const result = await jsonRequest(
-    { url: signedWebhookUrl(target), fetchImpl: options.fetchImpl, label: `DingTalk target ${target.name}` },
+    {
+      url: signedWebhookUrl(target),
+      fetchImpl: options.fetchImpl,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      onAttempt: options.onAttempt,
+      label: `DingTalk target ${target.name}`,
+    },
     payload
   )
 
   return requireJsonSuccess(result, (body) => body.errcode === 0, `DingTalk target ${target.name}`)
+}
+
+export async function deliverDingTalkDigest(notifications, target, options = {}) {
+  const maximumItems = options.capabilities?.messageBudget.feedItemsPerMessage || 10
+  if (notifications.length > maximumItems) {
+    throw new Error(`DingTalk Digest delivery exceeds the ${maximumItems}-item FeedCard limit`)
+  }
+  const payload = {
+    msgtype: 'feedCard',
+    feedCard: {
+      links: notifications.map((notification) => ({
+        title: compactText(
+          [notification.source.name, notification.title, notification.subtitle].filter(Boolean).join(' · '),
+          200
+        ),
+        messageURL: notification.action.url,
+        picURL: notification.image.url,
+      })),
+    },
+  }
+  const result = await jsonRequest(
+    {
+      url: signedWebhookUrl(target),
+      fetchImpl: options.fetchImpl,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      onAttempt: options.onAttempt,
+      label: `DingTalk digest target ${target.name}`,
+    },
+    payload
+  )
+  return requireJsonSuccess(result, (body) => body.errcode === 0, `DingTalk digest target ${target.name}`)
 }

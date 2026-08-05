@@ -1,23 +1,9 @@
+import { listChannelAdapters } from '../notification/channels/index.mjs'
+
 const publicationImageVariantDefinitions = Object.freeze({
   notificationImage: Object.freeze({
     name: 'notificationImage',
     directory: 'notification-images',
-  }),
-  line: Object.freeze({
-    name: 'line',
-    directory: 'line-images',
-    dimensions: Object.freeze({ width: 1024, height: 576 }),
-    maximumBytes: 1_000_000,
-    maximumBytesLabel: '1 MB',
-    paletteFallback: true,
-  }),
-  whatsapp: Object.freeze({
-    name: 'whatsapp',
-    directory: 'whatsapp-images',
-    dimensions: Object.freeze({ width: 1024, height: 576 }),
-    maximumBytes: 5 * 1024 * 1024,
-    maximumBytesLabel: '5 MB',
-    paletteFallback: false,
   }),
   originalImage: Object.freeze({
     name: 'originalImage',
@@ -25,10 +11,21 @@ const publicationImageVariantDefinitions = Object.freeze({
   }),
 })
 
-const platformImageVariantNames = Object.freeze(['line', 'whatsapp'])
+const platformImageVariantDefinitions = Object.freeze(
+  Object.values(
+    Object.fromEntries(
+      listChannelAdapters()
+        .map(({ capabilities }) => capabilities.asset.variantDefinition)
+        .filter(Boolean)
+        .map((definition) => [definition.name, definition])
+      )
+  ).sort((left, right) => left.name.localeCompare(right.name))
+)
 
 export function getPublicationImageVariantDefinition(name) {
-  const definition = publicationImageVariantDefinitions[name]
+  const definition =
+    publicationImageVariantDefinitions[name] ||
+    platformImageVariantDefinitions.find((candidate) => candidate.name === name)
   if (!definition) {
     throw new Error(`Unknown publication image variant: ${name}`)
   }
@@ -36,5 +33,5 @@ export function getPublicationImageVariantDefinition(name) {
 }
 
 export function listPlatformImageVariantDefinitions() {
-  return platformImageVariantNames.map(getPublicationImageVariantDefinition)
+  return platformImageVariantDefinitions
 }

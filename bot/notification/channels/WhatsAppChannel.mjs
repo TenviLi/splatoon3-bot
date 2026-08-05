@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { jsonRequest, requireJsonSuccess } from '../HttpTransport.mjs'
+import { jsonRequest, requireJsonSuccess, wrapRequestError } from '../HttpTransport.mjs'
 import { inspectRemoteImage } from '../RemoteImageInspector.mjs'
 import { compactText } from '../format.mjs'
 
@@ -20,7 +20,7 @@ function templateText(value, maximumLength) {
   return compactText(String(value || '-').replace(/\s+/gu, ' ').trim() || '-', maximumLength)
 }
 
-function detailsText(notification) {
+function detailsText(notification, maximumLength = 560) {
   const lines = [
     ...notification.sections.flatMap((section) => [
       [section.title, section.text].filter(Boolean).map((value) => templateText(value, 600)).join('｜'),
@@ -31,7 +31,7 @@ function detailsText(notification) {
     ),
   ].filter(Boolean)
 
-  return compactText(lines.join('\n') || templateText(notification.source.name, 560), 560)
+  return compactText(lines.join('\n') || templateText(notification.source.name, maximumLength), maximumLength)
 }
 
 function requireHttpsImageUrl(value) {
@@ -82,7 +82,7 @@ function templateActionPath(notification, assetBaseUrl) {
   return encodedSuffix
 }
 
-function createTemplatePayload(notification, target, assetBaseUrl, imageUrl) {
+function createTemplatePayload(notification, target, assetBaseUrl, imageUrl, messageBudget = {}) {
   const context = notification.subtitle || notification.source.name
   return {
     messaging_product: 'whatsapp',
@@ -102,7 +102,11 @@ function createTemplatePayload(notification, target, assetBaseUrl, imageUrl) {
           parameters: [
             { type: 'text', parameter_name: 'title', text: templateText(notification.title, 120) },
             { type: 'text', parameter_name: 'context', text: templateText(context, 160) },
-            { type: 'text', parameter_name: 'details', text: detailsText(notification) },
+            {
+              type: 'text',
+              parameter_name: 'details',
+              text: detailsText(notification, messageBudget.templateBodyCharacters),
+            },
           ],
         },
         {
@@ -142,6 +146,9 @@ export async function deliverWhatsApp(notification, target, options = {}) {
         url: `https://graph.facebook.com/${whatsAppGraphApiVersion}/${encodeURIComponent(target.phoneNumberId)}/messages`,
         headers: { Authorization: `Bearer ${target.accessToken}` },
         fetchImpl: options.fetchImpl,
+        attempts: options.attempts,
+        retryableStatuses: options.retryableStatuses,
+        onAttempt: options.onAttempt,
         waitImpl: options.waitImpl,
         isRetryableResponse: (_response, responseBody) => {
           const metaError = responseBody.json?.error
@@ -149,7 +156,13 @@ export async function deliverWhatsApp(notification, target, options = {}) {
         },
         label: `WhatsApp target ${target.name}`,
       },
-      createTemplatePayload(notification, target, options.assetBaseUrl, imageUrl)
+      createTemplatePayload(
+        notification,
+        target,
+        options.assetBaseUrl,
+        imageUrl,
+        options.capabilities?.messageBudget
+      )
     )
   } catch (error) {
     const metaError = error.responseBody?.json?.error
@@ -157,9 +170,10 @@ export async function deliverWhatsApp(notification, target, options = {}) {
       throw error
     }
     const details = metaError.error_data?.details || metaError.message || 'No details returned'
-    throw new Error(`WhatsApp target ${target.name} failed with Meta code ${metaError.code}: ${details}`, {
-      cause: error,
-    })
+    throw wrapRequestError(
+      error,
+      `WhatsApp target ${target.name} failed with Meta code ${metaError.code}: ${details}`
+    )
   }
 
   return requireJsonSuccess(

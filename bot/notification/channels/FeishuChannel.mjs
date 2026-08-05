@@ -37,7 +37,7 @@ function headerTemplate(notification) {
     'splatfest-jp': 'purple',
     'splatfest-ap': 'purple',
   }
-  return templates[notification.id] || 'blue'
+  return templates[notification.sourceScreenshotId || notification.id] || 'blue'
 }
 
 function sectionContent(section) {
@@ -66,6 +66,7 @@ function factColumnSet(facts) {
 }
 
 export async function deliverFeishu(notification, target, options = {}) {
+  const maximumCardBytes = options.capabilities?.messageBudget.cardBytes || 20_000
   const timestamp = Math.floor(Date.now() / 1000)
   const summaryElement = markdownElement(
     [
@@ -124,15 +125,22 @@ export async function deliverFeishu(notification, target, options = {}) {
       },
     },
   }
-  while (Buffer.byteLength(JSON.stringify(payload)) > 20_000 && optionalElementGroups.length > 0) {
+  while (Buffer.byteLength(JSON.stringify(payload)) > maximumCardBytes && optionalElementGroups.length > 0) {
     optionalElementGroups.pop()
     payload.card.body.elements = cardElements()
   }
-  if (Buffer.byteLength(JSON.stringify(payload)) > 20_000) {
-    throw new Error(`Feishu target ${target.name} card exceeds the 20 KB custom-bot limit`)
+  if (Buffer.byteLength(JSON.stringify(payload)) > maximumCardBytes) {
+    throw new Error(`Feishu target ${target.name} card exceeds the ${maximumCardBytes / 1000} KB custom-bot limit`)
   }
   const result = await jsonRequest(
-    { url: target.webhookUrl, fetchImpl: options.fetchImpl, label: `Feishu target ${target.name}` },
+    {
+      url: target.webhookUrl,
+      fetchImpl: options.fetchImpl,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      onAttempt: options.onAttempt,
+      label: `Feishu target ${target.name}`,
+    },
     payload
   )
 

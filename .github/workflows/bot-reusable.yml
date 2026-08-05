@@ -111,6 +111,7 @@ jobs:
       artifact_name: ${{ steps.prepare.outputs.artifact_name }}
       selection: ${{ steps.prepare.outputs.selection }}
       has_content: ${{ steps.prepare.outputs.has_content }}
+      snapshot_acquisition: ${{ steps.prepare.outputs.snapshot_acquisition }}
     env:
       BOT_TIME_ZONE: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
       BOT_LOCALE: ${{ vars.BOT_LOCALE || 'zh-CN' }}
@@ -118,11 +119,60 @@ jobs:
       BOT_SCREENSHOT_ATTRIBUTION: ${{ vars.BOT_SCREENSHOT_ATTRIBUTION || 'splatoon3.ink' }}
       TZ: ${{ vars.BOT_TIME_ZONE || 'Asia/Shanghai' }}
     steps:
-      - name: Require at least one Screenshot ID
-        if: ${{ !inputs.schedules && !inputs.schedules_regular && !inputs.schedules_anarchy && !inputs.schedules_x && !inputs.challenges && !inputs.salmon_run && !inputs.gear_dailydrop && !inputs.gear_regular && !inputs.gear_salmon_run && !inputs.splatfest_na && !inputs.splatfest_eu && !inputs.splatfest_jp && !inputs.splatfest_ap }}
+      - name: Initialize Bot Run Report
+        env:
+          BOT_RUN_INPUTS: ${{ toJSON(inputs) }}
         run: |
-          echo "Select at least one Screenshot ID" >&2
-          exit 1
+          node --input-type=module <<'NODE'
+          import crypto from 'node:crypto'
+          import fs from 'node:fs/promises'
+          import path from 'node:path'
+
+          const inputs = JSON.parse(process.env.BOT_RUN_INPUTS || '{}')
+          const screenshotIds = [
+            'schedules',
+            'schedules-regular',
+            'schedules-anarchy',
+            'schedules-x',
+            'challenges',
+            'salmon-run',
+            'gear-dailydrop',
+            'gear-regular',
+            'gear-salmon-run',
+            'splatfest-na',
+            'splatfest-eu',
+            'splatfest-jp',
+            'splatfest-ap',
+          ]
+          const requested = screenshotIds.filter(
+            (screenshotId) => inputs[screenshotId.replaceAll('-', '_')] === true
+          )
+          const now = new Date().toISOString()
+          const report = {
+            version: 1,
+            runId: crypto
+              .createHash('sha256')
+              .update(`${process.env.GITHUB_RUN_ID || 'local'}:${process.env.GITHUB_RUN_ATTEMPT || '1'}:${requested.join(',')}`)
+              .digest('hex'),
+            status: 'failed',
+            startedAt: now,
+            updatedAt: now,
+            selection: {
+              requested: requested.length > 0 ? requested : ['(missing Screenshot IDs)'],
+              effective: [],
+              skipped: [],
+            },
+            screenshots: [],
+            diagnostics: [{
+              phase: 'prepare',
+              severity: 'error',
+              summary: 'Bot Run did not reach or complete Data Snapshot preparation.',
+              action: 'Inspect the first failed setup or preparation step, correct it, and rerun the Bot Run.',
+            }],
+          }
+          const filename = path.join(process.env.RUNNER_TEMP, 'splatoon3-bot-bootstrap-report.json')
+          await fs.writeFile(filename, `${JSON.stringify(report, null, 2)}\n`, { mode: 0o600 })
+          NODE
 
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -145,26 +195,17 @@ jobs:
           path: ~/.cache/puppeteer
           key: chrome-for-testing-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
+      - name: Restore Last-known-good Data Snapshot
+        if: ${{ env.ACT != 'true' }}
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .bot-cache/last-known-good-data
+          key: splatoon-data-snapshot-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            splatoon-data-snapshot-v1-
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
-
-      - name: Resolve Run Plan
-        id: plan
-        env:
-          RUN_SCHEDULES: ${{ inputs.schedules }}
-          RUN_SCHEDULES_REGULAR: ${{ inputs.schedules_regular }}
-          RUN_SCHEDULES_ANARCHY: ${{ inputs.schedules_anarchy }}
-          RUN_SCHEDULES_X: ${{ inputs.schedules_x }}
-          RUN_CHALLENGES: ${{ inputs.challenges }}
-          RUN_SALMON_RUN: ${{ inputs.salmon_run }}
-          RUN_GEAR_DAILYDROP: ${{ inputs.gear_dailydrop }}
-          RUN_GEAR_REGULAR: ${{ inputs.gear_regular }}
-          RUN_GEAR_SALMON_RUN: ${{ inputs.gear_salmon_run }}
-          RUN_SPLATFEST_NA: ${{ inputs.splatfest_na }}
-          RUN_SPLATFEST_EU: ${{ inputs.splatfest_eu }}
-          RUN_SPLATFEST_JP: ${{ inputs.splatfest_jp }}
-          RUN_SPLATFEST_AP: ${{ inputs.splatfest_ap }}
-        run: node bot/run/describe.mjs
 
       - name: Stage fixture Data Snapshot for local Actions verification
         if: ${{ env.ACT == 'true' }}
@@ -189,10 +230,48 @@ jobs:
       - name: Prepare Data Snapshot and screenshot artifacts
         id: prepare
         env:
-          RUN_SELECTION: ${{ steps.plan.outputs.selection }}
+          RUN_SCHEDULES: ${{ inputs.schedules }}
+          RUN_SCHEDULES_REGULAR: ${{ inputs.schedules_regular }}
+          RUN_SCHEDULES_ANARCHY: ${{ inputs.schedules_anarchy }}
+          RUN_SCHEDULES_X: ${{ inputs.schedules_x }}
+          RUN_CHALLENGES: ${{ inputs.challenges }}
+          RUN_SALMON_RUN: ${{ inputs.salmon_run }}
+          RUN_GEAR_DAILYDROP: ${{ inputs.gear_dailydrop }}
+          RUN_GEAR_REGULAR: ${{ inputs.gear_regular }}
+          RUN_GEAR_SALMON_RUN: ${{ inputs.gear_salmon_run }}
+          RUN_SPLATFEST_NA: ${{ inputs.splatfest_na }}
+          RUN_SPLATFEST_EU: ${{ inputs.splatfest_eu }}
+          RUN_SPLATFEST_JP: ${{ inputs.splatfest_jp }}
+          RUN_SPLATFEST_AP: ${{ inputs.splatfest_ap }}
           BOT_USE_EXISTING_DATA_SNAPSHOT: ${{ env.ACT == 'true' && 'true' || '' }}
+          BOT_LAST_KNOWN_GOOD_DATA_DIRECTORY: .bot-cache/last-known-good-data
           SPLATOON_PUBLIC_DIRECTORY: ${{ env.ACT == 'true' && 'tests/fixtures/public' || '' }}
-        run: node bot/run/prepare.mjs "$RUN_SELECTION"
+        run: node bot/run/prepare.mjs
+
+      - name: Save Last-known-good Data Snapshot
+        id: save_snapshot_cache
+        if: ${{ always() && env.ACT != 'true' && steps.prepare.outputs.snapshot_acquisition == 'fresh' }}
+        continue-on-error: true
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .bot-cache/last-known-good-data
+          key: splatoon-data-snapshot-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Record Last-known-good cache warning
+        if: ${{ always() && steps.save_snapshot_cache.outcome == 'failure' && steps.prepare.outcome == 'success' }}
+        env:
+          BOT_RUN_WARNING_PHASE: prepare
+          BOT_RUN_WARNING_SUMMARY: Fresh Data Snapshot is valid, but GitHub Actions could not save the Last-known-good cache.
+          BOT_RUN_WARNING_ACTION: Inspect the Actions cache service and permissions; this run can continue with the validated fresh Data Snapshot.
+        run: node bot/run/warn.mjs
+
+      - name: Ensure Bot Run Report exists
+        if: ${{ always() }}
+        run: |
+          mkdir -p screenshots
+          if [ ! -s screenshots/run-report.json ]; then
+            cp "$RUNNER_TEMP/splatoon3-bot-bootstrap-report.json" screenshots/run-report.json
+          fi
 
       - name: Stage Bot Run for local Actions verification
         if: ${{ env.ACT == 'true' && steps.prepare.outputs.has_content == 'true' }}
@@ -203,24 +282,64 @@ jobs:
           temporary_archive="$archive.tmp"
           rm -f "$temporary_archive"
           {
-            find screenshots -maxdepth 1 -type f \( -name '*.png' -o -name 'run-manifest.json' \) -print0
+            find screenshots -maxdepth 1 -type f \( -name '*.png' -o -name 'run-manifest.json' -o -name 'run-report.json' \) -print0
             find data -type f -name '*.json' -print0
           } | sort -z | tar --null --files-from=- --create --file="$temporary_archive"
           mv "$temporary_archive" "$archive"
 
       - name: Archive Bot Run
-        if: ${{ env.ACT != 'true' && steps.prepare.outputs.has_content == 'true' }}
+        if: ${{ always() && env.ACT != 'true' && steps.prepare.outcome == 'success' && steps.prepare.outputs.has_content == 'true' }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: screenshots-${{ steps.prepare.outputs.artifact_name }}-${{ github.run_id }}
           path: |
             screenshots/*.png
             screenshots/run-manifest.json
+            screenshots/run-report.json
             data/**/*.json
             data/.snapshot.json
           include-hidden-files: true
           if-no-files-found: error
           retention-days: ${{ vars.BOT_ARTIFACT_RETENTION_DAYS || '7' }}
+
+      - name: Archive preparation-only Bot Run Report
+        if: ${{ always() && env.ACT != 'true' && (steps.prepare.outcome != 'success' || steps.prepare.outputs.has_content != 'true') }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: run-report-prepare-${{ github.run_id }}-${{ github.run_attempt }}
+          path: screenshots/run-report.json
+          if-no-files-found: error
+          retention-days: ${{ vars.BOT_ARTIFACT_RETENTION_DAYS || '7' }}
+
+      - name: Summarize preparation-only Bot Run
+        if: ${{ always() && (steps.prepare.outcome != 'success' || steps.prepare.outputs.has_content != 'true') }}
+        run: |
+          if [ -f bot/run/report.mjs ] && node bot/run/report.mjs; then
+            exit 0
+          fi
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises'
+
+          const report = JSON.parse(await fs.readFile('screenshots/run-report.json', 'utf8'))
+          const lines = [
+            '## Bot Run Report',
+            '',
+            `**Status:** ${report.status}`,
+            '',
+            '### Diagnostics',
+            '',
+            ...report.diagnostics.map(
+              ({ phase, severity, summary, action }) =>
+                `- **${phase}/${severity}:** ${summary}${action ? ` Next: ${action}` : ''}`
+            ),
+            '',
+          ]
+          const summary = lines.join('\n')
+          process.stdout.write(summary)
+          if (process.env.GITHUB_STEP_SUMMARY) {
+            await fs.appendFile(process.env.GITHUB_STEP_SUMMARY, summary)
+          }
+          NODE
 
   publish:
     name: Publish and notify
@@ -230,6 +349,106 @@ jobs:
     environment: production
     timeout-minutes: 20
     steps:
+      - name: Initialize publish failure report
+        env:
+          RUN_SELECTION: ${{ needs.prepare.outputs.selection }}
+        run: |
+          node --input-type=module <<'NODE'
+          import crypto from 'node:crypto'
+          import fs from 'node:fs/promises'
+          import path from 'node:path'
+
+          const selection = String(process.env.RUN_SELECTION || '')
+            .split(',')
+            .map((value) => value.trim())
+            .filter(Boolean)
+          const now = new Date().toISOString()
+          const report = {
+            version: 1,
+            runId: crypto
+              .createHash('sha256')
+              .update(`${process.env.GITHUB_RUN_ID || 'local'}:${process.env.GITHUB_RUN_ATTEMPT || '1'}:publish:${selection.join(',')}`)
+              .digest('hex'),
+            status: 'failed',
+            startedAt: now,
+            updatedAt: now,
+            selection: {
+              requested: selection.length > 0 ? selection : ['(missing Screenshot IDs)'],
+              effective: selection,
+              skipped: [],
+            },
+            screenshots: [],
+            diagnostics: [{
+              phase: 'publish',
+              severity: 'error',
+              summary: 'Publish job did not restore or complete the prepared Bot Run.',
+              action: 'Inspect the first failed publish setup step, correct it, and rerun the failed job.',
+            }],
+          }
+          const filename = path.join(process.env.RUNNER_TEMP, 'splatoon3-bot-publish-bootstrap-report.json')
+          await fs.writeFile(filename, `${JSON.stringify(report, null, 2)}\n`, { mode: 0o600 })
+          NODE
+
+      - name: Download Bot Run to recovery storage
+        if: ${{ env.ACT != 'true' }}
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: screenshots-${{ needs.prepare.outputs.artifact_name }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/splatoon3-bot-run
+
+      - name: Prepare publish recovery report
+        if: ${{ always() }}
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises'
+          import path from 'node:path'
+
+          const bootstrapFilename = path.join(
+            process.env.RUNNER_TEMP,
+            'splatoon3-bot-publish-bootstrap-report.json'
+          )
+          const preparedFilename = path.join(
+            process.env.RUNNER_TEMP,
+            'splatoon3-bot-run',
+            'screenshots',
+            'run-report.json'
+          )
+          const recoveryFilename = path.join(
+            process.env.RUNNER_TEMP,
+            'splatoon3-bot-publish-recovery-report.json'
+          )
+          const bootstrap = JSON.parse(await fs.readFile(bootstrapFilename, 'utf8'))
+          let recovery = bootstrap
+          try {
+            const prepared = JSON.parse(await fs.readFile(preparedFilename, 'utf8'))
+            recovery = {
+              ...prepared,
+              status: 'failed',
+              updatedAt: new Date().toISOString(),
+              diagnostics: [
+                ...(Array.isArray(prepared.diagnostics) ? prepared.diagnostics : []),
+                ...bootstrap.diagnostics,
+              ],
+            }
+          } catch (error) {
+            if (error?.code !== 'ENOENT') {
+              recovery = {
+                ...bootstrap,
+                diagnostics: [
+                  ...bootstrap.diagnostics,
+                  {
+                    phase: 'publish',
+                    severity: 'error',
+                    summary: 'The prepared Bot Run Report could not be recovered.',
+                    action: 'Inspect the downloaded Bot Run artifact before rerunning the failed job.',
+                  },
+                ],
+              }
+            }
+          }
+          await fs.writeFile(recoveryFilename, `${JSON.stringify(recovery, null, 2)}\n`, { mode: 0o600 })
+          NODE
+
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -247,6 +466,38 @@ jobs:
 
       - name: Install production dependencies
         run: pnpm install --frozen-lockfile --prod --strict-peer-dependencies
+
+      - name: Restore Delivery Ledger
+        if: ${{ env.ACT != 'true' }}
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .bot-cache/delivery-ledger
+          key: splatoon-delivery-ledger-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            splatoon-delivery-ledger-v1-
+
+      - name: Prepare Delivery Ledger directory
+        run: mkdir -p .bot-cache/delivery-ledger
+
+      - name: Restore downloaded Bot Run
+        if: ${{ env.ACT != 'true' }}
+        run: cp -R "$RUNNER_TEMP/splatoon3-bot-run/." .
+
+      - name: Restore Bot Run for local Actions verification
+        if: ${{ env.ACT == 'true' }}
+        run: |
+          test -n "$ACT_BOT_RUN_DIRECTORY"
+          archive="$ACT_BOT_RUN_DIRECTORY/bot-run.tar"
+          test -s "$archive"
+          tar --extract --file="$archive" --directory=.
+
+      - name: Ensure publish Bot Run Report exists
+        if: ${{ always() }}
+        run: |
+          mkdir -p screenshots
+          if [ ! -s screenshots/run-report.json ]; then
+            cp "$RUNNER_TEMP/splatoon3-bot-publish-recovery-report.json" screenshots/run-report.json
+          fi
 
       - name: Validate Bot configuration
         env:
@@ -268,21 +519,6 @@ jobs:
           BOT_SLACK_CONFIG: ${{ secrets.BOT_SLACK_CONFIG }}
         run: node bot/config/index.mjs "$RUN_SELECTION" "$CHANNEL"
 
-      - name: Download Bot Run
-        if: ${{ env.ACT != 'true' }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: screenshots-${{ needs.prepare.outputs.artifact_name }}-${{ github.run_id }}
-          path: .
-
-      - name: Restore Bot Run for local Actions verification
-        if: ${{ env.ACT == 'true' }}
-        run: |
-          test -n "$ACT_BOT_RUN_DIRECTORY"
-          archive="$ACT_BOT_RUN_DIRECTORY/bot-run.tar"
-          test -s "$archive"
-          tar --extract --file="$archive" --directory=.
-
       - name: Publish through S3
         env:
           RUN_SELECTION: ${{ needs.prepare.outputs.selection }}
@@ -290,9 +526,11 @@ jobs:
         run: node bot/publish/index.mjs "$RUN_SELECTION"
 
       - name: Deliver configured notifications
+        id: deliver_notifications
         env:
           RUN_SELECTION: ${{ needs.prepare.outputs.selection }}
           CHANNEL: ${{ inputs.notification_channel }}
+          BOT_DELIVERY_LEDGER_DIRECTORY: .bot-cache/delivery-ledger
           BOT_WECOM_CONFIG: ${{ secrets.BOT_WECOM_CONFIG }}
           BOT_DISCORD_CONFIG: ${{ secrets.BOT_DISCORD_CONFIG }}
           BOT_TELEGRAM_CONFIG: ${{ secrets.BOT_TELEGRAM_CONFIG }}
@@ -303,3 +541,59 @@ jobs:
           BOT_LINE_CONFIG: ${{ secrets.BOT_LINE_CONFIG }}
           BOT_SLACK_CONFIG: ${{ secrets.BOT_SLACK_CONFIG }}
         run: node bot/notification/index.mjs "$RUN_SELECTION" "$CHANNEL"
+
+      - name: Save Delivery Ledger
+        id: save_delivery_ledger
+        if: ${{ always() && env.ACT != 'true' && (steps.deliver_notifications.outcome == 'success' || steps.deliver_notifications.outcome == 'failure') }}
+        continue-on-error: true
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .bot-cache/delivery-ledger
+          key: splatoon-delivery-ledger-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Record Delivery Ledger cache warning
+        if: ${{ always() && steps.save_delivery_ledger.outcome == 'failure' }}
+        env:
+          BOT_RUN_WARNING_PHASE: notify
+          BOT_RUN_WARNING_SUMMARY: Notification delivery finished, but GitHub Actions could not save the private Delivery Ledger cache.
+          BOT_RUN_WARNING_ACTION: Inspect the Actions cache service before rerunning; verify destination history because successful Delivery IDs may not be available to the rerun.
+        run: node bot/run/warn.mjs
+
+      - name: Summarize Bot Run
+        if: ${{ always() }}
+        run: |
+          if [ -f bot/run/report.mjs ] && node bot/run/report.mjs; then
+            exit 0
+          fi
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises'
+
+          const report = JSON.parse(await fs.readFile('screenshots/run-report.json', 'utf8'))
+          const lines = [
+            '## Bot Run Report',
+            '',
+            `**Status:** ${report.status}`,
+            '',
+            '### Diagnostics',
+            '',
+            ...report.diagnostics.map(
+              ({ phase, severity, summary, action }) =>
+                `- **${phase}/${severity}:** ${summary}${action ? ` Next: ${action}` : ''}`
+            ),
+            '',
+          ]
+          const summary = lines.join('\n')
+          process.stdout.write(summary)
+          if (process.env.GITHUB_STEP_SUMMARY) {
+            await fs.appendFile(process.env.GITHUB_STEP_SUMMARY, summary)
+          }
+          NODE
+
+      - name: Archive Bot Run Report
+        if: ${{ always() && env.ACT != 'true' }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: run-report-${{ needs.prepare.outputs.artifact_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: screenshots/run-report.json
+          if-no-files-found: error
+          retention-days: ${{ vars.BOT_ARTIFACT_RETENTION_DAYS || '7' }}

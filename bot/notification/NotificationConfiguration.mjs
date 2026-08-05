@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { parseYamlEnvironment } from '../config/YamlEnvironment.mjs'
 import { getScreenshotDefinition, resolveRunPlan } from '../run/RunPlan.mjs'
 import { getChannelAdapter, resolveConfiguredNotificationChannels } from './channels/index.mjs'
+import { eventAlertConfigurationSchema } from './EventAlert.mjs'
 
 const screenshotIdSelectionSchema = z
   .array(z.string().min(1))
@@ -33,6 +34,8 @@ const screenshotIdSelectionSchema = z
 function targetConfigurationSchema(channel) {
   const targetSchema = channel.targetSchema.extend({
     screenshotIds: screenshotIdSelectionSchema.optional(),
+    mode: z.enum(['individual', 'digest']).default('individual'),
+    alerts: eventAlertConfigurationSchema.optional(),
   })
 
   return z
@@ -71,18 +74,23 @@ function selectTargetNotificationIds(target, notificationIds) {
 
 function prepareChannel(plan, channel, rawConfig) {
   const targets = parseTargets(rawConfig, channel)
-  const deliveries = targets
-    .map((target) => ({
+  const targetRoutes = targets.map((target) => {
+    const notificationIds = Object.freeze(selectTargetNotificationIds(target, plan.notifications))
+    return Object.freeze({
       target,
-      notificationIds: Object.freeze(selectTargetNotificationIds(target, plan.notifications)),
-    }))
-    .filter(({ notificationIds }) => notificationIds.length > 0)
+      notificationIds,
+      operations: channel.createDeliveryOperations(target, notificationIds),
+      status: notificationIds.length > 0 ? 'ready' : 'skipped',
+    })
+  })
+  const deliveries = targetRoutes.filter(({ status }) => status === 'ready')
 
   return Object.freeze({
     channel,
     channelName: channel.name,
     status: deliveries.length > 0 ? 'ready' : 'skipped',
     targetCount: targets.length,
+    targetRoutes: Object.freeze(targetRoutes),
     deliveries: Object.freeze(deliveries),
   })
 }
@@ -122,6 +130,7 @@ export function prepareConfiguredNotificationChannels({
         channelName: channel.name,
         status: 'rejected',
         targetCount: 0,
+        targetRoutes: Object.freeze([]),
         deliveries: Object.freeze([]),
         error,
       })

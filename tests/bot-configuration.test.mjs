@@ -188,7 +188,7 @@ test('preflights publication and routed Channel configuration without exposing S
   )
 
   const output = formatBotPreflightReport(report)
-  assert.match(output, /1\/2 Target\(s\), 1 delivery operation\(s\)/)
+  assert.match(output, /1\/2 Target\(s\), 1 Notification\(s\), 1 planned operation\(s\)/)
   assert.match(output, /Configuration is ready/)
   assert.doesNotMatch(output, /sensitive|webhook|splatoon-assets/)
   const stepSummary = formatBotPreflightStepSummary(report)

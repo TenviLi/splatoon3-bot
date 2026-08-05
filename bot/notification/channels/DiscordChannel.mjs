@@ -13,13 +13,17 @@ function sectionValue(section) {
   return [section.text, ...section.listItems.map((item) => `• ${item}`)].filter(Boolean).join('\n') || '—'
 }
 
-function createEmbed(notification) {
-  const title = compactText(notification.title, 256)
-  const description = notification.subtitle ? compactText(notification.subtitle, 1024) : undefined
-  const sourceName = compactText(notification.source.name, 256)
+function createEmbed(notification, messageBudget = {}) {
+  const characterBudget = messageBudget.embedCharacters || 6000
+  const sourceName = compactText(notification.source.name, Math.min(256, Math.max(1, Math.floor(characterBudget / 4))))
   const footerText = `🦑 ${sourceName}`
-  let remainingLength =
-    6000 - title.length - (description?.length || 0) - sourceName.length - footerText.length
+  let remainingLength = Math.max(1, characterBudget - sourceName.length - footerText.length)
+  const title = compactText(notification.title, Math.min(256, remainingLength))
+  remainingLength -= title.length
+  const description = notification.subtitle && remainingLength > 0
+    ? compactText(notification.subtitle, Math.min(1024, remainingLength))
+    : undefined
+  remainingLength -= description?.length || 0
   const fields = []
   const candidates = [
     ...notification.sections.map((section) => ({ name: section.title, value: sectionValue(section), inline: false })),
@@ -61,8 +65,47 @@ export async function deliverDiscord(notification, target, options = {}) {
     ...(target.username ? { username: target.username } : {}),
     ...(target.avatarUrl ? { avatar_url: target.avatarUrl } : {}),
     allowed_mentions: { parse: [] },
-    embeds: [createEmbed(notification)],
+    embeds: [createEmbed(notification, options.capabilities?.messageBudget)],
   }
 
-  return jsonRequest({ url, fetchImpl: options.fetchImpl, label: `Discord target ${target.name}` }, payload)
+  return jsonRequest({
+    url,
+    fetchImpl: options.fetchImpl,
+    attempts: options.attempts,
+    retryableStatuses: options.retryableStatuses,
+    onAttempt: options.onAttempt,
+    label: `Discord target ${target.name}`,
+  }, payload)
+}
+
+export async function deliverDiscordDigest(notifications, target, options = {}) {
+  const maximumEmbeds = options.capabilities?.messageBudget.embedsPerMessage || 10
+  if (notifications.length > maximumEmbeds) {
+    throw new Error(`Discord Digest delivery exceeds the ${maximumEmbeds}-Embed message limit`)
+  }
+  const url = new URL(target.webhookUrl)
+  url.searchParams.set('wait', 'true')
+  const aggregateCharacterBudget = options.capabilities?.messageBudget.embedCharacters || 6000
+  const perEmbedCharacterBudget = Math.floor(aggregateCharacterBudget / notifications.length)
+  return jsonRequest(
+    {
+      url,
+      fetchImpl: options.fetchImpl,
+      attempts: options.attempts,
+      retryableStatuses: options.retryableStatuses,
+      onAttempt: options.onAttempt,
+      label: `Discord digest target ${target.name}`,
+    },
+    {
+      ...(target.username ? { username: target.username } : {}),
+      ...(target.avatarUrl ? { avatar_url: target.avatarUrl } : {}),
+      allowed_mentions: { parse: [] },
+      embeds: notifications.map((notification) =>
+        createEmbed(notification, {
+          ...options.capabilities?.messageBudget,
+          embedCharacters: perEmbedCharacterBudget,
+        })
+      ),
+    }
+  )
 }
